@@ -1,0 +1,247 @@
+{
+  "prettier.tabWidth": 2,
+  "prettier.printWidth": 180,
+  "prettier.semi": false,
+  "prettier.trailingComma": "none",
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.bracketSpacing": true,
+  "prettier.arrowParens": "avoid",
+  //
+  "eslint.packageManager": "yarn",
+  //
+  "npm.runSilent": true,
+  "npm.packageManager": "yarn",
+  //
+  "npm-intellisense.importLinebreak": "",
+  "npm-intellisense.scanDevDependencies": true,
+  //
+  "github.copilot.enable": { "*": false, "yaml": false, "plaintext": false, "markdown": true },
+  "github.copilot.inlineSuggest.enable": false,
+  //
+  "go.toolsManagement.autoUpdate": true,
+  //
+  "autoimport.filesToScan": "**/*.{ts,tsx,js,jsx,md,mdx}",
+  "autoimport.useSemiColon": false,
+  //
+  "path-intellisense.showHiddenFiles": true,
+  //
+  "git.enableStatusBarSync": false,
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "git.smartCommitChanges": "all",
+  "git.postCommitCommand": "sync",
+  "git.decorations.enabled": true,
+  "git.defaultCloneDirectory": "~/Developer/Github",
+  //
+  "scm.countBadge": "off",
+  "scm.diffDecorations": "gutter",
+  "scm.repositories.visible": 0,
+  "scm.diffDecorationsGutterWidth": 1,
+  "scm.diffDecorationsGutterVisibility": "hover",
+  //
+  "conventionalCommits.autoCommit": true,
+  "conventionalCommits.promptBody": false,
+  "conventionalCommits.promptScopes": false,
+  "conventionalCommits.promptFooter": false,
+  "conventionalCommits.showNewVersionNotes": false,
+  "conventionalCommits.silentAutoCommit": true,
+  //
+  "tailwindcss.jsxPropImportChecking": false,
+  "tailwindcss.colorDecorators": "off",
+  //
+  "jsonColorToken.colorTokenCasing": "Lowercase",
+  "jsonColorToken.languages": ["json", "jsonc", "javascript", "javascriptReact"],
+  //
+  "mdb.sendTelemetry": false,
+  "mdb.confirmRunAll": false,
+  "mdb.showMongoDBHelpExplorer": false,
+  //
+  "vsnotes.additionalNoteTitles": ["new"],
+  "vsnotes.defaultNotePath": "/Users/Dany/Developer/Notes",
+  //
+  "taskExplorer.enableSideBar": true,
+  "taskExplorer.showLastTasks": false,
+  "taskExplorer.enableExplorerView": false,
+  "taskExplorer.showFavoritesButton": false,
+  //
+  "markdown.preview.typographer": true,
+  //
+  "breadcrumbs.enabled": false,
+  //
+  "notebook.insertToolbarLocation": "betweenCells",
+  "notebook.consolidatedRunButton": true,
+  "notebook.cellFocusIndicator": "gutter",
+  "notebook.markup.fontSize": 14,
+  "notebook.showCellStatusBar": "visibleAfterExecute",
+  //
+  "customizeUI.titleBar": "inline",
+  "customizeUI.listRowHeight": 21,
+  "customizeUI.font.monospace": "OperatorMonoSSmLig-Book",
+  "customizeUI.fontSizeMap": { "13px": "12.6px", "12px": "12.6px", "window-title": "12px", "tab-title": "12px", "monospace": "5.5px" },
+  //
+  "editor.fontLigatures": true,
+  "editor.glyphMargin": true,
+  "editor.folding": false,
+  "editor.fontWeight": 100,
+  "editor.fontSize": 12.6,
+  "editor.fontFamily": "OperatorMonoSSmLig-Book",
+  "editor.quickSuggestions": { "strings": true },
+  "editor.matchBrackets": false,
+  "editor.lineHeight": 20,
+  "editor.codeLens": false,
+  "editor.lineNumbers": "off",
+  "editor.minimap.enabled": false,
+  "editor.tabSize": 2,
+  "editor.padding.top": 14,
+  "editor.padding.bottom": 14,
+  "editor.smoothScrolling": true,
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.verticalScrollbarSize": 5,
+  "editor.guides.indentation": false,
+  "editor.inlineSuggest.enabled": true,
+  "editor.semanticHighlighting.enabled": true,
+  "editor.semanticTokenColorCustomizations": {},
+  "editor.guides.highlightActiveIndentation": false,
+  "editor.guides.bracketPairsHorizontal": false,
+  "editor.selectionHighlight": false,
+  "editor.occurrencesHighlight": true,
+  //
+  "editor.renderWhitespace": "selection",
+  "editor.renderLineHighlight": "none",
+  "editor.overviewRulerBorder": false,
+  "editor.hideCursorInOverviewRuler": true,
+  //
+  "indenticator.color.dark": "rgba(255,255,255,.1)",
+  //
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.fontWeight": 100,
+  "terminal.integrated.fontWeightBold": 100,
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "terminal.integrated.lineHeight": 1.2,
+  "terminal.integrated.letterSpacing": 1,
+  "terminal.integrated.cursorStyle": "line",
+  //
+  "workbench.statusBar.visible": false,
+  "workbench.editor.showIcons": false,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.pinnedTabSizing": "compact",
+  "workbench.editor.decorations.badges": false,
+  "workbench.colorTheme": "Yi Dark",
+  "workbench.productIconTheme": "fluent-icons",
+  "workbench.tree.renderIndentGuides": "none",
+  "workbench.welcomePage.experimental.videoTutorials": "on",
+  "workbench.activityBar.visible": true,
+  //
+  "explorer.autoReveal": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "explorer.compactFolders": false,
+  "explorer.decorations.badges": false,
+  "explorer.decorations.colors": true,
+  "explorer.incrementalNaming": "smart",
+  "explorer.openEditors.visible": 0,
+  //
+  "window.nativeFullScreen": false,
+  "window.nativeTabs": false,
+  "window.newWindowDimensions": "inherit",
+  //
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  //
+  "telemetry.telemetryLevel": "off",
+  //
+  "files.exclude": { "**/.DS_Store": true, "**/.git": true, "**/.idea": true, "**/.svn": true, "**/node_modules": true },
+  "files.watcherExclude": { "**/.git/objects/**": true, "**/node_modules/**": true, "**/tmp": true },
+  "files.associations": { "*.mdx": "markdown", "*.component": "json", "*.zsh": "shellscript", "*.symlink": "shellscript", "*.logic": "swift" },
+  //
+  "search.exclude": { "**/tmp": true, "**/.cache": true, "**/.github": true, "**/.vscode": true, "**/public": true, "**/yarn.lock": true },
+  //
+  "workspace.disableColoring": true,
+  //
+  "javascript.format.semicolons": "remove",
+  "javascript.preferences.quoteStyle": "single",
+  //
+  "typescript.format.semicolons": "remove",
+  "typescript.preferences.quoteStyle": "single",
+  //
+  "debug.console.wordWrap": false,
+  //
+  "css.validate": false,
+  //
+  "scss.validate": false,
+  //
+  "html.format.wrapLineLength": 180,
+  "html.format.indentInnerHtml": true,
+  "html.format.wrapAttributes": "preserve-aligned",
+  "html.completion.attributeDefaultValue": "singlequotes",
+  //
+  "html-css-class-completion.enableEmmetSupport": true,
+  //
+  "emmet.includeLanguages": { "javascript": "javascriptreact" },
+  //
+  "[javascript]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
+  //
+  "[javascriptreact]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
+  //
+  "[typescript]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
+  //
+  "[typescriptreact]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
+  //
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  //
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  //
+  "[html]": { "editor.defaultFormatter": "vscode.html-language-features" },
+  //
+  "[xml]": { "editor.wordWrap": "off" },
+  //
+  "[dockercompose]": { "editor.defaultFormatter": "ms-azuretools.vscode-docker" },
+  //
+  "security.workspace.trust.enabled": false,
+  //
+  "[markdown]": { "editor.wordWrap": "off" },
+  //
+  "editor.tokenColorCustomizations": { "textMateRules": [] },
+  //
+  "workbench.colorCustomizations": {
+    "focusBorder": "#db6df100",
+    "statusBarItem.remoteBackground": "#db6df100",
+    "editor.wordHighlightStrongBackground": "#3f434d",
+    "editor.wordHighlightBackground": "#3f434d",
+    "tab.activeBorder": "#0000",
+    "scrollbar.shadow": "#0000"
+  },
+  //
+  "customizeUI.stylesheet": {
+    ".action-label": "font-size: 17px !important",
+    //
+    ".suggest-input-container": "padding: 3px 4px 3px !important;",
+    //
+    "div.part.sidebar.left#workbench\\.parts\\.sidebar li.action-item>a.codicon-collapse-all": "display: none !important",
+    //
+    ".monaco-workbench .part.sidebar>.title>.title-label h2": "text-transform: none !important; opacity: 0.5 !important",
+    //
+    "div.part.sidebar.left#workbench\\.parts\\.sidebar li.action-item>a.action-label.codicon-new-file": "display: none !important",
+    "div.part.sidebar.left#workbench\\.parts\\.sidebar li.action-item>a.action-label.codicon-new-folder": "display: none !important",
+    "div.part.sidebar.left#workbench\\.parts\\.sidebar li.action-item>a.action-label.codicon-refresh[title='Refresh Environments']": "display: block !important",
+    //
+    "div.editor-group-container.active ul.actions-container>li.action-item.menu-entry>a.action-label.codicon-compare-changes": "display: none !important",
+    "div.editor-group-container.active ul.actions-container>li.action-item.menu-entry>a.aaction-label.icon[title='Open MDX Preview (⌘K X)']": "display: none !important",
+    "div.editor-group-container.active ul.actions-container>li.action-item>div.monaco-dropdown>div.dropdown.label>a.action-label.codicon-toolbar-more": "display: none !important",
+    //
+    "div.tabs-and-actions-container .action-label.codicon-toolbar-more": "display: none !important",
+    "div.tabs-and-actions-container .action-label.codicon-split-horizontal": "display: none !important",
+    //
+    "div.part.panel.basepanel.bottom#workbench\\.parts\\.panel li.action-item>a.action-label": "font-size: 10px !important",
+    //
+    "div.part.sidebar.left#workbench\\.parts\\.sidebar li.action-item>a.action-label.codicon-list-tree": "display: none !important",
+    "div.part.sidebar.left#workbench\\.parts\\.sidebar li.action-item>a.action-label.codicon-check": "display: none !important",
+    "div.part.sidebar.left#workbench\\.parts\\.sidebar li.action-item>a.action-label.codicon-refresh": "display: none !important",
+    //
+    ".action-label.activity-workbench-view-extension-taskActivity-411062d504b951c7082b13e6e888868e7a5b0953": "-webkit-mask: url('vscode-file://vscode-app/Users/Dany/.vscode/extensions/spmeesseman.vscode-taskexplorer-2.9.1/res/gears-r.svg') 50% 50% / 17px no-repeat !important",
+    ".action-label.activity-workbench-view-extension-mongoDB-62c6fbca5a33537f6180531f0fa12181551b7717": "-webkit-mask: url('vscode-file://vscode-app/Users/Dany/.vscode/extensions/mongodb.mongodb-vscode-0.9.2/images/sidebar-leaf.svg') 50% 50% / 17px no-repeat !important",
+    ".action-label.activity-workbench-view-extension-dockerView-67ca5a01cf5138b2d67cb4z6d025c3991c5f2f0fa": "-webkit-mask: url('vscode-file://vscode-app/Users/Dany/.vscode/extensions/ms-azuretools.vscode-docker-1.20.0/resources/docker.svg') 50% 50% / 17px no-repeat !important",
+    ".action-label.activity-workbench-view-extension-vsnotes-2e5e2ffde91c9777b1024a6796f2c17870abeaf5": "-webkit-mask: url('vscode-file://vscode-app/Users/Dany/.vscode/extensions/patricklee.vsnotes-0.7.1/media/icon/vsnotes_icon.svg') 50% 50% / 17px no-repeat !important"
+  }
+}
