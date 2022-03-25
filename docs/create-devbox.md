@@ -24,7 +24,7 @@
 
 ## Install the dotfiles
 
-- `git clone https://github.com/mathieudutour/dotfiles.git ~/.dotfiles`
-- `cd ~/dotfiles`
+- `git clone https://github.com/danydodson/dotfiles.git ~/.dotfiles`
+- `cd ~/.dotfiles`
 - `script/bootstrap`
 

@@ -50,9 +50,9 @@ fi
 $ZSH/homebrew/install.sh 2>&1
 
 # Upgrade homebrew
-echo "› brew update"
+echo "> brew update"
 brew update
 
 # Install software
-echo "› $ZSH/script/install"
+echo "> $ZSH/script/install"
 $ZSH/script/install

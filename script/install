@@ -7,7 +7,7 @@ set -e
 cd "$(dirname $0)"/..
 
 # Run Homebrew through the Brewfile
-echo "› brew bundle"
+echo "> brew bundle"
 brew bundle
 # Fix permissions for qlgenerators
 sudo xattr -cr ~/Library/QuickLook/*.qlgenerator

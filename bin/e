@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Quick shortcut to an editor.
 #
@@ -13,4 +13,5 @@
 #   $ e .
 #   $ e /usr/local
 #   # => opens the specified directory in your editor
+
 exec "$EDITOR" "${1:-.}"

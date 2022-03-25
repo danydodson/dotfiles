@@ -1,23 +1,12 @@
 {
-  "prettier.tabWidth": 2,
-  "prettier.printWidth": 180,
-  "prettier.semi": false,
-  "prettier.trailingComma": "none",
-  "prettier.singleQuote": true,
-  "prettier.jsxSingleQuote": true,
-  "prettier.bracketSpacing": true,
-  "prettier.arrowParens": "avoid",
-  //
-  "eslint.packageManager": "yarn",
-  //
   "npm.runSilent": true,
   "npm.packageManager": "yarn",
   //
   "npm-intellisense.importLinebreak": "",
   "npm-intellisense.scanDevDependencies": true,
   //
-  "github.copilot.enable": { "*": false, "yaml": false, "plaintext": false, "markdown": true },
   "github.copilot.inlineSuggest.enable": false,
+  "github.copilot.enable": { "*": false, "yaml": false, "plaintext": false, "markdown": true, "shellscript": true },
   //
   "go.toolsManagement.autoUpdate": true,
   //
@@ -28,12 +17,12 @@
   //
   "git.enableStatusBarSync": false,
   "git.confirmSync": false,
-  "git.autofetch": true,
   "git.enableSmartCommit": true,
   "git.smartCommitChanges": "all",
   "git.postCommitCommand": "sync",
   "git.decorations.enabled": true,
-  "git.defaultCloneDirectory": "~/Developer/Github",
+  //
+  "gistpad.treeIcons": false,
   //
   "scm.countBadge": "off",
   "scm.diffDecorations": "gutter",
@@ -58,15 +47,10 @@
   "mdb.confirmRunAll": false,
   "mdb.showMongoDBHelpExplorer": false,
   //
-  "vsnotes.additionalNoteTitles": ["new"],
-  "vsnotes.defaultNotePath": "/Users/Dany/Developer/Notes",
-  //
   "taskExplorer.enableSideBar": true,
   "taskExplorer.showLastTasks": false,
   "taskExplorer.enableExplorerView": false,
   "taskExplorer.showFavoritesButton": false,
-  //
-  "markdown.preview.typographer": true,
   //
   "breadcrumbs.enabled": false,
   //
@@ -75,11 +59,6 @@
   "notebook.cellFocusIndicator": "gutter",
   "notebook.markup.fontSize": 14,
   "notebook.showCellStatusBar": "visibleAfterExecute",
-  //
-  "customizeUI.titleBar": "inline",
-  "customizeUI.listRowHeight": 21,
-  "customizeUI.font.monospace": "OperatorMonoSSmLig-Book",
-  "customizeUI.fontSizeMap": { "13px": "12.6px", "12px": "12.6px", "window-title": "12px", "tab-title": "12px", "monospace": "5.5px" },
   //
   "editor.fontLigatures": true,
   "editor.glyphMargin": true,
@@ -101,12 +80,10 @@
   "editor.scrollbar.verticalScrollbarSize": 5,
   "editor.guides.indentation": false,
   "editor.inlineSuggest.enabled": true,
-  "editor.semanticHighlighting.enabled": true,
-  "editor.semanticTokenColorCustomizations": {},
   "editor.guides.highlightActiveIndentation": false,
   "editor.guides.bracketPairsHorizontal": false,
-  "editor.selectionHighlight": false,
   "editor.occurrencesHighlight": true,
+  "editor.selectionHighlight": true,
   //
   "editor.renderWhitespace": "selection",
   "editor.renderLineHighlight": "none",
@@ -123,15 +100,19 @@
   "terminal.integrated.letterSpacing": 1,
   "terminal.integrated.cursorStyle": "line",
   //
-  "workbench.statusBar.visible": false,
+  "workbench.fontAliasing": "auto",
+  "workbench.enableExperiments": false,
+  "workbench.list.smoothScrolling": true,
+  "workbench.editor.restoreViewState": false,
+  "workbench.statusBar.visible": true,
   "workbench.editor.showIcons": false,
   "workbench.editor.tabSizing": "shrink",
   "workbench.editor.pinnedTabSizing": "compact",
   "workbench.editor.decorations.badges": false,
   "workbench.colorTheme": "Yi Dark",
+  "workbench.preferredDarkColorTheme": "Yi Dark",
   "workbench.productIconTheme": "fluent-icons",
   "workbench.tree.renderIndentGuides": "none",
-  "workbench.welcomePage.experimental.videoTutorials": "on",
   "workbench.activityBar.visible": true,
   //
   "explorer.autoReveal": false,
@@ -143,29 +124,36 @@
   "explorer.incrementalNaming": "smart",
   "explorer.openEditors.visible": 0,
   //
-  "window.nativeFullScreen": false,
+  "window.zoomLevel": 0,
+  "window.titleBarStyle": "native",
   "window.nativeTabs": false,
+  "window.nativeFullScreen": false,
   "window.newWindowDimensions": "inherit",
   //
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "files.restoreUndoStack": false,
+  "files.associations": { "*.mdx": "markdown", "*.zsh": "shellscript" },
   //
-  "telemetry.telemetryLevel": "off",
+  "files.exclude": { "**/node_modules": true, "**/package-lock.json": true, "**/yarn.lock": true },
+  "search.exclude": { "**/.cache": true, "**/.vscode": true, "**/.github": true, "**/public": true, "**/yarn.lock": true, "**/package-lock.json": true },
   //
-  "files.exclude": { "**/.DS_Store": true, "**/.git": true, "**/.idea": true, "**/.svn": true, "**/node_modules": true },
-  "files.watcherExclude": { "**/.git/objects/**": true, "**/node_modules/**": true, "**/tmp": true },
-  "files.associations": { "*.mdx": "markdown", "*.component": "json", "*.zsh": "shellscript", "*.symlink": "shellscript", "*.logic": "swift" },
-  //
-  "search.exclude": { "**/tmp": true, "**/.cache": true, "**/.github": true, "**/.vscode": true, "**/public": true, "**/yarn.lock": true },
-  //
-  "workspace.disableColoring": true,
-  //
-  "javascript.format.semicolons": "remove",
-  "javascript.preferences.quoteStyle": "single",
-  //
-  "typescript.format.semicolons": "remove",
-  "typescript.preferences.quoteStyle": "single",
-  //
+  "tabnine.experimentalAutoImports": true,
+  // 
+  "kite.showWelcomeNotificationOnStartup": false,
+  // 
+  "redhat.telemetry.enabled": false,
+  // 
   "debug.console.wordWrap": false,
+  //
+  "prettier.tabWidth": 2,
+  "prettier.printWidth": 180,
+  "prettier.semi": false,
+  "prettier.trailingComma": "none",
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.bracketSpacing": true,
+  "prettier.arrowParens": "avoid",
+  //
+  "eslint.packageManager": "yarn",
   //
   "css.validate": false,
   //
@@ -176,32 +164,40 @@
   "html.format.wrapAttributes": "preserve-aligned",
   "html.completion.attributeDefaultValue": "singlequotes",
   //
-  "html-css-class-completion.enableEmmetSupport": true,
+  "javascript.format.semicolons": "remove",
+  "javascript.preferences.quoteStyle": "single",
+  "javascript.suggest.completeJSDocs": false,
   //
-  "emmet.includeLanguages": { "javascript": "javascriptreact" },
+  "js/ts.implicitProjectConfig.checkJs": false,
   //
-  "[javascript]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
-  //
-  "[javascriptreact]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
-  //
-  "[typescript]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
-  //
-  "[typescriptreact]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
-  //
-  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-  //
-  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-  //
-  "[html]": { "editor.defaultFormatter": "vscode.html-language-features" },
+  "typescript.check.npmIsInstalled": false,
+  "typescript.format.semicolons": "remove",
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.suggest.completeJSDocs": false,
+  "typescript.surveys.enabled": false,
   //
   "[xml]": { "editor.wordWrap": "off" },
-  //
-  "[dockercompose]": { "editor.defaultFormatter": "ms-azuretools.vscode-docker" },
+  "[markdown]": { "editor.wordWrap": "off" },
+  "[html]": { "editor.defaultFormatter": "vscode.html-language-features" },
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[javascript]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
+  "[typescript]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
+  "[javascriptreact]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
+  "[typescriptreact]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
   //
   "security.workspace.trust.enabled": false,
   //
-  "[markdown]": { "editor.wordWrap": "off" },
+  "emmet.includeLanguages": { "javascript": "javascriptreact" },
   //
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  //
+  "telemetry.telemetryLevel": "off",
+  //
+  "emojisense.languages": { "markdown": true, "plaintext": { "markupCompletionsEnabled": false, "emojiDecoratorsEnabled": false }, "scminput": true, "mdx": true },
+  //
+  "editor.semanticHighlighting.enabled": true,
+  "editor.semanticTokenColorCustomizations": { "rules": {} },
   "editor.tokenColorCustomizations": { "textMateRules": [] },
   //
   "workbench.colorCustomizations": {
@@ -213,35 +209,43 @@
     "scrollbar.shadow": "#0000"
   },
   //
+  "customizeUI.titleBar": "inline",
+  "customizeUI.listRowHeight": 21,
+  "customizeUI.font.monospace": "OperatorMonoSSmLig-Book",
+  "customizeUI.fontSizeMap": { "13px": "12.6px", "12px": "12.6px", "window-title": "12px", "tab-title": "12px", "monospace": "5.5px" },
+  //
   "customizeUI.stylesheet": {
-    ".action-label": "font-size: 17px !important",
     //
     ".suggest-input-container": "padding: 3px 4px 3px !important;",
-    //
-    "div.part.sidebar.left#workbench\\.parts\\.sidebar li.action-item>a.codicon-collapse-all": "display: none !important",
-    //
+    // sidebar workspace title
     ".monaco-workbench .part.sidebar>.title>.title-label h2": "text-transform: none !important; opacity: 0.5 !important",
-    //
+    ".monaco-workbench .activitybar>.content :not(.monaco-menu)>.monaco-action-bar .badge .badge-content": "display: none !important",
+    // sidebar: source control icons
     "div.part.sidebar.left#workbench\\.parts\\.sidebar li.action-item>a.action-label.codicon-new-file": "display: none !important",
     "div.part.sidebar.left#workbench\\.parts\\.sidebar li.action-item>a.action-label.codicon-new-folder": "display: none !important",
     "div.part.sidebar.left#workbench\\.parts\\.sidebar li.action-item>a.action-label.codicon-refresh[title='Refresh Environments']": "display: block !important",
+    "div.part.sidebar.left#workbench\\.parts\\.sidebar li.action-item>a.codicon-collapse-all": "display: none !important",
     //
     "div.editor-group-container.active ul.actions-container>li.action-item.menu-entry>a.action-label.codicon-compare-changes": "display: none !important",
-    "div.editor-group-container.active ul.actions-container>li.action-item.menu-entry>a.aaction-label.icon[title='Open MDX Preview (⌘K X)']": "display: none !important",
     "div.editor-group-container.active ul.actions-container>li.action-item>div.monaco-dropdown>div.dropdown.label>a.action-label.codicon-toolbar-more": "display: none !important",
+    //
+    ".action-label": "font-size: 16px !important",
     //
     "div.tabs-and-actions-container .action-label.codicon-toolbar-more": "display: none !important",
     "div.tabs-and-actions-container .action-label.codicon-split-horizontal": "display: none !important",
-    //
-    "div.part.panel.basepanel.bottom#workbench\\.parts\\.panel li.action-item>a.action-label": "font-size: 10px !important",
-    //
+    // sidebar: gistpad icons
     "div.part.sidebar.left#workbench\\.parts\\.sidebar li.action-item>a.action-label.codicon-list-tree": "display: none !important",
     "div.part.sidebar.left#workbench\\.parts\\.sidebar li.action-item>a.action-label.codicon-check": "display: none !important",
     "div.part.sidebar.left#workbench\\.parts\\.sidebar li.action-item>a.action-label.codicon-refresh": "display: none !important",
     //
-    ".action-label.activity-workbench-view-extension-taskActivity-411062d504b951c7082b13e6e888868e7a5b0953": "-webkit-mask: url('vscode-file://vscode-app/Users/Dany/.vscode/extensions/spmeesseman.vscode-taskexplorer-2.9.1/res/gears-r.svg') 50% 50% / 17px no-repeat !important",
-    ".action-label.activity-workbench-view-extension-mongoDB-62c6fbca5a33537f6180531f0fa12181551b7717": "-webkit-mask: url('vscode-file://vscode-app/Users/Dany/.vscode/extensions/mongodb.mongodb-vscode-0.9.2/images/sidebar-leaf.svg') 50% 50% / 17px no-repeat !important",
-    ".action-label.activity-workbench-view-extension-dockerView-67ca5a01cf5138b2d67cb4z6d025c3991c5f2f0fa": "-webkit-mask: url('vscode-file://vscode-app/Users/Dany/.vscode/extensions/ms-azuretools.vscode-docker-1.20.0/resources/docker.svg') 50% 50% / 17px no-repeat !important",
-    ".action-label.activity-workbench-view-extension-vsnotes-2e5e2ffde91c9777b1024a6796f2c17870abeaf5": "-webkit-mask: url('vscode-file://vscode-app/Users/Dany/.vscode/extensions/patricklee.vsnotes-0.7.1/media/icon/vsnotes_icon.svg') 50% 50% / 17px no-repeat !important"
+    "div.pane-body div.tree-explorer-viewlet-tree-view div.monaco-list-rows div.monaco-list-row .monaco-tl-row span.monaco-icon-description-container span.label-description": "display: none !important",
+    // sidebar: explorer icons
+    "div.part.panel.basepanel.bottom#workbench\\.parts\\.panel li.action-item>a.action-label": "font-size: 10px !important",
+    "div.part.panel.basepanel.bottom#workbench\\.parts\\.panel li.action-item>a.action-label.codicon-trash": "font-size: 16px !important",
+    "div.part.panel.basepanel.bottom#workbench\\.parts\\.panel li.action-item>a.action-label.codicon-split-horizontal": "font-size: 16px !important",
+    "div.part.panel.basepanel.bottom#workbench\\.parts\\.panel li.action-item>a.action-label.codicon-maximize": "font-size: 16px !important",
+    "div.part.panel.basepanel.bottom#workbench\\.parts\\.panel li.action-item>a.action-label.codicon-close": "font-size: 16px !important",
+    // panel: terminal icons ???
+    ".customview-tree .monaco-list .monaco-list-row .custom-view-tree-node-item>.custom-view-tree-node-item-icon": "background-size: 11px !important; opacity: 0.6 !important"
   }
 }

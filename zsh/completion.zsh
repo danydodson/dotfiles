@@ -8,4 +8,4 @@ zstyle ':completion:*' insert-tab pending
 zstyle ':completion:*' menu select
 
 # color the completed part of the autocompletion
-zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=34}:${(s.:.)LS_COLORS}")';
+zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=34}:${(s.:.)LS_COLORS}")'

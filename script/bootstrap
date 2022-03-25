@@ -6,49 +6,40 @@ cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd -P)
 
 set -e
-
 echo ''
 
-info () {
-  printf "\r  [ \033[00;34m..\033[0m ] $1\n"
+info() {
+  printf "\r  [ \033[00;34m..\033[0m ] %s\n" "$1"
 }
 
-user () {
-  printf "\r  [ \033[0;33m??\033[0m ] $1\n"
+user() {
+  printf "\r  [ \033[0;33m??\033[0m ] %s\n" "$1"
 }
 
-success () {
-  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+success() {
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] %s\n" "$1"
 }
 
-fail () {
-  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
-  echo ''
+fail() {
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %s\n" "$1"
+  echo '>>>>>'
   exit
 }
 
-setup_gitconfig () {
-  if ! [ -f git/gitconfig.local.symlink ]
-  then
+setup_gitconfig() {
+  if ! [ -f git/config+git+config.local.sl ]; then
     info 'setup gitconfig'
-
-    git_credential='cache'
-    if [ "$(uname -s)" == "Darwin" ]
-    then
-      git_credential='osxkeychain'
-    fi
 
     user ' - What is your github author name?'
     read -e git_authorname
     user ' - What is your github author email?'
     read -e git_authoremail
 
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.symlink.example > git/gitconfig.local.symlink
+    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" git/config+git+config.local.sl.example >git/config+git+config.local.sl
 
     success 'gitconfig'
   fi
 }
-
 
 link_file () {
   local src=$1 dst=$2
@@ -147,14 +138,13 @@ setup_gitconfig
 install_dotfiles
 
 info "installing dependencies"
-if source bin/dot | while read -r data; do info "$data"; done
-then
+if source bin/dot | while read -r data; do info "$data"; done; then
   success "dependencies installed"
 else
   fail "error installing dependencies"
 fi
 
-mkdir ~/Projects 2> /dev/null
+mkdir ~/Projects 2>/dev/null
 
 echo ''
 echo '  All installed!'

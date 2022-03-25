@@ -1,0 +1,88 @@
+# uncomment to debug the zsh startup
+# zmodload zsh/zprof
+
+# shortcut to this dotfiles path is $ZSH
+export ZSH="$HOME"/.dotfiles
+
+# zdotdir
+# export ZDOTDIR=$HOME/.config/zsh
+
+# your project folder that we can `p [tab]` to
+export PROJECTS=~/Projects
+
+# Stash your environment variables in ~/.localrc. This means they'll stay out
+# of your main dotfiles repository (which may be public, like this one), but
+# you'll have access to them in your scripts.
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
+
+# all of our zsh files
+typeset -U config_files
+config_files=($ZSH/**/*.zsh)
+
+# load the path files
+for file in ${(M)config_files:#*/path.zsh}
+do
+  source $file
+done
+
+# load everything but the path and completion files
+for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+do
+  source $file
+done
+
+# use the pure-prompt shell (https://github.com/sindresorhus/pure)
+export PURE_GIT_UNTRACKED_DIRTY=0
+autoload -U promptinit; promptinit
+prompt pure
+
+# initialize autocomplete here, otherwise functions won't be loaded
+
+# Execute code in the background to not affect the current session
+{
+    # Compile zcompdump, if modified, to increase startup speed.
+    zcompdump="${ZDOTDIR:-$HOME/.config/zsh}/.zcompdump"
+    if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then
+        zcompile "$zcompdump"
+    fi
+} &! 
+
+skip_global_compinit=1
+
+autoload -U compinit
+# only check compinit cache once per day
+if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-"$HOME"/.config/zsh}/.zcompdump) ]; then
+  compinit
+else
+  compinit -C
+fi
+
+# load every completion after autocomplete loads
+for file in ${(M)config_files:#*/completion.zsh}
+do
+  source $file
+done
+
+unset config_files
+
+# Better history
+# Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
+
+# load syntax highlighting
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# test -e "$~/.config/zsh/.iterm2_shell_integration.zsh" && source "~/config/zsh/.iterm2_shell_integration.zsh"
+
+# uncomment to debug the zsh startup
+# zprof

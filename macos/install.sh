@@ -1,14 +1,17 @@
-if test ! "$(uname)" = "Darwin"
-  then
+#!/bin/sh
+
+if test ! "$(uname)" = "Darwin"; then
   exit 0
 fi
 
 # Install xcode if necesserary
-if type xcode-select >&- && xpath=$( xcode-select --print-path ) &&
-  test -d "${xpath}" && test -x "${xpath}" ; then
-  echo "› Skipping Xcode installation"
+if type xcode-select >&- && xpath=$(xcode-select --print-path) &&
+  test -d "${xpath}" && test -x "${xpath}"; then
+  echo ""
+  echo ">>>>> Skipping Xcode installation"
 else
-  echo "› xcode-select --install"
+  echo ""
+  echo ">>>>> xcode-select --install"
   xcode-select --install
 fi
 
@@ -17,5 +20,10 @@ fi
 # command line interface to it that we can use to just install everything, so
 # yeah, let's do that.
 
-echo "› sudo softwareupdate -i -a"
-sudo softwareupdate -i -a
+echo ""
+echo ">>>>> sudo softwareupdate -i -a"
+echo ""
+
+if test "$(uname)" = "Darwin"; then
+  sudo softwareupdate -ia
+fi

@@ -1,7 +1,7 @@
 install_npm_packages() {
-	if test ! $(which $2)
+	if test ! "$(which "$2")"
   then
-		npm install $1 -g --silent
+		npm install "$1" -g --silent
 	fi
 }
 

@@ -1,14 +1,10 @@
+#!/usr/bin/env zsh
+#
 # Sets reasonable macOS defaults.
-#
-# Or, in other words, set shit how I like in macOS.
-#
-# The original idea (and a couple settings) were grabbed from:
-#   https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 #
 # Run ./set-defaults.sh and you'll be good to go.
 
-# Close any open System Preferences panes, to prevent them from overriding
-# settings we’re about to change
+# Close any open System Preferences panes
 osascript -e 'tell application "System Preferences" to quit'
 
 # Ask for the administrator password upfront
@@ -17,49 +13,33 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-# Set dark mode
-defaults write NSGlobalDomain AppleInterfaceStyle Dark
-
-# Use non-retard units
-defaults write NSGlobalDomain AppleMetricUnits 1
-defaults write NSGlobalDomain AppleTemperatureUnit Celsius
-
 # Always open in a tab
 defaults write NSGlobalDomain AppleWindowTabbingMode always
-
-# Disable press-and-hold for keys in favor of key repeat.
-# defaults write -g ApplePressAndHoldEnabled -bool false
 
 # Use AirDrop over every interface. srsly this should be a default.
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
 
-# Always open everything in Finder's list view. This is important.
+# Always open everything in Finder's column view. This is important.
 defaults write com.apple.Finder FXPreferredViewStyle clmv
 
 # Show the ~/Library folder.
 chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library 2> /dev/null
 
-# Set a really fast key repeat.
-defaults write NSGlobalDomain KeyRepeat -int 1
+# Set F1, F2, ect. as standard function keys
+defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
+
+# Tap to click
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+# Swipe direction is the direction of finger move
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 # Set the Finder prefs for showing a few different volumes on the Desktop.
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
-# Run the screensaver if we're in the bottom-left hot corner.
-# defaults write com.apple.dock wvous-bl-corner -int 5
-# defaults write com.apple.dock wvous-bl-modifier -int 0
-
-# Set up Safari for development.
-defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
-defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
-
-# Menu bar: show remaining battery time (on pre-10.8); hide percentage
+# Menu bar: show remaining battery time
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
-defaults write com.apple.menuextra.battery ShowTime -string "YES"
 
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -75,19 +55,11 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 # Check for software updates daily, not just once per week
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
-# Disable automatic capitalization as it’s annoying when typing code
+# Disable automatic puncuation as it’s annoying when typing code
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
-
-# Disable smart dashes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
-
-# Disable automatic period substitution as it’s annoying when typing code
 defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
-
-# Disable smart quotes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
-
-# Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 # Save screenshots to the desktop
@@ -117,55 +89,52 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
 # Remove Dropbox’s green checkmark icons in Finder
-file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
-[ -e "${file}" ] && mv -f "${file}" "${file}.bak"
-
-# Wipe all (default) app icons from the Dock
-# This is only really useful when setting up a new Mac, or if you don’t use
-# the Dock to launch apps.
-defaults write com.apple.dock persistent-apps -array
-
-# Disable Dashboard
-defaults write com.apple.dashboard dashboard-enabled-state -int 1
+# file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
+# [ -e "${file}" ] && mv -f "${file}" "${file}.bak"
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
 
-# Show the full URL in the address bar (note: this still hides the scheme)
+# Disable swipe to go back
+defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
+defaults write com.google.Chrome.canary AppleEnableSwipeNavigateWithScrolls -bool false
+defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool false
+defaults write com.google.Chrome.canary AppleEnableMouseSwipeNavigateWithScrolls -bool false
+
+# Set up Safari for development
+defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
+defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+# More Safari configs
+defaults write com.apple.Safari HomePage -string "about:blank"
 defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
-
-# Hide Safari’s bookmarks bar by default
 defaults write com.apple.Safari ShowFavoritesBar -bool false
-
-# Make Safari’s search banners default to Contains instead of Starts With
 defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
-
-# Enable continuous spellchecking
 defaults write com.apple.Safari WebContinuousSpellCheckingEnabled -bool true
-# Disable auto-correct
 defaults write com.apple.Safari WebAutomaticSpellingCorrectionEnabled -bool false
-
-# Warn about fraudulent websites
 defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true
-
-# Disable plug-ins
 defaults write com.apple.Safari WebKitPluginsEnabled -bool false
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2PluginsEnabled -bool false
+defaults write com.apple.Safari WebKitJavaScriptCanOpenWindowsAutomatically -bool false
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically -bool false
+defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
 
 # Disable Java
 defaults write com.apple.Safari WebKitJavaEnabled -bool false
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled -bool false
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabledForLocalFiles -bool false
 
-# Block pop-up windows
-defaults write com.apple.Safari WebKitJavaScriptCanOpenWindowsAutomatically -bool false
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically -bool false
-
-# Update extensions automatically
-defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
-
 # Copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
 defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
+
+# Prevent Photos from opening automatically when devices are plugged in
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+# Don't remember open files
+defaults write com.apple.Preview NSQuitAlwaysKeepsWindows -bool false
 
 # Change indexing order and disable some search results
 defaults write com.apple.spotlight orderedItems -array \
@@ -198,9 +167,6 @@ killall mds > /dev/null 2>&1
 sudo mdutil -i on / > /dev/null
 # Rebuild the index from scratch
 sudo mdutil -E / > /dev/null
-
-# Prevent Time Machine from prompting to use new hard drives as backup volume
-defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # Use plain text mode for new TextEdit documents
 defaults write com.apple.TextEdit RichText -int 0
@@ -248,4 +214,4 @@ for app in "Activity Monitor" \
 	"iCal"; do
 	killall "${app}" &> /dev/null
 done
-echo "Done. Note that some of these changes require a logout/restart to take effect."
+echo ">>>>> Done. Note that some of these changes require a logout/restart to take effect."

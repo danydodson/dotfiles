@@ -1,7 +1,4 @@
-git/gitconfig.local.symlink
-
-vscode/workspaceStorage
-vscode/globalStorage
+.DS_Store
 
 stream/logs
 stream/profiler_data
