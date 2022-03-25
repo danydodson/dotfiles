@@ -26,21 +26,6 @@ fail() {
   exit
 }
 
-setup_gitconfig() {
-  if ! [ -f git/config+git+config.local.sl ]; then
-    info 'setup gitconfig'
-
-    user ' - What is your github author name?'
-    read -e git_authorname
-    user ' - What is your github author email?'
-    read -e git_authoremail
-
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" git/config+git+config.local.sl.example >git/config+git+config.local.sl
-
-    success 'gitconfig'
-  fi
-}
-
 link_file () {
   local src=$1 dst=$2
 
@@ -134,7 +119,6 @@ install_dotfiles () {
   done
 }
 
-setup_gitconfig
 install_dotfiles
 
 info "installing dependencies"
