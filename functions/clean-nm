@@ -1,9 +1,0 @@
-#!/bin/bash
-
-cleanNM() {
-  local DIRECTORY=${1:-"."}
-
-  echo "Removing node_modules in $DIRECTORY"
-
-  find "$DIRECTORY" -name 'node_modules' -type d -prune -exec rm -rf '{}' +
-}

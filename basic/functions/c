@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# This lets you quickly jump into a project directory.
+#
+# Type:
+#
+#   c <tab>
+#
+# ...to autocomplete on all of your projects in the directories specified in
+# `functions/_c`.
+
+cd "$PROJECTS/$1"

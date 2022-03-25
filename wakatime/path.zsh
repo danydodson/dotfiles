@@ -1,1 +1,0 @@
-export WAKATIME_HOME="$HOME/.config/wakatime"

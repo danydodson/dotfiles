@@ -1,9 +1,0 @@
-#!/bin/bash
-
-findNM() {
-  local DIRECTORY=${1:-"."}
-
-  echo "Finding node_modules in $DIRECTORY"
-
-  find "$DIRECTORY" -name 'node_modules' -type d -prune
-}

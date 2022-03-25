@@ -1,4 +1,0 @@
-#compdef p
-_files -W $PROJECTS -/
-
-# See further documentation in `functions/p`.

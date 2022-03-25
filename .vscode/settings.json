@@ -1,11 +1,5 @@
 {
   "files.associations": {
-    "**/*+git+ignore*": "ignore",
-    "**/*+git+config*": "gitconfig",
-    "**/*.sl": "shellscript",
-    "**/bin/*": "shellscript",
-    "**/functions/*": "shellscript",
-    "**/prompt/*": "shellscript",
-    "**/script/*": "shellscript"
+    "*.symlink": "shellscript"
   }
 }

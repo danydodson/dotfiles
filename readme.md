@@ -1,82 +1,78 @@
-# Your [dotfiles](http://dotfiles.github.io/) are how you personalize your system. These are mine.
+# dotfiles
 
-I was a little tired of having long alias files and everything strewn about
-(which is extremely common on other dotfiles projects, too). That led to this
-project being much more topic-centric. I realized I could split a lot of things
-up into the main areas I used (Ruby, git, system libraries, and so on), so I
-structured the project accordingly.
-
-## topical
-
-Everything's built around topic areas. If you're adding a new area to your
-forked dotfiles — say, "Java" — you can simply add a `java` directory and put
-files in there. Anything with an extension of `.zsh` will get automatically
-included into your shell. Anything with an extension of `.sl` will get
-symlinked without extension into `$HOME` when you run `script/bootstrap`.
-
-## what's inside
-
-A lot of stuff. Seriously, a lot of stuff. Check them out in the file browser
-above and see what components may mesh up with you.
-[Fork it](https://github.com/danydodson/dotfiles/fork), remove what you don't
-use, and build on what you do use.
-
-## components
-
-There's a few special files in the hierarchy.
-
-- **bin/**: Anything in `bin/` will get added to your `$PATH` and be made
-  available everywhere.
-- **Brewfile**: This is a list of applications for [Homebrew Cask](https://caskroom.github.io) to install: things like Spotify and 1Password and stuff. Might want to edit this file before running any initial setup.
-- **topic/\*.zsh**: Any files ending in `.zsh` get loaded into your
-  environment.
-- **topic/path.zsh**: Any file named `path.zsh` is loaded first and is
-  expected to setup `$PATH` or similar.
-- **topic/completion.zsh**: Any file named `completion.zsh` is loaded
-  last and is expected to setup autocomplete.
-- **topic/install.sh**: Any file named `install.sh` is executed when you run `script/install`. To avoid being loaded automatically, its extension is `.sh`, not `.zsh`.
-- **topic/\*.sl**: Any file ending in `*.sl` gets symlinked into
-  your `$HOME`. This is so you can keep all of those versioned in your dotfiles
-  but still keep those autoloaded files in your home directory.
-  To further nest symlinks into subdirectories under `$HOME`,
-  use `+` signs to signify additional directory delimiters.
-  So for example, the file `topic/config+topic.sl` would get
-  symlinked to `$HOME/.config/topic` when you run `script/bootstrap`.
+This project is heavily inspired by @holman [dotfiles](https://github.com/holman/dotfiles). I've added [`oh-my-zsh`](https://ohmyz.sh/), changed the whole structure, and simplified a lot the version management for programming languages by using [`asdf`](https://asdf-vm.com/).
 
 ## install
 
-Run this:
-
 ```sh
-git clone https://github.com/danydodson/dotfiles.git ~/.dotfiles
-
+git clone https://github.com/rafaeleyng/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-
-script/bootstrap
+scripts/dotfiles-install.sh
 ```
 
-This will symlink the appropriate files in `.dotfiles` to your home directory.
-Everything is configured and tweaked within `~/.dotfiles`.
+## folders
 
-The main file you'll want to change right off the bat is `zsh/zshrc.sl`,
-which sets up a few paths that'll be different on your particular machine.
+The most notable folders are:
 
-`dot` is a simple script that installs some dependencies, sets sane macOS
-defaults, and so on. Tweak this script, and occasionally run `dot` from
-time to time to keep your environment fresh and up-to-date. You can find
-this script in `bin/`.
+- `scripts`: scripts that you can run manually, to either install this dotfiles project or install/update the dependencies it specifies
+- `basic`: each subfolder contains configuration for some basic component (like a default text editor or a default shell)
+  - `bin/`: files are added to `$PATH` and made available everywhere, and are executed in a child process.
+  - `editor`: configurations for my text editor
+  - `functions/`: files are added to `$fpath` and made available everywhere, and are executed in the current process.
+  - `shell`: configurations for my shell ([zsh](http://zsh.sourceforge.net/))
+- `specific`: each subfolder contains configuration for some specific technology (like Git or the Go programming language):
+  - `oh-my-zsh`: my configuration for [oh-my-zsh](https://ohmyz.sh/)
 
-## bugs
+## special files
 
-I want this to work for everyone; that means when you clone it down it should
-work for you even though you may not have `rbenv` installed, for example. That
-said, I do use this as _my_ dotfiles, so there's a good chance I may break
-something if I forget to make a check for a dependency.
+- `*/index.zsh`: files called `index.zsh` get loaded into your environment when a shell is loaded
+- `*/*.symlink`: files ending in `*.symlink` get symlinked (without the `*.symlink` extension) into your `$HOME` when you run `scripts/dotfiles-install.sh`
 
-If you're brand-new to the project and run into any blockers, please
-[open an issue](https://github.com/danydodson/dotfiles/issues) on this repository
-and I'd love to get it fixed for you!
+## extensions
 
-## thanks
+I can have a basic dotfiles project and isolate specifics, like:
+- I want my work computer to have some specific files
+- I want my personal computer to have other specific files
 
-I forked [mathieudutour](http://github.com/mathieudutour) excellent [dotfiles](http://github.com/mathieudutour/dotfiles).
+Create a separate repository with your extensions files, and clone it into an `extensions` folder (already git-ignored), like:
+
+```sh
+# create the extensions dir
+mkdir extensions && cd extensions
+
+# add as many extensions projects you want
+git clone https://github.com/<username>/<dotfiles-extension-personal>.git
+git clone https://github.com/<username>/<dotfiles-extension-work>.git
+
+# install the extensions
+scripts/dotfiles-install.sh     # install any dependencies (`install.sh` files) defined in the extensions and links `*.symlink` files from the extensions to the home directory
+```
+
+The currently supported extension files you can have inside your extensions project are:
+
+- `git/gitconfig.extension.symlink`: extends `specific/git/gitconfig.symlink` and gets symlinked into your `$HOME`
+- `*/index.zsh`: files called `index.zsh` get loaded into your environment when a shell is loaded (note: they should be inside some directory, like `shell/index.zsh`)
+
+## highlights
+
+Here are some of the most useful software included in this dotfiles:
+
+- utilities:
+  - [`asdf`](https://asdf-vm.com/): version manager for several technologies. Replaces tools like `nvm`, `pyenv`, `rbenv` and others
+  - [`z`](https://github.com/rupa/z)
+- commands:
+  - `e`: opens my favorite text editor
+  - `todo <text>`: creates a file on desktop to remind a to-do
+  - `update`: runs all `*/update.sh` files
+- functions:
+  - `c <tab>`, a function to go to my code folders (copied from @ryanb [dotfiles](https://github.com/ryanb/dotfiles/blob/master/oh-my-zsh/custom/plugins/rbates/rbates.plugin.zsh))
+  - `extract <file>`: knows how to unzip several formats
+- aliases:
+  - `chrome [<filename>]`: to open Google Chrome
+  - `pubkey`: copy `~/.ssh/id_rsa.pub` to clipboard
+
+## references
+
+- https://github.com/holman/dotfiles
+- https://github.com/holman/dotfiles/issues/70: I renamed in this project every occurrence of the variable `ZSH` to `DOTFILES`, to avoid conflicts between dotfiles and oh-my-zsh.
+- https://unix.stackexchange.com/questions/151889/why-does-bashs-source-command-behave-differently-when-called-from-a-function: I've used this question to source my files, but if you can understand what is happening (look at all my questions in the comments of the answers) please explain to me.
