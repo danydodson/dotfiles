@@ -1,5 +1,10 @@
 {
   "files.associations": {
-    "*.symlink": "shellscript"
+    "*.symlink": "shellscript",
+    "**/bin/*": "shellscript",
+    "**/functions/*": "shellscript",
+    "**/config+zsh+no-runtiime.toml.symlink": "toml",
+    "**/config+zsh+pastel.toml.symlink": "toml",
+    "**/config+zsh+pure.toml.symlink": "toml"
   }
 }

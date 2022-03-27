@@ -1,5 +1,5 @@
 #!/bin/bash
-#
+
 # https://github.com/rtomayko/dotfiles/blob/rtomayko/bin/headers
 
 curl -sv "$@" 2>&1 >/dev/null |

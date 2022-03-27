@@ -1,9 +1,6 @@
 #!/bin/bash
-#
+
 # Homebrew
-#
-# This installs some of the common dependencies needed (or at least desired)
-# using Homebrew.
 
 # Check for Homebrew
 if test ! "$(command -v brew)"; then

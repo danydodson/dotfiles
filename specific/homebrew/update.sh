@@ -1,5 +1,5 @@
 #!/bin/bash
 
-echo "› brew update"
+echo "> brew update"
 brew update
 brew upgrade

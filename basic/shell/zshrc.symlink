@@ -1,37 +1,29 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
+# load all variables
 export DOTFILES="$HOME"/.dotfiles
 export ZDOTDIR="$HOME"/.config/zsh
-export ZSH_CACHE_DIR="$HOME"/.cache/zsh
-SYSTEM_CONFIG=$DOTFILES/basic/system/index.zsh
-TIME_START=$( ($(gdate +%s%N) '/ 1000000') )
-local function compute_load_time () {
-  local START=$1
-  local END=$(($(gdate +%s%N) / 1000000))
-  if [[ $DOTFILES_DEBUG = "1" ]]; then
-    echo "$((END-START)) mili-seconds"
-  fi
-}
+
+# history
+export HISTFILE="$HOME/.config/zsh/zsh_history"
+
+# pastel theme
+export STARSHIP_CONFIG="$HOME/.config/zsh/no-runtime.toml"
+
+export SYSTEM_CONFIG="$DOTFILES/basic/system/index.zsh"
 
 # https://unix.stackexchange.com/a/151896/148053 - I don't understand, but it is what it is
-local function _source () {
+function _source () {
   local -r FILE="$1"
   shift
   source "$FILE" "$@"
 }
 
-local function source_local () {
+function source_local () {
   if [[ -a $DOTFILES/.local ]]; then
     _source $DOTFILES/.local
   fi
 }
 
-local function source_system () {
+function source_system () {
   _source "$SYSTEM_CONFIG"
 }
 
@@ -71,7 +63,6 @@ source_system # first source the system config, which sets critical variables...
 source_non_system # ...then sources other config files
 source_extensions
 
-# Execute code in the background to not affect the current session
 {
     # Compile zcompdump, if modified, to increase startup speed.
     zcompdump="${ZDOTDIR:-$HOME/.config/zsh}/.zcompdump"
@@ -94,7 +85,4 @@ fi
 autoload -U compinit
 compinit
 
-compute_load_time $TIME_START
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+eval "$(starship init zsh)"

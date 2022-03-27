@@ -1,5 +1,5 @@
 #!/bin/bash
-#
+
 # run `update` periodically to make sure you're on the latest and greatest
 
 export DOTFILES=$HOME/.dotfiles

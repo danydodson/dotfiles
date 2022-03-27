@@ -1,5 +1,5 @@
 #!/bin/bash
-#
+
 # hooks the dotfiles project to your home and shell config
 export DOTFILES="$HOME/.dotfiles"
 

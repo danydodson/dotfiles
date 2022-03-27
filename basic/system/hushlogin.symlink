@@ -1,6 +1,0 @@
-# https://linux.die.net/man/1/login
-
-# If the file ~/.hushlogin or /etc/hushlogins exists,
-# then a "quiet" login is performed (this disables
-# the checking of mail and the printing of the last
-# login time and message of the day)

@@ -1,12 +1,24 @@
-######################################
-# config
-######################################
-export LSCOLORS="exfxcxdxbxegedabagacad"
-export CLICOLOR=true
+# variables
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
 
 export ZDOTDIR="$HOME/.config/zsh"
+export ZSH="$XDG_CONFIG_HOME/ohmyzsh"
 export ZSH_CACHE_DIR="$HOME/.cache/zsh"
-export XDG_CACHE_HOME="$HOME/.cache"
+
+# docker
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+
+# yarn
+export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
+
+# wakatime
+export WAKATIME_HOME="$XDG_DATA_HOME/wakatime"
+
+# config
+export LSCOLORS="exfxcxdxbxegedabagacad"
+export CLICOLOR=true
 
 fpath=($DOTFILES/basic/functions $fpath)
 
@@ -33,8 +45,6 @@ setopt INC_APPEND_HISTORY SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_REDUCE_BLANKS
 
-# don't expand aliases _before_ completion has finished
-#   like: git comm-[tab]
 setopt complete_aliases
 
 bindkey '^[^[[D' backward-word
@@ -44,11 +54,8 @@ bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey '^?' backward-delete-char
 
-######################################
-# window
-######################################
+# window title
 # From http://dotfiles.org/~_why/.zshrc
-# Sets the window title nicely no matter where you are
 function title() {
   # escape '%' chars in $1, make nonprintables visible
   a=${(V)1//\%/\%\%}
@@ -66,16 +73,12 @@ function title() {
   esac
 }
 
-######################################
 # completion
-######################################
 # matches case insensitive for lowercase
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # pasting with tabs doesn't perform completion
 zstyle ':completion:*' insert-tab pending
 
-######################################
 # customizations
-######################################
 source $DOTFILES/basic/shell/custom.sh
