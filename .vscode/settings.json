@@ -1,10 +1,44 @@
 {
   "files.associations": {
-    "*.symlink": "shellscript",
+    //
     "**/bin/*": "shellscript",
     "**/functions/*": "shellscript",
+    "*.symlink": "shellscript",
+    //
+    "**/imgcat": "shellscript",
+    "**/imgls": "perl",
+    "**/it2api": "python",
+    "**/it2attention": "shellscript",
+    "**/it2check": "shellscript",
+    "**/it2copy": "shellscript",
+    "**/it2dl": "shellscript",
+    "**/it2getvar": "shellscript",
+    "**/it2git": "shellscript",
+    "**/it2profile": "shellscript",
+    "**/it2setcolor": "shellscript",
+    "**/it2setkeylabel": "shellscript",
+    "**/it2tip": "python",
+    "**/it2ul": "shellscript",
+    "**/it2universion": "shellscript",
+    //
     "**/config+zsh+no-runtiime.toml.symlink": "toml",
     "**/config+zsh+pastel.toml.symlink": "toml",
-    "**/config+zsh+pure.toml.symlink": "toml"
-  }
+    "**/config+zsh+pure.toml.symlink": "toml",
+    "**/config+zsh+symbols.toml.symlink": "toml",
+    //
+    "**/Atom One Dark.itermcolors": "xml",
+    "**/Atom One Light.itermcolors": "xml",
+    //
+    "**/config+git+config.symlink": "gitconfig",
+    "**/config+git+config-local.symlink": "gitconfig",
+    "**/config+git+config-local.symlink.example": "gitconfig",
+    //
+    "**/config+git+ignore.symlink": "ignore"
+  },
+  "shellcheck.exclude": [
+    "**/zshrc.symlink",
+    "**/_c",
+    "**/extract"
+  ],
+  "workspace.isHidden": true
 }

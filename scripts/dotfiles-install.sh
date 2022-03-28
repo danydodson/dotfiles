@@ -122,6 +122,7 @@ setup_gitconfig
 install_dotfiles
 
 info "installing dependencies"
+# shellcheck disable=SC1091
 if source scripts/dependencies-install.sh
 then
   success "dependencies installed"
@@ -130,4 +131,4 @@ else
 fi
 
 echo ''
-success '  All installed!'
+success 'All installed!'

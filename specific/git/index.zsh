@@ -1,2 +1,2 @@
-# custom aliases
+# aliases
 alias gs='gst'
