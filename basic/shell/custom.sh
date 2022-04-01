@@ -29,6 +29,3 @@ alias a='asdf'
 
 # shellcheck disable=SC1091
 source "$(brew --prefix asdf)/libexec/asdf.sh"
-
-# TODO make completions work
-# . /opt/brew/opt/asdf/etc/bash_completion.d/asdf.bash

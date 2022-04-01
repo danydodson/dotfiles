@@ -2,13 +2,12 @@
 # 
 # set macos custom defaults
 # 
-
 # close any open System Preferences panes
 osascript -e 'tell application "System Preferences" to quit'
 
 # ask for the administrator password upfront
 sudo -v
-
+ 
 # keep-alive: update existing `sudo` time stamp until `.macos` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
@@ -38,7 +37,7 @@ defaults write com.apple.CrashReporter DialogType -string "none"
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 # reveal IP address, hostname, OS version, etc. when clicking the clock in the login window
-# sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
 # never go into computer sleep mode
 systemsetup -setcomputersleep Off > /dev/null
@@ -51,6 +50,13 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
 # disable smart dashes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+# disabling system-wide resume
+defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
+
+# disable the “reopen windows when logging back in” dialog box (Leaves default to reopen windows)
+defaults write com.apple.loginwindow TALLogoutSavesState -bool false
+defaults write com.apple.loginwindow LoginwindowLaunchesRelaunchApps -bool false
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
@@ -71,6 +77,16 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
+########################################
+# iTunes
+########################################
+
+# Disable the Ping sidebar in iTunes
+defaults write com.apple.iTunes disablePingSidebar -bool true
+
+# Disable all the other Ping stuff in iTunes
+defaults write com.apple.iTunes disablePing -bool true
+
 # stop iTunes from responding to the keyboard media keys
 launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
 
@@ -81,14 +97,11 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/nul
 # finder: disable window animations and Get Info animations
 defaults write com.apple.finder DisableAllAnimations -bool true
 
-# finder: always open everything in Finder's list view
-defaults write com.apple.Finder FXPreferredViewStyle clmv
-
 # finder: show hidden files by default
 defaults write com.apple.finder AppleShowAllFiles -bool true
 
 # finder: show path bar
-defaults write com.apple.finder ShowPathbar -bool true
+defaults write com.apple.finder ShowPathbar -bool false
 
 # finder: show status bar
 defaults write com.apple.finder ShowStatusBar -bool false
@@ -131,32 +144,59 @@ defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 # expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
+# finder: always open everything in Finder's list view
+defaults write com.apple.Finder FXPreferredViewStyle clmv
+
+# finder: group by 
+defaults write com.apple.Finder FXPreferredGroupBy Tags
+
+# finder: sort group by 
+defaults write com.apple.Finder FXArrangeGroupViewBy Name
+
 # keep folders on top when sorting by name
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
 # show all filename extensions in Finder
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
-# enable text selection in quicklook
-defaults write com.apple.finder QLEnableTextSelection -bool true
+# saving to disk (not to iCloud) by default
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
-# enable snap-to-grid for icons on the desktop and in other icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+# removing duplicates in the 'Open With' menu"
+# /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 
-# increase grid spacing for icons on the desktop and in other icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
+# /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy kind" ~/Library/Preferences/com.apple.finder.plist
+# /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 68" ~/Library/Preferences/com.apple.finder.plist
+# /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 144" ~/Library/Preferences/com.apple.finder.plist
+# /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:textSize 11" ~/Library/Preferences/com.apple.finder.plist
 
-# increase the size of icons on the desktop and in other icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 60" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:iconSize 60" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 60" ~/Library/Preferences/com.apple.finder.plist
+# /usr/libexec/PlistBuddy -c "Set :ComputerViewSettings:IconViewSettings:arrangeBy kind" ~/Library/Preferences/com.apple.finder.plist
+# /usr/libexec/PlistBuddy -c "Set :ComputerViewSettings:IconViewSettings:iconSize 68" ~/Library/Preferences/com.apple.finder.plist
+# /usr/libexec/PlistBuddy -c "Set :ComputerViewSettings:IconViewSettings:gridSpacing 144" ~/Library/Preferences/com.apple.finder.plist
+# /usr/libexec/PlistBuddy -c "Set :ComputerViewSettings:IconViewSettings:textSize 11" ~/Library/Preferences/com.apple.finder.plist
+# /usr/libexec/PlistBuddy -c "Set :ComputerViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
+
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy kind" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:iconSize 68" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:gridSpacing 144" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:textSize 11" ~/Library/Preferences/com.apple.finder.plist
+
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy kind" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 68" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 144" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:textSize	 11" ~/Library/Preferences/com.apple.finder.plist
 
 # use collum view in all Finder windows by default || `icnv`, `clmv`, `Flwv`
 defaults write com.apple.finder FXPreferredViewStyle -string "icnv"
+
+# use collum view in all Finder windows by default || `icnv`, `clmv`, `Flwv`
+defaults write com.apple.finder FXPreferredSearchViewStyle -string "icnv"
+
+# use collum view in all Finder windows by default || `icnv`, `clmv`, `Flwv`
+defaults write com.apple.finder FXPreferredSearchViewStyleVersion -string "icnv"
+
+# use collum view in all icloud windows by default || `icnv`, `clmv`, `Flwv`
+defaults write com.apple.finder ICloudViewSettings -string "icnv"
 
 # disable the warning before emptying the Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
@@ -259,13 +299,10 @@ defaults write com.apple.spotlight orderedItems -array \
 	'{"enabled" = 0;"name" = "PRESENTATIONS";}' \
 	'{"enabled" = 0;"name" = "SPREADSHEETS";}' \
 	'{"enabled" = 0;"name" = "SOURCE";}'
-
 # load new settings before rebuilding the index
 killall mds > /dev/null 2>&1
-
 # make sure indexing is enabled for the main volume
 sudo mdutil -i on / > /dev/null
-
 # rebuild the index from scratch
 sudo mdutil -E / > /dev/null
 
@@ -325,9 +362,6 @@ defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnab
 
 # prevent Time Machine from prompting to use new hard drives as backup volume
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
-
-# disable local Time Machine backups
-# hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 ###############################################################################
 # Address Book, Dashboard, iCal, TextEdit, and Disk Utility                   #
@@ -473,12 +507,12 @@ defaults write com.apple.Safari WebKitJavaScriptCanOpenWindowsAutomatically -boo
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically -bool false
 
 # disable auto-playing video
-# defaults write com.apple.Safari WebKitMediaPlaybackAllowsInline -bool false
-# defaults write com.apple.SafariTechnologyPreview WebKitMediaPlaybackAllowsInline -bool false
-# defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2AllowsInlineMediaPlayback -bool false
-# defaults write com.apple.SafariTechnologyPreview com.apple.Safari.ContentPageGroupIdentifier.WebKit2AllowsInlineMediaPlayback -bool false
+defaults write com.apple.Safari WebKitMediaPlaybackAllowsInline -bool false
+defaults write com.apple.SafariTechnologyPreview WebKitMediaPlaybackAllowsInline -bool false
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2AllowsInlineMediaPlayback -bool false
+defaults write com.apple.SafariTechnologyPreview com.apple.Safari.ContentPageGroupIdentifier.WebKit2AllowsInlineMediaPlayback -bool false
 
-# enable “Do Not Track”
+# enable “do not track”
 defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 
 # update extensions automatically
@@ -488,20 +522,20 @@ defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
 # Transmission.app                                                            #
 ###############################################################################
 
-#dDownload & upload Badges
+# download & upload badges
 defaults write org.m0k.transmission BadgeDownloadRate -bool false
 defaults write org.m0k.transmission BadgeUploadRate   -bool false
 
-# Use `~/Documents/Torrents/Seeding` to store complete downloads
-mkdir -p ~/Downloads/Torrents/Seeding
+# where to store complete downloads
+mkdir -p ~/Documents/Torrents/Seeding
 defaults write org.m0k.transmission DownloadLocationConstant -bool true
 defaults write org.m0k.transmission DownloadChoice -string "Constant"
-defaults write org.m0k.transmission DownloadFolder -string "${HOME}/Documents/Torrents/Seeding"
+defaults write org.m0k.transmission DownloadFolder -string "~/Documents/Torrents/Seeding"
 
-# use `~/Documents/Torrents/Working` to store working downloads
-mkdir -p ~/Downloads/Torrents/Working
+# where to store incomplete downloads
+mkdir -p ~/Documents/Torrents/Working
 defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
-defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Downloads/Torrents/Working"
+defaults write org.m0k.transmission IncompleteDownloadFolder -string "~/Documents/Torrents/Working"
 
 # don’t prompt for confirmation before downloading
 defaults write org.m0k.transmission DownloadAsk -bool false
@@ -529,20 +563,20 @@ defaults write org.m0k.transmission RandomPort -bool true
 
 #   "Finder" \
 #   "Terminal" \
-#   "SystemUIServer" \
+  # "SystemUIServer" \
+  # "Dock" \
+#   "Google Chrome" \
+# for app in "Activity Monitor" \
 #   "Address Book" \
 #   "Calendar" \
 #   "Contacts" \
-#   "Dock" \
 #   "Google Chrome Canary" \
-#   "Google Chrome" \
 #   "Mail" \
 # 	"Messages" \
 #   "Safari" \
 #   "Transmission" \
-for app in "Activity Monitor" \
-  "iCal"; do
-	killall "${app}" > /dev/null 2>&1
-done
+#   "iCal"; do
+# 	killall "${app}" > /dev/null 2>&1
+# done
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."

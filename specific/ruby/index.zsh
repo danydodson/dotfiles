@@ -1,7 +1,7 @@
-# export RBENV_ROOT="$HOME/.local/rbenv"
+export RBENV_ROOT="$HOME/.local/rbenv"
 
-# export PATH="$RBENV_ROOT/bin:$PATH"
-# export PATH="$RBENV_ROOT/shims:${PATH}"
+export PATH="$RBENV_ROOT/bin:$PATH"
+export PATH="$RBENV_ROOT/shims:${PATH}"
 
 # init according to man page
 if (( $+commands[rbenv] ))

@@ -1,6 +1,16 @@
-export ITERM2_CONFIG="$HOME/.config/iterm2"
+#!/bin/bash
+#
+# Homebrew
+#
 
-# curl -L https://iterm2.com/shell_integration/zsh \
-# -o $DOTFILES/.iterm2_shell_integration.zsh
+# check for homebrew
+if test ! "$(command -v brew)" || true; then
+  echo "  Installing Homebrew for you."
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" || true
+fi
 
-test -e "${ITERM2_CONFIG}/iterm2_shell_integration.zsh.symlink" && source "${ITERM2_CONFIG}/iterm2_shell_integration.zsh.symlink"
+# run homebrew through the brewfile
+echo "> brew bundle"
+brew bundle --file="specific/brew/Brewfile"
+
+exit 0

@@ -1,4 +1,4 @@
-# export FNM_DIR="${XDG_DATA_HOME}/fnm"
+export FNM_DIR="${XDG_DATA_HOME}/fnm"
 
 if [ -d "$FNM_DIR" ]; then
   PATH="${FNM_DIR}:${PATH}"

@@ -8,7 +8,13 @@ export HISTFILE="$HOME/.config/zsh/zsh_history"
 # pastel theme
 export STARSHIP_CONFIG="$HOME/.config/zsh/no-runtime.toml"
 
+# vars
 export SYSTEM_CONFIG="$DOTFILES/basic/system/index.zsh"
+
+# eval "$(/opt/homebrew/bin/brew shellenv)"
+# brew update --force --quiet
+eval "$(starship init zsh)"
+
 
 # https://unix.stackexchange.com/a/151896/148053 - I don't understand, but it is what it is
 function _source () {
@@ -85,4 +91,4 @@ fi
 autoload -U compinit
 compinit
 
-eval "$(starship init zsh)"
+chmod -R go-w "$(brew --prefix)/share/zsh"
