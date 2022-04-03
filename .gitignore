@@ -1,5 +1,4 @@
-extensions
 Brewfile.lock.json
 local/
 local.zsh
-.local
+.DS_Store

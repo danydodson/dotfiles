@@ -7,4 +7,4 @@
 softwareupdate -i -a
 
 # shellcheck disable=SC1091
-source "${DOTFILES}"/specific/macos/set-defaults.sh
+source "${DOTFILES}"/macos/set-defaults.sh

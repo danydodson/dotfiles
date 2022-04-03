@@ -3,4 +3,4 @@
 echo "> MacOS update"
 
 # shellcheck disable=SC1091
-source "${DOTFILES}"/specific/macos/install.sh
+source "${DOTFILES}"/macos/install.sh

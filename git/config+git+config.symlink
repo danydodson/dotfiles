@@ -1,6 +1,5 @@
 [include]
-  path = ~/.config/git/config-local
-  path = ~/.config/git/config-extensions-work
+  path = ~/.config/git/config.local
 [credential]
   helper = osxkeychain
 [hub]

@@ -1,7 +1,4 @@
-#!/bin/bash
-# 
-# installs oh-my-zsh
-# 
+#!/usr/bin/env bash
 
 export ZSH=~/.config/ohmyzsh
 

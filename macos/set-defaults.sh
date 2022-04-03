@@ -1,7 +1,7 @@
-#!/bin/bash
-# 
 # set macos custom defaults
 # 
+# Run ./set-defaults.sh and you'll be good to go.
+
 # close any open System Preferences panes
 osascript -e 'tell application "System Preferences" to quit'
 
@@ -563,20 +563,20 @@ defaults write org.m0k.transmission RandomPort -bool true
 
 #   "Finder" \
 #   "Terminal" \
-  # "SystemUIServer" \
-  # "Dock" \
+# "SystemUIServer" \
 #   "Google Chrome" \
-# for app in "Activity Monitor" \
-#   "Address Book" \
-#   "Calendar" \
-#   "Contacts" \
-#   "Google Chrome Canary" \
-#   "Mail" \
-# 	"Messages" \
-#   "Safari" \
-#   "Transmission" \
-#   "iCal"; do
-# 	killall "${app}" > /dev/null 2>&1
-# done
+for app in "Activity Monitor" \
+  "Address Book" \
+  "Dock" \
+  "Calendar" \
+  "Contacts" \
+  "Google Chrome Canary" \
+  "Mail" \
+	"Messages" \
+  "Safari" \
+  "Transmission" \
+  "iCal"; do
+	killall "${app}" > /dev/null 2>&1
+done
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."

@@ -1,0 +1,78 @@
+# uncomment to debug the zsh startup
+zmodload zsh/zprof
+
+# shortcut to this dotfiles path is $ZSH
+export DOTFILES="$HOME"/.dotfiles
+export ZDOTDIR="$HOME"/.config/zsh
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+brew update --force --quiet
+
+eval "$(starship init zsh)"
+
+# Stash your environment variables in ~/.localrc. This means they'll stay out
+# of your main dotfiles repository (which may be public, like this one), but
+# you'll have access to them in your scripts.
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
+
+# all of our zsh files
+typeset -U config_files
+config_files=($DOTFILES/**/*.zsh)
+
+# load the path files
+for file in ${(M)config_files:#*/path.zsh}
+do
+  source $file
+done
+
+# load everything but the path and completion files
+for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+do
+  source $file
+done
+
+{
+    # Compile zcompdump, if modified, to increase startup speed.
+    zcompdump="${ZDOTDIR:-$HOME/.config/zsh}/.zcompdump"
+    if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then
+        zcompile "$zcompdump"
+    fi
+} &! 
+
+skip_global_compinit=1
+
+autoload -U compinit
+# only check compinit cache once per day
+if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-"$HOME"/.config/zsh}/.zcompdump) ]; then
+  compinit
+else
+  compinit -C
+fi
+
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -U compinit
+compinit
+
+# Better history
+# Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
+
+chmod -R go-w "$(brew --prefix)/share/zsh"
+
+source $HOME/.config/ohmyzsh/oh-my-zsh.sh
+
+# load syntax highlighting
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+test -e "${HOME}/.config/iterm2/iterm2_shell_integration.zsh" && source "${HOME}/.config/iterm2/iterm2_shell_integration.zsh"
+
+# uncomment to debug the zsh startup
+zprof

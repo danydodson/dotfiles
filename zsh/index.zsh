@@ -1,4 +1,3 @@
-# 
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -6,17 +5,18 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export ZDOTDIR="$HOME/.config/zsh"
 export ZSH_CACHE_DIR="$HOME/.cache/zsh"
 
-# config
+export STARSHIP_CONFIG="$HOME/.config/zsh/no-runtime.toml"
+
+export STARSHIP_CONFIG="$"
+
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
-fpath=($DOTFILES/basic/functions $fpath)
+fpath=($DOTFILES/functions $fpath)
 
-autoload -U $DOTFILES/basic/functions/*(:t)
+autoload -U $DOTFILES/functions/*(:t)
 
-# customizations
-source $DOTFILES/basic/shell/custom.sh
-
+HISTFILE=~/.config/zsh/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
@@ -54,4 +54,5 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # pasting with tabs doesn't perform completion
 zstyle ':completion:*' insert-tab pending
 
-
+# customizations
+source $DOTFILES/zsh/custom.sh
