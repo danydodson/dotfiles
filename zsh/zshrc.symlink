@@ -1,12 +1,12 @@
 # uncomment to debug the zsh startup
-zmodload zsh/zprof
+# zmodload zsh/zprof
 
 # shortcut to this dotfiles path is $ZSH
 export DOTFILES="$HOME"/.dotfiles
 export ZDOTDIR="$HOME"/.config/zsh
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-brew update --force --quiet
+# brew update --force --quiet
 
 eval "$(starship init zsh)"
 
@@ -75,4 +75,4 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 test -e "${HOME}/.config/iterm2/iterm2_shell_integration.zsh" && source "${HOME}/.config/iterm2/iterm2_shell_integration.zsh"
 
 # uncomment to debug the zsh startup
-zprof
+# zprof

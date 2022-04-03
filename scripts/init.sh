@@ -133,7 +133,7 @@ install_dotfiles
 
 info "installing dependencies"
 # shellcheck disable=SC1091
-if source $DOTFILES/scripts/dependencies-install.sh; then
+if source $DOTFILES/scripts/installer.sh; then
   success "dependencies installed"
 else
   fail "error installing dependencies"

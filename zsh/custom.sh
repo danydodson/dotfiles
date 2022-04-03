@@ -6,7 +6,7 @@ alias src=". ~/.zshrc"
 alias c="clear"
 
 alias dots="cd ~/.dotfiles && code ."
-alias dotinstall="cd ~/.dotfiles && sh scripts/dotfiles-install.sh "
+alias dotinstall="cd ~/.dotfiles && sh scripts/init.sh "
 
 alias buu="brew update && brew upgrade && brew cleanup && brew doctor"
 

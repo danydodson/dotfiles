@@ -3,4 +3,4 @@
 # run `update` periodically to make sure you're on the latest and greatest
 
 export DOTFILES=$HOME/.dotfiles
-$DOTFILES/scripts/dependencies-update.sh
+$DOTFILES/scripts/updater.sh
