@@ -1,2 +1,0 @@
-# aliases
-alias gs='gst'

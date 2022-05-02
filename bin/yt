@@ -1,6 +1,0 @@
-#!/bin/sh
-
-# Downloads the embedded video on any web page straight to the desktop.
-# https://github.com/yt-dlp/yt-dlp
-
-cd ~/Documents/Torrents/Seeding && yt-dlp "$1"

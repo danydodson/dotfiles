@@ -1,1 +1,0 @@
-export WAKATIME_HOME="$XDG_DATA_HOME/wakatime"

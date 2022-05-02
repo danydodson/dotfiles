@@ -1,17 +1,8 @@
 {
   "files.associations": {
-    "**/bin/*": "shellscript",
-    "**/functions/*": "shellscript",
-    "**/*.symlink": "shellscript",
-    "**/config+zsh+pastel.toml.symlink": "toml",
-    "**/config+zsh+pure.toml.symlink": "toml",
-    "**/config+zsh+symbols.toml.symlink": "toml",
-    "**/config+zsh+no-runtiime.toml.symlink": "toml",
-    "**/config+git+ignore.symlink": "ignore",
-    "**/config+git+config.symlink": "gitconfig",
-    "**/config+git+config-local.symlink": "gitconfig",
-    "**/config+git+config-local.symlink.example": "gitconfig",
-    "**/*environment.plist.symlink": "plist"
+    "**/bin/*": "shellscript"
   },
-  "shellcheck.exclude": ["**/zshrc.symlink", "**/_c", "**/extract"]
+
+  "shellcheck.exclude": ["**/zshrc"],
+  "bashIde.explainshellEndpoint": "http://localhost:5000"
 }
