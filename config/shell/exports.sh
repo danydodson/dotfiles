@@ -1,9 +1,8 @@
 #!/bin/bash
 
+# variables
 export EDITOR='code'
-export TMPDIR="$HOME/tmp"
 export TERM="xterm-256color"
-export LANG="en_US.UTF-8"
 
 # xdg
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -36,5 +35,5 @@ export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
 # wakatime
 export WAKATIME_HOME="$XDG_CONFIG_HOME/wakatime"
 
-# haxm
-# export INTEL_HAXM_HOME="/opt/homebrew/opt/intel-haxm"
+# git
+# export GITSTATUS_LOG_LEVEL=DEBUG

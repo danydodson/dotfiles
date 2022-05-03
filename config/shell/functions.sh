@@ -82,11 +82,7 @@ ipinf0() {
 }
 
 yt() {
-  yt-dlp $1 -o "~/Movies/%(title)s.%(ext)s"
-}
-
-set_aws_profile() {
-  export AWS_DEFAULT_PROFILE=$1
+  yt-dlp $1 -o "~/Movies/Web/%(title)s.%(ext)s"
 }
 
 wifi_pass() {
@@ -144,21 +140,21 @@ appify() {
 }
 
 # ctrl-x
-fzf_sl() {
-  _SCRIPTS_PATH="$HOME/Dotfiles/scripts/"
+# fzf_sl() {
+#   _SCRIPTS_PATH="$HOME/Dotfiles/scripts/"
 
-  _allfiles=$(rg -t sh --files "$_SCRIPTS_PATH")
-  # _filteredfiles=$(echo "$_allfiles" | grep -v "_templates/\|setup/")
-  # _cutpaths=$(echo "$_filteredfiles" | cut -c 30-)
-  _cutpaths=$(echo "$_allfiles" | cut -c 30-)
+#   _allfiles=$(rg -t sh --files "$_SCRIPTS_PATH")
+#   # _filteredfiles=$(echo "$_allfiles" | grep -v "_templates/\|setup/")
+#   # _cutpaths=$(echo "$_filteredfiles" | cut -c 30-)
+#   _cutpaths=$(echo "$_allfiles" | cut -c 30-)
 
-  local selected
-  if selected=$(echo "$_cutpaths" | fzf --height 40% --preview "bat --style=grid --color=always '$_SCRIPTS_PATH{}'" -q "$LBUFFER"); then
-    LBUFFER="$_SCRIPTS_PATH$selected"
-  fi
-  zle redisplay
-}
+#   local selected
+#   if selected=$(echo "$_cutpaths" | fzf --height 40% --preview "bat --style=grid --color=always '$_SCRIPTS_PATH{}'" -q "$LBUFFER"); then
+#     LBUFFER="$_SCRIPTS_PATH$selected"
+#   fi
+#   zle redisplay
+# }
 
 # keybinding
-zle -N fzf_sl
-bindkey '^X' fzf_sl
+# zle -N fzf_sl
+# bindkey '^X' fzf_sl
