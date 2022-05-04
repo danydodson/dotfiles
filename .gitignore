@@ -2,3 +2,4 @@
 **/Brewfile.lock.json
 **/Icon?
 **/.netrwhist
+**/*.env

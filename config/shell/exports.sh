@@ -35,5 +35,8 @@ export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
 # wakatime
 export WAKATIME_HOME="$XDG_CONFIG_HOME/wakatime"
 
-# git
-# export GITSTATUS_LOG_LEVEL=DEBUG
+# homebrew
+export HOMEBREW_NO_ANALYTICS=true
+export HOMEBREW_NO_INSTALL_CLEANUP=true
+export HOMEBREW_BAT=true
+

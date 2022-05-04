@@ -1,9 +1,10 @@
 #!/bin/bash
 
+unalias -a 
+
 alias b='brew'
 alias cat='bat'
 alias g='git'
-alias kill='fkill'
 alias loc='tokei'
 alias man='tldr'
 alias py='/opt/homebrew/bin/python3'

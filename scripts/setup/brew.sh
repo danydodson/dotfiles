@@ -73,28 +73,109 @@ brew tap heroku/brew || _error 'failed brew tap heroku/brew'
 brew tap bramstein/webfonttools || _error 'failed brew tap bramstein/webfonttools'
 
 _info 'Installing binaries, terminal stuff, CLI...'
-BINARIES=(ack aircrack-ng asdf autoenv awscli bash bat bc coreutils exa fd findutils folderify fzf gawk gcc gh go gpg grep heroku htop httpie irssi jq macvim mas mongocli moreutils readline ranger sfnt2woff sfnt2woff-zopfli woff2 shellcheck spark tag thefuck tldr trash tree wget yarn yt-dlp z zsh-history-substring-search zsh-autosuggestions zsh-syntax-highlighting)
+BINARIES=(
+  ack
+  aircrack-ng
+  asdf
+  autoenv
+  awscli
+  bash
+  bat
+  bc
+  coreutils
+  exa
+  fd
+  findutils
+  folderify
+  fzf
+  gawk
+  gcc
+  gh
+  gpg
+  grep
+  heroku
+  httpie
+  irssi
+  jq
+  mas
+  mongocli
+  moreutils
+  readline
+  ranger
+  sfnt2woff
+  sfnt2woff-zopfli
+  woff2
+  shellcheck
+  tldr
+  trash-cli
+  tree
+  wget
+  yt-dlp
+  z
+  zsh-history-substring-search
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+
 for brew in "${BINARIES[@]}"; do
   _info "installing $brew"
   brew install "$brew" || _error "failed brew install $brew"
 done
 
 _info 'Installing dev environment...'
-DEV_LIBRARIES=(lua node)
+DEV_LIBRARIES=(
+  lua
+)
 for brew in "${DEV_LIBRARIES[@]}"; do
   _info "installing $brew"
   brew install "$brew" || _error "failed brew install $brew"
 done
 
 _info 'Installing dev tool casks...'
-DEV_CASKS=(chromedriver mongodb-compass postman insomnia iterm2 robo-3t visual-studio-code)
+DEV_CASKS=(
+  chromedriver
+  docker
+  mongodb-compass
+  postman
+  iterm2
+  macvim
+  visual-studio-code
+)
 for cask in "${DEV_CASKS[@]}"; do
   _info "installing $cask"
   brew install --cask "$cask" || _error "failed brew cask install $cask"
 done
 
 _info 'Installing misc casks...'
-MISC_CASKS=(apparency appcleaner asset-catalog-tinkerer battle-net bitwarden blackhole-2ch blackhole-16ch discord dropbox firefox-developer-edition google-chrome netnewswire nvidia-geforce-now slack spotify steam streamlabs-obs suspicious-package the-unarchiver tor-browser transmission vlc whatsapp xbar)
+MISC_CASKS=(
+  apparency
+  appcleaner
+  asset-catalog-tinkerer
+  battle-net
+  blackhole-2ch
+  blackhole-16ch
+  discord
+  dropbox
+  firefox-developer-edition
+  google-chrome
+  google-drive
+  netnewswire
+  nvidia-geforce-now
+  slack
+  spark
+  spotify
+  steam
+  streamlabs-obs
+  suspicious-package
+  syntax-highlight
+  tag
+  the-unarchiver
+  tor-browser
+  transmission
+  vlc
+  whatsapp
+)
+
 for cask in "${MISC_CASKS[@]}"; do
   _info "installing $cask"
   brew install --cask "$cask" || _error "failed brew cask install $cask"

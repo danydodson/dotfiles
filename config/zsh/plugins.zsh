@@ -4,7 +4,7 @@
 # oh-my-zsh                                                           #
 #######################################################################
 
-plugins=(aliases heroku macos node npm thefuck)
+plugins=(aliases brew heroku macos node npm ruby yarn)
 
 # oh-my-zsh.sh
 source "${HOME}/.config/local/oh-my-zsh/oh-my-zsh.sh"
@@ -107,5 +107,3 @@ source "${HOME}/.config/iterm2/iterm2_shell_integration.zsh"
 # asdf
 source /opt/homebrew/opt/asdf/libexec/asdf.sh
 
-# thefuck
-eval $(thefuck --alias)

@@ -4,7 +4,7 @@
     {
       "type": "zshdb",
       "request": "launch",
-      "name": "Zsh-Debug (simplest configuration)",
+      "name": "Zsh-Debug",
       "pathPkill": "/usr/bin/pkill",
       "program": "${file}"
     }
