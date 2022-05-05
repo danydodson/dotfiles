@@ -14,16 +14,18 @@ while true; do sudo -n true sleep 60 kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 # ZSH                                                                         #
 ###############################################################################
-_info 'Installing zsh...'
+_info 'Installing zsh shell...'
 
 brew install zsh || _error 'failed installing zsh'
 
-# _info 'Installing the Dracula theme for iTerm (opening file)'
-# open '~Developer/Dotfiles/config/iterm/Dracula.itermcolors' && _ok ''
-
-_info 'Setting ZSH as the default shell environment'
-sudo sh -c 'echo $(which zsh) >> /etc/shells'
-chsh -s "$(which zsh)" && _ok ''
+if grep -Fxq "/opt/homebrew/bin/zsh" /etc/shells; then
+  _info '/opt/homebrew/bin/zsh is already in /etc/shells'
+else
+  _info "Adding /opt/homebrew/bin/zsh to /etc/shells"
+  chsh -s "$(which zsh)" && _ok ''
+  _info "Changing default shell to zsh"
+  sudo sh -c 'echo $(which zsh) >> /etc/shells'
+fi
 
 ###############################################################################
 # Oh-My-Zsh                                                                   #
@@ -73,10 +75,10 @@ brew tap heroku/brew || _error 'failed brew tap heroku/brew'
 brew tap bramstein/webfonttools || _error 'failed brew tap bramstein/webfonttools'
 
 _info 'Installing binaries, terminal stuff, CLI...'
+
 BINARIES=(
   ack
   aircrack-ng
-  asdf
   autoenv
   awscli
   bash
@@ -123,24 +125,27 @@ for brew in "${BINARIES[@]}"; do
 done
 
 _info 'Installing dev environment...'
+
 DEV_LIBRARIES=(
   lua
 )
+
 for brew in "${DEV_LIBRARIES[@]}"; do
   _info "installing $brew"
   brew install "$brew" || _error "failed brew install $brew"
 done
 
 _info 'Installing dev tool casks...'
+
 DEV_CASKS=(
   chromedriver
   docker
   mongodb-compass
   postman
   iterm2
-  macvim
   visual-studio-code
 )
+
 for cask in "${DEV_CASKS[@]}"; do
   _info "installing $cask"
   brew install --cask "$cask" || _error "failed brew cask install $cask"
@@ -185,7 +190,7 @@ done
 # npm                                                                         #
 ###############################################################################
 # _info 'Installing npm packages...'
-npm install -g typescript || _error 'failed npm install typescript'
+# npm install -g typescript || _error 'failed npm install typescript'
 
 ###############################################################################
 # Mac App Store                                                               #

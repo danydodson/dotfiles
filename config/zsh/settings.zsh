@@ -16,19 +16,8 @@ fi
 [[ ! -f "$HOME/Dotfiles/config/zsh/p10k.zsh" ]] || source "$HOME/Dotfiles/config/zsh/p10k.zsh"
 
 #######################################################################
-# Terminal Options                                                   #
-#######################################################################
-
-export EDITOR='code'
-export SHELL='/opt/homebrew/bin/zsh'
-export TERM='xterm-256color'
-
-#######################################################################
 # Completions                                                         #
 #######################################################################
-
-# colorls
-source "$HOME"/.config/local/share/gem/ruby/3.1.0/gems/colorls-1.4.6/lib/tab_complete.sh
 
 zcompdump="${ZDOTDIR:-$HOME/.config/zsh}/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
 
@@ -37,18 +26,6 @@ if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdu
 fi
 
 skip_global_compcinit=1
-
-# autoload -U compinit
-
-# {
-#   if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-"$HOME"/.config/zsh}/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}) ]; then
-#     compinit
-#   else
-#     compinit -C
-#   fi
-# } &!
-
-# autoload -U compinit && compinit
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' insert-tab pending

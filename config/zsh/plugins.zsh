@@ -4,7 +4,7 @@
 # oh-my-zsh                                                           #
 #######################################################################
 
-plugins=(aliases brew heroku macos node npm ruby yarn)
+plugins=(aliases brew fnm heroku macos node npm ruby yarn)
 
 # oh-my-zsh.sh
 source "${HOME}/.config/local/oh-my-zsh/oh-my-zsh.sh"
@@ -104,6 +104,5 @@ source /opt/homebrew/etc/profile.d/z.sh
 # iTerm2 integration
 source "${HOME}/.config/iterm2/iterm2_shell_integration.zsh"
 
-# asdf
-source /opt/homebrew/opt/asdf/libexec/asdf.sh
-
+# fnm
+eval "$(fnm env --use-on-cd)"
