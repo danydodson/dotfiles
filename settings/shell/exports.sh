@@ -72,8 +72,8 @@ export _Z_DATA="$ZDOTDIR"/.z
 # vim                                                                 #
 #######################################################################
 
-export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 export MYVIMRC="$XDG_CONFIG_HOME"/vim/vimrc
+export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 
 #######################################################################
 # npm                                                                 #
@@ -96,7 +96,7 @@ export WAKATIME_HOME="$XDG_CONFIG_HOME"/wakatime
 # terminfo                                                            #
 #######################################################################
 
-export TERMINFO="$DOTFILES"/settings/terminfo
+# export TERMINFO="$DOTFILES"/settings/terminfo
 
 #######################################################################
 # less                                                                #
