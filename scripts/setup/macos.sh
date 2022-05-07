@@ -32,7 +32,7 @@ if [[ $response =~ (yes|y|Y) ]]; then
 	_info 'Backing up current /etc/hosts to /etc/hosts.backup'
 	sudo cp /etc/hosts /etc/hosts.backup && _ok 'backed up hosts'
 	_info 'Overwriting /etc/hosts'
-	sudo cp ./config/system/hosts /etc/hosts && _ok 'overwrote hosts'
+	sudo cp ./settings/system/hosts /etc/hosts && _ok 'overwrote hosts'
 else
 	_ok 'skipped'
 fi

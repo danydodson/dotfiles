@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Copy public key to clipboard
+
+. $DOTFILES/scripts/lib/helpers.sh
+. $DOTFILES/scripts/lib/pretty.bash
+
+__pubkey() {
+  more ~/.ssh/id_rsa.pub | pbcopy | __dko_ok "=> Public key copied to pasteboard."
+}
+
+__pubkey

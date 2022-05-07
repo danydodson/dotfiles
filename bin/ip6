@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Get public ip6
+
+__ip6() {
+  dig -6 TXT +short o-o.myaddr.l.google.com @ns1.google.com
+}
+
+__ip6

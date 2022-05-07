@@ -1,0 +1,6 @@
+#!/bin/bash
+
+p=$(dirname "${BASH_SOURCE[0]}")
+"${p}/dko-line"
+"${p}/dko-center" "$1"
+"${p}/dko-line"

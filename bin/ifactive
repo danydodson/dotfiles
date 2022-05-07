@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Get active network interface
+
+__ifactive() {
+  ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'
+}
+
+__ifactive
+

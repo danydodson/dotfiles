@@ -1,11 +1,11 @@
 # dotfiles
 
-This project is heavily inspired by @holman [dotfiles](https://github.com/holman/dotfiles). I've added [`oh-my-zsh`](https://ohmyz.sh/), changed the whole structure, and simplified a lot the version management for programming languages by using [`asdf`](https://asdf-vm.com/).
+This project is heavily inspired by @longpdo [dotfiles](https://github.com/longpdo/dotfiles). I've added [`oh-my-zsh`](https://ohmyz.sh/), changed the whole structure, and simplified a lot the version management for programming languages by using [`asdf`](https://asdf-vm.com/).
 
 ## install
 
 ```sh
-git clone https://github.com/rafaeleyng/dotfiles.git ~/Dotfiles
+git clone https://github.com/danydodson/dotfiles.git ~/Dotfiles
 cd ~/Dotfiles
 scripts/dotfiles-install.sh
 ```

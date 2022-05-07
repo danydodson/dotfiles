@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ "$OSTYPE" = *'arwin'* ]]; then
+  open "$@"
+else
+  xdg-open "$@" >/dev/null
+fi
+

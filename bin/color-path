@@ -1,0 +1,56 @@
+# NOTE no shebang, this needs access to current shell
+
+# _path
+# adapted from https://github.com/myfreeweb/zshuery/blob/master/zshuery.sh
+
+__parse_args() {
+  local the_path
+
+  # concat array with semicolon to support array paths like fpath
+  if [ "$1" = "-a" ]; then
+    the_path=$(echo "${*:2}" | tr " " ":")
+
+  # use path
+  elif (($# == 0)); then
+    the_path=$PATH
+
+  # use var in $1
+  else
+    the_path=$1
+
+  fi
+
+  # return
+  echo $the_path
+}
+
+__color_path() {
+  # split, also split over ; for joined array in ZSH
+  echo $1 | tr ":" "\n" | tr " " "\n"
+}
+
+__colorize() {
+  local Z="\033[0m"
+  local K="\033[0;30m"
+  local R="\033[0;31m"
+  local G="\033[0;32m"
+  local Y="\033[0;33m"
+  local B="\033[0;34m"
+  local P="\033[0;35m"
+  local C="\033[0;36m"
+  local W="\033[0;37m"
+
+  # exception for /opt since may have /options
+  awk "{ sub(\"/usr\",   \"$G/usr$Z\"); \
+    sub(\"/bin\",   \"$B/bin$Z\"); \
+    sub(\"/sbin\",  \"$P/sbin$Z\"); \
+    sub(\"/local\", \"$Y/local$Z\"); \
+    sub(\"/opt/\",   \"$C/opt$Z/\"); \
+    sub(\"/Users\", \"$R/Users$Z\"); \
+    sub(\"/home\",  \"$R/home$Z\"); \
+    print }"
+}
+
+__color_path $(__parse_args $@) | __colorize
+
+# vim: syn=sh :

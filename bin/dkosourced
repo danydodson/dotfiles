@@ -1,0 +1,3 @@
+#!/opt/homebrew/bin/node
+
+require('../scripts/lib/sources.js')()

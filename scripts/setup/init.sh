@@ -38,7 +38,7 @@ read _git_name
 _info "What's your email address?"
 read _git_email
 
-_DIR="$(cd $HOME/Dotfiles/config/git && pwd)"
+_DIR="$(cd $HOME/Dotfiles/settings/git && pwd)"
 
 for file in .gitignore .gitconfig; do
   cp -p $_DIR/$file $HOME/.config/git/$file

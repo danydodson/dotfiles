@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# fzf-xcode - XCode version switcher
+# Uses fzf
+# @see <https://github.com/junegunn/fzf/wiki/examples>
+
+__main() {
+  local current
+  local version
+
+  command -v fzf-tmux >/dev/null || return 1
+  command -v xcode-select >/dev/null || return 1
+
+  current=$(xcode-select --print-path)
+  version=$(find /Applications -maxdepth 1 -iname 'Xcode*.app' | fzf-tmux \
+    +m \
+    --cycle \
+    --exit-0 \
+    --height=25% --no-hscroll --no-multi \
+    --nth=1 \
+    --prompt="$current> ") &&
+    sudo xcode-select --switch "${version}" &&
+    printf 'Now using %s' "$version"
+}
+
+[[ "$OSTYPE" == *'arwin'* ]] && __main
