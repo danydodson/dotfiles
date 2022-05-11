@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # fzf-xcode - XCode version switcher
-# Uses fzf
 # @see <https://github.com/junegunn/fzf/wiki/examples>
 
 __main() {

@@ -1,9 +1,6 @@
 #!/bin/bash
-#
-# git-today
-#
+
 # Show my commits for today
-#
 
 git log --since=00:00:00 \
   --all --no-merges --oneline \

@@ -1,9 +1,6 @@
 #!/bin/bash
-#
-# git-whats
-#
+
 # Show a git alias' definition
-#
 
 set -e
 

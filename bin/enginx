@@ -1,9 +1,6 @@
 #!/bin/bash
 
-# enginx
-#
 # Locate and edit the main nginx configuration file as root
-#
 
 _enginx() {
   local nginx_conf

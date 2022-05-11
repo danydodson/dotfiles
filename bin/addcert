@@ -1,4 +1,4 @@
-#!/opt/homebrew/bin/zsh
+#!/bin/bash
 
 [[ "$OSTYPE" == *'arwin'* ]] || exit 1
 

@@ -2,9 +2,6 @@
 
 # Look upwards from $PWD for filename $1, output to stdout if found.
 # Does not follow symlinks.
-#
-# MIT License
-#
 
 set -eu
 

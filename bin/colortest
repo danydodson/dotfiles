@@ -3,7 +3,7 @@
 . "${DOTFILES}/scripts/lib/helpers.sh"
 . "${DOTFILES}/scripts/lib/pretty.bash"
 
-theme=${1:-"${DOTFILES}/settings/base16/scripts/base16-dracula.sh"}
+theme=${1:-"${DOTFILES}/config/base16/scripts/base16-dracula.sh"}
 
 if [ -f $theme ]; then
   # get the color declarations in said theme, assumes there is a block of text that starts with color00= and ends with new line

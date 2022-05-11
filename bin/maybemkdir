@@ -4,7 +4,7 @@ cd -- "$(dirname "$0")/.." || exit 1
 
 __dotfiles_dir="$PWD"
 
-. "$__dotfiles_dir/scripts/lib/pretty.bash"
+. "$__dotfiles_dir/scripts/logs/pretty.bash"
 
 __maybemkdir() {
   if [[ ! -d "$1" ]]; then

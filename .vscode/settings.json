@@ -1,8 +1,5 @@
 {
   "files.associations": {
     "**/bin/*": "shellscript"
-  },
-
-  "shellcheck.exclude": ["**/zshrc"],
-  "bashIde.explainshellEndpoint": "http://localhost:5000"
+  }
 }

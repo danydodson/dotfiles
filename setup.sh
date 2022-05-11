@@ -3,8 +3,8 @@
 echo ""
 
 # Log Helper
-_info() { echo -e "\033[36m[INFO]\033[0m $1"; }
-_ok() { echo -e "\033[32m[OK]\033[0m $1"; }
+__info() { echo -e "\033[36m[INFO]\033[0m $1"; }
+__ok() { echo -e "\033[32m[OK]\033[0m $1"; }
 
 function runScripts() {
   # Ask for the administrator password upfront
@@ -16,27 +16,27 @@ function runScripts() {
   # Run sections based on command line arguments
   for ARG in "$@"; do
     if [ "$ARG" == 'init' ] || [ "$ARG" == 'all' ]; then
-      _info 'Starting init.sh script...'
+      __info 'Starting init.sh script...'
       ./scripts/setup/init.sh
     fi
     if [ "$ARG" == 'files' ] || [ "$ARG" == 'all' ]; then
-      _info 'Starting files.sh script...'
+      __info 'Starting files.sh script...'
       ./scripts/setup/files.sh
     fi
     if [ "$ARG" == 'brew' ] || [ "$ARG" == 'all' ]; then
-      _info 'Starting brew.sh script...'
+      __info 'Starting brew.sh script...'
       ./scripts/setup/brew.sh
     fi
     if [ "$ARG" == 'macos' ] || [ "$ARG" == 'all' ]; then
-      _info 'Starting macos.sh script...'
+      __info 'Starting macos.sh script...'
       ./scripts/setup/macos.sh
     fi
     if [ "$ARG" == 'config' ] || [ "$ARG" == 'all' ]; then
-      _info 'Starting config.sh script...'
+      __info 'Starting config.sh script...'
       ./scripts/setup/config.sh
     fi
   done
-  _ok 'Completed running setup.sh, restart your computer to ensure all updates take effect'
+  __ok 'Completed running setup.sh, restart your computer to ensure all updates take effect'
 }
 
 read -r -p 'This script may overwrite existing files in your home directory. Are you sure? (y/n) ' -n 1

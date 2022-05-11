@@ -1,4 +1,4 @@
-#!/opt/homebrew/bin/zsh
+#!/bin/bash
 
 # Only for macOS
 [[ "$OSTYPE" == *'arwin'* ]] &&

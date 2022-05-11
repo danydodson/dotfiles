@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Determine size of a file or total size of a directory
+
 __fs() {
   local arg
   if du -b /dev/null >/dev/null 2>&1; then
