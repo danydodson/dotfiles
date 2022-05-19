@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Create symlink of current dir at ~/.shell.here
+
+_info() {
+  echo -e "\033[36m[INFO]\033[0m $1"
+}
+
+loc=''
+
+if [ "$#" -eq 1 ]; then
+  loc=$(realpath "$1")
+else
+  loc=$(realpath ".")
+fi
+
+ln -sfn "${loc}" "$HOME/.shell.here"
+
+_info "here -> $(readlink "$HOME"/.shell.here)"

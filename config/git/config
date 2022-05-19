@@ -11,7 +11,7 @@
   branch = auto
   ui = true
 [core]
-  excludesfile = ~/.config/git/.gitignore
+  excludesfile = ~/.config/git/ignore
   editor = vim
   pager = delta
 [apply]

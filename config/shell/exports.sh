@@ -58,20 +58,8 @@ export ZSH="$XDG_DATA_HOME"/oh-my-zsh
 export HOMEBREW_ROOT=/opt/homebrew
 export HOMEBREW_NO_ANALYTICS=true
 export HOMEBREW_NO_INSTALL_CLEANUP=true
-_token=$(cat "$DOTFILES"/config/git/github-token)
+_token=$(cat "$DOTFILES"/config/git/token)
 export HOMEBREW_GITHUB_API_TOKEN=$_token
-
-#######################################################################
-# z                                                                   #
-#######################################################################
-
-export _Z_DATA="$ZDOTDIR"/.z
-
-#######################################################################
-# python                                                              #
-#######################################################################
-
-export PYENV_ROOT="$HOME/.config/pyenv"
 
 #######################################################################
 # vim                                                                 #
@@ -81,10 +69,17 @@ export MYVIMRC="$XDG_CONFIG_HOME"/vim/vimrc
 export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 
 #######################################################################
+# python                                                              #
+#######################################################################
+
+export PYENV_ROOT="$HOME/.config/pyenv"
+
+#######################################################################
 # npm                                                                 #
 #######################################################################
 
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME"/npm
+export COREPACK_HOME="$XDG_CONFIG_HOME"/node/corepack
 
 #######################################################################
 # yarn                                                                #
@@ -93,10 +88,25 @@ export NPM_CONFIG_CACHE="$XDG_CACHE_HOME"/npm
 export YARN_CACHE_FOLDER="$XDG_CACHE_HOME"/yarn
 
 #######################################################################
+# z                                                                   #
+#######################################################################
+
+export _Z_DATA="$ZDOTDIR"/.z
+
+#######################################################################
 # wakatime                                                            #
 #######################################################################
 
 export WAKATIME_HOME="$XDG_CONFIG_HOME"/wakatime
+
+#######################################################################
+# autoenv                                                             #
+#######################################################################
+
+export AUTOENV_AUTH_FILE="$XDG_STATE_HOME"/autoenv/.autoenv_authorized
+export AUTOENV_ENV_FILENAME=.local.env
+export AUTOENV_ENABLE_LEAVE="true"
+export AUTOENV_ENV_LEAVE_FILENAME=.leave.env
 
 #######################################################################
 # less                                                                #

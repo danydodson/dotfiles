@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Remove .DS_Store files
+
+_info() {
+  echo -e "\033[36m[INFO]\033[0m $1"
+}
+
+_info "Removing all .DS_Store files from $(pwd)..."
+
+find . -name '*.DS_Store' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;

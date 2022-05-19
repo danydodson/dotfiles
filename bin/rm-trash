@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Remove trash files
+
+_info() {
+  echo -e "\033[36m[INFO]\033[0m $1"
+}
+
+_info "Removing all trash files..."
+
+sudo rm -frv /Volumes/*/.Trashes sudo rm -frv ~/.Trash sudo rm -frv /private/var/log/asl/*.asl

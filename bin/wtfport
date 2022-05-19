@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # List out the pid for the process that is currently listening on the provided port
 

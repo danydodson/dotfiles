@@ -2,11 +2,11 @@
 
 unalias -a
 
-alias b='brew'
 alias cat='bat'
 alias g='git'
 alias loc='tokei'
 alias man='tldr'
+alias nvm='fnm'
 alias r="ranger"
 
 alias c="clear"
@@ -22,17 +22,17 @@ alias sudo='sudo '
 alias tree='exa --tree --level=2'
 alias uuid='uuidgen'
 
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+
 alias sup='sudo softwareupdate -i -a'
+
 alias spotoff='sudo mdutil -a -i off'
 alias spoton='sudo mdutil -a -i on'
+
 alias npmg='npm list -g --depth 0'
 alias yarng='yarn global list'
 
-alias dsk="cd ~/Desktop"
-alias dev="cd ~/Developer"
-alias docs="cd ~/Documents"
 alias dots="cd ~/Developer/Dotfiles"
-alias down="cd ~/Downloads"
 
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 alias ios='open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'

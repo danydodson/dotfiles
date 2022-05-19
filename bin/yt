@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Download videos to ~/Movies/Web/name
+
+
+yt-dlp "$1" -o "$HOME/Movies/Web/%(title)s.%(ext)s"

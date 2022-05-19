@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #######################################################################
-# Path                                                                #
+# path                                                                #
 #######################################################################
 
 path-prepend "/opt/homebrew/bin"
@@ -14,7 +14,10 @@ path-prepend "/opt/homebrew/bin/fzf/bin"
 path-prepend "$HOME/Developer/Dotfiles/bin"
 path-prepend "$HOME/.config/iterm2/utilities"
 
+#######################################################################
+# fpath                                                               #
+#######################################################################
+
 fpath-prepend "/opt/homebrew/share/zsh/site-functions"
 fpath-prepend "/opt/homebrew/share/zsh/zsh-completions"
 
-# typeset -gU cdpath PATH path FPATH fpath MANPATH manpath

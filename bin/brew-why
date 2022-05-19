@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-# List out all installed apps along with all the apps each app is dependent on.
+# List out all installed apps along with all the apps each app is dependent on
 
 brew list -1 --formula | while read -r cask; do
     echo -ne "\x1B[1;34m $cask \x1B[0m"

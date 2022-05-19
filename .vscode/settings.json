@@ -1,5 +1,7 @@
 {
   "files.associations": {
+    "**/config/git/config": "gitconfig",
+    "**/config/git/ignore": "ignore",
     "**/bin/*": "shellscript"
   }
 }

@@ -62,10 +62,10 @@ setopt inc_append_history
 setopt no_bg_nice
 setopt no_hup
 setopt no_list_beep
-setopt prompt_subst
-setopt local_traps
-setopt local_options
-setopt correct
-setopt ignore_eof
-setopt complete_in_word
+# setopt prompt_subst
+# setopt local_traps
+# setopt local_options
+# setopt correct
+# setopt ignore_eof
+# setopt complete_in_word
 setopt complete_aliases

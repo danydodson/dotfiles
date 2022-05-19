@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Create and cd to folder
+
+mkdir -p "$@" && cd "$_" || exit

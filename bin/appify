@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# turn file into .app file
+
+_APPNAME=${2:-$(basename "$1" ".sh")}
+_DIR="$_APPNAME.app/Contents/MacOS"
+
+if [ -a "$_APPNAME.app" ]; then
+    _info "$PWD/$_APPNAME.app already exists :("
+fi
+
+if [[ $_APPNAME == '' || $_DIR == '' ]]; then
+    _info "Appify requires two parameters bash script and app name"
+    _info "Usage : appify myscript.sh myapp"
+else
+    mkdir -p "$_DIR"
+    cp "$1" "$_DIR/$_APPNAME"
+    chmod +x "$_DIR/$_APPNAME"
+    _info "$PWD/$_APPNAME.app"
+fi

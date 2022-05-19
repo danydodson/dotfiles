@@ -1,14 +1,13 @@
+"
+"  ██╗   ██╗ ██╗ ███╗   ███╗ ██████╗   ██████╗
+"  ██║   ██║ ██║ ████╗ ████║ ██╔══██╗ ██╔════╝
+"  ██║   ██║ ██║ ██╔████╔██║ ██████╔╝ ██║
+"  ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║ ██╔══██╗ ██║
+"   ╚████╔╝  ██║ ██║ ╚═╝ ██║ ██║  ██║ ╚██████╗
+"    ╚═══╝   ╚═╝ ╚═╝     ╚═╝ ╚═╝  ╚═╝  ╚═════╝
+"
+
 scriptencoding utf-8
-
-"
-"   ██╗   ██╗ ██╗ ███╗   ███╗ ██████╗   ██████╗
-"   ██║   ██║ ██║ ████╗ ████║ ██╔══██╗ ██╔════╝
-"   ██║   ██║ ██║ ██╔████╔██║ ██████╔╝ ██║
-"   ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║ ██╔══██╗ ██║
-" ██╗╚████╔╝  ██║ ██║ ╚═╝ ██║ ██║  ██║ ╚██████╗
-" ╚═╝ ╚═══╝   ╚═╝ ╚═╝     ╚═╝ ╚═╝  ╚═╝  ╚═════╝
-"
-
 
 set viminfo+=n~/.config/vim/viminfo
 
@@ -18,20 +17,8 @@ set nobackup
 
 syntax enable
 
-" ----------------------------------------------------------------------------
-" Display
-" ----------------------------------------------------------------------------
-
-set title                             " wintitle = filename - vim
-
-" this is already set by modern terminal and removed from nvim
-"set ttyfast
-
-" no beeps or flashes
 set novisualbell
 set noerrorbells
 
-"  if filereadable(expand("~/.vimrc_background"))
-"    let base16colorspace=256
-"    source ~/.vimrc_background
-"  endif
+set title " wintitle = filename - vim
+

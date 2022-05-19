@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#######################################################################
+# log helpers                                                         #
+#######################################################################
+
 _info() {
   echo -e "\033[36m[INFO]\033[0m $1"
 }
@@ -7,6 +11,10 @@ _info() {
 _ok() {
   echo -e "\033[32m[OK]\033[0m $1"
 }
+
+#######################################################################
+# modify path                                                         #
+#######################################################################
 
 function path-remove() {
   PATH=$(echo -n "$PATH" | awk -v RS=: -v ORS=: "\$0 != \"$1\"" | sed 's/:$//')
@@ -22,6 +30,10 @@ function path-prepend() {
   PATH="$1${PATH:+":$PATH"}"
 }
 
+#######################################################################
+# modify fpath                                                        #
+#######################################################################
+
 function fpath-remove() {
   FPATH=$(echo -n "$FPATH" | awk -v RS=: -v ORS=: "\$0 != \"$1\"" | sed 's/:$//')
 }
@@ -36,88 +48,12 @@ function fpath-prepend() {
   FPATH="$1${FPATH:+":$FPATH"}"
 }
 
-function rm-dsstore() {
-  _info "Removing all .DS_Store files from $(pwd)..."
-  find . -name '*.DS_Store' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
-}
-
-function rm-trash() {
-  _info "Removing all trash files..."
-  sudo rm -frv /Volumes/*/.Trashes sudo rm -frv ~/.Trash sudo rm -frv /private/var/log/asl/*.asl
-}
-
-function find-nodemods() {
-  _info "Finding node_modules folders from $(pwd)..."
-  find . -name "node_modules" -print0 -type d -prune | xargs du -chs
-}
-
-function rm-nodemods() {
-  _info "Removing node_modules folders from $(pwd)..."
-  find . -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
-}
-
-function rm-dev-nodemods() {
-  _info "Removing node_modules from ~/Developer..."
-  find ~/Developer -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
-}
-
-function wttr() {
-  curl http://wttr.in/"$1"
-}
-
-function ipinf0() {
-  curl http://ipinfo.io/"$1"
-}
-
-function yt() {
-  yt-dlp "$1" -o "$HOME/Movies/Web/%(title)s.%(ext)s"
-}
-
-function here() {
-  local loc
-  if [ "$#" -eq 1 ]; then
-    loc=$(realpath "$1")
-  else
-    loc=$(realpath ".")
-  fi
-  ln -sfn "${loc}" "$HOME/.shell.here"
-  _info "here -> $(readlink "$HOME"/.shell.here)"
-}
-
-there="$HOME/.shell.here"
-
-function there() {
-  cd "$(readlink "${there}")" || exit
-}
-
-function mkcd() {
-  mkdir -p "$@" && cd "$_" || exit
-}
-
-function fid-cd() {
-  local dir
-  dir=$(find "${1:-.}" -type d 2>/dev/null | fzf +m) && cd "$dir" || exit
-}
-
-function appify() {
-  _APPNAME=${2:-$(basename "$1" ".sh")}
-  _DIR="$_APPNAME.app/Contents/MacOS"
-  if [ -a "$_APPNAME.app" ]; then
-    _info "$PWD/$_APPNAME.app already exists :("
-  fi
-  if [[ $_APPNAME == '' || $_DIR == '' ]]; then
-    _info "Appify requires two parameters bash script and app name"
-    _info "Usage : appify myscript.sh myapp"
-  else
-    mkdir -p "$_DIR"
-    cp "$1" "$_DIR/$_APPNAME"
-    chmod +x "$_DIR/$_APPNAME"
-    _info "$PWD/$_APPNAME.app"
-  fi
-}
+#######################################################################
+# open dotfiles in fzf                                                #
+#######################################################################
 
 function fzf-sl() {
-  _SCRIPTS_PATH="$HOME/Dotfiles/scripts/"
+  _SCRIPTS_PATH="$HOME/Developer/Dotfiles/"
 
   _allfiles=$(rg -t sh --files "$_SCRIPTS_PATH")
   # _filteredfiles=$(echo "$_allfiles" | grep -v "_templates/\|setup/")
@@ -133,3 +69,15 @@ function fzf-sl() {
 
 zle -N fzf-sl
 bindkey '^X' fzf-sl
+
+#######################################################################
+# other                                                               #
+#######################################################################
+
+function wttr() {
+  curl http://wttr.in/"$1"
+}
+
+function ipinf0() {
+  curl http://ipinfo.io/"$1"
+}
