@@ -1,9 +1,10 @@
 # settings.zsh
 
 export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
+export DOTFILES="$HOME"/Developer/Dotfiles
 
 #######################################################################
-# p10k                                                                #
+# p10k configure                                                      #
 #######################################################################
 
 # Code that may require console input must go above this block
@@ -11,8 +12,7 @@ if [[ -r ${XDG_CACHE_HOME/zsh:-$HOME/.config/zsh}/p10k-instant-prompt-'${(%):-%n
   source ${XDG_CACHE_HOME/zsh:-$HOME/.config/zsh}/p10k-instant-prompt-'${(%):-%n}'.zsh
 fi
 
-# To customize, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f "$HOME/Dotfiles/config/zsh/p10k.zsh" ]] || source "$HOME/Dotfiles/config/zsh/p10k.zsh"
+[[ ! -f "$DOTFILES/config/zsh/p10k.zsh" ]] || source "$DOTFILES/config/zsh/p10k.zsh"
 
 #######################################################################
 # Completions                                                         #
@@ -43,10 +43,9 @@ bindkey '^?' backward-delete-char
 # History                                                             #
 #######################################################################
 
-export HISTSIZE=50000
-export HISTFILESIZE=$HISTSIZE
-export SAVEHIST=$HISTSIZE
-export HISTFILE=$ZDOTDIR/.zsh_history
+HISTFILE="$HOME/.config/zsh/zsh_history"
+HISTSIZE=10000
+SAVEHIST=10000
 
 setopt hist_verify
 setopt hist_reduce_blanks

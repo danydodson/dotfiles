@@ -14,6 +14,3 @@ for script in $(rg -t sh -T zsh --files "$_DOTFILES"); do
   [[ $(stat -f "%OLp" "$script") == '644' ]] && chmod +x "$script" && _ok "$script"
 done
 
-# TODO: change permissions for:
-#   chmod 755 $(brew --prefix)/share/zsh
-#   chmod 755 $(brew --prefix)/share/zsh/site-functions

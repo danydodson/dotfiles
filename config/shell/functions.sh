@@ -8,12 +8,6 @@ _ok() {
   echo -e "\033[32m[OK]\033[0m $1"
 }
 
-function up() {
-  _file="$HOME/Dotfiles/config/zsh/.zshrc"
-  _info "Copying $_file to $HOME ..."
-  cp -p "$_file" "$HOME" && _ok "Copied $_file to $HOME"
-}
-
 function path-remove() {
   PATH=$(echo -n "$PATH" | awk -v RS=: -v ORS=: "\$0 != \"$1\"" | sed 's/:$//')
 }
@@ -42,27 +36,27 @@ function fpath-prepend() {
   FPATH="$1${FPATH:+":$FPATH"}"
 }
 
-function rmds() {
+function rm-dsstore() {
   _info "Removing all .DS_Store files from $(pwd)..."
   find . -name '*.DS_Store' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
 }
 
-function rmtrash() {
+function rm-trash() {
   _info "Removing all trash files..."
   sudo rm -frv /Volumes/*/.Trashes sudo rm -frv ~/.Trash sudo rm -frv /private/var/log/asl/*.asl
 }
 
-function finm() {
+function find-nodemods() {
   _info "Finding node_modules folders from $(pwd)..."
   find . -name "node_modules" -print0 -type d -prune | xargs du -chs
 }
 
-function rmnm() {
+function rm-nodemods() {
   _info "Removing node_modules folders from $(pwd)..."
   find . -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
 }
 
-function rmdnm() {
+function rm-dev-nodemods() {
   _info "Removing node_modules from ~/Developer..."
   find ~/Developer -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
 }

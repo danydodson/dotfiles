@@ -4,7 +4,7 @@
 _info() { echo -e "\033[36m[INFO]\033[0m $1"; }
 _ok() { echo -e "\033[32m[OK]\033[0m $1"; }
 
-_file="$HOME/Dotfiles/config/zsh/.zshrc"
+_file="$HOME/Developer/Dotfiles/config/zsh/.zshrc"
 
 _info "Copying file to $HOME ..."
 

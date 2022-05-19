@@ -10,7 +10,7 @@ _ok() {
   echo -e "\033[32m[OK]\033[0m $1"
 }
 
-_file="$HOME/Dotfiles/config/zsh/.zshrc"
+_file="$HOME/Developer/dotfiles/config/zsh/.zshrc"
 
 _info "Copying dotfiles ..."
 

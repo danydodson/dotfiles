@@ -25,9 +25,7 @@ fi
 _info 'Checking for homebrew...'
 if test ! "$(which brew)"; then
   _info '> Installing Homebrew'
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  brew install --cask dropbox && _info 'installed Dropbox'
-  open -a 'Dropbox' && _ok
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && _ok 'installed Homebrew'
 else
   _ok 'Homebrew is already installed'
 fi
@@ -38,7 +36,7 @@ read -r _git_name
 _info "What's your email address?"
 read -r _git_email
 
-_DIR="$(cd "$HOME"/Dotfiles/config/git && pwd)"
+_DIR="$(cd "$HOME"/Developer/Dotfiles/config/git && pwd)"
 
 for file in .gitignore .gitconfig; do
   cp -p "$_DIR"/$file "$HOME"/.config/git/$file

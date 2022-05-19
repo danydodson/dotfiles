@@ -1,4 +1,4 @@
-export DOTFILES="${HOME}/Dotfiles"
+export DOTFILES="${HOME}/Developer/Dotfiles"
 
 # Functions
 source "${DOTFILES}"/config/shell/functions.sh

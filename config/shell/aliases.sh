@@ -31,10 +31,8 @@ alias yarng='yarn global list'
 alias dsk="cd ~/Desktop"
 alias dev="cd ~/Developer"
 alias docs="cd ~/Documents"
-alias dots="cd ~/Dotfiles"
+alias dots="cd ~/Developer/Dotfiles"
 alias down="cd ~/Downloads"
-alias served="cd ~/Developer/Served"
-alias media="cd ~/Developer/Media"
 
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 alias ios='open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'

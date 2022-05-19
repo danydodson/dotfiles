@@ -16,14 +16,10 @@ export VISUAL="$EDITOR"
 export SYSTEMD_EDITOR="$EDITOR"
 
 #######################################################################
-# dotfiles                                                           #
+# dotfiles                                                            #
 #######################################################################
 
-export DOTFILES="$HOME"/Dotfiles
-export LDOTDIR="$DOTFILES"/local
-export VDOTDIR="$DOTFILES"/vim
-
-export DEVELOPER=~/Developer
+export DOTFILES="$HOME"/Developer/Dotfiles
 
 #######################################################################
 # xdg                                                                 #
@@ -42,6 +38,12 @@ export XDG_PICTURES_DIR="$HOME"/Pictures
 export XDG_VIDEOS_DIR="$HOME"/Movies
 
 #######################################################################
+# Links                                                               #
+#######################################################################
+
+export DEVELOPER=~/Developer
+
+#######################################################################
 # zsh                                                                 #
 #######################################################################
 
@@ -56,7 +58,7 @@ export ZSH="$XDG_DATA_HOME"/oh-my-zsh
 export HOMEBREW_ROOT=/opt/homebrew
 export HOMEBREW_NO_ANALYTICS=true
 export HOMEBREW_NO_INSTALL_CLEANUP=true
-_token=$(cat "$DOTFILES"/github-token)
+_token=$(cat "$DOTFILES"/config/git/github-token)
 export HOMEBREW_GITHUB_API_TOKEN=$_token
 
 #######################################################################
@@ -69,7 +71,7 @@ export _Z_DATA="$ZDOTDIR"/.z
 # python                                                              #
 #######################################################################
 
-export PYENV_ROOT="/opt/homebrew/opt/pyenv"
+export PYENV_ROOT="$HOME/.config/pyenv"
 
 #######################################################################
 # vim                                                                 #
@@ -87,6 +89,7 @@ export NPM_CONFIG_CACHE="$XDG_CACHE_HOME"/npm
 #######################################################################
 # yarn                                                                #
 #######################################################################
+
 export YARN_CACHE_FOLDER="$XDG_CACHE_HOME"/yarn
 
 #######################################################################

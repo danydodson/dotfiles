@@ -19,10 +19,6 @@ function runScripts() {
       __info 'Starting init.sh script...'
       ./scripts/setup/init.sh
     fi
-    if [ "$ARG" == 'files' ] || [ "$ARG" == 'all' ]; then
-      __info 'Starting files.sh script...'
-      ./scripts/setup/files.sh
-    fi
     if [ "$ARG" == 'brew' ] || [ "$ARG" == 'all' ]; then
       __info 'Starting brew.sh script...'
       ./scripts/setup/brew.sh

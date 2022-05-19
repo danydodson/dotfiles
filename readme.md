@@ -1,4 +1,4 @@
-# dotfiles
+# dotfiles [![wakatime](https://wakatime.com/badge/github/danydodson/dotfiles.svg)](https://wakatime.com/badge/github/danydodson/dotfiles)
 
 This project is heavily inspired by @longpdo [dotfiles](https://github.com/longpdo/dotfiles). I've added [`oh-my-zsh`](https://ohmyz.sh/), changed the whole structure, and simplified a lot the version management for programming languages by using [`asdf`](https://asdf-vm.com/).
 
