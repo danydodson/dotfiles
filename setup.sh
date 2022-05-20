@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Log Helpers
 . "$HOME/Developer/Dotfiles/utils/helpers.sh"

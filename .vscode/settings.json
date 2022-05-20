@@ -1,12 +1,12 @@
 {
   "files.associations": {
-    "**/bin/*": "shellscript",
+    "**/**/bin/*": "shellscript",
     "**/config/git/config": "gitconfig",
     "**/config/git/ignore": "ignore"
   },
   "shellcheck.ignorePatterns": {
-    "**/bin/color-path": true,
-    "**/bin/fzf-scripts": true
+    "**/**/bin/color-path": true,
+    "**/**/bin/fzf-scripts": true
   },
   "shellcheck.exclude": ["1091"]
 }

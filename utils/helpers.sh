@@ -27,7 +27,7 @@ __requireroot() {
 # require executable
 # $1 name of bin
 __require() {
-  __has "$1" && __status "FOUND: ${1}" && return 0
+  __has "$1" && __info "FOUND: ${1}" && return 0
   __err "MISSING: ${1}"
   __err_ "Please install before proceeding."
   return 1

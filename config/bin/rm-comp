@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm -f ~/.config/zsh/.zcompdump;
+rm -f ~/.config/zsh/.zcompdump-Danys-MacBook-5.8.1;
+rm -f ~/.config/zsh/.zcompdump-Danys-MacBook-5.8.1.zwc;

@@ -23,7 +23,7 @@ __warn_() { printf '\033[0;32m %s\033[0;m\n' "$1"; }
 __err() { printf '\033[0;31m[ERR] \033[0;31m%s\033[0;m\n' "$1"; }
 __err_() { printf '\033[0;31m %s\033[0;m\n' "$1"; }
 
-__warning() { printf '\033[0;32m[WARN] %s\033[0;m\n' "$1" >&2; }
+__warning() { printf '\033[0;32m[WARNING] %s\033[0;m\n' "$1" >&2; }
 __warning_() { printf '\033[0;32m %s\033[0;m\n' "$1" >&2; }
 
 __error() { printf '\033[31m[ERROR]\033[0m %s\n' "$1" >&2; }
