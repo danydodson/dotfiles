@@ -11,5 +11,5 @@ _dotfiles="$HOME/Developer/Dotfiles"
 __info 'Analysing all shell scripts with ShellCheck..'
 
 for script in $(rg -t sh -T zsh --files "$_dotfiles"); do
-  shellcheck "$script" && __ok "$script"
+  shellcheck --exclude=SC1091 "$script" && __ok "$script"
 done
