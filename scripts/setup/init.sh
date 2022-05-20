@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Log Helper
-_info() { echo -e "\033[36m[INFO]\033[0m $1"; }
-_ok() { echo -e "\033[32m[OK]\033[0m $1"; }
+# Log Helpers
+. "$HOME/Developer/Dotfiles/utilities/helpers.sh"
+. "$HOME/Developer/Dotfiles/utilities/pretty.bash"
 
 # Ask for the administrator password upfront
 sudo -v
@@ -10,30 +10,30 @@ sudo -v
 # Keep-alive: update existing sudo time stamp until script has finished
 while true; do sudo -n true sleep 60 kill -0 "$$" || exit; done 2>/dev/null &
 
-_info 'Updating OSX.  If this requires a restart, run the setup.sh script again.'
+ __info 'Updating OSX.  If this requires a restart, run the setup.sh script again.'
 
-_info 'Installing all available updates...'
-sudo softwareupdate -ia --verbose && _ok 'installed all software updates'
+ __info 'Installing all available updates...'
+sudo softwareupdate -ia --verbose &&  __ok 'installed all software updates'
 
-_info 'Checking if xcode is installed...'
+ __info 'Checking if xcode is installed...'
 if test ! "$(xcode-select -p)"; then
-  xcode-select --install && _ok 'installed Xcode Command Line Tools'
+  xcode-select --install &&  __ok 'installed Xcode Command Line Tools'
 else
-  _ok 'already installed'
+   __ok 'already installed'
 fi
 
-_info 'Checking for homebrew...'
+ __info 'Checking for homebrew...'
 if test ! "$(which brew)"; then
-  _info '> Installing Homebrew'
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && _ok 'installed Homebrew'
+   __info '> Installing Homebrew'
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" &&  __ok 'installed Homebrew'
 else
-  _ok 'Homebrew is already installed'
+   __ok 'Homebrew is already installed'
 fi
 
-_info "Installing git config..."
-_info "What's your full name (for git purposes)?"
+ __info "Installing git config..."
+ __info "What's your full name (for git purposes)?"
 read -r _git_name
-_info "What's your email address?"
+ __info "What's your email address?"
 read -r _git_email
 
 _DIR="$(cd "$HOME"/Developer/Dotfiles/config/git && pwd)"

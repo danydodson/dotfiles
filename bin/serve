@@ -4,22 +4,23 @@ cd -- "$(dirname "$0")/.." || exit 1
 
 __dotfiles_dir="$PWD"
 
-. "${__dotfiles_dir}/scripts/templates/helpers.sh"
-. "${__dotfiles_dir}/scripts/templates/pretty.bash"
+# Log Helpers
+. "$__dotfiles_dir/utilities/helpers.sh"
+. "$__dotfiles_dir/utilities/pretty.bash"
 
 __serve() {
   local port
   port="${1:-8888}"
 
-  __dko_has 'python3' && __dko_status "Using python3 http.server" &&
+  __has 'python3' && __info "Using python3 http.server" &&
     python3 -m http.server "$port" &&
     return 0
 
-  __dko_has 'python2' && __dko_status "Using python2 SimpleHTTPServer" &&
+  __has 'python2' && __info "Using python2 SimpleHTTPServer" &&
     python2 -m SimpleHTTPServer "$port" &&
     return 0
 
-  __dko_has 'http-server' && __dko_status "Using node http-server" &&
+  __has 'http-server' && __info "Using node http-server" &&
     http-server -p "$port" &&
     return 0
 }

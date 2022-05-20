@@ -75,6 +75,18 @@ export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 export PYENV_ROOT="$HOME/.config/pyenv"
 
 #######################################################################
+# babel                                                              #
+#######################################################################
+
+export BABEL_CACHE_PATH="$XDG_CACHE_HOME/babel/babel.json"
+
+#######################################################################
+# docker                                                              #
+#######################################################################
+
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+
+#######################################################################
 # npm                                                                 #
 #######################################################################
 
@@ -104,9 +116,9 @@ export WAKATIME_HOME="$XDG_CONFIG_HOME"/wakatime
 #######################################################################
 
 export AUTOENV_AUTH_FILE="$XDG_STATE_HOME"/autoenv/.autoenv_authorized
-export AUTOENV_ENV_FILENAME=.local.env
+export AUTOENV_ENV_FILENAME=.a.env
 export AUTOENV_ENABLE_LEAVE="true"
-export AUTOENV_ENV_LEAVE_FILENAME=.leave.env
+export AUTOENV_ENV_LEAVE_FILENAME=.b.env
 
 #######################################################################
 # less                                                                #

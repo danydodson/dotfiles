@@ -1,6 +1,6 @@
 [user]
-  name = GIT_NAME
-  email = GIT_EMAIL
+  name = "Dany Dodson"
+  email = "danydodson@gmail.com"
 [credential]
   helper = osxkeychain
 [hub]
@@ -13,7 +13,6 @@
 [core]
   excludesfile = ~/.config/git/ignore
   editor = vim
-  pager = delta
 [apply]
   whitespace = nowarn
 [mergetool]
@@ -24,19 +23,8 @@
   autocorrect = 1
 [push]
   default = simple
-[filter "lfs"]
-  smudge = git-lfs smudge %f
-  required = true
-  clean = git-lfs clean %f
 [pager]
   branch = false
   tag = false
-[delta]
-  plus-style = "syntax #012800"
-  minus-style = "syntax #340001"
-  syntax-theme = Monokai Extended
-  navigate = true
-[interactive]
-  diffFilter = delta --color-only
 [init]
-	defaultBranch = main
+    defaultBranch = main

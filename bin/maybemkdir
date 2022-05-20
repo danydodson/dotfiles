@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Log Helpers
+. "$HOME/Developer/Dotfiles/utilities/helpers.sh"
+. "$HOME/Developer/Dotfiles/utilities/pretty.bash"
+
+__maybemkdir() {
+  if [[ ! -d "$1" ]]; then
+    __info "Directory ${1} does not exist."
+    if [[ -z "$CI" ]]; then
+      read -p "          Create? [y/N] " -r
+      [[ ! $REPLY =~ ^[Yy]$ ]] && return 1
+    fi
+    mkdir -p -- "$1" && __ok "Created ${1}"
+  fi
+}
+
+__maybemkdir "$1"

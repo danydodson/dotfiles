@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Run brew uppdate, upgrade, autoremove and cleanup
+
+[[ "$OSTYPE" == *'arwin'* ]] &&
+  command -v brew >/dev/null &&
+  brew update &&
+  brew upgrade &&
+  brew autoremove &&
+  brew cleanup --prune=all -s

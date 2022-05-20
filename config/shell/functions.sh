@@ -1,18 +1,6 @@
 #!/bin/bash
 
 #######################################################################
-# log helpers                                                         #
-#######################################################################
-
-_info() {
-  echo -e "\033[36m[INFO]\033[0m $1"
-}
-
-_ok() {
-  echo -e "\033[32m[OK]\033[0m $1"
-}
-
-#######################################################################
 # modify path                                                         #
 #######################################################################
 
@@ -49,26 +37,22 @@ function fpath-prepend() {
 }
 
 #######################################################################
-# open dotfiles in fzf                                                #
+# open Dotfiles in fzf                                                #
 #######################################################################
 
-function fzf-sl() {
-  _SCRIPTS_PATH="$HOME/Developer/Dotfiles/"
-
-  _allfiles=$(rg -t sh --files "$_SCRIPTS_PATH")
-  # _filteredfiles=$(echo "$_allfiles" | grep -v "_templates/\|setup/")
-  # _cutpaths=$(echo "$_filteredfiles" | cut -c 30-)
-  _cutpaths=$(echo "$_allfiles" | cut -c 30-)
-
+fzf-scripts() {
+  _scripts_path="$HOME/Developer/Dotfiles/"
+  _allfiles=$(rg -t sh --files "$_scripts_path")
+  _cutpaths=$(echo "$_allfiles" | cut -c 32-)
   local selected
-  if selected=$(echo "$_cutpaths" | fzf --height 40% --preview "bat --style=grid --color=always '$_SCRIPTS_PATH{}'" -q "$LBUFFER"); then
-    LBUFFER="$_SCRIPTS_PATH$selected"
+  if selected=$(echo "$_cutpaths" | fzf --height 60% --preview "bat --style=grid --color=always '$_scripts_path{}'" -q "$LBUFFER"); then
+    LBUFFER="$_scripts_path$selected"
   fi
-  zle redisplay
+  # zle redisplay
 }
 
-zle -N fzf-sl
-bindkey '^X' fzf-sl
+zle -N fzf-scripts
+bindkey '^X' fzf-scripts
 
 #######################################################################
 # other                                                               #

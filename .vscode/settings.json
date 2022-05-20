@@ -3,5 +3,10 @@
     "**/config/git/config": "gitconfig",
     "**/config/git/ignore": "ignore",
     "**/bin/*": "shellscript"
-  }
+  },
+  "shellcheck.ignorePatterns": {
+    "**/bin/color-path": true,
+    "**/bin/fzf-scripts": true
+  },
+  "shellcheck.exclude": ["1091"]
 }

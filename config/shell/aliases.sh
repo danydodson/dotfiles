@@ -29,10 +29,8 @@ alias sup='sudo softwareupdate -i -a'
 alias spotoff='sudo mdutil -a -i off'
 alias spoton='sudo mdutil -a -i on'
 
-alias npmg='npm list -g --depth 0'
-alias yarng='yarn global list'
-
-alias dots="cd ~/Developer/Dotfiles"
+alias dev="cd ~/Developer/"
+alias dots="cd ~/Developer/Dotfiles/"
 
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 alias ios='open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'

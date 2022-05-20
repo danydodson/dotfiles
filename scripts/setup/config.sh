@@ -1,9 +1,8 @@
 #!/bin/bash
 
-# Log Helper
-_info() { echo -e "\033[36m[INFO]\033[0m $1"; }
-_ok() { echo -e "\033[32m[OK]\033[0m $1"; }
-_error() { echo -e "\033[31m[ERROR]\033[0m $1"; }
+# Log Helpers
+. "$HOME/Developer/Dotfiles/utilities/helpers.sh"
+. "$HOME/Developer/Dotfiles/utilities/pretty.bash"
 
 # Ask for the administrator password upfront
 sudo -v
@@ -14,7 +13,7 @@ while true; do sudo -n true sleep 60 kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 # Google Chrome                                                               #
 ###############################################################################
-_info "Changing Google Chrome settings..."
+ __info "Changing Google Chrome settings..."
 
 # chrome: allow installing user scripts via GitHub or Userscripts.org
 defaults write com.google.Chrome ExtensionInstallSources -array "https://*.github.com/*" "http://userscripts.org/*"
@@ -28,18 +27,18 @@ defaults write com.google.Chrome.canary AppleEnableMouseSwipeNavigateWithScrolls
 ###############################################################################
 # iTerm2                                                                      #
 ###############################################################################
-_info "Changing iTerm settings..."
+ __info "Changing iTerm settings..."
 
 # iterm2: disabling prompt when quitting iTerm
-defaults write com.googlecode.iterm2 PromptOnQuit -bool false || _error "defaults write com.googlecode.iterm2"
+defaults write com.googlecode.iterm2 PromptOnQuit -bool false ||  __err "defaults write com.googlecode.iterm2"
 
 # iterm2: disabling changing font size with pinch gesture in iTerm
-defaults write com.googlecode.iterm2 PinchToChangeFontSizeDisabled -bool true || _error "defaults write com.googlecode.iterm2"
+defaults write com.googlecode.iterm2 PinchToChangeFontSizeDisabled -bool true ||  __err "defaults write com.googlecode.iterm2"
 
 ###############################################################################
 # Transmission                                                                #
 ###############################################################################
-_info "Changing Transmission settings..."
+ __info "Changing Transmission settings..."
 
 # transmission:download & upload badges
 defaults write org.m0k.transmission BadgeDownloadRate -bool false
@@ -99,10 +98,10 @@ defaults write org.m0k.transmission DisplayProgressBarAvailable -bool false
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
-_info "Killing affected applications..."
+ __info "Killing affected applications..."
 
 for app in "iTerm" "Google Chrome" "Transmission"; do
   killall "${app}" &>/dev/null
 done
 
-_ok "Done. Note that some of these changes require a logout/restart to take effect."
+ __ok "Done. Note that some of these changes require a logout/restart to take effect."

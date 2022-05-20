@@ -2,11 +2,12 @@
 
 # Copy public key to clipboard
 
-. $DOTFILES/scripts/lib/helpers.sh
-. $DOTFILES/scripts/lib/pretty.bash
+# Log Helpers
+. "$HOME/Developer/Dotfiles/utilities/helpers.sh"
+. "$HOME/Developer/Dotfiles/utilities/pretty.bash"
 
 __pubkey() {
-  more ~/.ssh/id_rsa.pub | pbcopy | __dko_ok "=> Public key copied to pasteboard."
+  more ~/.ssh/id_rsa.pub | pbcopy | __ok "=> Public key copied to pasteboard."
 }
 
 __pubkey

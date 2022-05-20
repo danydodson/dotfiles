@@ -1,9 +1,8 @@
 #!/bin/bash
 
-# Log Helper
-_info() { echo -e "\033[36m[INFO]\033[0m $1"; }
-_ok() { echo -e "\033[32m[OK]\033[0m $1"; }
-_error() { echo -e "\033[31m[ERROR]\033[0m $1"; }
+# Log Helpers
+. "$HOME/Developer/Dotfiles/utilities/helpers.sh"
+. "$HOME/Developer/Dotfiles/utilities/pretty.bash"
 
 # Ask for the administrator password upfront.
 sudo -v
@@ -14,37 +13,37 @@ while true; do sudo -n true sleep 60 kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 # Oh-My-Zsh                                                                   #
 ###############################################################################
-_info 'Installing oh-my-zsh...'
+__info 'Installing oh-my-zsh...'
 
 if test ! "$(which omz)"; then
-  git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.config/local/share/oh-my-zsh && _ok ''
+  git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.config/local/share/oh-my-zsh && __ok ''
 fi
 
-_info 'Downloading zsh-tab-title plugin...'
+__info 'Downloading zsh-tab-title plugin...'
 git clone https://github.com/trystan2k/zsh-tab-title \
-  "$ZSH_CUSTOM"/plugins/zsh-tab-title && _ok ''
+  "$ZSH_CUSTOM"/plugins/zsh-tab-title && __ok ''
 
-_info 'Downloading zsh-wakatime plugin...'
+__info 'Downloading zsh-wakatime plugin...'
 git clone https://github.com/wbingli/zsh-wakatime.git \
-  "$ZSH_CUSTOM"/plugins/zsh-wakatime && _ok ''
+  "$ZSH_CUSTOM"/plugins/zsh-wakatime && __ok ''
 
-_info 'Downloading spaceship prompt...'
+__info 'Downloading spaceship prompt...'
 git clone https://github.com/spaceship-prompt/spaceship-prompt.git \
-  "$ZSH_CUSTOM"/themes/spaceship-prompt --depth=1 && _ok ''
+  "$ZSH_CUSTOM"/themes/spaceship-prompt --depth=1 && __ok ''
 
-_info 'Linking spaceship prompt...'
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme" && _ok ''
+__info 'Linking spaceship prompt...'
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme" && __ok ''
 
 ###############################################################################
 # Homebrew                                                                    #
 ###############################################################################
-_info 'Adding taps to brew...'
+__info 'Adding taps to brew...'
 
-brew tap homebrew/bundle || _error 'failed brew taphomebrew/bundle'
-brew tap homebrew/cask-versions || _error 'failed brew tap homebrew/cask-versions'
-brew tap heroku/brew || _error 'failed brew tap heroku/brew'
+brew tap homebrew/bundle ||  __err 'failed brew taphomebrew/bundle'
+brew tap homebrew/cask-versions ||  __err 'failed brew tap homebrew/cask-versions'
+brew tap heroku/brew ||  __err 'failed brew tap heroku/brew'
 
-_info 'Installing binaries, terminal stuff, CLI...'
+__info 'Installing binaries, terminal stuff, CLI...'
 
 BINARIES=(
   ack
@@ -73,44 +72,44 @@ BINARIES=(
 )
 
 for brew in "${BINARIES[@]}"; do
-  _info "installing $brew"
-  brew install "$brew" || _error "failed brew install $brew"
+  __info "installing $brew"
+  brew install "$brew" ||  __err "failed brew install $brew"
 done
 
-_info 'Installing dev environment...'
+__info 'Installing dev environment...'
 
 DEV_LIBRARIES=(
   lua
 )
 
 for brew in "${DEV_LIBRARIES[@]}"; do
-  _info "installing $brew"
-  brew install "$brew" || _error "failed brew install $brew"
+  __info "installing $brew"
+  brew install "$brew" ||  __err "failed brew install $brew"
 done
 
-_info 'Installing misc casks...'
+__info 'Installing misc casks...'
 MISC_CASKS=(
   google-chrome
 )
 
 for cask in "${MISC_CASKS[@]}"; do
-  _info "installing $cask"
-  brew install --cask "$cask" || _error "failed brew cask install $cask"
+  __info "installing $cask"
+  brew install --cask "$cask" ||  __err "failed brew cask install $cask"
 done
 
 ###############################################################################
 # npm                                                                         #
 ###############################################################################
-# _info 'Installing npm packages...'
-# npm install -g typescript || _error 'failed npm install typescript'
+# __info 'Installing npm packages...'
+# npm install -g typescript ||  __err 'failed npm install typescript'
 
 ###############################################################################
 # Mac App Store                                                               #
 ###############################################################################
-# _info 'Installing apps from App Store...'
-# mas install 497799835 || _error 'failed mas install Xcode'
+# __info 'Installing apps from App Store...'
+# mas install 497799835 ||  __err 'failed mas install Xcode'
 
-_info 'Cleaning up...'
+__info 'Cleaning up...'
 
 # Remove unused brew dependencies
-brew cleanup -v && _ok ''
+brew cleanup -v && __ok ''

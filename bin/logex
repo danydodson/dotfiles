@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Log Helpers
+. "$HOME/Developer/Dotfiles/utilities/helpers.sh"
+. "$HOME/Developer/Dotfiles/utilities/pretty.bash"
+
+__echo 'echo'
+
+__info 'info'
+# __info_ 'info_'
+
+__user 'user'
+# __user_ 'user_'
+
+__ok 'ok'
+# __ok_ 'ok_'
+
+__warn 'warn'
+# __warn_ 'warn_'
+
+__err 'err'
+# __err_ 'err_'
+
+__warning 'warning'
+# __warning_ 'warning_'
+
+__error 'error'
+# __error_ 'error_'

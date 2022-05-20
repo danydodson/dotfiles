@@ -2,19 +2,18 @@
 
 # Script cleaning up tmp files
 
-echo ''
+# Log Helpers
+. "$HOME/Developer/Dotfiles/utilities/helpers.sh"
+. "$HOME/Developer/Dotfiles/utilities/pretty.bash"
 
-# Log Helper
-_info() { echo -e "\033[1m[INFO]\033[0m $1"; }
-
-_info "Cleaning up brew packages"
+__info "Cleaning up brew packages"
 brew bundle dump
 brew bundle --force cleanup
 brew cleanup -v
 rm Brewfile
 
-_info "Cleaning up ruby gems"
+__info "Cleaning up ruby gems"
 gem cleanup -v
 
-_info "Deleting .DS_Store files"
+__info "Deleting .DS_Store files"
 find . -type f -name '*.DS_Store' -ls -delete

@@ -1,18 +1,21 @@
 #!/bin/bash
 
-cd -- "$(dirname "$0")/.." || exit 1
-__dotfiles_dir="$PWD"
+# symlinking helper function for ~/Developer/Dotfiles
+# $1 source file in $DOTFILES, assuming ${HOME}/Developer/Dotfiles
+# $2 dest file relative to $HOME
 
-shellcheck source="${__dotfiles_dir}"/setup/logs/pretty.bash
-. "${__dotfiles_dir}/setup/logs/pretty.bash"
+# todo: add support for multiple symlinks
+
+__dotfiles_dir="$HOME/Developer/Dotfiles"
+
+# Log Helpers
+. "$HOME/Developer/Dotfiles/utilities/helpers.sh"
+. "$HOME/Developer/Dotfiles/utilities/pretty.bash"
 
 __symlinking() {
-  printf '\033[0;32m==> OK:   \033[0;35m%s\033[0;m -> %s\033[0;m\n' "$1" "$2"
+  printf '\033[0;36m[OK]  \033[0;35m%s\033[0;m -> %s\033[0;m\n' "$1" "$2"
 }
 
-# symlinking helper function for ~/.dotfiles
-# $1 source file in $DOTFILES, assuming ${HOME}/.dotfiles
-# $2 dest file relative to $HOME
 __symlink() {
   local sourcepath="${__dotfiles_dir}/${1}"
   local fulltargetpath="${HOME}/${2}"
@@ -21,11 +24,11 @@ __symlink() {
   same "$sourcepath" "$fulltargetpath"
   local result=$?
 
-  if (( result == 0 )); then
+  if ((result == 0)); then
     # properly symlinked
     return
-  elif (( result == 10 )); then
-    __status "Found different ${fulltargetpath}"
+  elif ((result == 10)); then
+    __info "Found different ${fulltargetpath}"
     if [[ -z "$CI" ]]; then
       read -p "          Overwrite? [y/N] " -r
       if [[ ! $REPLY =~ ^[Yy]$ ]]; then
@@ -37,7 +40,7 @@ __symlink() {
       return
     fi
     # OVERWRITE!
-  elif (( result != 20 )); then
+  elif ((result != 20)); then
     # could not determine status
     return
   fi

@@ -2,9 +2,9 @@
 
 # Find node_module folders under ~/Developer
 
-_info() {
-  echo -e "\033[36m[INFO]\033[0m $1"
-}
+# Log Helpers
+. "$HOME/Developer/Dotfiles/utilities/helpers.sh"
+. "$HOME/Developer/Dotfiles/utilities/pretty.bash"
 
 _info "Finding node_modules folders from $(pwd)..."
 

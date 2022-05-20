@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
-echo ""
-
-# Log Helper
-__info() { echo -e "\033[36m[INFO]\033[0m $1"; }
-__ok() { echo -e "\033[32m[OK]\033[0m $1"; }
+# Log Helpers
+. "$HOME/Developer/Dotfiles/utilities/helpers.sh"
+. "$HOME/Developer/Dotfiles/utilities/pretty.bash"
 
 function runScripts() {
   # Ask for the administrator password upfront

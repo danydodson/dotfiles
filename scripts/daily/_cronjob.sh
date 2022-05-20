@@ -5,34 +5,20 @@
 # > Add following line to crontab:
 # 30 23 * * * /Users/Dany/Developer/Dotfiles/scripts/daily/_cronjob.sh >/tmp/stdout.log 2>/tmp/stderr.log
 
-export PATH='
-/usr/local/opt/ruby/bin
-:/usr/local/bin
-:/usr/bin
-:/bin
-:/usr/sbin
-:/sbin
-:/Users/Dany/.local/bin
-:/usr/local/opt/coreutils/libexec/gnubin
-:/usr/local/opt/findutils/libexec/gnubin
-:/usr/local/opt/grep/libexec/gnubin
-:/usr/local/opt/bc/bin
-:/usr/local/opt/fzf/bin
-:/Users/Dany/.gem/ruby/2.7.0/bin
-:/Users/Dany/.local/bin'
+export PATH=':/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/Dany/.config/local/bin:/opt/homebrew/bin/coreutils/libexec/gnubin:/opt/homebrew/bin/findutils/libexec/gnubin:/opt/homebrew/bin/grep/libexec/gnubin:/opt/homebrew/bin/bc/bin:/opt/homebrew/bin/fzf/bin:/Users/Dany/Developer/Dotfiles/bin'
 
 # Log Helper
 _info() { echo -e "\033[33m[INFO]\033[0m $1"; }
 
 date
 
-_info "Running update.sh"
+__info "Running update.sh"
 /Users/Dany/Developer/Dotfiles/scripts/daily/update.sh
 
-_info "Running cleanup.sh"
+__info "Running cleanup.sh"
 /Users/Dany/Developer/Dotfiles/scripts/daily/cleanup.sh
 
-_info "Running rebuild-github-pages.sh"
+__info "Running rebuild-github-pages.sh"
 /Users/Dany/Developer/Dotfiles/scripts/daily/rebuild.sh
 
-# TODO send mail on error log
+# todo: send mail on error log
