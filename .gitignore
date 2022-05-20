@@ -1,5 +1,6 @@
 **/.DS_Store
+**/Brewfile.lock.json
 **/Icon?
 **/.netrwhist
 **/*.env
-**/token
+**/git-token

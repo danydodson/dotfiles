@@ -1,82 +1,88 @@
 # dotfiles [![wakatime](https://wakatime.com/badge/github/danydodson/dotfiles.svg)](https://wakatime.com/badge/github/danydodson/dotfiles)
 
-This project is heavily inspired by @longpdo [dotfiles](https://github.com/longpdo/dotfiles). I've added [`oh-my-zsh`](https://ohmyz.sh/), changed the whole structure, and simplified a lot the version management for programming languages by using [`asdf`](https://asdf-vm.com/).
+This project is mostly inspired by [holeman dotfiles](#references). I've added [`oh-my-zsh`](https://ohmyz.sh/), changed the whole structure of the project, and added some new features.
 
 ## install
 
-```sh
+clone this project to your prefered location:
+
+```bash
 git clone https://github.com/danydodson/dotfiles.git ~/.dotfiles
+```
 
-cd ~/.dotfiles
+then run startup.sh using a script name from scripts/setup as a parameter:
 
-./setup.sh
+```bash
+setup.sh foo.sh
+```
+
+or use parameter 'all' to run them all sequentially:
+
+```bash
+setup.sh all
 ```
 
 ## folders
 
 The most notable folders are:
 
+- `config`: scripts that ...
+  - `shell`: files are broken down into ....
+  - `zsh`: files are broken down into ....
 - `scripts`: scripts that you can run manually, to either install this dotfiles project or install/update the dependencies it specifies
-- `basic`: each subfolder contains configuration for some basic component (like a default text editor or a default shell)
-  - `bin/`: files are added to `$PATH` and made available everywhere, and are executed in a child process.
-  - `editor`: configurations for my text editor
-  - `functions/`: files are added to `$fpath` and made available everywhere, and are executed in the current process.
-  - `shell`: configurations for my shell ([zsh](http://zsh.sourceforge.net/))
-- `specific`: each subfolder contains configuration for some specific technology (like Git or the Go programming language):
-  - `oh-my-zsh`: my configuration for [oh-my-zsh](https://ohmyz.sh/)
+  - `apple`: scripts that ...
+  - `daily`: scripts that ...
+  - `git`: scripts that ...
+  - `setup`: scripts that ...
+- `utils`: scripts that ...
 
 ## special files
 
-- `*/index.zsh`: files called `index.zsh` get loaded into your environment when a shell is loaded
-- `*/*.symlink`: files ending in `*.symlink` get symlinked (without the `*.symlink` extension) into your `$HOME` when you run `scripts/dotfiles-install.sh`
+- `setup.sh`: file does ...
+- `/scripts/daily/chronjob.sh`: file does ...
+- `/scripts/git/git-clone.sh`: file does ...
 
-## extensions
+## enviorment variables
 
-I can have a basic dotfiles project and isolate specifics, like:
+Create a .env file and add the following lines:
 
-- I want my work computer to have some specific files
-- I want my personal computer to have other specific files
-
-Create a separate repository with your extensions files, and clone it into an `extensions` folder (already git-ignored), like:
-
-```sh
-# create the extensions dir
-mkdir extensions && cd extensions
-
-# add as many extensions projects you want
-git clone https://github.com/<username>/<dotfiles-extension-personal>.git
-git clone https://github.com/<username>/<dotfiles-extension-work>.git
-
-# install the extensions
-scripts/dotfiles-install.sh     # install any dependencies (`install.sh` files) defined in the extensions and links `*.symlink` files from the extensions to the home directory
-```
-
-The currently supported extension files you can have inside your extensions project are:
-
-- `git/gitconfig.extension.symlink`: extends `specific/git/gitconfig.symlink` and gets symlinked into your `$HOME`
-- `*/index.zsh`: files called `index.zsh` get loaded into your environment when a shell is loaded (note: they should be inside some directory, like `shell/index.zsh`)
+- `GIT_AUTHOR_NAME`: used in ...
+- `GIT_AUTHOR_NAME`: used in ...
+- `GITHUB_TOKEN`: used with github api to trigger build of selected repositories.
+- `HOMEBREW_TOKEN`: not needed ...
 
 ## highlights
 
 Here are some of the most useful software included in this dotfiles:
 
 - utilities:
-  - [`zsh-syntax-highlighting`](https://github.com/rupa/z)
-  - [`zsh-history-substring-search`](https://github.com/rupa/z)
-  - [`zsh-autosuggestions`](https://github.com/rupa/z)
-  - [`autoenv`](https://github.com/rupa/z)
-  - [`fnm`](https://github.com/rupa/z)
-  - [`z`](https://github.com/rupa/z)
+  - [`fnm`](https://github.com/)
+  - [`fzf`](https://github.com/)
+  - [`autoenv`](https://github.com/)
+  - [`pyenv`](https://github.com/)
+  - [`oh-my-zsh`](https://github.com/)
+- plugins:
+  - [`spaceship prompt`](https://github.com/)
+  - [`powerline10k prompt`](https://github.com/)
+  - [`zsh syntax highlighting`](https://github.com/)
+  - [`zsh history substring-search`](https://github.com/)
+  - [`zsh autosuggestions`](https://github.com/)
+  - [`z`](https://github.com/)
 - commands:
   - `e`: opens my favorite text editor
-  - `todo <text>`: creates a file on desktop to remind a to-do
   - `update`: runs all `*/update.sh` files
 - functions:
-  - `c <tab>`, a function to go to my code folders (copied from @ryanb [dotfiles](https://github.com/ryanb/dotfiles/blob/master/oh-my-zsh/custom/plugins/rbates/rbates.plugin.zsh))
   - `extract <file>`: knows how to unzip several formats
 - aliases:
   - `chrome [<filename>]`: to open Google Chrome
+  - `ios`: to open iOS Simulator
   - `pubkey`: copy `~/.ssh/id_rsa.pub` to clipboard
+
+## extras
+
+The .docs folder contains some useful documentation.
+
+- `.docs/create-devbox.md`: instructions ...
 
 ## references
 

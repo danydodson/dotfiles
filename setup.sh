@@ -14,29 +14,33 @@ function runScripts() {
 
   # Run sections based on command line arguments
   for ARG in "$@"; do
-    if [ "$ARG" == 'init' ] || [ "$ARG" == 'all' ]; then
-      __info 'Starting init.sh script...'
+    if [ "$ARG" == "init" ] || [ "$ARG" == "all" ]; then
+      __info "Starting init.sh script..."
       ./scripts/setup/init.sh
     fi
-    if [ "$ARG" == 'brew' ] || [ "$ARG" == 'all' ]; then
-      __info 'Starting brew.sh script...'
+    if [ "$ARG" == "brew" ] || [ "$ARG" == "all" ]; then
+      __info "Starting brew.sh script..."
       ./scripts/setup/brew.sh
     fi
-    if [ "$ARG" == 'macos' ] || [ "$ARG" == 'all' ]; then
-      __info 'Starting macos.sh script...'
+    if [ "$ARG" == "macos" ] || [ "$ARG" == "all" ]; then
+      __info "Starting macos.sh script..."
       ./scripts/setup/macos.sh
     fi
-    if [ "$ARG" == 'config' ] || [ "$ARG" == 'all' ]; then
-      __info 'Starting config.sh script...'
+    if [ "$ARG" == "config" ] || [ "$ARG" == "all" ]; then
+      __info "Starting config.sh script..."
       ./scripts/setup/config.sh
     fi
+    if [ "$ARG" == "copy" ] || [ "$ARG" == "all" ]; then
+      __info "Starting copy.sh script..."
+      ./scripts/setup/copy.sh
+    fi
   done
-  __ok 'Completed running setup.sh, restart your computer to ensure all updates take effect'
+  __ok "Completed running setup.sh, restart your computer to ensure all updates take effect"
 }
 
-read -r -p 'This script may overwrite existing files in your home directory. Are you sure? (y/n) ' -n 1
+read -r -p "This script may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
 
-echo ''
+echo ""
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
   runScripts "$@"

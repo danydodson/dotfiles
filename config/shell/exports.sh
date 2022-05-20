@@ -52,8 +52,8 @@ export ZSH="$XDG_DATA_HOME"/oh-my-zsh
 export HOMEBREW_ROOT=/opt/homebrew
 export HOMEBREW_NO_ANALYTICS=true
 export HOMEBREW_NO_INSTALL_CLEANUP=true
-_token=$(cat "$DOTFILES"/config/git/token)
-export HOMEBREW_GITHUB_API_TOKEN=$_token
+git_token=$(cat "$DOTFILES"/scripts/brew/git-token)
+export HOMEBREW_GITHUB_API_TOKEN=$git_token
 
 #######################################################################
 # vim                                                                 #
