@@ -1,6 +1,6 @@
 [user]
-  name = "Dany Dodson"
-  email = "danydodson@gmail.com"
+  name = GIT_NAME
+  email = GIT_EMAIL
 [credential]
   helper = osxkeychain
 [hub]
@@ -27,4 +27,4 @@
   branch = false
   tag = false
 [init]
-    defaultBranch = main
+  defaultBranch = main

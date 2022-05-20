@@ -14,101 +14,73 @@ while true; do sudo -n true sleep 60 kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 # Oh-My-Zsh                                                                   #
 ###############################################################################
-__info 'Installing oh-my-zsh...'
 
-if test ! "$(which omz)"; then
-  git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.config/local/share/oh-my-zsh && __ok ''
+__info 'Installing oh-my-zsh...'
+if [ -e ~/.config/local/share/oh-my-zsh/oh-my-zsh.sh ]; then
+  __ok 'Oh-My-Zsh is already installed...'
+else
+  __info 'cloning...'
+  git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.config/local/share/oh-my-zsh && __ok 'cloned to ~/.config/local/share/oh-my-zsh'
 fi
 
-__info 'Downloading zsh-tab-title plugin...'
-git clone https://github.com/trystan2k/zsh-tab-title \
-  "$ZSH_CUSTOM"/plugins/zsh-tab-title && __ok ''
-
-__info 'Downloading zsh-wakatime plugin...'
-git clone https://github.com/wbingli/zsh-wakatime.git \
-  "$ZSH_CUSTOM"/plugins/zsh-wakatime && __ok ''
-
 __info 'Downloading spaceship prompt...'
-git clone https://github.com/spaceship-prompt/spaceship-prompt.git \
-  "$ZSH_CUSTOM"/themes/spaceship-prompt --depth=1 && __ok ''
-
-__info 'Linking spaceship prompt...'
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme" && __ok ''
+if [ -e "$HOME"/.config/local/share/oh-my-zsh/custom/themes/spaceship.zsh-theme ]; then
+  __ok 'Spaceship prompt already exists'
+else
+  __info 'installiung spaceship prompt...'
+  git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM"/themes/spaceship-prompt --depth=1 && __ok ''
+  __info 'Linking spaceship prompt...'
+  ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme" && __ok ''
+fi
 
 ###############################################################################
 # Homebrew                                                                    #
 ###############################################################################
-__info 'Adding taps to brew...'
 
-brew tap homebrew/bundle ||  __err 'failed brew taphomebrew/bundle'
-brew tap homebrew/cask-versions ||  __err 'failed brew tap homebrew/cask-versions'
-brew tap heroku/brew ||  __err 'failed brew tap heroku/brew'
+__info 'Adding taps to brew...'
+brew tap bramstein/webfonttools || __err 'failed brew tap bramstein/webfonttools'
+brew tap heroku/brew || __err 'failed brew tap heroku/brew'
+brew tap homebrew/bundle || __err 'failed brew tap homebrew/bundle'
+brew tap homebrew/cask || __err 'failed brew tap homebrew/cask'
+brew tap homebrew/cask-versions || __err 'failed brew tap homebrew/cask-versions'
+brew tap homebrew/core || __err 'failed brew tap homebrew/core'
+brew tap yt-dlp/taps || __err 'failed brew tap yt-dlp/taps'
 
 __info 'Installing binaries, terminal stuff, CLI...'
-
-BINARIES=(
-  ack
-  bat
-  bc
-  ca-certificates
-  coreutils
-  exa
-  fd
-  findutils
-  fzf
-  gh
-  heroku/brew/heroku
-  mas
-  mongocli
-  moreutils
-  neofetch
-  readline
-  shellcheck
-  tldr
-  z
-  zsh-autosuggestions
-  zsh-completions
-  zsh-history-substring-search
-  zsh-syntax-highlighting
-)
+BINARIES=(ack autoenv bat bc ca-certificates coreutils exa fd findutils fzf gh go lua mas mongocli moreutils neofetch readline pipenv pyenv ranger ripgrep shellcheck tldr tree z zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting heroku/brew/heroku yt-dlp/taps/yt-dlp)
 
 for brew in "${BINARIES[@]}"; do
-  __info "installing $brew"
-  brew install "$brew" ||  __err "failed brew install $brew"
+  if ! command -v "$brew" &>/dev/null; then
+    __info "installing $brew"
+    brew install "$brew" || __err "failed brew install $brew"
+    exit
+  fi
 done
 
-__info 'Installing dev environment...'
+__info 'Installing casks...'
+CASKS=(google-chrome)
 
-DEV_LIBRARIES=(
-  lua
-)
-
-for brew in "${DEV_LIBRARIES[@]}"; do
-  __info "installing $brew"
-  brew install "$brew" ||  __err "failed brew install $brew"
-done
-
-__info 'Installing misc casks...'
-MISC_CASKS=(
-  google-chrome
-)
-
-for cask in "${MISC_CASKS[@]}"; do
+for cask in "${CASKS[@]}"; do
   __info "installing $cask"
-  brew install --cask "$cask" ||  __err "failed brew cask install $cask"
+  brew install --cask "$cask" || __err "failed brew cask install $cask"
 done
 
 ###############################################################################
 # npm                                                                         #
 ###############################################################################
-# __info 'Installing npm packages...'
+
+__info 'Installing npm packages...'
 # npm install -g typescript ||  __err 'failed npm install typescript'
 
 ###############################################################################
 # Mac App Store                                                               #
 ###############################################################################
-# __info 'Installing apps from App Store...'
-# mas install 497799835 ||  __err 'failed mas install Xcode'
+
+__info 'Installing apps from App Store...'
+mas install 1388020431 || __err 'failed mas install DevCleaner'
+mas install 1452453066 || __err 'failed mas install Hidden Bar'
+mas install 425424353 || __err 'failed mas install The Unarchiver'
+mas install 497799835 || __err 'failed mas install Xcode'
 
 __info 'Cleaning up...'
 

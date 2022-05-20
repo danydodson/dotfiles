@@ -37,15 +37,15 @@ read -r _git_name
  __info "What's your email address?"
 read -r _git_email
 
-_DIR="$(cd "$HOME"/Developer/Dotfiles/config/git && pwd)"
+dir="$(cd "$HOME"/Developer/Dotfiles/config/git && pwd)"
 
-for file in .gitignore .gitconfig; do
-  cp -p "$_DIR"/$file "$HOME"/.config/git/$file
+for file in ignore config; do
+  cp -p "$dir"/$file "$HOME"/.config/git/$file
 done
 
 # replace the placeholders in .gitconfig with user input
-sed -i -e "s/GIT_NAME/$_git_name/g" "$HOME"/.config/git/.gitconfig
-sed -i -e "s/GIT_EMAIL/$_git_email/g" "$HOME"/.config/git/.gitconfig
+sed -i -e "s/GIT_NAME/$_git_name/g" "$HOME"/.config/git/config
+sed -i -e "s/GIT_EMAIL/$_git_email/g" "$HOME"/.config/git/config
 
 # remove the extra file
-rm -rf "$HOME"/.config/git/.gitconfig-e
+rm -rf "$HOME"/.config/git/config-e

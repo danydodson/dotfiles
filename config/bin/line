@@ -1,0 +1,7 @@
+#!/bin/bash
+
+columns="$(tput cols)"
+printf "\n"
+printf %"$columns"s | tr " " "-"
+printf "\n"
+printf "\n"
