@@ -2,13 +2,15 @@
 
 # Analyse all shell scripts with ShellCheck
 
-DOTFILES="$HOME"/Developer/Dotfiles
+# Log Helpers
+__info() { printf '\033[0;34m[INFO] \033[0;34m%s\033[0;m\n' "$1"; }
+__ok() { printf '\033[0;33m[OK] \033[0;36m%s\033[0;m\n' "$1"; }
+__err() { printf '\033[0;31m[ERR] \033[0;31m%s\033[0;m\n' "$1"; }
 
-# . "$DOTFILES"/utils/helpers.sh
-. "$DOTFILES"/utils/pretty.bash
+DOTFILES="$HOME"/Developer/Dotfiles
 
 __info 'Analysing all shell scripts with ShellCheck..'
 
 for script in $(rg -t sh -T zsh --files "$DOTFILES"); do
-  shellcheck -e SC1091 "$script" && __ok "$script"
+  shellcheck "$script" && __ok "$script"
 done
