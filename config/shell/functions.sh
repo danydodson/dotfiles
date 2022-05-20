@@ -43,9 +43,7 @@ function fpath-prepend() {
 fzf-scripts() {
   _scripts_path="$HOME/Developer/Dotfiles/"
   _allfiles=$(rg -t sh --files "$_scripts_path")
-  _filteredfiles=$(echo "$_allfiles" | grep -v "helpers.sh\|pretty.bash\|")
-  _cutpaths=$(echo "$_filteredfiles" | cut -c 32-)
-  # _cutpaths=$(echo "$_allfiles" | cut -c 32-)
+  _cutpaths=$(echo "$_allfiles" | cut -c 32-)
   local selected
   if selected=$(echo "$_cutpaths" | fzf --height 60% --preview "bat --style=grid --color=always '$_scripts_path{}'" -q "$LBUFFER"); then
     LBUFFER="$_scripts_path$selected"

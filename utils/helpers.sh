@@ -4,13 +4,16 @@
 # POSIX-compliant helper scripts                                      #
 #######################################################################
 
+# 
+. "$HOME/Developer/Dotfiles/utils/pretty.bash"
+
 # silently determine existence of executable
 # $1 name of bin
 __has() { command -v "$1" >/dev/null 2>&1; }
 
 __prefer() {
   __has "$1" && return 0
-  printf "==> WARN: %s not found\n" "$1"
+  printf "[WARN] %s not found\n" "$1"
   return 1
 }
 
@@ -27,8 +30,8 @@ __requireroot() {
 # require executable
 # $1 name of bin
 __require() {
-  __has "$1" && __info "FOUND: ${1}" && return 0
-  __err "MISSING: ${1}"
+  __has "$1" && __info "[FOUND] ${1}" && return 0
+  __err "[MISSING] ${1}"
   __err_ "Please install before proceeding."
   return 1
 }

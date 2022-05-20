@@ -2,11 +2,10 @@
 
 # Analyse all shell scripts with ShellCheck
 
-# Log Helpers
-. "$HOME/Developer/Dotfiles/utils/helpers.sh"
-. "$HOME/Developer/Dotfiles/utils/pretty.bash"
+DOTFILES="$HOME"/Developer/Dotfiles
 
-DOTFILES="${HOME}/Developer/Dotfiles"
+. "$DOTFILES"/utils/helpers.sh
+. "$DOTFILES"/utils/pretty.bash
 
 __info 'Analysing all shell scripts with ShellCheck..'
 

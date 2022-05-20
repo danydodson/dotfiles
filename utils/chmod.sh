@@ -2,11 +2,11 @@
 
 # Change scripts with 644 permissions to 755 permissions
 
-# Log Helpers
-. "$HOME/Developer/Dotfiles/utils/helpers.sh"
-. "$HOME/Developer/Dotfiles/utils/pretty.bash"
-
 DOTFILES="$HOME/Developer/Dotfiles"
+
+# Log Helpers
+. "$DOTFILES/utils/helpers.sh"
+. "$DOTFILES/utils/pretty.bash"
 
 __info "Changing scripts with 644 permissions to 755 permissions..."
 

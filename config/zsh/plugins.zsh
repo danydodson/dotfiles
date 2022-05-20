@@ -1,17 +1,10 @@
 # External plugins
 
 #######################################################################
-# pyenv                                                               #
-#######################################################################
-
-command -v pyenv >/dev/null || path-append "$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-#######################################################################
 # oh-my-zsh                                                           #
 #######################################################################
 
-plugins=(aliases brew copypath docker docker-compose fnm git heroku macos npm pip pipenv pyenv yarn zsh-tab-title)
+plugins=(aliases brew copypath docker docker-compose fnm git heroku macos npm pip pipenv yarn zsh-tab-title)
 
 # oh-my-zsh.sh
 source "${HOME}/.config/local/share/oh-my-zsh/oh-my-zsh.sh"
@@ -36,6 +29,13 @@ bindkey '^[[B' history-substring-search-down
 #######################################################################
 
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+#######################################################################
+# pyenv                                                               #
+#######################################################################
+
+command -v pyenv >/dev/null || path-prepend "$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 #######################################################################
 # autoenv                                                             #

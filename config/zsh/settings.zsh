@@ -32,7 +32,6 @@ zstyle ':completion:*' menu select
 # Key Bindings                                                        #
 #######################################################################
 
-# bindkey '^X' fzf-scripts
 bindkey '^[^[[D' backward-word
 bindkey '^[^[[C' forward-word
 bindkey '^[[5D' beginning-of-line
@@ -40,15 +39,13 @@ bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey '^?' backward-delete-char
 
-# zle -N fzf-scripts
-
 #######################################################################
 # History                                                             #
 #######################################################################
 
+HISTSIZE=50000
+SAVEHIST=50000
 HISTFILE="$HOME/.config/zsh/zsh_history"
-HISTSIZE=10000
-SAVEHIST=10000
 
 setopt hist_verify
 setopt hist_reduce_blanks
@@ -65,10 +62,10 @@ setopt inc_append_history
 setopt no_bg_nice
 setopt no_hup
 setopt no_list_beep
-# setopt prompt_subst
-# setopt local_traps
-# setopt local_options
-# setopt correct
-# setopt ignore_eof
-# setopt complete_in_word
+setopt prompt_subst
+setopt local_traps
+setopt local_options
+setopt correct
+setopt ignore_eof
+setopt complete_in_word
 setopt complete_aliases
