@@ -6,10 +6,10 @@
 . "$HOME/Developer/Dotfiles/utilities/helpers.sh"
 . "$HOME/Developer/Dotfiles/utilities/pretty.bash"
 
-_dotfiles="$HOME/Developer/Dotfiles"
+__dotfiles="$HOME/Developer/Dotfiles"
 
 __info 'Analysing all shell scripts with ShellCheck..'
 
-for script in $(rg -t sh -T zsh --files "$_dotfiles"); do
+for script in $(rg -t sh -T zsh --files "$__dotfiles"); do
   shellcheck --exclude=SC1091 "$script" && __ok "$script"
 done

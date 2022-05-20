@@ -1,4 +1,4 @@
-# dotfiles [![wakatime](https://wakatime.com/badge/github/danydodson/dotfiles.svg)](https://wakatime.com/badge/github/danydodson/dotfiles) [![wakatime](https://wakatime.com/badge/user/5f103765-30df-4813-b3e9-28120f0a5e6a/project/978a029f-ef02-44ac-9dfb-0aa03614d9a5.svg)](https://wakatime.com/badge/user/5f103765-30df-4813-b3e9-28120f0a5e6a/project/978a029f-ef02-44ac-9dfb-0aa03614d9a5)
+# dotfiles [![wakatime](https://wakatime.com/badge/github/danydodson/dotfiles.svg)](https://wakatime.com/badge/github/danydodson/dotfiles)
 
 This project is heavily inspired by @longpdo [dotfiles](https://github.com/longpdo/dotfiles). I've added [`oh-my-zsh`](https://ohmyz.sh/), changed the whole structure, and simplified a lot the version management for programming languages by using [`asdf`](https://asdf-vm.com/).
 
