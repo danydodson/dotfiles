@@ -5,9 +5,11 @@ This project is heavily inspired by @longpdo [dotfiles](https://github.com/longp
 ## install
 
 ```sh
-git clone https://github.com/danydodson/dotfiles.git ~/Dotfiles
-cd ~/Dotfiles
-scripts/dotfiles-install.sh
+git clone https://github.com/danydodson/dotfiles.git ~/.dotfiles
+
+cd ~/.dotfiles
+
+./setup.sh
 ```
 
 ## folders
@@ -31,6 +33,7 @@ The most notable folders are:
 ## extensions
 
 I can have a basic dotfiles project and isolate specifics, like:
+
 - I want my work computer to have some specific files
 - I want my personal computer to have other specific files
 
@@ -58,7 +61,11 @@ The currently supported extension files you can have inside your extensions proj
 Here are some of the most useful software included in this dotfiles:
 
 - utilities:
-  - [`asdf`](https://asdf-vm.com/): version manager for several technologies. Replaces tools like `nvm`, `pyenv`, `rbenv` and others
+  - [`zsh-syntax-highlighting`](https://github.com/rupa/z)
+  - [`zsh-history-substring-search`](https://github.com/rupa/z)
+  - [`zsh-autosuggestions`](https://github.com/rupa/z)
+  - [`autoenv`](https://github.com/rupa/z)
+  - [`fnm`](https://github.com/rupa/z)
   - [`z`](https://github.com/rupa/z)
 - commands:
   - `e`: opens my favorite text editor

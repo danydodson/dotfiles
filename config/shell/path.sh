@@ -12,7 +12,7 @@ path-prepend "/opt/homebrew/bin/grep/libexec/gnubin"
 path-prepend "/opt/homebrew/bin/bc/bin"
 path-prepend "/opt/homebrew/bin/fzf/bin"
 path-prepend "$HOME/Developer/Dotfiles/bin"
-path-prepend "$HOME/.config/iterm2/utilities"
+path-prepend "$HOME/.config/iterm2/utils"
 
 #######################################################################
 # fpath                                                               #

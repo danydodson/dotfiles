@@ -5,8 +5,8 @@ cd -- "$(dirname "$0")/.." || exit 1
 __dotfiles_dir="$PWD"
 
 # Log Helpers
-. "$__dotfiles_dir/utilities/helpers.sh"
-. "$__dotfiles_dir/utilities/pretty.bash"
+. "$__dotfiles_dir/utils/helpers.sh"
+. "$__dotfiles_dir/utils/pretty.bash"
 
 __serve() {
   local port

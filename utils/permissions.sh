@@ -3,8 +3,8 @@
 # Change scripts with 644 permissions to 755 permissions
 
 # Log Helpers
-. "$HOME/Developer/Dotfiles/utilities/helpers.sh"
-. "$HOME/Developer/Dotfiles/utilities/pretty.bash"
+. "$HOME/Developer/Dotfiles/utils/helpers.sh"
+. "$HOME/Developer/Dotfiles/utils/pretty.bash"
 
 _DOTFILES="$HOME/Dotfiles"
 

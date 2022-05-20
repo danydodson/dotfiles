@@ -3,8 +3,8 @@
 # Script updating software packages
 
 # Log Helpers
-. "$HOME/Developer/Dotfiles/utilities/helpers.sh"
-. "$HOME/Developer/Dotfiles/utilities/pretty.bash"
+. "$HOME/Developer/Dotfiles/utils/helpers.sh"
+. "$HOME/Developer/Dotfiles/utils/pretty.bash"
 
 __info "Updating oh-my-zsh"
 omz update

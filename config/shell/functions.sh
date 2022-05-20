@@ -48,7 +48,7 @@ fzf-scripts() {
   if selected=$(echo "$_cutpaths" | fzf --height 60% --preview "bat --style=grid --color=always '$_scripts_path{}'" -q "$LBUFFER"); then
     LBUFFER="$_scripts_path$selected"
   fi
-  # zle redisplay
+  zle redisplay
 }
 
 zle -N fzf-scripts

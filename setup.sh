@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Log Helpers
-. "$HOME/Developer/Dotfiles/utilities/helpers.sh"
-. "$HOME/Developer/Dotfiles/utilities/pretty.bash"
+. "$HOME/Developer/Dotfiles/utils/helpers.sh"
+. "$HOME/Developer/Dotfiles/utils/pretty.bash"
 
 function runScripts() {
   # Ask for the administrator password upfront

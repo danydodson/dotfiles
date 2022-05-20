@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Log Helpers
-. "$HOME/Developer/Dotfiles/utilities/helpers.sh"
-. "$HOME/Developer/Dotfiles/utilities/pretty.bash"
+. "$HOME/Developer/Dotfiles/utils/helpers.sh"
+. "$HOME/Developer/Dotfiles/utils/pretty.bash"
 
 _file="$HOME/Developer/Dotfiles/config/zsh/.zshrc"
 

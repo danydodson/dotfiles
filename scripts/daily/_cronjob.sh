@@ -7,8 +7,9 @@
 
 export PATH=':/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/Dany/.config/local/bin:/opt/homebrew/bin/coreutils/libexec/gnubin:/opt/homebrew/bin/findutils/libexec/gnubin:/opt/homebrew/bin/grep/libexec/gnubin:/opt/homebrew/bin/bc/bin:/opt/homebrew/bin/fzf/bin:/Users/Dany/Developer/Dotfiles/bin'
 
-# Log Helper
-_info() { echo -e "\033[33m[INFO]\033[0m $1"; }
+# Log Helpers
+. "$HOME/Developer/Dotfiles/utils/helpers.sh"
+. "$HOME/Developer/Dotfiles/utils/pretty.bash"
 
 date
 

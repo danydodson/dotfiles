@@ -3,8 +3,8 @@
 # Copy public key to clipboard
 
 # Log Helpers
-. "$HOME/Developer/Dotfiles/utilities/helpers.sh"
-. "$HOME/Developer/Dotfiles/utilities/pretty.bash"
+. "$HOME/Developer/Dotfiles/utils/helpers.sh"
+. "$HOME/Developer/Dotfiles/utils/pretty.bash"
 
 __pubkey() {
   more ~/.ssh/id_rsa.pub | pbcopy | __ok "=> Public key copied to pasteboard."

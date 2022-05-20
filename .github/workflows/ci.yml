@@ -9,4 +9,4 @@ jobs:
       - uses: actions/checkout@v2
       - uses: rafaeleyng/shellcheck-action@v2
         with:
-          command: ./utilities/shellcheck.sh
+          command: ./utils/shellcheck.sh

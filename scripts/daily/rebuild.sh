@@ -3,8 +3,8 @@
 # Trigger new builds for repositories deployed on Github Pages.
 
 # Log Helpers
-. "$HOME/Developer/Dotfiles/utilities/helpers.sh"
-. "$HOME/Developer/Dotfiles/utilities/pretty.bash"
+. "$HOME/Developer/Dotfiles/utils/helpers.sh"
+. "$HOME/Developer/Dotfiles/utils/pretty.bash"
 
 # Load GITHUB_TOKEN from .env
 export "$(grep -E -v '^#' "/Users/Dany/Developer/Dotfiles/.env" | xargs)"
