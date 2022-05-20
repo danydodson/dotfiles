@@ -3,7 +3,7 @@
 # Script cleaning up tmp files
 
 # Log Helpers
-. "$HOME/Developer/Dotfiles/utils/helpers.sh"
+# . "$HOME/Developer/Dotfiles/utils/helpers.sh"
 . "$HOME/Developer/Dotfiles/utils/pretty.bash"
 
 __info "Cleaning up brew packages"

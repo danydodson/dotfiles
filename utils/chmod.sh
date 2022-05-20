@@ -5,7 +5,7 @@
 DOTFILES="$HOME/Developer/Dotfiles"
 
 # Log Helpers
-. "$DOTFILES/utils/helpers.sh"
+# . "$DOTFILES/utils/helpers.sh"
 . "$DOTFILES/utils/pretty.bash"
 
 __info "Changing scripts with 644 permissions to 755 permissions..."

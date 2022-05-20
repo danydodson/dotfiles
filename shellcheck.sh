@@ -4,7 +4,7 @@
 
 DOTFILES="$HOME"/Developer/Dotfiles
 
-. "$DOTFILES"/utils/helpers.sh
+# . "$DOTFILES"/utils/helpers.sh
 . "$DOTFILES"/utils/pretty.bash
 
 __info 'Analysing all shell scripts with ShellCheck..'

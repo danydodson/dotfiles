@@ -4,9 +4,6 @@
 # POSIX-compliant helper scripts                                      #
 #######################################################################
 
-# 
-. "$HOME/Developer/Dotfiles/utils/pretty.bash"
-
 # silently determine existence of executable
 # $1 name of bin
 __has() { command -v "$1" >/dev/null 2>&1; }

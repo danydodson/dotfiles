@@ -3,7 +3,7 @@
 # Clone github repositories to local machine
 
 # Log Helpers
-. "$HOME/Developer/Dotfiles/utils/helpers.sh"
+# . "$HOME/Developer/Dotfiles/utils/helpers.sh"
 . "$HOME/Developer/Dotfiles/utils/pretty.bash"
 
 __info "Cloning repositories..."

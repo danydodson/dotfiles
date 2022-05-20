@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Log Helpers
-. "$HOME/Developer/Dotfiles/utils/helpers.sh"
+# . "$HOME/Developer/Dotfiles/utils/helpers.sh"
 . "$HOME/Developer/Dotfiles/utils/pretty.bash"
 
 # Ask for the administrator password upfront.

@@ -3,7 +3,7 @@
 # Remove trash files
 
 # Log Helpers
-. "$HOME/Developer/Dotfiles/utils/helpers.sh"
+# . "$HOME/Developer/Dotfiles/utils/helpers.sh"
 . "$HOME/Developer/Dotfiles/utils/pretty.bash"
 
 _info "Removing all trash files..."
