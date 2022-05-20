@@ -7,5 +7,6 @@
   "shellcheck.ignorePatterns": {
     "**/config/bin/color-path": true,
     "**/config/bin/fzf-scripts": true
-  }
+  },
+  "taskExplorer.exclude": ["**/**/**/**/dracula.py", "**/helpers.sh", "config/shell/*"]
 }

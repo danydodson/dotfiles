@@ -4,23 +4,23 @@ unalias -a
 
 alias cat='bat'
 alias g='git'
-alias loc='tokei'
-alias man='tldr'
 alias nvm='fnm'
 alias r="ranger"
 
-alias c="clear"
 alias cp='cp -i'
-alias fpath='echo -e ${FPATH//:/\\n}'
 alias mv='mv -i'
-alias o='open'
-alias path='echo -e ${PATH//:/\\n}'
-alias reload='exec ${SHELL} -l'
 alias rm='rm -i'
+
+alias c="clear"
+alias o='open'
+
 alias src=". ~/.zshrc"
 alias sudo='sudo '
 alias tree='exa --tree --level=2'
 alias uuid='uuidgen'
+
+alias fpath='echo -e ${FPATH//:/\\n}'
+alias path='echo -e ${PATH//:/\\n}'
 
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
@@ -35,4 +35,3 @@ alias dots="cd ~/Developer/Dotfiles/"
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 alias ios='open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'
 
-alias docker_run_explainshell='docker container run --name explainshell --restart always -p 5000:5000 -d spaceinvaderone/explainshell'

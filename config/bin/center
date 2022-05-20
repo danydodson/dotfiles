@@ -1,7 +1,0 @@
-#!/bin/bash
-
-_columns="$(tput cols)"
-
-while IFS= read -r line; do
-  printf "%*s\n" $(((${#line} + _columns) / 2)) "$line"
-done <<<"$1"
