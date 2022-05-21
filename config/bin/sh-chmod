@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Run chmod.sh script
+
+__chmod="$HOME"/Developer/Dotfiles/utils/chmod.sh
+
+"$__chmod"

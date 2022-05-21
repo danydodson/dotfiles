@@ -71,9 +71,9 @@ TODISABLE+=('com.apple.VoiceOver'
   'com.apple.accessibility.heard')
 
 # Quicklook
-# TODISABLE+=('com.apple.quicklook.ui.helper' \
-# 	'com.apple.quicklook.ThumbnailsAgent' \
-# 	'com.apple.quicklook')
+TODISABLE+=('com.apple.quicklook.ui.helper'
+  'com.apple.quicklook.ThumbnailsAgent'
+  'com.apple.quicklook')
 
 # Sidecar
 TODISABLE+=('com.apple.sidecar-hid-relay'
@@ -142,7 +142,7 @@ done
 TODISABLE=()
 
 # iCloud
-TODISABLE+=('com.apple.analyticsd' 'com.apple.icloud.findmydeviced')
+# TODISABLE+=('com.apple.analyticsd' 'com.apple.icloud.findmydeviced')
 
 # Others
 TODISABLE+=('com.apple.netbiosd'

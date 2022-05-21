@@ -11,7 +11,7 @@ export LC_ALL="en_US.UTF-8"
 # editor                                                              #
 #######################################################################
 
-export EDITOR="vim"
+export EDITOR="code"
 export VISUAL="$EDITOR"
 export SYSTEMD_EDITOR="$EDITOR"
 
@@ -72,7 +72,6 @@ export PYENV_ROOT="$HOME/.config/pyenv"
 # npm                                                                 #
 #######################################################################
 
-export COREPACK_HOME="$XDG_CONFIG_HOME"/node/corepack
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME"/npm
 
 #######################################################################
@@ -80,6 +79,7 @@ export NPM_CONFIG_CACHE="$XDG_CACHE_HOME"/npm
 #######################################################################
 
 export YARN_CACHE_FOLDER="$XDG_CACHE_HOME"/yarn
+# export COREPACK_HOME="$XDG_DATA_HOME"/node/corepack
 
 #######################################################################
 # z                                                                   #
@@ -88,16 +88,16 @@ export YARN_CACHE_FOLDER="$XDG_CACHE_HOME"/yarn
 export _Z_DATA="$ZDOTDIR"/.z
 
 #######################################################################
-# babel                                                              #
-#######################################################################
-
-export BABEL_CACHE_PATH="$XDG_CACHE_HOME/babel/babel.json"
-
-#######################################################################
 # wakatime                                                            #
 #######################################################################
 
 export WAKATIME_HOME="$XDG_CONFIG_HOME"/wakatime
+
+#######################################################################
+# aws                                                                 #
+#######################################################################
+
+export AWS_PROFILE="default"
 
 #######################################################################
 # autoenv                                                             #

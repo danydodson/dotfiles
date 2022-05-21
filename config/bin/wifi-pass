@@ -2,7 +2,7 @@
 
 # Get plaintext saved wifi passwords
 
-__main() {
+__wifi-pass() {
   if [[ "$OSTYPE" == *'arwin'* ]]; then
     security find-generic-password -D "AirPort network password" -g -w
     return
@@ -28,7 +28,7 @@ __main() {
   fi
 }
 
-__main
+__wifi-pass
 
 # __main2() {
 #   _airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"

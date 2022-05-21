@@ -4,7 +4,7 @@
 # oh-my-zsh                                                           #
 #######################################################################
 
-plugins=(aliases brew docker docker-compose fnm git heroku macos node npm pip pipenv yarn)
+plugins=(aliases brew docker docker-compose gatsby heroku macos npm fnm pip pipenv yarn)
 
 # oh-my-zsh.sh
 source "${HOME}/.config/local/share/oh-my-zsh/oh-my-zsh.sh"
@@ -30,17 +30,17 @@ bindkey '^[[B' history-substring-search-down
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 #######################################################################
+# fnm                                                                 #
+#######################################################################
+
+eval "$(fnm env --use-on-cd)"
+
+#######################################################################
 # pyenv                                                               #
 #######################################################################
 
 command -v pyenv >/dev/null || path-prepend "$PYENV_ROOT/bin"
 eval "$(pyenv init -)"
-
-#######################################################################
-# fnm                                                                 #
-#######################################################################
-
-eval "$(fnm env --use-on-cd)"
 
 #######################################################################
 # fzf                                                                 #
@@ -81,6 +81,10 @@ export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(e {})+abort'"
 #######################################################################
 
 source "${HOME}/.config/iterm2/iterm2_shell_integration.zsh"
+
+iterm2_print_user_vars() {
+  iterm2_set_user_var awsProfile $AWS_PROFILE
+}
 
 #######################################################################
 # z                                                                   #

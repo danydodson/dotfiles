@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -e
+
+# Log Helpers
+__warn() { printf '\033[0;32m[WARN] \033[0;32m%s\033[0;m\n' "$1"; }
+
+__o-git() {
+  if command -v gh >/dev/null; then
+    gh repo view --web >/dev/null
+  else
+    __warn 'Install gh-cli to open GitHub repos'
+    return 1
+  fi
+}
+
+__o-git

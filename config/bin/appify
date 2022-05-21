@@ -2,19 +2,23 @@
 
 # turn file into .app file
 
-_APPNAME=${2:-$(basename "$1" ".sh")}
-_DIR="$_APPNAME.app/Contents/MacOS"
+# Log Helper
+__info() { printf '\033[0;34m[INFO] \033[0;34m%s\033[0;m\n' "$1"; }
 
-if [ -a "$_APPNAME.app" ]; then
-    _info "$PWD/$_APPNAME.app already exists :("
+__appname=${2:-$(basename "$1" ".sh")}
+
+__dir="$__appname.app/Contents/MacOS"
+
+if [ -a "$__appname.app" ]; then
+    __info "$PWD/$__appname.app already exists :("
 fi
 
-if [[ $_APPNAME == '' || $_DIR == '' ]]; then
-    _info "Appify requires two parameters bash script and app name"
-    _info "Usage : appify myscript.sh myapp"
+if [[ $__appname == '' || $__dir == '' ]]; then
+    __info "Appify requires two parameters bash script and app name"
+    __info "Usage : appify myscript.sh myapp"
 else
-    mkdir -p "$_DIR"
-    cp "$1" "$_DIR/$_APPNAME"
-    chmod +x "$_DIR/$_APPNAME"
-    _info "$PWD/$_APPNAME.app"
+    mkdir -p "$__dir"
+    cp "$1" "$__dir/$__appname"
+    chmod +x "$__dir/$__appname"
+    __info "$PWD/$__appname.app"
 fi
