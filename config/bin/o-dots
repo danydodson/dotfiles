@@ -2,6 +2,4 @@
 
 # Open Dotfiles in vs code
 
-__dots="$HOME"/Developer/Dotfiles
-
-code "$__dots"
+code "$DOTFILES"

@@ -4,7 +4,7 @@
 __info() { printf '\033[0;34m[INFO] \033[0;34m%s\033[0;m\n' "$1"; }
 __ok() { printf '\033[0;33m[OK] \033[0;36m%s\033[0;m\n' "$1"; }
 
-_zshrc="$HOME/Developer/Dotfiles/config/zsh/.zshrc"
+_zshrc="$DOTFILES/config/zsh/.zshrc"
 
 __info "Copying file to $HOME ..."
 

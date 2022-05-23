@@ -6,8 +6,8 @@
 __info() { printf '\033[0;34m[INFO] \033[0;34m%s\033[0;m\n' "$1"; }
 __ok() { printf '\033[0;33m[OK] \033[0;36m%s\033[0;m\n' "$1"; }
 
-dots="$HOME/Developer/Dotfiles"
-bin="$HOME/Developer/Dotfiles/config/bin"
+dots="$DOTFILES"
+bin="$DOTFILES/config/bin"
 
 __info "Changing scripts with 644 permissions to 755 permissions..."
 

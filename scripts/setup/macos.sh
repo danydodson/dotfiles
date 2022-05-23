@@ -130,10 +130,10 @@ defaults write com.apple.finder DisableAllAnimations -bool true || __err ''
 defaults write com.apple.LaunchServices LSQuarantine -bool false || __err ''
 
 # finder: show hidden files by default
-defaults write com.apple.finder AppleShowAllFiles -bool true || __err ''
+defaults write com.apple.finder AppleShowAllFiles -bool false || __err ''
 
 # finder: show path bar
-defaults write com.apple.finder ShowPathbar -bool false || __err ''
+defaults write com.apple.finder ShowPathbar -bool true || __err ''
 
 # finder: show status bar
 defaults write com.apple.finder ShowStatusBar -bool false || __err ''

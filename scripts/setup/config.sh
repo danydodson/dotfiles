@@ -46,20 +46,20 @@ defaults write org.m0k.transmission BadgeDownloadRate -bool false
 defaults write org.m0k.transmission BadgeUploadRate -bool false
 
 # transmission: automatic import
-mkdir -p "$HOME/Public/Torrents/Dotfiles"
+mkdir -p "$HOME/Documents/Torrents/Dotfiles"
 defaults write org.m0k.transmission AutoImport -bool true
-defaults write org.m0k.transmission AutoImportDirectory -string "$HOME/Public/Torrents/Dotfiles"
+defaults write org.m0k.transmission AutoImportDirectory -string "$HOME/Documents/Torrents/Dotfiles"
 
 # transmission: store complete downloads
-mkdir -p "$HOME/Public/Torrents/Seeding"
+mkdir -p "$HOME/Documents/Torrents/Seeding"
 defaults write org.m0k.transmission DownloadLocationConstant -bool true
 defaults write org.m0k.transmission DownloadChoice -string "Constant"
-defaults write org.m0k.transmission DownloadFolder -string "$HOME/Public/Torrents/Seeding"
+defaults write org.m0k.transmission DownloadFolder -string "$HOME/Documents/Torrents/Seeding"
 
 # transmission: store incomplete downloads
-mkdir -p "$HOME/Public/Torrents/Working"
+mkdir -p "$HOME/Documents/Torrents/Working"
 defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
-defaults write org.m0k.transmission IncompleteDownloadFolder -string "$HOME/Public/Torrents/Working"
+defaults write org.m0k.transmission IncompleteDownloadFolder -string "$HOME/Documents/Torrents/Working"
 
 # transmission: don’t prompt for confirmation before downloading
 defaults write org.m0k.transmission DownloadAsk -bool true

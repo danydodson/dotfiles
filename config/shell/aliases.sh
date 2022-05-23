@@ -38,7 +38,7 @@ alias spotoff='sudo mdutil -a -i off'
 alias spoton='sudo mdutil -a -i on'
 
 alias dev="cd ~/Developer/"
-alias dots="cd ~/Developer/Dotfiles/"
+alias dots='cd $DOTFILES'
 
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 alias ios='open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'

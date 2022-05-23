@@ -11,7 +11,7 @@ path-prepend "/opt/homebrew/bin/findutils/libexec/gnubin"
 path-prepend "/opt/homebrew/bin/grep/libexec/gnubin"
 path-prepend "/opt/homebrew/bin/bc/bin"
 path-prepend "/opt/homebrew/bin/fzf/bin"
-path-prepend "$HOME/Developer/Dotfiles/config/bin"
+path-prepend "$DOTFILES/config/bin"
 path-prepend "$HOME/.config/iterm2/utils"
 
 #######################################################################
@@ -20,4 +20,3 @@ path-prepend "$HOME/.config/iterm2/utils"
 
 fpath-prepend "/opt/homebrew/share/zsh/site-functions"
 fpath-prepend "/opt/homebrew/share/zsh/zsh-completions"
-

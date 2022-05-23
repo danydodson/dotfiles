@@ -41,7 +41,7 @@ function fpath-prepend() {
 #######################################################################
 
 fzf-scripts() {
-  _scripts_path="$HOME/Developer/Dotfiles/"
+  _scripts_path="$DOTFILES/"
   _allfiles=$(rg -t sh --files "$_scripts_path")
   _cutpaths=$(echo "$_allfiles" | cut -c 32-)
   local selected
