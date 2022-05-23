@@ -11,7 +11,7 @@ export LC_ALL="en_US.UTF-8"
 # editor                                                              #
 #######################################################################
 
-export EDITOR="code"
+export EDITOR="vim"
 export VISUAL="$EDITOR"
 export SYSTEMD_EDITOR="$EDITOR"
 
@@ -24,12 +24,18 @@ export XDG_CACHE_HOME="$XDG_CONFIG_HOME"/cache
 export XDG_DATA_HOME="$XDG_CONFIG_HOME"/local/share
 export XDG_STATE_HOME="$XDG_CONFIG_HOME"/local/state
 export XDG_DESKTOP_DIR="$HOME"/Desktop
+export XDG_DOCUMENTS_DIR="$HOME"/Documents
+export XDG_MUSIC_DIR="$XDG_DOCUMENTS_DIR"/Music
+export XDG_PICTURES_DIR="$XDG_DOCUMENTS_DIR"/Media
 export XDG_DOWNLOAD_DIR="$HOME"/Downloads
 export XDG_PUBLICSHARE_DIR="$HOME"/Public
-export XDG_DOCUMENTS_DIR="$HOME"/Documents
-export XDG_MUSIC_DIR="$HOME"/Music
-export XDG_PICTURES_DIR="$HOME"/Pictures
 export XDG_VIDEOS_DIR="$HOME"/Movies
+
+#######################################################################
+# local                                                               #
+#######################################################################
+
+export DEVELOPER="$XDG_DOCUMENTS_DIR/Developer"
 
 #######################################################################
 # zsh                                                                 #
