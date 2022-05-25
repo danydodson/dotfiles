@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Copy plists to destination
+
+__info() { printf '\033[0;34m[INFO] \033[0;34m%s\033[0;m\n' "$1"; }
+
+__info 'Updating Launch Agents...'
+
+src="$DOTFILES"/scripts/agents
+dst=/Library/LaunchDaemons
+
+# remove
+sudo launchctl unload $dst/clear.plist
+sudo rm -rf $dst/clear.plist
+
+# replace
+sudo cp "$src"/clear.plist $dst/clear.plist
+sudo chown root:wheel $dst/clear.plist
+sudo launchctl load $dst/clear.plist
+
+exit 0

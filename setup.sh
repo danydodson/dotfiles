@@ -16,23 +16,23 @@ function runScripts() {
   for ARG in "$@"; do
     if [ "$ARG" == "init" ] || [ "$ARG" == "all" ]; then
       __info "Starting init.sh script..."
-      ./scripts/setup/init.sh
+      ./setup/init.sh
     fi
     if [ "$ARG" == "brew" ] || [ "$ARG" == "all" ]; then
       __info "Starting brew.sh script..."
-      ./scripts/setup/brew.sh
+      ./setup/brew.sh
     fi
     if [ "$ARG" == "macos" ] || [ "$ARG" == "all" ]; then
       __info "Starting macos.sh script..."
-      ./scripts/setup/macos.sh
+      ./setup/macos.sh
     fi
     if [ "$ARG" == "config" ] || [ "$ARG" == "all" ]; then
       __info "Starting config.sh script..."
-      ./scripts/setup/config.sh
+      ./setup/config.sh
     fi
     if [ "$ARG" == "copy" ] || [ "$ARG" == "all" ]; then
       __info "Starting copy.sh script..."
-      ./scripts/setup/copy.sh
+      ./setup/copy.sh
     fi
   done
   __ok "Completed running setup.sh, restart your computer to ensure all updates take effect"

@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# cd to the directory open in finder
+# Change to the directory open in finder
 
-__cdto() {
+__gofi() {
   cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')" || exit
 }
 
-__cdto
+__gofi

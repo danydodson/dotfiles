@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# List global npm packagesx
+
+npm list -g --depth 0

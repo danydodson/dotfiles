@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# Run checks.sh script
-
-"$DOTFILES"/utils/checks.sh

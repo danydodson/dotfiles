@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# List global yarn packagesx
+
+yarn global list

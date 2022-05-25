@@ -1,11 +1,12 @@
 #!/bin/bash
 
+# Open repo in browser
+
 set -e
 
-# Log Helpers
 __warn() { printf '\033[0;32m[WARN] \033[0;32m%s\033[0;m\n' "$1"; }
 
-__o-git() {
+__open-git() {
   if command -v gh >/dev/null; then
     gh repo view --web >/dev/null
   else
@@ -14,4 +15,4 @@ __o-git() {
   fi
 }
 
-__o-git
+__open-git

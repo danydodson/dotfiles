@@ -15,35 +15,13 @@ sudo -v
 # Keep-alive: update existing sudo time stamp until script has finished
 while true; do sudo -n true sleep 60 kill -0 "$$" || exit; done 2>/dev/null &
 
- __info 'These first changes request your input... \n'
-
-read -r -p 'Do you want to change your computer and host name? [y|N] ' response
-if [[ $response =~ (yes|y|Y) ]]; then
-	read -r -p "Computer: change $(sudo scutil --get ComputerName) to: " _computer_name
-	sudo scutil --set ComputerName "$_computer_name" && __ok 'changed computer name'
-	read -r -p "Localhost: change $(sudo scutil --get LocalHostName) to: " _local_host_name
-	sudo scutil --set LocalHostName "$_local_host_name" && __ok 'changed host name'
-else
-	__ok 'skipped'
-fi
-
-read -r -p 'Do you want to overwrite /etc/hosts with the ad-blocking hosts file from someonewhocares.org [y|N] ' response
-if [[ $response =~ (yes|y|Y) ]]; then
-	 __info 'Backing up current /etc/hosts to /etc/hosts.backup'
-	sudo cp /etc/hosts /etc/hosts.backup && __ok 'backed up hosts'
-	 __info 'Overwriting /etc/hosts'
-	sudo cp ./config/system/hosts /etc/hosts && __ok 'overwrote hosts'
-else
-	__ok 'skipped'
-fi
-
 # Close any open System Preferences panes
 osascript -e 'tell application "System Preferences" to quit'
 
 ###############################################################################
 # Activity Monitor                                                            #
 ###############################################################################
- __info 'Changing Activity Monitor settings...'
+__info 'Changing Activity Monitor settings...'
 
 # visualize CPU usage in the Activity Monitor Dock icon
 defaults write com.apple.ActivityMonitor IconType -int 5 || __err ''
@@ -58,7 +36,7 @@ defaults write com.apple.ActivityMonitor SortDirection -int 0 || __err ''
 ####################################################################################
 # Address Book                                                                     #
 ####################################################################################
- __info 'Changing Address Book settings...'
+__info 'Changing Address Book settings...'
 
 # Address Book: enable the debug menu in Address Book
 defaults write com.apple.addressbook ABShowDebugMenu -bool true || __err ''
@@ -66,7 +44,7 @@ defaults write com.apple.addressbook ABShowDebugMenu -bool true || __err ''
 #######################################################################################
 # Bluetooth Accessories                                                               #
 #######################################################################################
- __info 'Changing Bluetooth settings...'
+__info 'Changing Bluetooth settings...'
 
 # bluetooth: enable tap to click for this user and for the login screen
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true || __err ''
@@ -77,7 +55,7 @@ defaults write com.apple.BluetoothAudioAgent 'Apple Bitpool Min (editable)' -int
 ####################################################################################
 # Disk Utility                                                                     #
 ####################################################################################
- __info 'Changing Disc Utility settings...'
+__info 'Changing Disc Utility settings...'
 
 # disk utility: enable the debug menu in Disk Utility
 defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true || __err ''
@@ -86,7 +64,7 @@ defaults write com.apple.DiskUtility advanced-image-options -bool true || __err 
 ###############################################################################
 # Dock                                                                        #
 ###############################################################################
- __info 'Changing Dock settings...'
+__info 'Changing Dock settings...'
 
 # dock: minimize windows into their application’s icon
 defaults write com.apple.dock minimize-to-application -bool true || __err ''
@@ -118,10 +96,10 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 ###############################################################################
 # Finder                                                                      #
 ###############################################################################
- __info 'Changing Finder settings...'
+__info 'Changing Finder settings...'
 
 # finder: choose the size of Finder sidebar icons
-defaults write NSGlobalDomain "NSTableViewDefaultSizeMode" -int "1" || __err ''
+defaults write NSGlobalDomain "NSTableViewDefaultSizeMode" -int "2" || __err ''
 
 # finder: disable window animations and Get Info animations
 defaults write com.apple.finder DisableAllAnimations -bool true || __err ''
@@ -130,7 +108,7 @@ defaults write com.apple.finder DisableAllAnimations -bool true || __err ''
 defaults write com.apple.LaunchServices LSQuarantine -bool false || __err ''
 
 # finder: show hidden files by default
-defaults write com.apple.finder AppleShowAllFiles -bool false || __err ''
+defaults write com.apple.finder AppleShowAllFiles -bool true || __err ''
 
 # finder: show path bar
 defaults write com.apple.finder ShowPathbar -bool true || __err ''
@@ -139,7 +117,7 @@ defaults write com.apple.finder ShowPathbar -bool true || __err ''
 defaults write com.apple.finder ShowStatusBar -bool false || __err ''
 
 # finder: show the ~/Library folder
-chflags nohidden ~/Library || __err ''
+# chflags nohidden ~/Library || __err ''
 
 # finder: allow text selection in Quick Look
 defaults write com.apple.finder QLEnableTextSelection -bool true || __err ''
@@ -220,7 +198,7 @@ defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}" || 
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
- __info 'Changing General UI/UX settings...'
+__info 'Changing General UI/UX settings...'
 
 # UI/UX: hide the useless Time Machine and Volume icons
 defaults write com.apple.systemuiserver menuExtras -array '/System/Library/CoreServices/Menu Extras/Bluetooth.menu' '/System/Library/CoreServices/Menu Extras/AirPort.menu' '/System/Library/CoreServices/Menu Extras/Battery.menu' '/System/Library/CoreServices/Menu Extras/Clock.menu' || __err ''
@@ -259,7 +237,7 @@ defaults write com.apple.loginwindow LoginwindowLaunchesRelaunchApps -bool false
 ###############################################################################
 # Hot Corners                                                                 #
 ###############################################################################
- __info 'Changing Hot Corners settings...'
+__info 'Changing Hot Corners settings...'
 
 # hot corners: top right → Mission Control
 defaults write com.apple.dock wvous-tr-corner -int 2 || __err ''
@@ -272,7 +250,7 @@ defaults write com.apple.dock wvous-bl-modifier -int 0 || __err ''
 ####################################################################################
 # iCal                                                                             #
 ####################################################################################
- __info 'Changing iCal settings...'
+__info 'Changing iCal settings...'
 
 # iCal: enable the debug menu in iCal (pre-10.8)
 defaults write com.apple.iCal IncludeDebugMenu -bool true || __err ''
@@ -280,7 +258,7 @@ defaults write com.apple.iCal IncludeDebugMenu -bool true || __err ''
 ########################################################################################
 # iTunes                                                                               #
 ########################################################################################
- __info 'Changing iTunes settings...'
+__info 'Changing iTunes settings...'
 
 # iTunes: disable the Ping sidebar in iTunes
 defaults write com.apple.iTunes disablePingSidebar -bool true || __err ''
@@ -294,7 +272,7 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2>/dev/null
 #######################################################################################
 # Keyboard                                                                            #
 #######################################################################################
- __info 'Changing Keyboard settings...'
+__info 'Changing Keyboard settings...'
 
 # keyboard: Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
@@ -312,7 +290,7 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false |
 ###############################################################################
 # Launchpad                                                                   #
 ###############################################################################
- __info 'Changing Launchpad settings...'
+__info 'Changing Launchpad settings...'
 
 # launchpad: add iOS Simulator to Launchpad
 sudo ln -sf '/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app' '/Applications/Simulator.app' || __err ''
@@ -320,7 +298,7 @@ sudo ln -sf '/Applications/Xcode.app/Contents/Developer/Applications/Simulator.a
 ###############################################################################
 # Mac App Store                                                               #
 ###############################################################################
- __info 'Changing Mac App Store settings...'
+__info 'Changing Mac App Store settings...'
 
 # app store: enable the WebKit Developer Tools in the Mac App Store
 defaults write com.apple.appstore WebKitDeveloperExtras -bool true || __err ''
@@ -349,7 +327,7 @@ defaults write com.apple.commerce AutoUpdateRestartRequired -bool true || __err 
 ###############################################################################
 # Mail                                                                        #
 ###############################################################################
- __info 'Changing Mail settings...'
+__info 'Changing Mail settings...'
 
 # mail: copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
 defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false || __err ''
@@ -366,7 +344,7 @@ defaults write com.apple.mail SpellCheckingBehavior -string 'NoSpellCheckingEnab
 ###############################################################################
 # Messages                                                                    #
 ###############################################################################
- __info 'Changing Messages settings...'
+__info 'Changing Messages settings...'
 
 # messages: disable smart quotes as it’s annoying for messages that contain code
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add 'automaticQuoteSubstitutionEnabled' -bool false || __err ''
@@ -377,7 +355,7 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 ###############################################################################
 # Network                                                                     #
 ###############################################################################
- __info 'Changing Network settings...'
+__info 'Changing Network settings...'
 
 # network: use AirDrop over every interface
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true || __err ''
@@ -385,7 +363,7 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true || __err 
 ###############################################################################
 # Safari & WebKit                                                             #
 ###############################################################################
- __info 'Changing Safari & WebKit settings...'
+__info 'Changing Safari & WebKit settings...'
 
 # safari: privacy: don’t send search queries to Apple
 defaults write com.apple.Safari UniversalSearchEnabled -bool false || __err ''
@@ -472,7 +450,7 @@ defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true 
 ###############################################################################
 # Spotlight                                                                   #
 ###############################################################################
- __info 'Changing Spotlight settings...'
+__info 'Changing Spotlight settings...'
 
 # spotlight: change indexing order and disable some file types
 defaults write com.apple.spotlight orderedItems -array \
@@ -505,7 +483,7 @@ sudo mdutil -E / >/dev/null
 ###############################################################################
 # Terminal                                                                    #
 ###############################################################################
- __info 'Changing Terminal settings...'
+__info 'Changing Terminal settings...'
 
 # terminal: allowing only UTF-8 in terminal
 defaults write com.apple.terminal StringEncodings -array 4 || __err ''
@@ -519,7 +497,7 @@ defaults write com.apple.Terminal ShowLineMarks -int 0 || __err ''
 ####################################################################################
 # TextEdit                                                                         #
 ####################################################################################
- __info 'Changing textEdit settings...'
+__info 'Changing textEdit settings...'
 
 # text-edit: use plain text mode for new TextEdit documents
 defaults write com.apple.TextEdit RichText -int 0 || __err ''
@@ -531,7 +509,7 @@ defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4 || __err ''
 ###############################################################################
 # Time Machine                                                                #
 ###############################################################################
- __info 'Changing Time Machine settings...'
+__info 'Changing Time Machine settings...'
 
 # time-machine: prevent Time Machine from prompting to use new hard drives as backup volume
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true || __err ''
@@ -539,7 +517,7 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true || _
 #######################################################################################
 # Trackpad                                                                            #
 #######################################################################################
- __info 'Changing Trackpad settings...'
+__info 'Changing Trackpad settings...'
 
 # trackpad: Disabling the Launchpad gesture (pinch with thumb and three fingers)
 defaults write com.apple.dock showLaunchpadGestureEnabled -int 0 || __err ''
@@ -550,7 +528,7 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false || __er
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
- __info 'Kill affected applications...'
+__info 'Kill affected applications...'
 
 for app in 'Activity Monitor' \
 	'Address Book' \
@@ -572,4 +550,4 @@ for app in 'Activity Monitor' \
 	killall "${app}" >/dev/null 2>&1
 done
 
- __info 'Done. Note that some of these changes require a logout/restart to take effect.'
+__info 'Done. Note that some of these changes require a logout/restart to take effect.'

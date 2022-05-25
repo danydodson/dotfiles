@@ -38,7 +38,6 @@ fi
 ###############################################################################
 
 __info 'Adding taps to brew...'
-brew tap bramstein/webfonttools || __err 'failed brew tap bramstein/webfonttools'
 brew tap heroku/brew || __err 'failed brew tap heroku/brew'
 brew tap homebrew/bundle || __err 'failed brew tap homebrew/bundle'
 brew tap homebrew/cask || __err 'failed brew tap homebrew/cask'
@@ -47,8 +46,9 @@ brew tap homebrew/core || __err 'failed brew tap homebrew/core'
 brew tap yt-dlp/taps || __err 'failed brew tap yt-dlp/taps'
 
 __info 'Installing binaries, terminal stuff, CLI...'
-BINARIES=(ack autoenv bat bc ca-certificates coreutils exa fd findutils fzf gh go lua mas mongocli moreutils neofetch readline pipenv pyenv ranger ripgrep shellcheck tldr tree z zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting heroku/brew/heroku yt-dlp/taps/yt-dlp)
+BINARIES=(ack bat bc coreutils exa fd findutils fnm fzf gh go heroku/brew/heroku lua luarocks mas mongocli moreutils neofetch pipenv pyenv ranger ripgrep shellcheck tldr tree yarn yt-dlp/taps/yt-dlp z zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting)
 
+# todo: check if pkg already exists
 for brew in "${BINARIES[@]}"; do
   if ! command -v "$brew" &>/dev/null; then
     __info "installing $brew"
@@ -69,15 +69,35 @@ done
 # npm                                                                         #
 ###############################################################################
 
-__info 'Installing npm packages...'
-# npm install -g typescript ||  __err 'failed npm install typescript'
+__info 'Installing npm global packages...'
+npm install -g typescript || __err 'failed npm install typescript'
+
+###############################################################################
+# npm                                                                         #
+###############################################################################
+
+__info 'Installing yarn global packages...'
+yarn global add gatsby-cli || __err 'failed yarn global add gatsby-cli'
+
+###############################################################################
+# lua                                                                         #
+###############################################################################
+
+__info 'Installing luarocks packages...'
+luarocks install checks || __err 'failed luarocks install checks'
+luarocks install formatter || __err 'failed luarocks install formatter'
+luarocks install lanes || __err 'failed luarocks install lanes'
+luarocks install lua-lsp || __err 'failed luarocks install lua-lsp'
+luarocks install luacheck || __err 'failed luarocks install luacheck'
+luarocks install argcheck || __err 'failed luarocks install argcheck'
+luarocks install busted || __err 'failed luarocks install busted'
+luarocks install luacov || __err 'failed luarocks install luacov'
 
 ###############################################################################
 # Mac App Store                                                               #
 ###############################################################################
 
 __info 'Installing apps from App Store...'
-mas install 1388020431 || __err 'failed mas install DevCleaner'
 mas install 1452453066 || __err 'failed mas install Hidden Bar'
 mas install 425424353 || __err 'failed mas install The Unarchiver'
 mas install 497799835 || __err 'failed mas install Xcode'

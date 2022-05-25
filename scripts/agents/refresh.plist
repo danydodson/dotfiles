@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" 
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>dotfiles refresh script</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/Users/Dany/Documents/Developer/.dotfiles/scripts/daily/refresh.sh</string>
+      <string>>/tmp/stdout.log</string>
+      <string>2>/tmp/stderr.log</string>
+    </array>
+    <key>StartCalendarInterval</key>
+    <dict>
+      <key>Hour</key>
+      <integer>00</integer>
+      <key>Minute</key>
+      <integer>00</integer>
+    </dict>
+    <dict>
+      <key>Hour</key>
+      <integer>12</integer>
+      <key>Minute</key>
+      <integer>00</integer>
+    </dict>
+    <key>Debug</key>
+    <false/>
+    <key>AbandonProcessGroup</key>
+    <true/>
+  </dict>
+</plist>

@@ -2,21 +2,25 @@
 
 # Script updating software packages
 
-# Log Helpers
 __info() { printf '\033[0;34m[INFO] \033[0;34m%s\033[0;m\n' "$1"; }
 
-__info "Updating oh-my-zsh..."
-"$HOME"/.config/local/share/oh-my-zsh/tools/upgrade.sh
+__info 'Upgrading software packages...'
 
-__info "Updating homebrew..."
-brew update
-brew upgrade
-brew autoremove
-brew cleanup --prune=all -s
-
-__info "Upgrading App Store apps..."
+__info 'app store...'
 mas outdated
 mas upgrade
 
-# __info "Updating npm packages"
-# npm update -g
+__info 'oh-my-zsh...'
+/Users/Dany/.config/local/share/oh-my-zsh/tools/upgrade.sh
+
+__info 'global npm...'
+npm update -g
+
+__info 'global yarn...'
+cd /Users/Dany/.config/local/share/yarn/global && yarn global upgrade
+
+__info 'homebrew...'
+brew bundle dump
+brew bundle --force cleanup
+brew cleanup -v
+rm Brewfile

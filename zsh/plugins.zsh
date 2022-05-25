@@ -80,16 +80,10 @@ export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(e {})+abort'"
 # iterm2                                                              #
 #######################################################################
 
-source "${HOME}/.config/iterm2/iterm2_shell_integration.zsh"
-
-function iterm2_print_user_vars() {
-  iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
-  iterm2_set_user_var home $(echo -n $HOME)
-}
+source "$HOME/.config/iterm2/iterm2_shell_integration.zsh"
 
 #######################################################################
 # z                                                                   #
 #######################################################################
 
 source /opt/homebrew/etc/profile.d/z.sh
-

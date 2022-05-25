@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# Run chmod.sh script
-
-"$DOTFILES"/utils/chmod.sh
