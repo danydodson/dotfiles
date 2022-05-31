@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #######################################################################
 # modify path                                                         #
@@ -40,7 +40,7 @@ function fpath-prepend() {
 # open .dotfiles in fzf                                                #
 #######################################################################
 
-fzf-scripts() {
+__fzf_scripts() {
   _scripts_path="$DOTFILES/"
   _allfiles=$(rg -t sh --files "$_scripts_path")
   _cutpaths=$(echo "$_allfiles" | cut -c 32-)
@@ -51,8 +51,19 @@ fzf-scripts() {
   zle redisplay
 }
 
-zle -N fzf-scripts
-bindkey '^X' fzf-scripts
+zle -N __fzf_scripts
+bindkey '^X' __fzf_scripts
+
+#######################################################################
+# alt+left to previous dir
+#######################################################################
+
+__prev_dir() {
+  popd 2>/dev/null || exit
+  zle accept-line
+}
+zle -N __prev_dir
+bindkey '^[[1;3D' __prev_dir
 
 #######################################################################
 # other                                                               #

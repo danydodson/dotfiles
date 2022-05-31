@@ -2,5 +2,5 @@
 **/Brewfile.lock.json
 **/Icon?
 **/.netrwhist
+**/gitconfig
 **/*.env
-**/git-token

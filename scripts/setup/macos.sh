@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Log Helpers
 __info() { printf '\033[0;34m[INFO] \033[0;34m%s\033[0;m\n' "$1"; }
@@ -361,6 +361,33 @@ __info 'Changing Network settings...'
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true || __err ''
 
 ###############################################################################
+# Photos
+###############################################################################
+__info 'Changing Photos settings...'
+
+# Prevent Photos from opening automatically when devices are plugged in
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+###############################################################################
+# Preview
+###############################################################################
+__info 'Changing Previews settings...'
+
+# Don't remember open files
+defaults write com.apple.Preview NSQuitAlwaysKeepsWindows -bool false
+
+###############################################################################
+# QuickTime
+###############################################################################
+__info 'Changing Quicktime settings...'
+
+# Auto-play videos when opened with QuickTime Player
+defaults write com.apple.QuickTimePlayerX MGPlayMovieOnOpen -bool true
+
+# Don't remember open files
+defaults write com.apple.QuickTimePlayerX NSQuitAlwaysKeepsWindows -bool false
+
+###############################################################################
 # Safari & WebKit                                                             #
 ###############################################################################
 __info 'Changing Safari & WebKit settings...'
@@ -542,6 +569,8 @@ for app in 'Activity Monitor' \
 	'Mail' \
 	'Messages' \
 	'Photos' \
+	'Preview' \
+	'Quicktime' \
 	'Safari' \
 	'Spotlight' \
 	'SystemUIServer' \

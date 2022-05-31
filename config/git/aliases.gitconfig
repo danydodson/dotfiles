@@ -1,0 +1,98 @@
+[alias]
+	a       = add
+	aa      = add .
+
+	b       = branch
+	be      = branch --edit-description
+	bv      = branch --verbose
+	done    = branch --verbose --merged
+	um      = branch --verbose --no-merged
+
+	co      = checkout
+
+	ci      = commit
+	ca      = commit --amend
+	cane    = commit --amend --no-edit
+	cm      = commit --edit -m
+
+	cfg     = config --global --edit
+	cls     = config --list --show-origin
+
+	lasttag = describe --tags --abbrev=0
+
+	d       = diff
+	ds      = diff --staged
+	dino    = diff --name-only
+	dns     = diff --ignore-all-space
+
+	fo      = fetch origin
+
+	# https://caiustheory.com/git-git-git-git-git/
+	git     = !exec git
+
+	g       = grep --break --heading --line-number
+
+	l       = log --abbrev-commit --date=short --pretty=ld
+	ll      = log --abbrev-commit --oneline --decorate --all
+	lb      = log --abbrev-commit --oneline --decorate --all --graph
+	lg      = log --abbrev-commit           --decorate --all --graph
+	new     = log --no-merges --abbrev-commit --oneline         ORIG_HEAD..
+	news    = log --no-merges --abbrev-commit --oneline --stat  ORIG_HEAD..
+
+	ls      = ls-tree -r --full-tree --name-only HEAD
+
+	m       = merge
+
+	pullall = "!git pull \"$@\" && git submodule update --init --recursive"
+	pure    = pull --rebase
+
+	pf      = push --force-with-lease
+	poh     = push -u origin HEAD
+	puh     = push upstream HEAD
+
+	rb      = rebase
+	rbc     = rebase --continue
+
+	rso = remote show origin
+	reorigin = remote set-url origin
+	reupstream = remote set-url upstream
+	origin-to-upstream = "!f() { u="$(git remote get-url origin)"; [ -n "$u" ] && { git remote add upstream "$u" || git remote set-url upstream "$u"; }; }; f"
+
+	rehard  = reset --hard
+
+	forget  = rm -r --cached
+
+	last    = show --show-signature
+
+	sha     = rev-parse HEAD
+
+	st      = status
+	s       = status --short --branch
+
+	squashwip = rebase -i @{u}
+
+	subup   = submodule update --init
+
+	t       = tag
+
+	track   = branch -u
+
+	wt      = worktree
+	wta     = worktree add
+	wtl     = worktree list
+	wtr     = worktree remove
+
+	# ---------------------------------------------------------------------------
+	# aliases to git-extras provided
+	# ---------------------------------------------------------------------------
+
+	cl      = changelog --list
+	copy    = copy-branch
+	dmb     = delete-merged-branches
+
+	# ---------------------------------------------------------------------------
+	# my own git-* commands
+	# ---------------------------------------------------------------------------
+
+	rel     = relevant
+

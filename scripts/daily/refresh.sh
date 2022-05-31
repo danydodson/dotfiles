@@ -1,15 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Runs daily scripts
 
 date
 
-dir=/Users/Dany/Documents/Developer/.dotfiles/scripts/daily
+cd /Users/Dany/Documents/Developer/.dotfiles || exit
 
-cd $dir || exit
-
-"$dir"/update.sh
-"$dir"/clean.sh
-"$dir"/rebuild.sh
+/scripts/daily/update.sh
+/scripts/daily/clean.sh
+/scripts/daily/rebuild.sh
 
 # todo: send mail on error log

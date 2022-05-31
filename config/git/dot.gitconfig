@@ -1,0 +1,134 @@
+# Global gitconfig
+
+# Don't assign global GIT_CONFIG var since it has trouble with [include] when
+# you do that
+
+# ============================================================================
+# Formatting
+# ============================================================================
+
+[pretty]
+	ld      = %C(yellow)%h %C(reset)%s %C(green)(%cr) %C(blue)<%an>%C(magenta)%d%C(reset)
+
+# ============================================================================
+
+[include]
+	path = "~/.dotfiles/config/git/aliases.gitconfig"
+
+# ============================================================================
+# Color
+# ============================================================================
+
+[color]
+	branch      = auto
+	diff        = auto
+	grep        = auto
+	interactive = auto
+	status      = auto
+	ui          = auto
+	pager       = true
+
+[color "diff-highlight"]
+	oldNormal    = red bold
+	oldHighlight = red bold 52
+	newNormal    = green bold
+	newHighlight = green bold 22
+
+# ============================================================================
+# URL aliases
+# ============================================================================
+
+[url "git@github.com:"]
+	insteadOf = "gh:"
+	pushInsteadOf = "github:"
+	pushInsteadOf = "git://github.com/"
+
+[url "git://github.com/"]
+	insteadOf = "github:"
+
+[url "git@gist.github.com:"]
+	insteadOf = "gst:"
+	pushInsteadOf = "gist:"
+	pushInsteadOf = "git://gist.github.com/"
+
+[url "git://gist.github.com/"]
+	insteadOf = "gist:"
+
+[url "git@heroku.com:"]
+	insteadOf = "heroku:"
+
+# ============================================================================
+# Repo settings and command options
+# ============================================================================
+
+[blame]
+	date = short
+	showEmail = true
+
+[branch]
+	autosetupmerge = always
+	autosetuprebase = always
+
+[core]
+	compression = -1
+	sharedRepository = 0664
+	commentchar = ";"
+# pager = less -x4 ; removed so git will use the env GIT_PAGER
+# pager = delta ; removed -- added as GIT_PAGER for zsh only
+	ignorecase = false
+
+[diff]
+	compactionHeuristic = true
+	renames = true
+	renameLimit = 12650
+
+[filter "media"]
+	clean     = git media clean %f
+	smudge    = git media smudge %f
+	required  = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required  = true
+	process = git-lfs filter-process
+
+[push]
+	default = simple
+
+[rebase]
+	stat = true
+
+[rerere]
+	enabled = 1
+
+# ============================================================================
+# Programs (assumes may be overridden by OS settings)
+# ============================================================================
+
+[gui]
+	fontui = -family \"Fira Sans\" -size -10 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family \"Fira Mono for Powerline\" -size -10 -weight normal -slant roman -underline 0 -overstrike 0
+	commitmsgwidth = 80
+	diffcontext = 10
+
+[difftool]
+	prompt = false
+
+[mergetool]
+	prompt = false
+
+[pager]
+	status = true
+
+# ============================================================================
+
+[includeIf "gitdir:/Users/"]
+	path = "~/.dotfiles/config/git/osx.gitconfig"
+
+[include]
+	path = "~/.dotfiles/local/gitconfig"
+
+# vim: ft=gitconfig
+[gpg]
+	program = gpg2

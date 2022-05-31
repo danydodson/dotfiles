@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Log Helpers
 __info() { printf '\033[0;34m[INFO] \033[0;34m%s\033[0;m\n' "$1"; }
@@ -73,11 +73,42 @@ __info 'Installing npm global packages...'
 npm install -g typescript || __err 'failed npm install typescript'
 
 ###############################################################################
-# npm                                                                         #
+# yarn                                                                        #
 ###############################################################################
 
 __info 'Installing yarn global packages...'
 yarn global add gatsby-cli || __err 'failed yarn global add gatsby-cli'
+
+###############################################################################
+# pyenv                                                                       #
+###############################################################################
+
+__install() {
+  # Make sure not using system python and pip
+  if python -m pip --version | grep -q /usr/lib; then
+    __err "System pip detected, not running. Use a userspace python's pip."
+    exit 1
+  fi
+
+  # Make sure has pyenv
+  if ! __has "pyenv"; then
+    __err "pyenv is not installed. Install it and set up a global pyenv."
+    exit 1
+  fi
+
+  if pyenv version | grep -q system; then
+    __err "Using system pyenv. Use real pyenv instead."
+    exit 1
+  fi
+
+  __status "Updating global pip"
+  python -m pip install --upgrade pip
+
+  __status "Updating global pip requirements"
+  python -m pip install --upgrade --requirement "${DOTFILES}/python/requirements.txt"
+}
+
+__install "$@"
 
 ###############################################################################
 # lua                                                                         #

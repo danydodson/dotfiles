@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Change the mac address. Unlimited WiFi FTW!
 

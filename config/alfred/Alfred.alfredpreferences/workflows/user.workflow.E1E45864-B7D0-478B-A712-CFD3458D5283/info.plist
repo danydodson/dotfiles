@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.alfredapp.vero.gettingstarted.fileactions</string>
+	<key>connections</key>
+	<dict>
+		<key>24733700-4082-4D73-81DC-5AF2CC654D65</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>7FADB272-27EF-419C-8314-EF188F580D7F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Vero Pepperrell</string>
+	<key>description</key>
+	<string>Create a custom file action to open an image in Safari</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>File Actions - Getting Started</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>openwith</key>
+				<string>/Applications/Safari.app</string>
+				<key>sourcefile</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openfile</string>
+			<key>uid</key>
+			<string>7FADB272-27EF-419C-8314-EF188F580D7F</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>acceptsmulti</key>
+				<true/>
+				<key>filetypes</key>
+				<array>
+					<string>com.compuserve.gif</string>
+					<string>public.jpeg</string>
+					<string>public.png</string>
+				</array>
+				<key>name</key>
+				<string>Open in Safari</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.action</string>
+			<key>uid</key>
+			<string>24733700-4082-4D73-81DC-5AF2CC654D65</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>When you choose a file, you can show the File Actions for it by pressing the right arrow. 
+
+The File Action trigger allows you to add custom file actions, specifying which file types it should apply to.
+
+In this workflow, the File Action trigger is applicable to images (jpg, png and gif) and the action performed is to open the file(s) in Safari.</string>
+	<key>uidata</key>
+	<dict>
+		<key>24733700-4082-4D73-81DC-5AF2CC654D65</key>
+		<dict>
+			<key>note</key>
+			<string>1. Right-click the canvas to add a File Action from Triggers.
+
+2. Give your action a title, which will appear in the File Actions panel.</string>
+			<key>xpos</key>
+			<integer>50</integer>
+			<key>ypos</key>
+			<integer>50</integer>
+		</dict>
+		<key>7FADB272-27EF-419C-8314-EF188F580D7F</key>
+		<dict>
+			<key>note</key>
+			<string>3. Connect it to an Open File action.
+
+4. In the Open File configuration, dragging Safari sets it as the application the file will open in.</string>
+			<key>xpos</key>
+			<integer>310</integer>
+			<key>ypos</key>
+			<integer>50</integer>
+		</dict>
+	</dict>
+	<key>version</key>
+	<string>1.0</string>
+	<key>webaddress</key>
+	<string>https://www.alfredapp.com</string>
+</dict>
+</plist>

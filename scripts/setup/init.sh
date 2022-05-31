@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Log Helpers
 __info() { printf '\033[0;34m[INFO] \033[0;34m%s\033[0;m\n' "$1"; }
@@ -11,41 +11,39 @@ sudo -v
 # Keep-alive: update existing sudo time stamp until script has finished
 while true; do sudo -n true sleep 60 kill -0 "$$" || exit; done 2>/dev/null &
 
- __info 'Updating OSX.  If this requires a restart, run the setup.sh script again.'
+__info 'Updating OSX.  If this requires a restart, run the setup.sh script again.'
 
- __info 'Installing all available updates...'
-sudo softwareupdate -ia --verbose &&  __ok 'installed all software updates'
+__info 'Installing all available updates...'
+sudo softwareupdate -ia --verbose && __ok 'installed all software updates'
 
- __info 'Checking if xcode is installed...'
+__info 'Checking if xcode is installed...'
 if test ! "$(xcode-select -p)"; then
-  xcode-select --install &&  __ok 'installed Xcode Command Line Tools'
+  xcode-select --install && __ok 'installed Xcode Command Line Tools'
 else
-   __ok 'already installed'
+  __ok 'already installed'
 fi
 
- __info 'Checking for homebrew...'
+__info 'Checking for homebrew...'
 if test ! "$(which brew)"; then
-   __info '> Installing Homebrew'
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" &&  __ok 'installed Homebrew'
+  __info '> Installing Homebrew'
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && __ok 'installed Homebrew'
 else
-   __ok 'Homebrew is already installed'
+  __ok 'Homebrew is already installed'
 fi
 
- __info "Installing git config..."
- __info "What's your full name (for git purposes)?"
-read -r _git_name
- __info "What's your email address?"
-read -r _git_email
+# ============================================================================
+# plist
+# ============================================================================
 
-dir="$(cd "$DOTFILES"/config/git && pwd)"
+# _bootstrap_plist() {
+#   dotfiles_plist="${HOME}/Library/LaunchAgents/dotfiles.plist"
+#   [ ! -f "$(readlink "$dotfiles_plist")" ] && {
+#     __dko_err "dotfiles.plist not symlinked. Run bootstrap/symlink!"
+#     return 1
+#   }
 
-for file in ignore config; do
-  cp -p "$dir"/$file "$HOME"/.config/git/$file
-done
-
-# replace the placeholders in .gitconfig with user input
-sed -i -e "s/GIT_NAME/$_git_name/g" "$HOME"/.config/git/config
-sed -i -e "s/GIT_EMAIL/$_git_email/g" "$HOME"/.config/git/config
-
-# remove the extra file
-rm -rf "$HOME"/.config/git/config-e
+#   __dko_status "Reloading dotfiles.plist"
+#   launchctl unload "$dotfiles_plist" 2>/dev/null
+#   launchctl load "$dotfiles_plist"
+# }
+# _bootstrap_plist || exit 1

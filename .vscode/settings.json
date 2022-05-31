@@ -1,13 +1,4 @@
 {
-  "files.associations": {
-    "**/bin/*": "shellscript",
-    "**/config/git/config": "gitconfig",
-    "**/config/git/ignore": "ignore"
-  },
-  "shellcheck.ignorePatterns": {
-    "**/bin/color-path": true,
-    "**/bin/fzf-scripts": true,
-    "**/config/shell/aliases.sh": true
-  },
+  "files.associations": { "**/bin/*": "shellscript" },
   "taskExplorer.exclude": ["**/**/**/**/dracula.py", "**/helpers/*", "**/shell/*"]
 }

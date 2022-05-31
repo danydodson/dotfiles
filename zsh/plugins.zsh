@@ -46,6 +46,12 @@ eval "$(pyenv init -)"
 # fzf                                                                 #
 #######################################################################
 
+# fzf completion
+source /opt/homebrew/opt/fzf/shell/completion.zsh
+
+# Load Key bindings
+source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+
 export FZF_DEFAULT_COMMAND="rg --files"
 export FZF_COMPLETION_OPTS="--reverse --border --exact --height 40%"
 export FZF_DEFAULT_OPTS="
@@ -60,14 +66,9 @@ export FZF_DEFAULT_OPTS="
  --preview-window='right:70%'
 "
 
-# fzf completion
-source /opt/homebrew/opt/fzf/shell/completion.zsh
-
-# Load Key bindings
-source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
-
 # Preview current directory
-alias preview="fzf --preview 'bat --color \"always\" {}'"
+alias preview=fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'
+# alias preview="fzf --preview 'bat --color \"always\" {}'"
 
 if [[ -f ~/.fzf.zsh ]]; then
   source ~/.fzf.zsh
@@ -75,7 +76,6 @@ fi
 
 # Supports ctrl+o to open selected file in the text editor
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(e {})+abort'"
-
 #######################################################################
 # iterm2                                                              #
 #######################################################################
