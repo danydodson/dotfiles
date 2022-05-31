@@ -38,11 +38,11 @@ fi
 ###############################################################################
 
 __info 'Adding taps to brew...'
-brew tap heroku/brew || __err 'failed brew tap heroku/brew'
 brew tap homebrew/bundle || __err 'failed brew tap homebrew/bundle'
 brew tap homebrew/cask || __err 'failed brew tap homebrew/cask'
 brew tap homebrew/cask-versions || __err 'failed brew tap homebrew/cask-versions'
 brew tap homebrew/core || __err 'failed brew tap homebrew/core'
+brew tap heroku/brew || __err 'failed brew tap heroku/brew'
 brew tap yt-dlp/taps || __err 'failed brew tap yt-dlp/taps'
 
 __info 'Installing binaries, terminal stuff, CLI...'
@@ -69,60 +69,60 @@ done
 # npm                                                                         #
 ###############################################################################
 
-__info 'Installing npm global packages...'
-npm install -g typescript || __err 'failed npm install typescript'
+# __info 'Installing npm global packages...'
+# npm install -g typescript || __err 'failed npm install typescript'
 
 ###############################################################################
 # yarn                                                                        #
 ###############################################################################
 
-__info 'Installing yarn global packages...'
-yarn global add gatsby-cli || __err 'failed yarn global add gatsby-cli'
+# __info 'Installing yarn global packages...'
+# yarn global add gatsby-cli || __err 'failed yarn global add gatsby-cli'
 
 ###############################################################################
 # pyenv                                                                       #
 ###############################################################################
 
-__install() {
-  # Make sure not using system python and pip
-  if python -m pip --version | grep -q /usr/lib; then
-    __err "System pip detected, not running. Use a userspace python's pip."
-    exit 1
-  fi
+# __install() {
+#   # Make sure not using system python and pip
+#   if python -m pip --version | grep -q /usr/lib; then
+#     __err "System pip detected, not running. Use a userspace python's pip."
+#     exit 1
+#   fi
 
-  # Make sure has pyenv
-  if ! __has "pyenv"; then
-    __err "pyenv is not installed. Install it and set up a global pyenv."
-    exit 1
-  fi
+#   # Make sure has pyenv
+#   if ! __has "pyenv"; then
+#     __err "pyenv is not installed. Install it and set up a global pyenv."
+#     exit 1
+#   fi
 
-  if pyenv version | grep -q system; then
-    __err "Using system pyenv. Use real pyenv instead."
-    exit 1
-  fi
+#   if pyenv version | grep -q system; then
+#     __err "Using system pyenv. Use real pyenv instead."
+#     exit 1
+#   fi
 
-  __status "Updating global pip"
-  python -m pip install --upgrade pip
+#   __status "Updating global pip"
+#   python -m pip install --upgrade pip
 
-  __status "Updating global pip requirements"
-  python -m pip install --upgrade --requirement "${DOTFILES}/python/requirements.txt"
-}
+#   __status "Updating global pip requirements"
+#   python -m pip install --upgrade --requirement "${DOTFILES}/python/requirements.txt"
+# }
 
-__install "$@"
+# __install "$@"
 
 ###############################################################################
 # lua                                                                         #
 ###############################################################################
 
-__info 'Installing luarocks packages...'
-luarocks install checks || __err 'failed luarocks install checks'
-luarocks install formatter || __err 'failed luarocks install formatter'
-luarocks install lanes || __err 'failed luarocks install lanes'
-luarocks install lua-lsp || __err 'failed luarocks install lua-lsp'
-luarocks install luacheck || __err 'failed luarocks install luacheck'
-luarocks install argcheck || __err 'failed luarocks install argcheck'
-luarocks install busted || __err 'failed luarocks install busted'
-luarocks install luacov || __err 'failed luarocks install luacov'
+# __info 'Installing luarocks packages...'
+# luarocks install checks || __err 'failed luarocks install checks'
+# luarocks install formatter || __err 'failed luarocks install formatter'
+# luarocks install lanes || __err 'failed luarocks install lanes'
+# luarocks install lua-lsp || __err 'failed luarocks install lua-lsp'
+# luarocks install luacheck || __err 'failed luarocks install luacheck'
+# luarocks install argcheck || __err 'failed luarocks install argcheck'
+# luarocks install busted || __err 'failed luarocks install busted'
+# luarocks install luacov || __err 'failed luarocks install luacov'
 
 ###############################################################################
 # Mac App Store                                                               #

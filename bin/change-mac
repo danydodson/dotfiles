@@ -1,9 +1,9 @@
 #!/bin/sh
-#
+
 # Usage: changeMac
 # Description: change the mac address. Unlimited WiFi FTW!
 # Note: MacOS / *BSD.
-#
+
 # credit: https://twitter.com/nicosommi/status/1130500577128062976
 
 changeMac() {

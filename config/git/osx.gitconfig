@@ -1,3 +1,7 @@
+[user]
+    name = Dany Dodson
+    email = danydodson@gmail.com
+
 [credential]
 	helper = osxkeychain
 

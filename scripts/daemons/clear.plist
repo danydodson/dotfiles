@@ -22,13 +22,6 @@
     <key>WatchPaths</key>
     <array>
       <string>/Users/Dany/Downloads</string>
-      <string>/Users/Dany/Movies</string>
-      <string>/Users/Dany/Music</string>
-      <string>/Users/Dany/Pictures</string>
-      <string>/Users/Dany/.Trash</string>
-      <string>/Users/Dany/.wakatime</string>
-      <string>/Users/Dany/.wakatime-internal.cfg</string>
-      <string>/Users/Dany/.yarnrc</string>
     </array>
     <key>AbandonProcessGroup</key>
     <true/>
