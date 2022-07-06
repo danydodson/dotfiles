@@ -65,8 +65,8 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
 export HOMEBREW_ROOT="/opt/homebrew"
 export HOMEBREW_NO_ANALYTICS=true
 export HOMEBREW_NO_INSTALL_CLEANUP=true
-export "$(grep -E -v '^#' "$DOTFILES/.env" | xargs)"
-export HOMEBREW_GITHUB_API_TOKEN=$HOMEBREW_TOKEN
+# export "$(grep -E -v '^#' "$DOTFILES/.env" | xargs)"
+# export HOMEBREW_GITHUB_API_TOKEN=$HOMEBREW_TOKEN
 
 # vim
 export VIMCONFIG="${XDG_CONFIG_HOME}"/vim
@@ -78,6 +78,7 @@ export BAT_CONFIG_PATH="$XDG_CONFIG_HOME/bat/bat.conf"
 
 # python
 export PYENV_ROOT="$HOME/.config/pyenv"
+export PYTHONSTARTUP="${XDG_CACHE_HOME}/python/pythonstartup.py"
 
 # ack
 export ACKRC="${DOTFILES}/config/ack/dot.ackrc"

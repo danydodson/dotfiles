@@ -6,27 +6,26 @@ __ok() { printf '\033[0;33m[OK] \033[0;36m%s\033[0;m\n' "$1"; }
 
 __info "Copying some dotfiles to $HOME ..."
 
-aws="${DOTFILES}/config/aws"
+_DOTFILES="$HOME/.dotfiles"
+
+aws="${_DOTFILES}/config/aws"
 cp -r "$aws" "$HOME/.config/" && __ok "Copied $aws"
 
-bat="$DOTFILES/config/bat"
+bat="$_DOTFILES/config/bat"
 cp -r "$bat" "$HOME/.config/" && __ok "Copied $bat"
 
-gitcon="$DOTFILES/config/git/dot.gitconfig"
+gitcon="$_DOTFILES/config/git/dot.gitconfig"
 cp -r "$gitcon" "$HOME/.config/git/config" && __ok "Copied $gitcon"
 
-neofetch="$DOTFILES/config/neofetch"
+neofetch="$_DOTFILES/config/neofetch"
 cp -r "$neofetch" "$HOME/.config/" && __ok "Copied $neofetch"
 
-readline="$DOTFILES/config/readline"
-cp -r "$readline" "$HOME/.config/" && __ok "Copied $readline"
-
-ranger="$DOTFILES/config/ranger"
+ranger="$_DOTFILES/config/ranger"
 cp -r "$ranger" "$HOME/.config/" && __ok "Copied $ranger"
 
-vim="$DOTFILES/config/vim"
-cp -r "$vim" "$HOME/.config/" && __ok "Copied $vim to $HOME"
+# vim="$_DOTFILES/config/vim"
+# cp -r "$vim" "$HOME/.config/" && __ok "Copied $vim to $HOME"
 
-zshrc="$DOTFILES/zsh/.zshrc"
+zshrc="$_DOTFILES/zsh/.zshrc"
 cp -p "$zshrc" "$HOME" && __ok "Copied $zshrc"
 cp -p "$zshrc" "$HOME/.config/zsh/" && __ok "Copied $zshrc again"

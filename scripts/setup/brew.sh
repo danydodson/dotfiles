@@ -28,9 +28,9 @@ if [ -e "$HOME"/.config/local/share/oh-my-zsh/custom/themes/spaceship.zsh-theme 
   __ok 'Spaceship prompt already exists'
 else
   __info 'installiung spaceship prompt...'
-  git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM"/themes/spaceship-prompt --depth=1 && __ok ''
+  git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME"/.config/local/share/oh-my-zsh/custom/themes/spaceship-prompt --depth=1 && __ok ''
   __info 'Linking spaceship prompt...'
-  ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme" && __ok ''
+  ln -s "$HOME/.config/local/share/oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.config/local/share/oh-my-zsh/custom/themes/spaceship.zsh-theme" && __ok ''
 fi
 
 ###############################################################################
@@ -58,7 +58,7 @@ for brew in "${BINARIES[@]}"; do
 done
 
 __info 'Installing casks...'
-CASKS=(google-chrome)
+CASKS=()
 
 for cask in "${CASKS[@]}"; do
   __info "installing $cask"

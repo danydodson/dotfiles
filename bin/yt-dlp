@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-# Download videos
-
-yt-dlp "$1" -o "$HOME/.storage/Web/%(title)s.%(ext)s"

@@ -48,25 +48,25 @@ alias pyg='pygmentize -O style=rrt -f console256 -g'
 
 alias gulp='npx gulp'
 alias grunt='npx grunt'
-alias n='npm'
-alias ni='n install'
+# alias n='npm'
+# alias ni='n install'
 alias nomod='rm -rf ./node_modules'
 alias likereallynomod='find . -type d -iname node_modules -exec rm \-rf {} \;'
-alias nr='n run'
-alias ns='n start'
-alias yarn='yarn --use-yarnrc $HOME/.config/yarn/yarnrc'
-alias y='yarn'
-alias yi='yarn install'
-alias yr='yarn run'
-alias yt='yarn test'
+# alias nr='n run'
+# alias ns='n start'
+# alias yarn='yarn --use-yarnrc $HOME/.config/yarn/yarnrc'
+# alias y='yarn'
+# alias yi='yarn install'
+# alias yr='yarn run'
+# alias yt='yarn test'
 
 #######################################################################
 # python
 #######################################################################
 
-alias pea='pyenv activate'
-alias ped='pyenv deactivate'
-alias pss='pyenv shell system'
+# alias pea='pyenv activate'
+# alias ped='pyenv deactivate'
+# alias pss='pyenv shell system'
 
 #######################################################################
 # Homebrew
@@ -75,11 +75,11 @@ alias pss='pyenv shell system'
 alias b='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 alias brew='b'
 
-alias bi='b install'
-alias bs='b search'
-alias blfn='b ls --full-name'
+# alias bi='b install'
+# alias bs='b search'
+# alias blfn='b ls --full-name'
 
-alias brc='b cask'
+# alias brc='b cask'
 
 alias bsvc='b services'
 alias bsvr='b services restart'
@@ -157,10 +157,10 @@ alias xit='exit' # dammit
 #######################################################################
 
 # sudo since we run nginx on port 80 so needs admin
-alias rnginx='sudo brew services restart nginx'
+# alias rnginx='sudo brew services restart nginx'
 
 # electron apps can't focus if started using Electron symlink
-alias elec='/Applications/Electron.app/Contents/MacOS/Electron'
+# alias elec='/Applications/Electron.app/Contents/MacOS/Electron'
 
 # Audio control - http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
