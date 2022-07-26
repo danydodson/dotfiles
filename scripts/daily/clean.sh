@@ -18,5 +18,5 @@ find ~/Developer -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm
 
 __info 'Removes Trash'
 sudo rm -rfv /Volumes/*/.Trashes
-sudo rm -rfv ~/Library/'Mobile\ Documents'/com~apple~CloudDocs/.Trash
+sudo rm -rf ~/Library/Mobile\ Documents/com~apple~CloudDocs/.Trash
 sudo rm -rfv ~/.Trash

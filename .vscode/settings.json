@@ -1,4 +1,10 @@
 {
-  "files.associations": { "**/bin/*": "shellscript" },
-  "taskExplorer.exclude": ["**/**/**/**/dracula.py", "**/helpers/*", "**/shell/*"]
+  "files.associations": {
+    "**/bin/*": "shellscript"
+  },
+  "taskExplorer.exclude": [
+    "**/**/**/**/dracula.py",
+    "**/helpers/*",
+    "**/shell/*"
+  ]
 }

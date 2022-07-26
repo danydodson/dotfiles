@@ -13,14 +13,14 @@ mas upgrade
 __info 'oh-my-zsh...'
 /Users/Dany/.config/local/share/oh-my-zsh/tools/upgrade.sh
 
-__info 'global npm...'
-npm update -g
+# __info 'global npm...'
+# npm update -g
 
 __info 'global yarn...'
 cd /Users/Dany/.config/local/share/yarn/global && yarn global upgrade
 
 __info 'homebrew...'
-brew bundle dump
-brew bundle --force cleanup
-brew cleanup -v
-rm Brewfile
+# brew bundle dump
+# brew bundle --force cleanup
+# brew cleanup -v
+# rm Brewfile
