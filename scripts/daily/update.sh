@@ -19,7 +19,7 @@ __info 'oh-my-zsh...'
 __info 'global yarn...'
 cd /Users/Dany/.config/local/share/yarn/global && yarn global upgrade
 
-__info 'homebrew...'
+# __info 'homebrew...'
 # brew bundle dump
 # brew bundle --force cleanup
 # brew cleanup -v
