@@ -68,6 +68,12 @@ export HOMEBREW_NO_INSTALL_CLEANUP=true
 # export "$(grep -E -v '^#' "$DOTFILES/.env" | xargs)"
 # export HOMEBREW_GITHUB_API_TOKEN=$HOMEBREW_TOKEN
 
+# android sdk
+# export ANDROID_HOME="/Users/Dany/Library/Android/sdk"
+
+# android ndk
+# export ANDROID_NDK_HOME="/opt/homebrew/share/android-ndk"
+
 # vim
 export VIMCONFIG="${XDG_CONFIG_HOME}"/vim
 export MYVIMRC="$XDG_CONFIG_HOME"/vim/vimrc

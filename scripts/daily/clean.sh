@@ -4,19 +4,22 @@
 
 __info() { printf '\033[0;34m[INFO] \033[0;34m%s\033[0;m\n' "$1"; }
 
-__info 'Removes DS_Stores'
+__info 'Removing DS_Stores...'
 find . -name '*.DS_Store' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
 
-__info 'Removes node_modules'
+__info 'Removing node_modules...'
 find ~/Developer -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
 
-# __info 'Removes logs'
-# sudo rm -rfv /private/var/log/asl/*.asl
+__info 'Removing logs...'
+sudo rm -rfv /private/var/log/asl/*.asl
 
-# __info 'Removes compdump'
-# rm -rfv ~/.config/zsh/.zcompdump*
+__info 'Removing zcompdump...'
+rm -rfv ~/.config/zsh/.zcompdump*
 
-__info 'Removes Trash'
+__info 'Moving .yarnrc...'
+mv -f ~/.yarnrc ~/.config/yarn/yarnrc
+
+__info 'Removing Trash...'
 sudo rm -rfv /Volumes/*/.Trashes
 sudo rm -rf ~/Library/Mobile\ Documents/com~apple~CloudDocs/.Trash
 sudo rm -rfv ~/.Trash
