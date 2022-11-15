@@ -86,6 +86,9 @@ export BAT_CONFIG_PATH="$XDG_CONFIG_HOME/bat/bat.conf"
 export PYENV_ROOT="$HOME/.config/pyenv"
 export PYTHONSTARTUP="${XDG_CACHE_HOME}/python/pythonstartup.py"
 
+# ipython
+export IPYTHONDIR="$HOME/.config/ipython"
+
 # ack
 export ACKRC="${DOTFILES}/config/ack/dot.ackrc"
 
