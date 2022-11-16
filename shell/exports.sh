@@ -95,6 +95,10 @@ export ACKRC="${DOTFILES}/config/ack/dot.ackrc"
 # z
 export _Z_DATA="${ZDOTDIR}/.z"
 
+# go
+export GOPATH="${XDG_CONFIG_HOME}/go"
+export GOMODCACHE="${XDG_CONFIG_HOME}/go/pkg/mod"
+
 # wakatime
 export WAKATIME_HOME="${XDG_CONFIG_HOME}/wakatime"
 
