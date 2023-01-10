@@ -56,16 +56,17 @@ alias ns='n start'
 alias yrc='/opt/homebrew/bin/yarn --use-yarnrc $HOME/.config/yarn/yarnrc'
 alias yarn='yrc'
 alias y='yarn'
-# alias yi='yarn install'
-# alias yr='yarn run'
-# alias yt='yarn test'
+alias yi='yarn install'
+alias yr='yarn run'
+alias yt='yarn test'
 
 #######################################################################
 # python
 #######################################################################
 
-# alias py='python3'
-# alias pip='pip3'
+alias py='python3'
+alias python='python3'
+alias pip='pip3'
 alias pea='pyenv activate'
 alias ped='pyenv deactivate'
 alias pss='pyenv shell system'
@@ -94,6 +95,12 @@ alias caskrm="brew uninstall --cask --force"
 alias chrome='open -a "Google Chrome.app"'
 alias slack='open -a Slack.app'
 alias ios='open -a Simulator.app'
+
+#######################################################################
+# Docker
+#######################################################################
+
+alias m4b-tool='docker run -it --rm -u $(id -u):$(id -g) -v "$(pwd)":/mnt sandreas/m4b-tool:latest'
 
 #######################################################################
 # spotlight
