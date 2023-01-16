@@ -163,6 +163,9 @@ alias xit='exit' # dammit
 # sudo since we run nginx on port 80 so needs admin
 # alias rnginx='sudo brew services restart nginx'
 
+# start chrome with debug port
+alias canarydev='open -a "Google Chrome Canary" --args --remote-debugging-port=9229'
+
 # electron apps can't focus if started using Electron symlink
 # alias elec='/Applications/Electron.app/Contents/MacOS/Electron'
 

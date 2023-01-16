@@ -74,6 +74,9 @@ export HOMEBREW_NO_INSTALL_CLEANUP=true
 # android ndk
 # export ANDROID_NDK_HOME="/opt/homebrew/share/android-ndk"
 
+# dfx
+export DFX_CONFIG_ROOT="${XDG_CONFIG_HOME}/dfinity"
+
 # vim
 export VIMCONFIG="${XDG_CONFIG_HOME}"/vim
 export MYVIMRC="$XDG_CONFIG_HOME"/vim/vimrc

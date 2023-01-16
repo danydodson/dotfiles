@@ -37,6 +37,38 @@ function fpath-prepend() {
 }
 
 #######################################################################
+# Variables                                                           #
+#######################################################################
+
+function served() {
+  cd "$HOME/Developer/Served" || exit
+}
+
+function comic-shop() {
+  cd "$HOME/Developer/Served/comic-shop" || exit
+}
+
+function connected() {
+  cd "$HOME/Developer/Served/connected" || exit
+}
+
+function danydodson-dev() {
+  cd "$HOME/Developer/Served/danydodson-dev" || exit
+}
+
+function fatcats() {
+  cd "$HOME/Developer/Served/fatcats" || exit
+}
+
+function my-links() {
+  cd "$HOME/Developer/Served/my-links" || exit
+}
+
+function spotify-tracks() {
+  cd "$HOME/Developer/Served/spotify-tracks" || exit
+}
+
+#######################################################################
 # open .dotfiles in fzf                                                #
 #######################################################################
 
