@@ -64,12 +64,12 @@ alias yt='yarn test'
 # python
 #######################################################################
 
-alias py='python3'
-alias python='python3'
-alias pip='pip3'
-alias pea='pyenv activate'
-alias ped='pyenv deactivate'
-alias pss='pyenv shell system'
+# alias py='python3'
+# alias python='python3'
+# alias pip='pip3'
+# alias pea='pyenv activate'
+# alias ped='pyenv deactivate'
+# alias pss='pyenv shell system'
 
 #######################################################################
 # Homebrew

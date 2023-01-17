@@ -31,19 +31,3 @@ else
   __ok 'Homebrew is already installed'
 fi
 
-# ============================================================================
-# plist
-# ============================================================================
-
-# _bootstrap_plist() {
-#   dotfiles_plist="${HOME}/Library/LaunchAgents/dotfiles.plist"
-#   [ ! -f "$(readlink "$dotfiles_plist")" ] && {
-#     __dko_err "dotfiles.plist not symlinked. Run bootstrap/symlink!"
-#     return 1
-#   }
-
-#   __dko_status "Reloading dotfiles.plist"
-#   launchctl unload "$dotfiles_plist" 2>/dev/null
-#   launchctl load "$dotfiles_plist"
-# }
-# _bootstrap_plist || exit 1

@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-# Change the mac address. Unlimited WiFi FTW!
-
+# Change the mac address for Unlimited WiFi FTW!
 # credit: https://twitter.com/nicosommi/status/1130500577128062976
 
 cmac() {

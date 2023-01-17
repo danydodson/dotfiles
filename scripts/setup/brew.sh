@@ -129,12 +129,8 @@ done
 ###############################################################################
 
 __info 'Installing apps from App Store...'
-mas install 1452453066 || __err 'failed mas install Hidden Bar'
-mas install 1463298887 || __err 'failed mas install Userscripts'
 mas install 425424353 || __err 'failed mas install The Unarchiver'
 mas install 497799835 || __err 'failed mas install Xcode'
-mas install 1153157709 || __err 'failed mas install Speedtest'
-
 __info 'Cleaning up...'
 
 # Remove unused brew dependencies
