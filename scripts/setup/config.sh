@@ -21,9 +21,7 @@ defaults write com.google.Chrome ExtensionInstallSources -array "https://*.githu
 
 # chrome: disable swipe to go back
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
-defaults write com.google.Chrome.canary AppleEnableSwipeNavigateWithScrolls -bool false
 defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool false
-defaults write com.google.Chrome.canary AppleEnableMouseSwipeNavigateWithScrolls -bool false
 
 ###############################################################################
 # iTerm2                                                                      #
@@ -45,10 +43,8 @@ defaults write com.googlecode.iterm2 PinchToChangeFontSizeDisabled -bool true ||
 defaults write org.m0k.transmission BadgeDownloadRate -bool false
 defaults write org.m0k.transmission BadgeUploadRate -bool false
 
-# transmission: automatic import
+# transmission: store dotfiles
 mkdir -p "$HOME/Downloads/Dotfiles"
-defaults write org.m0k.transmission AutoImport -bool true
-defaults write org.m0k.transmission AutoImportDirectory -string "$HOME/Downloads/Dotfiles"
 
 # transmission: store complete downloads
 mkdir -p "$HOME/Downloads/Seeding"
@@ -65,7 +61,7 @@ defaults write org.m0k.transmission IncompleteDownloadFolder -string "$HOME/Down
 defaults write org.m0k.transmission DownloadAsk -bool true
 
 # transmission: trash original torrent files
-defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
+defaults write org.m0k.transmission DeleteOriginalTorrent -bool false
 
 # transmission: hide the donate message
 defaults write org.m0k.transmission WarningDonate -bool false
@@ -83,9 +79,6 @@ defaults write org.m0k.transmission RandomPort -bool true
 
 # transmission: dont show status bar
 defaults write org.m0k.transmission StatusBar -bool false
-
-# transmission: use the small list view
-defaults write org.m0k.transmission SmallView -bool true
 
 # transmission: dont show pieces bar
 defaults write org.m0k.transmission PiecesBar -bool false

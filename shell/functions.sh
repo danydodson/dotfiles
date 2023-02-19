@@ -40,6 +40,10 @@ function fpath-prepend() {
 # Variables                                                           #
 #######################################################################
 
+function developer() {
+  cd "$HOME/Developer" || exit
+}
+
 function served() {
   cd "$HOME/Developer/Served" || exit
 }
@@ -75,9 +79,9 @@ function spotify-tracks() {
 __fzf_scripts() {
   _scripts_path="$DOTFILES/"
   _allfiles=$(rg -t sh --files "$_scripts_path")
-  _cutpaths=$(echo "$_allfiles" | cut -c 32-)
+  _cutpaths=$(echo "$_allfiles" | cut -c 22-)
   local selected
-  if selected=$(echo "$_cutpaths" | fzf --height 60% --preview "bat --style=grid --color=always '$_scripts_path{}'" -q "$LBUFFER"); then
+  if selected=$(echo "$_cutpaths" | fzf --height 100% --preview "bat --style=grid --color=always '$_scripts_path{}'" -q "$LBUFFER"); then
     LBUFFER="$_scripts_path$selected"
   fi
   zle redisplay
@@ -95,7 +99,7 @@ __prev_dir() {
   zle accept-line
 }
 zle -N __prev_dir
-bindkey '^[[1;3D' __prev_dir
+bindkey '^[^[[D' __prev_dir
 
 #######################################################################
 # other                                                               #
@@ -108,3 +112,5 @@ function wttr() {
 function ipinf0() {
   curl http://ipinfo.io/"$1"
 }
+
+

@@ -46,7 +46,7 @@ brew tap heroku/brew || __err 'failed brew tap heroku/brew'
 brew tap yt-dlp/taps || __err 'failed brew tap yt-dlp/taps'
 
 __info 'Installing binaries, terminal stuff, CLI...'
-BINARIES=(ack bat bc coreutils exa fd findutils fnm fzf gh go heroku/brew/heroku lua luarocks mas mongocli moreutils neofetch pipenv pyenv ranger ripgrep shellcheck tldr tree yarn yt-dlp/taps/yt-dlp z zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting)
+BINARIES=(ack bat bc coreutils exa fd findutils fnm fzf gh go heroku/brew/heroku lua luarocks mas mongocli moreutils neofetch pipenv pyenv ranger ripgrep shellcheck tldr tree yarn z zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting)
 
 # todo: check if pkg already exists
 for brew in "${BINARIES[@]}"; do

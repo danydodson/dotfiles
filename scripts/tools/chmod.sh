@@ -19,10 +19,10 @@ for script in $(rg --files "$bin"); do
   [[ $(stat -f "%OLp" "$script") == '644' ]] && chmod +x "$script" && __ok "$script"
 done
 
-lds="/Library/LaunchDaemons"
-sudo cp "$DOTFILES"/scripts/agents/clear.plist $lds && __ok "clear.plist"
-for file in $lds/clear.plist; do
-  sudo chown root:wheel "$file" && __ok "$file"
-done
+# lds="/Library/LaunchDaemons"
+# sudo cp "$DOTFILES"/scripts/agents/clear.plist $lds && __ok "clear.plist"
+# for file in $lds/clear.plist; do
+#   sudo chown root:wheel "$file" && __ok "$file"
+# done
 
 exit 0

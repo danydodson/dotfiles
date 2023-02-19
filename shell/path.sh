@@ -15,6 +15,7 @@ path-prepend "/opt/homebrew/opt/openjdk/bin"
 path-prepend "/opt/homebrew/opt/bc/bin"
 path-prepend "/opt/homebrew/opt/fzf/bin"
 path-prepend "$HOME/.config/iterm2/utils"
+path-prepend "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 path-prepend "$DOTFILES/bin"
 
 #######################################################################

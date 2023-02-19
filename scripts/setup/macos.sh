@@ -44,13 +44,18 @@ defaults write com.apple.addressbook ABShowDebugMenu -bool true || __err ''
 #######################################################################################
 # Bluetooth Accessories                                                               #
 #######################################################################################
-__info 'Changing Bluetooth settings...'
-
-# bluetooth: enable tap to click for this user and for the login screen
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true || __err ''
+# __info 'Changing Bluetooth settings...'
 
 # bluetooth: increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent 'Apple Bitpool Min (editable)' -int 40 || __err ''
+# defaults write com.apple.BluetoothAudioAgent 'Apple Bitpool Min (editable)' -int 40 || __err ''
+
+# defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" 80 || __err ''
+# defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Max (editable)" 80 || __err ''
+# defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool Min (editable)" 80 || __err ''
+# defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool (editable)" 80 || __err ''
+# defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool" 80 || __err ''
+# defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Min" 80 || __err ''
+# defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Max" 80 || __err ''
 
 ####################################################################################
 # Disk Utility                                                                     #
@@ -99,10 +104,10 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 __info 'Changing Finder settings...'
 
 # finder: choose the size of Finder sidebar icons
-defaults write NSGlobalDomain "NSTableViewDefaultSizeMode" -int "2" || __err ''
+# defaults write NSGlobalDomain "NSTableViewDefaultSizeMode" -int "2" || __err ''
 
 # finder: disable window animations and Get Info animations
-defaults write com.apple.finder DisableAllAnimations -bool true || __err ''
+# defaults write com.apple.finder DisableAllAnimations -bool true || __err ''
 
 # finder: disable the 'Are you sure you want to open this application?'
 defaults write com.apple.LaunchServices LSQuarantine -bool false || __err ''
@@ -117,7 +122,7 @@ defaults write com.apple.finder ShowPathbar -bool true || __err ''
 defaults write com.apple.finder ShowStatusBar -bool false || __err ''
 
 # finder: show the ~/Library folder
-# chflags nohidden ~/Library || __err ''
+chflags nohidden ~/Library || __err ''
 
 # finder: allow text selection in Quick Look
 defaults write com.apple.finder QLEnableTextSelection -bool true || __err ''
@@ -145,9 +150,9 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true || 
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true || __err ''
 
 # finder: disable disk image verification
-defaults write com.apple.frameworks.diskimages skip-verify -bool true || __err ''
-defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true || __err ''
-defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true || __err ''
+# defaults write com.apple.frameworks.diskimages skip-verify -bool true || __err ''
+# defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true || __err ''
+# defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true || __err ''
 
 # finder: automatically open a new finder window when a volume is mounted
 defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true || __err ''
@@ -162,10 +167,10 @@ defaults write com.apple.finder FXPreferredViewStyle clmv || __err ''
 rm -rf ~/.DS_Store
 
 # finder: group by
-defaults write com.apple.Finder FXPreferredGroupBy Tags || __err ''
+# defaults write com.apple.Finder FXPreferredGroupBy Tags || __err ''
 
 # finder: sort group by
-defaults write com.apple.Finder FXArrangeGroupViewBy Type || __err ''
+# defaults write com.apple.Finder FXArrangeGroupViewBy Type || __err ''
 
 # finder: keep folders on top when sorting by name
 defaults write com.apple.finder _FXSortFoldersFirst -bool true || __err ''
@@ -201,7 +206,7 @@ defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}" || 
 __info 'Changing General UI/UX settings...'
 
 # UI/UX: hide the useless Time Machine and Volume icons
-defaults write com.apple.systemuiserver menuExtras -array '/System/Library/CoreServices/Menu Extras/Bluetooth.menu' '/System/Library/CoreServices/Menu Extras/AirPort.menu' '/System/Library/CoreServices/Menu Extras/Battery.menu' '/System/Library/CoreServices/Menu Extras/Clock.menu' || __err ''
+# defaults write com.apple.systemuiserver menuExtras -array '/System/Library/CoreServices/Menu Extras/Bluetooth.menu' '/System/Library/CoreServices/Menu Extras/AirPort.menu' '/System/Library/CoreServices/Menu Extras/Battery.menu' '/System/Library/CoreServices/Menu Extras/Clock.menu' || __err ''
 
 # UI/UX: always show scrollbars Options: `WhenScrolling`, `Automatic`, `Always`
 defaults write NSGlobalDomain AppleShowScrollBars -string 'WhenScrolling' || __err ''
@@ -219,7 +224,7 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false || __err ''
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName || __err ''
 
 # UI/UX: disable Notification Center and remove the menu bar icon
-launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2>/dev/null || __err ''
+# launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2>/dev/null || __err ''
 
 # UI/UX: disable smart quotes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false || __err ''
@@ -293,7 +298,7 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false |
 __info 'Changing Launchpad settings...'
 
 # launchpad: add iOS Simulator to Launchpad
-sudo ln -sf '/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app' '/Applications/Simulator.app' || __err ''
+# sudo ln -sf '/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app' '/Applications/Simulator.app' || __err ''
 
 ###############################################################################
 # Mac App Store                                                               #
@@ -524,7 +529,7 @@ defaults write com.apple.Terminal ShowLineMarks -int 0 || __err ''
 ####################################################################################
 # TextEdit                                                                         #
 ####################################################################################
-__info 'Changing textEdit settings...'
+__info 'Changing TextEdit settings...'
 
 # text-edit: use plain text mode for new TextEdit documents
 defaults write com.apple.TextEdit RichText -int 0 || __err ''

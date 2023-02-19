@@ -17,7 +17,7 @@ __info 'Upgrading global npm...'
 npm update --location=global
 
 __info 'Upgrading global yarn...'
-cd /Users/Dany/.config/local/share/yarn/global && yarn global upgrade
+# cd ~/.config/local/share/yarn/global && yarn global upgrade
 
 __info 'Upgrading homebrew...'
 brew update && brew upgrade && brew autoremove && brew cleanup --prune=all -s

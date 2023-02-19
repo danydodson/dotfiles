@@ -57,6 +57,7 @@ export ZSH="$XDG_DATA_HOME"/oh-my-zsh
 # For compilers to find openssl@3
 export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
+# export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 
 #######################################################################
 # homebrew
@@ -67,8 +68,8 @@ export HOMEBREW_NO_ANALYTICS=true
 export HOMEBREW_NO_INSTALL_CLEANUP=true
 
 # Git token used in daily scripts
-# export "$(grep -E -v '^#' "$DOTFILES/.env" | xargs)"
-# export HOMEBREW_GITHUB_API_TOKEN=$HOMEBREW_TOKEN
+export "$(grep -E -v '^#' "$DOTFILES/.env" | xargs)"
+export HOMEBREW_GITHUB_API_TOKEN=$HOMEBREW_TOKEN
 
 # For pkg-config to find openssl@3 you may need to set:
 export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
@@ -99,7 +100,6 @@ export BAT_CONFIG_PATH="$XDG_CONFIG_HOME/bat/bat.conf"
 
 export PYENV_ROOT="$HOME/.config/pyenv"
 export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonstartup.py"
-
 export IPYTHONDIR="$HOME/.config/ipython"
 
 #######################################################################
@@ -113,6 +113,12 @@ export ACKRC="${DOTFILES}/config/ack/dot.ackrc"
 #######################################################################
 
 export _Z_DATA="${ZDOTDIR}/.z"
+
+#######################################################################
+# Java
+#######################################################################
+
+export JAVA_HOME=$(/usr/libexec/java_home)
 
 #######################################################################
 # go
@@ -180,7 +186,7 @@ export MYSQL_HISTFILE="${XDG_CACHE_HOME}/mysql_histfile"
 export INPUTRC="${DOTFILES}/shell/dot.inputrc"
 
 #######################################################################
-# -shellcheck
+# shellcheck
 #######################################################################
 
 export SHELLCHECK_OPTS="--exclude=SC1090,SC2148"

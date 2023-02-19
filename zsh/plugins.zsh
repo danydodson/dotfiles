@@ -13,6 +13,7 @@ source "${HOME}/.config/local/share/oh-my-zsh/oh-my-zsh.sh"
 # zsh-syntax-highlighting                                             #
 #######################################################################
 
+source "${ZSH}/custom/plugins/dracula-zsh-syntax-highlighting.sh"
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #######################################################################
@@ -67,28 +68,36 @@ export FZF_DEFAULT_OPTS="
  --bind='ctrl-k:preview-up'
  --bind='ctrl-j:preview-down'
  --bind='ctrl-r:toggle-all'
+ --bind='ctrl-o:execute(e {})+abort'
  --height='100%'
  --preview-window='right:70%'
+ --color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9
+ --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9
+ --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6
+ --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 "
 
 # Preview current directory
-alias preview=fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'
-# alias preview="fzf --preview 'bat --color \"always\" {}'"
+alias preview="fzf --preview 'bat --color \"always\" --style \"numbers\" --line-range \":500\" {}'"
 
 if [[ -f ~/.fzf.zsh ]]; then
   source ~/.fzf.zsh
 fi
 
-# Supports ctrl+o to open selected file in the text editor
-export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(e {})+abort'"
 #######################################################################
 # iterm2                                                              #
 #######################################################################
 
-source "$HOME/.config/iterm2/iterm2_shell_integration.zsh"
+test -e /Users/Dany/.config/zsh/.iterm2_shell_integration.zsh && source /Users/Dany/.config/zsh/.iterm2_shell_integration.zsh || true
 
 #######################################################################
 # z                                                                   #
 #######################################################################
 
 source /opt/homebrew/etc/profile.d/z.sh
+
+#######################################################################
+# affinidi cli                                                        #
+#######################################################################
+
+# eval $(affinidi autocomplete:script zsh)

@@ -127,7 +127,7 @@
 	path = "~/.dotfiles/config/git/osx.gitconfig"
 
 [include]
-	path = "~/.dotfiles/local/gitconfig"
+	path = "~/.dotfiles/config/git/aliases.gitconfig"
 
 # vim: ft=gitconfig
 [gpg]
