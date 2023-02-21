@@ -61,7 +61,7 @@ function danydodson-dev() {
 }
 
 function fatcats() {
-  cd "$HOME/Developer/Served/fatcats" || exit
+  cd "$HOME/Developer/Served/fatfelines" || exit
 }
 
 function my-links() {

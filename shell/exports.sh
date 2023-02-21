@@ -75,6 +75,12 @@ export HOMEBREW_GITHUB_API_TOKEN=$HOMEBREW_TOKEN
 export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
 
 #######################################################################
+# heroku
+#######################################################################
+
+export HEROKU_AC_ZSH_SETUP_PATH="/Users/Dany/Library/Caches/heroku/autocomplete/zsh_setup"
+
+#######################################################################
 # dfx
 #######################################################################
 
@@ -171,6 +177,12 @@ export COMPOSER_CACHE_DIR="${XDG_CACHE_HOME}/composer"
 # gpg | on mac this should already
 #######################################################################
 
+export DOCKER_CONFIG=${XDG_CONFIG_HOME}/docker
+
+#######################################################################
+# gpg | on mac this should already
+#######################################################################
+
 export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
 
 #######################################################################
@@ -208,8 +220,9 @@ export VAGRANT_ALIAS_FILE="${XDG_DATA_HOME}/vagrant/aliases"
 # npm
 #######################################################################
 
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export NPM_CONFIG_CACHE="${XDG_CACHE_HOME}/npm"
-export NPMRC_STORE="${HOME}/.local/npmrcs"
+export NPMRC_STORE="${XDG_DATA_HOME}/npmrcs"
 
 #######################################################################
 # yarn cache

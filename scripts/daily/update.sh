@@ -14,7 +14,7 @@ __info 'Upgrading oh-my-zsh...'
 /Users/Dany/.config/local/share/oh-my-zsh/tools/upgrade.sh
 
 __info 'Upgrading global npm...'
-npm update --location=global
+# npm update --location=global
 
 __info 'Upgrading global yarn...'
 # cd ~/.config/local/share/yarn/global && yarn global upgrade

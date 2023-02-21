@@ -41,9 +41,14 @@ alias bpj='bat --plain package.json'
 alias pyg='pygmentize -O style=rrt -f console256 -g'
 
 #######################################################################
-# node / JS
+# node / Yarn
 #######################################################################
 
+alias y='yarn'
+alias yi='y install'
+alias ys='y start'
+alias yd='y dev'
+alias yu='y upgrade-interactive'
 alias n='npm'
 alias ni='n install'
 alias nr='n run'
@@ -52,7 +57,6 @@ alias nrm='n uninstall'
 alias nrmg='n uninstall -g'
 alias nomod='rm -rf ./node_modules'
 alias likereallynomod='find . -type d -iname node_modules -exec rm \-rf {} \;'
-alias yarn='/opt/homebrew/bin/yarn --use-yarnrc $HOME/.config/yarn/yarnrc'
 alias gulp='npx gulp'
 alias grunt='npx grunt'
 
@@ -92,6 +96,8 @@ alias ios='open -a Simulator.app'
 # CLI Apps
 #######################################################################
 
+alias t='tree -fcp --noreport -L 1 -Cia'
+alias neo='neofetch'
 alias c='code .'
 alias ytdlp='yt-dlp'
 
