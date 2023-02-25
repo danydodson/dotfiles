@@ -4,17 +4,7 @@
 # oh-my-zsh                                                           #
 #######################################################################
 
-plugins=(
-  aliases 
-  brew 
-  docker
-  macos 
-  # npm 
-  # fnm 
-  # pip 
-  # pipenv 
-  # yarn
-)
+plugins=(aliases brew docker macos npm fnm pip pipenv)
 
 # oh-my-zsh.sh
 source "${HOME}/.config/local/share/oh-my-zsh/oh-my-zsh.sh"
@@ -117,5 +107,3 @@ source /opt/homebrew/etc/profile.d/z.sh
 #######################################################################
 
 # eval $(affinidi autocomplete:script zsh)
-
-path-prepend "$DOTFILES/bin"

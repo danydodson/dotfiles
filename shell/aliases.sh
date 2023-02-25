@@ -44,8 +44,10 @@ alias pyg='pygmentize -O style=rrt -f console256 -g'
 # node / Yarn
 #######################################################################
 
+alias yarn='env $FNM_MULTISHELL_PATH/bin/yarn --use-yarnrc $HOME/.config/yarn/yarnrc'
 alias y='yarn'
 alias yi='y install'
+alias yb='y build'
 alias ys='y start'
 alias yd='y dev'
 alias yu='y upgrade-interactive'
@@ -80,7 +82,7 @@ alias bsvc='brew services'
 alias bsvr='brew services restart'
 alias bwhy='brew uses --installed --recursive'
 alias brc='brew install --cask'
-alias caskrm="brew uninstall --cask --force"
+alias caskrm="brew uninstall --cask"
 
 #######################################################################
 # UI Apps
@@ -91,14 +93,13 @@ alias chromedev='open -a "Google Chrome" --args --remote-debugging-port=9229'
 alias elec='/Applications/Electron.app/Contents/MacOS/Electron'
 alias ios='open -a Simulator.app'
 
-
 #######################################################################
 # CLI Apps
 #######################################################################
 
-alias t='tree -fcp --noreport -L 1 -Cia'
+alias c='code'
 alias neo='neofetch'
-alias c='code .'
+alias t='tree -fcp --noreport -L 1 -Cia'
 alias ytdlp='yt-dlp'
 
 #######################################################################
@@ -138,8 +139,8 @@ alias root='sudo -s'
 # tmux
 #######################################################################
 
-alias tmux='tmux -f "${DOTFILES}/tmux/tmux.conf"'
 alias ta='tmux attach'
+alias tmux='tmux -f "${DOTFILES}/tmux/tmux.conf"'
 
 #######################################################################
 # rest of bins
@@ -147,15 +148,13 @@ alias ta='tmux attach'
 
 alias df='df -h'
 alias ln='ln -v'
-alias u='dot'
-alias o='dko-open'
 alias xit='exit' # dammit
 alias today='date +%Y-%m-%d'
 alias r="ranger"
 alias tpr='tput reset'
 alias uuid='uuidgen'
 alias curl='curl --config "${DOTFILES}/config/curl/dot.curlrc"'
-alias wget='wget --no-check-certificate --hsts-file="${XDG_CONFIG_HOME}/wget/wget-hsts"'
+# alias wget='wget --no-check-certificate --hsts-file="${XDG_CONFIG_HOME}/wget/wget-hsts"'
 alias brokensymlinks='find . -type l ! -exec test -e {} \; -print'
 
 #######################################################################

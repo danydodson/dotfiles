@@ -5,7 +5,6 @@
 #######################################################################
 
 path-prepend "$HOME/.config/iterm2/utils"
-path-prepend "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 path-prepend "/opt/homebrew/opt/mysql-client/bin"
 path-prepend "/opt/homebrew/opt/openjdk/bin"
 path-prepend "/opt/homebrew/opt/coreutils/libexec/gnubin"
@@ -17,6 +16,8 @@ path-prepend "/opt/homebrew/opt/fzf/bin"
 path-prepend "/opt/homebrew/sbin"
 path-prepend "/opt/homebrew/bin"
 path-prepend "$DOTFILES/bin"
+
+path-prepend "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 #######################################################################
 # fpath                                                               #

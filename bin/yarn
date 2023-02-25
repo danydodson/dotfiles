@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-# 
-
-$FNM_MULTISHELL_PATH/bin/yarn --use-yarnrc $HOME/.config/yarn/yarnrc

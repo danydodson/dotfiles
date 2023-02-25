@@ -17,7 +17,7 @@ export LS_OPTS='--color=auto'
 # editor                                                              #
 #######################################################################
 
-export EDITOR="vim"
+export EDITOR="code"
 export VISUAL="$EDITOR"
 export SYSTEMD_EDITOR="$EDITOR"
 
