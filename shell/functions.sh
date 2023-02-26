@@ -56,11 +56,11 @@ function connected() {
   cd "$HOME/Developer/Served/connected" || exit
 }
 
-function danydodson-dev() {
-  cd "$HOME/Developer/Served/danydodson-dev" || exit
+function dodson-dev() {
+  cd "$HOME/Developer/Served/dodson-dev" || exit
 }
 
-function fatcats() {
+function fatfelines() {
   cd "$HOME/Developer/Served/fatfelines" || exit
 }
 
@@ -70,6 +70,26 @@ function my-links() {
 
 function spotify-tracks() {
   cd "$HOME/Developer/Served/spotify-tracks" || exit
+}
+
+function mega-bastard() {
+  cd "$HOME/Developer/Programs/MegaBastard" || exit
+}
+
+function samples() {
+  cd "$HOME/Developer/Samples" || exit
+}
+
+function react() {
+  cd "$HOME/Developer/React" || exit
+}
+
+function github() {
+  cd "$HOME/Developer/Github" || exit
+}
+
+function noted-code() {
+  cd "$HOME/Developer/Github/noted-code" || exit
 }
 
 #######################################################################

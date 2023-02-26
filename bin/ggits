@@ -2,6 +2,6 @@
 
 # Clone all the repos
 
-gh repo list $1 --limit 1000 | while read -r repo _; do
+gh repo list "$1" --limit 1000 | while read -r repo _; do
   gh repo clone "$repo" "$repo"
 done

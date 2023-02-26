@@ -124,7 +124,8 @@ export _Z_DATA="${ZDOTDIR}/.z"
 # Java
 #######################################################################
 
-export JAVA_HOME=$(/usr/libexec/java_home)
+JAVA_HOME=$(/usr/libexec/java_home)
+export JAVA_HOME
 
 #######################################################################
 # go
@@ -198,7 +199,7 @@ export MYSQL_HISTFILE="${XDG_CACHE_HOME}/mysql_histfile"
 export INPUTRC="${DOTFILES}/shell/dot.inputrc"
 
 #######################################################################
-# shellcheck
+# sc
 #######################################################################
 
 export SHELLCHECK_OPTS="--exclude=SC1090,SC2148"
@@ -217,12 +218,18 @@ export VAGRANT_HOME="${XDG_DATA_HOME}/vagrant"
 export VAGRANT_ALIAS_FILE="${XDG_DATA_HOME}/vagrant/aliases"
 
 #######################################################################
+# nvm
+#######################################################################
+
+export NVM_DIR="$XDG_CONFIG_HOME/nvm"
+
+#######################################################################
 # npm
 #######################################################################
 
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export NPM_CONFIG_CACHE="${XDG_CACHE_HOME}/npm"
-export NPMRC_STORE="${XDG_DATA_HOME}/npmrcs"
+# export NPMRC_STORE="${XDG_DATA_HOME}/npmrcs"
 
 #######################################################################
 # yarn cache

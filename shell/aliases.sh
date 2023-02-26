@@ -44,7 +44,6 @@ alias pyg='pygmentize -O style=rrt -f console256 -g'
 # node / Yarn
 #######################################################################
 
-alias yarn='env $FNM_MULTISHELL_PATH/bin/yarn --use-yarnrc $HOME/.config/yarn/yarnrc'
 alias y='yarn'
 alias yi='y install'
 alias yb='y build'

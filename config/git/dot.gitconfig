@@ -13,6 +13,11 @@
 # ============================================================================
 
 [include]
+	path = "~/.dotfiles/config/git/osx.gitconfig"
+
+# ============================================================================
+
+[includeIf "gitdir:/Users/"]
 	path = "~/.dotfiles/config/git/aliases.gitconfig"
 
 # ============================================================================
@@ -107,9 +112,9 @@
 # ============================================================================
 
 [gui]
-	fontui = -family \"Fira Sans\" -size -10 -weight normal -slant roman -underline 0 -overstrike 0
-	fontdiff = -family \"Fira Mono for Powerline\" -size -10 -weight normal -slant roman -underline 0 -overstrike 0
-	commitmsgwidth = 80
+	fontui = -family \"Cascadia Code\" -size -10 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family \"Cascadia Code PL\" -size -10 -weight normal -slant roman -underline 0 -overstrike 0
+	commitmsgwidth = 180
 	diffcontext = 10
 
 [difftool]
@@ -122,12 +127,6 @@
 	status = true
 
 # ============================================================================
-
-[includeIf "gitdir:/Users/"]
-	path = "~/.dotfiles/config/git/osx.gitconfig"
-
-[include]
-	path = "~/.dotfiles/config/git/aliases.gitconfig"
 
 # vim: ft=gitconfig
 [gpg]

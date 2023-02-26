@@ -4,7 +4,7 @@
 # oh-my-zsh                                                           #
 #######################################################################
 
-plugins=(aliases brew docker macos npm fnm pip pipenv)
+plugins=(aliases brew docker macos npm nvm pip pipenv)
 
 # oh-my-zsh.sh
 source "${HOME}/.config/local/share/oh-my-zsh/oh-my-zsh.sh"
@@ -31,16 +31,37 @@ bindkey '^[[B' history-substring-search-down
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 #######################################################################
+# nvm                                                                 #
+#######################################################################
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+load-nvmrc() {
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
+      nvm use
+    fi
+  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
+#######################################################################
 # heroku                                                              #
 #######################################################################
 
 test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH
-
-#######################################################################
-# fnm                                                                 #
-#######################################################################
-
-eval "$(fnm env --use-on-cd)"
 
 #######################################################################
 # pyenv                                                               #
@@ -59,7 +80,7 @@ if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
 fi
 
 # Auto-completion
-[[ $- == *i* ]] && source "/opt/homebrew/opt/fzf/shell/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "/opt/homebrew/opt/fzf/shell/completion.zsh" 2>/dev/null
 
 # Load Key bindings
 source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
@@ -101,9 +122,3 @@ test -e /Users/Dany/.config/zsh/.iterm2_shell_integration.zsh && source /Users/D
 #######################################################################
 
 source /opt/homebrew/etc/profile.d/z.sh
-
-#######################################################################
-# affinidi cli                                                        #
-#######################################################################
-
-# eval $(affinidi autocomplete:script zsh)
