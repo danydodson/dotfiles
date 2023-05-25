@@ -60,7 +60,7 @@ for brew in "${BINARIES[@]}"; do
 done
 
 __info 'Installing casks...'
-CASKS=(apparency brave-browser cheatsheet discord dropbox hammerspoon karabiner-elements onyx open-in-code postman spotify suspicious-package transmission wireshark)
+CASKS=(apparency brave-browser cheatsheet discord dropbox hammerspoon karabiner-elements onyx open-in-code postman spotify suspicious-package tor-browser transmission wireshark)
 
 for cask in "${CASKS[@]}"; do
   __info "installing $cask"
