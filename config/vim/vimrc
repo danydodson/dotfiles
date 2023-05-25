@@ -1,45 +1,46 @@
 scriptencoding utf-8
 
-"
+"  
 "   ██╗   ██╗ ██╗ ███╗   ███╗ ██████╗   ██████╗
 "   ██║   ██║ ██║ ████╗ ████║ ██╔══██╗ ██╔════╝
 "   ██║   ██║ ██║ ██╔████╔██║ ██████╔╝ ██║
 "   ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║ ██╔══██╗ ██║
-" ██╗╚████╔╝  ██║ ██║ ╚═╝ ██║ ██║  ██║ ╚██████╗
-" ╚═╝ ╚═══╝   ╚═╝ ╚═╝     ╚═╝ ╚═╝  ╚═╝  ╚═════╝
-"
+"  ██╗╚████╔╝  ██║ ██║ ╚═╝ ██║ ██║  ██║ ╚██████╗
+"  ╚═╝ ╚═══╝   ╚═╝ ╚═╝     ╚═╝ ╚═╝  ╚═╝  ╚═════╝
+"  
 
-" ============================================================================
+set viminfo+=n~/.config/vim/viminfo
+" ------------------------------------------------------------------------------------------------------
 " Settings fzf
-" ============================================================================
+" ------------------------------------------------------------------------------------------------------
+
 set rtp+=/opt/homebrew/opt/fzf
 
-" ============================================================================
+" ------------------------------------------------------------------------------------------------------
 " Settings vars
-" ============================================================================
+" ------------------------------------------------------------------------------------------------------
 
 let g:mapleader = "\<Space>"
 
-" ============================================================================
-" My defaults
-" May be overridden by **/plugins, after/plugins and **/ftplugins
-" ============================================================================
+" ------------------------------------------------------------------------------------------------------
+" Defaults, May be overridden by **/plugins, after/plugins and **/ftplugins
+" ------------------------------------------------------------------------------------------------------
 
-" Only check one line
 if exists('+modelines') | set modelines=1 | endif
-" Prior versions are super dangerous
 if !has('patch-8.1.1365') && !has('nvim-0.3.6') | set nomodeline | endif
-
 if exists('+pyxversion') && has('python3') | set pyxversion=3 | endif
 
 " ----------------------------------------------------------------------------
 " Display
 " ----------------------------------------------------------------------------
 
-set title                             " wintitle = filename - vim
+" dracula theme
+"  packadd! dracula
+syntax enable
+"  colorscheme dracula
 
-" this is already set by modern terminal and removed from nvim
-"set ttyfast
+" wintitle = filename - vim
+set title 
 
 " no beeps or flashes
 set novisualbell
@@ -58,18 +59,22 @@ set colorcolumn=+3
 set colorcolumn+=120
 set cursorline
 
-set synmaxcol=512                     " don't syntax highlight long lines
+" don't syntax highlight long lines
+set synmaxcol=512
 
 if exists('+signcolumn')
   let &signcolumn = has('nvim-0.4') ? 'auto:3' : 'yes'
 endif
 
-set showtabline=0                     " start OFF, toggle =2 to show tabline
-set laststatus=2                      " always show all statuslines
+" start OFF, toggle =2 to show tabline 
+set showtabline=0 
+" always show all statuslines            
+set laststatus=2 
 
 " This is slow on some terminals and often gets hidden by msgs so leave it off
 set noshowcmd
-set noshowmode                        " don't show -- INSERT -- in cmdline
+" don't show -- INSERT -- in cmdline
+set noshowmode 
 
 " ----------------------------------------------------------------------------
 " Input
@@ -86,7 +91,8 @@ set ttimeout
 " Wild and file globbing stuff in command mode
 " ----------------------------------------------------------------------------
 
-set browsedir=buffer                  " browse files in same dir as open file
+" browse files in same dir as open file
+set browsedir=buffer                  
 set wildmode=list:longest,full
 let &wildignorecase = v:version >= 704
 
@@ -134,8 +140,7 @@ if !&modifiable | set fileformat=unix | endif
 " prompt correctly)
 set noswapfile
 
-" Use backup files when writing (create new file, replace old one with new
-" one)
+" Use backup files when writing (create new file, replace old one with new one)
 " Disabled for coc.nvim compat
 set nowritebackup
 " but do not leave around backup.xyz~ files after that
@@ -151,8 +156,7 @@ set backupskip+=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
 set backupskip+=/private/tmp/*"
 set backupskip+=~/.secret/*
 
-" undo files
-" double slash means create dir structure to mirror file's path
+" undo files: double slash means create dir structure to mirror file's path
 set undofile
 set undolevels=1000
 set undoreload=10000
@@ -187,20 +191,26 @@ if has('patch-7.4.314') | set shortmess+=c | endif
 set splitbelow
 set splitright
 
-set hidden                            " remember undo after quitting
+" remember undo after quitting
+set hidden                            
 
 " reveal already opened files from the quickfix window instead of opening new
 " buffers
 set switchbuf=useopen
 
-set nostartofline                     " don't jump to col1 on switch buffer
+" don't jump to col1 on switch buffer
+set nostartofline                     
 
 " ----------------------------------------------------------------------------
 " Code folding
 " ----------------------------------------------------------------------------
 
-set foldlevel=999                     " very high === all folds open
-set foldlevelstart=99                 " show all folds by default
+" very high === all folds open
+set foldlevel=999
+
+" show all folds by default
+set foldlevelstart=99 
+
 set nofoldenable
 
 " ----------------------------------------------------------------------------
@@ -211,7 +221,8 @@ set list
 set listchars=
 set listchars+=tab:→\ 
 set listchars+=trail:·
-set listchars+=extends:»              " show cut off when nowrap
+" show cut off when nowrap
+set listchars+=extends:»              
 set listchars+=precedes:«
 set listchars+=nbsp:⣿
 
@@ -251,7 +262,7 @@ if has('patch-7.3.541') | set formatoptions+=j | endif
 " ----------------------------------------------------------------------------
 
 set nowrap
-set nojoinspaces                      " J command doesn't add extra space
+set nojoinspaces " J command doesn't add extra space
 
 " ----------------------------------------------------------------------------
 " Indenting - overridden by indent plugins
@@ -358,10 +369,10 @@ let g:is_bash = 1
 " disable mzscheme, tcl highlighting
 let g:vimsyn_embed = 'lpPr'
 
-" ============================================================================
+" ------------------------------------------------------------------------------------------------------
 " Security
-" ============================================================================
+" ------------------------------------------------------------------------------------------------------
 
-" Disallow unsafe local vimrc commands
+" Disallow unsafe local vimrc commands.
 " Leave down here since it trims local settings
 set secure

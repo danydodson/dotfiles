@@ -40,7 +40,7 @@ export XDG_PICTURES_DIR="$XDG_DOCUMENTS_DIR"/Pictures
 # local                                                               #
 #######################################################################
 
-export DEVELOPER="$XDG_DOCUMENTS_DIR/Developer"
+export DEVELOPER="$HOME/Developer"
 
 #######################################################################
 # zsh                                                                 #
@@ -51,13 +51,24 @@ export ZSH_CACHE_DIR="$ZDOTDIR"
 export ZSH="$XDG_DATA_HOME"/oh-my-zsh
 
 #######################################################################
-# Others
+# For compilers to find [this] you may need to set:
 #######################################################################
 
-# For compilers to find openssl@3
+# [openssl@3]
 export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
+
+# [openjdk@3]
+# export LDFLAGS="-L/opt/homebrew/opt/openjdk/lib"
 # export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+
+# [php@8.0]
+# export LDFLAGS="-L/opt/homebrew/opt/php@8.0/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/php@8.0/include"
+
+# [php@8.2]
+# export LDFLAGS="-L/opt/homebrew/opt/php@8.2/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/php@8.2/include"
 
 #######################################################################
 # homebrew
@@ -73,6 +84,14 @@ export HOMEBREW_GITHUB_API_TOKEN=$HOMEBREW_TOKEN
 
 # For pkg-config to find openssl@3 you may need to set:
 export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
+
+
+#######################################################################
+# 1password
+#######################################################################
+
+# export OP_CONNECT_HOST=''
+# export OP_CONNECT_TOKEN=''
 
 #######################################################################
 # heroku
@@ -104,8 +123,24 @@ export BAT_CONFIG_PATH="$XDG_CONFIG_HOME/bat/bat.conf"
 # python
 #######################################################################
 
-export PYENV_ROOT="$HOME/.config/pyenv"
 export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonstartup.py"
+
+#######################################################################
+# python pyenv
+#######################################################################
+
+export PYENV_ROOT="$HOME/.config/pyenv"
+
+#######################################################################
+# python jupyter
+#######################################################################
+
+export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME/jupyter/config"
+
+#######################################################################
+# python ipython
+#######################################################################
+
 export IPYTHONDIR="$HOME/.config/ipython"
 
 #######################################################################
@@ -178,7 +213,7 @@ export COMPOSER_CACHE_DIR="${XDG_CACHE_HOME}/composer"
 # gpg | on mac this should already
 #######################################################################
 
-export DOCKER_CONFIG=${XDG_CONFIG_HOME}/docker
+# export DOCKER_CONFIG=${XDG_CONFIG_HOME}/docker
 
 #######################################################################
 # gpg | on mac this should already

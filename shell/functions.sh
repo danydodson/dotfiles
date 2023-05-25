@@ -57,11 +57,11 @@ function connected() {
 }
 
 function dodson-dev() {
-  cd "$HOME/Developer/Served/dodson-dev" || exit
+  cd "$HOME/Developer/Served/dodson.dev" || exit
 }
 
 function fatfelines() {
-  cd "$HOME/Developer/Served/fatfelines" || exit
+  cd "$HOME/Developer/Served/fatfelines.com" || exit
 }
 
 function my-links() {

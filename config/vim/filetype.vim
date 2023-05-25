@@ -27,11 +27,9 @@ function! s:SetByShebang() abort
   if l:shebang =~# '^#!.*/.*\s\+zsh\>' | setfiletype zsh | endif
 endfunction
 
-" For filetypes that can be detected by filename (option C in the docs for
-" `new-filetype`)
-" Use `autocmd!` so the original filetype autocmd for the given extension gets
-" cleared (otherwise it will run, and then this one, possible causing two
-" filetype events to execute in succession)
+" For filetypes that can be detected by filename (option C in the docs for `new-filetype`)
+" Use `autocmd!` so the original filetype autocmd for the given extension gets cleared 
+" (otherwise it will run, and then this one, possible causing two filetype events to execute in succession)
 augroup filetypedetect
   " pangloss/vim-javascript provides this
   autocmd! BufNewFile,BufRead * call s:SetByShebang()

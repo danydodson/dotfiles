@@ -240,6 +240,12 @@ defaults write com.apple.loginwindow TALLogoutSavesState -bool false || __err ''
 defaults write com.apple.loginwindow LoginwindowLaunchesRelaunchApps -bool false || __err ''
 
 ###############################################################################
+# Hammerspoon                                                                 #
+###############################################################################
+
+defaults write org.hammerspoon.Hammerspoon MJConfigFile "${HOME}.config/hammerspoon/init.lua" || __err ''
+
+###############################################################################
 # Hot Corners                                                                 #
 ###############################################################################
 __info 'Changing Hot Corners settings...'

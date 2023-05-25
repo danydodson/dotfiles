@@ -5,8 +5,8 @@
 [credential]
 	helper = osxkeychain
 
-[gpg]
-	program = /usr/local/MacGPG2/bin/gpg2
+# [gpg]
+# 	program = /usr/local/MacGPG2/bin/gpg2
 
 [web]
 	browser = open

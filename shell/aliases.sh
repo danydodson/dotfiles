@@ -65,6 +65,7 @@ alias grunt='npx grunt'
 # python
 #######################################################################
 
+alias notebook='PYDEVD_DISABLE_FILE_VALIDATION=1 jupyter notebook'
 alias pea='pyenv activate'
 alias ped='pyenv deactivate'
 alias pss='pyenv shell system'

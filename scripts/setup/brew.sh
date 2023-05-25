@@ -38,15 +38,17 @@ fi
 ###############################################################################
 
 __info 'Adding taps to brew...'
+brew tap heroku/brew || __err 'failed brew tap heroku/brew'
 brew tap homebrew/bundle || __err 'failed brew tap homebrew/bundle'
 brew tap homebrew/cask || __err 'failed brew tap homebrew/cask'
 brew tap homebrew/cask-versions || __err 'failed brew tap homebrew/cask-versions'
 brew tap homebrew/core || __err 'failed brew tap homebrew/core'
-brew tap heroku/brew || __err 'failed brew tap heroku/brew'
+brew tap homebrew/services || __err 'failed brew tap homebrew/services'
+brew tap shivammathur/php || __err 'failed brew tap shivammathur/php'
 brew tap yt-dlp/taps || __err 'failed brew tap yt-dlp/taps'
 
 __info 'Installing binaries, terminal stuff, CLI...'
-BINARIES=(ack bat bc coreutils exa fd findutils fnm fzf gh go heroku/brew/heroku lua luarocks mas mongocli moreutils neofetch pipenv pyenv ranger ripgrep shellcheck tldr tree yarn z zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting)
+BINARIES=(ack bat bc openssl@3 code-cli coreutils exa fd findutils flyctl fzf gh go heroku/brew/heroku httpd hydra lua luarocks mas mongocli mongodb-atlas-cli moreutils neofetch nvm openjdk shivammathur/php/php shivammathur/php/php@8.0 pipenv pyenv ranger rhash ripgrep shellcheck tree vim wget yt-dlp/taps/yt-dlp z zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting)
 
 # todo: check if pkg already exists
 for brew in "${BINARIES[@]}"; do
@@ -58,7 +60,7 @@ for brew in "${BINARIES[@]}"; do
 done
 
 __info 'Installing casks...'
-CASKS=()
+CASKS=(apparency brave-browser cheatsheet discord dropbox hammerspoon karabiner-elements onyx open-in-code postman spotify suspicious-package transmission wireshark)
 
 for cask in "${CASKS[@]}"; do
   __info "installing $cask"
@@ -129,8 +131,10 @@ done
 ###############################################################################
 
 __info 'Installing apps from App Store...'
-mas install 425424353 || __err 'failed mas install The Unarchiver'
+mas install 1554235898 || __err 'failed mas install Peek'
+mas install 1587335166 || __err 'failed mas install Pipper'
 mas install 497799835 || __err 'failed mas install Xcode'
+mas install 425424353 || __err 'failed mas install The Unarchiver'
 __info 'Cleaning up...'
 
 # Remove unused brew dependencies

@@ -1,22 +1,14 @@
 # XDG compliant ~/.python_history
-#
-# Store interactive Python shell history in ~/.cache/python_history
-#
-# Create ~/.config/python/pythonstartup.py file
-#
-# Export its path using PYTHONSTARTUP environment variable:
-#
-# export PYTHONSTARTUP="${XDG_CONFIG_HOME:-$HOME/.config}/pythonstartup.py"
+
+# export PYTHONSTARTUP="${XDG_CONFIG_HOME:-$HOME/.config}/python/pythonstartup.py"
 
 import atexit
 import os
 import readline
 
-histfile = os.path.join(os.getenv("XDG_CACHE_HOME", os.path.expanduser(
-    "~/.config/cache/python")), "python_history")
+histfile = os.path.join(os.getenv("XDG_CONFIG_HOME", os.path.expanduser("~/.config/python")), "python_history")
 try:
     readline.read_history_file(histfile)
-    # default history len is -1 (infinite), which may grow unruly
     readline.set_history_length(1000)
 except FileNotFoundError:
     pass

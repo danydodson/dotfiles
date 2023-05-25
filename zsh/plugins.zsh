@@ -31,12 +31,22 @@ bindkey '^[[B' history-substring-search-down
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 #######################################################################
+# 1password                                                           #
+#######################################################################
+
+eval "$(op completion zsh)"; compdef _op op
+
+#######################################################################
 # nvm                                                                 #
 #######################################################################
 
+# using homebrew
 export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"
+[ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm"
+
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 load-nvmrc() {
   local nvmrc_path="$(nvm_find_nvmrc)"
