@@ -13,7 +13,7 @@ source "${HOME}/.config/local/share/oh-my-zsh/oh-my-zsh.sh"
 # zsh-syntax-highlighting                                             #
 #######################################################################
 
-source "${ZSH}/custom/plugins/dracula-zsh-syntax-highlighting.sh"
+# source "${ZSH}/custom/plugins/dracula-zsh-syntax-highlighting.sh"
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #######################################################################
@@ -71,7 +71,7 @@ load-nvmrc
 # heroku                                                              #
 #######################################################################
 
-test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH
+# test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH
 
 #######################################################################
 # pyenv                                                               #

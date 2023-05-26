@@ -48,7 +48,7 @@ brew tap shivammathur/php || __err 'failed brew tap shivammathur/php'
 brew tap yt-dlp/taps || __err 'failed brew tap yt-dlp/taps'
 
 __info 'Installing binaries, terminal stuff, CLI...'
-BINARIES=(ack bat bc openssl@3 code-cli coreutils exa fd findutils flyctl fzf gh go heroku/brew/heroku httpd hydra lua luarocks mas mongocli mongodb-atlas-cli moreutils neofetch nvm openjdk shivammathur/php/php shivammathur/php/php@8.0 pipenv pyenv ranger rhash ripgrep shellcheck tree vim wget yt-dlp/taps/yt-dlp z zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting)
+BINARIES=(ack bat bc code-cli coreutils exa fd findutils flyctl fzf gh go heroku/brew/heroku httpd hydra lua luarocks mas mongocli mongodb-atlas-cli moreutils neofetch nvm openjdk shivammathur/php/php shivammathur/php/php@8.0 pipenv pyenv ranger rhash ripgrep shellcheck tree vim wget yt-dlp/taps/yt-dlp z zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting)
 
 # todo: check if pkg already exists
 for brew in "${BINARIES[@]}"; do
@@ -60,7 +60,7 @@ for brew in "${BINARIES[@]}"; do
 done
 
 __info 'Installing casks...'
-CASKS=(apparency brave-browser cheatsheet discord dropbox hammerspoon karabiner-elements onyx open-in-code postman spotify suspicious-package tor-browser transmission wireshark)
+CASKS=(apparency brave-browser cheatsheet discord dropbox hammerspoon onyx open-in-code postman spotify suspicious-package tor-browser transmission wireshark)
 
 for cask in "${CASKS[@]}"; do
   __info "installing $cask"

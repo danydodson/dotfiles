@@ -59,16 +59,16 @@ export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
 
 # [openjdk@3]
-# export LDFLAGS="-L/opt/homebrew/opt/openjdk/lib"
-# export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+export LDFLAGS="-L/opt/homebrew/opt/openjdk/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 
 # [php@8.0]
-# export LDFLAGS="-L/opt/homebrew/opt/php@8.0/lib"
-# export CPPFLAGS="-I/opt/homebrew/opt/php@8.0/include"
+export LDFLAGS="-L/opt/homebrew/opt/php@8.0/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/php@8.0/include"
 
 # [php@8.2]
-# export LDFLAGS="-L/opt/homebrew/opt/php@8.2/lib"
-# export CPPFLAGS="-I/opt/homebrew/opt/php@8.2/include"
+export LDFLAGS="-L/opt/homebrew/opt/php@8.2/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/php@8.2/include"
 
 #######################################################################
 # homebrew
@@ -85,19 +85,11 @@ export HOMEBREW_GITHUB_API_TOKEN=$HOMEBREW_TOKEN
 # For pkg-config to find openssl@3 you may need to set:
 export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
 
-
-#######################################################################
-# 1password
-#######################################################################
-
-# export OP_CONNECT_HOST=''
-# export OP_CONNECT_TOKEN=''
-
 #######################################################################
 # heroku
 #######################################################################
 
-export HEROKU_AC_ZSH_SETUP_PATH="/Users/Dany/Library/Caches/heroku/autocomplete/zsh_setup"
+# export HEROKU_AC_ZSH_SETUP_PATH="/Users/Dany/Library/Caches/heroku/autocomplete/zsh_setup"
 
 #######################################################################
 # dfx
@@ -159,8 +151,9 @@ export _Z_DATA="${ZDOTDIR}/.z"
 # Java
 #######################################################################
 
-JAVA_HOME=$(/usr/libexec/java_home)
-export JAVA_HOME
+# export JAVA_HOME="/opt/homebrew/opt/openjdk/libexec/openjdk.jdk"
+# JAVA_HOME=$(/usr/libexec/java_home)
+# export JAVA_HOME
 
 #######################################################################
 # go
