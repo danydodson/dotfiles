@@ -1,12 +1,9 @@
 [user]
-    name = Dany Dodson
+    name = danydodson
     email = danydodson@gmail.com
 
 [credential]
 	helper = osxkeychain
-
-# [gpg]
-# 	program = /usr/local/MacGPG2/bin/gpg2
 
 [web]
 	browser = open

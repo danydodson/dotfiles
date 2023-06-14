@@ -14,12 +14,12 @@ while true; do sudo -n true sleep 60 kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 # Google Chrome                                                               #
 ###############################################################################
- __info "Changing Google Chrome settings..."
+#  __info "Changing Google Chrome settings..."
 
-# chrome: allow installing user scripts via GitHub or Userscripts.org
+# # chrome: allow installing user scripts via GitHub or Userscripts.org
 defaults write com.google.Chrome ExtensionInstallSources -array "https://*.github.com/*" "http://userscripts.org/*"
 
-# chrome: disable swipe to go back
+# # chrome: disable swipe to go back
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
 defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool false
 

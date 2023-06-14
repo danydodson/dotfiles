@@ -154,7 +154,6 @@ alias r="ranger"
 alias tpr='tput reset'
 alias uuid='uuidgen'
 alias curl='curl --config "${DOTFILES}/config/curl/dot.curlrc"'
-# alias wget='wget --no-check-certificate --hsts-file="${XDG_CONFIG_HOME}/wget/wget-hsts"'
 alias brokensymlinks='find . -type l ! -exec test -e {} \; -print'
 
 #######################################################################

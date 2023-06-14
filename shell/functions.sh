@@ -44,52 +44,16 @@ function developer() {
   cd "$HOME/Developer" || exit
 }
 
+function dots() {
+  cd "$HOME/.dotfiles" || exit
+}
+
 function served() {
   cd "$HOME/Developer/Served" || exit
 }
 
-function comic-shop() {
-  cd "$HOME/Developer/Served/comic-shop" || exit
-}
-
-function connected() {
-  cd "$HOME/Developer/Served/connected" || exit
-}
-
-function dodson-dev() {
-  cd "$HOME/Developer/Served/dodson.dev" || exit
-}
-
-function fatfelines() {
-  cd "$HOME/Developer/Served/fatfelines.com" || exit
-}
-
-function my-links() {
-  cd "$HOME/Developer/Served/my-links" || exit
-}
-
-function spotify-tracks() {
-  cd "$HOME/Developer/Served/spotify-tracks" || exit
-}
-
-function mega-bastard() {
-  cd "$HOME/Developer/Programs/MegaBastard" || exit
-}
-
 function samples() {
   cd "$HOME/Developer/Samples" || exit
-}
-
-function react() {
-  cd "$HOME/Developer/React" || exit
-}
-
-function github() {
-  cd "$HOME/Developer/Github" || exit
-}
-
-function noted-code() {
-  cd "$HOME/Developer/Github/noted-code" || exit
 }
 
 #######################################################################
@@ -132,5 +96,3 @@ function wttr() {
 function ipinf0() {
   curl http://ipinfo.io/"$1"
 }
-
-

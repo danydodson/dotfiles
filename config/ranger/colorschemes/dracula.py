@@ -22,7 +22,6 @@ from ranger.gui.color import (
     default_colors,
 )
 
-
 class Dracula(ColorScheme):
     progress_bar_color = 13
 

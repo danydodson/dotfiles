@@ -11,23 +11,6 @@ SAVEHIST=50000
 HISTFILE="${HOME}/.config/zsh/zsh_history"
 
 #######################################################################
-# For vscode manual install                                           #
-#######################################################################
-
-# [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
-
-#######################################################################
-# p10k configure                                                      #
-#######################################################################
-
-# # Code that may require console input must go above this block
-# if [[ -r ${XDG_CACHE_HOME/zsh:-$HOME/.config/zsh}/p10k-instant-prompt-'${(%):-%n}'.zsh ]]; then
-#   source ${XDG_CACHE_HOME/zsh:-$HOME/.config/zsh}/p10k-instant-prompt-'${(%):-%n}'.zsh
-# fi
-
-# [[ ! -f "$DOTFILES/config/zsh/p10k.zsh" ]] || source "$DOTFILES/config/zsh/p10k.zsh"
-
-#######################################################################
 # Completions                                                         #
 #######################################################################
 

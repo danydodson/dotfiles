@@ -8,6 +8,5 @@ cd /Users/Dany/.dotfiles || exit
 
 /Users/Dany/.dotfiles/scripts/daily/update.sh
 /Users/Dany/.dotfiles/scripts/daily/clean.sh
-# /Users/Dany/.dotfiles/scripts/daily/rebuild.sh
 
 # todo: send mail on error log

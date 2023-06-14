@@ -12,7 +12,7 @@ sudo -v
 while true; do sudo -n true sleep 60 kill -0 "$$" || exit; done 2>/dev/null &
 
 ###############################################################################
-# Oh-My-Zsh                                                                   #
+# Oh-My-Zsh
 ###############################################################################
 
 __info 'Installing oh-my-zsh...'
@@ -34,33 +34,32 @@ else
 fi
 
 ###############################################################################
-# Homebrew                                                                    #
+# Homebrew
 ###############################################################################
 
 __info 'Adding taps to brew...'
-brew tap heroku/brew || __err 'failed brew tap heroku/brew'
-brew tap homebrew/bundle || __err 'failed brew tap homebrew/bundle'
-brew tap homebrew/cask || __err 'failed brew tap homebrew/cask'
-brew tap homebrew/cask-versions || __err 'failed brew tap homebrew/cask-versions'
-brew tap homebrew/core || __err 'failed brew tap homebrew/core'
-brew tap homebrew/services || __err 'failed brew tap homebrew/services'
-brew tap shivammathur/php || __err 'failed brew tap shivammathur/php'
-brew tap yt-dlp/taps || __err 'failed brew tap yt-dlp/taps'
+brew tap '1password/tap' || __err 'failed brew tap 1password/tap'
+brew tap 'apple/apple' || __err 'failed brew tap apple/apple'
+brew tap 'homebrew/bundle' || __err 'failed brew tap homebrew/bundle'
+brew tap 'homebrew/cask' || __err 'failed brew tap homebrew/cask'
+brew tap 'homebrew/cask-versions' || __err 'failed brew tap homebrew/cask-versions'
+brew tap 'homebrew/core' || __err 'failed brew tap homebrew/core'
+brew tap 'homebrew/services' || __err 'failed brew tap homebrew/services'
+brew tap 'yt-dlp/taps' || __err 'failed brew tap yt-dlp/taps'
 
 __info 'Installing binaries, terminal stuff, CLI...'
-BINARIES=(ack bat bc code-cli coreutils exa fd findutils flyctl fzf gh go heroku/brew/heroku httpd hydra lua luarocks mas mongocli mongodb-atlas-cli moreutils neofetch nvm openjdk shivammathur/php/php shivammathur/php/php@8.0 pipenv pyenv ranger rhash ripgrep shellcheck tree vim wget yt-dlp/taps/yt-dlp z zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting)
+BINARIES=(ack bat bc code-cli coreutils exa fd findutils flyctl fzf gh go httpd hydra mas mongocli mongodb-atlas-cli moreutils neofetch nvm openjdk pipenv pyenv ranger rhash ripgrep shellcheck tree vim wget yarn yt-dlp z zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting)
 
 # todo: check if pkg already exists
 for brew in "${BINARIES[@]}"; do
   if ! command -v "$brew" &>/dev/null; then
     __info "installing $brew"
     brew install "$brew" || __err "failed brew install $brew"
-    exit
   fi
 done
 
 __info 'Installing casks...'
-CASKS=(apparency brave-browser cheatsheet discord dropbox hammerspoon onyx open-in-code postman spotify suspicious-package tor-browser transmission wireshark)
+CASKS=('1password-cli' apparency cheatsheet dropbox hammerspoon onyx open-in-code spotify suspicious-package tor-browser transmission vlc)
 
 for cask in "${CASKS[@]}"; do
   __info "installing $cask"
@@ -68,22 +67,49 @@ for cask in "${CASKS[@]}"; do
 done
 
 ###############################################################################
-# npm                                                                         #
+# nvm
 ###############################################################################
 
-# __info 'Installing npm global packages...'
-# npm install -g typescript || __err 'failed npm install typescript'
+source ~/.config/nvm/nvm.sh
+
+__info 'Installing node --lts...'
+nvm install 'lts/*' --reinstall-packages-from=default --latest-npm || __err 'failed to install node --lts'
+nvm use --lts
 
 ###############################################################################
-# yarn                                                                        #
+# npm
 ###############################################################################
 
-# __info 'Installing yarn global packages...'
-# yarn global add gatsby-cli || __err 'failed yarn global add gatsby-cli'
+__info 'Installing npm global packages...'
+npm install -g typescript || __err 'failed npm install -g typescript'
 
 ###############################################################################
-# pyenv                                                                       #
+# yarn
 ###############################################################################
+
+__info 'Installing yarn global packages...'
+yarn global add gatsby-cli || __err 'failed yarn global add gatsby-cli'
+
+###############################################################################
+# lua
+###############################################################################
+
+__info 'Installing luarocks packages...'
+luarocks install checks || __err 'failed luarocks install checks'
+luarocks --lua-dir=/opt/homebrew/opt/lua@5.1 install metalua-compiler || __err 'failed luarocks install metalua-compiler'
+luarocks --lua-dir=/opt/homebrew/opt/lua@5.1 install formatter || __err 'failed luarocks install formatter'
+luarocks install lanes || __err 'failed luarocks install lanes'
+luarocks --lua-dir=/opt/homebrew/opt/lua@5.3 install lua-lsp || __err 'failed luarocks install lua-lsp'
+luarocks install luacheck || __err 'failed luarocks install luacheck'
+luarocks install --server=https://luarocks.org/dev argcheck || __err 'failed luarocks install argcheck'
+luarocks install busted || __err 'failed luarocks install busted'
+luarocks install luacov || __err 'failed luarocks install luacov'
+
+###############################################################################
+# pyenv
+###############################################################################
+
+# source /opt/homebrew/bin/pyenv
 
 # __install() {
 #   # Make sure not using system python and pip
@@ -107,35 +133,15 @@ done
 #   python -m pip install --upgrade pip
 
 #   __status "Updating global pip requirements"
-#   python -m pip install --upgrade --requirement "${DOTFILES}/python/requirements.txt"
+#   python -m pip install --upgrade --requirement "${DOTFILES}/config/python/requirements.txt"
 # }
 
 # __install "$@"
 
 ###############################################################################
-# lua                                                                         #
+# Clean up
 ###############################################################################
 
-# __info 'Installing luarocks packages...'
-# luarocks install checks || __err 'failed luarocks install checks'
-# luarocks install formatter || __err 'failed luarocks install formatter'
-# luarocks install lanes || __err 'failed luarocks install lanes'
-# luarocks install lua-lsp || __err 'failed luarocks install lua-lsp'
-# luarocks install luacheck || __err 'failed luarocks install luacheck'
-# luarocks install argcheck || __err 'failed luarocks install argcheck'
-# luarocks install busted || __err 'failed luarocks install busted'
-# luarocks install luacov || __err 'failed luarocks install luacov'
-
-###############################################################################
-# Mac App Store                                                               #
-###############################################################################
-
-__info 'Installing apps from App Store...'
-mas install 1554235898 || __err 'failed mas install Peek'
-mas install 1587335166 || __err 'failed mas install Pipper'
-mas install 497799835 || __err 'failed mas install Xcode'
-mas install 425424353 || __err 'failed mas install The Unarchiver'
 __info 'Cleaning up...'
 
-# Remove unused brew dependencies
 brew cleanup -v && __ok ''

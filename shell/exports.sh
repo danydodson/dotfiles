@@ -1,20 +1,20 @@
 #!/bin/bash
 
 #######################################################################
-# language                                                            #
+# language
 #######################################################################
 
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 #######################################################################
-# ls                                                                  #
+# ls
 #######################################################################
 
 export LS_OPTS='--color=auto'
 
 #######################################################################
-# editor                                                              #
+# editor
 #######################################################################
 
 export EDITOR="code"
@@ -22,7 +22,7 @@ export VISUAL="$EDITOR"
 export SYSTEMD_EDITOR="$EDITOR"
 
 #######################################################################
-# xdg                                                                 #
+# xdg
 #######################################################################
 
 export XDG_CONFIG_HOME="$HOME"/.config
@@ -37,13 +37,14 @@ export XDG_VIDEOS_DIR="$XDG_DOCUMENTS_DIR"/Movies
 export XDG_PICTURES_DIR="$XDG_DOCUMENTS_DIR"/Pictures
 
 #######################################################################
-# local                                                               #
+# local
 #######################################################################
 
 export DEVELOPER="$HOME/Developer"
+export DOTFILES="$HOME/.dotfiles"
 
 #######################################################################
-# zsh                                                                 #
+# zsh
 #######################################################################
 
 export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
@@ -62,13 +63,13 @@ export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
 export LDFLAGS="-L/opt/homebrew/opt/openjdk/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 
-# [php@8.0]
-export LDFLAGS="-L/opt/homebrew/opt/php@8.0/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/php@8.0/include"
+# [lua@5.1]
+export LDFLAGS="-L/opt/homebrew/opt/lua@5.1/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/lua@5.1/include"
 
-# [php@8.2]
-export LDFLAGS="-L/opt/homebrew/opt/php@8.2/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/php@8.2/include"
+# [lua@5.3]
+export LDFLAGS="-L/opt/homebrew/opt/lua@5.3/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/lua@5.3/include"
 
 #######################################################################
 # homebrew
@@ -82,14 +83,11 @@ export HOMEBREW_NO_INSTALL_CLEANUP=true
 export "$(grep -E -v '^#' "$DOTFILES/.env" | xargs)"
 export HOMEBREW_GITHUB_API_TOKEN=$HOMEBREW_TOKEN
 
-# For pkg-config to find openssl@3 you may need to set:
-export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
-
-#######################################################################
-# heroku
-#######################################################################
-
-# export HEROKU_AC_ZSH_SETUP_PATH="/Users/Dany/Library/Caches/heroku/autocomplete/zsh_setup"
+# For pkg-config to find you may need to set:
+export openssl="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
+export lua5_1="/opt/homebrew/opt/lua@5.1/lib/pkgconfig"
+export lua5_3="/opt/homebrew/opt/lua@5.3/lib/pkgconfig"
+export PKG_CONFIG_PATH="$openssl:$lua5_1:$lua5_3:$PKG_CONFIG_PATH"
 
 #######################################################################
 # dfx
@@ -151,9 +149,7 @@ export _Z_DATA="${ZDOTDIR}/.z"
 # Java
 #######################################################################
 
-# export JAVA_HOME="/opt/homebrew/opt/openjdk/libexec/openjdk.jdk"
-# JAVA_HOME=$(/usr/libexec/java_home)
-# export JAVA_HOME
+export JAVA_HOME="/opt/homebrew/opt/openjdk/libexec/openjdk.jdk"
 
 #######################################################################
 # go
@@ -203,13 +199,7 @@ export COMPOSER_HOME="${XDG_CONFIG_HOME}/composer"
 export COMPOSER_CACHE_DIR="${XDG_CACHE_HOME}/composer"
 
 #######################################################################
-# gpg | on mac this should already
-#######################################################################
-
-# export DOCKER_CONFIG=${XDG_CONFIG_HOME}/docker
-
-#######################################################################
-# gpg | on mac this should already
+# gpg
 #######################################################################
 
 export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
@@ -257,7 +247,6 @@ export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export NPM_CONFIG_CACHE="${XDG_CACHE_HOME}/npm"
-# export NPMRC_STORE="${XDG_DATA_HOME}/npmrcs"
 
 #######################################################################
 # yarn cache

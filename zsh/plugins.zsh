@@ -1,23 +1,21 @@
 # External plugins
 
 #######################################################################
-# oh-my-zsh                                                           #
+# oh-my-zsh
 #######################################################################
 
 plugins=(aliases brew docker macos npm nvm pip pipenv)
 
-# oh-my-zsh.sh
 source "${HOME}/.config/local/share/oh-my-zsh/oh-my-zsh.sh"
 
 #######################################################################
-# zsh-syntax-highlighting                                             #
+# zsh-syntax-highlighting
 #######################################################################
 
-# source "${ZSH}/custom/plugins/dracula-zsh-syntax-highlighting.sh"
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #######################################################################
-# zsh-history-substring-search                                        #
+# zsh-history-substring-search
 #######################################################################
 
 source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -25,28 +23,24 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 #######################################################################
-# zsh-autosuggestions                                                 #
+# zsh-autosuggestions
 #######################################################################
 
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 #######################################################################
-# 1password                                                           #
+# 1password
 #######################################################################
 
 eval "$(op completion zsh)"; compdef _op op
 
 #######################################################################
-# nvm                                                                 #
+# nvm
 #######################################################################
 
-# using homebrew
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"
 [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm"
-
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 load-nvmrc() {
   local nvmrc_path="$(nvm_find_nvmrc)"
@@ -68,20 +62,14 @@ add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
 #######################################################################
-# heroku                                                              #
-#######################################################################
-
-# test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH
-
-#######################################################################
-# pyenv                                                               #
+# pyenv
 #######################################################################
 
 command -v pyenv >/dev/null || path-prepend "$PYENV_ROOT/bin"
 eval "$(pyenv init -)"
 
 #######################################################################
-# fzf                                                                 #
+# fzf
 #######################################################################
 
 # fzf completion
@@ -122,13 +110,13 @@ if [[ -f ~/.fzf.zsh ]]; then
 fi
 
 #######################################################################
-# iterm2                                                              #
+# iterm2
 #######################################################################
 
 test -e /Users/Dany/.config/zsh/.iterm2_shell_integration.zsh && source /Users/Dany/.config/zsh/.iterm2_shell_integration.zsh || true
 
 #######################################################################
-# z                                                                   #
+# z
 #######################################################################
 
 source /opt/homebrew/etc/profile.d/z.sh

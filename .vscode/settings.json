@@ -3,8 +3,9 @@
     "**/bin/*": "shellscript"
   },
   "taskExplorer.exclude": [
-    "**/**/**/**/dracula.py",
+    "**/shell/*",
     "**/helpers/*",
-    "**/shell/*"
+    "**/**/**/**/dracula.py",
+    "**/**/**/**/pythonstartup.py"
   ]
 }

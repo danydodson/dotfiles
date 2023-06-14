@@ -8,23 +8,37 @@ __info "Copying some dotfiles to $HOME ..."
 
 _DOTFILES="$HOME/.dotfiles"
 
-aws="${_DOTFILES}/config/aws"
-cp -r "$aws" "$HOME/.config/" && __ok "Copied $aws"
+ack="${_DOTFILES}/config/ack"
+cp -r "$ack" "$HOME/.config/" && __ok "Copied $ack"
 
 bat="$_DOTFILES/config/bat"
 cp -r "$bat" "$HOME/.config/" && __ok "Copied $bat"
 
-gitcon="$_DOTFILES/config/git/dot.gitconfig"
-cp -r "$gitcon" "$HOME/.config/git/config" && __ok "Copied $gitcon"
+curl="$_DOTFILES/config/curl"
+cp -r "$curl" "$HOME/.config/" && __ok "Copied $curl"
+
+gitconf="$_DOTFILES/config/git/dot.gitconfig"
+cp -r "$gitconf" "$HOME/.config/git/config" && __ok "Copied $gitconf"
 
 neofetch="$_DOTFILES/config/neofetch"
 cp -r "$neofetch" "$HOME/.config/" && __ok "Copied $neofetch"
 
+npm="$_DOTFILES/config/npm"
+cp -r "$npm" "$HOME/.config/" && __ok "Copied $npm"
+
+python="$_DOTFILES/config/python"
+cp -r "$python" "$HOME/.config/" && __ok "Copied $python"
+
 ranger="$_DOTFILES/config/ranger"
 cp -r "$ranger" "$HOME/.config/" && __ok "Copied $ranger"
 
-# vim="$_DOTFILES/config/vim"
-# cp -r "$vim" "$HOME/.config/" && __ok "Copied $vim to $HOME"
+vim="$_DOTFILES/config/vim"
+cp -r "$vim" "$HOME/.config/" && __ok "Copied $vim to $HOME"
+
+xcode="$_DOTFILES/config/xcode"
+themedir="$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes"
+mkdir -p "$themedir"
+cp -r "$xcode" "$themedir" && __ok "Copied $xcode to $themedir"
 
 zshrc="$_DOTFILES/zsh/.zshrc"
 cp -p "$zshrc" "$HOME" && __ok "Copied $zshrc"

@@ -1,0 +1,39 @@
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label.codicon {
+	font-size: 16px;
+}
+
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-taskActivity-41b3bc1517b7049f0cbf7267df3962607fbe77fd {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/spmeesseman.vscode-taskexplorer-2.13.2/res/gears-r.svg") 50% 50% / 17px no-repeat;
+}
+
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-dockerView-b96998e26732b3a5bbe1ec7d9421fb68fb07f8cc {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/ms-azuretools.vscode-docker-1.25.1/resources/docker.svg") 50% 50% / 17px no-repeat;
+}
+
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-github-actions-632514eb9d7c49eaf4d2a0760282cced24f90203 {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/github.vscode-github-actions-0.25.7/resources/icons/light/explorer.svg") 50% 50% / 17px no-repeat;
+}
+
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-codeium-2919bed945621d24a768815567de74f22a13d237 {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/codeium.codeium-1.2.36/assets/codeium.svg") 50% 50% / 17px no-repeat;
+}
+
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-leetcode-065e7016e4609b986b5d92ed092c56344fa86056 {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/leetcode.vscode-leetcode-0.18.1/resources/LeetCode.svg") 50% 50% / 17px no-repeat;
+}
+
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-mongoDB-bc63edec4875bc448668ca40581b22b6701daae4 {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/mongodb.mongodb-vscode-1.0.1/images/sidebar-leaf.svg") 50% 50% / 17px no-repeat;
+}
+
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-package-explorer-7d969da1fcbe4930821d46097227b11075297ccd {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/donjayamanne.python-environment-manager-1.0.4/resources/logo.svg") 50% 50% / 17px no-repeat;
+}
+
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-vscode-vercel-sidebar-990d57a87ce5f8772de29d09d2856fa1de314c0c {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/frenco.vscode-vercel-1.0.3/resources/icons/dark/vercel.svg") 50% 50% / 17px no-repeat;
+}
+
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-hero-heroku-container-a8ea0ee5147d8086af3937a6a08c1c9589892f3f {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/justbrenny.hero-heroku-1.7.2/res/hero-heroku-icon.svg") 50% 50% / 17px no-repeat;
+}

@@ -11,7 +11,6 @@ find . -name '*.DS_Store' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
 find ~/Developer/Extentions -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
 find ~/Developer/Github -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
 find ~/Developer/Samples -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
-find ~/Developer/Scrapts -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
 find ~/Developer/Working -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
 
 __info 'Removing zcompdump...'
