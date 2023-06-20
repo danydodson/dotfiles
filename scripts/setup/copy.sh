@@ -32,6 +32,9 @@ cp -r "$python" "$HOME/.config/" && __ok "Copied $python"
 ranger="$_DOTFILES/config/ranger"
 cp -r "$ranger" "$HOME/.config/" && __ok "Copied $ranger"
 
+readline="$_DOTFILES/config/readline"
+cp -r "$readline" "$HOME/.config/" && __ok "Copied $readline"
+
 vim="$_DOTFILES/config/vim"
 cp -r "$vim" "$HOME/.config/" && __ok "Copied $vim to $HOME"
 

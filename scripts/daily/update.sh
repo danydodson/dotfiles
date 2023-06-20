@@ -4,11 +4,8 @@
 
 __info() { printf '\033[0;34m[INFO] \033[0;34m%s\033[0;m\n' "$1"; }
 
-# __info 'Upgrading software packages...'
-
-__info 'Upgrading app store...'
-mas outdated
-mas upgrade
+__info 'Software update...'
+sudo softwareupdate -i -a
 
 __info 'Upgrading oh-my-zsh...'
 /Users/Dany/.config/local/share/oh-my-zsh/tools/upgrade.sh

@@ -1,20 +1,14 @@
 #!/bin/bash
 
 #######################################################################
-# language
+# local: language
 #######################################################################
 
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 #######################################################################
-# ls
-#######################################################################
-
-export LS_OPTS='--color=auto'
-
-#######################################################################
-# editor
+# local: editor
 #######################################################################
 
 export EDITOR="code"
@@ -31,45 +25,71 @@ export XDG_DATA_HOME="$XDG_CONFIG_HOME"/local/share
 export XDG_STATE_HOME="$XDG_CONFIG_HOME"/local/state
 export XDG_DESKTOP_DIR="$HOME"/Desktop
 export XDG_DOCUMENTS_DIR="$HOME"/Documents
-export XDG_DOWNLOAD_DIR="$XDG_DOCUMENTS_DIR"/Downloads
-export XDG_MUSIC_DIR="$XDG_DOCUMENTS_DIR"/Music
-export XDG_VIDEOS_DIR="$XDG_DOCUMENTS_DIR"/Movies
-export XDG_PICTURES_DIR="$XDG_DOCUMENTS_DIR"/Pictures
+export XDG_DOWNLOAD_DIR="$HOME"/Downloads
+export XDG_MUSIC_DIR="$HOME"/Music
+export XDG_VIDEOS_DIR="$HOME"/Movies
+export XDG_PICTURES_DIR="$HOME"/Pictures
 
 #######################################################################
-# local
+# local environment
 #######################################################################
 
 export DEVELOPER="$HOME/Developer"
 export DOTFILES="$HOME/.dotfiles"
 
-#######################################################################
-# zsh
-#######################################################################
-
-export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
-export ZSH_CACHE_DIR="$ZDOTDIR"
-export ZSH="$XDG_DATA_HOME"/oh-my-zsh
+export "$(grep -E -v '^#' "$DOTFILES/.env" | xargs)"
+export HOMEBREW_GITHUB_API_TOKEN=$HOMEBREW_TOKEN
 
 #######################################################################
-# For compilers to find [this] you may need to set:
+# ack
 #######################################################################
 
-# [openssl@3]
-export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
+export ACKRC="${DOTFILES}/config/ack/dot.ackrc"
 
-# [openjdk@3]
-export LDFLAGS="-L/opt/homebrew/opt/openjdk/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+#######################################################################
+# bat
+#######################################################################
 
-# [lua@5.1]
-export LDFLAGS="-L/opt/homebrew/opt/lua@5.1/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/lua@5.1/include"
+export BAT_CONFIG_PATH="$XDG_CONFIG_HOME/bat/bat.conf"
 
-# [lua@5.3]
-export LDFLAGS="-L/opt/homebrew/opt/lua@5.3/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/lua@5.3/include"
+#######################################################################
+# aws
+#######################################################################
+
+export AWS_CONFIG_FILE="${DOTFILES}/config/aws"
+export AWS_PROFILE="default"
+
+#######################################################################
+# composer
+#######################################################################
+
+export COMPOSER_HOME="${XDG_CONFIG_HOME}/composer"
+export COMPOSER_CACHE_DIR="${XDG_CACHE_HOME}/composer"
+
+#######################################################################
+# composer
+#######################################################################
+
+# export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
+
+#######################################################################
+# dfx
+#######################################################################
+
+export DFX_CONFIG_ROOT="${XDG_CONFIG_HOME}/dfinity"
+
+#######################################################################
+# go
+#######################################################################
+
+export GOPATH="${XDG_CONFIG_HOME}/go"
+export GOMODCACHE="${XDG_CONFIG_HOME}/go/pkg/mod"
+
+#######################################################################
+# gpg
+#######################################################################
+
+export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
 
 #######################################################################
 # homebrew
@@ -79,35 +99,43 @@ export HOMEBREW_ROOT="/opt/homebrew"
 export HOMEBREW_NO_ANALYTICS=true
 export HOMEBREW_NO_INSTALL_CLEANUP=true
 
-# Git token used in daily scripts
-export "$(grep -E -v '^#' "$DOTFILES/.env" | xargs)"
-export HOMEBREW_GITHUB_API_TOKEN=$HOMEBREW_TOKEN
-
-# For pkg-config to find you may need to set:
-export openssl="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
-export lua5_1="/opt/homebrew/opt/lua@5.1/lib/pkgconfig"
-export lua5_3="/opt/homebrew/opt/lua@5.3/lib/pkgconfig"
-export PKG_CONFIG_PATH="$openssl:$lua5_1:$lua5_3:$PKG_CONFIG_PATH"
-
 #######################################################################
-# dfx
+# java
 #######################################################################
 
-export DFX_CONFIG_ROOT="${XDG_CONFIG_HOME}/dfinity"
+export JAVA_HOME="/opt/homebrew/opt/openjdk/libexec/openjdk.jdk"
 
 #######################################################################
-# vim
+# less
 #######################################################################
 
-export VIMCONFIG="${XDG_CONFIG_HOME}"/vim
-export MYVIMRC="$XDG_CONFIG_HOME"/vim/vimrc
-export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
+# export LESSHISTFILE=- # don't write history
+export LESSHISTFILE="$XDG_STATE_HOME/lesshst"
 
 #######################################################################
-# bat
+# ls
 #######################################################################
 
-export BAT_CONFIG_PATH="$XDG_CONFIG_HOME/bat/bat.conf"
+export LS_OPTS='--color=auto'
+
+#######################################################################
+# mysql
+#######################################################################
+
+export MYSQL_HISTFILE="${XDG_CACHE_HOME}/mysql_histfile"
+
+#######################################################################
+# npm
+#######################################################################
+
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export NPM_CONFIG_CACHE="${XDG_CACHE_HOME}/npm"
+
+#######################################################################
+# nvm
+#######################################################################
+
+export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 
 #######################################################################
 # python
@@ -134,93 +162,16 @@ export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME/jupyter/config"
 export IPYTHONDIR="$HOME/.config/ipython"
 
 #######################################################################
-# ack
-#######################################################################
-
-export ACKRC="${DOTFILES}/config/ack/dot.ackrc"
-
-#######################################################################
-# z
-#######################################################################
-
-export _Z_DATA="${ZDOTDIR}/.z"
-
-#######################################################################
-# Java
-#######################################################################
-
-export JAVA_HOME="/opt/homebrew/opt/openjdk/libexec/openjdk.jdk"
-
-#######################################################################
-# go
-#######################################################################
-
-export GOPATH="${XDG_CONFIG_HOME}/go"
-export GOMODCACHE="${XDG_CONFIG_HOME}/go/pkg/mod"
-
-#######################################################################
-# wakatime
-#######################################################################
-
-export WAKATIME_HOME="${XDG_CONFIG_HOME}/wakatime"
-
-#######################################################################
-# aws
-#######################################################################
-
-export AWS_CONFIG_FILE="${DOTFILES}/config/aws"
-export AWS_PROFILE="default"
-
-#######################################################################
-# less
-#######################################################################
-
-export LESSHISTFILE=-
-
-#######################################################################
-# babel
-#######################################################################
-
-export BABEL_CACHE_PATH="${HOME}/.local/babel.json"
-
-#######################################################################
-# bazaar
-#######################################################################
-
-export BZRPATH="${XDG_CONFIG_HOME}/bazaar"
-export BZR_PLUGIN_PATH="${XDG_DATA_HOME}/bazaar"
-export BZR_HOME="${XDG_CACHE_HOME}/bazaar"
-
-#######################################################################
-# composer
-#######################################################################
-
-export COMPOSER_HOME="${XDG_CONFIG_HOME}/composer"
-export COMPOSER_CACHE_DIR="${XDG_CACHE_HOME}/composer"
-
-#######################################################################
-# gpg
-#######################################################################
-
-export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
-
-#######################################################################
-# mysql
-#######################################################################
-
-export MYSQL_HISTFILE="${XDG_CACHE_HOME}/mysql_histfile"
-
-#######################################################################
 # readline
 #######################################################################
 
-export INPUTRC="${DOTFILES}/shell/dot.inputrc"
+export INPUTRC="${DOTFILES}/config/readline/inputrc"
 
 #######################################################################
 # sc
 #######################################################################
 
-export SHELLCHECK_OPTS="--exclude=SC1090,SC2148"
+export SHELLCHECK_OPTS="--exclude=SC1090,SC2148,SC1071"
 
 #######################################################################
 # terminfo
@@ -229,27 +180,35 @@ export SHELLCHECK_OPTS="--exclude=SC1090,SC2148"
 export TERMINFO="${XDG_DATA_HOME}/terminfo"
 
 #######################################################################
-# vagrant
+# vim
 #######################################################################
 
-export VAGRANT_HOME="${XDG_DATA_HOME}/vagrant"
-export VAGRANT_ALIAS_FILE="${XDG_DATA_HOME}/vagrant/aliases"
+export VIMCONFIG="${XDG_CONFIG_HOME}"/vim
+export MYVIMRC="$XDG_CONFIG_HOME"/vim/vimrc
+export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 
 #######################################################################
-# nvm
+# wakatime
 #######################################################################
 
-export NVM_DIR="$XDG_CONFIG_HOME/nvm"
-
-#######################################################################
-# npm
-#######################################################################
-
-export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
-export NPM_CONFIG_CACHE="${XDG_CACHE_HOME}/npm"
+export WAKATIME_HOME="${XDG_CONFIG_HOME}/wakatime"
 
 #######################################################################
 # yarn cache
 #######################################################################
 
 export YARN_CACHE_FOLDER="${XDG_CACHE_HOME}/yarn"
+
+#######################################################################
+# zsh
+#######################################################################
+
+export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
+export ZSH_CACHE_DIR="$ZDOTDIR"
+export ZSH="$XDG_DATA_HOME"/oh-my-zsh
+
+#######################################################################
+# z
+#######################################################################
+
+export _Z_DATA="${ZDOTDIR}/.z"

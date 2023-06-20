@@ -4,7 +4,7 @@
 
 date
 
-cd /Users/Dany/.dotfiles || exit
+cd /Users/Dany/.dotfiles || return
 
 /Users/Dany/.dotfiles/scripts/daily/update.sh
 /Users/Dany/.dotfiles/scripts/daily/clean.sh

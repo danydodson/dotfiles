@@ -8,16 +8,14 @@ __info 'Removing DS_Stores...'
 find . -name '*.DS_Store' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
 
 # __info 'Removing node_modules...'
-find ~/Developer/Extentions -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
-find ~/Developer/Github -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
+find ~/Developer/Dotfiles -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
 find ~/Developer/Samples -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
-find ~/Developer/Working -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
+find ~/Developer/Security -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
+find ~/Developer/Snippets -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
 
 __info 'Removing zcompdump...'
 rm -rfv ~/.config/zsh/.zcompdump*
 rm -rfv ~/.config/zsh/.z
-rm -rfv ~/.config/zsh/.zsh-update
-rm -rfv ~/.config/zsh/brew_all_commands
 
 __info 'Removing Trash...'
 sudo rm -rfv /Volumes/*/.Trashes

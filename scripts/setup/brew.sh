@@ -45,10 +45,11 @@ brew tap 'homebrew/cask' || __err 'failed brew tap homebrew/cask'
 brew tap 'homebrew/cask-versions' || __err 'failed brew tap homebrew/cask-versions'
 brew tap 'homebrew/core' || __err 'failed brew tap homebrew/core'
 brew tap 'homebrew/services' || __err 'failed brew tap homebrew/services'
+brew tap 'kismetwireless/kismet' || __err 'failed brew tap kismetwireless/kismet'
 brew tap 'yt-dlp/taps' || __err 'failed brew tap yt-dlp/taps'
 
 __info 'Installing binaries, terminal stuff, CLI...'
-BINARIES=(ack bat bc code-cli coreutils exa fd findutils flyctl fzf gh go httpd hydra mas mongocli mongodb-atlas-cli moreutils neofetch nvm openjdk pipenv pyenv ranger rhash ripgrep shellcheck tree vim wget yarn yt-dlp z zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting)
+BINARIES=(ack aircrack-ng asciinema automake bat bc code-cli coreutils dnsmasq ettercap exa fd findutils flyctl fzf gh go httpd hydra lua@5.1 lua@5.3 luarocks mongocli mongodb-atlas-cli moreutils neofetch nvm openjdk pipenv pyenv ranger rhash ripgrep shellcheck tree vim wget yarn yt-dlp z zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting)
 
 # todo: check if pkg already exists
 for brew in "${BINARIES[@]}"; do
@@ -59,7 +60,7 @@ for brew in "${BINARIES[@]}"; do
 done
 
 __info 'Installing casks...'
-CASKS=('1password-cli' apparency cheatsheet dropbox hammerspoon onyx open-in-code spotify suspicious-package tor-browser transmission vlc)
+CASKS=('1password-cli' apparency cheatsheet dropbox hammerspoon onyx open-in-code spotify suspicious-package tor-browser transmission vlc wireshark xquartz)
 
 for cask in "${CASKS[@]}"; do
   __info "installing $cask"
@@ -89,54 +90,6 @@ npm install -g typescript || __err 'failed npm install -g typescript'
 
 __info 'Installing yarn global packages...'
 yarn global add gatsby-cli || __err 'failed yarn global add gatsby-cli'
-
-###############################################################################
-# lua
-###############################################################################
-
-__info 'Installing luarocks packages...'
-luarocks install checks || __err 'failed luarocks install checks'
-luarocks --lua-dir=/opt/homebrew/opt/lua@5.1 install metalua-compiler || __err 'failed luarocks install metalua-compiler'
-luarocks --lua-dir=/opt/homebrew/opt/lua@5.1 install formatter || __err 'failed luarocks install formatter'
-luarocks install lanes || __err 'failed luarocks install lanes'
-luarocks --lua-dir=/opt/homebrew/opt/lua@5.3 install lua-lsp || __err 'failed luarocks install lua-lsp'
-luarocks install luacheck || __err 'failed luarocks install luacheck'
-luarocks install --server=https://luarocks.org/dev argcheck || __err 'failed luarocks install argcheck'
-luarocks install busted || __err 'failed luarocks install busted'
-luarocks install luacov || __err 'failed luarocks install luacov'
-
-###############################################################################
-# pyenv
-###############################################################################
-
-# source /opt/homebrew/bin/pyenv
-
-# __install() {
-#   # Make sure not using system python and pip
-#   if python -m pip --version | grep -q /usr/lib; then
-#     __err "System pip detected, not running. Use a userspace python's pip."
-#     exit 1
-#   fi
-
-#   # Make sure has pyenv
-#   if ! __has "pyenv"; then
-#     __err "pyenv is not installed. Install it and set up a global pyenv."
-#     exit 1
-#   fi
-
-#   if pyenv version | grep -q system; then
-#     __err "Using system pyenv. Use real pyenv instead."
-#     exit 1
-#   fi
-
-#   __status "Updating global pip"
-#   python -m pip install --upgrade pip
-
-#   __status "Updating global pip requirements"
-#   python -m pip install --upgrade --requirement "${DOTFILES}/config/python/requirements.txt"
-# }
-
-# __install "$@"
 
 ###############################################################################
 # Clean up

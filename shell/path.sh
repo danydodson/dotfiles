@@ -17,7 +17,7 @@ path-prepend "/opt/homebrew/sbin"
 path-prepend "/opt/homebrew/bin"
 path-prepend "$DOTFILES/bin"
 
-path-prepend "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+# path-prepend "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 #######################################################################
 # fpath                                                               #

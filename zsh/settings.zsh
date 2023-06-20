@@ -45,7 +45,7 @@ setopt EXTENDED_GLOB # like ** for recursive dirs
 # History
 setopt APPEND_HISTORY # append instead of overwrite file
 setopt EXTENDED_HISTORY # extended timestamps
-setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE # omit from history if space prefixed
 setopt HIST_REDUCE_BLANKS
 setopt HIST_VERIFY # verify when using history cmds/params

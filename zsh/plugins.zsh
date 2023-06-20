@@ -4,7 +4,7 @@
 # oh-my-zsh
 #######################################################################
 
-plugins=(aliases brew docker macos npm nvm pip pipenv)
+plugins=(brew docker macos npm nvm pip pipenv)
 
 source "${HOME}/.config/local/share/oh-my-zsh/oh-my-zsh.sh"
 

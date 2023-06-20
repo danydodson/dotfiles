@@ -23,10 +23,6 @@ alias rm='rm -i'
 # paths and dirs
 #######################################################################
 
-alias ..='cd -- ..'
-alias ....='cd -- ../..'
-alias cd-='cd -- -'
-alias cd..='cd -- ..'
 alias dirs='dirs -v'
 alias src='. ~/.zshrc'
 alias fpath='echo -e ${FPATH//:/\\n}'
@@ -88,8 +84,8 @@ alias caskrm="brew uninstall --cask"
 # UI Apps
 #######################################################################
 
-alias chrome='open -a "Google Chrome.app"'
-alias chromedev='open -a "Google Chrome" --args --remote-debugging-port=9229'
+alias brave='open -a "Brave Browser.app"'
+alias bravedev='open -a "Brave Browser" --args --remote-debugging-port=9229'
 alias elec='/Applications/Electron.app/Contents/MacOS/Electron'
 alias ios='open -a Simulator.app'
 
@@ -143,6 +139,14 @@ alias ta='tmux attach'
 alias tmux='tmux -f "${DOTFILES}/tmux/tmux.conf"'
 
 #######################################################################
+# xcode
+#######################################################################
+
+alias cuios='XCODE_XCCONFIG_FILE="${PWD}/xcconfigs/swift31.xcconfig" carthage update --platform iOS'
+alias deletederived='rm -rf ~/Library/Developer/Xcode/DerivedData/*'
+alias xcimg='xcrun simctl addmedia booted'
+
+#######################################################################
 # rest of bins
 #######################################################################
 
@@ -166,41 +170,35 @@ alias rnginx='sudo brew services restart nginx'
 # Audio control - http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
 
-#######################################################################
-# xcode
+#################################################r######################
+# ls
 #######################################################################
 
-alias cuios='XCODE_XCCONFIG_FILE="${PWD}/xcconfigs/swift31.xcconfig" carthage update --platform iOS'
-alias deletederived='rm -rf ~/Library/Developer/Xcode/DerivedData/*'
-alias xcimg='xcrun simctl addmedia booted'
-
+#######################################################################
+# grc overides for ls
 #######################################################################
 
 __alias_ls() {
-  __almost_all='-A' # switched from --almost-all for old bash support
-  __classify='-F' # switched from --classify for old bash support
-  __colorized='--color=auto' # or use __colorized='-G'
+  __almost_all='-A'
+  __classify='-F'
+  __colorized='--color'
   __groupdirs='--group-directories-first'
-  __literal=''
   __long='-l'
   __single_column='-1'
-  __timestyle=''
-  alias r="ranger"
-  alias uuid='uuidgen'
+  __timestyle='--time-style="+%Y%m%d"'
 
   # shellcheck disable=SC2139
-  alias ls="ls $__colorized $__literal $__classify $__groupdirs $__timestyle"
+  alias ls="gls $__colorized $__groupdirs $__timestyle"
   # shellcheck disable=SC2139
-  alias la="ls $__almost_all"
+  alias la="gls $__almost_all $__colorized"
   # shellcheck disable=SC2139
-  alias l="ls $__single_column $__almost_all"
+  alias l="gls $__colorized $__groupdirs $__long $__almost_all --ignore=.DS_Store"
   # shellcheck disable=SC2139
-  alias ll="l $__long"
+  alias ll="gls $__long $__colorized"
   # shit
   alias kk='ll'
 
-  unset __almost_all __classify __colorized __groupdirs \
-    __literal __long __single_column __timestyle
+  unset __almost_all __classify __colorized __groupdirs __long __single_column __timestyle
 }
 
 __alias_ls

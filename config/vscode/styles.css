@@ -37,3 +37,7 @@
 .monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-hero-heroku-container-a8ea0ee5147d8086af3937a6a08c1c9589892f3f {
 	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/justbrenny.hero-heroku-1.7.2/res/hero-heroku-icon.svg") 50% 50% / 17px no-repeat;
 }
+
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-mintdocs-6262b417769097bf49394b205c4d681c5f3433fb {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/mintlify.document-2.2.1/assets/outline.png") 50% 50% / 17px no-repeat;
+}

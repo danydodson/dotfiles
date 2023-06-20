@@ -12,11 +12,11 @@ source "${DOTFILES}"/shell/path.sh
 # Exports
 source "${DOTFILES}"/shell/exports.sh
 
-# Aliases
-source "${DOTFILES}"/shell/aliases.sh
-
 # Custom prompt
 source "${DOTFILES}"/zsh/prompt.zsh
 
 # Plugins
 source "${DOTFILES}"/zsh/plugins.zsh
+
+# Aliases
+source "${DOTFILES}"/shell/aliases.sh

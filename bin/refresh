@@ -4,7 +4,7 @@
 
 date
 
-cd "$HOME/.dotfiles" || exit
+cd "$HOME/.dotfiles" || return
 
 # Ask for the administrator password upfront.
 sudo -v

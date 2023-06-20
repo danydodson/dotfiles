@@ -7,5 +7,6 @@
     "**/helpers/*",
     "**/**/**/**/dracula.py",
     "**/**/**/**/pythonstartup.py"
-  ]
+  ],
+  "docwriter.style": "Auto-detect"
 }
