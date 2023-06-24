@@ -8,6 +8,7 @@ export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
 
 HISTSIZE=50000
 SAVEHIST=50000
+SHELL_SESSIONS_DISABLE=1
 HISTFILE="${HOME}/.config/zsh/zsh_history"
 
 #######################################################################
@@ -32,6 +33,7 @@ setopt AUTO_PUSHD # pushd instead of cd
 setopt PUSHD_IGNORE_DUPS
 setopt PUSHD_SILENT # hide stack after cd
 setopt PUSHD_TO_HOME # go home if no d specified
+setopt SHARE_HISTORY
 
 # Completion
 setopt AUTO_LIST # list completions

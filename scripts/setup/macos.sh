@@ -243,7 +243,7 @@ defaults write com.apple.loginwindow LoginwindowLaunchesRelaunchApps -bool false
 # Hammerspoon                                                                 #
 ###############################################################################
 
-defaults write org.hammerspoon.Hammerspoon MJConfigFile "${HOME}.config/hammerspoon/init.lua" || __err ''
+defaults write org.hammerspoon.Hammerspoon MJConfigFile "${HOME}/.config/hammerspoon/init.lua" || __err ''
 
 ###############################################################################
 # Hot Corners                                                                 #

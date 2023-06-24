@@ -40,16 +40,18 @@ fi
 __info 'Adding taps to brew...'
 brew tap '1password/tap' || __err 'failed brew tap 1password/tap'
 brew tap 'apple/apple' || __err 'failed brew tap apple/apple'
+brew tap 'heroku/brew' || __err 'failed brew tap heroku/brew'
 brew tap 'homebrew/bundle' || __err 'failed brew tap homebrew/bundle'
 brew tap 'homebrew/cask' || __err 'failed brew tap homebrew/cask'
 brew tap 'homebrew/cask-versions' || __err 'failed brew tap homebrew/cask-versions'
 brew tap 'homebrew/core' || __err 'failed brew tap homebrew/core'
 brew tap 'homebrew/services' || __err 'failed brew tap homebrew/services'
 brew tap 'kismetwireless/kismet' || __err 'failed brew tap kismetwireless/kismet'
+brew tap 'sidaf/pentest' || __err 'failed brew tap sidaf/pentest'
 brew tap 'yt-dlp/taps' || __err 'failed brew tap yt-dlp/taps'
 
 __info 'Installing binaries, terminal stuff, CLI...'
-BINARIES=(ack aircrack-ng asciinema automake bat bc code-cli coreutils dnsmasq ettercap exa fd findutils flyctl fzf gh go httpd hydra lua@5.1 lua@5.3 luarocks mongocli mongodb-atlas-cli moreutils neofetch nvm openjdk pipenv pyenv ranger rhash ripgrep shellcheck tree vim wget yarn yt-dlp z zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting)
+BINARIES=(ack aircrack-ng asciinema automake bat bc code-cli coreutils dnsmasq ettercap exa fd findutils flyctl fzf gh go heroku httpd hydra lua@5.1 lua@5.3 luarocks mongocli mongodb-atlas-cli moreutils neofetch nvm openjdk pipenv pyenv ranger rhash ripgrep shellcheck tree vim wget yarn yt-dlp z zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting)
 
 # todo: check if pkg already exists
 for brew in "${BINARIES[@]}"; do

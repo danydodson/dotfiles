@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-unalias -a
+# unalias -a
 
 #######################################################################
 # These may be re-aliased later (e.g. rm=trash from trash-cli node module)
@@ -40,6 +40,7 @@ alias pyg='pygmentize -O style=rrt -f console256 -g'
 # node / Yarn
 #######################################################################
 
+alias yarn='/opt/homebrew/bin/yarn --use-yarnrc $HOME/.config/yarn/yarnrc'
 alias y='yarn'
 alias yi='y install'
 alias yb='y build'
@@ -96,7 +97,7 @@ alias ios='open -a Simulator.app'
 alias c='code'
 alias neo='neofetch'
 alias t='tree -fcp --noreport -L 1 -Cia'
-alias ytdlp='yt-dlp'
+alias yt='yt-dlp'
 
 #######################################################################
 # Docker
@@ -159,6 +160,7 @@ alias tpr='tput reset'
 alias uuid='uuidgen'
 alias curl='curl --config "${DOTFILES}/config/curl/dot.curlrc"'
 alias brokensymlinks='find . -type l ! -exec test -e {} \; -print'
+alias wget='wget --no-check-certificate --hsts-file="${XDG_CONFIG_HOME}/wget/wget-hsts"'
 
 #######################################################################
 # Misc
@@ -169,10 +171,6 @@ alias rnginx='sudo brew services restart nginx'
 
 # Audio control - http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
-
-#################################################r######################
-# ls
-#######################################################################
 
 #######################################################################
 # grc overides for ls

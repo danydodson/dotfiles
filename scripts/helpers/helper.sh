@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #######################################################################
-# POSIX-compliant helper scripts                                      #
+# POSIX-compliant helper scripts
 #######################################################################
 
 # silently determine existence of executable

@@ -32,7 +32,8 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # 1password
 #######################################################################
 
-eval "$(op completion zsh)"; compdef _op op
+eval "$(op completion zsh)"
+compdef _op op
 
 #######################################################################
 # nvm
@@ -67,6 +68,12 @@ load-nvmrc
 
 command -v pyenv >/dev/null || path-prepend "$PYENV_ROOT/bin"
 eval "$(pyenv init -)"
+
+#######################################################################
+# heroku
+#######################################################################
+
+export HEROKU_AC_ZSH_SETUP_PATH=/Users/Dany/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH
 
 #######################################################################
 # fzf
@@ -113,7 +120,7 @@ fi
 # iterm2
 #######################################################################
 
-test -e /Users/Dany/.config/zsh/.iterm2_shell_integration.zsh && source /Users/Dany/.config/zsh/.iterm2_shell_integration.zsh || true
+source /Users/Dany/.config/zsh/.iterm2_shell_integration.zsh
 
 #######################################################################
 # z

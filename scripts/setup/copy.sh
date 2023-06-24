@@ -36,7 +36,10 @@ readline="$_DOTFILES/config/readline"
 cp -r "$readline" "$HOME/.config/" && __ok "Copied $readline"
 
 vim="$_DOTFILES/config/vim"
-cp -r "$vim" "$HOME/.config/" && __ok "Copied $vim to $HOME"
+cp -r "$vim" "$HOME/.config/" && __ok "Copied $vim to $vim"
+
+wget="$_DOTFILES/config/wget"
+cp -r "$wget" "$HOME/.config/" && __ok "Copied $wget to $wget"
 
 xcode="$_DOTFILES/config/xcode"
 themedir="$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes"
