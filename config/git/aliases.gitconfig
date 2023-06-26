@@ -1,3 +1,5 @@
+# Global aliases
+
 [alias]
 	a       = add
 	aa      = add .
@@ -27,7 +29,6 @@
 
 	fo      = fetch origin
 
-	# https://caiustheory.com/git-git-git-git-git/
 	git     = !exec git
 
 	g       = grep --break --heading --line-number
@@ -56,6 +57,7 @@
 	rso = remote show origin
 	reorigin = remote set-url origin
 	reupstream = remote set-url upstream
+	
 	origin-to-upstream = "!f() { u="$(git remote get-url origin)"; [ -n "$u" ] && { git remote add upstream "$u" || git remote set-url upstream "$u"; }; }; f"
 
 	rehard  = reset --hard
@@ -82,17 +84,17 @@
 	wtl     = worktree list
 	wtr     = worktree remove
 
-	# ---------------------------------------------------------------------------
+#######################################################################
 	# aliases to git-extras provided
-	# ---------------------------------------------------------------------------
+#######################################################################
 
 	cl      = changelog --list
 	copy    = copy-branch
 	dmb     = delete-merged-branches
 
-	# ---------------------------------------------------------------------------
+#######################################################################
 	# my own git-* commands
-	# ---------------------------------------------------------------------------
+#######################################################################
 
 	rel     = relevant
 

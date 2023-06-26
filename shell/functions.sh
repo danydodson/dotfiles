@@ -40,20 +40,20 @@ function fpath-prepend() {
 # variables
 #######################################################################
 
-function developer() {
-  cd "$HOME/Developer" || exit
+function dev() {
+  cd "$HOME/Documents/Developer" || exit
 }
 
 function dots() {
   cd "$HOME/.dotfiles" || exit
 }
 
-function served() {
-  cd "$HOME/Developer/Served" || exit
+function serve() {
+  cd "$HOME/Documents/Developer/Served" || exit
 }
 
-function samples() {
-  cd "$HOME/Developer/Samples" || exit
+function secure() {
+  cd "$HOME/Documents/Developer/Security" || exit
 }
 
 #######################################################################
@@ -93,7 +93,6 @@ function wttr() {
   curl http://wttr.in/"$1"
 }
 
-# shellcheck disable=SC1091
 . /Users/Dany/.dotfiles/.env
 function ipinf0() {
   curl "http://ipinfo.io/$1?token=$IPINFO_TOKEN"

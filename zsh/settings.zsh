@@ -225,20 +225,18 @@ zstyle ':completion:*:descriptions' format '%F{black}%B%d%b%f'
 zstyle ':completion:*' expand yes
 
 # process names
-zstyle ':completion:*:processes-names' command \
-  'ps c -u ${USER} -o command | uniq'
+zstyle ':completion:*:processes-names' command 'ps c -u ${USER} -o command | uniq'
 
 # rsync and SSH use hosts from ~/.ssh/config
 # link https://github.com/Eriner/zim/issues/46#issuecomment-219344931
-[ -r "${HOME}/.config/ssh/config" ] && {
-  hosts=($(egrep '^Host ' "$HOME/.config/ssh/config" | grep -v '*' | awk '{print $2}'))
+[ -r "${HOME}/.ssh/config" ] && {
+  hosts=($(egrep '^Host ' "$HOME/.ssh/config" | grep -v '*' | awk '{print $2}'))
   zstyle ':completion:*:ssh:*' hosts $hosts
   zstyle ':completion:*:rsync:*' hosts $hosts
 }
 
 # colorful kill command completion -- probably overridden by fzf
-zstyle ':completion:*:*:kill:*:processes' list-colors \
-  "=(#b) #([0-9]#)*=36=31"
+zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
 
 # complete .log filenames if redirecting stderr
 zstyle ':completion:*:*:-redirect-,2>,*:*' file-patterns '*.log'

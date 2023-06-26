@@ -11,7 +11,7 @@ sudo -v
 # Keep-alive: update existing sudo time stamp until script has finished
 while true; do sudo -n true sleep 60 kill -0 "$$" || exit; done 2>/dev/null &
 
-__info 'Installing luarocks packages...'
+__info 'Installing lua packages...'
 
 luarocks install checks || __err 'failed luarocks install checks'
 luarocks --lua-dir=/opt/homebrew/opt/lua@5.1 install metalua-compiler || __err 'failed luarocks install metalua-compiler'
@@ -23,4 +23,4 @@ luarocks install --server=https://luarocks.org/dev argcheck || __err 'failed lua
 luarocks install busted || __err 'failed luarocks install busted'
 luarocks install luacov || __err 'failed luarocks install luacov'
 
-__info 'Finished installing luarocks packages...'
+__info 'Finished installing lua packages...'

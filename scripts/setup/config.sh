@@ -14,7 +14,7 @@ while true; do sudo -n true sleep 60 kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 # Google Chrome                                                               #
 ###############################################################################
-#  __info "Changing Google Chrome settings..."
+__info "Changing Google Chrome settings..."
 
 # # chrome: allow installing user scripts via GitHub or Userscripts.org
 defaults write com.google.Chrome ExtensionInstallSources -array "https://*.github.com/*" "http://userscripts.org/*"
@@ -26,25 +26,22 @@ defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool 
 ###############################################################################
 # iTerm2                                                                      #
 ###############################################################################
- __info "Changing iTerm settings..."
+__info "Changing iTerm settings..."
 
 # iterm2: disabling prompt when quitting iTerm
-defaults write com.googlecode.iterm2 PromptOnQuit -bool false ||  __err "defaults write com.googlecode.iterm2"
+defaults write com.googlecode.iterm2 PromptOnQuit -bool false || __err "defaults write com.googlecode.iterm2"
 
 # iterm2: disabling changing font size with pinch gesture in iTerm
-defaults write com.googlecode.iterm2 PinchToChangeFontSizeDisabled -bool true ||  __err "defaults write com.googlecode.iterm2"
+defaults write com.googlecode.iterm2 PinchToChangeFontSizeDisabled -bool true || __err "defaults write com.googlecode.iterm2"
 
 ###############################################################################
 # Transmission                                                                #
 ###############################################################################
- __info "Changing Transmission settings..."
+__info "Changing Transmission settings..."
 
 # transmission:download & upload badges
 defaults write org.m0k.transmission BadgeDownloadRate -bool false
 defaults write org.m0k.transmission BadgeUploadRate -bool false
-
-# transmission: store dotfiles
-mkdir -p "$HOME/Downloads/Dotfiles"
 
 # transmission: store complete downloads
 mkdir -p "$HOME/Downloads/Seeding"
@@ -92,10 +89,10 @@ defaults write org.m0k.transmission DisplayProgressBarAvailable -bool false
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
- __info "Killing affected applications..."
+__info "Killing affected applications..."
 
 for app in "iTerm" "Google Chrome" "Transmission"; do
   killall "${app}" &>/dev/null
 done
 
- __ok "Done. Note that some of these changes require a logout/restart to take effect."
+__ok "Done. Note that some of these changes require a logout/restart to take effect."

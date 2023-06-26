@@ -33,6 +33,27 @@ else
   ln -s "$HOME/.config/local/share/oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.config/local/share/oh-my-zsh/custom/themes/spaceship.zsh-theme" && __ok ''
 fi
 
+__info 'Downloading my zsh-completions...'
+if [ -e "$HOME"/.config/local/share/oh-my-zsh/custom/plugins/zsh-completions.plugin.zsh ]; then
+  __ok 'zsh-completions already exists'
+else
+  __info 'installiung zsh-completions...'
+  git clone https://github.com/danydodson/zsh-completions.git "$HOME"/.config/local/share/oh-my-zsh/custom/plugins/zsh-completions --depth=1 && __ok ''
+  __info 'Linking zsh-completions.plugin.zsh...'
+  ln -s "$HOME/.config/local/share/oh-my-zsh/custom/plugins/zsh-completions/zsh-completions.plugin.zsh" "$HOME/.config/local/share/oh-my-zsh/custom/plugins/zsh-completions.plugin.zsh" && __ok ''
+fi
+
+__info 'Downloading my zsh-completions submodules...'
+if [ -e "$HOME"/.config/local/share/oh-my-zsh/custom/plugins/zsh-completions ]; then
+  cd "$HOME"/.config/local/share/oh-my-zsh/custom/plugins/zsh-completions || return
+  __ok 'running git submodule init'
+  git submodule init && __ok ''
+  __ok 'running git submodule update'
+  git submodule update && __ok ''
+else
+  __info 'zsh-completions doesnt exist...'
+fi
+
 ###############################################################################
 # Homebrew
 ###############################################################################
@@ -51,7 +72,7 @@ brew tap 'sidaf/pentest' || __err 'failed brew tap sidaf/pentest'
 brew tap 'yt-dlp/taps' || __err 'failed brew tap yt-dlp/taps'
 
 __info 'Installing binaries, terminal stuff, CLI...'
-BINARIES=(ack aircrack-ng asciinema automake bat bc code-cli coreutils dnsmasq ettercap exa fd findutils flyctl fzf gh go heroku httpd hydra lua@5.1 lua@5.3 luarocks mongocli mongodb-atlas-cli moreutils neofetch nvm openjdk pipenv pyenv ranger rhash ripgrep shellcheck tree vim wget yarn yt-dlp z zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting)
+BINARIES=(ack aircrack-ng asciinema automake bat bc cmake cmake-docs cowsay code-cli coreutils dnsmasq ettercap exa fd findutils flyctl fzf gh go heroku httpd hydra irssi '"kismet-git", args: ["HEAD"]' lua lua@5.1 lua@5.3 luarocks meson mongocli mongodb-atlas-cli moreutils neofetch ninja nvm openjdk perl pipenv pyenv ranger rhash ripgrep rizin ruby shellcheck torsocks transmission-cli trash-cli tree vim wget xcodegen yarn yt-dlp z zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting)
 
 # todo: check if pkg already exists
 for brew in "${BINARIES[@]}"; do
@@ -92,6 +113,7 @@ npm install -g typescript || __err 'failed npm install -g typescript'
 
 __info 'Installing yarn global packages...'
 yarn global add gatsby-cli || __err 'failed yarn global add gatsby-cli'
+yarn global add @angular/cli || __err 'failed yarn global add @angular/cli'
 
 ###############################################################################
 # Clean up

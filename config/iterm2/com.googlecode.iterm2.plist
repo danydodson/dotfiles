@@ -9,14 +9,22 @@ Respond with one or more commands. Do not include any explanation or additional 
 </string>
 	<key>AdjustWindowForFontSizeChange</key>
 	<true/>
+	<key>AiModel</key>
+	<string>text-davinci-003</string>
 	<key>AllowClipboardAccess</key>
 	<true/>
+	<key>AllowTabbarInTitlebarAccessoryBigSur</key>
+	<false/>
 	<key>AlwaysOpenWindowAtStartup</key>
 	<false/>
+	<key>AutoCommandHistory</key>
+	<true/>
+	<key>BadgeFontIsBold</key>
+	<true/>
 	<key>CheckTestRelease</key>
 	<true/>
 	<key>ComposerHeight</key>
-	<real>203.86328125</real>
+	<real>356</real>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>One Dark</key>
@@ -634,7 +642,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 	<key>DrawBottomLineForHorizontalTabBar</key>
 	<true/>
 	<key>EnableAPIServer</key>
-	<true/>
+	<false/>
 	<key>EnableDivisionView</key>
 	<false/>
 	<key>EnableRendezvous</key>
@@ -660,6 +668,8 @@ Respond with one or more commands. Do not include any explanation or additional 
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
 	<key>IRMemory</key>
+	<integer>4</integer>
+	<key>MinimumWeightDifferenceForBoldFont</key>
 	<integer>4</integer>
 	<key>NeverBlockSystemShutdown</key>
 	<false/>
@@ -2542,7 +2552,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Thin Strokes</key>
-			<integer>4</integer>
+			<integer>3</integer>
 			<key>Title Components</key>
 			<integer>960</integer>
 			<key>Transparency</key>
@@ -2552,7 +2562,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
-			<false/>
+			<true/>
 			<key>Use Bright Bold</key>
 			<true/>
 			<key>Use Bright Bold (Dark)</key>
@@ -2696,8 +2706,19 @@ Respond with one or more commands. Do not include any explanation or additional 
 	<integer>18</integer>
 	<key>TerminalVMargin</key>
 	<integer>15</integer>
+	<key>ToolbeltTools</key>
+	<array>
+		<string>Command History</string>
+		<string>Notes</string>
+		<string>Jobs</string>
+	</array>
 	<key>UIElementRequiresHotkeys</key>
 	<true/>
+	<key>URLHandlersByGuid</key>
+	<dict>
+		<key>ssh</key>
+		<string>A1563EF0-0E19-4014-88E2-178C81F12D32</string>
+	</dict>
 	<key>UseBorder</key>
 	<false/>
 	<key>UseLionStyleFullscreen</key>

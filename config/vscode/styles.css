@@ -37,6 +37,25 @@
 .monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-mintdocs-6262b417769097bf49394b205c4d681c5f3433fb {
 	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/mintlify.document-2.2.1/assets/outline.png") 50% 50% / 17px no-repeat;
 }
+
 .monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-makefile__viewContainer-3cacbd9c97652270d232bc238b8c160cedbc2e3f {
 	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/ms-vscode.makefile-tools-0.7.0/res/viewcontainer.svg") 50% 50% / 17px no-repeat;
+}
+
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-sshfs-fa85651c6156f35c94c18e57b19d45bc14651e35 {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/kelvin.vscode-sshfs-1.26.1/resources/icon.svg") 50% 50% / 17px no-repeat;
+}
+
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-meson-sidebar-8d5bc746ae5cbd40a228a445620dced1a4c133fc {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/mesonbuild.mesonbuild-1.9.0/res/meson_32.svg") 50% 50% / 17px no-repeat;
+}
+
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-cmake-view-65d464bd4c507b4594a39ad357d4b3522186a32d {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/ms-vscode.cmake-tools-1.14.33/res/cmake-view-icon2.svg") 50% 50% / 17px no-repeat;
+}
+
+.monaco-scrollable-element>div.invisible.scrollbar.horizontal>.slider,
+.monaco-scrollable-element>div.visible.scrollbar.horizontal>.slider {
+	/* display: none !important; */
+	opacity: 0 !important;
 }

@@ -1,1 +1,1 @@
-//registry.npmjs.org/:_authToken=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
+// registry.npmjs.org/:_authToken=$NPMRC_AUTH_TOKEN

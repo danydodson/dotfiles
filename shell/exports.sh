@@ -99,6 +99,31 @@ export HOMEBREW_ROOT="/opt/homebrew"
 export HOMEBREW_NO_ANALYTICS=true
 export HOMEBREW_NO_INSTALL_CLEANUP=true
 
+# [openssl@1]
+OPENSSL1_LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib:"
+OPENSSL1_CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include:"
+OPENSSL1_PKG_CONFIG_PATH="/opt/homebrew/Cellar/openssl@1.1/lib/pkgconfig:"
+
+# [openssl@3]
+OPENSSL3_LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib:"
+OPENSSL3_CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include:"
+OPENSSL3_PKG_CONFIG_PATH="/opt/homebrew/Cellar/openssl@3/lib/pkgconfig:"
+
+# [openjdk@3]
+OPENJDK_LDFLAGS="-L/opt/homebrew/opt/openjdk/lib:"
+OPENJDK_CPPFLAGS="-I/opt/homebrew/opt/openjdk/include:"
+
+# [php@8.1]
+PHP8_LDFLAGS="-L/opt/homebrew/opt/php@8.1/lib:"
+PHP8_CPPFLAGS="-I/opt/homebrew/opt/php@8.1/include:"
+
+HOMEBREW_PKG_CONFIG_PATH="/opt/homebrew/opt/pkgconfig"
+
+# [pkg-config]
+export LDFLAGS="$OPENSSL1_LDFLAGS:$OPENSSL3_LDFLAGS:$OPENJDK_LDFLAGS:$PHP8_LDFLAGS:$LDFLAGS"
+export CPPFLAGS=":$OPENSSL1_CPPFLAGS:$OPENSSL3_CPPFLAGS:$OPENJDK_CPPFLAGS:$PHP8_CPPFLAGS:$CPPFLAGS"
+export PKG_CONFIG_PATH="$HOMEBREW_PKG_CONFIG_PATH:$OPENSSL1_PKG_CONFIG_PATH:$OPENSSL3_PKG_CONFIG_PATH:$PKG_CONFIG_PATH"
+
 #######################################################################
 # java
 #######################################################################

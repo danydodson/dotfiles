@@ -4,7 +4,7 @@
 # oh-my-zsh
 #######################################################################
 
-plugins=(brew docker macos npm nvm pip pipenv)
+plugins+=(brew docker docker-compose macos npm nvm pip pipenv zsh-completions)
 
 source "${HOME}/.config/local/share/oh-my-zsh/oh-my-zsh.sh"
 
@@ -74,6 +74,12 @@ eval "$(pyenv init -)"
 #######################################################################
 
 export HEROKU_AC_ZSH_SETUP_PATH=/Users/Dany/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH
+
+#######################################################################
+# angular-cli completions
+#######################################################################
+
+source <(ng completion script)
 
 #######################################################################
 # fzf

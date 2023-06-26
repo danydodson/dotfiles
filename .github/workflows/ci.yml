@@ -10,3 +10,4 @@ jobs:
       - uses: rafaeleyng/shellcheck-action@v2
         with:
           command: ./scripts/tools/check.sh
+          
