@@ -9,8 +9,16 @@
 [pretty]
 	ld = "%C(yellow)%h %C(reset)%s %C(green)(%cr) %C(blue)<%an>%C(magenta)%d%C(reset)"
 
+#######################################################################
+# Auth
+#######################################################################
+
 [include]
 	path = "~/.dotfiles/config/git/osx.gitconfig"
+
+#######################################################################
+# My aliases
+#######################################################################
 
 [includeIf "gitdir:/Users/"]
 	path = "~/.dotfiles/config/git/aliases.gitconfig"
@@ -118,6 +126,4 @@
 
 [pager]
 	status = true
-
-# vim: ft=gitconfig
 

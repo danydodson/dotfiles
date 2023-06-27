@@ -642,7 +642,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 	<key>DrawBottomLineForHorizontalTabBar</key>
 	<true/>
 	<key>EnableAPIServer</key>
-	<false/>
+	<true/>
 	<key>EnableDivisionView</key>
 	<false/>
 	<key>EnableRendezvous</key>
@@ -679,7 +679,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>ASCII Anti Aliased</key>
 			<true/>
 			<key>ASCII Ligatures</key>
-			<false/>
+			<true/>
 			<key>Ambiguous Double Width</key>
 			<false/>
 			<key>Ansi 0 Color</key>
@@ -1289,7 +1289,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Blink Allowed</key>
 			<false/>
 			<key>Blinking Cursor</key>
-			<true/>
+			<false/>
 			<key>Blur</key>
 			<false/>
 			<key>Blur Radius</key>
@@ -1330,7 +1330,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Bound Hosts</key>
 			<array/>
 			<key>Brighten Bold Text</key>
-			<true/>
+			<false/>
 			<key>Brighten Bold Text (Dark)</key>
 			<true/>
 			<key>Brighten Bold Text (Light)</key>
@@ -1421,6 +1421,8 @@ Respond with one or more commands. Do not include any explanation or additional 
 				<key>Red Component</key>
 				<real>0.74862593412399292</real>
 			</dict>
+			<key>Cursor Shadow</key>
+			<true/>
 			<key>Cursor Text Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -1474,14 +1476,16 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<false/>
 			<key>Foreground Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.74901960784313726</real>
+				<real>0.79836755990982056</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.69803921568627447</real>
+				<real>0.75140154361724854</real>
 				<key>Red Component</key>
-				<real>0.6705882352941176</real>
+				<real>0.73468226194381714</real>
 			</dict>
 			<key>Foreground Color (Dark)</key>
 			<dict>
@@ -1885,7 +1889,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>OperatorMonoSSmLig-Book 13</string>
+			<string>OperatorMonoLig-Book 15</string>
 			<key>Open Password Manager Automatically</key>
 			<false/>
 			<key>Open Toolbelt</key>
@@ -2547,12 +2551,25 @@ Respond with one or more commands. Do not include any explanation or additional 
 			</dict>
 			<key>Sync Title</key>
 			<false/>
+			<key>Tab Color</key>
+			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
+				<key>Blue Component</key>
+				<real>0.0</real>
+				<key>Color Space</key>
+				<string>P3</string>
+				<key>Green Component</key>
+				<real>0.0</real>
+				<key>Red Component</key>
+				<real>0.5782012939453125</real>
+			</dict>
 			<key>Tags</key>
 			<array/>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Thin Strokes</key>
-			<integer>3</integer>
+			<integer>0</integer>
 			<key>Title Components</key>
 			<integer>960</integer>
 			<key>Transparency</key>
@@ -2564,7 +2581,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Use Bold Font</key>
 			<true/>
 			<key>Use Bright Bold</key>
-			<true/>
+			<false/>
 			<key>Use Bright Bold (Dark)</key>
 			<true/>
 			<key>Use Bright Bold (Light)</key>
@@ -2578,7 +2595,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Use Custom Tab Title</key>
 			<false/>
 			<key>Use Italic Font</key>
-			<true/>
+			<false/>
 			<key>Use Non-ASCII Font</key>
 			<false/>
 			<key>Use Separate Colors for Light and Dark Mode</key>
@@ -2738,7 +2755,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewPreferredModeKey</key>
-	<integer>6</integer>
+	<integer>7</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
 	<false/>
 </dict>

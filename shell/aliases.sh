@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # unalias -a
-unsetopt RM_STAR_SILENT
+# unsetopt RM_STAR_SILENT
 
 #######################################################################
 # These may be re-aliased later (e.g. rm=trash from trash-cli node module)
@@ -180,18 +180,24 @@ alias stfu="osascript -e 'set volume output muted true'"
 #######################################################################
 
 __alias_ls() {
-  __almost_all=-A
-  __classify=-F
-  __colorized=--color
-  __groupdirs=--group-directories-first
-  __long=-l
-  __single_column=-1
-  __timestyle=--time-style="+%Y%m%d"
+  __almost_all='-A'
+  __classify='-F'
+  __colorized='--color'
+  __groupdirs='--group-directories-first'
+  __long='-l'
+  __single_column='-1'
+  __timestyle='--time-style="+%Y%m%d"'
 
-  alias ls=gls $__colorized $__groupdirs $__timestyle
-  alias la=gls $__almost_all $__colorized
-  alias l=ls $__colorized $__groupdirs $__long $__almost_all --ignore=.DS_Store
-  alias ll=gls $__long $__colorized
+  # shellcheck disable=SC2139
+  alias ls="gls $__colorized $__groupdirs $__timestyle"
+  # shellcheck disable=SC2139
+  alias la="gls $__almost_all $__colorized"
+  # shellcheck disable=SC2139
+  alias l="gls $__colorized $__groupdirs $__long $__almost_all --ignore=.DS_Store"
+  # shellcheck disable=SC2139
+  alias ll="gls $__long $__colorized"
+  # shit
+  alias kk='ll'
 
   unset __almost_all __classify __colorized __groupdirs __long __single_column __timestyle
 }

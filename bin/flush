@@ -5,4 +5,5 @@
 __echo() { printf '%s\033[0;m\n' "$1"; }
 
 __echo "Flushing DNS"
+
 sudo killall -HUP mDNSResponder

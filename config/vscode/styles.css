@@ -56,6 +56,14 @@
 
 .monaco-scrollable-element>div.invisible.scrollbar.horizontal>.slider,
 .monaco-scrollable-element>div.visible.scrollbar.horizontal>.slider {
-	/* display: none !important; */
 	opacity: 0 !important;
+}
+
+.custom-header .monaco-workbench .part.editor>.content .editor-group-container>.title div.monaco-icon-label:before {
+	display: none !important;
+}
+
+.custom-header .monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab .tab-label a.label-name {
+	display: flex !important;
+	justify-content: center !important;
 }

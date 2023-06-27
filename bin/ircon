@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-# Connect to ircNet
-
-irssi -c ircnet -n toaster -p 6667
