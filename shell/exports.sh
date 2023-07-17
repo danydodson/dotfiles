@@ -134,8 +134,8 @@ export JAVA_HOME="/opt/homebrew/opt/openjdk/libexec/openjdk.jdk"
 # less
 #######################################################################
 
-# export LESSHISTFILE=- # don't write history
-export LESSHISTFILE="$XDG_STATE_HOME/lesshst"
+export LESSHISTFILE=- # don't write history
+# export LESSHISTFILE="$XDG_STATE_HOME/lesshst"
 
 #######################################################################
 # ls
@@ -161,6 +161,12 @@ export NPM_CONFIG_CACHE="${XDG_CACHE_HOME}/npm"
 #######################################################################
 
 export NVM_DIR="$XDG_CONFIG_HOME/nvm"
+
+#######################################################################
+# onepassword
+#######################################################################
+
+export OP_BIOMETRIC_UNLOCK_ENABLED=true
 
 #######################################################################
 # python
@@ -232,8 +238,4 @@ export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
 export ZSH_CACHE_DIR="$ZDOTDIR"
 export ZSH="$XDG_DATA_HOME"/oh-my-zsh
 
-#######################################################################
-# z
-#######################################################################
 
-export _Z_DATA="${ZDOTDIR}/.z"

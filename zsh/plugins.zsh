@@ -4,7 +4,7 @@
 # oh-my-zsh
 #######################################################################
 
-plugins+=(brew docker docker-compose macos npm nvm pip pipenv zsh-completions)
+plugins+=(brew pip docker docker-compose macos nvm npm zsh-completions)
 
 source "${HOME}/.config/local/share/oh-my-zsh/oh-my-zsh.sh"
 
@@ -36,6 +36,32 @@ eval "$(op completion zsh)"
 compdef _op op
 
 #######################################################################
+# pyenv
+#######################################################################
+
+command -v pyenv >/dev/null || path-prepend "$PYENV_ROOT/bin"
+eval "$(pyenv init -)"
+
+#######################################################################
+# heroku
+#######################################################################
+
+# HEROKU_AC_ZSH_SETUP_PATH=/Users/Dany/Library/Caches/heroku/autocomplete/zsh_setup && \
+#  test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH
+
+#######################################################################
+# angular-cli completionstrash
+#######################################################################
+
+source <(ng completion script)
+
+#######################################################################
+# iterm2
+#######################################################################
+
+source /Users/Dany/.config/zsh/.iterm2_shell_integration.zsh
+
+#######################################################################
 # nvm
 #######################################################################
 
@@ -61,25 +87,6 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
-
-#######################################################################
-# pyenv
-#######################################################################
-
-command -v pyenv >/dev/null || path-prepend "$PYENV_ROOT/bin"
-eval "$(pyenv init -)"
-
-#######################################################################
-# heroku
-#######################################################################
-
-export HEROKU_AC_ZSH_SETUP_PATH=/Users/Dany/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH
-
-#######################################################################
-# angular-cli completions
-#######################################################################
-
-source <(ng completion script)
 
 #######################################################################
 # fzf
@@ -121,15 +128,3 @@ alias preview="fzf --preview 'bat --color \"always\" --style \"numbers\" --line-
 if [[ -f ~/.fzf.zsh ]]; then
   source ~/.fzf.zsh
 fi
-
-#######################################################################
-# iterm2
-#######################################################################
-
-source /Users/Dany/.config/zsh/.iterm2_shell_integration.zsh
-
-#######################################################################
-# z
-#######################################################################
-
-source /opt/homebrew/etc/profile.d/z.sh

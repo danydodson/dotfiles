@@ -60,13 +60,20 @@ alias gulp='npx gulp'
 alias grunt='npx grunt'
 
 #######################################################################
-# python
+# pyenv
 #######################################################################
 
 alias notebook='PYDEVD_DISABLE_FILE_VALIDATION=1 jupyter notebook'
 alias pea='pyenv activate'
 alias ped='pyenv deactivate'
 alias pss='pyenv shell system'
+
+#######################################################################
+# python
+#######################################################################
+
+alias py='python3'
+alias pi='pip install'
 
 #######################################################################
 # Homebrew

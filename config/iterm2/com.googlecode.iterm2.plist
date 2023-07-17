@@ -637,6 +637,8 @@ Respond with one or more commands. Do not include any explanation or additional 
 	<false/>
 	<key>DisableTabBarTooltips</key>
 	<false/>
+	<key>DisableTransparencyForKeyWindow</key>
+	<false/>
 	<key>DoubleClickPerformsSmartSelection</key>
 	<true/>
 	<key>DrawBottomLineForHorizontalTabBar</key>
@@ -1291,9 +1293,9 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
-			<false/>
+			<true/>
 			<key>Blur Radius</key>
-			<real>1</real>
+			<real>10.748853058510633</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -1330,7 +1332,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Bound Hosts</key>
 			<array/>
 			<key>Brighten Bold Text</key>
-			<false/>
+			<true/>
 			<key>Brighten Bold Text (Dark)</key>
 			<true/>
 			<key>Brighten Bold Text (Light)</key>
@@ -1340,7 +1342,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>242</integer>
+			<integer>210</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Boost</key>
@@ -1544,7 +1546,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Idle Code</key>
 			<integer>0</integer>
 			<key>Initial Use Transparency</key>
-			<false/>
+			<true/>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -1885,11 +1887,15 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Name</key>
 			<string>default</string>
 			<key>Non Ascii Font</key>
-			<string>Monaco 12</string>
+			<string>MonoLisa-Regular 14</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
+			<key>Non-ASCII Ligatures</key>
+			<false/>
 			<key>Normal Font</key>
-			<string>OperatorMonoLig-Book 15</string>
+			<string>FiraCode-Retina 14 {"featureSettings":[{"CTFeatureSelectorIdentifier":10,"CTFeatureTypeIdentifier":35},{"CTFeatureSelectorIdentifier":4,"CTFeatureTypeIdentifier":35},{"CTFeatureSelectorIdentifier":12,"CTFeatureTypeIdentifier":35},{"CTFeatureSelectorIdentifier":14,"CTFeatureTypeIdentifier":35},{"CTFeatureSelectorIdentifier":16,"CTFeatureTypeIdentifier":35},{"CTFeatureSelectorIdentifier":18,"CTFeatureTypeIdentifier":35},{"CTFeatureSelectorIdentifier":6,"CTFeatureTypeIdentifier":35},{"CTFeatureSelectorIdentifier":2,"CTFeatureTypeIdentifier":35},{"CTFeatureSelectorIdentifier":20,"CTFeatureTypeIdentifier":35},{"CTFeatureSelectorIdentifier":8,"CTFeatureTypeIdentifier":35}]}</string>
+			<key>Only The Default BG Color Uses Transparency</key>
+			<false/>
 			<key>Open Password Manager Automatically</key>
 			<false/>
 			<key>Open Toolbelt</key>
@@ -1905,7 +1911,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>20</integer>
+			<integer>15</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
@@ -2569,19 +2575,19 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Thin Strokes</key>
-			<integer>0</integer>
+			<integer>3</integer>
 			<key>Title Components</key>
 			<integer>960</integer>
 			<key>Transparency</key>
-			<real>0.0</real>
+			<real>0.01</real>
 			<key>Unicode Version</key>
 			<integer>9</integer>
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
-			<true/>
-			<key>Use Bright Bold</key>
 			<false/>
+			<key>Use Bright Bold</key>
+			<true/>
 			<key>Use Bright Bold (Dark)</key>
 			<true/>
 			<key>Use Bright Bold (Light)</key>
@@ -2686,7 +2692,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 	<key>RunJobsInServers</key>
 	<true/>
 	<key>SavePasteHistory</key>
-	<false/>
+	<true/>
 	<key>SeparateStatusBarsPerPane</key>
 	<false/>
 	<key>SeparateWindowTitlePerTab</key>
@@ -2694,7 +2700,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 	<key>SetCookie</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>ShowNewOutputIndicator</key>
 	<true/>
 	<key>ShowPaneTitles</key>

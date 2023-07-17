@@ -1,29 +1,54 @@
+/*  */
+
+
+.monaco-scrollable-element>div.invisible.scrollbar.horizontal>.slider,
+.monaco-scrollable-element>div.visible.scrollbar.horizontal>.slider {
+	opacity: 0 !important;
+}
+
+.custom-header .monaco-workbench .part.editor>.content .editor-group-container>.title div.monaco-icon-label:before {
+	display: none !important;
+}
+
+.custom-header .monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab .tab-label a.label-name {
+	display: flex !important;
+	justify-content: center !important;
+}
+
 .monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label.codicon {
 	font-size: 16px;
+}
+
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-github-cweijan-mysql-699c92db41359a4df6f82853537fb501ecd44eb4 {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/cweijan.vscode-ssh-6.5.7/resources/icon/database.svg") 50% 50% / 17px no-repeat;
+}
+
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-github-cweijan-nosql-050479f5efa77e120c8cb6d486a17d1549c0a719 {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/cweijan.vscode-ssh-6.5.7/resources/icon/layer-group.svg") 50% 50% / 17px no-repeat;
 }
 
 .monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-taskActivity-41b3bc1517b7049f0cbf7267df3962607fbe77fd {
 	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/spmeesseman.vscode-taskexplorer-2.13.2/res/gears-r.svg") 50% 50% / 17px no-repeat;
 }
 
-.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-dockerView-b96998e26732b3a5bbe1ec7d9421fb68fb07f8cc {
-	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/ms-azuretools.vscode-docker-1.25.1/resources/docker.svg") 50% 50% / 17px no-repeat;
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-dockerView-927bc3291a4741b59d1f2673c6547561ad7aa705 {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/ms-azuretools.vscode-docker-1.26.0/resources/docker.svg") 50% 50% / 17px no-repeat;
 }
 
 .monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-github-actions-781a0a9b785179e82c16590b2f4f06caefbd0df6 {
 	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/github.vscode-github-actions-0.25.8/resources/icons/light/explorer.svg") 50% 50% / 17px no-repeat;
 }
 
-.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-codeium-7f154cb4f17e1cc091d72380f6154d17deddf7ed {
-	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/codeium.codeium-1.2.40/assets/codeium.svg") 50% 50% / 17px no-repeat;
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-codeium-46523e36482401e6e431e1aaebf8f64aefdf60db {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/codeium.codeium-1.2.51/assets/codeium.svg") 50% 50% / 17px no-repeat;
 }
 
 .monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-leetcode-065e7016e4609b986b5d92ed092c56344fa86056 {
 	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/leetcode.vscode-leetcode-0.18.1/resources/LeetCode.svg") 50% 50% / 17px no-repeat;
 }
 
-.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-mongoDB-32417e8d8e9c7e795ac74893aa1a7009221185a2 {
-	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/mongodb.mongodb-vscode-1.0.2/images/sidebar-leaf.svg") 50% 50% / 17px no-repeat;
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-mongoDB-c2e58f2edc18247826d1b03b09e2b279f762c301 {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/mongodb.mongodb-vscode-1.1.0/images/sidebar-leaf.svg") 50% 50% / 17px no-repeat;
 }
 
 .monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-package-explorer-7d969da1fcbe4930821d46097227b11075297ccd {
@@ -50,20 +75,10 @@
 	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/mesonbuild.mesonbuild-1.9.0/res/meson_32.svg") 50% 50% / 17px no-repeat;
 }
 
-.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-cmake-view-65d464bd4c507b4594a39ad357d4b3522186a32d {
-	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/ms-vscode.cmake-tools-1.14.33/res/cmake-view-icon2.svg") 50% 50% / 17px no-repeat;
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-github-cweijan-mysql-dbbefcdcb8a9c033f54f815f4ef0249dccae4241 {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/cweijan.vscode-ssh-6.6.0/resources/icon/database.svg") 50% 50% / 17px no-repeat;
 }
 
-.monaco-scrollable-element>div.invisible.scrollbar.horizontal>.slider,
-.monaco-scrollable-element>div.visible.scrollbar.horizontal>.slider {
-	opacity: 0 !important;
-}
-
-.custom-header .monaco-workbench .part.editor>.content .editor-group-container>.title div.monaco-icon-label:before {
-	display: none !important;
-}
-
-.custom-header .monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab .tab-label a.label-name {
-	display: flex !important;
-	justify-content: center !important;
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-github-cweijan-nosql-9aa59f5f83a256e4d7792a29918f3d21d991b641 {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/cweijan.vscode-ssh-6.6.0/resources/icon/layer-group.svg") 50% 50% / 17px no-repeat;
 }
