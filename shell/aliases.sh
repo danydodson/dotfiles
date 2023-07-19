@@ -113,7 +113,7 @@ alias yt='yt-dlp'
 # Docker
 #######################################################################
 
-alias m4b-tool='docker run -it --rm -u $(id -u):$(id -g) -v "$(pwd)":/mnt sandreas/m4b-tool:latest'
+# alias m4b-tool='docker run -it --rm -u $(id -u):$(id -g) -v "$(pwd)":/mnt sandreas/m4b-tool:latest'
 
 #######################################################################
 # spotlight
@@ -168,7 +168,7 @@ alias today='date +%Y-%m-%d'
 alias r="ranger"
 alias tpr='tput reset'
 alias uuid='uuidgen'
-alias curl='curl --config "${DOTFILES}/config/curl/dot.curlrc"'
+alias curl='curl --config "${DOTFILES}/config/curl/curlrc"'
 alias brokensymlinks='find . -type l ! -exec test -e {} \; -print'
 alias wget='wget --no-check-certificate --hsts-file="${XDG_CONFIG_HOME}/wget/wget-hsts"'
 

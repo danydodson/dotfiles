@@ -8,8 +8,9 @@
     "**/**/**/**/dracula.py",
     "**/**/**/**/pythonstartup.py"
   ],
-  "docwriter.style": "Auto-detect",
   "shellcheck.exclude": [
-    "2034", "1091", "2139"
+    "2034",
+    "1091",
+    "2139"
   ]
 }

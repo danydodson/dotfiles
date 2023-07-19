@@ -82,3 +82,7 @@
 .monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-github-cweijan-nosql-9aa59f5f83a256e4d7792a29918f3d21d991b641 {
 	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/cweijan.vscode-ssh-6.6.0/resources/icon/layer-group.svg") 50% 50% / 17px no-repeat;
 }
+
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-trunkContainer-ba5467f142440e53cd4b707d97535b97ad8d5acb {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/trunk.io-3.4.4/assets/sidebar-icon.svg") 50% 50% / 17px no-repeat;
+}
