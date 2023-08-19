@@ -32,6 +32,7 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # 1password
 #######################################################################
 
+source ~/.config/op/plugins.sh
 eval "$(op completion zsh)"
 compdef _op op
 
@@ -41,13 +42,6 @@ compdef _op op
 
 command -v pyenv >/dev/null || path-prepend "$PYENV_ROOT/bin"
 eval "$(pyenv init -)"
-
-#######################################################################
-# heroku
-#######################################################################
-
-# HEROKU_AC_ZSH_SETUP_PATH=/Users/Dany/Library/Caches/heroku/autocomplete/zsh_setup && \
-#  test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH
 
 #######################################################################
 # angular-cli completionstrash

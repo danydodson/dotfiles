@@ -1342,7 +1342,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>210</integer>
+			<integer>220</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Boost</key>
@@ -1893,7 +1893,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Non-ASCII Ligatures</key>
 			<false/>
 			<key>Normal Font</key>
-			<string>FiraCode-Retina 14 {"featureSettings":[{"CTFeatureSelectorIdentifier":10,"CTFeatureTypeIdentifier":35},{"CTFeatureSelectorIdentifier":4,"CTFeatureTypeIdentifier":35},{"CTFeatureSelectorIdentifier":12,"CTFeatureTypeIdentifier":35},{"CTFeatureSelectorIdentifier":14,"CTFeatureTypeIdentifier":35},{"CTFeatureSelectorIdentifier":16,"CTFeatureTypeIdentifier":35},{"CTFeatureSelectorIdentifier":18,"CTFeatureTypeIdentifier":35},{"CTFeatureSelectorIdentifier":6,"CTFeatureTypeIdentifier":35},{"CTFeatureSelectorIdentifier":2,"CTFeatureTypeIdentifier":35},{"CTFeatureSelectorIdentifier":20,"CTFeatureTypeIdentifier":35},{"CTFeatureSelectorIdentifier":8,"CTFeatureTypeIdentifier":35}]}</string>
+			<string>FiraCode-Retina 14</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Open Password Manager Automatically</key>
@@ -2641,7 +2641,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 	<key>OpenFileInNewWindows</key>
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
-	<false/>
+	<true/>
 	<key>PerPaneBackgroundImage</key>
 	<false/>
 	<key>PinchToChangeFontSizeDisabled</key>

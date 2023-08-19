@@ -24,7 +24,7 @@ alias rm='rm -i'
 # paths and dirs
 #######################################################################
 
-alias dirs='dirs -v'
+# alias dirs='dirs -v'
 alias src='. ~/.zshrc'
 alias fpath='echo -e ${FPATH//:/\\n}'
 alias path='echo -e ${PATH//:/\\n}'
@@ -41,7 +41,7 @@ alias pyg='pygmentize -O style=rrt -f console256 -g'
 # node / Yarn
 #######################################################################
 
-alias yarn='/opt/homebrew/bin/yarn --use-yarnrc $HOME/.config/yarn/yarnrc'
+# alias yarn='/opt/homebrew/bin/yarn --use-yarnrc $HOME/.config/yarn/yarnrc'
 alias y='yarn'
 alias yi='y install'
 alias yb='y build'
@@ -55,7 +55,7 @@ alias ns='n start'
 alias nrm='n uninstall'
 alias nrmg='n uninstall -g'
 alias nomod='rm -rf ./node_modules'
-alias likereallynomod='find . -type d -iname node_modules -exec rm \-rf {} \;'
+alias reallynomod='find . -type d -iname node_modules -exec rm \-rf {} \;'
 alias gulp='npx gulp'
 alias grunt='npx grunt'
 
@@ -63,7 +63,6 @@ alias grunt='npx grunt'
 # pyenv
 #######################################################################
 
-alias notebook='PYDEVD_DISABLE_FILE_VALIDATION=1 jupyter notebook'
 alias pea='pyenv activate'
 alias ped='pyenv deactivate'
 alias pss='pyenv shell system'
@@ -76,10 +75,16 @@ alias py='python3'
 alias pi='pip install'
 
 #######################################################################
+# jupyter
+#######################################################################
+
+alias notebook='PYDEVD_DISABLE_FILE_VALIDATION=1 jupyter notebook'
+
+#######################################################################
 # Homebrew
 #######################################################################
 
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+# alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 alias b='brew'
 alias bi='brew install'
 alias buu='brew update && brew upgrade && brew autoremove && brew cleanup --prune=all -s'
@@ -95,10 +100,10 @@ alias caskrm="brew uninstall --cask"
 # UI Apps
 #######################################################################
 
+alias ios='open -a Simulator.app'
 alias brave='open -a "Brave Browser.app"'
 alias bravedev='open -a "Brave Browser" --args --remote-debugging-port=9229'
 alias elec='/Applications/Electron.app/Contents/MacOS/Electron'
-alias ios='open -a Simulator.app'
 
 #######################################################################
 # CLI Apps

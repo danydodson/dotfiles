@@ -52,10 +52,6 @@ function serve() {
   cd "$HOME/Documents/Developer/Served" || exit
 }
 
-function secure() {
-  cd "$HOME/Documents/Developer/Security" || exit
-}
-
 #######################################################################
 # open .dotfiles in fzf
 #######################################################################

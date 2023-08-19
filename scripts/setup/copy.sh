@@ -18,6 +18,7 @@ curl="$_DOTFILES/config/curl"
 cp -r "$curl" "$HOME/.config/" && __ok "Copied $curl"
 
 gitconf="$_DOTFILES/config/git/dot.gitconfig"
+mkdir -p "$HOME/.config/git"
 cp -r "$gitconf" "$HOME/.config/git/config" && __ok "Copied $gitconf"
 
 neofetch="$_DOTFILES/config/neofetch"
@@ -32,9 +33,6 @@ cp -r "$python" "$HOME/.config/" && __ok "Copied $python"
 ranger="$_DOTFILES/config/ranger"
 cp -r "$ranger" "$HOME/.config/" && __ok "Copied $ranger"
 
-readline="$_DOTFILES/config/readline"
-cp -r "$readline" "$HOME/.config/" && __ok "Copied $readline"
-
 vim="$_DOTFILES/config/vim"
 cp -r "$vim" "$HOME/.config/" && __ok "Copied $vim to $vim"
 
@@ -47,5 +45,6 @@ mkdir -p "$themedir"
 cp -r "$xcode" "$themedir" && __ok "Copied $xcode to $themedir"
 
 zshrc="$_DOTFILES/zsh/.zshrc"
+mkdir -p "$HOME/.config/zsh"
 cp -p "$zshrc" "$HOME" && __ok "Copied $zshrc"
 cp -p "$zshrc" "$HOME/.config/zsh/" && __ok "Copied $zshrc again"

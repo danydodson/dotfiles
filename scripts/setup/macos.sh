@@ -24,7 +24,7 @@ osascript -e 'tell application "System Preferences" to quit'
 __info 'Changing Activity Monitor settings...'
 
 # visualize CPU usage in the Activity Monitor Dock icon
-defaults write com.apple.ActivityMonitor IconType -int 5 || __err ''
+# defaults write com.apple.ActivityMonitor IconType -int 5 || __err ''
 
 # show all processes in Activity Monitor
 defaults write com.apple.ActivityMonitor ShowCategory -int 0 || __err ''
@@ -84,7 +84,7 @@ defaults write com.apple.dock show-process-indicators -bool true || __err ''
 defaults write com.apple.dock autohide -bool true || __err ''
 
 # dock: don’t animate opening applications from the dock
-defaults write com.apple.dock launchanim -bool false || __err ''
+# defaults write com.apple.dock launchanim -bool false || __err ''
 
 # dock: don’t group windows by application in Mission Control
 defaults write com.apple.dock expose-group-by-app -bool false || __err ''
@@ -243,7 +243,7 @@ defaults write com.apple.loginwindow LoginwindowLaunchesRelaunchApps -bool false
 # Hammerspoon                                                                 #
 ###############################################################################
 
-defaults write org.hammerspoon.Hammerspoon MJConfigFile "${HOME}/.config/hammerspoon/init.lua" || __err ''
+# defaults write org.hammerspoon.Hammerspoon MJConfigFile "${HOME}/.config/hammerspoon/init.lua" || __err ''
 
 ###############################################################################
 # Hot Corners                                                                 #
