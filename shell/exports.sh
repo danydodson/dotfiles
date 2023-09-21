@@ -88,8 +88,12 @@ export DFX_CONFIG_ROOT="${XDG_CONFIG_HOME}/dfinity"
 # go
 #######################################################################
 
-export GOPATH="${XDG_CONFIG_HOME}/go"
-export GOMODCACHE="${XDG_CONFIG_HOME}/go/pkg/mod"
+export GOPATH=$HOME/.config/go
+GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+# export GOPATH="${XDG_CONFIG_HOME}/go"
+# export GOMODCACHE="${XDG_CONFIG_HOME}/go/pkg/mod"
 
 #######################################################################
 # gpg
@@ -106,9 +110,9 @@ export HOMEBREW_NO_ANALYTICS=true
 export HOMEBREW_NO_INSTALL_CLEANUP=true
 
 # [openssl@1]
-# OPENSSL1_LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib:"
-# OPENSSL1_CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include:"
-# OPENSSL1_PKG_CONFIG_PATH="/opt/homebrew/Cellar/openssl@1.1/lib/pkgconfig:"
+# export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib:"
+# export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include:"
+# export PKG_CONFIG_PATH="/opt/homebrew/opt/pkgconfig:/opt/homebrew/Cellar/openssl@1.1/lib/pkgconfig:"
 
 # [openssl@3]
 # OPENSSL3_LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib:"
@@ -134,7 +138,7 @@ export HOMEBREW_NO_INSTALL_CLEANUP=true
 # java
 #######################################################################
 
-export JAVA_HOME="/opt/homebrew/opt/openjdk/libexec/openjdk.jdk"
+export JAVA_HOME="/opt/homebrew/Cellar/openjdk/20.0.2/libexec/openjdk.jdk/Contents/Home"
 
 #######################################################################
 # less
@@ -173,7 +177,7 @@ export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 #######################################################################
 # onepassword
 #######################################################################
-   
+
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
 # export OP_CONFIG_DIR="${XDG_CONFIG_HOME}/op"
 
@@ -246,5 +250,3 @@ export YARN_CACHE_FOLDER="${XDG_CACHE_HOME}/yarn"
 export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
 export ZSH_CACHE_DIR="$ZDOTDIR"
 export ZSH="$XDG_DATA_HOME"/oh-my-zsh
-
-

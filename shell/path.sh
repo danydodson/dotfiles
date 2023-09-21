@@ -4,17 +4,18 @@
 # path
 #######################################################################
 
-path-prepend "$HOME/.config/iterm2/utils"
+path-prepend "$HOME/.config/iterm2"
 # path-prepend "/opt/homebrew/opt/mysql-client/bin"
 path-prepend "/opt/homebrew/opt/openjdk/bin"
 path-prepend "/opt/homebrew/opt/coreutils/libexec/gnubin"
 path-prepend "/opt/homebrew/opt/findutils/libexec/gnubin"
-# path-prepend "/opt/homebrew/opt/grep/libexec/gnubin"
+path-prepend "/opt/homebrew/opt/grep/libexec/gnubin"
 # path-prepend "/opt/homebrew/opt/php@8.1/bin"
 # path-prepend "/opt/homebrew/opt/php@8.1/sbin"
 # path-prepend "/opt/homebrew/opt/ruby@2.7/bin"
 # path-prepend "/opt/homebrew/opt/openssl@3/bin"
 # path-prepend "/opt/homebrew/opt/openssl@1.1/bin"
+path-prepend "/opt/homebrew/opt/go/libexec"
 path-prepend "/opt/homebrew/opt/curl/bin"
 path-prepend "/opt/homebrew/opt/bc/bin"
 path-prepend "/opt/homebrew/opt/fzf/bin"

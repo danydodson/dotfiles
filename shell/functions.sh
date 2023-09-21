@@ -48,7 +48,7 @@ function dots() {
   cd "$HOME/.dotfiles" || exit
 }
 
-function serve() {
+function served() {
   cd "$HOME/Documents/Developer/Served" || exit
 }
 
@@ -89,7 +89,7 @@ function wttr() {
   curl http://wttr.in/"$1"
 }
 
-. /Users/Dany/.dotfiles/.env
+# . /Users/Dany/.dotfiles/.env
 function ipinf0() {
   curl "http://ipinfo.io/$1?token=$IPINFO_TOKEN"
 }

@@ -1,30 +1,28 @@
-/*  */
-
-
-.monaco-scrollable-element>div.invisible.scrollbar.horizontal>.slider,
-.monaco-scrollable-element>div.visible.scrollbar.horizontal>.slider {
-	opacity: 0 !important;
-}
-
-.custom-header .monaco-workbench .part.editor>.content .editor-group-container>.title div.monaco-icon-label:before {
+/* .custom-header .monaco-workbench .part.editor>.content .editor-group-container>.title div.monaco-icon-label:before {
 	display: none !important;
-}
+	color: #ffffff3e !important;
+} */
 
 .custom-header .monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab .tab-label a.label-name {
 	display: flex !important;
 	justify-content: center !important;
 }
 
-.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label.codicon {
+/* .monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label.codicon {
 	font-size: 16px;
+	color: #ffffff3e !important;
+} */
+
+/* .monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-ipfs-activitybar-5bc16114732d40f62827b3c89172c0b8aa9dcc9b {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/dataseek.ipfs-vscode-extension-0.0.2/assets/ipfs.svg") 50% 50% / 17px no-repeat;
 }
 
-.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-github-cweijan-mysql-699c92db41359a4df6f82853537fb501ecd44eb4 {
-	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/cweijan.vscode-ssh-6.5.7/resources/icon/database.svg") 50% 50% / 17px no-repeat;
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-github-cweijan-nosql-195d798f3408e0bef12dbaab61fb20ee9584f4ae {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/cweijan.vscode-ssh-6.7.0/resources/icon/layer-group.svg") 50% 50% / 17px no-repeat;
 }
 
-.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-github-cweijan-nosql-050479f5efa77e120c8cb6d486a17d1549c0a719 {
-	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/cweijan.vscode-ssh-6.5.7/resources/icon/layer-group.svg") 50% 50% / 17px no-repeat;
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-github-cweijan-mysql-96e3ed78ee341aa0671ecc5932f18db6c7b9887c {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/cweijan.vscode-ssh-6.7.0/resources/icon/database.svg") 50% 50% / 17px no-repeat;
 }
 
 .monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-taskActivity-41b3bc1517b7049f0cbf7267df3962607fbe77fd {
@@ -39,16 +37,16 @@
 	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/github.vscode-github-actions-0.25.8/resources/icons/light/explorer.svg") 50% 50% / 17px no-repeat;
 }
 
-.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-codeium-46523e36482401e6e431e1aaebf8f64aefdf60db {
-	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/codeium.codeium-1.2.51/assets/codeium.svg") 50% 50% / 17px no-repeat;
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-codeium-79c3df1df38765919cd4043f05c3f809ca3a8e9e {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/codeium.codeium-1.3.66/assets/codeium.svg") 50% 50% / 17px no-repeat;
 }
 
 .monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-leetcode-065e7016e4609b986b5d92ed092c56344fa86056 {
 	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/leetcode.vscode-leetcode-0.18.1/resources/LeetCode.svg") 50% 50% / 17px no-repeat;
 }
 
-.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-mongoDB-c2e58f2edc18247826d1b03b09e2b279f762c301 {
-	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/mongodb.mongodb-vscode-1.1.0/images/sidebar-leaf.svg") 50% 50% / 17px no-repeat;
+.monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-mongoDB-26c1b26f196fea94abc248d5d817e7d9b557c93b {
+	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/mongodb.mongodb-vscode-1.2.0/images/sidebar-leaf.svg") 50% 50% / 17px no-repeat;
 }
 
 .monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-package-explorer-7d969da1fcbe4930821d46097227b11075297ccd {
@@ -85,4 +83,4 @@
 
 .monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label:not(.codicon).activity-workbench-view-extension-trunkContainer-ba5467f142440e53cd4b707d97535b97ad8d5acb {
 	-webkit-mask: url("vscode-file://vscode-app/Applications/code-portable-data/extensions/trunk.io-3.4.4/assets/sidebar-icon.svg") 50% 50% / 17px no-repeat;
-}
+} */

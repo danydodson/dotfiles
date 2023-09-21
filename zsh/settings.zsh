@@ -229,11 +229,11 @@ zstyle ':completion:*:processes-names' command 'ps c -u ${USER} -o command | uni
 
 # rsync and SSH use hosts from ~/.ssh/config
 # link https://github.com/Eriner/zim/issues/46#issuecomment-219344931
-[ -r "${HOME}/.ssh/config" ] && {
-  hosts=($(egrep '^Host ' "$HOME/.ssh/config" | grep -v '*' | awk '{print $2}'))
-  zstyle ':completion:*:ssh:*' hosts $hosts
-  zstyle ':completion:*:rsync:*' hosts $hosts
-}
+# [ -r "${HOME}/.ssh/config" ] && {
+#   hosts=($(egrep '^Host ' "$HOME/.ssh/config" | grep -v '*' | awk '{print $2}'))
+#   zstyle ':completion:*:ssh:*' hosts $hosts
+#   zstyle ':completion:*:rsync:*' hosts $hosts
+# }
 
 # colorful kill command completion -- probably overridden by fzf
 zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
@@ -247,7 +247,7 @@ zstyle ':completion:*:*:-redirect-,2>,*:*' file-patterns '*.log'
 
 # use case-insensitive completion if case-sensitive generated no hits
 zstyle ':completion:*' matcher-list \
-  'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+  z'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 
 # don't complete usernames
 zstyle ':completion:*' users ''

@@ -44,10 +44,25 @@ command -v pyenv >/dev/null || path-prepend "$PYENV_ROOT/bin"
 eval "$(pyenv init -)"
 
 #######################################################################
-# angular-cli completionstrash
+# angular-cli completion
 #######################################################################
 
-source <(ng completion script)
+# source <(ng completion script)
+
+#######################################################################
+# heroku autocomplete
+#######################################################################
+
+export HEROKU_AC_ZSH_SETUP_PATH=/Users/Dany/Library/Caches/heroku/autocomplete/zsh_setup &&
+  test -f $HEROKU_AC_ZSH_SETUP_PATH &&
+  source $HEROKU_AC_ZSH_SETUP_PATH
+
+# if type brew &>/dev/null; then
+#   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+#   autoload -Uz compinit
+#   compinit
+# fi
 
 #######################################################################
 # iterm2

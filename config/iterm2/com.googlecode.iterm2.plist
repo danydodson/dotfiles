@@ -17,14 +17,22 @@ Respond with one or more commands. Do not include any explanation or additional 
 	<false/>
 	<key>AlwaysOpenWindowAtStartup</key>
 	<false/>
+	<key>AlwaysWarnBeforePastingOverSize</key>
+	<integer>-1</integer>
 	<key>AutoCommandHistory</key>
 	<true/>
 	<key>BadgeFontIsBold</key>
+	<true/>
+	<key>BracketedPasteMode</key>
 	<true/>
 	<key>CheckTestRelease</key>
 	<true/>
 	<key>ComposerHeight</key>
 	<real>356</real>
+	<key>ConvertDosNewlines</key>
+	<true/>
+	<key>CopyWithStylesByDefault</key>
+	<false/>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>One Dark</key>
@@ -651,6 +659,8 @@ Respond with one or more commands. Do not include any explanation or additional 
 	<false/>
 	<key>EnableSSHFileProvider</key>
 	<false/>
+	<key>EscapeShellCharsWithBackslash</key>
+	<false/>
 	<key>HTMLTabTitles</key>
 	<true/>
 	<key>HapticFeedbackForEsc</key>
@@ -681,6 +691,8 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>ASCII Anti Aliased</key>
 			<true/>
 			<key>ASCII Ligatures</key>
+			<false/>
+			<key>Allow Paste Bracketing</key>
 			<true/>
 			<key>Ambiguous Double Width</key>
 			<false/>
@@ -1295,7 +1307,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Blur</key>
 			<true/>
 			<key>Blur Radius</key>
-			<real>10.748853058510633</real>
+			<real>9.7488530585106332</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -1342,7 +1354,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>220</integer>
+			<integer>211</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Boost</key>
@@ -1911,7 +1923,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>15</integer>
+			<integer>62</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
@@ -1988,10 +2000,12 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<string></string>
 			<key>Show Mark Indicators</key>
 			<false/>
+			<key>Show Offscreen Command line</key>
+			<false/>
 			<key>Show Status Bar</key>
 			<false/>
 			<key>Show Timestamps</key>
-			<integer>2</integer>
+			<integer>0</integer>
 			<key>Silence Bell</key>
 			<true/>
 			<key>Smart Cursor Color</key>
@@ -2579,7 +2593,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Title Components</key>
 			<integer>960</integer>
 			<key>Transparency</key>
-			<real>0.01</real>
+			<real>0.0099999999999999967</real>
 			<key>Unicode Version</key>
 			<integer>9</integer>
 			<key>Unlimited Scrollback</key>
@@ -2642,6 +2656,12 @@ Respond with one or more commands. Do not include any explanation or additional 
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
 	<true/>
+	<key>PasteSpecialRegex</key>
+	<string></string>
+	<key>PasteSpecialSubstitution</key>
+	<string></string>
+	<key>PasteSpecialUseRegexSubstitution</key>
+	<false/>
 	<key>PerPaneBackgroundImage</key>
 	<false/>
 	<key>PinchToChangeFontSizeDisabled</key>
@@ -2681,6 +2701,8 @@ Respond with one or more commands. Do not include any explanation or additional 
 	</dict>
 	<key>PreserveWindowSizeWhenTabBarVisibilityChanges</key>
 	<true/>
+	<key>PromptForPasteWhenNotAtPrompt</key>
+	<false/>
 	<key>PromptOnQuit</key>
 	<false/>
 	<key>PromptOnQuitEvenIfThereAreNoWindows</key>
@@ -2729,12 +2751,14 @@ Respond with one or more commands. Do not include any explanation or additional 
 	<integer>18</integer>
 	<key>TerminalVMargin</key>
 	<integer>15</integer>
+	<key>TimeBetweenTips</key>
+	<real>604800</real>
 	<key>ToolbeltTools</key>
 	<array>
 		<string>Command History</string>
-		<string>Notes</string>
-		<string>Jobs</string>
 	</array>
+	<key>TrimWhitespaceOnCopy</key>
+	<true/>
 	<key>UIElementRequiresHotkeys</key>
 	<true/>
 	<key>URLHandlersByGuid</key>

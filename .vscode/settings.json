@@ -5,8 +5,9 @@
   "taskExplorer.exclude": [
     "**/shell/*",
     "**/helpers/*",
-    "**/**/**/**/dracula.py",
-    "**/**/**/**/pythonstartup.py"
+    "**/**/config/python/pythonstartup.py",
+    "**/**/config/ranger/scope.sh",
+    "**/**/saved/shells/*",
   ],
   "shellcheck.exclude": [
     "2034",

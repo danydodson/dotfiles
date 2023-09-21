@@ -38,6 +38,12 @@ alias bpj='bat --plain package.json'
 alias pyg='pygmentize -O style=rrt -f console256 -g'
 
 #######################################################################
+# remove from quarantine
+#######################################################################
+
+alias rmquar='xattr -dr com.apple.quarantine'
+
+#######################################################################
 # node / Yarn
 #######################################################################
 
@@ -63,28 +69,28 @@ alias grunt='npx grunt'
 # pyenv
 #######################################################################
 
-alias pea='pyenv activate'
-alias ped='pyenv deactivate'
-alias pss='pyenv shell system'
+# alias pea='pyenv activate'
+# alias ped='pyenv deactivate'
+# alias pss='pyenv shell system'
 
 #######################################################################
 # python
 #######################################################################
 
-alias py='python3'
-alias pi='pip install'
+# alias py='python3'
+# alias pi='pip install'
 
 #######################################################################
 # jupyter
 #######################################################################
 
-alias notebook='PYDEVD_DISABLE_FILE_VALIDATION=1 jupyter notebook'
+# alias notebook='PYDEVD_DISABLE_FILE_VALIDATION=1 jupyter notebook'
 
 #######################################################################
 # Homebrew
 #######################################################################
 
-# alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 alias b='brew'
 alias bi='brew install'
 alias buu='brew update && brew upgrade && brew autoremove && brew cleanup --prune=all -s'
@@ -102,8 +108,9 @@ alias caskrm="brew uninstall --cask"
 
 alias ios='open -a Simulator.app'
 alias brave='open -a "Brave Browser.app"'
-alias bravedev='open -a "Brave Browser" --args --remote-debugging-port=9229'
-alias elec='/Applications/Electron.app/Contents/MacOS/Electron'
+alias chrome='open -a "Google Chrome"'
+alias chromedev='open -a "Google Chrome" --args --remote-debugging-port=9229'
+# alias elec='/Applications/Electron.app/Contents/MacOS/Electron'
 
 #######################################################################
 # CLI Apps
@@ -111,8 +118,8 @@ alias elec='/Applications/Electron.app/Contents/MacOS/Electron'
 
 alias c='code'
 alias neo='neofetch'
-alias t='tree -fcp --noreport -L 1 -Cia'
-alias yt='yt-dlp'
+# alias t='tree -fcp --noreport -L 1 -Cia'
+# alias yt='yt-dlp'
 
 #######################################################################
 # Docker
@@ -151,8 +158,8 @@ alias root='sudo -s'
 # tmux
 #######################################################################
 
-alias ta='tmux attach'
-alias tmux='tmux -f "${DOTFILES}/tmux/tmux.conf"'
+# alias ta='tmux attach'
+# alias tmux='tmux -f "${DOTFILES}/tmux/tmux.conf"'
 
 #######################################################################
 # xcode
@@ -171,7 +178,7 @@ alias ln='ln -v'
 alias xit='exit' # dammit
 alias today='date +%Y-%m-%d'
 alias r="ranger"
-alias tpr='tput reset'
+# alias tpr='tput reset'
 alias uuid='uuidgen'
 alias curl='curl --config "${DOTFILES}/config/curl/curlrc"'
 alias brokensymlinks='find . -type l ! -exec test -e {} \; -print'
@@ -182,7 +189,7 @@ alias wget='wget --no-check-certificate --hsts-file="${XDG_CONFIG_HOME}/wget/wge
 #######################################################################
 
 # sudo since we run nginx on port 80 so needs admin
-alias rnginx='sudo brew services restart nginx'
+# alias rnginx='sudo brew services restart nginx'
 
 # Audio control - http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"

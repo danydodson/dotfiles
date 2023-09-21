@@ -39,7 +39,7 @@ cp -r "$vim" "$HOME/.config/" && __ok "Copied $vim to $vim"
 wget="$_DOTFILES/config/wget"
 cp -r "$wget" "$HOME/.config/" && __ok "Copied $wget to $wget"
 
-xcode="$_DOTFILES/config/xcode"
+xcode="$_DOTFILES/config/xcode/"
 themedir="$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes"
 mkdir -p "$themedir"
 cp -r "$xcode" "$themedir" && __ok "Copied $xcode to $themedir"
