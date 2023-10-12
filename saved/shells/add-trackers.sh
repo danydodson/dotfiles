@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # auto add trackers from nosang's tracker list
-# cmd: nohup ./add-track.sh </dev/null >$HOME/.dotfiles/tracker.log 2>&1 &
+# cmd: nohup ./add-trackers.sh </dev/null >$HOME/.dotfiles/logs/add-trackers.log 2>&1 &
 
 # Get transmission credentials and ip or dns address
 auth=user:pass
