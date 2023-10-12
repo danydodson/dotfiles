@@ -1,0 +1,19 @@
+# shellcheck disable=all
+
+# show line numbers
+--style="numbers"
+
+# Run bat --list-themes
+--theme="OneHalfDark"
+
+# enable italic text on the terminal
+--italic-text=always
+
+# disable automatic paging:
+--paging=never
+
+# number of tabs
+--tabs=2
+
+# syntax mappings
+--map-syntax='ignore:Git Ignore'

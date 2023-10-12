@@ -4,7 +4,7 @@
 # oh-my-zsh
 #######################################################################
 
-plugins+=(brew pip docker docker-compose macos nvm npm zsh-completions)
+plugins+=(brew zsh-completions macos)
 
 source "${HOME}/.config/local/share/oh-my-zsh/oh-my-zsh.sh"
 
@@ -32,8 +32,9 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # 1password
 #######################################################################
 
-source ~/.config/op/plugins.sh
+source $HOME/.config/op/plugins.sh
 eval "$(op completion zsh)"
+eval "$(__load_op_completion)"
 compdef _op op
 
 #######################################################################
@@ -44,12 +45,6 @@ command -v pyenv >/dev/null || path-prepend "$PYENV_ROOT/bin"
 eval "$(pyenv init -)"
 
 #######################################################################
-# angular-cli completion
-#######################################################################
-
-# source <(ng completion script)
-
-#######################################################################
 # heroku autocomplete
 #######################################################################
 
@@ -57,18 +52,11 @@ export HEROKU_AC_ZSH_SETUP_PATH=/Users/Dany/Library/Caches/heroku/autocomplete/z
   test -f $HEROKU_AC_ZSH_SETUP_PATH &&
   source $HEROKU_AC_ZSH_SETUP_PATH
 
-# if type brew &>/dev/null; then
-#   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-#   autoload -Uz compinit
-#   compinit
-# fi
-
 #######################################################################
 # iterm2
 #######################################################################
 
-source /Users/Dany/.config/zsh/.iterm2_shell_integration.zsh
+source /Users/Dany/.config/zsh/iterm2_shell_integration.zsh
 
 #######################################################################
 # nvm

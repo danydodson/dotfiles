@@ -48,10 +48,6 @@ function dots() {
   cd "$HOME/.dotfiles" || exit
 }
 
-function served() {
-  cd "$HOME/Documents/Developer/Served" || exit
-}
-
 #######################################################################
 # open .dotfiles in fzf
 #######################################################################
@@ -69,6 +65,29 @@ __fzf_scripts() {
 
 zle -N __fzf_scripts
 bindkey '^X' __fzf_scripts
+
+#######################################################################
+# fix gh completions
+#######################################################################
+
+function __my_op_plugin_run() {
+  _op_plugin_run
+
+  for ((i = 2; i < CURRENT; i++)); do
+    if [[ ${words[i]} == -- ]]; then
+      shift $i words
+      ((CURRENT -= i))
+      _normal
+      return
+    fi
+  done
+
+}
+
+function __load_op_completion() {
+  completion_function="$(op completion zsh)"
+  sed -E 's/^( +)_op_plugin_run/\1__my_op_plugin_run/' <<<"${completion_function}"
+}
 
 #######################################################################
 # alt+left to previous dir
@@ -89,7 +108,3 @@ function wttr() {
   curl http://wttr.in/"$1"
 }
 
-# . /Users/Dany/.dotfiles/.env
-function ipinf0() {
-  curl "http://ipinfo.io/$1?token=$IPINFO_TOKEN"
-}

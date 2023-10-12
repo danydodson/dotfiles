@@ -27,11 +27,14 @@ cp -r "$neofetch" "$HOME/.config/" && __ok "Copied $neofetch"
 npm="$_DOTFILES/config/npm"
 cp -r "$npm" "$HOME/.config/" && __ok "Copied $npm"
 
-python="$_DOTFILES/config/python"
+python="$_DOTFILES/config/python/pythonstartup.py"
 cp -r "$python" "$HOME/.config/" && __ok "Copied $python"
 
 ranger="$_DOTFILES/config/ranger"
 cp -r "$ranger" "$HOME/.config/" && __ok "Copied $ranger"
+
+sshconf="$_DOTFILES/config/ssh"
+cp -r "$sshconf" "$HOME/.ssh/" && __ok "Copied $sshconf"
 
 vim="$_DOTFILES/config/vim"
 cp -r "$vim" "$HOME/.config/" && __ok "Copied $vim to $vim"

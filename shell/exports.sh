@@ -26,7 +26,7 @@ export XDG_STATE_HOME="$XDG_CONFIG_HOME"/local/state
 export XDG_DESKTOP_DIR="$HOME"/Desktop
 export XDG_DOCUMENTS_DIR="$HOME"/Documents
 export XDG_DOWNLOAD_DIR="$HOME"/Downloads
-export XDG_MUSIC_DIR="$HOME"/Music
+export XDG_MUSIC_DIR="$HOME"/Documents/Music
 export XDG_VIDEOS_DIR="$HOME"/Movies
 export XDG_PICTURES_DIR="$HOME"/Pictures
 
@@ -37,20 +37,11 @@ export XDG_PICTURES_DIR="$HOME"/Pictures
 export DEVELOPER="$HOME/Developer"
 export DOTFILES="$HOME/.dotfiles"
 
-export "$(grep -E -v '^#' "$DOTFILES/.env" | xargs)"
-export HOMEBREW_GITHUB_API_TOKEN=$HOMEBREW_TOKEN
-
 #######################################################################
 # ack
 #######################################################################
 
-export ACKRC="${DOTFILES}/config/ack/dot.ackrc"
-
-#######################################################################
-# bat
-#######################################################################
-
-export BAT_CONFIG_PATH="$XDG_CONFIG_HOME/bat/bat.conf"
+export ACKRC="${DOTFILES}/config/ack/ackrc"
 
 #######################################################################
 # aws
@@ -58,6 +49,18 @@ export BAT_CONFIG_PATH="$XDG_CONFIG_HOME/bat/bat.conf"
 
 export AWS_CONFIG_FILE="${DOTFILES}/config/aws"
 export AWS_PROFILE="default"
+
+#######################################################################
+# bat
+#######################################################################
+
+export BAT_CONFIG_PATH="$XDG_CONFIG_HOME/bat/conf"
+
+#######################################################################
+# bash
+#######################################################################
+
+export HISTFILE="${XDG_CONFIG_HOME}/bash/bash_history"
 
 #######################################################################
 # cargo
@@ -73,12 +76,6 @@ export COMPOSER_HOME="${XDG_CONFIG_HOME}/composer"
 export COMPOSER_CACHE_DIR="${XDG_CACHE_HOME}/composer"
 
 #######################################################################
-# docker
-#######################################################################
-
-# export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
-
-#######################################################################
 # dfx
 #######################################################################
 
@@ -88,12 +85,7 @@ export DFX_CONFIG_ROOT="${XDG_CONFIG_HOME}/dfinity"
 # go
 #######################################################################
 
-export GOPATH=$HOME/.config/go
-GOROOT="$(brew --prefix golang)/libexec"
-export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
-
-# export GOPATH="${XDG_CONFIG_HOME}/go"
-# export GOMODCACHE="${XDG_CONFIG_HOME}/go/pkg/mod"
+export GOPATH="${XDG_CONFIG_HOME}/go"
 
 #######################################################################
 # gpg
@@ -109,31 +101,6 @@ export HOMEBREW_ROOT="/opt/homebrew"
 export HOMEBREW_NO_ANALYTICS=true
 export HOMEBREW_NO_INSTALL_CLEANUP=true
 
-# [openssl@1]
-# export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib:"
-# export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include:"
-# export PKG_CONFIG_PATH="/opt/homebrew/opt/pkgconfig:/opt/homebrew/Cellar/openssl@1.1/lib/pkgconfig:"
-
-# [openssl@3]
-# OPENSSL3_LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib:"
-# OPENSSL3_CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include:"
-# OPENSSL3_PKG_CONFIG_PATH="/opt/homebrew/Cellar/openssl@3/lib/pkgconfig:"
-
-# [openjdk@3]
-# OPENJDK_LDFLAGS="-L/opt/homebrew/opt/openjdk/lib:"
-# OPENJDK_CPPFLAGS="-I/opt/homebrew/opt/openjdk/include:"
-
-# [php@8.1]
-# PHP8_LDFLAGS="-L/opt/homebrew/opt/php@8.1/lib:"
-# PHP8_CPPFLAGS="-I/opt/homebrew/opt/php@8.1/include:"
-
-# HOMEBREW_PKG_CONFIG_PATH="/opt/homebrew/opt/pkgconfig"
-
-# [pkg-config]
-# export LDFLAGS="$OPENSSL1_LDFLAGS:$OPENSSL3_LDFLAGS:$OPENJDK_LDFLAGS:$PHP8_LDFLAGS:$LDFLAGS"
-# export CPPFLAGS=":$OPENSSL1_CPPFLAGS:$OPENSSL3_CPPFLAGS:$OPENJDK_CPPFLAGS:$PHP8_CPPFLAGS:$CPPFLAGS"
-# export PKG_CONFIG_PATH="$HOMEBREW_PKG_CONFIG_PATH:$OPENSSL1_PKG_CONFIG_PATH:$OPENSSL3_PKG_CONFIG_PATH:$PKG_CONFIG_PATH"
-
 #######################################################################
 # java
 #######################################################################
@@ -144,8 +111,8 @@ export JAVA_HOME="/opt/homebrew/Cellar/openjdk/20.0.2/libexec/openjdk.jdk/Conten
 # less
 #######################################################################
 
-export LESSHISTFILE=- # don't write history
-# export LESSHISTFILE="$XDG_STATE_HOME/lesshst"
+# use [-] to not write history
+export LESSHISTFILE="${XDG_CONFIG_HOME}/less/lesshst"
 
 #######################################################################
 # ls
@@ -159,7 +126,7 @@ export LS_COLORS="$LS_COLORS:di=0;36:ln=0;93:ex=0;35:"
 # mysql
 #######################################################################
 
-export MYSQL_HISTFILE="${XDG_CACHE_HOME}/mysql_histfile"
+export MYSQL_HISTFILE="${XDG_CONFIG_HOME}/mysql/mysql_histfile"
 
 #######################################################################
 # npm
@@ -179,7 +146,6 @@ export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 #######################################################################
 
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
-# export OP_CONFIG_DIR="${XDG_CONFIG_HOME}/op"
 
 #######################################################################
 # python
@@ -188,7 +154,7 @@ export OP_BIOMETRIC_UNLOCK_ENABLED=true
 export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonstartup.py"
 
 #######################################################################
-# python pyenv
+# pyenv
 #######################################################################
 
 export PYENV_ROOT="$HOME/.config/pyenv"
@@ -203,13 +169,7 @@ export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME/jupyter/config"
 # python ipython
 #######################################################################
 
-export IPYTHONDIR="$HOME/.config/ipython"
-
-#######################################################################
-# sc
-#######################################################################
-
-export SHELLCHECK_OPTS="--exclude=SC1090,SC2148,SC1071"
+export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 
 #######################################################################
 # terminfo

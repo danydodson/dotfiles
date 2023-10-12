@@ -3,18 +3,14 @@
 # Don't assign global GIT_CONFIG var since it has trouble with [include] when you do that
 
 #######################################################################
-# Formatting
-#######################################################################
-
-[pretty]
-	ld = "%C(yellow)%h %C(reset)%s %C(green)(%cr) %C(blue)<%an>%C(magenta)%d%C(reset)"
-
-#######################################################################
-# Auth
+# Credentials
 #######################################################################
 
 [include]
 	path = "~/.dotfiles/config/git/osx.gitconfig"
+	
+[user]
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBY/6OFZz0mmrQlGKMcj4aSM+VtsQ9DKH5EqgjM/zHAj
 
 #######################################################################
 # My aliases
@@ -22,6 +18,13 @@
 
 [includeIf "gitdir:/Users/"]
 	path = "~/.dotfiles/config/git/aliases.gitconfig"
+
+#######################################################################
+# Formatting
+#######################################################################
+
+[pretty]
+	ld = "%C(yellow)%h %C(reset)%s %C(green)(%cr) %C(blue)<%an>%C(magenta)%d%C(reset)"
 
 #######################################################################
 # Color

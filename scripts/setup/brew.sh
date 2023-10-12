@@ -62,12 +62,12 @@ __info 'Adding taps to brew...'
 brew tap '1password/tap' || __err 'failed brew tap 1password/tap'
 brew tap 'homebrew/bundle' || __err 'failed brew tap homebrew/bundle'
 brew tap 'homebrew/services' || __err 'failed brew tap homebrew/services'
+brew tap 'oven-sh/bun' || __err 'failed brew tap oven-sh/bun'
 brew tap 'heroku/brew' || __err 'failed brew tap heroku/brew'
 brew tap 'smittytone/homebrew-smittytone' || __err 'failed brew tap smittytone/homebrew-smittytone'
 
-
 __info 'Installing binaries, terminal stuff, CLI...'
-BINARIES=('1password-cli' ack asciinema bat bc cowsay code-cli coreutils exa fd findutils flyctl fzf git go heroku mnu mongodb-atlas-cli neofetch nvm openjdk perl pipenv pyenv ranger rhash ruby shellcheck vim wget yarn zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting)
+BINARIES=(ack asciinema bat bc bun cowsay 'code-cli' coreutils cowsay 'curl-ssl' exa fd findutils flyctl fzf gcc gh git go grep heroku htop jq make mongodb-atlas-cli neofetch nvm openjdk perl pipenv pyenv ranger rhash ripgrep shellcheck vim wget zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting)
 
 # todo: check if pkg already exists
 for brew in "${BINARIES[@]}"; do
@@ -78,37 +78,12 @@ for brew in "${BINARIES[@]}"; do
 done
 
 __info 'Installing casks...'
-CASKS=(apparency 'brave-browser' cheatsheet discord docker postman slack spotify 'suspicious-package' 'tor-browser' transmission vlc)
+CASKS=('1password-cli' apparency 'brave-browser' cheatsheet discord docker firefox 'google-chrome' 'openinterminal' postman rar slack spotify 'suspicious-package' 'tor-browser' transmission vlc)
 
 for cask in "${CASKS[@]}"; do
   __info "installing $cask"
   brew install --cask "$cask" || __err "failed brew cask install $cask"
 done
-
-###############################################################################
-# nvm
-###############################################################################
-
-# source ~/.config/nvm/nvm.sh
-
-# __info 'Installing node --lts...'
-# nvm install 'lts/*' --latest-npm || __err 'failed to install node --lts'
-# nvm use --lts
-
-###############################################################################
-# npm
-###############################################################################
-
-# __info 'Installing npm global packages...'
-# npm install -g typescript || __err 'failed npm install -g typescript'
-
-###############################################################################
-# yarn
-###############################################################################
-
-# __info 'Installing yarn global packages...'
-# yarn global add gatsby-cli || __err 'failed yarn global add gatsby-cli'
-# yarn global add @angular/cli || __err 'failed yarn global add @angular/cli'
 
 ###############################################################################
 # Clean up

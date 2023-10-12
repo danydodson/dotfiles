@@ -14,12 +14,8 @@ while true; do sudo -n true sleep 60 kill -0 "$$" || exit; done 2>/dev/null &
 __info 'Installing lua packages...'
 
 luarocks install checks || __err 'failed luarocks install checks'
-luarocks --lua-dir=/opt/homebrew/opt/lua@5.1 install metalua-compiler || __err 'failed luarocks install metalua-compiler'
-luarocks --lua-dir=/opt/homebrew/opt/lua@5.1 install formatter || __err 'failed luarocks install formatter'
 luarocks install lanes || __err 'failed luarocks install lanes'
-luarocks --lua-dir=/opt/homebrew/opt/lua@5.3 install lua-lsp || __err 'failed luarocks install lua-lsp'
 luarocks install luacheck || __err 'failed luarocks install luacheck'
-luarocks install --server=https://luarocks.org/dev argcheck || __err 'failed luarocks install argcheck'
 luarocks install busted || __err 'failed luarocks install busted'
 luarocks install luacov || __err 'failed luarocks install luacov'
 

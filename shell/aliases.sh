@@ -38,94 +38,84 @@ alias bpj='bat --plain package.json'
 alias pyg='pygmentize -O style=rrt -f console256 -g'
 
 #######################################################################
-# remove from quarantine
-#######################################################################
-
-alias rmquar='xattr -dr com.apple.quarantine'
-
-#######################################################################
-# node / Yarn
-#######################################################################
-
-# alias yarn='/opt/homebrew/bin/yarn --use-yarnrc $HOME/.config/yarn/yarnrc'
-alias y='yarn'
-alias yi='y install'
-alias yb='y build'
-alias ys='y start'
-alias yd='y dev'
-alias yu='y upgrade-interactive'
-alias n='npm'
-alias ni='n install'
-alias nr='n run'
-alias ns='n start'
-alias nrm='n uninstall'
-alias nrmg='n uninstall -g'
-alias nomod='rm -rf ./node_modules'
-alias reallynomod='find . -type d -iname node_modules -exec rm \-rf {} \;'
-alias gulp='npx gulp'
-alias grunt='npx grunt'
-
-#######################################################################
-# pyenv
-#######################################################################
-
-# alias pea='pyenv activate'
-# alias ped='pyenv deactivate'
-# alias pss='pyenv shell system'
-
-#######################################################################
-# python
-#######################################################################
-
-# alias py='python3'
-# alias pi='pip install'
-
-#######################################################################
-# jupyter
-#######################################################################
-
-# alias notebook='PYDEVD_DISABLE_FILE_VALIDATION=1 jupyter notebook'
-
-#######################################################################
 # Homebrew
 #######################################################################
 
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 alias b='brew'
 alias bi='brew install'
-alias buu='brew update && brew upgrade && brew autoremove && brew cleanup --prune=all -s'
+alias bu='brew update && brew upgrade && brew autoremove && brew cleanup --prune=all -s'
 alias bs='brew search'
-alias blfn='brew ls --full-name'
-alias bsvc='brew services'
-alias bsvr='brew services restart'
-alias bwhy='brew uses --installed --recursive'
-alias brc='brew install --cask'
-alias caskrm="brew uninstall --cask"
+alias bic='brew install --cask'
+alias brc="brew uninstall --cask"
+
+#######################################################################
+# Yarn
+#######################################################################
+
+alias yarn='yarn --use-yarnrc $HOME/.config/yarn/yarnrc'
+alias y='yarn'
+alias yi='y install'
+alias yb='y build'
+alias ys='y start'
+alias yd='y dev'
+alias ya='yarn add'
+alias yg-add='yarn global add'
+alias yg-rm='yarn global add'
+alias yu='y upgrade-interactive'
+alias rm-y='y install'
+alias rmg-y='y install'
+
+#######################################################################
+# Npm
+#######################################################################
+
+alias n='npm'
+alias ni='n install'
+alias nr='n run'
+alias nb='n run build'
+alias ns='n run start'
+alias nd='n run dev'
+alias npmg-i='n install -g'
+alias npmg-rm='n uninstall -g'
+alias nomod='find . -type d -iname node_modules -exec rm \-rf {} \;'
+
+#######################################################################
+# Npx
+#######################################################################
+
+alias gulp='npx gulp'
+alias grunt='npx grunt'
+
+#######################################################################
+# python
+#######################################################################
+
+alias py='python3'
+alias pi='pip install'
+
+#######################################################################
+# yt-dlp
+#######################################################################
+
+alias ydl='yt-dlp'
 
 #######################################################################
 # UI Apps
 #######################################################################
 
+alias c='code'
 alias ios='open -a Simulator.app'
 alias brave='open -a "Brave Browser.app"'
 alias chrome='open -a "Google Chrome"'
-alias chromedev='open -a "Google Chrome" --args --remote-debugging-port=9229'
-# alias elec='/Applications/Electron.app/Contents/MacOS/Electron'
-
-#######################################################################
-# CLI Apps
-#######################################################################
-
-alias c='code'
-alias neo='neofetch'
-# alias t='tree -fcp --noreport -L 1 -Cia'
-# alias yt='yt-dlp'
+alias chrome-dev='open -a "Google Chrome" --args --remote-debugging-port=9229'
+alias elec='/Applications/Electron.app/Contents/MacOS/Electron'
 
 #######################################################################
 # Docker
 #######################################################################
 
-# alias m4b-tool='docker run -it --rm -u $(id -u):$(id -g) -v "$(pwd)":/mnt sandreas/m4b-tool:latest'
+alias m4b-tool='docker run -it --rm -u $(id -u):$(id -g) -v "$(pwd)":/mnt sandreas/m4b-tool:latest'
 
 #######################################################################
 # spotlight
@@ -138,7 +128,7 @@ alias spoton='sudo mdutil -a -i on'
 # ssh
 #######################################################################
 
-# link https://blog.g3rt.nl/upgrade-your-ssh-keys.html
+# https://blog.g3rt.nl/upgrade-your-ssh-keys.html
 alias sshkeygen='ssh-keygen -o -a 100 -t ed25519'
 
 #######################################################################
@@ -155,13 +145,6 @@ alias se='sudo -e'
 alias root='sudo -s'
 
 #######################################################################
-# tmux
-#######################################################################
-
-# alias ta='tmux attach'
-# alias tmux='tmux -f "${DOTFILES}/tmux/tmux.conf"'
-
-#######################################################################
 # xcode
 #######################################################################
 
@@ -175,24 +158,25 @@ alias xcimg='xcrun simctl addmedia booted'
 
 alias df='df -h'
 alias ln='ln -v'
-alias xit='exit' # dammit
+alias xit='exit'
 alias today='date +%Y-%m-%d'
 alias r="ranger"
-# alias tpr='tput reset'
 alias uuid='uuidgen'
-alias curl='curl --config "${DOTFILES}/config/curl/curlrc"'
+alias neo='neofetch'
+alias ping='prettyping --nolegend'
+alias top="sudo htop"
+alias curl='curl --config="${DOTFILES}/config/curl/curlrc"'
+alias wget='wget --config="${DOTFILES}/config/wget/wgetrc" --hsts-file="${DOTFILES}/config/wget/wget-hsts" --no-check-certificate'
 alias brokensymlinks='find . -type l ! -exec test -e {} \; -print'
-alias wget='wget --no-check-certificate --hsts-file="${XDG_CONFIG_HOME}/wget/wget-hsts"'
+alias rnginx='brew services restart nginx'
 
 #######################################################################
 # Misc
 #######################################################################
 
-# sudo since we run nginx on port 80 so needs admin
-# alias rnginx='sudo brew services restart nginx'
-
 # Audio control - http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
+alias rmquar='xattr -dr com.apple.quarantine'
 
 #######################################################################
 # grc overides for ls

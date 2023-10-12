@@ -3,14 +3,31 @@
 <plist version="1.0">
 <dict>
 	<key>AI Prompt</key>
-	<string>You are going to translate a natural language description to a series of commands for the \(shell) shell.
-Here is some information about the environment: \(uname)
-Respond with one or more commands. Do not include any explanation or additional text besides the commands.Request: \(ai.prompt)
+	<string>#!/usr/bin/\(shell)
+# Note this command runs on systems like this: \(uname)
+# The next line will do this: \(ai.prompt)
 </string>
+	<key>Actions</key>
+	<array>
+		<dict>
+			<key>action</key>
+			<integer>28</integer>
+			<key>applyMode</key>
+			<integer>0</integer>
+			<key>escaping</key>
+			<integer>2</integer>
+			<key>parameter</key>
+			<string>A1563EF0-0E19-4014-88E2-178C81F12D32</string>
+			<key>title</key>
+			<string>Split Horizontally</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
 	<key>AdjustWindowForFontSizeChange</key>
 	<true/>
 	<key>AiModel</key>
-	<string>text-davinci-003</string>
+	<string>text-davinci-002</string>
 	<key>AllowClipboardAccess</key>
 	<true/>
 	<key>AllowTabbarInTitlebarAccessoryBigSur</key>
@@ -28,7 +45,9 @@ Respond with one or more commands. Do not include any explanation or additional 
 	<key>CheckTestRelease</key>
 	<true/>
 	<key>ComposerHeight</key>
-	<real>356</real>
+	<real>674.1640625</real>
+	<key>Compress History</key>
+	<true/>
 	<key>ConvertDosNewlines</key>
 	<true/>
 	<key>CopyWithStylesByDefault</key>
@@ -1307,7 +1326,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Blur</key>
 			<true/>
 			<key>Blur Radius</key>
-			<real>9.7488530585106332</real>
+			<real>5.7488530585106332</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -1923,7 +1942,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>62</integer>
+			<integer>22</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
@@ -2021,11 +2040,11 @@ Respond with one or more commands. Do not include any explanation or additional 
 				<key>advanced configuration</key>
 				<dict>
 					<key>algorithm</key>
-					<integer>0</integer>
+					<integer>1</integer>
 					<key>auto-rainbow style</key>
 					<integer>1</integer>
 					<key>font</key>
-					<string>.SFNS-Regular 12</string>
+					<string>.AppleSystemUIFont 12</string>
 					<key>remove empty components</key>
 					<false/>
 				</dict>
@@ -2033,7 +2052,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 				<array>
 					<dict>
 						<key>class</key>
-						<string>iTermStatusBarWorkingDirectoryComponent</string>
+						<string>iTermStatusBarFixedSpacerComponent</string>
 						<key>configuration</key>
 						<dict>
 							<key>knobs</key>
@@ -2042,12 +2061,8 @@ Respond with one or more commands. Do not include any explanation or additional 
 								<integer>1</integer>
 								<key>base: priority</key>
 								<real>5</real>
-								<key>maxwidth</key>
-								<real>+infinity</real>
-								<key>minwidth</key>
-								<integer>0</integer>
-								<key>path</key>
-								<string>path</string>
+								<key>iTermStatusBarFixedSpacerComponentWidthKnob</key>
+								<integer>5</integer>
 								<key>shared text color</key>
 								<dict>
 									<key>Alpha Component</key>
@@ -2065,7 +2080,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 							<key>layout advanced configuration dictionary value</key>
 							<dict>
 								<key>algorithm</key>
-								<integer>0</integer>
+								<integer>1</integer>
 								<key>auto-rainbow style</key>
 								<integer>1</integer>
 								<key>font</key>
@@ -2077,7 +2092,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 					</dict>
 					<dict>
 						<key>class</key>
-						<string>iTermStatusBarSpringComponent</string>
+						<string>iTermStatusBarHostnameComponent</string>
 						<key>configuration</key>
 						<dict>
 							<key>knobs</key>
@@ -2086,28 +2101,26 @@ Respond with one or more commands. Do not include any explanation or additional 
 								<integer>1</integer>
 								<key>base: priority</key>
 								<real>5</real>
-								<key>iTermStatusBarSpringComponentSizeMultipleKey</key>
-								<integer>1</integer>
-								<key>iTermStatusBarSpringComponentSpringConstantKey</key>
-								<real>0.01</real>
+								<key>path</key>
+								<string>hostname</string>
 								<key>shared text color</key>
 								<dict>
 									<key>Alpha Component</key>
 									<real>1</real>
 									<key>Blue Component</key>
-									<real>0.6457253098487854</real>
+									<real>0.64419639110565186</real>
 									<key>Color Space</key>
 									<string>P3</string>
 									<key>Green Component</key>
-									<real>0.75835198163986206</real>
+									<real>0.74155795574188232</real>
 									<key>Red Component</key>
-									<real>0.87621426582336426</real>
+									<real>0.87369424104690552</real>
 								</dict>
 							</dict>
 							<key>layout advanced configuration dictionary value</key>
 							<dict>
 								<key>algorithm</key>
-								<integer>0</integer>
+								<integer>1</integer>
 								<key>auto-rainbow style</key>
 								<integer>1</integer>
 								<key>font</key>
@@ -2119,7 +2132,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 					</dict>
 					<dict>
 						<key>class</key>
-						<string>iTermStatusBarSpringComponent</string>
+						<string>iTermStatusBarFixedSpacerComponent</string>
 						<key>configuration</key>
 						<dict>
 							<key>knobs</key>
@@ -2128,28 +2141,26 @@ Respond with one or more commands. Do not include any explanation or additional 
 								<integer>1</integer>
 								<key>base: priority</key>
 								<real>5</real>
-								<key>iTermStatusBarSpringComponentSizeMultipleKey</key>
-								<integer>1</integer>
-								<key>iTermStatusBarSpringComponentSpringConstantKey</key>
-								<real>0.01</real>
+								<key>iTermStatusBarFixedSpacerComponentWidthKnob</key>
+								<integer>5</integer>
 								<key>shared text color</key>
 								<dict>
 									<key>Alpha Component</key>
 									<real>1</real>
 									<key>Blue Component</key>
-									<real>0.65761250257492065</real>
+									<real>0.65400499105453491</real>
 									<key>Color Space</key>
 									<string>P3</string>
 									<key>Green Component</key>
-									<real>0.87652522325515747</real>
+									<real>0.84266549348831177</real>
 									<key>Red Component</key>
-									<real>0.89574497938156128</real>
+									<real>0.88982909917831421</real>
 								</dict>
 							</dict>
 							<key>layout advanced configuration dictionary value</key>
 							<dict>
 								<key>algorithm</key>
-								<integer>0</integer>
+								<integer>1</integer>
 								<key>auto-rainbow style</key>
 								<integer>1</integer>
 								<key>font</key>
@@ -2161,7 +2172,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 					</dict>
 					<dict>
 						<key>class</key>
-						<string>iTermStatusBarSpringComponent</string>
+						<string>iTermStatusBarFixedSpacerComponent</string>
 						<key>configuration</key>
 						<dict>
 							<key>knobs</key>
@@ -2170,28 +2181,26 @@ Respond with one or more commands. Do not include any explanation or additional 
 								<integer>1</integer>
 								<key>base: priority</key>
 								<real>5</real>
-								<key>iTermStatusBarSpringComponentSizeMultipleKey</key>
-								<integer>1</integer>
-								<key>iTermStatusBarSpringComponentSpringConstantKey</key>
-								<real>0.01</real>
+								<key>iTermStatusBarFixedSpacerComponentWidthKnob</key>
+								<integer>5</integer>
 								<key>shared text color</key>
 								<dict>
 									<key>Alpha Component</key>
 									<real>1</real>
 									<key>Blue Component</key>
-									<real>0.65786063671112061</real>
+									<real>0.65907186269760132</real>
 									<key>Color Space</key>
 									<string>P3</string>
 									<key>Green Component</key>
-									<real>0.89695650339126587</real>
+									<real>0.89852851629257202</real>
 									<key>Red Component</key>
-									<real>0.8200916051864624</real>
+									<real>0.86248248815536499</real>
 								</dict>
 							</dict>
 							<key>layout advanced configuration dictionary value</key>
 							<dict>
 								<key>algorithm</key>
-								<integer>0</integer>
+								<integer>1</integer>
 								<key>auto-rainbow style</key>
 								<integer>1</integer>
 								<key>font</key>
@@ -2203,37 +2212,35 @@ Respond with one or more commands. Do not include any explanation or additional 
 					</dict>
 					<dict>
 						<key>class</key>
-						<string>iTermStatusBarSpringComponent</string>
+						<string>iTermStatusBarComposerComponent</string>
 						<key>configuration</key>
 						<dict>
 							<key>knobs</key>
 							<dict>
-								<key>base: compression resistance</key>
-								<integer>1</integer>
 								<key>base: priority</key>
-								<real>5</real>
-								<key>iTermStatusBarSpringComponentSizeMultipleKey</key>
-								<integer>1</integer>
-								<key>iTermStatusBarSpringComponentSpringConstantKey</key>
-								<real>0.01</real>
+								<real>1</real>
+								<key>maxwidth</key>
+								<real>+infinity</real>
+								<key>minwidth</key>
+								<real>200</real>
 								<key>shared text color</key>
 								<dict>
 									<key>Alpha Component</key>
 									<real>1</real>
 									<key>Blue Component</key>
-									<real>0.65540963411331177</real>
+									<real>0.65674668550491333</real>
 									<key>Color Space</key>
 									<string>P3</string>
 									<key>Green Component</key>
-									<real>0.89377599954605103</real>
+									<real>0.8955109715461731</real>
 									<key>Red Component</key>
-									<real>0.72450786828994751</real>
+									<real>0.77849441766738892</real>
 								</dict>
 							</dict>
 							<key>layout advanced configuration dictionary value</key>
 							<dict>
 								<key>algorithm</key>
-								<integer>0</integer>
+								<integer>1</integer>
 								<key>auto-rainbow style</key>
 								<integer>1</integer>
 								<key>font</key>
@@ -2245,7 +2252,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 					</dict>
 					<dict>
 						<key>class</key>
-						<string>iTermStatusBarSpringComponent</string>
+						<string>iTermStatusBarFixedSpacerComponent</string>
 						<key>configuration</key>
 						<dict>
 							<key>knobs</key>
@@ -2254,30 +2261,30 @@ Respond with one or more commands. Do not include any explanation or additional 
 								<integer>1</integer>
 								<key>base: priority</key>
 								<real>5</real>
-								<key>iTermStatusBarSpringComponentSizeMultipleKey</key>
-								<integer>1</integer>
-								<key>iTermStatusBarSpringComponentSpringConstantKey</key>
-								<real>0.01</real>
+								<key>iTermStatusBarFixedSpacerComponentWidthKnob</key>
+								<integer>5</integer>
 								<key>shared text color</key>
 								<dict>
 									<key>Alpha Component</key>
 									<real>1</real>
 									<key>Blue Component</key>
-									<real>0.71965736150741577</real>
+									<real>0.65480327606201172</real>
 									<key>Color Space</key>
 									<string>P3</string>
 									<key>Green Component</key>
-									<real>0.8926997184753418</real>
+									<real>0.89298915863037109</real>
 									<key>Red Component</key>
-									<real>0.68831366300582886</real>
+									<real>0.69825893640518188</real>
 								</dict>
 							</dict>
 							<key>layout advanced configuration dictionary value</key>
 							<dict>
 								<key>algorithm</key>
-								<integer>0</integer>
+								<integer>1</integer>
 								<key>auto-rainbow style</key>
-								<integer>0</integer>
+								<integer>1</integer>
+								<key>font</key>
+								<string>.AppleSystemUIFont 12</string>
 								<key>remove empty components</key>
 								<false/>
 							</dict>
@@ -2285,7 +2292,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 					</dict>
 					<dict>
 						<key>class</key>
-						<string>iTermStatusBarSpringComponent</string>
+						<string>iTermStatusBarFixedSpacerComponent</string>
 						<key>configuration</key>
 						<dict>
 							<key>knobs</key>
@@ -2294,10 +2301,54 @@ Respond with one or more commands. Do not include any explanation or additional 
 								<integer>1</integer>
 								<key>base: priority</key>
 								<real>5</real>
-								<key>iTermStatusBarSpringComponentSizeMultipleKey</key>
+								<key>iTermStatusBarFixedSpacerComponentWidthKnob</key>
+								<integer>5</integer>
+								<key>shared text color</key>
+								<dict>
+									<key>Alpha Component</key>
+									<real>1</real>
+									<key>Blue Component</key>
+									<real>0.73522692918777466</real>
+									<key>Color Space</key>
+									<string>P3</string>
+									<key>Green Component</key>
+									<real>0.8926994800567627</real>
+									<key>Red Component</key>
+									<real>0.68831402063369751</real>
+								</dict>
+							</dict>
+							<key>layout advanced configuration dictionary value</key>
+							<dict>
+								<key>algorithm</key>
 								<integer>1</integer>
-								<key>iTermStatusBarSpringComponentSpringConstantKey</key>
-								<real>0.01</real>
+								<key>auto-rainbow style</key>
+								<integer>1</integer>
+								<key>font</key>
+								<string>.AppleSystemUIFont 12</string>
+								<key>remove empty components</key>
+								<false/>
+							</dict>
+						</dict>
+					</dict>
+					<dict>
+						<key>class</key>
+						<string>iTermStatusBarWorkingDirectoryComponent</string>
+						<key>configuration</key>
+						<dict>
+							<key>knobs</key>
+							<dict>
+								<key>base: compression resistance</key>
+								<integer>1</integer>
+								<key>base: priority</key>
+								<real>5</real>
+								<key>maxwidth</key>
+								<real>+infinity</real>
+								<key>minwidth</key>
+								<real>20</real>
+								<key>path</key>
+								<string>path</string>
+								<key>shared font</key>
+								<string></string>
 								<key>shared text color</key>
 								<dict>
 									<key>Alpha Component</key>
@@ -2315,9 +2366,11 @@ Respond with one or more commands. Do not include any explanation or additional 
 							<key>layout advanced configuration dictionary value</key>
 							<dict>
 								<key>algorithm</key>
-								<integer>0</integer>
+								<integer>1</integer>
 								<key>auto-rainbow style</key>
-								<integer>0</integer>
+								<integer>1</integer>
+								<key>font</key>
+								<string>.AppleSystemUIFont 12</string>
 								<key>remove empty components</key>
 								<false/>
 							</dict>
@@ -2343,21 +2396,23 @@ Respond with one or more commands. Do not include any explanation or additional 
 									<key>Alpha Component</key>
 									<real>1</real>
 									<key>Blue Component</key>
-									<real>0.89274406433105469</real>
+									<real>0.89395004510879517</real>
 									<key>Color Space</key>
 									<string>P3</string>
 									<key>Green Component</key>
-									<real>0.84391218423843384</real>
+									<real>0.86104583740234375</real>
 									<key>Red Component</key>
-									<real>0.67603796720504761</real>
+									<real>0.68027973175048828</real>
 								</dict>
 							</dict>
 							<key>layout advanced configuration dictionary value</key>
 							<dict>
 								<key>algorithm</key>
-								<integer>0</integer>
+								<integer>1</integer>
 								<key>auto-rainbow style</key>
-								<integer>0</integer>
+								<integer>1</integer>
+								<key>font</key>
+								<string>.AppleSystemUIFont 12</string>
 								<key>remove empty components</key>
 								<false/>
 							</dict>
@@ -2383,21 +2438,23 @@ Respond with one or more commands. Do not include any explanation or additional 
 									<key>Alpha Component</key>
 									<real>1</real>
 									<key>Blue Component</key>
-									<real>0.8851432204246521</real>
+									<real>0.88716596364974976</real>
 									<key>Color Space</key>
 									<string>P3</string>
 									<key>Green Component</key>
-									<real>0.72423571348190308</real>
+									<real>0.75837606191635132</real>
 									<key>Red Component</key>
-									<real>0.64865356683731079</real>
+									<real>0.65605491399765015</real>
 								</dict>
 							</dict>
 							<key>layout advanced configuration dictionary value</key>
 							<dict>
 								<key>algorithm</key>
-								<integer>0</integer>
+								<integer>1</integer>
 								<key>auto-rainbow style</key>
-								<integer>0</integer>
+								<integer>1</integer>
+								<key>font</key>
+								<string>.AppleSystemUIFont 12</string>
 								<key>remove empty components</key>
 								<false/>
 							</dict>
@@ -2423,21 +2480,23 @@ Respond with one or more commands. Do not include any explanation or additional 
 									<key>Alpha Component</key>
 									<real>1</real>
 									<key>Blue Component</key>
-									<real>0.88044255971908569</real>
+									<real>0.88144946098327637</real>
 									<key>Color Space</key>
 									<string>P3</string>
 									<key>Green Component</key>
-									<real>0.63086748123168945</real>
+									<real>0.65612047910690308</real>
 									<key>Red Component</key>
-									<real>0.65119582414627075</real>
+									<real>0.63490825891494751</real>
 								</dict>
 							</dict>
 							<key>layout advanced configuration dictionary value</key>
 							<dict>
 								<key>algorithm</key>
-								<integer>0</integer>
+								<integer>1</integer>
 								<key>auto-rainbow style</key>
-								<integer>0</integer>
+								<integer>1</integer>
+								<key>font</key>
+								<string>.AppleSystemUIFont 12</string>
 								<key>remove empty components</key>
 								<false/>
 							</dict>
@@ -2463,59 +2522,19 @@ Respond with one or more commands. Do not include any explanation or additional 
 									<key>Alpha Component</key>
 									<real>1</real>
 									<key>Blue Component</key>
-									<real>0.88204485177993774</real>
+									<real>0.88108611106872559</real>
 									<key>Color Space</key>
 									<string>P3</string>
 									<key>Green Component</key>
-									<real>0.63566368818283081</real>
+									<real>0.63279807567596436</real>
 									<key>Red Component</key>
-									<real>0.75487619638442993</real>
+									<real>0.69522923231124878</real>
 								</dict>
 							</dict>
 							<key>layout advanced configuration dictionary value</key>
 							<dict>
 								<key>algorithm</key>
-								<integer>0</integer>
-								<key>auto-rainbow style</key>
-								<integer>0</integer>
-								<key>remove empty components</key>
-								<false/>
-							</dict>
-						</dict>
-					</dict>
-					<dict>
-						<key>class</key>
-						<string>iTermStatusBarSpringComponent</string>
-						<key>configuration</key>
-						<dict>
-							<key>knobs</key>
-							<dict>
-								<key>base: compression resistance</key>
 								<integer>1</integer>
-								<key>base: priority</key>
-								<real>5</real>
-								<key>iTermStatusBarSpringComponentSizeMultipleKey</key>
-								<integer>1</integer>
-								<key>iTermStatusBarSpringComponentSpringConstantKey</key>
-								<real>0.01</real>
-								<key>shared text color</key>
-								<dict>
-									<key>Alpha Component</key>
-									<real>1</real>
-									<key>Blue Component</key>
-									<real>0.88272744417190552</real>
-									<key>Color Space</key>
-									<string>P3</string>
-									<key>Green Component</key>
-									<real>0.64142733812332153</real>
-									<key>Red Component</key>
-									<real>0.86000704765319824</real>
-								</dict>
-							</dict>
-							<key>layout advanced configuration dictionary value</key>
-							<dict>
-								<key>algorithm</key>
-								<integer>0</integer>
 								<key>auto-rainbow style</key>
 								<integer>1</integer>
 								<key>font</key>
@@ -2540,6 +2559,88 @@ Respond with one or more commands. Do not include any explanation or additional 
 								<real>+infinity</real>
 								<key>minwidth</key>
 								<integer>0</integer>
+								<key>shared font</key>
+								<string></string>
+								<key>shared text color</key>
+								<dict>
+									<key>Alpha Component</key>
+									<real>1</real>
+									<key>Blue Component</key>
+									<real>0.88256841897964478</real>
+									<key>Color Space</key>
+									<string>P3</string>
+									<key>Green Component</key>
+									<real>0.63722318410873413</real>
+									<key>Red Component</key>
+									<real>0.7850300669670105</real>
+								</dict>
+							</dict>
+							<key>layout advanced configuration dictionary value</key>
+							<dict>
+								<key>algorithm</key>
+								<integer>1</integer>
+								<key>auto-rainbow style</key>
+								<integer>1</integer>
+								<key>font</key>
+								<string>.AppleSystemUIFont 12</string>
+								<key>remove empty components</key>
+								<false/>
+							</dict>
+						</dict>
+					</dict>
+					<dict>
+						<key>class</key>
+						<string>iTermStatusBarClockComponent</string>
+						<key>configuration</key>
+						<dict>
+							<key>knobs</key>
+							<dict>
+								<key>base: compression resistance</key>
+								<integer>1</integer>
+								<key>base: priority</key>
+								<real>5</real>
+								<key>format</key>
+								<string>M/dd h:mm</string>
+								<key>shared text color</key>
+								<dict>
+									<key>Alpha Component</key>
+									<real>1</real>
+									<key>Blue Component</key>
+									<real>0.86637717485427856</real>
+									<key>Color Space</key>
+									<string>P3</string>
+									<key>Green Component</key>
+									<real>0.64142781496047974</real>
+									<key>Red Component</key>
+									<real>0.86000674962997437</real>
+								</dict>
+							</dict>
+							<key>layout advanced configuration dictionary value</key>
+							<dict>
+								<key>algorithm</key>
+								<integer>1</integer>
+								<key>auto-rainbow style</key>
+								<integer>1</integer>
+								<key>font</key>
+								<string>.AppleSystemUIFont 12</string>
+								<key>remove empty components</key>
+								<false/>
+							</dict>
+						</dict>
+					</dict>
+					<dict>
+						<key>class</key>
+						<string>iTermStatusBarFixedSpacerComponent</string>
+						<key>configuration</key>
+						<dict>
+							<key>knobs</key>
+							<dict>
+								<key>base: compression resistance</key>
+								<integer>1</integer>
+								<key>base: priority</key>
+								<real>5</real>
+								<key>iTermStatusBarFixedSpacerComponentWidthKnob</key>
+								<integer>5</integer>
 								<key>shared text color</key>
 								<dict>
 									<key>Alpha Component</key>
@@ -2557,7 +2658,7 @@ Respond with one or more commands. Do not include any explanation or additional 
 							<key>layout advanced configuration dictionary value</key>
 							<dict>
 								<key>algorithm</key>
-								<integer>0</integer>
+								<integer>1</integer>
 								<key>auto-rainbow style</key>
 								<integer>1</integer>
 								<key>font</key>
@@ -2613,6 +2714,8 @@ Respond with one or more commands. Do not include any explanation or additional 
 			<key>Use Cursor Guide (Light)</key>
 			<false/>
 			<key>Use Custom Tab Title</key>
+			<false/>
+			<key>Use Custom Window Title</key>
 			<false/>
 			<key>Use Italic Font</key>
 			<false/>
@@ -2753,6 +2856,10 @@ Respond with one or more commands. Do not include any explanation or additional 
 	<integer>15</integer>
 	<key>TimeBetweenTips</key>
 	<real>604800</real>
+	<key>ToolbeltFont</key>
+	<string>menlo</string>
+	<key>ToolbeltFontSize</key>
+	<real>12</real>
 	<key>ToolbeltTools</key>
 	<array>
 		<string>Command History</string>
@@ -2767,6 +2874,8 @@ Respond with one or more commands. Do not include any explanation or additional 
 		<string>A1563EF0-0E19-4014-88E2-178C81F12D32</string>
 	</dict>
 	<key>UseBorder</key>
+	<false/>
+	<key>UseCustomScriptsFolder</key>
 	<false/>
 	<key>UseLionStyleFullscreen</key>
 	<false/>

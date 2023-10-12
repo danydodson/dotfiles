@@ -1,1 +1,2 @@
-// registry.npmjs.org/:_authToken=$NPMRC_AUTH_TOKEN
+// registry.npmjs.org/:_authToken=$(op read op://Personal/npmjs.com/credentials/token)
+node_gyp=$(npm prefix -g)/lib/node_modules/node-gyp/bin/node-gyp.js

@@ -254,3 +254,9 @@ zstyle ':completion:*' users ''
 
 # don't autocomplete homedirs
 zstyle ':completion::complete:cd:*' tag-order '! users'
+
+#######################################################################
+# Oh-my-zsh plugins
+#######################################################################
+
+zstyle ':omz:plugins:nvm' lazy yes
