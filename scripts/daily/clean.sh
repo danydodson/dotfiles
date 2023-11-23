@@ -8,11 +8,9 @@ __info 'Removing DS_Stores...'
 find . -name '*.DS_Store' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
 
 # __info 'Removing node_modules...'
-find ~/Documents/Developer/Current -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
-find ~/Documents/Developer/Github -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
-find ~/Documents/Developer/Scripts -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
-find ~/Documents/Developer/Security -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
-find ~/Documents/Developer/Served -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
+find ~/Developer/Served -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
+find ~/Developer/Github -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
+find ~/Developer/Working -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
 
 __info 'Removing zcompdump...'
 rm -rfv ~/.config/zsh/.zcompdump*

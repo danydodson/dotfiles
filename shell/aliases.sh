@@ -41,7 +41,7 @@ alias pyg='pygmentize -O style=rrt -f console256 -g'
 # Homebrew
 #######################################################################
 
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+# alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 alias b='brew'
 alias bi='brew install'
 alias bu='brew update && brew upgrade && brew autoremove && brew cleanup --prune=all -s'
@@ -55,29 +55,29 @@ alias brc="brew uninstall --cask"
 
 alias yarn='yarn --use-yarnrc $HOME/.config/yarn/yarnrc'
 alias y='yarn'
-alias yi='y install'
-alias yb='y build'
-alias ys='y start'
-alias yd='y dev'
-alias ya='yarn add'
-alias yg-add='yarn global add'
-alias yg-rm='yarn global add'
-alias yu='y upgrade-interactive'
-alias rm-y='y install'
-alias rmg-y='y install'
+# alias yi='y install'
+# alias yb='y build'
+# alias ys='y start'
+# alias yd='y dev'
+# alias ya='yarn add'
+# alias yg-add='yarn global add'
+# alias yg-rm='yarn global add'
+# alias yu='y upgrade-interactive'
+# alias rm-y='y install'
+# alias rmg-y='y install'
 
 #######################################################################
 # Npm
 #######################################################################
 
 alias n='npm'
-alias ni='n install'
-alias nr='n run'
-alias nb='n run build'
-alias ns='n run start'
-alias nd='n run dev'
-alias npmg-i='n install -g'
-alias npmg-rm='n uninstall -g'
+# alias ni='n install'
+# alias nr='n run'
+# alias nb='n run build'
+# alias ns='n run start'
+# alias nd='n run dev'
+# alias npmg-i='n install -g'
+# alias npmg-rm='n uninstall -g'
 alias nomod='find . -type d -iname node_modules -exec rm \-rf {} \;'
 
 #######################################################################
@@ -130,7 +130,7 @@ alias spoton='sudo mdutil -a -i on'
 
 # https://blog.g3rt.nl/upgrade-your-ssh-keys.html
 alias sshkeygen='ssh-keygen -o -a 100 -t ed25519'
-
+alias sshm1="ssh dany@192.168.0.3"
 #######################################################################
 # get public key
 #######################################################################
@@ -165,7 +165,7 @@ alias uuid='uuidgen'
 alias neo='neofetch'
 alias ping='prettyping --nolegend'
 alias top="sudo htop"
-alias curl='curl --config="${DOTFILES}/config/curl/curlrc"'
+alias curl='curl --silent'
 alias wget='wget --config="${DOTFILES}/config/wget/wgetrc" --hsts-file="${DOTFILES}/config/wget/wget-hsts" --no-check-certificate'
 alias brokensymlinks='find . -type l ! -exec test -e {} \; -print'
 alias rnginx='brew services restart nginx'
@@ -176,7 +176,7 @@ alias rnginx='brew services restart nginx'
 
 # Audio control - http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
-alias rmquar='xattr -dr com.apple.quarantine'
+alias rmquar='xattr -d com.apple.quarantine'
 
 #######################################################################
 # grc overides for ls

@@ -105,7 +105,7 @@ export HOMEBREW_NO_INSTALL_CLEANUP=true
 # java
 #######################################################################
 
-export JAVA_HOME="/opt/homebrew/Cellar/openjdk/20.0.2/libexec/openjdk.jdk/Contents/Home"
+export JAVA_HOME="/opt/homebrew/Cellar/openjdk@17/17.0.8.1/libexec/openjdk.jdk/Contents/Home"
 
 #######################################################################
 # less
@@ -170,6 +170,12 @@ export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME/jupyter/config"
 #######################################################################
 
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
+
+#######################################################################
+# ssh
+#######################################################################
+
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
 #######################################################################
 # terminfo
