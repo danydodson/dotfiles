@@ -10,6 +10,11 @@ jobs:
       - uses: rafaeleyng/shellcheck-action@v2
         with:
           command: ./scripts/tools/check.sh
+
+  secrets:
+    name: Load Secrets
+    runs-on: ubuntu-latest
+    steps:
       - uses: 1password/load-secrets-action@v1
         with:
           export-env: true
@@ -17,5 +22,6 @@ jobs:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
           SECRET: op://Secrets/i2selwuyepehl4yrfetwl5zxri/secrets/secret_one
 
-    # name: Print masked secret
-    # run: echo "Secret: $SECRET"
+        # name: Print masked secret
+        # run: echo "Secret: $SECRET"
+      
