@@ -10,4 +10,16 @@ jobs:
       - uses: rafaeleyng/shellcheck-action@v2
         with:
           command: ./scripts/tools/check.sh
+
+      - name: Load secret
+        uses: 1password/load-secrets-action/configure@v1
+        with:
+          service-account-token: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+        env:
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+          SECRET: "op://Secrets/i2selwuyepehl4yrfetwl5zxri/secrets/secret one"
+
+      - name: Print masked secret
+        run: echo "Secret: $SECRET"
+        # Prints: Secret: ***
           

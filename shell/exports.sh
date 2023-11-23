@@ -146,6 +146,7 @@ export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 #######################################################################
 
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
+export OP_CACHE="${XDG_CACHE_HOME}/op"
 
 #######################################################################
 # python
