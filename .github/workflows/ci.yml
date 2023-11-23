@@ -1,6 +1,6 @@
 name: CI
 on: [push]
- 
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,12 +20,6 @@ jobs:
         env:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
           SECRET: op://Secrets/i2selwuyepehl4yrfetwl5zxri/secrets/secret_one
-      
-      - name: Print masked secret
-        run: echo Secret______ "${{ steps.op-load-secret.outputs.SECRET }}"
-      
 
-    
-      
-        
-      
+      - name: Print masked secret
+        run: echo Secret "${{ steps.op-load-secret.outputs.SECRET }}"
