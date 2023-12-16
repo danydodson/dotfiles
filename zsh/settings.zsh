@@ -113,10 +113,10 @@ bindkey -v
 #######################################################################
 
 # shift-tab to select previous result
-bindkey -M menuselect '^[[Z' reverse-menu-complete
+# bindkey -M menuselect '^[[Z' reverse-menu-complete
 
 # fix prompt (and side-effect of exiting menuselect) on ^C
-bindkey -M menuselect '^C' reset-prompt
+# bindkey -M menuselect '^C' reset-prompt
 
 #######################################################################
 # Keybindings - Movement keys

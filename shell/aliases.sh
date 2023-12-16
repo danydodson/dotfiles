@@ -53,32 +53,37 @@ alias brc="brew uninstall --cask"
 # Yarn
 #######################################################################
 
-alias yarn='yarn --use-yarnrc $HOME/.config/yarn/yarnrc'
+# alias yarn='/opt/homebrew/bin/yarn --use-yarnrc $HOME/.config/yarn/yarnrc'
 alias y='yarn'
-# alias yi='y install'
-# alias yb='y build'
-# alias ys='y start'
-# alias yd='y dev'
-# alias ya='yarn add'
-# alias yg-add='yarn global add'
-# alias yg-rm='yarn global add'
-# alias yu='y upgrade-interactive'
-# alias rm-y='y install'
-# alias rmg-y='y install'
+alias yi='y install'
+alias yb='y build'
+alias ys='y start'
+alias yr='y run'
+alias yd='y dev'
+alias ya='y add'
+alias yag='y global add'
+alias yui='y upgrade-interactive'
 
 #######################################################################
 # Npm
 #######################################################################
 
 alias n='npm'
-# alias ni='n install'
-# alias nr='n run'
-# alias nb='n run build'
-# alias ns='n run start'
-# alias nd='n run dev'
-# alias npmg-i='n install -g'
-# alias npmg-rm='n uninstall -g'
+alias ni='n install'
+alias nr='n run'
+alias nb='n run build'
+alias nstart='n run start'
+alias nd='n run dev'
+alias npmg-i='n install -g'
+alias npmg-rm='n uninstall -g'
 alias nomod='find . -type d -iname node_modules -exec rm \-rf {} \;'
+
+#######################################################################
+# create apps
+#######################################################################
+
+alias init-ic='npm init ic'
+alias create-ic='npx create-ic-app@latest'
 
 #######################################################################
 # Npx

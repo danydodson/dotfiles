@@ -4,9 +4,21 @@
 # oh-my-zsh
 #######################################################################
 
-plugins+=(brew zsh-completions macos)
+plugins+=(macos brew nvm npm zsh-completions zsh-yarn-completions)
 
-source "${HOME}/.config/local/share/oh-my-zsh/oh-my-zsh.sh"
+source $HOME/.config/local/share/oh-my-zsh/oh-my-zsh.sh
+
+#######################################################################
+# zsh-autosuggestion
+#######################################################################
+
+# source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+#######################################################################
+# zsh-autocomplete
+#######################################################################
+
+source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 #######################################################################
 # zsh-syntax-highlighting
@@ -21,12 +33,6 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-
-#######################################################################
-# zsh-autosuggestions
-#######################################################################
-
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 #######################################################################
 # 1password

@@ -7,6 +7,7 @@
 path-prepend "$DOTFILES/bin"
 path-prepend "$HOME/.config/iterm2"
 path-prepend "$HOME/.config/go/bin"
+path-prepend "$HOME/.config/dotnet"
 path-prepend "/opt/homebrew/opt/go/libexec/bin"
 path-prepend "/opt/homebrew/opt/openjdk/bin"
 path-prepend "/opt/homebrew/opt/coreutils/libexec/gnubin"

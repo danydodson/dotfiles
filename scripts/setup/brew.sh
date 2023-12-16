@@ -54,6 +54,16 @@ else
   __info 'zsh-completions doesnt exist...'
 fi
 
+__info 'Downloading my zsh-yarn-completions...'
+if [ -e "$HOME"/.config/local/share/oh-my-zsh/custom/plugins/zsh-yarn-completions.plugin.zsh ]; then
+  __ok 'zsh-completions already exists'
+else
+  __info 'installiung zsh-yarn-completions...'
+  git clone https://github.com/chrisands/zsh-yarn-completions.git "$HOME"/.config/local/share/oh-my-zsh/custom/plugins/zsh-completions --depth=1 && __ok ''
+  __info 'Linking zsh-yarn-completions.plugin.zsh...'
+  ln -s "$HOME/.config/local/share/oh-my-zsh/custom/plugins/zsh-yarn-completions/zsh-yarn-completions.plugin.zsh" "$HOME/.config/local/share/oh-my-zsh/custom/plugins/zsh-yarn-completions.plugin.zsh" && __ok ''
+fi
+
 ###############################################################################
 # Homebrew
 ###############################################################################

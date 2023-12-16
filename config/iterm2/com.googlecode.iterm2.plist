@@ -52,7 +52,7 @@ Preferences...</string>
 	<key>AlwaysWarnBeforePastingOverSize</key>
 	<integer>-1</integer>
 	<key>AutoCommandHistory</key>
-	<true/>
+	<false/>
 	<key>BadgeFontIsBold</key>
 	<true/>
 	<key>BracketedPasteMode</key>
@@ -681,6 +681,8 @@ Preferences...</string>
 	<false/>
 	<key>DisableTransparencyForKeyWindow</key>
 	<false/>
+	<key>DisableWindowSizeSnap</key>
+	<true/>
 	<key>DoubleClickPerformsSmartSelection</key>
 	<true/>
 	<key>DrawBottomLineForHorizontalTabBar</key>
@@ -1404,7 +1406,7 @@ Preferences...</string>
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>211</integer>
+			<integer>212</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Boost</key>
