@@ -35,6 +35,12 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 #######################################################################
+# MEGAcmd
+#######################################################################
+
+source /Applications/MEGAcmd.app/Contents/MacOS/megacmd_completion.sh
+
+#######################################################################
 # 1password
 #######################################################################
 
@@ -47,8 +53,8 @@ compdef _op op
 # pyenv
 #######################################################################
 
-command -v pyenv >/dev/null || path-prepend "$PYENV_ROOT/bin"
-eval "$(pyenv init -)"
+# command -v pyenv >/dev/null || path-prepend "$PYENV_ROOT/bin"
+# eval "$(pyenv init -)"
 
 #######################################################################
 # heroku autocomplete
@@ -131,3 +137,4 @@ alias preview="fzf --preview 'bat --color \"always\" --style \"numbers\" --line-
 if [[ -f ~/.fzf.zsh ]]; then
   source ~/.fzf.zsh
 fi
+

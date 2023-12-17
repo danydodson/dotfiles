@@ -40,22 +40,6 @@ function fpath-prepend() {
 # variables
 #######################################################################
 
-function dev() {
-  cd "$HOME/Documents/Developer" || exit
-}
-
-function github() {
-  cd "$HOME/Documents/Developer/Github" || exit
-}
-
-function temp() {
-  cd "$HOME/Documents/Developer/Temp" || exit
-}
-
-function working() {
-  cd "$HOME/Documents/Developer/Working" || exit
-}
-
 function daily() {
   cd "$HOME/.dotfiles/scripts/daily" || exit
 }

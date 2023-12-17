@@ -1406,7 +1406,7 @@ Preferences...</string>
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>212</integer>
+			<integer>210</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Boost</key>
@@ -2954,7 +2954,7 @@ Preferences...</string>
 	<key>TerminalVMargin</key>
 	<integer>15</integer>
 	<key>TimeBetweenTips</key>
-	<real>604800</real>
+	<real>0.0</real>
 	<key>ToolbeltFont</key>
 	<string></string>
 	<key>ToolbeltFontSize</key>
