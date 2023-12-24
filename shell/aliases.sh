@@ -136,6 +136,7 @@ alias spoton='sudo mdutil -a -i on'
 # https://blog.g3rt.nl/upgrade-your-ssh-keys.html
 alias sshkeygen='ssh-keygen -o -a 100 -t ed25519'
 alias sshm1="ssh dany@192.168.0.3"
+
 #######################################################################
 # get public key
 #######################################################################

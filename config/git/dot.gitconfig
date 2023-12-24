@@ -10,14 +10,14 @@
 	path = "~/.dotfiles/config/git/osx.gitconfig"
 	
 [user]
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBY/6OFZz0mmrQlGKMcj4aSM+VtsQ9DKH5EqgjM/zHAj
+	signingkey = $ssh-ed25519 ...
 
 #######################################################################
 # My aliases
 #######################################################################
 
-[includeIf "gitdir:/Users/"]
-	path = "~/.dotfiles/config/git/aliases.gitconfig"
+# [includeIf "gitdir:/Users/"]
+	# path = "~/.dotfiles/config/git/aliases.gitconfig"
 
 #######################################################################
 # Formatting
@@ -116,8 +116,8 @@
 #######################################################################
 
 [gui]
-	fontui = -family '\"Cascadia Code\"' -size -10 -weight normal -slant roman -underline 0 -overstrike 0
-	fontdiff = -family '\"Cascadia Code PL\"' -size -10 -weight normal -slant roman -underline 0 -overstrike 0
+	fontui = -family '\"Operator Mono SSm Lig\"' -size -12 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family '\"Operator Mono SSm Lig\"' -size -12 -weight normal -slant roman -underline 0 -overstrike 0
 	commitmsgwidth = 280
 	diffcontext = 10
 

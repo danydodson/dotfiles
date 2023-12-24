@@ -6,10 +6,11 @@ export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
 # History                                                             #
 #######################################################################
 
+HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
+# HISTFILE="${HOME}/.config/zsh/zsh_history"
 HISTSIZE=50000
 SAVEHIST=50000
 SHELL_SESSIONS_DISABLE=1
-HISTFILE="${HOME}/.config/zsh/zsh_history"
 
 #######################################################################
 # Completions                                                         #
@@ -161,12 +162,12 @@ bindkey -M viins '^?' backward-delete-char
 #######################################################################
 
 # Up/Down search history filtered using already entered contents
-bindkey '^[[A' history-search-backward
-bindkey '^[[B' history-search-forward
+# bindkey '^[[A' history-search-backward
+# bindkey '^[[B' history-search-forward
 
 # PgUp/Dn navigate through history like regular up/down
-bindkey '^[[5~' up-history
-bindkey '^[[6~' down-history
+# bindkey '^[[5~' up-history
+# bindkey '^[[6~' down-history
 
 #######################################################################
 # Keybindings: Movement, also triggers zsh-autosuggest partials
@@ -176,22 +177,11 @@ bindkey '^e' vi-forward-word-end
 bindkey '^w' vi-forward-word
 
 #######################################################################
-# alt+left to previous dir
-#######################################################################
-
-__prevdir() {
-  popd 2>/dev/null
-  zle accept-line
-}
-zle -N __prevdir
-bindkey '^[[1;3D' __prevdir
-
-#######################################################################
 # Completion: Caching
 #######################################################################
 
 zstyle ':completion:*' use-cache true
-zstyle ':completion:*' cache-path "$ZSH_CACHE_DIR"
+zstyle ':completion:*' cache-path "${ZDOTDIR}/zsh"
 
 #######################################################################
 # Completion: Display
@@ -226,14 +216,6 @@ zstyle ':completion:*' expand yes
 
 # process names
 zstyle ':completion:*:processes-names' command 'ps c -u ${USER} -o command | uniq'
-
-# rsync and SSH use hosts from ~/.ssh/config
-# link https://github.com/Eriner/zim/issues/46#issuecomment-219344931
-# [ -r "${HOME}/.ssh/config" ] && {
-#   hosts=($(egrep '^Host ' "$HOME/.ssh/config" | grep -v '*' | awk '{print $2}'))
-#   zstyle ':completion:*:ssh:*' hosts $hosts
-#   zstyle ':completion:*:rsync:*' hosts $hosts
-# }
 
 # colorful kill command completion -- probably overridden by fzf
 zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"

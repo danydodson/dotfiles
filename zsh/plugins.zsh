@@ -38,7 +38,7 @@ bindkey '^[[B' history-substring-search-down
 # MEGAcmd
 #######################################################################
 
-source /Applications/MEGAcmd.app/Contents/MacOS/megacmd_completion.sh
+# source /Applications/MEGAcmd.app/Contents/MacOS/megacmd_completion.sh
 
 #######################################################################
 # 1password
@@ -137,4 +137,3 @@ alias preview="fzf --preview 'bat --color \"always\" --style \"numbers\" --line-
 if [[ -f ~/.fzf.zsh ]]; then
   source ~/.fzf.zsh
 fi
-

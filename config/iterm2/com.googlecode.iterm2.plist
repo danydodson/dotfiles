@@ -1523,7 +1523,7 @@ Preferences...</string>
 				<real>0.15686274509803921</real>
 			</dict>
 			<key>Cursor Type</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
@@ -1957,13 +1957,13 @@ Preferences...</string>
 			<key>Name</key>
 			<string>default</string>
 			<key>Non Ascii Font</key>
-			<string>VictorMono-Medium 17</string>
+			<string>Menlo-Regular 14</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Non-ASCII Ligatures</key>
 			<false/>
 			<key>Normal Font</key>
-			<string>FiraCode-Retina 14</string>
+			<string>OperatorMonoSSm-Book 14</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Open Password Manager Automatically</key>
@@ -2769,7 +2769,7 @@ Preferences...</string>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Thin Strokes</key>
-			<integer>3</integer>
+			<integer>0</integer>
 			<key>Title Components</key>
 			<integer>960</integer>
 			<key>Transparency</key>

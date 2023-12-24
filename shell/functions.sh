@@ -40,8 +40,12 @@ function fpath-prepend() {
 # variables
 #######################################################################
 
-function daily() {
-  cd "$HOME/.dotfiles/scripts/daily" || exit
+function working() {
+  cd "$HOME/Developer/Working" || exit
+}
+
+function repos() {
+  cd "$HOME/Developer/Github" || exit
 }
 
 #######################################################################
@@ -68,7 +72,6 @@ bindkey '^X' __fzf_scripts
 
 function __my_op_plugin_run() {
   _op_plugin_run
-
   for ((i = 2; i < CURRENT; i++)); do
     if [[ ${words[i]} == -- ]]; then
       shift $i words
@@ -77,7 +80,6 @@ function __my_op_plugin_run() {
       return
     fi
   done
-
 }
 
 function __load_op_completion() {

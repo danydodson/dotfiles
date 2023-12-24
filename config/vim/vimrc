@@ -15,8 +15,6 @@ scriptencoding utf-8
 
 set viminfo+=n~/.config/vim/viminfo
 
-set rtp+=/opt/homebrew/opt/fzf
-
 let g:mapleader = "\<Space>"
 
 " ------------------------------------------------------------------------------------------------------
@@ -24,6 +22,8 @@ let g:mapleader = "\<Space>"
 " ------------------------------------------------------------------------------------------------------
 
 set rtp+=/opt/homebrew/opt/fzf
+
+let $FZF_PREVIEW_COMMAND="COLORTERM=truecolor bat --style=numbers --color=always --line-range :500 {}"
 
 " ------------------------------------------------------------------------------------------------------
 " Defaults, May be overridden by **/plugins, after/plugins and **/ftplugins

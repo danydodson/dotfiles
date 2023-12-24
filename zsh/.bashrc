@@ -4,6 +4,12 @@
 
 [[ $- != *i* ]] && return
 
+export HISTFILE="${HOME}/.config/.cache/bash/bash_history"
+export HISTFILESIZE=1000
+export HISTSIZE=1000
+
+export HISTCONTROL=ignoredups
+
 colors() {
 	local fgc bgc vals seq0
 
@@ -77,6 +83,7 @@ if ${use_color}; then
 	fi
 
 	alias ls='ls --color=auto'
+	alias l='ls -al --color=auto'
 	alias grep='grep --colour=auto'
 	alias egrep='egrep --colour=auto'
 	alias fgrep='fgrep --colour=auto'
@@ -138,10 +145,6 @@ ex() {
 	fi
 }
 
-# better yaourt colors
-export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
-
-# Instalacao das Funcoes ZZ (www.funcoeszz.net)
-export ZZOFF=""                                 # desligue funcoes indesejadas
-export ZZPATH="/home/tiago/Downloads/funcoeszz" # script
-source "$ZZPATH"
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"
+[ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm"

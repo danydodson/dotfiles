@@ -71,29 +71,29 @@ defaults write com.apple.DiskUtility advanced-image-options -bool true || __err 
 ###############################################################################
 __info 'Changing Dock settings...'
 
-# dock: minimize windows into their application’s icon
-defaults write com.apple.dock minimize-to-application -bool true || __err ''
+# # dock: minimize windows into their application’s icon
+# defaults write com.apple.dock minimize-to-application -bool true || __err ''
 
-# dock: enable spring loading for all Dock items
-defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true || __err ''
+# # dock: enable spring loading for all Dock items
+# defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true || __err ''
 
-# dock: show indicator lights for open applications in the dock
-defaults write com.apple.dock show-process-indicators -bool true || __err ''
+# # dock: show indicator lights for open applications in the dock
+# defaults write com.apple.dock show-process-indicators -bool true || __err ''
 
-# dock: automatically hide and show the dock
-defaults write com.apple.dock autohide -bool true || __err ''
+# # dock: automatically hide and show the dock
+# defaults write com.apple.dock autohide -bool true || __err ''
 
-# dock: don’t animate opening applications from the dock
-# defaults write com.apple.dock launchanim -bool false || __err ''
+# # dock: don’t animate opening applications from the dock
+# # defaults write com.apple.dock launchanim -bool false || __err ''
 
-# dock: don’t group windows by application in Mission Control
-defaults write com.apple.dock expose-group-by-app -bool false || __err ''
+# # dock: don’t group windows by application in Mission Control
+# defaults write com.apple.dock expose-group-by-app -bool false || __err ''
 
-# dock: don’t automatically rearrange Spaces based on most recent use
-defaults write com.apple.dock mru-spaces -bool false || __err ''
+# # dock: don’t automatically rearrange Spaces based on most recent use
+# defaults write com.apple.dock mru-spaces -bool false || __err ''
 
-# dock: don’t show recent applications in Dock
-defaults write com.apple.dock show-recents -bool false || __err ''
+# # dock: don’t show recent applications in Dock
+# defaults write com.apple.dock show-recents -bool false || __err ''
 
 # dock: speed up mission control animations
 defaults write com.apple.dock expose-animation-duration -float 0.1
@@ -118,8 +118,8 @@ defaults write com.apple.finder AppleShowAllFiles -bool true || __err ''
 # finder: show path bar
 defaults write com.apple.finder ShowPathbar -bool true || __err ''
 
-# finder: show status bar
-defaults write com.apple.finder ShowStatusBar -bool false || __err ''
+# finder: hide status bar
+# defaults write com.apple.finder ShowStatusBar -bool false || __err ''
 
 # finder: show the ~/Library folder
 chflags nohidden ~/Library || __err ''
@@ -127,7 +127,7 @@ chflags nohidden ~/Library || __err ''
 # finder: allow text selection in Quick Look
 defaults write com.apple.finder QLEnableTextSelection -bool true || __err ''
 
-# finder: display full POSIX path as Finder window title
+# finder: hide display full POSIX path as Finder window title
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool false || __err ''
 
 # finder: allowing finder quitting via ⌘ + Q
@@ -154,10 +154,10 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true || __er
 # defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true || __err ''
 # defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true || __err ''
 
-# finder: automatically open a new finder window when a volume is mounted
-defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true || __err ''
-defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true || __err ''
-defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true || __err ''
+# # finder: automatically open a new finder window when a volume is mounted
+# defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true || __err ''
+# defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true || __err ''
+# defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true || __err ''
 
 # finder: expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true || __err ''
@@ -209,7 +209,7 @@ __info 'Changing General UI/UX settings...'
 # defaults write com.apple.systemuiserver menuExtras -array '/System/Library/CoreServices/Menu Extras/Bluetooth.menu' '/System/Library/CoreServices/Menu Extras/AirPort.menu' '/System/Library/CoreServices/Menu Extras/Battery.menu' '/System/Library/CoreServices/Menu Extras/Clock.menu' || __err ''
 
 # UI/UX: always show scrollbars Options: `WhenScrolling`, `Automatic`, `Always`
-defaults write NSGlobalDomain AppleShowScrollBars -string 'WhenScrolling' || __err ''
+# defaults write NSGlobalDomain AppleShowScrollBars -string 'WhenScrolling' || __err ''
 
 # UI/UX: disable automatic termination of inactive apps
 defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true || __err ''
@@ -248,15 +248,15 @@ defaults write com.apple.loginwindow LoginwindowLaunchesRelaunchApps -bool false
 ###############################################################################
 # Hot Corners                                                                 #
 ###############################################################################
-__info 'Changing Hot Corners settings...'
+# __info 'Changing Hot Corners settings...'
 
-# hot corners: top right → Mission Control
-defaults write com.apple.dock wvous-tr-corner -int 2 || __err ''
-defaults write com.apple.dock wvous-tr-modifier -int 0 || __err ''
+# # hot corners: top right → Mission Control
+# defaults write com.apple.dock wvous-tr-corner -int 2 || __err ''
+# defaults write com.apple.dock wvous-tr-modifier -int 0 || __err ''
 
-# hot corners: bottom left → Start screen saver
-defaults write com.apple.dock wvous-bl-corner -int 11 || __err ''
-defaults write com.apple.dock wvous-bl-modifier -int 0 || __err ''
+# # hot corners: bottom left → Start screen saver
+# defaults write com.apple.dock wvous-bl-corner -int 11 || __err ''
+# defaults write com.apple.dock wvous-bl-modifier -int 0 || __err ''
 
 ####################################################################################
 # iCal                                                                             #
@@ -285,8 +285,8 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2>/dev/null
 #######################################################################################
 __info 'Changing Keyboard settings...'
 
-# keyboard: Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
-defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+# # keyboard: Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
+# defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 # keyboard: disable press-and-hold for keys in favor of key repeat
 defaults write -g ApplePressAndHoldEnabled -bool false || __err ''
@@ -301,9 +301,9 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false |
 ###############################################################################
 # Launchpad                                                                   #
 ###############################################################################
-__info 'Changing Launchpad settings...'
+# __info 'Changing Launchpad settings...'
 
-# launchpad: add iOS Simulator to Launchpad
+# # launchpad: add iOS Simulator to Launchpad
 # sudo ln -sf '/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app' '/Applications/Simulator.app' || __err ''
 
 ###############################################################################
@@ -338,19 +338,19 @@ defaults write com.apple.commerce AutoUpdateRestartRequired -bool true || __err 
 ###############################################################################
 # Mail                                                                        #
 ###############################################################################
-__info 'Changing Mail settings...'
+# __info 'Changing Mail settings...'
 
-# mail: copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
-defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false || __err ''
+# # mail: copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
+# defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false || __err ''
 
-# mail: add the keyboard shortcut ⌘ + Enter to send an email in Mail.app
-defaults write com.apple.mail NSUserKeyEquivalents -dict-add 'Send' '@\U21a9' || __err ''
+# # mail: add the keyboard shortcut ⌘ + Enter to send an email in Mail.app
+# defaults write com.apple.mail NSUserKeyEquivalents -dict-add 'Send' '@\U21a9' || __err ''
 
-# mail: disable inline attachments (just show the icons)
-defaults write com.apple.mail DisableInlineAttachmentViewing -bool true || __err ''
+# # mail: disable inline attachments (just show the icons)
+# defaults write com.apple.mail DisableInlineAttachmentViewing -bool true || __err ''
 
-# mail: disable automatic spell checking
-defaults write com.apple.mail SpellCheckingBehavior -string 'NoSpellCheckingEnabled' || __err ''
+# # # mail: disable automatic spell checking
+# # defaults write com.apple.mail SpellCheckingBehavior -string 'NoSpellCheckingEnabled' || __err ''
 
 ###############################################################################
 # Messages                                                                    #
@@ -401,122 +401,122 @@ defaults write com.apple.QuickTimePlayerX NSQuitAlwaysKeepsWindows -bool false
 ###############################################################################
 # Safari & WebKit                                                             #
 ###############################################################################
-__info 'Changing Safari & WebKit settings...'
+# __info 'Changing Safari & WebKit settings...'
 
-# safari: privacy: don’t send search queries to Apple
-defaults write com.apple.Safari UniversalSearchEnabled -bool false || __err ''
-defaults write com.apple.Safari SuppressSearchSuggestions -bool true || __err ''
+# # safari: privacy: don’t send search queries to Apple
+# defaults write com.apple.Safari UniversalSearchEnabled -bool false || __err ''
+# defaults write com.apple.Safari SuppressSearchSuggestions -bool true || __err ''
 
-# safari: press Tab to highlight each item on a web page
-defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true || __err ''
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true || __err ''
+# # safari: press Tab to highlight each item on a web page
+# defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true || __err ''
+# defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true || __err ''
 
-# safari: show the full URL in the address bar (note: this still hides the scheme)
-defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true || __err ''
+# # safari: show the full URL in the address bar (note: this still hides the scheme)
+# defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true || __err ''
 
-# safari: set safari’s home page to `about:blank` for faster loading
-defaults write com.apple.Safari HomePage -string 'about:blank' || __err ''
+# # safari: set safari’s home page to `about:blank` for faster loading
+# defaults write com.apple.Safari HomePage -string 'about:blank' || __err ''
 
-# safari: prevent Safari from opening ‘safe’ files automatically after downloading
-defaults write com.apple.Safari AutoOpenSafeDownloads -bool false || __err ''
+# # safari: prevent Safari from opening ‘safe’ files automatically after downloading
+# defaults write com.apple.Safari AutoOpenSafeDownloads -bool false || __err ''
 
-# safari: hide Safari’s bookmarks bar by default
-defaults write com.apple.Safari ShowFavoritesBar -bool false || __err ''
+# # # safari: hide Safari’s bookmarks bar by default
+# # defaults write com.apple.Safari ShowFavoritesBar -bool false || __err ''
 
-# safari: hide Safari’s sidebar in Top Sites
-defaults write com.apple.Safari ShowSidebarInTopSites -bool false || __err ''
+# # # safari: hide Safari’s sidebar in Top Sites
+# # defaults write com.apple.Safari ShowSidebarInTopSites -bool false || __err ''
 
-# safari: disable Safari’s thumbnail cache for History and Top Sites
-defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2 || __err ''
+# # safari: disable Safari’s thumbnail cache for History and Top Sites
+# defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2 || __err ''
 
-# safari: enable Safari’s debug menu
-defaults write com.apple.Safari IncludeInternalDebugMenu -bool true || __err ''
+# # safari: enable Safari’s debug menu
+# defaults write com.apple.Safari IncludeInternalDebugMenu -bool true || __err ''
 
-# safari: make Safari’s search banners default to Contains instead of Starts With
-defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false || __err ''
+# # safari: make Safari’s search banners default to Contains instead of Starts With
+# defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false || __err ''
 
-# safari: remove useless icons from Safari’s bookmarks bar
-defaults write com.apple.Safari ProxiesInBookmarksBar '()' || __err ''
+# # safari: remove useless icons from Safari’s bookmarks bar
+# defaults write com.apple.Safari ProxiesInBookmarksBar '()' || __err ''
 
-# safari: enable the develop menu and the Web Inspector in Safari
-defaults write com.apple.Safari IncludeDevelopMenu -bool true || __err ''
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true || __err ''
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true || __err ''
+# # safari: enable the develop menu and the Web Inspector in Safari
+# defaults write com.apple.Safari IncludeDevelopMenu -bool true || __err ''
+# defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true || __err ''
+# defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true || __err ''
 
-# safari: add a context menu item for showing the Web Inspector in web views
-defaults write NSGlobalDomain WebKitDeveloperExtras -bool true || __err ''
+# # safari: add a context menu item for showing the Web Inspector in web views
+# defaults write NSGlobalDomain WebKitDeveloperExtras -bool true || __err ''
 
-# safari: enable continuous spellchecking
-defaults write com.apple.Safari WebContinuousSpellCheckingEnabled -bool true || __err ''
+# # safari: enable continuous spellchecking
+# defaults write com.apple.Safari WebContinuousSpellCheckingEnabled -bool true || __err ''
 
-# safari: disable auto-correct
-defaults write com.apple.Safari WebAutomaticSpellingCorrectionEnabled -bool false || __err ''
+# # safari: disable auto-correct
+# defaults write com.apple.Safari WebAutomaticSpellingCorrectionEnabled -bool false || __err ''
 
-# safari: disable AutoFill
-defaults write com.apple.Safari AutoFillFromAddressBook -bool false || __err ''
-defaults write com.apple.Safari AutoFillPasswords -bool false || __err ''
-defaults write com.apple.Safari AutoFillCreditCardData -bool false || __err ''
-defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false || __err ''
+# # safari: disable AutoFill
+# defaults write com.apple.Safari AutoFillFromAddressBook -bool false || __err ''
+# defaults write com.apple.Safari AutoFillPasswords -bool false || __err ''
+# defaults write com.apple.Safari AutoFillCreditCardData -bool false || __err ''
+# defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false || __err ''
 
-# safari: warn about fraudulent websites
-defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true || __err ''
+# # safari: warn about fraudulent websites
+# defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true || __err ''
 
-# safari: disable plug-ins
-defaults write com.apple.Safari WebKitPluginsEnabled -bool true || __err ''
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2PluginsEnabled -bool true || __err ''
+# # # safari: disable plug-ins
+# # defaults write com.apple.Safari WebKitPluginsEnabled -bool true || __err ''
+# # defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2PluginsEnabled -bool true || __err ''
 
-# safari: disable java. defaults write com.apple.Safari WebKitJavaEnabled -bool false
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled -bool false || __err ''
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabledForLocalFiles -bool false || __err ''
+# # # safari: disable java. defaults write com.apple.Safari WebKitJavaEnabled -bool false
+# # defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled -bool false || __err ''
+# # defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabledForLocalFiles -bool false || __err ''
 
-# safari: block pop-up windows
-defaults write com.apple.Safari WebKitJavaScriptCanOpenWindowsAutomatically -bool false || __err ''
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically -bool false || __err ''
+# # safari: block pop-up windows
+# defaults write com.apple.Safari WebKitJavaScriptCanOpenWindowsAutomatically -bool false || __err ''
+# defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically -bool false || __err ''
 
-# safari: disable auto-playing video
-defaults write com.apple.Safari WebKitMediaPlaybackAllowsInline -bool false || __err ''
-defaults write com.apple.SafariTechnologyPreview WebKitMediaPlaybackAllowsInline -bool false || __err ''
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2AllowsInlineMediaPlayback -bool false || __err ''
-defaults write com.apple.SafariTechnologyPreview com.apple.Safari.ContentPageGroupIdentifier.WebKit2AllowsInlineMediaPlayback -bool false || __err ''
+# # safari: disable auto-playing video
+# defaults write com.apple.Safari WebKitMediaPlaybackAllowsInline -bool false || __err ''
+# defaults write com.apple.SafariTechnologyPreview WebKitMediaPlaybackAllowsInline -bool false || __err ''
+# defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2AllowsInlineMediaPlayback -bool false || __err ''
+# defaults write com.apple.SafariTechnologyPreview com.apple.Safari.ContentPageGroupIdentifier.WebKit2AllowsInlineMediaPlayback -bool false || __err ''
 
-# safari: enable “do not track”
-defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true || __err ''
+# # safari: enable “do not track”
+# defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true || __err ''
 
-# safari: update extensions automatically
-defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true || __err ''
+# # safari: update extensions automatically
+# defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true || __err ''
 
 ###############################################################################
 # Spotlight                                                                   #
 ###############################################################################
-__info 'Changing Spotlight settings...'
+# __info 'Changing Spotlight settings...'
 
-# spotlight: change indexing order and disable some file types
-defaults write com.apple.spotlight orderedItems -array \
-	'{"enabled" = 1;"name" = "APPLICATIONS";}' \
-	'{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
-	'{"enabled" = 1;"name" = "DIRECTORIES";}' \
-	'{"enabled" = 1;"name" = "PDF";}' \
-	'{"enabled" = 1;"name" = "FONTS";}' \
-	'{"enabled" = 0;"name" = "DOCUMENTS";}' \
-	'{"enabled" = 0;"name" = "MESSAGES";}' \
-	'{"enabled" = 0;"name" = "CONTACT";}' \
-	'{"enabled" = 0;"name" = "EVENT_TODO";}' \
-	'{"enabled" = 0;"name" = "IMAGES";}' \
-	'{"enabled" = 0;"name" = "BOOKMARKS";}' \
-	'{"enabled" = 0;"name" = "MUSIC";}' \
-	'{"enabled" = 0;"name" = "MOVIES";}' \
-	'{"enabled" = 0;"name" = "PRESENTATIONS";}' \
-	'{"enabled" = 0;"name" = "SPREADSHEETS";}' \
-	'{"enabled" = 0;"name" = "SOURCE";}'
+# # spotlight: change indexing order and disable some file types
+# defaults write com.apple.spotlight orderedItems -array \
+# 	'{"enabled" = 1;"name" = "APPLICATIONS";}' \
+# 	'{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
+# 	'{"enabled" = 1;"name" = "DIRECTORIES";}' \
+# 	'{"enabled" = 1;"name" = "PDF";}' \
+# 	'{"enabled" = 1;"name" = "FONTS";}' \
+# 	'{"enabled" = 0;"name" = "DOCUMENTS";}' \
+# 	'{"enabled" = 0;"name" = "MESSAGES";}' \
+# 	'{"enabled" = 0;"name" = "CONTACT";}' \
+# 	'{"enabled" = 0;"name" = "EVENT_TODO";}' \
+# 	'{"enabled" = 0;"name" = "IMAGES";}' \
+# 	'{"enabled" = 0;"name" = "BOOKMARKS";}' \
+# 	'{"enabled" = 0;"name" = "MUSIC";}' \
+# 	'{"enabled" = 0;"name" = "MOVIES";}' \
+# 	'{"enabled" = 0;"name" = "PRESENTATIONS";}' \
+# 	'{"enabled" = 0;"name" = "SPREADSHEETS";}' \
+# 	'{"enabled" = 0;"name" = "SOURCE";}'
 
-# spotlight: load new settings before rebuilding the index
-killall mds >/dev/null 2>&1
+# # spotlight: load new settings before rebuilding the index
+# killall mds >/dev/null 2>&1
 
-# spotlight: make sure indexing is enabled for the main volume
-sudo mdutil -i on / >/dev/null
+# # spotlight: make sure indexing is enabled for the main volume
+# sudo mdutil -i on / >/dev/null
 
-# spotlight: rebuild the index from scratch
-sudo mdutil -E / >/dev/null
+# # spotlight: rebuild the index from scratch
+# sudo mdutil -E / >/dev/null
 
 ###############################################################################
 # Terminal                                                                    #
@@ -547,10 +547,10 @@ defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4 || __err ''
 ###############################################################################
 # Time Machine                                                                #
 ###############################################################################
-__info 'Changing Time Machine settings...'
+# __info 'Changing Time Machine settings...'
 
-# time-machine: prevent Time Machine from prompting to use new hard drives as backup volume
-defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true || __err ''
+# # time-machine: prevent Time Machine from prompting to use new hard drives as backup volume
+# defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true || __err ''
 
 #######################################################################################
 # Trackpad                                                                            #
