@@ -6,7 +6,7 @@ export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
 # History                                                             #
 #######################################################################
 
-HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
+HISTFILE=${ZDOTDIR:-$HOME}/zsh_history
 # HISTFILE="${HOME}/.config/zsh/zsh_history"
 HISTSIZE=50000
 SAVEHIST=50000
@@ -114,10 +114,10 @@ bindkey -v
 #######################################################################
 
 # shift-tab to select previous result
-# bindkey -M menuselect '^[[Z' reverse-menu-complete
+bindkey -M menuselect '^[[Z' reverse-menu-complete
 
 # fix prompt (and side-effect of exiting menuselect) on ^C
-# bindkey -M menuselect '^C' reset-prompt
+bindkey -M menuselect '^C' reset-prompt
 
 #######################################################################
 # Keybindings - Movement keys

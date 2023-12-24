@@ -2063,7 +2063,7 @@ Preferences...</string>
 			<key>Show Status Bar</key>
 			<false/>
 			<key>Show Timestamps</key>
-			<integer>2</integer>
+			<integer>0</integer>
 			<key>Silence Bell</key>
 			<true/>
 			<key>Smart Cursor Color</key>
@@ -2961,7 +2961,7 @@ Preferences...</string>
 	<real>0.0</real>
 	<key>ToolbeltTools</key>
 	<array>
-		<string>Command History</string>
+		<string>Codecierge</string>
 	</array>
 	<key>TrimWhitespaceOnCopy</key>
 	<true/>

@@ -1,7 +1,9 @@
 # shellcheck disable=all
 
 # show line numbers
-# --style="numbers"
+--style="grid"
+
+--color=always
 
 # Run bat --list-themes
 --theme="OneHalfDark"
