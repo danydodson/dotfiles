@@ -112,7 +112,9 @@ fi
 # Load Key bindings
 source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
 
-export FZF_DEFAULT_COMMAND="rg --files"
+# export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
+
+export FZF_DEFAULT_COMMAND="rg --files --column --line-number --no-heading --color=always --smart-case"
 export FZF_COMPLETION_OPTS="--reverse --border --exact --height 40%"
 export FZF_DEFAULT_OPTS="
  --reverse 

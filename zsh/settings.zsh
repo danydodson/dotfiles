@@ -6,17 +6,17 @@ export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
 # History                                                             #
 #######################################################################
 
-HISTFILE=${ZDOTDIR:-$HOME}/zsh_history
-# HISTFILE="${HOME}/.config/zsh/zsh_history"
 HISTSIZE=50000
 SAVEHIST=50000
+HISTFILE="${HOME}/.config/cache/zsh/zsh_history"
+LESSHISTFILE="${HOME}/.config/cache/less/lesshst"
 SHELL_SESSIONS_DISABLE=1
 
 #######################################################################
 # Completions                                                         #
 #######################################################################
 
-zcompdump="${ZDOTDIR:-$HOME/.config/zsh}/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
+zcompdump="${ZDOTDIR:-$HOME/.config/zsh}/.zcompdump_${SHORT_HOST}_${ZSH_VERSION}"
 
 if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then
   zcompile "$zcompdump"
@@ -34,7 +34,6 @@ setopt AUTO_PUSHD # pushd instead of cd
 setopt PUSHD_IGNORE_DUPS
 setopt PUSHD_SILENT # hide stack after cd
 setopt PUSHD_TO_HOME # go home if no d specified
-setopt SHARE_HISTORY
 
 # Completion
 setopt AUTO_LIST # list completions
@@ -46,6 +45,8 @@ setopt LIST_PACKED  # variable column widths
 setopt EXTENDED_GLOB # like ** for recursive dirs
 
 # History
+setopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY
 setopt APPEND_HISTORY # append instead of overwrite file
 setopt EXTENDED_HISTORY # extended timestamps
 setopt HIST_IGNORE_ALL_DUPS
@@ -181,7 +182,7 @@ bindkey '^w' vi-forward-word
 #######################################################################
 
 zstyle ':completion:*' use-cache true
-zstyle ':completion:*' cache-path "${ZDOTDIR}/zsh"
+zstyle ':completion:*' cache-path $HOME/.config/zsh
 
 #######################################################################
 # Completion: Display

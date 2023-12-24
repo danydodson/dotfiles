@@ -51,12 +51,6 @@ export ACKRC="${DOTFILES}/config/ack/ackrc"
 export BAT_CONFIG_PATH="$XDG_CONFIG_HOME/bat/conf"
 
 #######################################################################
-# bash
-#######################################################################
-
-export HISTFILE="${XDG_CONFIG_HOME}/bash/bash_history"
-
-#######################################################################
 # cargo
 #######################################################################
 
@@ -87,13 +81,6 @@ export HOMEBREW_NO_INSTALL_CLEANUP=true
 #######################################################################
 
 # export JAVA_HOME="/opt/homebrew/Cellar/openjdk@17/17.0.8.1/libexec/openjdk.jdk/Contents/Home"
-
-#######################################################################
-# less
-#######################################################################
-
-# use [-] to not write history
-export LESSHISTFILE="${XDG_CACHE_HOME}/less/lesshst"
 
 #######################################################################
 # ls
@@ -144,7 +131,7 @@ export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agen
 # terminfo
 #######################################################################
 
-export TERMINFO="${XDG_DATA_HOME}/terminfo"
+# export TERMINFO="${XDG_DATA_HOME}/terminfo"
 
 #######################################################################
 # vim

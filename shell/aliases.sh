@@ -24,13 +24,13 @@ alias rm='rm -i'
 # paths and dirs
 #######################################################################
 
-# alias dirs='dirs -v'
+alias dirs='dirs -v'
 alias src='. ~/.zshrc'
 alias fpath='echo -e ${FPATH//:/\\n}'
 alias path='echo -e ${PATH//:/\\n}'
 
 #######################################################################
-# cat (prefer bat)
+# bat
 #######################################################################
 
 alias brm='bat --plain readme.md'
@@ -41,7 +41,6 @@ alias pyg='pygmentize -O style=rrt -f console256 -g'
 # Homebrew
 #######################################################################
 
-# alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 alias b='brew'
 alias bi='brew install'
 alias bu='brew update && brew upgrade && brew autoremove && brew cleanup --prune=all -s'
@@ -53,7 +52,6 @@ alias brc="brew uninstall --cask"
 # Yarn
 #######################################################################
 
-# alias yarn='/opt/homebrew/bin/yarn --use-yarnrc $HOME/.config/yarn/yarnrc'
 alias y='yarn'
 alias yi='y install'
 alias yb='y build'
