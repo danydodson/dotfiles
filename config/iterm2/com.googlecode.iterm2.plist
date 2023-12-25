@@ -1406,7 +1406,7 @@ Preferences...</string>
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>210</integer>
+			<integer>211</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Boost</key>
