@@ -1,5 +1,6 @@
 {
   "files.associations": {
+    "**/bin/ack": "perl",
     "**/bin/*": "shellscript"
   },
   "taskExplorer.exclude": [

@@ -6,21 +6,11 @@ export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
 # History                                                             #
 #######################################################################
 
-HISTSIZE=50000
-SAVEHIST=50000
+HISTSIZE=100000
+SAVEHIST=100000
 HISTFILE="${HOME}/.config/cache/zsh/zsh_history"
 LESSHISTFILE="${HOME}/.config/cache/less/lesshst"
 SHELL_SESSIONS_DISABLE=1
-
-#######################################################################
-# Completions                                                         #
-#######################################################################
-
-zcompdump="${ZDOTDIR:-$HOME/.config/zsh}/.zcompdump_${SHORT_HOST}_${ZSH_VERSION}"
-
-if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then
-  zcompile "$zcompdump"
-fi
 
 #######################################################################
 # Options
@@ -162,13 +152,9 @@ bindkey -M viins '^?' backward-delete-char
 # Don't bind in vicmd mode, so I can edit multiline commands properly.
 #######################################################################
 
-# Up/Down search history filtered using already entered contents
-# bindkey '^[[A' history-search-backward
-# bindkey '^[[B' history-search-forward
-
-# PgUp/Dn navigate through history like regular up/down
-# bindkey '^[[5~' up-history
-# bindkey '^[[6~' down-history
+# Up/Down search history-substring plugin
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 #######################################################################
 # Keybindings: Movement, also triggers zsh-autosuggest partials
