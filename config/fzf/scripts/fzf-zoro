@@ -1,0 +1,83 @@
+#!/usr/bin/env python
+
+import subprocess
+import requests
+import sys
+from bs4 import BeautifulSoup
+from base64 import b64decode
+import json
+from Crypto import *
+
+COMMAND = ['fzf', '--reverse']
+
+def fzf(data):
+    p = subprocess.run(COMMAND, input=data, capture_output=True, text=True)
+    if p.stdout == "":
+        sys.exit("Please select something.")
+    else:
+        return int(p.stdout.split("\n")[0].split(":")[0]) - 1
+
+def request(url, jsonify=False):
+    r = requests.get(url)
+    if not r.ok:
+        sys.exit("Could not request url")
+
+    if jsonify == False:
+        return r.text
+    elif jsonify == True:
+        return r.json()
+
+def main():
+    # Search
+    query = input("Search an Anime: ").replace(" ", "+")
+    if query == "":
+        sys.exit("Please input something")
+    search_result = request(f"https://zoro.to/search?keyword={query}")
+    soup = BeautifulSoup(search_result, 'html.parser')
+    data = soup.find_all(attrs={"class": ["dynamic-name"]})
+    shows = [(i) for i in data if i.get("href").endswith("?ref=search")]
+    print(shows)
+    titles = '\n'.join([f"{num+1}: {i.get('title')}".encode("ascii", "ignore").decode() for num, i in enumerate(shows)])
+    index = fzf(titles)
+
+    # Select Episodes
+    id = [i.get("href").split("?")[0].split("-")[-1] for num, i in enumerate(shows)][index]
+    episode_list = request(f"https://zoro.to/ajax/v2/episode/list/{id}", jsonify=True)
+    html = episode_list["html"]
+    soup = BeautifulSoup(html, "html.parser")
+    data = soup.find_all("a", class_="ssl-item ep-item")
+    titles = '\n'.join([f"{num+1}: {thing.get('title')}" for num, thing in enumerate(data)])
+    index = fzf(titles)
+    id = [i.get("data-id") for num, i in enumerate(data)][index]
+
+    # Play episode
+    data = request(f"https://zoro.to/ajax/v2/episode/servers?episodeId={id}", jsonify=True)
+    html = data["html"]
+    soup = BeautifulSoup(html, "html.parser")
+    id = soup.find_all("div", class_="item server-item")[0].get("data-id")
+    sources = request(f"https://zoro.to/ajax/v2/episode/sources?id={id}", jsonify=True)
+    link = sources["link"]
+    provider = '/'.join(link.split("/")[0:3])
+    embed_type = link.split("/")[3].split("-")[1]
+    id = link.split("/")[-1].split("?")[0]
+    key = request(f"https://raw.githubusercontent.com/enimax-anime/key/e{embed_type}/key.txt")
+    real = request(f"{provider}/ajax/embed-{embed_type}/getSources?id={id}", jsonify=True)
+    sources = real["sources"]
+
+    raw_value = b64decode(sources.encode("utf-8"))
+    print(unpad(AES.new(key[:32], AES.MODE_CBC, key[32:]).decrypt(raw_value[16:]), 16).decode("utf-8", "ignore").lstrip(" "))
+
+    print(raw_value)
+    # One day make this actual python
+    #p1 = subprocess.Popen(['echo', sources], stdout=subprocess.PIPE)
+    #p2 = subprocess.Popen(['base64', '-d'], stdin=p1.stdout, stdout=subprocess.PIPE)
+    #p1.stdout.close()
+    #p3 = subprocess.Popen(f'openssl enc -aes-256-cbc -d -md md5 -k "{key}"', stdin=p2.stdout,stdout=subprocess.PIPE)
+    #p2.stdout.close()
+    #output = p3.communicate()[0]
+    #data = json.loads(str(output.splitlines()[-1].decode("utf-8")).splitlines()[-1])[0]
+    #video_link = data["file"]
+
+    subprocess.Popen(["mpv", video_link])
+if __name__ == "__main__":
+    main()

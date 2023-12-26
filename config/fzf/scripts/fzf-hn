@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+import requests
+import html
+
+id = "32644277"
+
+data = requests.get(f"https://hacker-news.firebaseio.com/v0/item/{id}.json").json()
+def get(id):
+    return requests.get(f"https://hacker-news.firebaseio.com/v0/item/{id}.json").json()
+
+space="| "
+num = 0
+def search(data, space, num):
+    if num < 1:
+        old = space
+    if "kids" in data:
+        old+=space
+        for kid in data["kids"]:
+            data = get(kid)
+            print(old + data["text"])
+            search(data, space, num)
+            num += 1
+        num = 0
+
+search(data, space, num)

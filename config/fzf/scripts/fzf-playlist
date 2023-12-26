@@ -1,0 +1,48 @@
+#!/usr/bin/env python
+import json
+import requests
+import os
+import subprocess
+import sys
+import argparse
+
+
+os.environ["PYTHONIOENCODING"] = 'UTF-8'
+
+directory = "C:/SGZ_Pro/Hobbys/coding-projects/fzf-scripts/playlists"
+playlists = os.listdir(directory)
+COMMAND = ['fzf', '--reverse']
+PLAYER = "mpv"
+
+def fzf(data):
+    p = subprocess.run(COMMAND, input=data, capture_output=True, text=True, encoding='UTF-8')
+    if p.stdout == "":
+        sys.exit("Please select something.")
+    else:
+        return int(p.stdout.split("\n")[0].split(":")[0]) - 1
+
+def main():
+    cleaned = []
+    for i, playlist in enumerate(playlists):
+        clean = playlist.replace("-", " ").title()[:-5]
+        cleaned.append(f"{i+1}: {clean}")
+    choice = fzf('\n'.join(cleaned))
+
+    with open(os.path.join(directory, playlists[choice]), "r", encoding="utf-8") as f:
+        text = f.read()
+        data = json.loads(text)
+
+    data = data["videos"]
+
+    cleaned = []
+    for i, video in enumerate(data):
+        cleaned.append(f"{i+1}: {video['title']}")
+    print(cleaned)
+    
+    choice = fzf('\n'.join(cleaned))
+    link = data[choice]["link"].split("&")[0]
+    print(link)
+    os.system(f"{PLAYER} {link}")
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,72 @@
+#!/usr/bin/env python
+
+# Rewrite of: https://github.com/mrishu/libg-fzf/tree/main
+
+# How to use properfly fzf's preview feature
+# https://seb.jambor.dev/posts/improving-shell-workflows-with-fzf/
+# fzf < test.txt --delimiter=" | " --preview 'echo {1}'
+import subprocess
+import requests
+import urllib.parse
+from bs4 import BeautifulSoup
+import sys
+
+INSTANCE = "https://libgen.is"
+DOWNLOAD = "aria2c"
+COMMAND = ["fzf", "--reverse", "--delimiter", " | "]
+
+def fzf(data):
+    p = subprocess.run(COMMAND, input=data, capture_output=True, text=True)
+    if p.stdout == "":
+        sys.exit("Please select something.")
+    else:
+        return p.stdout.split(" | ")[0]
+
+def request(url, jsonify=False):
+    r = requests.get(url)
+    if not r.ok:
+        sys.exit("Could not request url")
+
+    if jsonify == False:
+        return r.text
+    elif jsonify == True:
+        return r.json()
+
+def search(query):
+    url = urllib.parse.urljoin(INSTANCE, f"/index.php?req={urllib.parse.quote(query)}")
+    data = request(url)
+    soup = BeautifulSoup(data, 'html.parser')
+    table = soup.find("table", {"class": "c"}).find_all("tr")[1:]
+    data = []
+    for line in table:
+        rows = line.find_all("td")
+        id = rows[0].text
+        data.append({
+            "id": id,
+            "authors": rows[1].text,
+            # https://stackoverflow.com/a/25477119
+            "title": rows[2].find("a", {"id": id}).contents[0].strip(),
+            "publisher": rows[3].text,
+            "year": rows[4].text,
+            "pages": rows[5].text,
+            "language": rows[6].text,
+            "size": rows[7].text,
+            "extension": rows[8].text
+        })
+    return data
+
+def get_links(id):
+    url = urllib.parse.urljoin(INSTANCE, f"/edition.php?id={id}")
+
+def main():
+    #query = input("Search: ")
+    query = "all the light we cannot see"
+    data = search(query)
+    books = ""
+    for i, item in enumerate(data):
+        #https://stackoverflow.com/a/33709339
+        books += f"{' | '.join(item.values())}\n"
+    print(fzf(stuff))
+
+if __name__ == "__main__":
+    main()

@@ -1,379 +1,475 @@
-scriptencoding utf-8
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Maintainer: 
+"       Amir Salihefendic
+"       http://amix.dk - amix@amix.dk
+"
+" Version: 
+"       5.0 - 29/05/12 15:43:36
+"
+" Blog_post: 
+"       http://amix.dk/blog/post/19691#The-ultimate-Vim-configuration-on-Github
+"
+" Awesome_version:
+"       Get this config, nice color schemes and lots of plugins!
+"
+"       Install the awesome version from:
+"
+"           https://github.com/amix/vimrc
+"
+" Syntax_highlighted:
+"       http://amix.dk/vim/vimrc.html
+"
+" Raw_version: 
+"       http://amix.dk/vim/vimrc.txt
+"
+" Sections:
+"    -> General
+"    -> VIM user interface
+"    -> Colors and Fonts
+"    -> Files and backups
+"    -> Text, tab and indent related
+"    -> Visual mode related
+"    -> Moving around, tabs and buffers
+"    -> Status line
+"    -> Editing mappings
+"    -> vimgrep searching and cope displaying
+"    -> Spell checking
+"    -> Misc
+"    -> Helper functions
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"  
-"   ██╗   ██╗ ██╗ ███╗   ███╗ ██████╗   ██████╗
-"   ██║   ██║ ██║ ████╗ ████║ ██╔══██╗ ██╔════╝
-"   ██║   ██║ ██║ ██╔████╔██║ ██████╔╝ ██║
-"   ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║ ██╔══██╗ ██║
-"  ██╗╚████╔╝  ██║ ██║ ╚═╝ ██║ ██║  ██║ ╚██████╗
-"  ╚═╝ ╚═══╝   ╚═╝ ╚═╝     ╚═╝ ╚═╝  ╚═╝  ╚═════╝
-"  
-
-" ------------------------------------------------------------------------------------------------------
-" Settings vars
-" ------------------------------------------------------------------------------------------------------
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set viminfo+=n~/.config/vim/viminfo
+if &compatible | set nocompatible | endif
+" viminfo
 
-let g:mapleader = "\<Space>"
+" fzf
+set rtp+=/opt/homebrew/bin/fzf
 
-" ------------------------------------------------------------------------------------------------------
-" Settings fzf
-" ------------------------------------------------------------------------------------------------------
+filetype off
+set rtp+=~/.config/vim/bundle/Vundle.vim
+call vundle#begin('~/.config/vim/bundle/Vundle.vim')
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'itchyny/lightline.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+call vundle#end()
 
-set rtp+=/opt/homebrew/opt/fzf
+" Enable filetype plugins
+filetype plugin indent on
 
-let $FZF_PREVIEW_COMMAND="COLORTERM=truecolor bat --style=numbers --color=always --line-range :500 {}"
+" set noshowcmd
+set noshowmode
 
-" ------------------------------------------------------------------------------------------------------
-" Defaults, May be overridden by **/plugins, after/plugins and **/ftplugins
-" ------------------------------------------------------------------------------------------------------
+" Sets how many lines of history VIM has to remember
+set history=500
 
-if exists('+modelines') | set modelines=1 | endif
-if !has('patch-8.1.1365') && !has('nvim-0.3.6') | set nomodeline | endif
-if exists('+pyxversion') && has('python3') | set pyxversion=3 | endif
+" Set to auto read when a file is changed from the outside
+set autoread
 
-" ----------------------------------------------------------------------------
-" Display
-" ----------------------------------------------------------------------------
+" Disable modeline as a security precaution
+set modelines=0
+set nomodeline
 
-" theme
-syntax enable
+" With a map leader it's possible to do extra key combinations
+" like <leader>w saves the current file
+let mapleader = ","
+let g:mapleader = ","
 
-" wintitle = filename - vim
-set title 
+" Fast saving
+nmap <leader>w :w!<cr>
 
-" no beeps or flashes
-set novisualbell
+" :W sudo saves the file 
+" (useful for handling the permission-denied error)
+command W w !sudo tee % > /dev/null
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => VIM user interface
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set 7 lines to the cursor - when moving vertically using j/k
+set so=7
+
+" Avoid garbled characters in Chinese language windows OS
+let $LANG='en' 
+set langmenu=en
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+
+" Turn on the WiLd menu
+set wildmenu
+
+
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc
+if has("win16") || has("win32")
+  set wildignore+=.git\*,.hg\*,.svn\*
+else
+  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+endif
+    
+"Always show current position
+set ruler
+
+" Height of the command bar
+set cmdheight=2
+
+" A buffer becomes hidden when it is abandoned
+set hid
+
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+" Ignore case when searching
+set ignorecase
+
+" When searching try to be smart about cases 
+set smartcase
+
+" Highlight search results
+set hlsearch
+
+" Makes search act like search in modern browsers
+set incsearch 
+
+" Don't redraw while executing macros (good performance config)
+set lazyredraw 
+
+" For regular expressions turn magic on
+set magic
+
+" Show matching brackets when text indicator is over them
+set showmatch 
+" How many tenths of a second to blink when matching brackets
+set mat=2
+ 
+" No annoying sound on errors
 set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
 
+set guioptions-=m  "menu bar
+set guioptions-=T  "toolbar
+set guioptions-=r  "scrollbar
+
+" Add a bit extra margin to the left
+set foldcolumn=0
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable syntax highlighting
+syntax enable 
+syntax on
+
+highlight Normal ctermbg=None
+highlight LineNr ctermfg=DarkGrey
 set number
-set numberwidth=5
 
-" show context around current cursor position
-set scrolloff=8
-set sidescrolloff=16
+let g:onedark_hide_endofbuffer = 1
+let g:onedark_terminal_italics = 1
 
-set textwidth=78
-" the line will be right after column 80, &tw+3
-set colorcolumn=+3
-set colorcolumn+=120
-set cursorline
+let g:airline#extensions#fzf#enabled = 1
+let g:airline_theme = 'onedark'
+let g:airline_powerline_fonts = 1
 
-" don't syntax highlight long lines
-set synmaxcol=512
+try
+  colorscheme onedark
+catch
+endtry
 
-if exists('+signcolumn')
-  let &signcolumn = has('nvim-0.4') ? 'auto:3' : 'yes'
+" let g:NERDTreeDirArrowExpandable = '▸'
+" let g:NERDTreeDirArrowCollapsible = '▾'
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+  
+let g:markdown_fenced_languages = [
+  \  'javascript', 'js=javascript', 'javascriptreact',
+  \  'json',
+  \  'bash=sh', 'sh',
+  \  'vim',
+  \  'help',
+  \ ]
+
+set background=dark
+
+" Set extra options when running in GUI mode
+if has("gui_running")
+    set guioptions-=T
+    set guioptions-=e
+    set t_Co=256
+    set guitablabel=%M\ %t
 endif
 
-" start OFF, toggle =2 to show tabline 
-set showtabline=0 
-" always show all statuslines            
-set laststatus=2 
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
 
-" This is slow on some terminals and often gets hidden by msgs so leave it off
-set noshowcmd
-" don't show -- INSERT -- in cmdline
-set noshowmode 
+" Use Unix as the standard file type
+set ffs=unix,dos,mac
 
-" ----------------------------------------------------------------------------
-" Input
-" ----------------------------------------------------------------------------
-
-" Enable mouse
-set mouse=a
-
-" Typing key combos
-set notimeout
-set ttimeout
-
-" ----------------------------------------------------------------------------
-" Wild and file globbing stuff in command mode
-" ----------------------------------------------------------------------------
-
-" browse files in same dir as open file
-set browsedir=buffer                  
-set wildmode=list:longest,full
-let &wildignorecase = v:version >= 704
-
-" wildignore prevents things from showing up in cmd completion
-" It's for things you'd NEVER open in Vim, like caches and binary files
-" https://github.com/tpope/vim-fugitive/issues/121#issuecomment-38720847
-" https://github.com/kien/ctrlp.vim/issues/63
-" https://github.com/tpope/vim-vinegar/issues/61#issuecomment-167432416
-" http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html#comment-1396330403
-"
-" So don't do this! There are cases where you'd edit them or their contents
-"set wildignore+=.git
-"set wildignore+=.hg,.svn
-"set wildignore+=tags
-"set wildignore+=*.manifest
-
-" Binary
-set wildignore+=*.aux,*.out,*.toc
-set wildignore+=*.o,*.obj,*.exe,*.dll,*.jar,*.pyc,*.rbc,*.class
-set wildignore+=*.ai,*.bmp,*.gif,*.ico,*.jpg,*.jpeg,*.png,*.psd,*.webp
-set wildignore+=*.avi,*.m4a,*.mp3,*.oga,*.ogg,*.wav,*.webm
-set wildignore+=*.eot,*.otf,*.ttf,*.woff
-set wildignore+=*.doc,*.pdf
-set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
-" Cache
-set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*.gem
-set wildignore+=.sass-cache
-set wildignore+=npm-debug.log
-" Compiled
-set wildignore+=*.marko.js
-set wildignore+=*.min.*,*-min.*
-" Temp/System
-set wildignore+=*.*~,*~
-set wildignore+=*.swp,.lock,.DS_Store,._*,tags.lock
-
-" ----------------------------------------------------------------------------
-" File saving
-" ----------------------------------------------------------------------------
-
-set fileformats=unix,mac,dos
-" Not modifiable if no window (e.g. resourcing vimrc)
-if !&modifiable | set fileformat=unix | endif
-
-" If we have a swap conflict, FZF has issues opening the file (and doesn't
-" prompt correctly)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Files, backups and undo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowb
 set noswapfile
 
-" Use backup files when writing (create new file, replace old one with new one)
-" Disabled for coc.nvim compat
-set nowritebackup
-" but do not leave around backup.xyz~ files after that
-set nobackup
-" backupcopy=yes is the default, just be explicit. We need this for
-" webpack-dev-server and hot module reloading -- preserves special file types
-" like symlinks
-set backupcopy=yes
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use spaces instead of tabs
+set expandtab
 
-" don't create backups for these paths
-set backupskip+=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
-" Make Vim able to edit crontab files again.
-set backupskip+=/private/tmp/*"
-set backupskip+=~/.secret/*
+" Be smart when using tabs ;)
+set smarttab
 
-" undo files: double slash means create dir structure to mirror file's path
-set undofile
-set undolevels=1000
-set undoreload=10000
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
 
-" ----------------------------------------------------------------------------
-" Built-in completion
-" ----------------------------------------------------------------------------
+" Linebreak on 500 characters
+set lbr
+set tw=500
 
-" Don't consider = symbol as part filename.
-set isfname-==
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
 
-set complete-=t                       " don't complete tags
-set completeopt-=longest              " ncm2 requirement
-set completeopt-=preview              " don't open scratch (e.g. echodoc)
-set completeopt+=noinsert             " ncm2 requirement
-set completeopt+=noselect             " ncm2 don't select first thing
-set completeopt+=menu,menuone         " show PUM, even for one thing
 
-" ----------------------------------------------------------------------------
-" Message output on vim actions
-" ----------------------------------------------------------------------------
+""""""""""""""""""""""""""""""
+" => Visual mode related
+""""""""""""""""""""""""""""""
+" Visual mode pressing * or # searches for the current selection
+" Super useful! From an idea by Michael Naumann
+vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
-" Some of these are the defaults, but explicitly match vim and nvim-4.0
-set shortmess+=ilmnrxoOtWI
-" Disable "Pattern not found" messages
-if has('patch-7.4.314') | set shortmess+=c | endif
 
-" ----------------------------------------------------------------------------
-" Window splitting and buffers
-" ----------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Moving around, tabs, windows and buffers
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
+map <space> /
+map <c-space> ?
 
-set splitbelow
-set splitright
+" Disable highlight when <leader><cr> is pressed
+map <silent> <leader><cr> :noh<cr>
 
-" remember undo after quitting
-set hidden                            
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
-" reveal already opened files from the quickfix window instead of opening new
-" buffers
-set switchbuf=useopen
+" Close the current buffer
+map <leader>bd :Bclose<cr>:tabclose<cr>gT
 
-" don't jump to col1 on switch buffer
-set nostartofline                     
+" Close all the buffers
+map <leader>ba :bufdo bd<cr>
 
-" ----------------------------------------------------------------------------
-" Code folding
-" ----------------------------------------------------------------------------
+map <leader>l :bnext<cr>
+map <leader>h :bprevious<cr>
 
-" very high === all folds open
-set foldlevel=999
+" Useful mappings for managing tabs
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove 
+map <leader>t<leader> :tabnext 
 
-" show all folds by default
-set foldlevelstart=99 
+" Let 'tl' toggle between this and the last accessed tab
+let g:lasttab = 1
+nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
 
-set nofoldenable
 
-" ----------------------------------------------------------------------------
-" Trailing whitespace
-" ----------------------------------------------------------------------------
+" Opens a new tab with the current buffer's path
+" Super useful when editing files in the same directory
+map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
-set list
-set listchars=
-set listchars+=tab:→\ 
-set listchars+=trail:·
-" show cut off when nowrap
-set listchars+=extends:»              
-set listchars+=precedes:«
-set listchars+=nbsp:⣿
+" Switch CWD to the directory of the open buffer
+map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
-" maybe...
-" if has('patch-7.4.785') | set fixendofline | endif
+" Specify the behavior when switching between buffers 
+try
+  set switchbuf=useopen,usetab,newtab
+  set stal=0
+catch
+endtry
 
-" ----------------------------------------------------------------------------
-" Diffing
-" ----------------------------------------------------------------------------
+" Return to last edit position when opening files (You want this!)
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-" Note this is += since fillchars was defined in the window config
-set fillchars+=diff:⣿
-set diffopt=vertical                  " Use in vertical diff mode
-set diffopt+=filler                   " blank lines to keep sides aligned
-set diffopt+=iwhite                   " Ignore whitespace changes
 
-" ----------------------------------------------------------------------------
-" Input auto-formatting (global defaults)
-" Probably need to update these in after/ftplugin too since ftplugins will
-" probably update it.
-" ----------------------------------------------------------------------------
+""""""""""""""""""""""""""""""
+" => Status line
+""""""""""""""""""""""""""""""
+" Always show the status line
+" set laststatus=2
 
-set formatoptions=
-set formatoptions+=r                  " Continue comments by default
-set formatoptions-=o                  " do not continue comment using o or O
-set formatoptions-=a                  " auto-gq on type in comments?
-set formatoptions+=n                  " Recognize numbered lists
-set formatoptions+=2                  " Use indent from 2nd line of a paragraph
-set formatoptions-=l                  " break lines that are already long?
-set formatoptions+=1                  " Break before 1-letter words
-" no // comment when joining commented lines. This is not a default neovim
-" setting despite what :help says. Various filetypes override it
-if has('patch-7.3.541') | set formatoptions+=j | endif
+" Format the status line
+" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
-" ----------------------------------------------------------------------------
-" Whitespace
-" ----------------------------------------------------------------------------
 
-set nowrap
-set nojoinspaces " J command doesn't add extra space
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Editing mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Remap VIM 0 to first non-blank character
+map 0 ^
 
-" ----------------------------------------------------------------------------
-" Indenting - overridden by indent plugins
-" ----------------------------------------------------------------------------
+" Move a line of text using ALT+[jk] or Command+[jk] on mac
+nmap <M-j> mz:m+<cr>`z
+nmap <M-k> mz:m-2<cr>`z
+vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
+vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
-" For autoindent, use same spaces/tabs mix as previous line, even if
-" tabs/spaces are mixed. Helps for docblock, where the block comments have a
-" space after the indent to align asterisks
+if has("mac") || has("macunix")
+  nmap <D-j> <M-j>
+  nmap <D-k> <M-k>
+  vmap <D-j> <M-j>
+  vmap <D-k> <M-k>
+endif
+
+" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.coffee :call DeleteTrailingWS()
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Ag searching and cope displaying
+"    requires ag.vim - it's much better than vimgrep/grep
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" When you press gv you Ag after the selected text
+vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
+
+" Open Ag and put the cursor in the right position
+map <leader>g :Ag 
+
+" When you press <leader>r you can search and replace the selected text
+vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
+
+" Do :help cope if you are unsure what cope is. It's super useful!
 "
-" The test case what happens when using o/O and >> and << on these:
+" When you search with Ag, display your results in cope by doing:
+"   <leader>cc
 "
-"     /**
-"      *
+" To go to the next search result do:
+"   <leader>n
 "
-" Refer also to formatoptions+=o (copy comment indent to newline)
-set nocopyindent
+" To go to the previous search results do:
+"   <leader>p
+"
+map <leader>cc :botright cope<cr>
+map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
+map <leader>n :cn<cr>
+map <leader>p :cp<cr>
 
-" Try not to change the indent structure on "<<" and ">>" commands. I.e. keep
-" block comments aligned with space if there is a space there.
-set nopreserveindent
 
-" Smart detect when in braces and parens. Has annoying side effect that it
-" won't indent lines beginning with '#'. Relying on syntax indentexpr instead.
-" 'smartindent' in general is a piece of garbage, never turn it on.
-set nosmartindent
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Spell checking
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Pressing ,ss will toggle and untoggle spell checking
+map <leader>ss :setlocal spell!<cr>
 
-" Global setting. I don't edit C-style code all the time so don't default to
-" C-style indenting.
-set nocindent
+" Shortcuts using <leader>
+map <leader>sn ]s
+map <leader>sp [s
+map <leader>sa zg
+map <leader>s? z=
 
-" ----------------------------------------------------------------------------
-" Tabbing - overridden by editorconfig, after/ftplugin
-" ----------------------------------------------------------------------------
 
-" use multiple of shiftwidth when shifting indent levels.
-" this is OFF so block comments don't get fudged when using ">>" and "<<"
-set noshiftround
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Misc
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Remove the Windows ^M - when the encodings gets messed up
+noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
-" ----------------------------------------------------------------------------
-" Match and search
-" ----------------------------------------------------------------------------
+" Quickly open a buffer for scribble
+map <leader>q :e ~/buffer<cr>
 
-set matchtime=1                       " tenths of a sec
-set noshowmatch                       " briefly jump to matching paren?
-set wrapscan                          " Searches wrap around end of the file.
-set ignorecase                        " Ignore case when searching
+" Quickly open a markdown buffer for scribble
+map <leader>x :e ~/buffer.md<cr>
 
-" ----------------------------------------------------------------------------
-" Syntax
-" Needs to be in vimrc (or ftdetect) since syntax runs before ftplugin
-" ----------------------------------------------------------------------------
+" Toggle paste mode on and off
+map <leader>pp :setlocal paste!<cr>
 
-" ----------------------------------------
-" Filetype: markdown
-" ----------------------------------------
 
-" Variable to highlight markdown fenced code properly -- uses tpope's
-" vim-markdown plugin (which is bundled with vim7.4 now)
-" There are more syntaxes, but checking for them makes editing md very slow
-let g:markdown_fenced_languages = [
-      \   'javascript', 'js=javascript', 'javascriptreact',
-      \   'json',
-      \   'bash=sh', 'sh',
-      \   'vim',
-      \   'help',
-      \ ]
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Helper functions
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! CmdLine(str)
+    exe "menu Foo.Bar :" . a:str
+    emenu Foo.Bar
+    unmenu Foo
+endfunction 
 
-" ----------------------------------------
-" Filetype: php
-" ----------------------------------------
+function! VisualSelection(direction, extra_filter) range
+    let l:saved_reg = @"
+    execute "normal! vgvy"
 
-" Additional syntax groups for php baselib
-let g:php_baselib = 1
-" Highlight unclosed ([]) - from $VIMRUNTIME/syntax/php.vim
-let g:php_parentError = 1
-" Assume strings contain HTML
-let g:php_htmlInStrings = 1
+    let l:pattern = escape(@", '\\/.*$^~[]')
+    let l:pattern = substitute(l:pattern, "\n$", "", "")
 
-" $VIMRUNTIME/indent/php.vim and 2072/
-" Don't indent after <?php opening
-let g:PHP_default_indenting = 0
-" Don't outdent the <?php tags to the first column
-let g:PHP_outdentphpescape  = 0
+    if a:direction == 'gv'
+        call CmdLine("Ag \"" . l:pattern . "\" " )
+    elseif a:direction == 'replace'
+        call CmdLine("%s" . '/'. l:pattern . '/')
+    endif
 
-" ----------------------------------------
-" Filetype: python
-" ----------------------------------------
+    let @/ = l:pattern
+    let @" = l:saved_reg
+endfunction
 
-" $VIMRUNTIME/syntax/python.vim
-let g:python_highlight_all = 1
 
-" ----------------------------------------
-" Filetype: sh
-" ----------------------------------------
+" Returns true if paste mode is enabled
+function! HasPaste()
+    if &paste
+        return 'PASTE MODE  '
+    endif
+    return ''
+endfunction
 
-" $VIMRUNTIME/syntax/sh.vim - always assume bash
-let g:is_bash = 1
+" Don't close window, when deleting a buffer
+command! Bclose call <SID>BufcloseCloseIt()
+function! <SID>BufcloseCloseIt()
+   let l:currentBufNum = bufnr("%")
+   let l:alternateBufNum = bufnr("#")
 
-" ----------------------------------------
-" Filetype: vim
-" ----------------------------------------
+   if buflisted(l:alternateBufNum)
+     buffer #
+   else
+     bnext
+   endif
 
-" $VIMRUNTIME/syntax/vim.vim
-" disable mzscheme, tcl highlighting
-let g:vimsyn_embed = 'lpPr'
+   if bufnr("%") == l:currentBufNum
+     new
+   endif
 
-" ------------------------------------------------------------------------------------------------------
-" Security
-" ------------------------------------------------------------------------------------------------------
+   if buflisted(l:currentBufNum)
+     execute("bdelete! ".l:currentBufNum)
+   endif
+endfunction
 
-" Disallow unsafe local vimrc commands.
-" Leave down here since it trims local settings
-set secure
+" Make VIM remember position in file after reopen
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" if !has('gui_running')
+"   set t_Co=256
+" endif

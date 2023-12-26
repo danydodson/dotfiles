@@ -56,6 +56,7 @@ export BAT_CONFIG_PATH="$XDG_CONFIG_HOME/bat/conf"
 #######################################################################
 
 export CARGO_HOME="${XDG_CONFIG_HOME}/cargo"
+export RUSTUP_HOME="${XDG_CONFIG_HOME}/rust"
 
 #######################################################################
 # dfx
@@ -67,7 +68,7 @@ export DFX_CONFIG_ROOT="${XDG_CONFIG_HOME}/dfx"
 # go
 #######################################################################
 
-export GOPATH="${XDG_CONFIG_HOME}/go"
+export GOPATH="${XDG_DATA_HOME}/go"
 
 #######################################################################
 # homebrew
@@ -116,6 +117,9 @@ export OP_CACHE="${XDG_CACHE_HOME}/op"
 # python
 #######################################################################
 
+# export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonstartup.py"
+# export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME/jupyter/config"
+# export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 # export PYENV_ROOT="$HOME/.config/pyenv"
 
 #######################################################################

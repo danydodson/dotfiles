@@ -17,6 +17,48 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 #######################################################################
+# iterm2
+#######################################################################
+
+# transparent iterm titlebar
+echo -e "\033]6;1;bg;red;brightness;40\a"
+echo -e "\033]6;1;bg;green;brightness;44\a"
+echo -e "\033]6;1;bg;blue;brightness;52\a"
+
+source /Users/Dany/.config/zsh/iterm2_shell_integration.zsh
+
+#######################################################################
+# cargo
+#######################################################################
+
+[[ ! -f ~/.config/cargo/env ]] || . ~/.config/cargo/env
+
+#######################################################################
+# 1password
+#######################################################################
+
+source $HOME/.config/op/plugins.sh
+eval "$(op completion zsh)"
+eval "$(__load_op_completion)"
+compdef _op op
+
+#######################################################################
+# ngrok completion
+#######################################################################
+
+if command -v ngrok &>/dev/null; then
+  eval "$(ngrok completion)"
+fi
+
+#######################################################################
+# heroku autocomplete
+#######################################################################
+
+export HEROKU_AC_ZSH_SETUP_PATH=/Users/Dany/Library/Caches/heroku/autocomplete/zsh_setup &&
+  test -f $HEROKU_AC_ZSH_SETUP_PATH &&
+  source $HEROKU_AC_ZSH_SETUP_PATH
+
+#######################################################################
 # fzf
 #######################################################################
 
@@ -36,9 +78,9 @@ export FZF_DEFAULT_COMMAND="rg --files --column --line-number --no-heading --col
 export FZF_COMPLETION_OPTS="--reverse --border --exact --height 40%"
 export FZF_DEFAULT_OPTS="--height=40% --preview='bat {}' --preview-window=right:60%:wrap"
 # export FZF_DEFAULT_OPTS="
-#  --reverse 
-#  --border 
-#  --exact 
+#  --reverse
+#  --border
+#  --exact
 #  --ansi
 #  --bind='ctrl-k:preview-up'
 #  --bind='ctrl-j:preview-down'
@@ -56,29 +98,6 @@ export FZF_DEFAULT_OPTS="--height=40% --preview='bat {}' --preview-window=right:
 alias preview="fzf --preview 'bat --color \"always\" --style \"numbers\" --line-range \":500\" {}'"
 
 [[ ! -f ~/.fzf.zsh ]] || source ~/.fzf.zsh
-
-#######################################################################
-# iterm2
-#######################################################################
-
-source /Users/Dany/.config/zsh/iterm2_shell_integration.zsh
-
-#######################################################################
-# 1password
-#######################################################################
-
-source $HOME/.config/op/plugins.sh
-eval "$(op completion zsh)"
-eval "$(__load_op_completion)"
-compdef _op op
-
-#######################################################################
-# heroku autocomplete
-#######################################################################
-
-export HEROKU_AC_ZSH_SETUP_PATH=/Users/Dany/Library/Caches/heroku/autocomplete/zsh_setup &&
-  test -f $HEROKU_AC_ZSH_SETUP_PATH &&
-  source $HEROKU_AC_ZSH_SETUP_PATH
 
 #######################################################################
 # nvm

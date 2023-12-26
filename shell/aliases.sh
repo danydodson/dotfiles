@@ -94,7 +94,9 @@ alias grunt='npx grunt'
 # python
 #######################################################################
 
-alias py='python3'
+alias python="/usr/bin/python3"
+alias py='python'
+alias pip="/usr/bin/pip3"
 alias pi='pip install'
 
 #######################################################################

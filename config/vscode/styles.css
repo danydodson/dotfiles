@@ -1,11 +1,34 @@
+#workbench\.parts\.sidebar > div.composite.title.has-composite-bar,
+#workbench\.parts\.auxiliarybar > div.composite.title.has-composite-bar {
+  border-bottom: 1px solid #0000001e !important;
+  height: 41px !important;
+}
+
+#workbench\.parts\.auxiliarybar > div.composite.title.has-composite-bar > div.composite-bar-container > div > div > ul > li.action-item.icon.checked > div.active-item-indicator {
+  display: none !important;
+}
+
+#workbench\.parts\.sidebar > div.composite.title.has-composite-bar > div.composite-bar-container > div > div > ul > li.action-item.icon {
+  margin: 0px 8px !important;
+}
+#workbench\.parts\.auxiliarybar > div.composite.title.has-composite-bar > div.composite-bar-container > div > div > ul > li.action-item.icon {
+  margin: 0px 8px !important;
+  color: #0000001e !important;
+}
+
+.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab,
+#workbench\.parts\.editor > div.content > div > div > div > div > div.monaco-scrollable-element.mac > div.split-view-container > div > div > div.title.tabs.show-file-icons > div.tabs-and-actions-container > div.monaco-scrollable-element.mac > div.tabs-container,
+#workbench\.parts\.editor > div.content > div > div > div > div > div.monaco-scrollable-element.mac > div.split-view-container > div > div > div.title.tabs.show-file-icons > div.tabs-and-actions-container {
+  height: 41px !important;
+}
 /* .custom-header .monaco-workbench .part.editor>.content .editor-group-container>.title div.monaco-icon-label:before {
 	display: none !important;
 	color: #ffffff3e !important;
 } */
 
-.custom-header .monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab .tab-label a.label-name {
-	display: flex !important;
-	justify-content: center !important;
+.custom-header .monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab .tab-label a.label-name {
+  display: flex !important;
+  justify-content: center !important;
 }
 
 /* .monaco-workbench div.activitybar>div.content :not(.monaco-menu)>div.monaco-action-bar a.action-label.codicon {
