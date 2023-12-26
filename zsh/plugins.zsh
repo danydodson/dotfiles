@@ -4,7 +4,7 @@
 # oh-my-zsh
 #######################################################################
 
-plugins+=(macos brew nvm npm zsh-completions zsh-yarn-completions)
+plugins+=(macos brew nvm npm pyenv zsh-completions zsh-yarn-completions)
 
 source $HOME/.config/local/share/oh-my-zsh/oh-my-zsh.sh
 
@@ -12,20 +12,16 @@ source $HOME/.config/local/share/oh-my-zsh/oh-my-zsh.sh
 # zsh-plugins
 #######################################################################
 
-source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #######################################################################
 # iterm2
 #######################################################################
 
-# transparent iterm titlebar
-echo -e "\033]6;1;bg;red;brightness;40\a"
-echo -e "\033]6;1;bg;green;brightness;44\a"
-echo -e "\033]6;1;bg;blue;brightness;52\a"
-
-source /Users/Dany/.config/zsh/iterm2_shell_integration.zsh
+source /Users/dany/.config/zsh/iterm2_shell_integration.zsh
 
 #######################################################################
 # cargo
@@ -41,6 +37,12 @@ source $HOME/.config/op/plugins.sh
 eval "$(op completion zsh)"
 eval "$(__load_op_completion)"
 compdef _op op
+
+#######################################################################
+# pyenv
+#######################################################################
+
+eval "$(pyenv init --path)"
 
 #######################################################################
 # ngrok completion
@@ -76,23 +78,25 @@ source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
 # export FZF_DEFAULT_COMMAND="fd --type f --strip-cwd-prefix --hidden --follow --exclude .git"
 export FZF_DEFAULT_COMMAND="rg --files --column --line-number --no-heading --color=always --smart-case"
 export FZF_COMPLETION_OPTS="--reverse --border --exact --height 40%"
-export FZF_DEFAULT_OPTS="--height=40% --preview='bat {}' --preview-window=right:60%:wrap"
-# export FZF_DEFAULT_OPTS="
-#  --reverse
-#  --border
-#  --exact
-#  --ansi
-#  --bind='ctrl-k:preview-up'
-#  --bind='ctrl-j:preview-down'
-#  --bind='ctrl-r:toggle-all'
-#  --bind='ctrl-o:execute(e {})+abort'
-#  --height='100%'
-#  --preview-window='right:70%'
-#  --color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9
-#  --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9
-#  --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6
-#  --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
-# "
+# export FZF_DEFAULT_OPTS="--height=40% --preview='bat {}' --preview-window=right:60%:wrap"
+# --height='100%'--preview-window='right:70%'
+export FZF_DEFAULT_OPTS="
+ --reverse
+ --border
+ --exact
+ --ansi
+ --bind='ctrl-k:preview-up'
+ --bind='ctrl-j:preview-down'
+ --bind='ctrl-r:toggle-all'
+ --bind='ctrl-o:execute(e {})+abort'
+ --height='40%'
+ --preview='bat {}
+ --preview-window=right:60%:wrap
+ --color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9
+ --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9
+ --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6
+ --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
+"
 
 # Preview current directory
 alias preview="fzf --preview 'bat --color \"always\" --style \"numbers\" --line-range \":500\" {}'"

@@ -63,7 +63,7 @@ alias yag='y global add'
 alias yui='y upgrade-interactive'
 
 #######################################################################
-# Npm
+# npm
 #######################################################################
 
 alias n='npm'
@@ -77,35 +77,26 @@ alias npmg-rm='n uninstall -g'
 alias nomod='find . -type d -iname node_modules -exec rm \-rf {} \;'
 
 #######################################################################
-# create apps
-#######################################################################
-
-alias init-ic='npm init ic'
-alias create-ic='npx create-ic-app@latest'
-
-#######################################################################
-# Npx
+# npx
 #######################################################################
 
 alias gulp='npx gulp'
 alias grunt='npx grunt'
+alias init-ic='npm init ic'
+alias create-ic='npx create-ic-app@latest'
 
 #######################################################################
 # python
 #######################################################################
 
-alias python="/usr/bin/python3"
 alias py='python'
-alias pip="/usr/bin/pip3"
 alias pi='pip install'
 
 #######################################################################
 # open-in-vim
 #######################################################################
 
-alias vimrc='vim ~/.config/vim/vimrc'
-alias rcconf='vim ~/.config/ranger/rc.conf'
-alias aliases='vim ~/.dotfiles/shell/aliases.sh'
+# alias nvim="lvim"
 
 #######################################################################
 # yt-dlp

@@ -7,6 +7,7 @@
 path-prepend "$DOTFILES/bin"
 path-prepend "$HOME/.config/iterm2"
 path-prepend "$HOME/.config/local/bin"
+path-prepend "$HOME/.config/pyenv/shims"
 path-prepend "$HOME/.config/local/share/go/bin"
 path-prepend "/opt/homebrew/opt/go/libexec/bin"
 path-prepend "/opt/homebrew/opt/coreutils/libexec/gnubin"

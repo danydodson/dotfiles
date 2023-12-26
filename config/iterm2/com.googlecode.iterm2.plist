@@ -1495,7 +1495,7 @@ Show Toolbelt</string>
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>215</integer>
+			<integer>213</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Boost</key>
@@ -2773,9 +2773,9 @@ Show Toolbelt</string>
 	<key>TabsHaveCloseButton</key>
 	<true/>
 	<key>TerminalMargin</key>
-	<integer>0</integer>
+	<integer>10</integer>
 	<key>TerminalVMargin</key>
-	<integer>0</integer>
+	<integer>5</integer>
 	<key>TimeBetweenTips</key>
 	<real>0.0</real>
 	<key>ToolbeltFont</key>

@@ -13,6 +13,25 @@ LESSHISTFILE="${HOME}/.config/cache/less/lesshst"
 SHELL_SESSIONS_DISABLE=1
 
 #######################################################################
+# completion dump                                                     #
+#######################################################################
+
+zcompdump="${ZDOTDIR:-$HOME/.config/zsh}/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
+if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then
+  zcompile "$zcompdump"
+fi
+
+#######################################################################
+# set env vars for launchd processes.                                 #
+#######################################################################
+
+if [[ "$OSTYPE" == darwin* ]]; then
+  for env_var in PATH MANPATH; do
+    launchctl setenv "$env_var" "${(P)env_var}"
+  done
+fi
+
+#######################################################################
 # Options
 #######################################################################
 
