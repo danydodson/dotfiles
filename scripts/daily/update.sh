@@ -13,8 +13,8 @@ __info 'Upgrading oh-my-zsh...'
 __info 'Upgrading global npm...'
 npm update --location=global
 
-__info 'Upgrading global yarn...'
-cd "$HOME/.config/local/share/yarn/global" && yarn global upgrade
+# __info 'Upgrading global yarn...'
+# cd "$HOME/.config/local/share/yarn/global" && yarn global upgrade
 
 __info 'Upgrading homebrew...'
 brew update && brew upgrade && brew autoremove && brew cleanup --prune=all -s

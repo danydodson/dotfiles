@@ -4,11 +4,8 @@
 
 __info() { printf '\033[0;34m[INFO] \033[0;34m%s\033[0;m\n' "$1"; }
 
-__info 'Removing DS_Stores...'
-find . -name '*.DS_Store' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
-
 # __info 'Removing node_modules...'
-find ~/Developer -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
+# find ~/Developer -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
 
 __info 'Removing zcompdump...'
 rm -rfv ~/.config/zsh/.zcompdump*

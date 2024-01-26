@@ -44,6 +44,11 @@ function repos() {
   cd "$HOME/Developer/Github" || exit
 }
 
+# repos -> cd to apps directory
+function apps() {
+  cd "$HOME/Developer/Apps" || exit
+}
+
 # fvim -> find and open a file in vim
 function fvim() {
   if [[ $# -eq 0 ]]; then

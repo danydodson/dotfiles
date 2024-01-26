@@ -4,10 +4,10 @@
 plugins+=(brew fd macos fzf pyenv nvm npm zsh-syntax-highlighting zsh-history-substring-search)
 
 # oh-my-zsh -> my-zsh-completions
-source "$ZSH_CUSTOM/plugins/my-zsh-completions/zsh-completions.plugin.zsh"
+source "$HOME/.config/oh-my-zsh/custom/plugins/my-zsh-completions/zsh-completions.plugin.zsh"
 
 # oh-my-zsh -> source
-fpath+="${ZSH_CUSTOM:-"$ZSH:-~/.config/oh-my-zsh/custom"}/plugins/zsh-completions/src"
+# fpath+="${ZSH_CUSTOM:-"$ZSH:-~/.config/oh-my-zsh/custom"}/plugins/zsh-completions/src"
 
 # oh-my-zsh -> source
 source "$HOME/.config/oh-my-zsh/oh-my-zsh.sh"
