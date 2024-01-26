@@ -90,7 +90,7 @@ export STARSHIP_CACHE="$XDG_CACHE_HOME/starship"
 # vim
 export VIMCONFIG="$XDG_CONFIG_HOME"/vim
 export MYVIMRC="$XDG_CONFIG_HOME"/vim/vimrc
-export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
+# export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 
 # wakatime
 export WAKATIME_HOME="$XDG_CONFIG_HOME/wakatime"

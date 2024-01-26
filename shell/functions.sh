@@ -49,21 +49,26 @@ function apps() {
   cd "$HOME/Developer/Apps" || exit
 }
 
+# repos -> cd to .config directory
+function config() {
+  cd "$HOME/.config" || exit
+}
+
 # fvim -> find and open a file in vim
 function fvim() {
   if [[ $# -eq 0 ]]; then
-    fd -t f | fzf --header "Open File in Vim" --preview "bat --color=always {}" | xargs nvim
+    fd -t f | fzf --header "Open File in Vim" --preview "bat --color=always {}" | xargs nvim-config
   else
-    fd -t f | fzf --header "Open File in Vim" --preview "bat --color=always {}" -q "$@" | xargs nvim
+    fd -t f | fzf --header "Open File in Vim" --preview "bat --color=always {}" -q "$@" | xargs nvim-config
   fi
 }
 
 # vim -> open vim in the current directory or open the target file
 function vim() {
   if [[ $# -eq 0 ]]; then
-    nvim .
+    nvim-config .
   else
-    nvim "$@"
+    nvim-config "$@"
   fi
 }
 

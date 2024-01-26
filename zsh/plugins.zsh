@@ -34,7 +34,7 @@ compdef _op op
 [[ ! -f $HOME/.config/fzf/fzf.zsh ]] || source $HOME/.config/fzf/fzf.zsh
 
 # fzf -> defaults
-export FZF_DEFAULT_OPTS="--bind ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down --preview 'bat --color=always{}'"
+export FZF_DEFAULT_OPTS="--bind ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down --preview 'bat --color=always {}'"
 
 # fzf -> preview current directory
 alias preview="fzf --preview 'bat --color \"always\" --style \"numbers\" --line-range \":500\" {}'"
