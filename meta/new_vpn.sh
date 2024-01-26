@@ -4,7 +4,7 @@
 # The client cert and key, along with the CA cert is
 # zipped up and placed somewhere to download securely
 
-# Usage: new-openvpn-client.sh <common-name>
+# Usage: new_vpn.sh <common-name>
 
 # Set where we're working from
 OPENVPN_RSA_DIR=/etc/openvpn/easy-rsa/2.0

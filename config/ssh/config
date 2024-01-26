@@ -4,4 +4,10 @@ Host *
 Host github.com
   IgnoreUnknown UseKeychain
   AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ed25519
   
+Host macbook.local
+  HostName 192.168.0.3
+  User dany
+  ForwardAgent yes
+  AddKeysToAgent yes

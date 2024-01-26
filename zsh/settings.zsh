@@ -2,99 +2,76 @@
 
 export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
 
-#######################################################################
-# History                                                             #
-#######################################################################
-
+# history
 HISTSIZE=100000
 SAVEHIST=100000
 HISTFILE="${HOME}/.config/cache/zsh/zsh_history"
 LESSHISTFILE="${HOME}/.config/cache/less/lesshst"
 SHELL_SESSIONS_DISABLE=1
 
-#######################################################################
-# completion dump                                                     #
-#######################################################################
-
+# completion dump
 zcompdump="${ZDOTDIR:-$HOME/.config/zsh}/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
 if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then
   zcompile "$zcompdump"
 fi
 
-#######################################################################
-# set env vars for launchd processes.                                 #
-#######################################################################
-
-if [[ "$OSTYPE" == darwin* ]]; then
-  for env_var in PATH MANPATH; do
-    launchctl setenv "$env_var" "${(P)env_var}"
-  done
-fi
-
-#######################################################################
-# Options
-#######################################################################
-
 # disable ^S and ^Q terminal freezing
 unsetopt flowcontrol
 
-# Changing Directories
-setopt AUTO_PUSHD # pushd instead of cd
+# changing directories
+setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
-setopt PUSHD_SILENT # hide stack after cd
-setopt PUSHD_TO_HOME # go home if no d specified
+setopt PUSHD_SILENT
+setopt PUSHD_TO_HOME
 
-# Completion
-setopt AUTO_LIST # list completions
-setopt AUTO_MENU # TABx2 to start a tab complete menu
-setopt NO_COMPLETE_ALIASES # no expand aliases before completion
-setopt LIST_PACKED  # variable column widths
+# list completions
+setopt AUTO_LIST
+setopt AUTO_MENU
+setopt NO_COMPLETE_ALIASES
+setopt LIST_PACKED
 
-# Expansion and Globbing
-setopt EXTENDED_GLOB # like ** for recursive dirs
+# expand and glob
+setopt EXTENDED_GLOB
 
-# History
+# history
 setopt SHARE_HISTORY
 setopt INC_APPEND_HISTORY
-setopt APPEND_HISTORY # append instead of overwrite file
-setopt EXTENDED_HISTORY # extended timestamps
+setopt APPEND_HISTORY
+setopt EXTENDED_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE # omit from history if space prefixed
+setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
-setopt HIST_VERIFY # verify when using history cmds/params
+setopt HIST_VERIFY
 
-# Input/Output
-setopt ALIASES # autocomplete switches for aliases
-setopt AUTO_PARAM_SLASH # append slash if autocompleting a dir
+# autocomplete switches for aliases
+setopt ALIASES
+setopt AUTO_PARAM_SLASH
 setopt CORRECT
 
-# Job Control
-setopt CHECK_JOBS # prompt before exiting shell with bg job
-setopt LONGLISTJOBS # display PID when suspending bg as well
-setopt NO_HUP # do not kill bg processes
+# job control
+setopt CHECK_JOBS
+setopt LONGLISTJOBS
+setopt NO_HUP
 
-# Prompting
-setopt PROMPT_SUBST # allow variables in prompt
+# allow variables in prompt
+setopt PROMPT_SUBST
 
-# Shell Emulation
-setopt INTERACTIVE_COMMENTS # allow comments in shell
+# allow comments in shell
+setopt INTERACTIVE_COMMENTS
 
-# Zle
+# zle
 setopt NO_BEEP
-
-#######################################################################
-# Modules
-#######################################################################
 
 # color complist
 zmodload -i zsh/complist
-autoload -Uz colors; colors
+autoload -Uz colors
+colors
 
 # hooks -- used for prompt too
 autoload -Uz add-zsh-hook
 autoload -Uz vcs_info
 
-# automatically fix things when pasted, works with url-quote-magic
+# automatically fix things when pasted
 autoload -Uz bracketed-paste-magic
 zle -N bracketed-paste bracketed-paste-magic
 
@@ -102,104 +79,39 @@ zle -N bracketed-paste bracketed-paste-magic
 autoload -Uz url-quote-magic
 zle -N self-insert url-quote-magic
 
-#######################################################################
-# Keybindings
-# These keys should also be set in shell/.inputrc
-#
-# `cat -e` to test out keys
-#
-# \e is the same as ^[ is the escape code for <Esc>
-# Prefer ^[ since it mixes better with the letter form [A
-#
-# Tested on macbook iterm2 and magic keyboard+arch, xterm-256color
-# - Need both normal mode and vicmd mode
-#######################################################################
+# nvm plugin for oh-my-zsh
+zstyle ':omz:plugins:nvm' lazy yes
 
 # VI mode
 bindkey -v
 
-#######################################################################
-# Keybindings - Completion with tab
-# Cancel and reset prompt with ctrl-c
-#######################################################################
-
-# shift-tab to select previous result
-bindkey -M menuselect '^[[Z' reverse-menu-complete
-
-# fix prompt (and side-effect of exiting menuselect) on ^C
-bindkey -M menuselect '^C' reset-prompt
-
-#######################################################################
-# Keybindings - Movement keys
-#######################################################################
-
-# Home/Fn-Left
-bindkey '^[[H' beginning-of-line
-bindkey -M vicmd '^[[H' beginning-of-line
-
-# End/Fn-Right
-bindkey '^[[F' end-of-line
-bindkey -M vicmd '^[[F' end-of-line
-
-# Left and right should jump through words
-# Opt-Left
-bindkey '^[[H' backward-word
-bindkey -M vicmd '^[[H' backward-word
-# Opt-Right
-bindkey '^[[F' forward-word
-bindkey -M vicmd '^[[F' forward-word
-# Ctl-Left
-bindkey '^[[1;5D' vi-backward-word
-bindkey -M vicmd '^[[1;5D' vi-backward-word
-# Ctl-Right
-bindkey '^[[1;5C' vi-forward-word
-bindkey -M vicmd '^[[1;5C' vi-forward-word
-
-#######################################################################
-# Keybindings: Editing keys
-#######################################################################
-
-# fix delete - Fn-delete
 # Don't bind in vicmd mode
 bindkey '^[[3~' delete-char
 
 # Allow using backspace from :normal [A]ppend
 bindkey -M viins '^?' backward-delete-char
 
-#######################################################################
-# Keybindings: History navigation
-# Don't bind in vicmd mode, so I can edit multiline commands properly.
-#######################################################################
-
 # Up/Down search history-substring plugin
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-#######################################################################
-# Keybindings: Movement, also triggers zsh-autosuggest partials
-#######################################################################
-
 bindkey '^e' vi-forward-word-end
 bindkey '^w' vi-forward-word
 
-#######################################################################
 # Completion: Caching
-#######################################################################
-
 zstyle ':completion:*' use-cache true
-zstyle ':completion:*' cache-path $HOME/.config/zsh
-
-#######################################################################
-# Completion: Display
-#######################################################################
+zstyle ':completion:*' cache-path $HOME/.config/cache/zsh
 
 # group all by the description above
 zstyle ':completion:*' group-name ''
 
-# colorful completion
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# # colorful completion
+zstyle ':completion:*:default' list-colors \
+  "di=1;36" ".mp4=01;93" ".dmg=0;35" ".zip=0;35" ".mp3=01;93" \
+  "ln=01;36" "so=32" "pi=33" "ex=0;32" "bd=34;46" "cd=34;43" \
+  "su=30;41" "sg=30;46" "tw=30;42" "ow=30;43"
 
-# list dirs first
+# # list dirs first
 zstyle ':completion:*' list-dirs-first yes
 
 # go into menu mode on second tab (like current vim wildmenu setting)
@@ -211,10 +123,6 @@ zstyle ':completion:*' verbose yes
 
 # in Bold, specify what type the completion is, e.g. a file or an alias or a cmd
 zstyle ':completion:*:descriptions' format '%F{black}%B%d%b%f'
-
-#######################################################################
-# Completion: Output transformation
-#######################################################################
 
 # expand completions as much as possible on tab
 # e.g. start expanding a path up to wherever it can be until error
@@ -229,22 +137,12 @@ zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
 # complete .log filenames if redirecting stderr
 zstyle ':completion:*:*:-redirect-,2>,*:*' file-patterns '*.log'
 
-#######################################################################
-# Completion: Matching
-#######################################################################
-
 # use case-insensitive completion if case-sensitive generated no hits
 zstyle ':completion:*' matcher-list \
   z'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 
-# don't complete usernames
+# # don't complete usernames
 zstyle ':completion:*' users ''
 
-# don't autocomplete homedirs
+# # don't autocomplete homedirs
 zstyle ':completion::complete:cd:*' tag-order '! users'
-
-#######################################################################
-# Oh-my-zsh plugins
-#######################################################################
-
-zstyle ':omz:plugins:nvm' lazy yes

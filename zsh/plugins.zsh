@@ -1,117 +1,65 @@
 # External plugins
 
-#######################################################################
-# oh-my-zsh
-#######################################################################
+# oh-my-zsh -> plugins
+plugins+=(brew fd macos fzf pyenv nvm npm zsh-syntax-highlighting zsh-history-substring-search)
 
-plugins+=(macos brew nvm npm pyenv zsh-completions zsh-yarn-completions)
+# oh-my-zsh -> source
+fpath+="${ZSH_CUSTOM:-"$ZSH:-~/.config/oh-my-zsh/custom"}/plugins/zsh-completions/src"
 
-source $HOME/.config/local/share/oh-my-zsh/oh-my-zsh.sh
+# oh-my-zsh -> source
+source "$HOME/.config/oh-my-zsh/oh-my-zsh.sh"
 
-#######################################################################
-# zsh-plugins
-#######################################################################
+# starship.rs
+eval "$(starship init zsh)"
 
-# source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-#######################################################################
-# iterm2
-#######################################################################
-
+# iterm2 -> loads shell integration
 source /Users/dany/.config/zsh/iterm2_shell_integration.zsh
 
-#######################################################################
-# cargo
-#######################################################################
+# direnv hook
+eval "$(direnv hook zsh)"
 
-[[ ! -f ~/.config/cargo/env ]] || . ~/.config/cargo/env
+# gpg
+export GPG_TTY=$(tty)
 
-#######################################################################
-# 1password
-#######################################################################
-
+# 1password -> load plugins and completions
 source $HOME/.config/op/plugins.sh
 eval "$(op completion zsh)"
 eval "$(__load_op_completion)"
 compdef _op op
 
-#######################################################################
-# pyenv
-#######################################################################
+# fzf -> check for local config
+[[ ! -f $HOME/.config/fzf/fzf.zsh ]] || source $HOME/.config/fzf/fzf.zsh
 
+# fzf -> defaults
+export FZF_DEFAULT_OPTS="--bind ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down --preview 'bat --color=always{}'"
+
+# fzf -> preview current directory
+alias preview="fzf --preview 'bat --color \"always\" --style \"numbers\" --line-range \":500\" {}'"
+
+# start the ssh-agent
+eval "$(ssh-agent -s)" >/dev/null 2>&1
+
+# bun -> load completions
+[ -s "$HOME/.config/bun/_bun" ] && source "$HOME/.config/bun/_bun"
+
+# cargo -> load env
+[[ ! -f ~/.config/cargo/env ]] || . ~/.config/cargo/env
+
+# pyenv -> load pyenv
 eval "$(pyenv init --path)"
 
-#######################################################################
-# ngrok completion
-#######################################################################
-
+# ngrok -> completions
 if command -v ngrok &>/dev/null; then
   eval "$(ngrok completion)"
 fi
 
-#######################################################################
-# heroku autocomplete
-#######################################################################
-
-export HEROKU_AC_ZSH_SETUP_PATH=/Users/Dany/Library/Caches/heroku/autocomplete/zsh_setup &&
-  test -f $HEROKU_AC_ZSH_SETUP_PATH &&
-  source $HEROKU_AC_ZSH_SETUP_PATH
-
-#######################################################################
-# fzf
-#######################################################################
-
-# fzf completion
-if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
-  PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
-fi
-
-# auto-completion
-[[ $- == *i* ]] && source "/opt/homebrew/opt/fzf/shell/completion.zsh" 2>/dev/null
-
-# Load Key bindings
-source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
-
-# export FZF_DEFAULT_COMMAND="fd --type f --strip-cwd-prefix --hidden --follow --exclude .git"
-export FZF_DEFAULT_COMMAND="rg --files --column --line-number --no-heading --color=always --smart-case"
-export FZF_COMPLETION_OPTS="--reverse --border --exact --height 40%"
-# export FZF_DEFAULT_OPTS="--height=40% --preview='bat {}' --preview-window=right:60%:wrap"
-# --height='100%'--preview-window='right:70%'
-export FZF_DEFAULT_OPTS="
- --reverse
- --border
- --exact
- --ansi
- --bind='ctrl-k:preview-up'
- --bind='ctrl-j:preview-down'
- --bind='ctrl-r:toggle-all'
- --bind='ctrl-o:execute(e {})+abort'
- --height='40%'
- --preview='bat {}
- --preview-window=right:60%:wrap
- --color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9
- --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9
- --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6
- --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
-"
-
-# Preview current directory
-alias preview="fzf --preview 'bat --color \"always\" --style \"numbers\" --line-range \":500\" {}'"
-
-[[ ! -f ~/.fzf.zsh ]] || source ~/.fzf.zsh
-
-#######################################################################
-# nvm
-#######################################################################
-
-export NVM_DIR="$HOME/.config/nvm"
+# nvm -> completions
+export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"
 [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm"
 
-load-nvmrc() {
+# nvm -> load nvmrc if available
+load_nvmrc() {
   local nvmrc_path="$(nvm_find_nvmrc)"
 
   if [ -n "$nvmrc_path" ]; then
@@ -127,5 +75,10 @@ load-nvmrc() {
     nvm use default
   fi
 }
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+add-zsh-hook chpwd load_nvmrc
+load_nvmrc
+
+# heroku -> completions
+export HEROKU_AC_ZSH_SETUP_PATH=/Users/Dany/Library/Caches/heroku/autocomplete/zsh_setup &&
+  test -f $HEROKU_AC_ZSH_SETUP_PATH &&
+  source $HEROKU_AC_ZSH_SETUP_PATH

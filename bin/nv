@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+
+NVIM_APPNAME=Dany/.dotfiles/config/nvim nvim

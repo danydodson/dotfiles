@@ -22,8 +22,6 @@ use 5.010001;
 use File::Spec ();
 use Getopt::Long ();
 
-
-
 # Global command-line options
 our $opt_1;
 our $opt_A;
