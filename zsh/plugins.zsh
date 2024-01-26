@@ -3,6 +3,9 @@
 # oh-my-zsh -> plugins
 plugins+=(brew fd macos fzf pyenv nvm npm zsh-syntax-highlighting zsh-history-substring-search)
 
+# oh-my-zsh -> my-zsh-completions
+source "$ZSH_CUSTOM/plugins/my-zsh-completions/zsh-completions.plugin.zsh"
+
 # oh-my-zsh -> source
 fpath+="${ZSH_CUSTOM:-"$ZSH:-~/.config/oh-my-zsh/custom"}/plugins/zsh-completions/src"
 
@@ -13,7 +16,7 @@ source "$HOME/.config/oh-my-zsh/oh-my-zsh.sh"
 eval "$(starship init zsh)"
 
 # iterm2 -> loads shell integration
-source /Users/dany/.config/zsh/iterm2_shell_integration.zsh
+source "$HOME/.config/zsh/iterm2_shell_integration.zsh"
 
 # direnv hook
 eval "$(direnv hook zsh)"

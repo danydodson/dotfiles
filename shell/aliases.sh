@@ -29,41 +29,15 @@ alias path='echo -e ${PATH//:/\\n}'
 
 # b -> brew
 alias b='brew'
-alias bc='brew --cask'
 alias bu='brew update && brew upgrade && brew autoremove && brew cleanup --prune=all -s'
-
-# y -> yarn
-alias y='yarn'
-alias yi='y install'
-alias yb='y build'
-alias ys='y start'
-alias yd='y dev'
-alias ya='y add'
-
-# pn -> pnpm
-alias pn='pnpm'
-
-# n -> npm
-alias n='npm'
-alias ni='n install'
-alias nr='n run'
-alias nb='n run build'
-alias ns='n run start'
-alias nd='n run dev'
 
 # create-ic -> create-ic-app
 alias create-ic='npx create-ic-app@latest'
 
-# py -> python
-alias py='python'
-
 # code -> open vim
+alias nvim-macos='NVIM_APPNAME="nvim-macos" nvim'
 alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
 alias nvim-config='NVIM_APPNAME="nvim-config" nvim'
-alias nvim-macos='NVIM_APPNAME="nvim-macos" nvim'
-
-# pi -> pip install
-alias pi='pip install'
 
 # r -> ranger
 alias r='ranger'
