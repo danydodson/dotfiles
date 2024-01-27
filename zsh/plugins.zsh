@@ -30,8 +30,19 @@ eval "$(op completion zsh)"
 eval "$(__load_op_completion)"
 compdef _op op
 
+# fzf -> setup fzf
+if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
+  PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
+fi
+
+# fzf -> get completions
+source "/opt/homebrew/opt/fzf/shell/completion.zsh"
+
+# fzf -> get key bindings
+source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
+
 # fzf -> check for local config
-[[ ! -f $HOME/.config/fzf/fzf.zsh ]] || source $HOME/.config/fzf/fzf.zsh
+# [[ ! -f $HOME/.config/fzf/fzf.zsh ]] || source $HOME/.config/fzf/fzf.zsh
 
 # fzf -> defaults
 export FZF_DEFAULT_OPTS="--bind ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down --preview 'bat --color=always {}'"

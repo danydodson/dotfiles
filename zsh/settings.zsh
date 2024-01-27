@@ -100,7 +100,7 @@ bindkey '^w' vi-forward-word
 
 # Completion: Caching
 zstyle ':completion:*' use-cache true
-zstyle ':completion:*' cache-path $HOME/.config/cache/zsh
+zstyle ':completion:*' cache-path "$HOME/.config/cache/zsh"
 
 # group all by the description above
 zstyle ':completion:*' group-name ''
@@ -138,8 +138,7 @@ zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
 zstyle ':completion:*:*:-redirect-,2>,*:*' file-patterns '*.log'
 
 # use case-insensitive completion if case-sensitive generated no hits
-zstyle ':completion:*' matcher-list \
-  z'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+zstyle ':completion:*' matcher-list z'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 
 # # don't complete usernames
 zstyle ':completion:*' users ''

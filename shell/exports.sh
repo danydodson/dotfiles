@@ -4,9 +4,10 @@
 export LANG="en_US.UTF-8"
 
 # local editor
-export EDITOR="nvim-config"
+export EDITOR="nvim"
 export KEYTIMEOUT=1
 export VISUAL="$EDITOR"
+export GIT_EDITOR="$EDITOR"
 export SYSTEMD_EDITOR="$EDITOR"
 export TERM=xterm-256color
 
@@ -41,9 +42,6 @@ export DFX_CONFIG_ROOT="$XDG_CONFIG_HOME/dfx"
 
 # go
 export GOPATH="$XDG_CONFIG_HOME/go"
-
-# git
-export GIT_EDITOR="nvim-config"
 
 # homebrew
 export HOMEBREW_ROOT="/opt/homebrew"

@@ -54,6 +54,11 @@ function config() {
   cd "$HOME/.config" || exit
 }
 
+# repos -> cd to .dotfiles directory
+function dots() {
+  cd "$HOME/.dotfiles" || exit
+}
+
 # fvim -> find and open a file in vim
 function fvim() {
   if [[ $# -eq 0 ]]; then

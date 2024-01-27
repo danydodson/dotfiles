@@ -35,9 +35,10 @@ alias bu='brew update && brew upgrade && brew autoremove && brew cleanup --prune
 alias create-ic='npx create-ic-app@latest'
 
 # code -> open vim
+alias nv='NVIM_APPNAME="nvim-config" nvim'
+alias nvim='NVIM_APPNAME="nvim-config" nvim'
 alias nvim-macos='NVIM_APPNAME="nvim-macos" nvim'
 alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
-alias nvim-config='NVIM_APPNAME="nvim-config" nvim'
 
 # r -> ranger
 alias r='ranger'
@@ -49,7 +50,7 @@ alias gmo='git checkout $(git remote show origin | grep "HEAD branch" | cut -d "
 alias grb='git branch --sort=-committerdate | grep -v "$(git branch --show-current)" | fzf --header "Checkout Recent Branch ( $(git branch --show-current))" --preview "git diff {1} --color=always" --pointer="" | xargs git checkout'
 
 # gcw -> git commit "work in progress"
-alias gcw='git commit -m "wip" --no-verify'
+alias gcw='git add . && git commit -m ":sparkles: wip" --no-verify'
 
 # ks -> kill tmux server
 alias ks="tmux kill-server"

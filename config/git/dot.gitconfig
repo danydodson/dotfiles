@@ -10,7 +10,7 @@
 	path = "~/.dotfiles/config/git/osx.gitconfig"
 	
 [user]
-	signingkey = $ssh-ed25519 ...
+	signingkey = $ssh-ed25519 "op://Personal/ssh key/public key"
 
 #######################################################################
 # My aliases
@@ -116,8 +116,8 @@
 #######################################################################
 
 [gui]
-	fontui = -family '\"Operator Mono SSm Lig\"' -size -12 -weight normal -slant roman -underline 0 -overstrike 0
-	fontdiff = -family '\"Operator Mono SSm Lig\"' -size -12 -weight normal -slant roman -underline 0 -overstrike 0
+	fontui = -family '\"MesloLGS NF\"' -size -13 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family '\"MesloLGS NF\"' -size -13 -weight normal -slant roman -underline 0 -overstrike 0
 	commitmsgwidth = 280
 	diffcontext = 10
 
