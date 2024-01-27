@@ -6,7 +6,6 @@ export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
 HISTSIZE=100000
 SAVEHIST=100000
 HISTFILE="${HOME}/.config/cache/zsh/zsh_history"
-LESSHISTFILE="${HOME}/.config/cache/less/lesshst"
 SHELL_SESSIONS_DISABLE=1
 
 # completion dump

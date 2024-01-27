@@ -7,9 +7,6 @@ plugins+=(brew fd macos fzf pyenv nvm npm zsh-syntax-highlighting zsh-history-su
 source "$HOME/.config/oh-my-zsh/custom/plugins/my-zsh-completions/zsh-completions.plugin.zsh"
 
 # oh-my-zsh -> source
-# fpath+="${ZSH_CUSTOM:-"$ZSH:-~/.config/oh-my-zsh/custom"}/plugins/zsh-completions/src"
-
-# oh-my-zsh -> source
 source "$HOME/.config/oh-my-zsh/oh-my-zsh.sh"
 
 # starship.rs
@@ -41,9 +38,6 @@ source "/opt/homebrew/opt/fzf/shell/completion.zsh"
 # fzf -> get key bindings
 source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
 
-# fzf -> check for local config
-# [[ ! -f $HOME/.config/fzf/fzf.zsh ]] || source $HOME/.config/fzf/fzf.zsh
-
 # fzf -> defaults
 export FZF_DEFAULT_OPTS="--bind ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down --preview 'bat --color=always {}'"
 
@@ -66,6 +60,11 @@ eval "$(pyenv init --path)"
 if command -v ngrok &>/dev/null; then
   eval "$(ngrok completion)"
 fi
+
+# heroku -> completions
+export HEROKU_AC_ZSH_SETUP_PATH=/Users/Dany/Library/Caches/heroku/autocomplete/zsh_setup &&
+  test -f $HEROKU_AC_ZSH_SETUP_PATH &&
+  source $HEROKU_AC_ZSH_SETUP_PATH
 
 # nvm -> completions
 export NVM_DIR="$XDG_CONFIG_HOME/nvm"
@@ -92,7 +91,3 @@ load_nvmrc() {
 add-zsh-hook chpwd load_nvmrc
 load_nvmrc
 
-# heroku -> completions
-export HEROKU_AC_ZSH_SETUP_PATH=/Users/Dany/Library/Caches/heroku/autocomplete/zsh_setup &&
-  test -f $HEROKU_AC_ZSH_SETUP_PATH &&
-  source $HEROKU_AC_ZSH_SETUP_PATH

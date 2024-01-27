@@ -27,21 +27,18 @@ alias fpath='echo -e ${FPATH//:/\\n}'
 # path -> pretty path
 alias path='echo -e ${PATH//:/\\n}'
 
+# code -> open vim
+alias nv='NVIM_APPNAME="nvim-config" nvim'
+alias nvim='NVIM_APPNAME="nvim-config" nvim'
+alias nv-macos='NVIM_APPNAME="nvim-macos" nvim'
+alias nv-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
+
 # b -> brew
 alias b='brew'
 alias bu='brew update && brew upgrade && brew autoremove && brew cleanup --prune=all -s'
 
 # create-ic -> create-ic-app
 alias create-ic='npx create-ic-app@latest'
-
-# code -> open vim
-alias nv='NVIM_APPNAME="nvim-config" nvim'
-alias nvim='NVIM_APPNAME="nvim-config" nvim'
-alias nvim-macos='NVIM_APPNAME="nvim-macos" nvim'
-alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
-
-# r -> ranger
-alias r='ranger'
 
 # gmo -> git merge origin
 alias gmo='git checkout $(git remote show origin | grep "HEAD branch" | cut -d " " -f5) && git pull && git checkout - && git merge $(git remote show origin | grep "HEAD branch" | cut -d " " -f5)'
@@ -51,6 +48,9 @@ alias grb='git branch --sort=-committerdate | grep -v "$(git branch --show-curre
 
 # gcw -> git commit "work in progress"
 alias gcw='git add . && git commit -m ":sparkles: wip" --no-verify'
+
+# r -> ranger
+alias r='ranger'
 
 # ks -> kill tmux server
 alias ks="tmux kill-server"

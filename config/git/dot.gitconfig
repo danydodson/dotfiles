@@ -16,8 +16,8 @@
 # My aliases
 #######################################################################
 
-# [includeIf "gitdir:/Users/"]
-	# path = "~/.dotfiles/config/git/aliases.gitconfig"
+[includeIf "gitdir:/Users/"]
+	path = "~/.dotfiles/config/git/aliases.gitconfig"
 
 #######################################################################
 # Formatting

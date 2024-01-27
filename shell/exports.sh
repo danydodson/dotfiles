@@ -51,6 +51,9 @@ export HOMEBREW_NO_ANALYTICS=true
 # gls colors
 export LS_COLORS="$LS_COLORS:*.*=0;31:di=01;34:ln=01;36:ex=0;32:*.mp4=01;93:*.mov=01;93:*.mp3=01;93:*.dmg=0;35:*.zip=0;35:"
 
+# less
+export LESSHISTFILE="$XDG_STATE_HOME"/less/history
+
 # npm
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
