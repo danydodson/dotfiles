@@ -4,15 +4,9 @@
 export LANG="en_US.UTF-8"
 
 # editor
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
+export EDITOR='nvim'
 
-# export GIT_EDITOR=$EDITOR
-
-# locals
+# local env
 export DOTFILES="$HOME/.dotfiles"
 
 # xdg
@@ -32,6 +26,9 @@ export ACKRC="$XDG_CONFIG_HOME/ack/ackrc"
 
 # bat
 export BAT_CONFIG_PATH="$XDG_CONFIG_HOME/bat/conf"
+
+# Bun
+export BUN_INSTALL="$XDG_CONFIG_HOME/bun"
 
 # conda
 export CONDA_ROOT="$XDG_CONFIG_HOME/conda"
@@ -69,7 +66,7 @@ export OP_BIOMETRIC_UNLOCK_ENABLED=true
 export OP_CACHE="$XDG_CACHE_HOME/op"
 
 # pnpm
-export PNPM_HOME="$HOME/Library/pnpm"
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 
 # pyenv
 export PYENV_ROOT="$HOME/.config/pyenv"
@@ -80,7 +77,6 @@ export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t
 # vim
 export VIMCONFIG="$XDG_CONFIG_HOME/vim"
 export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
-# export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 
 # wakatime
 export WAKATIME_HOME="$XDG_CONFIG_HOME/wakatime"

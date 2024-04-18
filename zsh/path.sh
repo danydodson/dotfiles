@@ -3,8 +3,9 @@
 # path
 path-prepend "$DOTFILES/bin"
 path-prepend "$HOME/.config/pyenv/shims"
+# path-prepend "$HOME/.config/local/share/pnpm"
+# path-prepend "$HOME/.config/bun/bin"
 # path-prepend "$HOME/.config/iterm2"
-# path-prepend "$HOME/Library/pnpm"
 # path-prepend "$HOME/.config/nvim/bin"
 # path-prepend "/opt/homebrew/opt/brew/libexec/gnubin"
 # path-prepend "/opt/homebrew/opt/bc/bin"
