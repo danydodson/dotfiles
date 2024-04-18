@@ -19,8 +19,10 @@ brew "awscurl"
 brew "asciinema"
 # Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
-# A cat clone with syntax highlighting and Git integration.
+# A cat clone with syntax highlighting and Git integration
 brew "bat"
+# A package manager
+brew "bun"
 # GNU internationalization (i18n) and localization (l10n) library
 brew "gettext"
 # Core application library for C
