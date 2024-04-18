@@ -21,6 +21,9 @@ $ git clone https://github.com/danydodson/dotfiles.git ~/.dotfiles
 $ cd ~/.dotfiles
 $ git submodule init
 $ git submodule update
+$ cd ~/.dotfiles/config/zsh/custom/plugins/my-zsh-completions/
+$ git submodule init
+$ git submodule update
 ```
 
 Install Brewfile
@@ -84,34 +87,6 @@ $ luarocks install luacheck
 $ luarocks install busted
 $ luarocks install luacov
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- ## 💻 Setup lsg (optional)
 
@@ -222,6 +197,6 @@ $ gdircolors --print-database
 As you’ll notice if you run the above command, a final tweak you can perform is to colour files by their extension.
 For example, to colour .md files white, you’d add `:*.md=0;37:` to your LS_COLORS. The scope for customisation
 is colossal, and the key here is to experiment and find the colours you prefer and which are clear against whatever
-window-background colour (and opacity) you’ve set Terminal to display. 
+window-background colour (and opacity) you’ve set Terminal to display.
 
 -->
