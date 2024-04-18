@@ -3439,7 +3439,7 @@ Show Toolbelt</string>
 			<key>Name</key>
 			<string>dany</string>
 			<key>Non Ascii Font</key>
-			<string>JetBrainsMonoNL-Regular 14</string>
+			<string>SymbolsNF 14</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Non-ASCII Ligatures</key>

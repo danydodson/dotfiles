@@ -20,6 +20,7 @@ export SAVEHIST=1000000000
 HISTFILE="${HOME}/.config/cache/zsh/zsh_history"
 export HIST_STAMPS="yyyy-mm-dd"
 
+# history
 setopt APPEND_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_FIND_NO_DUPS

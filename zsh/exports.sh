@@ -4,14 +4,13 @@
 export LANG="en_US.UTF-8"
 
 # editor
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='nvim'
+# fi
 
-export GIT_EDITOR=$EDITOR
-export BUNDLER_EDITOR=$EDITOR
+# export GIT_EDITOR=$EDITOR
 
 # locals
 export DOTFILES="$HOME/.dotfiles"
@@ -79,9 +78,9 @@ export PYENV_ROOT="$HOME/.config/pyenv"
 export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
 # vim
-export VIMCONFIG="$XDG_CONFIG_HOME"/vim
-export MYVIMRC="$XDG_CONFIG_HOME"/vim/vimrc
-export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
+export VIMCONFIG="$XDG_CONFIG_HOME/vim"
+export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+# export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 
 # wakatime
 export WAKATIME_HOME="$XDG_CONFIG_HOME/wakatime"

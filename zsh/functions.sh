@@ -1,5 +1,39 @@
 #!/usr/bin/env bash
 
+# path-remove -> remove form path
+function path-remove() {
+  PATH=$(echo -n "$PATH" | awk -v RS=: -v ORS=: "\$0 != \"$1\"" | sed 's/:$//')
+}
+
+#  path-append -> append to path
+function path-append() {
+  path-remove "$1"
+  PATH="${PATH:+"$PATH:"}$1"
+}
+
+# path -> prepend to path
+function path-prepend() {
+  path-remove "$1"
+  PATH="$1${PATH:+":$PATH"}"
+}
+
+# fpath -> remove from fpath
+function fpath-remove() {
+  FPATH=$(echo -n "$FPATH" | awk -v RS=: -v ORS=: "\$0 != \"$1\"" | sed 's/:$//')
+}
+
+# fpath -> append to fpath
+function fpath-append() {
+  fpath-remove "$1"
+  FPATH="${FPATH:+"$FPATH:"}$1"
+}
+
+# fpath -> prepend to fpath
+function fpath-prepend() {
+  path-remove "$1"
+  FPATH="$1${FPATH:+":$FPATH"}"
+}
+
 # dots -> cd to .dotfiles directory
 function dots() {
   cd "$HOME/.dotfiles/" || exit
@@ -36,62 +70,27 @@ function wttr() {
   curl http://wttr.in/"$1"
 }
 
-# path-remove -> remove form path
-function path-remove() {
-  PATH=$(echo -n "$PATH" | awk -v RS=: -v ORS=: "\$0 != \"$1\"" | sed 's/:$//')
-}
-
-#  path-append -> append to path
-function path-append() {
-  path-remove "$1"
-  PATH="${PATH:+"$PATH:"}$1"
-}
-
-# path -> prepend to path
-function path-prepend() {
-  path-remove "$1"
-  PATH="$1${PATH:+":$PATH"}"
-}
-
-# fpath -> remove from fpath
-function fpath-remove() {
-  FPATH=$(echo -n "$FPATH" | awk -v RS=: -v ORS=: "\$0 != \"$1\"" | sed 's/:$//')
-}
-
-# fpath -> append to fpath
-function fpath-append() {
-  fpath-remove "$1"
-  FPATH="${FPATH:+"$FPATH:"}$1"
-}
-
-# fpath -> prepend to fpath
-function fpath-prepend() {
-  path-remove "$1"
-  FPATH="$1${FPATH:+":$FPATH"}"
-}
-
 # fvim -> find and open a file in vim
-# function fvim() {
-#   if [[ $# -eq 0 ]]; then
-#     fd -t f | fzf --header "Open File in Vim" --preview "bat --color=always {}" | xargs nvim-config
-#   else
-#     fd -t f | fzf --header "Open File in Vim" --preview "bat --color=always {}" -q "$@" | xargs nvim-config
-#   fi
-# }
+function fvim() {
+  if [[ $# -eq 0 ]]; then
+    fd -t f | fzf --header "Open File in nvim" --preview "bat --color=always {}" | xargs nvim
+  else
+    fd -t f | fzf --header "Open File in nvim" --preview "bat --color=always {}" -q "$@" | xargs nvim
+  fi
+}
 
-# # vim -> open vim in the current directory or open the target file
-# function vim() {
-#   if [[ $# -eq 0 ]]; then
-#     nvim-config .
-#   else
-#     nvim-config "$@"
-#   fi
-# }
+# vim -> open vim in the current directory or open the target file
+function vim() {
+  if [[ $# -eq 0 ]]; then
+    nvim .
+  else
+    nvim "$@"
+  fi
+}
 
 # __my_op_plugin_run -> fixes op completion
 function __my_op_plugin_run() {
   _op_plugin_run
-
   for ((i = 2; i < CURRENT; i++)); do
     # shellcheck disable=SC2116,SC2154
     if [[ ${words[i]} == -- ]]; then
@@ -101,7 +100,6 @@ function __my_op_plugin_run() {
       return
     fi
   done
-
 }
 
 # __load_op_completion -> fixes op completion

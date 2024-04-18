@@ -61,6 +61,12 @@ $ sudo reboot
 
 ## 📦 Install packages
 
+Install nvim
+
+```console
+$ git clone https://github.com/danydodson/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+```
+
 Get node-lts from nvm
 
 ```console
