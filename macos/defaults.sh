@@ -77,21 +77,15 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 echo "  › Disable auto-correct"
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
-echo "  › Set up trackpad & mouse speed to a reasonable number"
-defaults write -g com.apple.trackpad.scaling 2
-defaults write -g com.apple.mouse.scaling 2.5
+# echo "  › Set up trackpad & mouse speed to a reasonable number"
+# defaults write -g com.apple.trackpad.scaling 2
+# defaults write -g com.apple.mouse.scaling 2.5
 
 echo "  › Avoid the creation of .DS_Store files on network volumes"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
 echo "  › Disable the 'Are you sure you want to open this application?' dialog"
 defaults write com.apple.LaunchServices LSQuarantine -bool false
-
-echo "  › Set graphite appearance"
-defaults write NSGlobalDomain AppleAquaColorVariant -int 6
-
-echo "  › Set graphite highlight color"
-defaults write NSGlobalDomain AppleHighlightColor -string "0.847059 0.847059 0.862745"
 
 echo "  › Speed up wake from sleep to 24 hours from an hour"
 # http://www.cultofmac.com/221392/quick-hack-speeds-up-retina-macbooks-wake-from-sleep-os-x-tips/
