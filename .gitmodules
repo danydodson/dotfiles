@@ -16,3 +16,6 @@
 [submodule "config/zsh/custom/plugins/my-zsh-completions"]
 	path = config/zsh/custom/plugins/my-zsh-completions
 	url = https://github.com/danydodson/my-zsh-completions
+[submodule "config/nvim/init.lua"]
+	path = config/nvim/init.lua
+	url = https://github.com/danydodson/init.lua
