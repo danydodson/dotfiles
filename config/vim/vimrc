@@ -1,3 +1,4 @@
+set viminfo+=n~/.config/vim/viminfo
 set noswapfile
 set nobackup
 syntax enable

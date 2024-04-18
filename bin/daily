@@ -5,8 +5,8 @@
 __echo() { printf '%s\033[0;m\n' "$1"; }
 
 __echo "Starting update.sh"
-cd "$HOME"/.dotfiles/scripts/daily && ./update.sh
+cd "$HOME"/.dotfiles/macos && ./update.sh
 
 __echo "Starting clean.sh"
-cd "$HOME"/.dotfiles/scripts/daily && ./clean.sh
+cd "$HOME"/.dotfiles/macos && ./clean.sh
 

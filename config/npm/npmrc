@@ -1,2 +1,4 @@
 registry.npmjs.org/:_authToken=$(op read op://Personal/npmjs.com/credentials/token)
-# node_gyp=$(npm prefix -g)/lib/node_modules/node-gyp/bin/node-gyp.js
+init-author-email=dany@danydodson.dev
+init-author-name=Dany Dodson
+init-license=MIT

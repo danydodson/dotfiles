@@ -1,0 +1,18 @@
+[submodule "config/oh-my-zsh"]
+	path = config/oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh
+[submodule "config/zsh/custom/themes/powerlevel10k"]
+	path = config/zsh/custom/themes/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git
+[submodule "config/zsh/custom/plugins/zsh-syntax-highlighting"]
+	path = config/zsh/custom/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "config/zsh/custom/plugins/zsh-autosuggestions"]
+	path = config/zsh/custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule "config/zsh/custom/plugins/zsh-history-substring-search"]
+	path = config/zsh/custom/plugins/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search.git
+[submodule "config/zsh/custom/plugins/my-zsh-completions"]
+	path = config/zsh/custom/plugins/my-zsh-completions
+	url = https://github.com/danydodson/my-zsh-completions

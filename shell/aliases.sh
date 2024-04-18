@@ -13,7 +13,6 @@ alias mv="nocorrect mv"
 alias rm="nocorrect rm"
 
 # aliases
-alias c="code"
 alias dirs='dirs -v'
 alias mkdir="nocorrect mkdir"
 
@@ -21,24 +20,40 @@ alias mkdir="nocorrect mkdir"
 alias se='sudo -e'
 alias root='sudo -s'
 
-# fpath -> pretty fpath
-alias fpath='echo -e ${FPATH//:/\\n}'
-
-# path -> pretty path
-alias path='echo -e ${PATH//:/\\n}'
-
-# code -> open vim
-alias nv='NVIM_APPNAME="nvim-config" nvim'
-alias nvim='NVIM_APPNAME="nvim-config" nvim'
-alias nv-macos='NVIM_APPNAME="nvim-macos" nvim'
-alias nv-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
+# nvim -> open nvim
+alias nv='nvim'
 
 # b -> brew
 alias b='brew'
 alias bu='brew update && brew upgrade && brew autoremove && brew cleanup --prune=all -s'
 
+# pn -> pnpm
+alias pn='pnpm'
+alias pni='pnpm install'
+alias pnb='pnpm build'
+alias pns='pnpm run start'
+alias pnd='pnpm run dev'
+alias pnvite='pnpm create vite'
+
+# n -> npm
+alias n='npm'
+alias ni='n install'
+alias nb='npm build'
+alias ns='n run start'
+alias nd='n run dev'
+alias npmvite='npm create vite@latest'
+
 # create-ic -> create-ic-app
 alias create-ic='npx create-ic-app@latest'
+
+# hts -> http-server
+alias hts='http-server'
+
+# lvs -> live-server
+alias lvs='live-server'
+
+# r -> ranger
+alias r='ranger'
 
 # gmo -> git merge origin
 alias gmo='git checkout $(git remote show origin | grep "HEAD branch" | cut -d " " -f5) && git pull && git checkout - && git merge $(git remote show origin | grep "HEAD branch" | cut -d " " -f5)'
@@ -49,11 +64,8 @@ alias grb='git branch --sort=-committerdate | grep -v "$(git branch --show-curre
 # gcw -> git commit "work in progress"
 alias gcw='git add . && git commit -m ":sparkles: wip" --no-verify'
 
-# r -> ranger
-alias r='ranger'
-
-# ks -> kill tmux server
-alias ks="tmux kill-server"
+# afk ->  open screen saver
+alias afk="open -a /System/Library/CoreServices/ScreenSaverEngine.app"
 
 # brm -> pretty print
 alias brm='bat --plain readme.md'
@@ -82,7 +94,7 @@ alias spotoff='sudo mdutil -a -i off'
 # spoton -> enable spotlight
 alias spoton='sudo mdutil -a -i on'
 
-# sshm1 -> dany@macbook
+# ssh-dany-macbook -> dany@macbook
 alias sshm1="ssh dany@192.168.0.3"
 
 # sshkeygen -> create a public key
@@ -98,10 +110,16 @@ alias m4b-tool='docker run -it --rm -u $(id -u):$(id -g) -v "$(pwd)":/mnt sandre
 alias mon-icloud="brctl monitor com.apple.CloudDocs | grep %"
 
 # curl -> with configs
-alias curl='curl --silent'
+alias curl='curl -K "$HOME/.config/curl/curlrc" --silent'
 
 # wget -> with configs
-alias wget='wget --config="${DOTFILES}/config/wget/wgetrc" --hsts-file="${DOTFILES}/config/wget/wget-hsts" --no-check-certificate'
+alias wget='wget --config="${HOME}/.config/wget/wgetrc" --hsts-file="${HOME}/.config/wget/wget-hsts" --no-check-certificate'
+
+# fpath -> pretty fpath
+alias fpath='echo -e ${FPATH//:/\\n}'
+
+# path -> pretty path
+alias path='echo -e ${PATH//:/\\n}'
 
 # ytd -> default directory
 alias ytd='yt-dlp -o ~/Movies'
@@ -113,13 +131,10 @@ alias ios='open -a Simulator.app'
 alias xcode='open -a Xcode.app'
 
 # br -> open brave
-alias br='open -a "Brave Browser.app"'
+alias brave='open -a "Brave Browser.app"'
 
 # cr-dev -> open chrome-dev
-alias cr-dev='open -a "Google Chrome" --args --remote-debugging-port=9229'
-
-# elec -> open electron
-alias elec='/Applications/Electron.app/Contents/MacOS/Electron'
+alias chrome-dev='open -a "Google Chrome" --args --remote-debugging-port=9229'
 
 # ls -> gls
 alias_ls() {
@@ -130,3 +145,5 @@ alias_ls() {
   alias kk='ll'
 }
 alias_ls
+
+# vim: set filetype=zsh:
