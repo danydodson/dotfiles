@@ -21,4 +21,5 @@ cp -r "$DOTFILES/config/ssh" "$HOME/.ssh/" && echo " > Copied $DOTFILES/config/s
 cp -r "$DOTFILES/config/vim" "$HOME/.config/" && echo " > Copied $DOTFILES/config/vim"
 cp -r "$DOTFILES/config/wget" "$HOME/.config/" && echo " > Copied $DOTFILES/config/wget"
 cp -r "$DOTFILES/config/yabai" "$HOME/.config/" && echo " > Copied $DOTFILES/config/yabai"
-cp -p "$DOTFILES/shell/.zshrc" "$HOME" && echo " > Copied $zshrc"
+cp -p "$DOTFILES/shell/.zshrc" "$HOME" && echo " > Copied $DOTFILES/shell/.zshrc"
+cp -p "$DOTFILES/shell/.zprofile" "$HOME" && echo " > Copied $DOTFILES/shell/.zprofile"
