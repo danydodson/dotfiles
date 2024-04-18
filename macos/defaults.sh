@@ -60,7 +60,6 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 echo "  › Always show scrollbars"
 defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling"
-# Possible values: `WhenScrolling`, `Automatic` and `Always`
 
 echo "  › Disable Dashboard"
 defaults write com.apple.dashboard mcx-disabled -bool true

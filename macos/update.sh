@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Update packages
+# Update and clean
 
 echo ' > Software update...'
 sudo softwareupdate -i -a
@@ -14,4 +14,14 @@ npm update --location=global
 echo ' > Upgrading homebrew...'
 brew update && brew upgrade && brew autoremove && brew cleanup --prune=all -s
 
-echo ' > Finished updating packages'
+echo ' > Removing node_modules...'
+find ~/Developer -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
+
+echo ' > Removing completion dumps...'
+find ~/.config/cache/zsh ! -name 'zsh_history' -type f -exec rm -f {} +
+
+echo ' > Removing zcompdumps...'
+rm -rfv ~/.config/zsh/.zcompdump*
+
+echo ' > Emptying Trash...'
+sudo rm -rfv ~/.Trash

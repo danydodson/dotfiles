@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-# Open .dotfiles in vs code
-
-code "$DOTFILES"

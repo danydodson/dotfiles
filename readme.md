@@ -18,7 +18,7 @@ Clone and pull dotfiles
 
 ```console
 $ git clone https://github.com/danydodson/dotfiles.git ~/.dotfiles
-$ cd ~/.dotfiles
+$ cd ~/.dotfiles &&
 $ git submodule init
 $ git submodule update
 $ cd ~/.dotfiles/config/zsh/custom/plugins/my-zsh-completions/
@@ -44,8 +44,13 @@ $ brew bundle dump
 Setup mac defaults
 
 ```console
-$ ./set-defaults.sh
-$ cd ..
+$ ./defaults.sh
+```
+
+Copy configs
+
+```console
+$ ./configs.sh
 ```
 
 Reboot
@@ -68,8 +73,12 @@ $ nvm install-latest-npm
 Install global npm packages
 
 ```console
+$ npm install -g yarn
+$ npm install -g serve
+$ npm install -g jest
 $ npm install -g live-server
 $ npm install -g http-server
+$ npm install -g vercel
 ```
 
 Install python packages

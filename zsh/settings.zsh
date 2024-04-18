@@ -21,70 +21,60 @@ HISTFILE="${HOME}/.config/cache/zsh/zsh_history"
 export HIST_STAMPS="yyyy-mm-dd"
 
 setopt APPEND_HISTORY
-setopt SHARE_HISTORY
-setopt INC_APPEND_HISTORY
-setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
+setopt EXTENDED_HISTORY
 setopt HIST_VERIFY
 
-# disable ^S and ^Q terminal freezing
-# unsetopt flowcontrol
-
 # changing directories
-# setopt AUTO_PUSHD
-# setopt PUSHD_IGNORE_DUPS
-# setopt PUSHD_SILENT
-# setopt PUSHD_TO_HOME
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+setopt PUSHD_SILENT
+setopt PUSHD_TO_HOME
 
 # list completions
-# setopt AUTO_LIST
-# setopt AUTO_MENU
-# setopt NO_COMPLETE_ALIASES
-# setopt LIST_PACKED
+setopt AUTO_LIST
+setopt AUTO_MENU
+setopt NO_COMPLETE_ALIASES
+setopt LIST_PACKED
 
 # expand and glob
-# setopt EXTENDED_GLOB
+setopt EXTENDED_GLOB
 
 # autocomplete switches for aliases
-# setopt ALIASES
-# setopt AUTO_PARAM_SLASH
-# setopt CORRECT
+setopt ALIASES
+setopt AUTO_PARAM_SLASH
+setopt CORRECT
 
 # job control
-# setopt CHECK_JOBS
-# setopt LONGLISTJOBS
-# setopt NO_HUP
+setopt CHECK_JOBS
+setopt LONGLISTJOBS
+setopt NO_HUP
 
 # # allow variables in prompt
-# setopt PROMPT_SUBST
+setopt PROMPT_SUBST
 
 # allow comments in shell
-# setopt INTERACTIVE_COMMENTS
-
-# zle
-# setopt NO_BEEP
+setopt INTERACTIVE_COMMENTS
 
 # color complist
-# zmodload -i zsh/complist
-# autoload -Uz colors
-# colors
+zmodload -i zsh/complist
+autoload -Uz colors && colors
 
 # hooks -- used for prompt too
-# autoload -Uz add-zsh-hook
-# autoload -Uz vcs_info
+autoload -Uz add-zsh-hook
+autoload -Uz vcs_info
 
 # automatically fix things when pasted
-# autoload -Uz bracketed-paste-magic
-# zle -N bracketed-paste bracketed-paste-magic
+autoload -Uz bracketed-paste-magic
+zle -N bracketed-paste bracketed-paste-magic
 
 # automatically quote URLs as they are typed
-# autoload -Uz url-quote-magic
-# zle -N self-insert url-quote-magic
-
-# nvm plugin for oh-my-zsh
-# zstyle ':omz:plugins:nvm' lazy yes
+autoload -Uz url-quote-magic
+zle -N self-insert url-quote-magic
 
 # VI mode
 # bindkey -v
@@ -102,12 +92,15 @@ setopt HIST_VERIFY
 # bindkey '^e' vi-forward-word-end
 # bindkey '^w' vi-forward-word
 
+# nvm plugin for oh-my-zsh
+zstyle ':omz:plugins:nvm' lazy yes
+
 # Completion: Caching
-# zstyle ':completion:*' use-cache true
-# zstyle ':completion:*' cache-path "$HOME/.config/cache/zsh"
+zstyle ':completion:*' use-cache true
+zstyle ':completion:*' cache-path "$HOME/.config/cache/zsh"
 
 # group all by the description above
-# zstyle ':completion:*' group-name ''
+zstyle ':completion:*' group-name ''
 
 # colorful completion
 # zstyle ':completion:*:default' list-colors \
@@ -116,36 +109,19 @@ setopt HIST_VERIFY
 #   "su=30;41" "sg=30;46" "tw=30;42" "ow=30;43"
 
 # list dirs first
-# zstyle ':completion:*' list-dirs-first yes
-
-# go into menu mode on second tab (like current vim wildmenu setting)
-# only if there's more than two things to choose from
-# zstyle ':completion:*' menu select=2
+zstyle ':completion:*' list-dirs-first yes
 
 # show descriptions for options
-# zstyle ':completion:*' verbose yes
+zstyle ':completion:*' verbose yes
 
 # in Bold, specify what type the completion is, e.g. a file or an alias or a cmd
-# zstyle ':completion:*:descriptions' format '%F{black}%B%d%b%f'
+zstyle ':completion:*:descriptions' format '%F{black}%B%d%b%f'
 
 # expand completions as much as possible on tab
-# e.g. start expanding a path up to wherever it can be until error
-# zstyle ':completion:*' expand yes
+zstyle ':completion:*' expand yes
 
 # process names
-# zstyle ':completion:*:processes-names' command 'ps c -u ${USER} -o command | uniq'
-
-# colorful kill command completion -- probably overridden by fzf
-# zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
+zstyle ':completion:*:processes-names' command 'ps c -u ${USER} -o command | uniq'
 
 # complete .log filenames if redirecting stderr
-# zstyle ':completion:*:*:-redirect-,2>,*:*' file-patterns '*.log'
-
-# use case-insensitive completion if case-sensitive generated no hits
-# zstyle ':completion:*' matcher-list z'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
-
-# don't complete usernames
-# zstyle ':completion:*' users ''
-
-# don't autocomplete homedirs
-# zstyle ':completion::complete:cd:*' tag-order '! users'
+zstyle ':completion:*:*:-redirect-,2>,*:*' file-patterns '*.log'
