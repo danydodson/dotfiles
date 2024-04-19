@@ -1,5 +1,5 @@
 #!/bin/sh
-# 
+#
 # Sets reasonable macOS defaults.
 #
 # Heavily inspired by:
@@ -94,7 +94,7 @@ sudo pmset -a standbydelay 86400
 echo "  › Disabling the Launchpad gesture (pinch with thumb and three fingers)"
 defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
 
-echo "  › Disable “natural” (Lion-style) scrolling"
+echo "  › Disable 'natural' (Lion-style) scrolling"
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 echo "  › Removing duplicates in the 'Open With' menu"

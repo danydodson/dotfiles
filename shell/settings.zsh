@@ -1,9 +1,15 @@
 # settings.zsh
 
+# direnv -> used with instant prompt
+(( ${+commands[direnv]} )) && emulate zsh -c "$(direnv export zsh)"
+
 # instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.config/cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.config/cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+# direnv -> used with instant prompt
+(( ${+commands[direnv]} )) && emulate zsh -c "$(direnv hook zsh)"
 
 # completion dump
 zcompdump="${ZDOTDIR:-$HOME/.config/zsh}/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
@@ -19,6 +25,7 @@ export HISTSIZE=1000000000
 export SAVEHIST=1000000000
 export HISTFILE="${HOME}/.config/cache/zsh/zsh_history"
 export LESSHISTFILE="${HOME}/.config/cache/less/lesshst"
+export HIST_STAMPS="yyyy-mm-dd"
 
 # history
 setopt APPEND_HISTORY

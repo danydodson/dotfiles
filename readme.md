@@ -29,7 +29,7 @@ $ git submodule update
 Install Brewfile
 
 ```console
-$ cd ~/.dotfiles/macos
+$ cd ~/.dotfiles/config/brew
 $ brew bundle
 ```
 
@@ -44,13 +44,8 @@ $ brew bundle dump
 Setup mac defaults
 
 ```console
+$ cd ~/.dotfiles/macos
 $ ./defaults.sh
-```
-
-Copy configs
-
-```console
-$ ./configs.sh
 ```
 
 Reboot

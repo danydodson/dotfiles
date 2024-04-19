@@ -25,8 +25,8 @@ function repos() {
   cd "$HOME/Developer/Github/" || exit
 }
 
-# nvconfig -> cd to config/nvim
-function nvconfig() {
+# nvconf -> cd to config/nvim
+function nvconf() {
   nvim "$HOME/.config/nvim/"
 }
 

@@ -10,13 +10,10 @@ source "$DOTFILES/config/zsh/custom/plugins/my-zsh-completions/zsh-completions.p
 source "$DOTFILES/config/omz/oh-my-zsh.sh"
 
 # run -> p10k configure
-[[ ! -f ~/.dotfiles/config/p10k/p10k.zsh ]] || source  ~/.dotfiles/config/p10k/p10k.zsh
+[[ ! -f ~/.dotfiles/shell/p10k.zsh ]] || source  ~/.dotfiles/shell/p10k.zsh
 
 # iterm2 -> loads shell integration
 source "$DOTFILES/config/iterm2/iterm2_shell_integration.zsh"
-
-# direnv hook -> configs for instant prompt
-(( ${+commands[direnv]} )) && emulate zsh -c "$(direnv hook zsh)"
 
 # gpg_tty -> config for instant prompt
 export GPG_TTY=$(tty)
