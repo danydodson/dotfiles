@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-# Start recording terminal session
-
-asciinema rec

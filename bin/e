@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-# Quick shortcut to an editor.
-
-exec "$EDITOR" "${1:-.}"

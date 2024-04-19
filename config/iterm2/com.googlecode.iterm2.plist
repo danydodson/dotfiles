@@ -6216,7 +6216,7 @@ Show Toolbelt</string>
 			<key>Blur</key>
 			<false/>
 			<key>Blur Radius</key>
-			<real>9.7488530585106332</real>
+			<real>3.7488530585106332</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -6485,7 +6485,7 @@ Show Toolbelt</string>
 			<key>HotKey Modifier Flags</key>
 			<integer>262144</integer>
 			<key>HotKey Window Animates</key>
-			<true/>
+			<false/>
 			<key>HotKey Window AutoHides</key>
 			<false/>
 			<key>HotKey Window Dock Click Action</key>
@@ -7497,7 +7497,7 @@ Show Toolbelt</string>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>Working Directory</key>
 			<string>/Users/Dany</string>
 		</dict>

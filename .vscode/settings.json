@@ -1,0 +1,13 @@
+{
+  "files.associations": {
+    "**/bin/*": "shellscript",
+  },
+  "search.exclude": {
+    "**/config/omz/*": true,
+    "**/config/zsh/custom/*": true,
+  },
+  "taskExplorer.exclude": [
+    "**/config/*",
+    "**/shell/*",
+  ]
+}

@@ -1,6 +1,5 @@
 **/.DS_Store
 **/Brewfile.lock.json
-**/.vscode
 **/Icon?
 **/Icon
 **/.megaignore
@@ -8,5 +7,3 @@
 **/gitconfig
 **/*.env
 **/*.log
-**/*wget-hsts
-**/config/nvim/onedark*

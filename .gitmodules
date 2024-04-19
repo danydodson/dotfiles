@@ -1,5 +1,5 @@
-[submodule "config/oh-my-zsh"]
-	path = config/oh-my-zsh
+[submodule "config/omz"]
+	path = config/omz
 	url = https://github.com/ohmyzsh/ohmyzsh
 [submodule "config/zsh/custom/themes/powerlevel10k"]
 	path = config/zsh/custom/themes/powerlevel10k
@@ -16,6 +16,7 @@
 [submodule "config/zsh/custom/plugins/my-zsh-completions"]
 	path = config/zsh/custom/plugins/my-zsh-completions
 	url = https://github.com/danydodson/my-zsh-completions
-[submodule "config/nvim/init.lua"]
-	path = config/nvim/init.lua
+[submodule "config/init.lua"]
+	path = config/init.lua
 	url = https://github.com/danydodson/init.lua
+

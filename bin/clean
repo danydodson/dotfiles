@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Update and clean
+
+echo " > Starting update.sh"
+cd "$HOME"/.dotfiles/macos && ./clean.sh
+
+

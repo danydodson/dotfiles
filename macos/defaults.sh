@@ -105,7 +105,7 @@ echo "  › Removing duplicates in the 'Open With' menu"
 
 echo ""
 echo "› Finder:"
-echo "  › Always open everything in Finder's list view"
+echo "  › Always open everything in Finder's col view"
 defaults write com.apple.finder FXPreferredViewStyle -string 'clmv'
 
 echo "  › Set the Finder prefs for showing a few different volumes on the Desktop"
@@ -115,11 +115,11 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 echo "  › Expand save panel by default"
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
-echo "  › Set sidebar icon size to small"
+echo "  › Set sidebar icon size to medium"
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
 echo "  › Show status bar"
-defaults write com.apple.finder ShowStatusBar -bool false
+defaults write com.apple.finder ShowStatusBar -bool true
 
 echo "  › Show path bar"
 defaults write com.apple.finder ShowPathbar -bool true
@@ -131,7 +131,7 @@ echo "  › Save to disk by default, instead of iCloud"
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 echo "  › Display full POSIX path as Finder window title"
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool false
 
 echo "  › Disable the warning when changing a file extension"
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
