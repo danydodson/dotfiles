@@ -30,15 +30,97 @@ function nvconf() {
   nvim "$HOME/.config/nvim/"
 }
 
+# dsx -> delete .DS_Store
+function dsx() {
+  find . -name "*.DS_Store" -type f -delete
+}
+
+# pi -> ping google dns
+function pi() {
+  ping -Anc 5 1.1.1.1
+}
+
+# ygs -> yarn generate and serve
+function ygs() {
+  yarn generate && http-server dist/ -p 8080
+}
+
+# randpw -> generate random password
+function randpw() {
+  openssl rand -base64 4 | md5 | head -c"$1"
+  echo
+}
+
 # randpass -> generate passwords
 randpass() {
   local len=${1:-32}
   openssl rand -base64 256 | tr -d '\n/+=' | cut -c -"$len"
 }
 
+# copy -> copy to clipboard
+copy() {
+  printf "%s" "$*" | tr -d "\n" | pbcopy
+}
+
 # wttr -> get weather forcaset
 function wttr() {
   curl http://wttr.in/"$1"
+}
+
+# fvim -> find and open a file in vim
+function fvim() {
+  if [[ $# -eq 0 ]]; then
+    fd -t f | fzf --header "Open File in nvim" --preview "bat --color=always {}" | xargs nvim
+  else
+    fd -t f | fzf --header "Open File in nvim" --preview "bat --color=always {}" -q "$@" | xargs nvim
+  fi
+}
+
+# vim -> open vim in the current directory or open the target file
+function vim() {
+  if [[ $# -eq 0 ]]; then
+    nvim .
+  else
+    nvim "$@"
+  fi
+}
+
+# bubo -> brew update and outdated
+function bubo() {
+  brew update && brew outdated
+}
+
+# bb -> bundle brewfile
+function bb() {
+  if [ -e "$HOME"/.dotfiles/config/brew/Brewfile ]; then
+    echo "-> Bundling Brewfile located at $HOME/.dotfiles/config/brew/Brewfile"
+    sleep 2
+    brew bundle --file "$HOME"/.dotfiles/config/brew/Brewfile
+  else
+    echo "Brewfile not found."
+  fi
+}
+
+# bbc -> bundle brewfile cleanup
+function bbc() {
+  if [ -e "$HOME"/.dotfiles/config/brew/Brewfile ]; then
+    echo "-> Running bundle cleanup dry-run for Brewfile located at $HOME/.dotfiles/config/brew/Brewfile"
+    sleep 2
+    brew bundle cleanup --file "$HOME"/.dotfiles/config/brew/Brewfile
+  else
+    echo "Brewfile not found."
+  fi
+}
+
+# bbcf -> bundle brewfile cleanup force
+function bbcf() {
+  if [ -e "$HOME"/.dotfiles/config/brew/Brewfile ]; then
+    echo "-> Running bundle cleanup (force) for Brewfile located at $HOME/.dotfiles/config/brew/Brewfile"
+    sleep 2
+    brew bundle cleanup --force --file "$HOME"/.dotfiles/config/brew/Brewfile
+  else
+    echo "Brewfile not found."
+  fi
 }
 
 # path-remove -> remove form path
@@ -73,24 +155,6 @@ function fpath-append() {
 function fpath-prepend() {
   path-remove "$1"
   FPATH="$1${FPATH:+":$FPATH"}"
-}
-
-# fvim -> find and open a file in vim
-function fvim() {
-  if [[ $# -eq 0 ]]; then
-    fd -t f | fzf --header "Open File in nvim" --preview "bat --color=always {}" | xargs nvim
-  else
-    fd -t f | fzf --header "Open File in nvim" --preview "bat --color=always {}" -q "$@" | xargs nvim
-  fi
-}
-
-# vim -> open vim in the current directory or open the target file
-function vim() {
-  if [[ $# -eq 0 ]]; then
-    nvim .
-  else
-    nvim "$@"
-  fi
 }
 
 # __my_op_plugin_run -> fixes op completion
