@@ -6271,7 +6271,7 @@ Show Toolbelt</string>
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>213</integer>
+			<integer>214</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Boost</key>
@@ -6493,7 +6493,7 @@ Show Toolbelt</string>
 			<key>HotKey Window Dock Click Action</key>
 			<integer>0</integer>
 			<key>HotKey Window Floats</key>
-			<true/>
+			<false/>
 			<key>HotKey Window Reopens On Activation</key>
 			<false/>
 			<key>Icon</key>

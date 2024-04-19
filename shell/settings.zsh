@@ -84,9 +84,6 @@ zle -N bracketed-paste bracketed-paste-magic
 autoload -Uz url-quote-magic
 zle -N self-insert url-quote-magic
 
-# nvm plugin for oh-my-zsh
-zstyle ':omz:plugins:nvm' lazy yes
-
 # Completion: Caching
 zstyle ':completion:*' use-cache true
 zstyle ':completion:*' cache-path "$HOME/.config/cache/zsh"

@@ -56,30 +56,15 @@ $ sudo reboot
 
 ## 📦 Install packages
 
-Install nvim
-
-```console
-$ git clone https://github.com/danydodson/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
-```
-
-Get node-lts from nvm
-
-```console
-$ nvm install 'lts/*' --latest-npm
-$ nvm use --lts
-$ nvm nvm alias default lts/\*
-$ nvm install-latest-npm
-```
-
 Install global npm packages
 
 ```console
-$ npm install -g yarn
 $ npm install -g serve
 $ npm install -g jest
 $ npm install -g live-server
 $ npm install -g http-server
 $ npm install -g vercel
+$ npm install -g typescript
 ```
 
 Install python packages

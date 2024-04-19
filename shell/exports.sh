@@ -46,9 +46,6 @@ export LS_COLORS="$LS_COLORS:*.*=0;31:di=01;34:ln=01;36:ex=0;32:*.mp4=01;93:*.mo
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/.npmrc"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 
-# nvm
-export NVM_HOMEBREW="/opt/homebrew/opt/nvm"
-
 # 1password
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
 export OP_CACHE="$XDG_CACHE_HOME/op"

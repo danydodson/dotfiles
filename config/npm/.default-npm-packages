@@ -1,7 +1,6 @@
-gulp-cli
+serve
+jest
 http-server
 live-server
-neovim
-pug
-stylelint
+vercel
 typescript
