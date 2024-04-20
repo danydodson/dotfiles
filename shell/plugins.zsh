@@ -10,7 +10,7 @@ source "$DOTFILES/config/zsh/custom/plugins/my-zsh-completions/zsh-completions.p
 source "$DOTFILES/config/omz/oh-my-zsh.sh"
 
 # run -> p10k configure
-[[ ! -f ~/.dotfiles/shell/p10k.zsh ]] || source  ~/.dotfiles/shell/p10k.zsh
+[[ ! -f ~/.dotfiles/shell/p10k.zsh ]] || source ~/.dotfiles/shell/p10k.zsh
 
 # iterm2 -> loads shell integration
 source "$DOTFILES/config/iterm2/iterm2_shell_integration.zsh"
@@ -18,10 +18,8 @@ source "$DOTFILES/config/iterm2/iterm2_shell_integration.zsh"
 # gpg_tty -> config for instant prompt
 export GPG_TTY=$(tty)
 
-# 1password -> load plugins and completions
-source $HOME/.config/op/plugins.sh
+# op -> load completions
 eval "$(op completion zsh)"
-eval "$(__load_op_completion)"
 compdef _op op
 
 # fzf -> setup fzf
@@ -57,3 +55,8 @@ if command -v ngrok &>/dev/null; then
   eval "$(ngrok completion)"
 fi
 
+# load and initialise completions
+autoload -U compinit && compinit -i
+
+# de-dupe $PATH
+typeset -U path

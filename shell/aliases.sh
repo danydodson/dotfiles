@@ -33,10 +33,6 @@ alias pnvite='pnpm create vite'
 
 # n -> npm
 alias n='npm'
-alias npmvite='npm create vite@latest'
-
-# create-ic -> create-ic-app
-alias create-ic='npx create-ic-app@latest'
 
 # hts -> http-server
 alias hts='http-server'
@@ -61,9 +57,6 @@ alias afk="open -a /System/Library/CoreServices/ScreenSaverEngine.app"
 
 # brm -> pretty print
 alias brm='bat --plain readme.md'
-
-# pyg -> pretty python
-alias pyg='pygmentize -O style=rrt -f console256 -g'
 
 # uuid -> generate a uuid
 alias uuid='uuidgen'
@@ -126,10 +119,10 @@ alias spot_off='sudo mdutil -a -i off'
 alias spot_on='sudo mdutil -a -i on'
 
 # show_files -> show files
-alias show_files='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder /System/Library/CoreServices/Finder.app'
+alias shf='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder /System/Library/CoreServices/Finder.app'
 
 # hide_files -> hide files
-alias hide_files='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder /System/Library/CoreServices/Finder.app'
+alias hhf='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder /System/Library/CoreServices/Finder.app'
 
 # ls -> gls
 alias_ls() {

@@ -16,7 +16,7 @@ export XDG_DATA_HOME="$XDG_CONFIG_HOME/local/share"
 export XDG_STATE_HOME="$XDG_CONFIG_HOME/local/state"
 
 # bat
-export BAT_CONFIG_PATH="$XDG_CONFIG_HOME/bat/.conf"
+export BAT_CONFIG_PATH="$XDG_CONFIG_HOME/bat/conf"
 
 # bun
 export BUN_INSTALL="$XDG_CONFIG_HOME/bun"
@@ -27,9 +27,6 @@ export CONDA_ROOT="$XDG_CONFIG_HOME/conda"
 # cargo
 export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
 export RUSTUP_HOME="$XDG_CONFIG_HOME/rust"
-
-# dfx
-export DFX_CONFIG_ROOT="$XDG_CONFIG_HOME/dfx"
 
 # go
 export GOPATH="$XDG_CONFIG_HOME/go"
@@ -43,7 +40,7 @@ export HOMEBREW_NO_ANALYTICS=true
 export LS_COLORS="$LS_COLORS:*.*=0;31:di=01;34:ln=01;36:ex=0;32:*.mp4=01;93:*.mov=01;93:*.mp3=01;93:*.dmg=0;35:*.zip=0;35:"
 
 # npm
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/.npmrc"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 
 # 1password
@@ -61,7 +58,7 @@ export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t
 
 # vim
 export VIMCONFIG="$XDG_CONFIG_HOME/vim"
-export MYVIMRC="$XDG_CONFIG_HOME/vim/.vimrc"
+export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 
 # wakatime
 export WAKATIME_HOME="$XDG_CONFIG_HOME/wakatime"

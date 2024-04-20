@@ -1,14 +1,14 @@
+tap "1password/tap"
 tap "aws/tap"
-tap "github/gh"
+tap "felixkratz/formulae"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
-tap "1password/tap"
-tap "felixkratz/formulae"
 tap "moritzsternemann/apple-fonts"
+tap "oven-sh/bun"
 tap "stripe/stripe-cli"
 
 # Official Amazon AWS command-line interface
@@ -71,12 +71,12 @@ brew "gh"
 brew "git-crypt"
 # GNU implementation of the famous stream editor
 brew "gnu-sed"
+# A system monitoring tool
+brew "glances"
 # GNU version of the tar archiving utility
 brew "gnu-tar"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
-# Graph visualization software from AT&T and Bell Labs
-brew "graphviz"
 # Colorize logfiles and command output
 brew "grc"
 # Interactive process viewer
@@ -97,10 +97,6 @@ brew "lua"
 brew "luarocks"
 # Command line interface for the Mac App Store
 brew "mas"
-# Development kit for the Java programming language
-brew "openjdk"
-# Java-based project management
-brew "maven"
 # Library for a binary-based efficient data interchange format
 brew "msgpack"
 # 'traceroute' and 'ping' in a single tool
@@ -115,6 +111,8 @@ brew "neofetch"
 brew "nghttp2"
 # Port scanning utility for large networks
 brew "nmap"
+# Node.js
+brew "node"
 # Command-line utility for retrieving currently playing media
 brew "nowplaying-cli"
 # Development kit for the Java programming language
@@ -125,8 +123,12 @@ brew "parquet-tools"
 brew "pinentry-mac"
 # PNG image optimizing utility
 brew "pngquant"
+# A package manager
+brew "pnpm"
 # Show ps output as a tree
 brew "pstree"
+# A package manager
+brew "pyenv"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Powerful, clean, object-oriented scripting language
@@ -139,6 +141,8 @@ brew "sketchybar"
 brew "switchaudio-osx"
 # User interface to the TELNET protocol
 brew "telnet"
+# Simplified manual pages
+brew "tldr"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Vi 'workalike' with many additional features
@@ -157,18 +161,10 @@ brew "zlib"
 brew "aws/tap/aws-sam-cli"
 # Stripe CLI utility
 brew "stripe/stripe-cli/stripe"
+# A package manager
+brew "yarn"
 # App to build and share containerized applications and microservices
 cask "font-hack"
-# Apple nerd fonts
-cask "font-sf-mono-nerd-font-ligaturized"
-# Apple fonts
-cask "font-sf-pro"
-# Apple fonts
-cask "font-sf-compact"
-# Apple fonts
-cask "font-sf-mono"
-# Apple fonts
-cask "font-new-york"
 # Apple symbols
 cask "sf-symbols"
 # Brings 1Password to your terminal
@@ -179,14 +175,14 @@ cask "apparency"
 cask "brave-browser"
 # Web browser
 cask "google-chrome"
-# Open-source video transcoder
-cask "handbrake"
 # Free and open-source media player
 cask "iina"
 # Terminal emulator
 cask "kitty"
 # Finder Toolbar app for macOS
 cask "openinterminal"
+# Tool for working with MongoDB
+cask "mongodb-compass"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
 # App to write, plan, collaborate, and get organized
