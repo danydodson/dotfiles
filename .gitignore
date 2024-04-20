@@ -7,4 +7,4 @@ Icon
 gitconfig
 *.env
 *.log
-/config/nvimm
+/config/nvim
