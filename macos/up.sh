@@ -2,6 +2,9 @@
 
 # Update all the things
 
+# shellcheck disable=SC1091
+. "${DOTFILES}/macos/pretty.sh"
+
 echo ' > Updating macos apps...'
 sudo softwareupdate -i -a
 

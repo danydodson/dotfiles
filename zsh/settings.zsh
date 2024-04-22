@@ -25,23 +25,10 @@ export LESSHISTFILE="${HOME}/.config/cache/less/lesshst"
 export HIST_STAMPS="yyyy-mm-dd"
 
 # disable freezing
-unsetopt flowcontrol
+# unsetopt flowcontrol
 
 # VI mode
-bindkey -v
-
-# Don't bind in vicmd mode
-bindkey '^[[3~' delete-char
-
-# Allow using backspace from :normal [A]ppend
-bindkey -M viins '^?' backward-delete-char
-
-# Up/Down search history-substring plugin
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-
-bindkey '^e' vi-forward-word-end
-bindkey '^w' vi-forward-word
+# bindkey -v
 
 # history
 setopt APPEND_HISTORY
@@ -126,7 +113,7 @@ zstyle ':completion:*:processes-names' command 'ps c -u ${USER} -o command | uni
 zstyle ':completion:*:*:-redirect-,2>,*:*' file-patterns '*.log'
 
 # colorful completion
-# zstyle ':completion:*:default' list-colors \
-#   "di=1;36" ".mp4=01;93" ".dmg=0;35" ".zip=0;35" ".mp3=01;93" \
-#   "ln=01;36" "so=32" "pi=33" "ex=0;32" "bd=34;46" "cd=34;43" \
-#   "su=30;41" "sg=30;46" "tw=30;42" "ow=30;43"
+zstyle ':completion:*:default' list-colors \
+  "di=1;36" ".mp4=01;93" ".dmg=0;35" ".zip=0;35" ".mp3=01;93" \
+  "ln=01;36" "so=32" "pi=33" "ex=0;32" "bd=34;46" "cd=34;43" \
+  "su=30;41" "sg=30;46" "tw=30;42" "ow=30;43"

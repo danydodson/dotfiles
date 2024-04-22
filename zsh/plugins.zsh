@@ -10,7 +10,7 @@ source "$DOTFILES/config/zsh/custom/plugins/my-zsh-completions/zsh-completions.p
 source "$DOTFILES/config/omz/oh-my-zsh.sh"
 
 # run -> p10k configure
-[[ ! -f ~/.dotfiles/shell/p10k.zsh ]] || source ~/.dotfiles/shell/p10k.zsh
+[[ ! -f ~/.dotfiles/zsh/p10k.zsh ]] || source ~/.dotfiles/zsh/p10k.zsh
 
 # iterm2 -> loads shell integration
 source "$DOTFILES/config/iterm2/iterm2_shell_integration.zsh"

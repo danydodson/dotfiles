@@ -55,6 +55,16 @@ alias gcw='git add . && git commit -m ":sparkles: wip" --no-verify'
 # afk ->  open screen saver
 alias afk="open -a /System/Library/CoreServices/ScreenSaverEngine.app"
 
+# bathelp -> pretty print help
+alias bathelp='bat --plain --language=help'
+
+help() {
+    "$@" --help 2>&1 | bathelp
+}
+
+alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+
 # brm -> pretty print
 alias brm='bat --plain readme.md'
 
@@ -92,10 +102,10 @@ alias path='echo -e ${PATH//:/\\n}'
 alias ytd='yt-dlp -o ~/Movies'
 
 # curl -> with configs
-alias curl='curl -K "$HOME/.config/curl/curlrc" --silent'
+alias curl='curl --silent'
 
 # wget -> with configs
-alias wget='wget --config="${HOME}/.config/wget/wgetrc" --hsts-file="${HOME}/.config/wget/wget-hsts" --no-check-certificate'
+alias wget='wget --hsts-file="${HOME}/.config/wget/wget-hsts" --no-check-certificate'
 
 # ios -> open simulator
 alias ios='open -a Simulator.app'
@@ -123,6 +133,9 @@ alias shf='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finde
 
 # hide_files -> hide files
 alias hhf='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder /System/Library/CoreServices/Finder.app'
+
+# ls -> LS_COLORS
+export LS_COLORS='*.*=0;31:di=01;34:ln=01;36:ex=0;32:*.mp4=01;93:*.mov=01;93:*.mp3=01;93:*.dmg=0;35:*.zip=0;35:'
 
 # ls -> gls
 alias_ls() {

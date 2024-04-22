@@ -8,3 +8,4 @@ gitconfig
 *.env
 *.log
 /config/nvim
+temp

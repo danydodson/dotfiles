@@ -1,4 +1,0 @@
-registry.npmjs.org/:_authToken=$(op read op://Personal/npmjs.com/credentials/token)
-init-author-email=dany@danydodson.dev
-init-author-name=Dany Dodson
-init-license=MIT

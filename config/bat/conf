@@ -1,12 +1,13 @@
 # shellcheck disable=all
 
 # show line numbers
---style="grid"
+--style="numbers"
 
+# 
 --color=always
 
 # Run bat --list-themes
---theme="OneHalfDark"
+--theme="Tokyo-Night-Enki"
 
 # enable italic text on the terminal
 --italic-text=always

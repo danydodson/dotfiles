@@ -1,6 +1,7 @@
 tap "1password/tap"
 tap "aws/tap"
 tap "felixkratz/formulae"
+tap "koekeishiya/formulae"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
@@ -21,6 +22,8 @@ brew "asciinema"
 brew "bash"
 # A cat clone with syntax highlighting and Git integration
 brew "bat"
+# Extensions to bat
+brew "bat-extras"
 # A package manager
 brew "bun"
 # GNU internationalization (i18n) and localization (l10n) library
@@ -100,7 +103,7 @@ brew "mas"
 # Library for a binary-based efficient data interchange format
 brew "msgpack"
 # 'traceroute' and 'ping' in a single tool
-brew "mtr", link: false
+brew "mtr"
 # NCurses Disk Usage
 brew "ncdu"
 # Vim-based text editor
@@ -137,6 +140,8 @@ brew "ruby"
 brew "shellcheck"
 # A highly customizable macOS status bar replacement
 brew "sketchybar"
+# Keyboard-driven window manager
+brew "koekeishiya/formulae/skhd"
 # Change the audio source for Mac OS X from the command line
 brew "switchaudio-osx"
 # User interface to the TELNET protocol
@@ -161,10 +166,10 @@ brew "zlib"
 brew "aws/tap/aws-sam-cli"
 # Stripe CLI utility
 brew "stripe/stripe-cli/stripe"
+# Yabai is a tiling window manager for macOS
+brew "koekeishiya/formulae/yabai"
 # A package manager
 brew "yarn"
-# App to build and share containerized applications and microservices
-cask "font-hack"
 # Apple symbols
 cask "sf-symbols"
 # Brings 1Password to your terminal
@@ -205,5 +210,7 @@ cask "vlc"
 cask "textmate"
 # Open-source code editor
 cask "visual-studio-code"
+# Terminal with AI and collaborative tools
+cask "warp"
 # Video communication and virtual meeting platform
 cask "zoom"

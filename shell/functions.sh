@@ -30,6 +30,12 @@ function nvconf() {
   nvim "$HOME/.config/nvim/"
 }
 
+# src -> source .zshrc
+function src() {
+  # shellcheck disable=SC1090
+  source ~/.zshrc && echo 'source ~/.zshrc'
+}
+
 # path-remove -> remove form path
 function path-remove() {
   PATH=$(echo -n "$PATH" | awk -v RS=: -v ORS=: "\$0 != \"$1\"" | sed 's/:$//')
@@ -86,19 +92,35 @@ function randpw() {
 }
 
 # randpass -> generate passwords
-randpass() {
+function randpass() {
   local len=${1:-32}
   openssl rand -base64 256 | tr -d '\n/+=' | cut -c -"$len"
 }
 
 # copy -> copy to clipboard
-copy() {
+function copy() {
   printf "%s" "$*" | tr -d "\n" | pbcopy
 }
 
 # wttr -> get weather forcaset
 function wttr() {
   curl http://wttr.in/"$1"
+}
+
+# catr -> tail and head
+function catr() {
+  tail -n "+$1" "$3" | head -n "$(($2 - $1 + 1))"
+}
+
+# validateJson -> validate yaml
+function validateYaml() {
+  python -c 'import yaml,sys;yaml.safe_load(sys.stdin)' <"$1"
+}
+
+# eslintify -> run eslint
+function eslintify() {
+  cat "$1" >/tmp/file_to_eslint
+  npx eslint
 }
 
 # fvim -> find and open a file in vim

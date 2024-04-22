@@ -4,7 +4,7 @@ export DOTFILES="${HOME}/.dotfiles"
 source "${DOTFILES}"/shell/functions.sh
 
 # settings
-source "${DOTFILES}"/shell/settings.zsh
+source "${DOTFILES}"/zsh/settings.zsh
 
 # path
 source "${DOTFILES}"/shell/path.sh
@@ -13,10 +13,10 @@ source "${DOTFILES}"/shell/path.sh
 source "${DOTFILES}"/shell/exports.sh
 
 # prompt
-source "${DOTFILES}"/shell/prompt.zsh
+source "${DOTFILES}"/zsh/prompt.zsh
 
 # plugins
-source "${DOTFILES}"/shell/plugins.zsh
+source "${DOTFILES}"/zsh/plugins.zsh
 
 # aliases
 source "${DOTFILES}"/shell/aliases.sh
