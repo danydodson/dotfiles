@@ -26,6 +26,8 @@ brew "bat"
 brew "bat-extras"
 # A package manager
 brew "bun"
+# View pictures in your terminal
+brew "chafa"
 # GNU internationalization (i18n) and localization (l10n) library
 brew "gettext"
 # Core application library for C

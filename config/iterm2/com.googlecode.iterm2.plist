@@ -5883,10 +5883,22 @@ Show Toolbelt</string>
 			<true/>
 			<key>ASCII Ligatures</key>
 			<false/>
+			<key>AWDS Pane Directory</key>
+			<string></string>
+			<key>AWDS Pane Option</key>
+			<string>Recycle</string>
+			<key>AWDS Tab Directory</key>
+			<string></string>
+			<key>AWDS Tab Option</key>
+			<string>No</string>
+			<key>AWDS Window Directory</key>
+			<string></string>
+			<key>AWDS Window Option</key>
+			<string>No</string>
 			<key>Allow Paste Bracketing</key>
 			<true/>
 			<key>Allow Title Setting</key>
-			<true/>
+			<false/>
 			<key>Ambiguous Double Width</key>
 			<false/>
 			<key>Ansi 0 Color</key>
@@ -6657,9 +6669,9 @@ Show Toolbelt</string>
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>209</integer>
+			<integer>207</integer>
 			<key>Command</key>
-			<string></string>
+			<string>/bin/zsh</string>
 			<key>Cursor Boost</key>
 			<real>0.0</real>
 			<key>Cursor Boost (Dark)</key>
@@ -6796,7 +6808,7 @@ Show Toolbelt</string>
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
-			<string>No</string>
+			<string>Advanced</string>
 			<key>Custom Tab Title</key>
 			<string></string>
 			<key>Default Bookmark</key>
@@ -7271,7 +7283,7 @@ Show Toolbelt</string>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
-			<string>dany</string>
+			<string>Menslo</string>
 			<key>Non Ascii Font</key>
 			<string>SymbolsNF 14</string>
 			<key>Non-ASCII Anti Aliased</key>
@@ -7297,7 +7309,7 @@ Show Toolbelt</string>
 			<key>Right Option Key Sends</key>
 			<integer>2</integer>
 			<key>Rows</key>
-			<integer>55</integer>
+			<integer>16</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
@@ -7831,7 +7843,7 @@ Show Toolbelt</string>
 			<key>Thin Strokes</key>
 			<integer>0</integer>
 			<key>Title Components</key>
-			<integer>960</integer>
+			<integer>384</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Triggers Use Interpolated Strings</key>

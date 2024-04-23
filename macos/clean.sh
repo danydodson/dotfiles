@@ -22,3 +22,6 @@ brew update && brew upgrade && brew autoremove && brew cleanup --prune=all -s
 
 __info ' > Removing node_modules...'
 find ~/Developer -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
+
+__info ' > Removing logs...'
+sudo rm -rf /private/var/log/asl/*.asl

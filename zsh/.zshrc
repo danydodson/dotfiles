@@ -1,22 +1,21 @@
+zmodload zsh/zprof
+
 export DOTFILES="${HOME}/.dotfiles"
 
 # functions
 source "${DOTFILES}"/shell/functions.sh
 
-# settings
-source "${DOTFILES}"/zsh/settings.zsh
-
-# path
-source "${DOTFILES}"/shell/path.sh
+# prompt
+source "${DOTFILES}"/zsh/prompt.zsh
 
 # exports
 source "${DOTFILES}"/shell/exports.sh
 
-# prompt
-source "${DOTFILES}"/zsh/prompt.zsh
-
 # plugins
 source "${DOTFILES}"/zsh/plugins.zsh
+
+# settings
+source "${DOTFILES}"/zsh/settings.zsh
 
 # aliases
 source "${DOTFILES}"/shell/aliases.sh

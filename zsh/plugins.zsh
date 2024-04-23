@@ -1,7 +1,9 @@
 # plugins
 
+# autoload -U compinit && compinit
+
 # oh-my-zsh -> plugins
-plugins+=(brew git z pnpm-shell-completion zsh-syntax-highlighting zsh-history-substring-search)
+plugins+=(brew git zsh-syntax-highlighting zsh-history-substring-search)
 
 # oh-my-zsh -> my-zsh-completions
 source "$DOTFILES/config/zsh/custom/plugins/my-zsh-completions/zsh-completions.plugin.zsh"
@@ -12,6 +14,9 @@ source "$DOTFILES/config/omz/oh-my-zsh.sh"
 # run -> p10k configure
 [[ ! -f ~/.dotfiles/prompts/p10k.zsh ]] || source ~/.dotfiles/prompts/p10k.zsh
 
+# zsh -> completions generator
+source "$ZSH_CUSTOM/plugins/my-zsh-completions/src/custom/genhelp/zsh-completion-generator.plugin.zsh"
+
 # grc -> colorize unix tools
 # [[ -s "$(brew --prefix)/etc/grc.zsh" ]] && source $(brew --prefix)/etc/grc.zsh
 
@@ -19,25 +24,8 @@ source "$DOTFILES/config/omz/oh-my-zsh.sh"
 source "$DOTFILES/config/iterm2/iterm2_shell_integration.zsh"
 
 # op -> load completions
-eval "$(op completion zsh)"
-compdef _op op
-
-# fzf -> setup fzf
-if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
-  PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
-fi
-
-# fzf -> get completions
-source "/opt/homebrew/opt/fzf/shell/completion.zsh"
-
-# fzf -> get key bindings
-source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
-
-# fzf -> defaults
-export FZF_DEFAULT_OPTS="--bind ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down --preview 'bat --color=always {}'"
-
-# fzf -> preview current directory
-alias preview="fzf --preview 'bat --color \"always\" --style \"numbers\" --line-range \":500\" {}'"
+# eval "$(op completion zsh)"
+# compdef _op op
 
 # start the ssh-agent
 eval "$(ssh-agent -s)" >/dev/null 2>&1
@@ -51,12 +39,69 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # ngrok -> completions
-if command -v ngrok &>/dev/null; then
-  eval "$(ngrok completion)"
+# if command -v ngrok &>/dev/null; then
+#   eval "$(ngrok completion)"
+# fi
+
+# fzf -> setup fzf
+if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
+  PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
 fi
 
-# load and initialise completions
-autoload -U compinit && compinit -i
+# fzf -> get completions
+source "/opt/homebrew/opt/fzf/shell/completion.zsh"
+
+# fzf -> get key bindings
+source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
+
+# fzf -> fd for listing path candidates
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" . "$1"
+}
+
+# fzf -> fd used to generate dir list for completion
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
+# fzf -> advanced options
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+  cd) fzf --preview 'tree -C {} | head -200' "$@" ;;
+  export | unset) fzf --preview "eval 'echo \$'{}" "$@" ;;
+  ssh) fzf --preview 'dig {}' "$@" ;;
+  *) fzf --preview 'bat -n --color=always {}' "$@" ;;
+  esac
+}
+
+# fzf -> default options
+export FZF_DEFAULT_OPTS=" \
+  --layout=reverse \
+  --inline-info \
+  --height=60% \
+  --border \
+  --prompt='> ' \
+  --bind 'ctrl-o:toggle-preview' \
+  --bind 'ctrl-s:toggle-sort' \
+  --bind 'ctrl-space:toggle'
+"
+
+# fzf -> default ctrl-t options
+export FZF_CTRL_T_OPTS=" \
+  --walker-skip .git,node_modules,target \
+  --preview 'bat -n --color=always {}'
+"
+
+# fzf -> default alt-c options
+export FZF_ALT_C_OPTS=" \
+  --walker-skip .git,node_modules,target \
+  --preview 'tree -C {}'
+"
+
+autoload -U compinit && compinit
 
 # de-dupe $PATH
 typeset -U path

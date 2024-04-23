@@ -129,6 +129,8 @@ alias shf='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finde
 # hide_files -> hide files
 alias hhf='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder /System/Library/CoreServices/Finder.app'
 
+export LS_COLORS='*.*=0;31:di=01;34:ln=01;36:ex=0;32:*.mp4=01;93:*.mov=01;93:*.mp3=01;93:*.dmg=0;35:*.zip=0;35:'
+
 if gls &>/dev/null; then
   alias ls="gls -F --color"
   alias l="gls -lG --color"
