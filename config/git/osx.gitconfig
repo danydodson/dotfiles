@@ -4,18 +4,4 @@
 # Credentials
 #######################################################################
 
-[user]
-  name = danydodson
-  email = danydodson@gmail.com
-	
-[gpg]
-	format = ssh
 
-[gpg "ssh"]
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
-
-[commit]
-	gpgsign = true
-	
-[user]
-	signingkey = $ssh-ed25519 "op://Personal/Git Authentication Key/public key"

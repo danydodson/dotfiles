@@ -6,6 +6,22 @@
 # Credentials
 #######################################################################
 
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+
+[commit]
+	gpgsign = true
+
+[user]
+  name = danydodson
+  email = danydodson@gmail.com
+
+[user]
+	signingkey = "op://Personal/Git Authentication Key/public key"
+
 [include]
 	path = "~/.dotfiles/config/git/osx.gitconfig"
 
@@ -127,3 +143,5 @@
 [pager]
 	status = true
 
+[init]
+	defaultBranch = main
