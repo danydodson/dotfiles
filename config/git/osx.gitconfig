@@ -17,3 +17,5 @@
 [commit]
 	gpgsign = true
 	
+[user]
+	signingkey = $ssh-ed25519 "op://Personal/Git Authentication Key/public key"

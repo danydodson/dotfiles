@@ -8,9 +8,6 @@
 
 [include]
 	path = "~/.dotfiles/config/git/osx.gitconfig"
-	
-[user]
-	signingkey = $ssh-ed25519 "op://Personal/ssh key/public key"
 
 #######################################################################
 # My aliases
