@@ -30,9 +30,3 @@ __wifi-pass() {
 
 __wifi-pass
 
-# __main2() {
-#   _airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
-#   _ssid=$("$_airport" -I | awk '/ SSID/ {print substr($0, index($0, $2))}')
-#   _pw=$(security find-generic-password -D 'AirPort network password' -ga "$_ssid" 2>&1 >/dev/null)
-#   _info "$(_info "$_pw" | sed -e "s/^.*\"\(.*\)\".*$/\1/")"
-# }

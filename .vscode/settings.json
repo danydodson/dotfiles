@@ -3,6 +3,9 @@
     "**/config/omz": true,
     "**/config/zsh/custom": true
   },
+  "files.associations": {
+    "**/bin/*": "shellscript"
+  },
   "shellcheck.ignorePatterns": {
     "**/_*": true,
     "**/*.zsh": true,

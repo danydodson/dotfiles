@@ -21,9 +21,9 @@ $ git clone https://github.com/danydodson/dotfiles.git ~/.dotfiles
 $ cd ~/.dotfiles &&
 $ git submodule init
 $ git submodule update
-$ cd ~/.dotfiles/config/zsh/custom/plugins/my-zsh-completions/
-$ git submodule init
-$ git submodule update
+// $ cd ~/.dotfiles/config/zsh/custom/plugins/my-zsh-completions/
+// $ git submodule init
+// $ git submodule update
 ```
 
 Install Brewfile

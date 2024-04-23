@@ -10,7 +10,7 @@ source "$DOTFILES/config/zsh/custom/plugins/my-zsh-completions/zsh-completions.p
 source "$DOTFILES/config/omz/oh-my-zsh.sh"
 
 # run -> p10k configure
-[[ ! -f ~/.dotfiles/zsh/p10k.zsh ]] || source ~/.dotfiles/zsh/p10k.zsh
+[[ ! -f ~/.dotfiles/prompts/p10k.zsh ]] || source ~/.dotfiles/prompts/p10k.zsh
 
 # grc -> colorize unix tools
 # [[ -s "$(brew --prefix)/etc/grc.zsh" ]] && source $(brew --prefix)/etc/grc.zsh

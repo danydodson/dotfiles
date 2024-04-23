@@ -1,9 +1,11 @@
 #!/bin/bash
 
-# directories
+# editor
 export EDITOR="vim"
 export GIT_EDITOR="vim"
 export BUNDLER_EDITOR=$EDITOR
+
+# dirs
 export DOTFILES="$HOME/.dotfiles"
 
 # xdg
