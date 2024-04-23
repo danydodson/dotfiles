@@ -54,17 +54,18 @@ export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
 export CONDA_ROOT="$XDG_CONFIG_HOME/conda"
 
 # 1password
-export OP_CACHE="$XDG_CACHE_HOME/op"
+export OP_CACHE=$XDG_CACHE_HOME/op
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
 export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
 # wakatime
-export WAKATIME_HOME="$XDG_CONFIG_HOME/wakatime"
+export WAKATIME_HOME=$XDG_CONFIG_HOME/wakatime
 
 # path
-path-prepend "$DOTFILES/bin"
-path-prepend "$HOME/.config/pyenv/shims"
+path-prepend "$DOTFILES"/bin
+path-append "$HOME"/.config/pyenv/shims
+path-append /opt/homebrew/opt/fzf/bin
 
 # fpath
-fpath-prepend "/opt/homebrew/share/zsh/site-functions"
-fpath-prepend "/opt/homebrew/share/zsh/zsh-completions"
+fpath-prepend /opt/homebrew/share/zsh/site-functions
+fpath-prepend /opt/homebrew/share/zsh/zsh-completions

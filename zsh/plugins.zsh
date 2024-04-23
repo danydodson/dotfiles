@@ -6,32 +6,29 @@
 plugins+=(brew git zsh-syntax-highlighting zsh-history-substring-search)
 
 # oh-my-zsh -> my-zsh-completions
-source "$DOTFILES/config/zsh/custom/plugins/my-zsh-completions/zsh-completions.plugin.zsh"
+source $DOTFILES/config/zsh/custom/plugins/my-zsh-completions/zsh-completions.plugin.zsh
 
 # oh-my-zsh -> source
-source "$DOTFILES/config/omz/oh-my-zsh.sh"
+source $DOTFILES/config/omz/oh-my-zsh.sh
 
 # run -> p10k configure
 [[ ! -f ~/.dotfiles/prompts/p10k.zsh ]] || source ~/.dotfiles/prompts/p10k.zsh
 
 # zsh -> completions generator
-source "$ZSH_CUSTOM/plugins/my-zsh-completions/src/custom/genhelp/zsh-completion-generator.plugin.zsh"
-
-# grc -> colorize unix tools
-# [[ -s "$(brew --prefix)/etc/grc.zsh" ]] && source $(brew --prefix)/etc/grc.zsh
+# source "$ZSH_CUSTOM/plugins/my-zsh-completions/src/custom/genhelp/zsh-completion-generator.plugin.zsh"
 
 # iterm2 -> loads shell integration
-source "$DOTFILES/config/iterm2/iterm2_shell_integration.zsh"
+source $DOTFILES/config/iterm2/iterm2_shell_integration.zsh
 
 # op -> load completions
-# eval "$(op completion zsh)"
-# compdef _op op
+eval "$(op completion zsh)"
+compdef _op op
 
 # start the ssh-agent
 eval "$(ssh-agent -s)" >/dev/null 2>&1
 
 # cargo -> load env
-[[ ! -f ~/.config/cargo/env ]] || . ~/.config/cargo/env
+[[ ! -f $HOME/.config/cargo/env ]] || . $HOME/.config/cargo/env
 
 # pyenv -> load pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -39,20 +36,15 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # ngrok -> completions
-# if command -v ngrok &>/dev/null; then
-#   eval "$(ngrok completion)"
-# fi
-
-# fzf -> setup fzf
-if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
-  PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
+if command -v ngrok &>/dev/null; then
+  eval "$(ngrok completion)"
 fi
 
 # fzf -> get completions
-source "/opt/homebrew/opt/fzf/shell/completion.zsh"
+source /opt/homebrew/opt/fzf/shell/completion.zsh
 
 # fzf -> get key bindings
-source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
+source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
 
 # fzf -> fd for listing path candidates
 _fzf_compgen_path() {
