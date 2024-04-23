@@ -1,15 +1,9 @@
 # settings.zsh
 
-# direnv -> used with instant prompt
-(( ${+commands[direnv]} )) && emulate zsh -c "$(direnv export zsh)"
-
-# instant prompt
+instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.config/cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.config/cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
-# direnv -> used with instant prompt
-(( ${+commands[direnv]} )) && emulate zsh -c "$(direnv hook zsh)"
 
 # completion dump
 zcompdump="${ZDOTDIR:-$HOME/.config/zsh}/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
@@ -25,10 +19,10 @@ export LESSHISTFILE="${HOME}/.config/cache/less/lesshst"
 export HIST_STAMPS="yyyy-mm-dd"
 
 # disable freezing
-# unsetopt flowcontrol
+unsetopt flowcontrol
 
 # VI mode
-# bindkey -v
+bindkey -v
 
 # history
 setopt APPEND_HISTORY
@@ -113,7 +107,4 @@ zstyle ':completion:*:processes-names' command 'ps c -u ${USER} -o command | uni
 zstyle ':completion:*:*:-redirect-,2>,*:*' file-patterns '*.log'
 
 # colorful completion
-zstyle ':completion:*:default' list-colors \
-  "di=1;36" ".mp4=01;93" ".dmg=0;35" ".zip=0;35" ".mp3=01;93" \
-  "ln=01;36" "so=32" "pi=33" "ex=0;32" "bd=34;46" "cd=34;43" \
-  "su=30;41" "sg=30;46" "tw=30;42" "ow=30;43"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}

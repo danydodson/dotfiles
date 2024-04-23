@@ -20,12 +20,17 @@ alias mkdir="nocorrect mkdir"
 alias se='sudo -e'
 alias root='sudo -s'
 
+# rm -> trash
+alias rm='trash'
+
 # nvim -> open nvim
-alias nv='nvim'
+# alias nv='nvim'
 
 # b -> brew
 alias b='brew'
-alias bu='brew update && brew upgrade && brew autoremove && brew cleanup --prune=all -s'
+alias bs='b search'
+alias bi='b info'
+alias bu='b update && b upgrade && b autoremove && b cleanup --prune=all -s'
 
 # pn -> pnpm
 alias pn='pnpm'
@@ -54,16 +59,6 @@ alias gcw='git add . && git commit -m ":sparkles: wip" --no-verify'
 
 # afk ->  open screen saver
 alias afk="open -a /System/Library/CoreServices/ScreenSaverEngine.app"
-
-# bathelp -> pretty print help
-alias bathelp='bat --plain --language=help'
-
-help() {
-    "$@" --help 2>&1 | bathelp
-}
-
-alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
-alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
 # brm -> pretty print
 alias brm='bat --plain readme.md'
@@ -134,17 +129,11 @@ alias shf='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finde
 # hide_files -> hide files
 alias hhf='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder /System/Library/CoreServices/Finder.app'
 
-# ls -> LS_COLORS
-export LS_COLORS='*.*=0;31:di=01;34:ln=01;36:ex=0;32:*.mp4=01;93:*.mov=01;93:*.mp3=01;93:*.dmg=0;35:*.zip=0;35:'
-
-# ls -> gls
-alias_ls() {
-  alias ls="gls --color=always --group-directories-first --time-style=+%Y%m%d --ignore='Icon'$'\r' --ignore='.DS_Store*' --ignore='.megaignore*'"
-  alias la="gls -A --color=always --ignore='Icon'$'\r' --ignore='.DS_Store*' --ignore='.megaignore*'"
-  alias l="gls -A -l --color=always --group-directories-first --ignore='Icon'$'\r' --ignore='.DS_Store*' --ignore='.megaignore*'"
-  alias ll="gls -l -X --color=always --time-style=+%Y%m%d --ignore='Icon'$'\r' --ignore='.DS_Store*' --ignore='.megaignore*'"
-  alias kk='ll'
-}
-alias_ls
+if gls &>/dev/null; then
+  alias ls="gls -F --color"
+  alias l="gls -lG --color"
+  alias ll="gls -lAh --color --group-directories-first"
+  alias la='gls -A --color'
+fi
 
 # vim: set filetype=zsh:

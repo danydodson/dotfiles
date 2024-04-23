@@ -1,14 +1,16 @@
 #!/bin/bash
 
+# directories
+export EDITOR="vim"
+export GIT_EDITOR="vim"
+export BUNDLER_EDITOR=$EDITOR
+export DOTFILES="$HOME/.dotfiles"
+
 # xdg
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
-export XDG_DATA_HOME="$XDG_CONFIG_HOME/local/share"
-export XDG_STATE_HOME="$XDG_CONFIG_HOME/local/state"
-
-# directories
-export DOTFILES="$HOME/.dotfiles"
-export PROJECTS="$XDG_CONFIG_HOME/projects"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
 
 # zsh
 export ZSH="$DOTFILES/config/omz"
@@ -38,9 +40,9 @@ export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
 
 # tools
-export GIT_EDITOR="nvim"
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
 export OP_CACHE="$XDG_CACHE_HOME/op"
 export BAT_CONFIG_PATH="$XDG_CONFIG_HOME/bat/conf"
+export LS_COLORS='*.*=0;31:di=01;34:ln=01;36:ex=0;32:*.mp4=01;93:*.mov=01;93:*.mp3=01;93:*.dmg=0;35:*.zip=0;35:'
 export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 export WAKATIME_HOME="$XDG_CONFIG_HOME/wakatime"

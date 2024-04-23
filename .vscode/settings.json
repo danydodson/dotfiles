@@ -1,0 +1,10 @@
+{
+  "search.exclude": {
+    "**/config/omz": true,
+    "**/config/zsh/custom": true
+  },
+  "shellcheck.ignorePatterns": {
+    "**/_*": true,
+    "**/*.zsh": true,
+  }
+}

@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-# Update and clean
-
-echo " > Starting up.sh"
-cd "$HOME"/.dotfiles/macos && ./up.sh

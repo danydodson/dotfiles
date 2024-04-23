@@ -5,20 +5,20 @@
 # shellcheck disable=SC1091
 . "${DOTFILES}/macos/pretty.sh"
 
-echo ' > Updating macos apps...'
+__info ' > Updating macos apps...'
 sudo softwareupdate -i -a
 
-echo ' > Upgrading oh-my-zsh...'
+__info ' > Upgrading oh-my-zsh...'
 "$ZSH/tools/upgrade.sh"
 
-echo ' > Updating npm global pkgs...'
+__info ' > Updating npm global pkgs...'
 npm update --location=global
 
-echo ' > Upgrading yarn global pkgs...'
+__info ' > Upgrading yarn global pkgs...'
 yarn global upgrade
 
-echo ' > Upgrading homebrew...'
+__info ' > Upgrading homebrew...'
 brew update && brew upgrade && brew autoremove && brew cleanup --prune=all -s
 
-echo ' > Removing node_modules...'
+__info ' > Removing node_modules...'
 find ~/Developer -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;

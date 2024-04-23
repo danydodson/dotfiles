@@ -26,9 +26,9 @@ function repos() {
 }
 
 # nvconf -> cd to config/nvim
-function nvconf() {
-  nvim "$HOME/.config/nvim/"
-}
+# function nvconf() {
+#   nvim "$HOME/.config/nvim/"
+# }
 
 # src -> source .zshrc
 function src() {
@@ -70,6 +70,12 @@ function fpath-prepend() {
   FPATH="$1${FPATH:+":$FPATH"}"
 }
 
+# bathelp -> pretty print help
+alias bathelp='bat --plain --language=help'
+function help() {
+  "$@" --help 2>&1 | bathelp
+}
+
 # dsx -> delete .DS_Store
 function dsx() {
   find . -name "*.DS_Store" -type f -delete
@@ -83,12 +89,6 @@ function pi() {
 # ygs -> yarn generate and serve
 function ygs() {
   yarn generate && http-server dist/ -p 8080
-}
-
-# randpw -> generate random password
-function randpw() {
-  openssl rand -base64 4 | md5 | head -c"$1"
-  echo
 }
 
 # randpass -> generate passwords
@@ -124,22 +124,22 @@ function eslintify() {
 }
 
 # fvim -> find and open a file in vim
-function fvim() {
-  if [[ $# -eq 0 ]]; then
-    fd -t f | fzf --header "Open File in nvim" --preview "bat --color=always {}" | xargs nvim
-  else
-    fd -t f | fzf --header "Open File in nvim" --preview "bat --color=always {}" -q "$@" | xargs nvim
-  fi
-}
+# function fvim() {
+#   if [[ $# -eq 0 ]]; then
+#     fd -t f | fzf --header "Open File in nvim" --preview "bat --color=always {}" | xargs nvim
+#   else
+#     fd -t f | fzf --header "Open File in nvim" --preview "bat --color=always {}" -q "$@" | xargs nvim
+#   fi
+# }
 
 # vim -> open vim in the current directory or open the target file
-function vim() {
-  if [[ $# -eq 0 ]]; then
-    nvim .
-  else
-    nvim "$@"
-  fi
-}
+# function vim() {
+#   if [[ $# -eq 0 ]]; then
+#     nvim .
+#   else
+#     nvim "$@"
+#   fi
+# }
 
 # bubo -> brew update and outdated
 function bubo() {

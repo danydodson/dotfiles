@@ -1,7 +1,7 @@
 # plugins
 
 # oh-my-zsh -> plugins
-plugins+=(brew git pnpm-shell-completion zsh-syntax-highlighting zsh-history-substring-search)
+plugins+=(brew git z pnpm-shell-completion zsh-syntax-highlighting zsh-history-substring-search)
 
 # oh-my-zsh -> my-zsh-completions
 source "$DOTFILES/config/zsh/custom/plugins/my-zsh-completions/zsh-completions.plugin.zsh"
@@ -12,11 +12,11 @@ source "$DOTFILES/config/omz/oh-my-zsh.sh"
 # run -> p10k configure
 [[ ! -f ~/.dotfiles/zsh/p10k.zsh ]] || source ~/.dotfiles/zsh/p10k.zsh
 
+# grc -> colorize unix tools
+# [[ -s "$(brew --prefix)/etc/grc.zsh" ]] && source $(brew --prefix)/etc/grc.zsh
+
 # iterm2 -> loads shell integration
 source "$DOTFILES/config/iterm2/iterm2_shell_integration.zsh"
-
-# gpg_tty -> config for instant prompt
-export GPG_TTY=$(tty)
 
 # op -> load completions
 eval "$(op completion zsh)"
@@ -60,3 +60,4 @@ autoload -U compinit && compinit -i
 
 # de-dupe $PATH
 typeset -U path
+typeset -U fpath
