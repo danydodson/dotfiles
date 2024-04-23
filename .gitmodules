@@ -13,8 +13,3 @@
 [submodule "config/zsh/custom/plugins/my-zsh-completions"]
 	path = config/zsh/custom/plugins/my-zsh-completions
 	url = https://github.com/danydodson/my-zsh-completions
-
-	
-[submodule "omz/custom"]
-	path = omz/custom
-	url = https://github.com/ohmyzsh/ohmyzsh

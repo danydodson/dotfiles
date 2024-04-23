@@ -10,9 +10,9 @@ export DOTFILES="$HOME/.dotfiles"
 
 # xdg
 export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
 
 # zsh
 export ZSH="$DOTFILES/config/omz"
@@ -22,12 +22,12 @@ export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
 export GENCOMPL_FPATH="$ZSH_CUSTOM/plugins/my-zsh-completions/src/custom"
 
 # brew
-export HOMEBREW_ROOT="/opt/homebrew"
-export HOMEBREW_REPOSITORY="/opt/homebrew"
 export HOMEBREW_NO_ANALYTICS=true
-export HOMEBREW_NO_INSTALL_CLEANUP=false
 export HOMEBREW_NO_ENV_HINTS=true
 export HOMEBREW_NO_AUTO_UPDATE=true
+export HOMEBREW_NO_INSTALL_CLEANUP=false
+# export HOMEBREW_ROOT="/opt/homebrew"
+# export HOMEBREW_REPOSITORY="/opt/homebrew"
 
 # bat
 export BAT_CONFIG_PATH="$XDG_CONFIG_HOME/bat/conf"
@@ -42,8 +42,8 @@ export RUSTUP_HOME="$XDG_CONFIG_HOME/rust"
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 export BUN_INSTALL="$XDG_CONFIG_HOME/bun"
 export DENO_INSTALL="$XDG_CONFIG_HOME/deno"
-export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 
 # python

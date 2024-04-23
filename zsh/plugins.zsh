@@ -1,7 +1,5 @@
 # plugins
 
-# autoload -U compinit && compinit
-
 # oh-my-zsh -> plugins
 plugins+=(brew git zsh-syntax-highlighting zsh-history-substring-search)
 
@@ -12,7 +10,7 @@ source $DOTFILES/config/zsh/custom/plugins/my-zsh-completions/zsh-completions.pl
 source $DOTFILES/config/omz/oh-my-zsh.sh
 
 # run -> p10k configure
-[[ ! -f ~/.dotfiles/prompts/p10k.zsh ]] || source ~/.dotfiles/prompts/p10k.zsh
+[[ ! -f ~/.dotfiles/prompts/p10k-lean.zsh ]] || source ~/.dotfiles/prompts/p10k-lean.zsh
 
 # zsh -> completions generator
 # source "$ZSH_CUSTOM/plugins/my-zsh-completions/src/custom/genhelp/zsh-completion-generator.plugin.zsh"
@@ -21,7 +19,7 @@ source $DOTFILES/config/omz/oh-my-zsh.sh
 source $DOTFILES/config/iterm2/iterm2_shell_integration.zsh
 
 # op -> load completions
-eval "$(op completion zsh)"
+eval $(op completion zsh)
 compdef _op op
 
 # start the ssh-agent
@@ -32,12 +30,12 @@ eval "$(ssh-agent -s)" >/dev/null 2>&1
 
 # pyenv -> load pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init --path)"
+  eval $(pyenv init --path)
 fi
 
 # ngrok -> completions
 if command -v ngrok &>/dev/null; then
-  eval "$(ngrok completion)"
+  eval $(ngrok completion)
 fi
 
 # fzf -> get completions
@@ -45,6 +43,15 @@ source /opt/homebrew/opt/fzf/shell/completion.zsh
 
 # fzf -> get key bindings
 source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+
+# fzf -> default options
+export FZF_DEFAULT_OPTS="--layout=reverse --inline-info --height=60% --border --prompt='> ' --bind 'ctrl-o:toggle-preview' --bind 'ctrl-s:toggle-sort' --bind 'ctrl-space:toggle'"
+
+# fzf -> default ctrl-t options
+export FZF_CTRL_T_OPTS="--walker-skip .git,node_modules,target --preview 'bat -n --color=always {}'"
+
+# fzf -> default alt-c options
+export FZF_ALT_C_OPTS="--walker-skip .git,node_modules,target --preview 'tree -C {}'"
 
 # fzf -> fd for listing path candidates
 _fzf_compgen_path() {
@@ -62,37 +69,14 @@ _fzf_comprun() {
   shift
 
   case "$command" in
-  cd) fzf --preview 'tree -C {} | head -200' "$@" ;;
-  export | unset) fzf --preview "eval 'echo \$'{}" "$@" ;;
-  ssh) fzf --preview 'dig {}' "$@" ;;
-  *) fzf --preview 'bat -n --color=always {}' "$@" ;;
+    cd) fzf --preview 'tree -C {} | head -200' "$@" ;;
+    export | unset) fzf --preview "eval 'echo \$'{}" "$@" ;;
+    ssh) fzf --preview 'dig {}' "$@" ;;
+    *) fzf --preview 'bat -n --color=always {}' "$@" ;;
   esac
 }
 
-# fzf -> default options
-export FZF_DEFAULT_OPTS=" \
-  --layout=reverse \
-  --inline-info \
-  --height=60% \
-  --border \
-  --prompt='> ' \
-  --bind 'ctrl-o:toggle-preview' \
-  --bind 'ctrl-s:toggle-sort' \
-  --bind 'ctrl-space:toggle'
-"
-
-# fzf -> default ctrl-t options
-export FZF_CTRL_T_OPTS=" \
-  --walker-skip .git,node_modules,target \
-  --preview 'bat -n --color=always {}'
-"
-
-# fzf -> default alt-c options
-export FZF_ALT_C_OPTS=" \
-  --walker-skip .git,node_modules,target \
-  --preview 'tree -C {}'
-"
-
+# fzf -> completion options
 autoload -U compinit && compinit
 
 # de-dupe $PATH
