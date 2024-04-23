@@ -13,3 +13,9 @@
 [submodule "config/zsh/custom/plugins/my-zsh-completions"]
 	path = config/zsh/custom/plugins/my-zsh-completions
 	url = https://github.com/danydodson/my-zsh-completions
+[submodule "custom/plugins/my-zsh-completions"]
+	path = custom/plugins/my-zsh-completions
+	url = https://github.com/danydodson/my-zsh-completions
+[submodule "custom/plugins/zsh-syntax-highlighting"]
+	path = custom/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
