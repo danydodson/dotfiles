@@ -4,7 +4,7 @@
 plugins+=(brew git zsh-syntax-highlighting zsh-history-substring-search)
 
 # oh-my-zsh -> my-zsh-completions
-source $DOTFILES/config/zsh/custom/plugins/my-zsh-completions/zsh-completions.plugin.zsh
+source $DOTFILES/custom/plugins/my-zsh-completions/zsh-completions.plugin.zsh
 
 # oh-my-zsh -> source
 source $DOTFILES/config/omz/oh-my-zsh.sh

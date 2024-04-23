@@ -6,8 +6,3 @@ Host macbook.local
   User dany
   ForwardAgent yes
   AddKeysToAgent yes
-
-# Host github.com
-#   IgnoreUnknown UseKeychain
-#   AddKeysToAgent yes
-#   IdentityFile ~/.ssh/id_ed25519
