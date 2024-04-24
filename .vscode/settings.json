@@ -1,7 +1,7 @@
 {
   "search.exclude": {
+    "**/custom": true,
     "**/config/omz": true,
-    "**/config/zsh/custom": true
   },
   "files.associations": {
     "**/bin/*": "shellscript"
