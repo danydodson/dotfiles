@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# vim:syntax=zsh
+# vim:filetype=zsh
 
 # unalias -a
 
@@ -38,6 +40,9 @@ alias pnvite='pnpm create vite'
 
 # n -> npm
 alias n='npm'
+
+# gcp -> github copilot
+alias gcp='gh copilot'
 
 # hts -> http-server
 alias hts='http-server'

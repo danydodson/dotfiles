@@ -1,4 +1,6 @@
 #!/bin/bash
+# vim:syntax=zsh
+# vim:filetype=zsh
 
 # editor
 export EDITOR="vim"
@@ -19,7 +21,6 @@ export ZSH="$DOTFILES/config/omz"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export ZSH_CUSTOM="$DOTFILES/custom"
 export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
-# export GENCOMPL_FPATH="$ZSH_CUSTOM/plugins/my-zsh-completions/src/custom"
 
 # brew
 export HOMEBREW_NO_ANALYTICS=true
@@ -36,23 +37,38 @@ export GOPATH="$XDG_CONFIG_HOME/go"
 export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
 export RUSTUP_HOME="$XDG_CONFIG_HOME/rust"
 
-# node
-export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+# bun
 export BUN_INSTALL="$XDG_CONFIG_HOME/bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+
+# 
 export DENO_INSTALL="$XDG_CONFIG_HOME/deno"
 export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 
+# vim
+# export VIMCONFIG="${XDG_CONFIG_HOME}"/vim
+# export MYVIMRC="$XDG_CONFIG_HOME"/vim/vimrc
+# export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
+
 # python
 export PYENV_ROOT="$XDG_CONFIG_HOME/pyenv"
 export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
+
+# conda
 export CONDA_ROOT="$XDG_CONFIG_HOME/conda"
 
 # 1password
 export OP_CACHE=$XDG_CACHE_HOME/op
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
 export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
+# zsh-completions
+export GENCOMPL_FPATH="$ZSH_CUSTOM/plugins/my-zsh-completions/src/custom"
 
 # wakatime
 export WAKATIME_HOME=$XDG_CONFIG_HOME/wakatime

@@ -1,6 +1,7 @@
 # settings.zsh
+# vim:syntax=zsh
+# vim:filetype=zsh
 
-# history
 export HISTSIZE=1000000000
 export SAVEHIST=1000000000
 export HISTFILE=$HOME/.config/cache/zsh/zsh_history

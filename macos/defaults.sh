@@ -1,4 +1,6 @@
 #!/bin/sh
+# vim:syntax=zsh
+# vim:filetype=zsh
 #
 # Sets reasonable macOS defaults.
 #

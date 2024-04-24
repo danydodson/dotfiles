@@ -1,3 +1,6 @@
+# vim:syntax=zsh
+# vim:filetype=zsh
+
 zmodload zsh/zprof
 
 export DOTFILES="${HOME}/.dotfiles"

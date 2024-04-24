@@ -1,4 +1,6 @@
 # prompt.zsh
+# vim:syntax=zsh
+# vim:filetype=zsh
 
 DEFAULT_USER=$(whoami)
 

@@ -6612,11 +6612,11 @@ Show Toolbelt</string>
 			<key>Blink Allowed</key>
 			<false/>
 			<key>Blinking Cursor</key>
-			<true/>
-			<key>Blur</key>
 			<false/>
+			<key>Blur</key>
+			<true/>
 			<key>Blur Radius</key>
-			<real>0.10000000000000001</real>
+			<real>14.998254654255318</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -6763,7 +6763,7 @@ Show Toolbelt</string>
 				<real>0.070000000000000007</real>
 			</dict>
 			<key>Cursor Shadow</key>
-			<true/>
+			<false/>
 			<key>Cursor Text Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -6903,7 +6903,7 @@ Show Toolbelt</string>
 			<key>Idle Code</key>
 			<integer>0</integer>
 			<key>Initial Use Transparency</key>
-			<false/>
+			<true/>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -7291,9 +7291,9 @@ Show Toolbelt</string>
 			<key>Non-ASCII Ligatures</key>
 			<false/>
 			<key>Normal Font</key>
-			<string>MesloLGS-NF-Regular 14</string>
+			<string>MesloLGMDZNFP-Regular 13</string>
 			<key>Only The Default BG Color Uses Transparency</key>
-			<false/>
+			<true/>
 			<key>Open Password Manager Automatically</key>
 			<false/>
 			<key>Open Toolbelt</key>
@@ -7843,9 +7843,9 @@ Show Toolbelt</string>
 			<key>Thin Strokes</key>
 			<integer>0</integer>
 			<key>Title Components</key>
-			<integer>384</integer>
+			<integer>640</integer>
 			<key>Transparency</key>
-			<real>0.0</real>
+			<real>0.02986702127659574</real>
 			<key>Triggers Use Interpolated Strings</key>
 			<false/>
 			<key>Unicode Version</key>

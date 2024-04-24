@@ -1,4 +1,6 @@
 # plugins
+# vim:syntax=zsh
+# vim:filetype=zsh
 
 # oh-my-zsh -> plugins
 plugins+=(brew git zsh-syntax-highlighting zsh-history-substring-search)
@@ -10,7 +12,7 @@ source $DOTFILES/custom/plugins/my-zsh-completions/zsh-completions.plugin.zsh
 source $DOTFILES/config/omz/oh-my-zsh.sh
 
 # run -> p10k configure
-[[ ! -f ~/.dotfiles/prompts/p10k-lean.zsh ]] || source ~/.dotfiles/prompts/p10k-lean.zsh
+[[ ! -f ~/.dotfiles/prompts/p10k.zsh ]] || source ~/.dotfiles/prompts/p10k.zsh
 
 # zsh -> completions generator
 # source "$ZSH_CUSTOM/plugins/my-zsh-completions/src/custom/genhelp/zsh-completion-generator.plugin.zsh"
