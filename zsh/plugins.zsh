@@ -3,7 +3,7 @@
 # vim:filetype=zsh
 
 # oh-my-zsh -> plugins
-plugins+=(brew git zsh-syntax-highlighting zsh-history-substring-search)
+plugins+=(brew git pyenv zsh-syntax-highlighting zsh-history-substring-search)
 
 # oh-my-zsh -> my-zsh-completions
 source $DOTFILES/custom/plugins/my-zsh-completions/zsh-completions.plugin.zsh
