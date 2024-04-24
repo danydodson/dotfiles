@@ -15,7 +15,7 @@ source $DOTFILES/config/omz/oh-my-zsh.sh
 [[ ! -f ~/.dotfiles/prompts/p10k.zsh ]] || source ~/.dotfiles/prompts/p10k.zsh
 
 # zsh -> completions generator
-# source "$ZSH_CUSTOM/plugins/my-zsh-completions/src/custom/genhelp/zsh-completion-generator.plugin.zsh"
+source "$ZSH_CUSTOM/plugins/my-zsh-completions/src/custom/genhelp/zsh-completion-generator.plugin.zsh"
 
 # iterm2 -> loads shell integration
 source $DOTFILES/config/iterm2/iterm2_shell_integration.zsh
