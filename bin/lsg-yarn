@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-# List global yarn packagesx
-
-yarn global list

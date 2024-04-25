@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# vim:syntax=zsh
-# vim:filetype=zsh
 
 # Update all the things
 

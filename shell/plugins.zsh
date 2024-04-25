@@ -1,6 +1,4 @@
 # plugins
-# vim:syntax=zsh
-# vim:filetype=zsh
 
 # oh-my-zsh -> plugins
 plugins+=(brew git pyenv zsh-syntax-highlighting zsh-history-substring-search)
@@ -12,13 +10,16 @@ source $DOTFILES/custom/plugins/my-zsh-completions/zsh-completions.plugin.zsh
 source $DOTFILES/config/omz/oh-my-zsh.sh
 
 # run -> p10k configure
-[[ ! -f ~/.dotfiles/prompts/p10k.zsh ]] || source ~/.dotfiles/prompts/p10k.zsh
+[[ ! -f ~/.dotfiles/shell/p10k.zsh ]] || source ~/.dotfiles/shell/p10k.zsh
 
 # zsh -> completions generator
 source "$ZSH_CUSTOM/plugins/my-zsh-completions/src/custom/genhelp/zsh-completion-generator.plugin.zsh"
 
 # iterm2 -> loads shell integration
-source $DOTFILES/config/iterm2/iterm2_shell_integration.zsh
+source $DOTFILES/config/iterm2/iterm2-si.zsh
+
+# vscode -> loads shell integration
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
 # op -> load completions
 eval $(op completion zsh)
@@ -47,22 +48,23 @@ source /opt/homebrew/opt/fzf/shell/completion.zsh
 source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
 
 # fzf -> default options
-export FZF_DEFAULT_OPTS="--layout=reverse --inline-info --height=60% --border --prompt='> ' --bind 'ctrl-o:toggle-preview' --bind 'ctrl-s:toggle-sort' --bind 'ctrl-space:toggle'"
+export FZF_DEFAULT_OPTS="--ansi --layout=reverse  --inline-info --height=60% --border --prompt='> ' --bind 'ctrl-o:toggle-preview' --bind 'ctrl-s:toggle-sort' --bind 'ctrl-space:toggle'"
 
-# fzf -> default ctrl-t options
-export FZF_CTRL_T_OPTS="--walker-skip .git,node_modules,target --preview 'bat -n --color=always {}'"
+# fzf -> ctrl-t returns only files and previews them with bat
+export FZF_CTRL_T_OPTS="--walker-skip  .git,node_modules,target --preview 'bat -n  -color=always {}'  --bind 'enter:become(nvim {+})'"
 
-# fzf -> default alt-c options
-export FZF_ALT_C_OPTS="--walker-skip .git,node_modules,target --preview 'tree -C {}'"
+# fzf -> ctrl0c returns only dirs and previews a file tree
+export FZF_ALT_C_OPTS="--walker-skip  .git,node_modules,target --preview 'tree -C (nvim {+})'"
+
 
 # fzf -> fd for listing path candidates
 _fzf_compgen_path() {
-  fd --hidden --follow --exclude ".git" . "$1"
+  fd --hidden --follow --exclude ".git" "$dir" "$1"
 }
 
 # fzf -> fd used to generate dir list for completion
 _fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1"
+  fd --type d --hidden --follow --exclude ".git" "$dir" "$1"
 }
 
 # fzf -> advanced options

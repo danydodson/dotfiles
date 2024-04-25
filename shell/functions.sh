@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # vim:syntax=zsh
-# vim:filetype=zsh
 
 # src -> source .zshrc
 function src() {

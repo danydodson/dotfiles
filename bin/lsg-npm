@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-# List global npm packagesx
-
-npm list -g --depth 0

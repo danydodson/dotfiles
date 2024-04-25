@@ -58,7 +58,7 @@ $ sudo reboot
 
 Install global npm packages
 
-```console
+```consile
 $ npm install -g serve
 $ npm install -g jest
 $ npm install -g live-server

@@ -1,18 +1,13 @@
 # settings.zsh
-# vim:syntax=zsh
-# vim:filetype=zsh
 
 export HISTSIZE=1000000000
 export SAVEHIST=1000000000
-export HISTFILE=$HOME/.config/cache/zsh/zsh_history
-export LESSHISTFILE=$HOME/.config/cache/less/lesshst
+export HISTFILE="$HOME/.config/cache/zsh_history"
+export LESSHISTFILE="$HOME/.config/cache/less/lesshst"
 export HIST_STAMPS=yyyy-mm-dd
 
 # disable freezing
 unsetopt flowcontrol
-
-# VI mode
-# bindkey -v
 
 # history
 setopt APPEND_HISTORY

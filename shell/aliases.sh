@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# vim:syntax=zsh
-# vim:filetype=zsh
 
 # unalias -a
 
@@ -26,7 +24,7 @@ alias root='sudo -s'
 alias rm='trash'
 
 # nvim -> open nvim
-# alias nv='nvim'
+alias nv='nvim'
 
 # b -> brew
 alias b='brew'
@@ -36,7 +34,6 @@ alias bu='b update && b upgrade && b autoremove && b cleanup --prune=all -s'
 
 # pn -> pnpm
 alias pn='pnpm'
-alias pnvite='pnpm create vite'
 
 # n -> npm
 alias n='npm'
@@ -49,7 +46,9 @@ alias hts='http-server'
 
 # lvs -> live-server
 alias lvs='live-server'
+alias lsg-npm='npm ls -g --depth 0'
 
+alias lsg-yarn='yarn global list'
 # r -> ranger
 alias r='ranger'
 
@@ -67,6 +66,9 @@ alias afk="open -a /System/Library/CoreServices/ScreenSaverEngine.app"
 
 # brm -> pretty print
 alias brm='bat --plain readme.md'
+
+# bt -> pretty print
+alias bt='bat --style="numbers" --color=always --theme="Tokyo-Night-Enki" --tabs=2 --map-syntax= --paging=never'
 
 # uuid -> generate a uuid
 alias uuid='uuidgen'
@@ -143,4 +145,3 @@ if gls &>/dev/null; then
   alias la='gls -A --color'
 fi
 
-# vim: set filetype=zsh:

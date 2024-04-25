@@ -1,13 +1,7 @@
 #!/bin/sh
-# vim:syntax=zsh
-# vim:filetype=zsh
-#
-# Sets reasonable macOS defaults.
-#
-# Heavily inspired by:
-#   https://github.com/mathiasbynens/dotfiles/blob/master/.osx
-#   https://gist.github.com/brandonb927/3195465
-#
+
+# macOS defaults.
+
 if [ "$(uname -s)" != "Darwin" ]; then
 	exit 0
 fi
