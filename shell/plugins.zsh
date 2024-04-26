@@ -56,7 +56,6 @@ export FZF_CTRL_T_OPTS="--walker-skip  .git,node_modules,target --preview 'bat -
 # fzf -> ctrl0c returns only dirs and previews a file tree
 export FZF_ALT_C_OPTS="--walker-skip  .git,node_modules,target --preview 'tree -C (nvim {+})'"
 
-
 # fzf -> fd for listing path candidates
 _fzf_compgen_path() {
   fd --hidden --follow --exclude ".git" "$dir" "$1"

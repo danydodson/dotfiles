@@ -4,6 +4,9 @@ filetype=.gitconfig
 # Credentials
 #######################################################################
 
+[user]
+  name = danydodson
+  email = danydodson@gmail.com
 
 [gpg]
 	format = ssh
@@ -15,36 +18,47 @@ filetype=.gitconfig
 	gpgsign = true
 
 [user]
-        name = danydodson
-        email = danydodson@gmail.com
-
-[user]
-        signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBY/6OFZz0mmrQlGKMcj4aSM+VtsQ9DKH5EqgjM/zHAj
+   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBY/6OFZz0mmrQlGKMcj4aSM+VtsQ9DKH5EqgjM/zHAj
 	
-
-
 #######################################################################
 # My aliases
 #######################################################################
 
-
 [includeIf "gitdir:/Users/"]
-	path = "~/.dotfiles/github/aliases"
+	path = "~/.dotfiles/config/git/aliases"
 
+#######################################################################
+# Programs (assumes may be overridden by OS settings)
+#######################################################################
+
+[init]
+	defaultBranch = main
+
+[difftool]
+	prompt = false
+
+[mergetool]
+	prompt = false
+
+[pager]
+	status = true
+
+[gui]
+	fontui = -family '\"MesloLGS NF\"' -size -13 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family '\"MesloLGS NF\"' -size -13 -weight normal -slant roman -underline 0 -overstrike 0
+	diffcontext = 10
+	commitmsgwidth = 280
 
 #######################################################################
 # Formatting
 #######################################################################
 
-
 [pretty]
 	ld = "%C(yellow)%h %C(reset)%s %C(green)(%cr) %C(blue)<%an>%C(magenta)%d%C(reset)"
-
 
 #######################################################################
 # Color
 #######################################################################
-
 
 [color]
 	branch = auto
@@ -61,11 +75,9 @@ filetype=.gitconfig
 	newNormal = green bold
 	newHighlight = green bold 22
 
-
 #######################################################################
 # URL aliases
 #######################################################################
-
 
 [url "git@github.com:"]
 	insteadOf = "gh:"
@@ -86,11 +98,9 @@ filetype=.gitconfig
 [url "git@heroku.com:"]
 	insteadOf = "heroku:"
 
-
 #######################################################################
 # Repo settings and command options
 #######################################################################
-
 
 [blame]
 	date = short
@@ -131,25 +141,3 @@ filetype=.gitconfig
 [rerere]
 	enabled = 1
 
-
-#######################################################################
-# Programs (assumes may be overridden by OS settings)
-#######################################################################
-
-[gui]
-	fontui = -family '\"MesloLGS NF\"' -size -13 -weight normal -slant roman -underline 0 -overstrike 0
-	fontdiff = -family '\"MesloLGS NF\"' -size -13 -weight normal -slant roman -underline 0 -overstrike 0
-	commitmsgwidth = 280
-	diffcontext = 10
-
-[difftool]
-	prompt = false
-
-[mergetool]
-	prompt = false
-
-[pager]
-	status = true
-
-[init]
-	defaultBranch = main

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# vim:syntax=zsh
+
+# Helpers Functions ------------------------------------------------------------ {{{
 
 # src -> source .zshrc
 function src() {
@@ -7,10 +8,9 @@ function src() {
   source ~/.zshrc && echo 'source ~/.zshrc'
 }
 
-# bathelp -> pretty print help
-alias bathelp='bat --plain --language=help'
-function help() {
-  "$@" --help 2>&1 | bathelp
+# pi -> ping google dns
+function pi() {
+  ping -Anc 5 1.1.1.1
 }
 
 # dsx -> delete .DS_Store
@@ -18,9 +18,9 @@ function dsx() {
   find . -name "*.DS_Store" -type f -delete
 }
 
-# pi -> ping google dns
-function pi() {
-  ping -Anc 5 1.1.1.1
+# copy -> copy to clipboard
+function copy() {
+  printf "%s" "$*" | tr -d "\n" | pbcopy
 }
 
 # ygs -> yarn generate and serve
@@ -32,11 +32,6 @@ function ygs() {
 function randpass() {
   local len=${1:-32}
   openssl rand -base64 256 | tr -d '\n/+=' | cut -c -"$len"
-}
-
-# copy -> copy to clipboard
-function copy() {
-  printf "%s" "$*" | tr -d "\n" | pbcopy
 }
 
 # wttr -> get weather forcaset
@@ -60,6 +55,20 @@ function eslintify() {
   npx eslint
 }
 
+# }}}
+
+# Bat Functions ------------------------------------------------------------ {{{
+
+# bathelp -> pretty print help
+alias bathelp='bat --plain --language=help'
+function help() {
+  "$@" --help 2>&1 | bathelp
+}
+
+# }}}
+
+# Nvim Functions ------------------------------------------------------------ {{{
+
 # fvim -> find and open a file in vim
 # function fvim() {
 #   if [[ $# -eq 0 ]]; then
@@ -78,6 +87,10 @@ function eslintify() {
 #   fi
 # }
 
+# }}}
+
+# PATH Modifiers ------------------------------------------------------------ {{{
+
 # path-remove -> remove form path
 function path-remove() {
   PATH=$(echo -n "$PATH" | awk -v RS=: -v ORS=: "\$0 != \"$1\"" | sed 's/:$//')
@@ -94,6 +107,10 @@ function path-prepend() {
   path-remove "$1"
   PATH="$1${PATH:+":$PATH"}"
 }
+
+# }}}
+
+# FPATH Modifiers ------------------------------------------------------------ {{{
 
 # fpath -> remove from fpath
 function fpath-remove() {
@@ -112,10 +129,9 @@ function fpath-prepend() {
   FPATH="$1${FPATH:+":$FPATH"}"
 }
 
-# bubo -> brew update and outdated
-function bubo() {
-  brew update && brew outdated
-}
+# }}}
+
+# 1password Functions ------------------------------------------------------------ {{{
 
 # __my_op_plugin_run -> fixes op completion
 function __my_op_plugin_run() {
@@ -135,6 +151,15 @@ function __my_op_plugin_run() {
 function __load_op_completion() {
   completion_function="$(op completion zsh)"
   sed -E 's/^( +)_op_plugin_run/\1__my_op_plugin_run/' <<<"${completion_function}"
+}
+
+# }}}
+
+# Homebrew  Functions ------------------------------------------------------------ {{{
+
+# bubo -> brew update and outdated
+function bubo() {
+  brew update && brew outdated
 }
 
 # bb -> bundle brewfile
@@ -169,3 +194,5 @@ function bbcf() {
     echo "Brewfile not found."
   fi
 }
+
+# }}}

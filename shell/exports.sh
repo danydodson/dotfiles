@@ -57,10 +57,11 @@ export BAT_CONFIG_PATH="$XDG_CONFIG_HOME/bat/conf"
 export GENCOMPL_FPATH="$ZSH_CUSTOM/plugins/my-zsh-completions/src/custom"
 
 # path
-path-prepend "$HOME"/.dotfiles/bin
 path-append "$HOME"/.config/iterm2
-path-append "$HOME"/.config/pyenv/shims
 path-append /opt/homebrew/opt/fzf/bin
+path-append "$HOME"/.config/pyenv/shims
+path-prepend "$HOME"/.dotfiles/bin
+path-append "$HOME"/.local/bin
 
 # fpath
 fpath-prepend /opt/homebrew/share/zsh/site-functions

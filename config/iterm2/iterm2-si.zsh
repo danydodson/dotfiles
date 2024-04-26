@@ -177,18 +177,18 @@ if [[ -o interactive ]]; then
   fi
 fi
 
-alias imgcat=/Users/dany/.config/iterm2/imgcat;
-alias imgls=/Users/dany/.config/iterm2/imgls;
-alias it2api=/Users/dany/.config/iterm2/it2api;
-alias it2attention=/Users/dany/.config/iterm2/it2attention;
-alias it2check=/Users/dany/.config/iterm2/it2check;
-alias it2copy=/Users/dany/.config/iterm2/it2copy;
-alias it2dl=/Users/dany/.config/iterm2/it2dl;
-alias it2getvar=/Users/dany/.config/iterm2/it2getvar;
-alias it2git=/Users/dany/.config/iterm2/it2git;
-alias it2profile=/Users/dany/.config/iterm2/it2profile;
-alias it2setcolor=/Users/dany/.config/iterm2/it2setcolor;
-alias it2setkeylabel=/Users/dany/.config/iterm2/it2setkeylabel;
-alias it2tip=/Users/dany/.config/iterm2/it2tip;
-alias it2ul=/Users/dany/.config/iterm2/it2ul;
-alias it2universion=/Users/dany/.config/iterm2/it2universion
+alias imgcat=$"HOME"/.config/iterm2/imgcat
+alias imgls=$"HOME"/.config/iterm2/imgls
+alias it2api=$"HOME"/.config/iterm2/it2api
+alias it2attention=$"HOME"/.config/iterm2/it2attention
+alias it2check=$"HOME"/.config/iterm2/it2check
+alias it2copy=$"HOME"/.config/iterm2/it2copy
+alias it2dl=$"HOME"/.config/iterm2/it2dl
+alias it2getvar=$"HOME"/.config/iterm2/it2getvar
+alias it2git=$"HOME"/.config/iterm2/it2git
+alias it2profile=$"HOME"/.config/iterm2/it2profile
+alias it2setcolor=$"HOME"/.config/iterm2/it2setcolor
+alias it2setkeylabel=$"HOME"/.config/iterm2/it2setkeylabel
+alias it2tip=$"HOME"/.config/iterm2/it2tip
+alias it2ul=$"HOME"/.config/iterm2/it2ul
+alias it2universion=$"HOME"/.config/iterm2/it2universion

@@ -1,4 +1,3 @@
-
 zmodload zsh/zprof
 export DOTFILES="${HOME}"/.dotfiles
 source "${DOTFILES}"/shell/functions.sh

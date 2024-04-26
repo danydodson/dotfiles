@@ -2,7 +2,7 @@
 
 export HISTSIZE=1000000000
 export SAVEHIST=1000000000
-export HISTFILE="$HOME/.config/cache/zsh_history"
+export HISTFILE="$HOME/.config/cache/zsh/zsh_history"
 export LESSHISTFILE="$HOME/.config/cache/less/lesshst"
 export HIST_STAMPS=yyyy-mm-dd
 

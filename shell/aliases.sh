@@ -5,7 +5,7 @@
 # fixes
 alias cp='cp -i'
 alias mv='mv -i'
-alias rm='rm -i'
+alias rm='trash'
 
 # keep
 alias cp="nocorrect cp"
@@ -19,9 +19,6 @@ alias mkdir="nocorrect mkdir"
 # sudo
 alias se='sudo -e'
 alias root='sudo -s'
-
-# rm -> trash
-alias rm='trash'
 
 # nvim -> open nvim
 alias nv='nvim'
@@ -49,6 +46,7 @@ alias lvs='live-server'
 alias lsg-npm='npm ls -g --depth 0'
 
 alias lsg-yarn='yarn global list'
+
 # r -> ranger
 alias r='ranger'
 

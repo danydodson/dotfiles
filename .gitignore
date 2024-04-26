@@ -1,5 +1,4 @@
-.DS_Store
+**/.DS_Store
 **/Brewfile.lock.json
-gitconfig
-*.env
-*.log
+**/*.env
+**/*.log
