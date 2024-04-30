@@ -186,6 +186,8 @@ cask "iina"
 cask "kitty"
 # Finder Toolbar app for macOS
 cask "openinterminal"
+# Syncs files between computers and MEGA Cloud drives
+cask "megasync"
 # Tool for working with MongoDB
 cask "mongodb-compass"
 # Reverse proxy, secure introspectable tunnels to localhost
