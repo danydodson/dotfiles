@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-# Run ipinfo.io
-
-curl -H "Authorization: Bearer $(op read op://Personal/ipinfo.io/credentials/token)" ipinfo.io | jq .

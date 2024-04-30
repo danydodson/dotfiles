@@ -172,8 +172,6 @@ brew "stripe/stripe-cli/stripe"
 brew "koekeishiya/formulae/yabai"
 # A package manager
 brew "yarn"
-# Apple symbols
-cask "sf-symbols"
 # Brings 1Password to your terminal
 cask "1password-cli"
 # The App That Opens Apps
@@ -204,6 +202,8 @@ cask "slack"
 cask "spotify"
 # Application for inspecting installer packages
 cask "suspicious-package"
+# Apple symbols
+cask "sf-symbols"
 # Bittorrent client
 cask "transmission"
 # Open source cross-platform multimedia playe
