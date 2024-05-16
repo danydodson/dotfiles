@@ -176,19 +176,3 @@ if [[ -o interactive ]]; then
     printf "\033]1337;ShellIntegrationVersion=14;shell=zsh\007"
   fi
 fi
-
-alias imgcat=$"HOME"/.config/iterm2/imgcat
-alias imgls=$"HOME"/.config/iterm2/imgls
-alias it2api=$"HOME"/.config/iterm2/it2api
-alias it2attention=$"HOME"/.config/iterm2/it2attention
-alias it2check=$"HOME"/.config/iterm2/it2check
-alias it2copy=$"HOME"/.config/iterm2/it2copy
-alias it2dl=$"HOME"/.config/iterm2/it2dl
-alias it2getvar=$"HOME"/.config/iterm2/it2getvar
-alias it2git=$"HOME"/.config/iterm2/it2git
-alias it2profile=$"HOME"/.config/iterm2/it2profile
-alias it2setcolor=$"HOME"/.config/iterm2/it2setcolor
-alias it2setkeylabel=$"HOME"/.config/iterm2/it2setkeylabel
-alias it2tip=$"HOME"/.config/iterm2/it2tip
-alias it2ul=$"HOME"/.config/iterm2/it2ul
-alias it2universion=$"HOME"/.config/iterm2/it2universion

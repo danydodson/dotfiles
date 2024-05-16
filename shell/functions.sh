@@ -15,7 +15,7 @@ function pi() {
 
 # dsx -> delete .DS_Store
 function dsx() {
-  find . -name "*.DS_Store" -type f -delete
+  fd -H '^\.DS_Store$' -E '.Trash' -E 'Library' -tf -X trash-put
 }
 
 # copy -> copy to clipboard
@@ -57,28 +57,11 @@ function eslintify() {
 
 # }}}
 
-# fzf Functions ------------------------------------------------------------ {{{
-
-vv() {
-  # Assumes all configs exist in directories named ~/.config/nvim-*
-  local config
-  config=$(fd --max-depth 1 --glob 'nvim-*' ~/.config | fzf --prompt="Neovim Configs > " --height=~50% --layout=reverse --border --exit-0)
- 
-  # If I exit fzf without selecting a config, don't open Neovim
-  [[ -z $config ]] && echo "No config selected" && return
- 
-  # Open Neovim with the selected config
-  NVIM_APPNAME=$(basename "$config") nvim "$@"
-}
-
-# }}}
-
 # Bat Functions ------------------------------------------------------------ {{{
 
-# bathelp -> pretty print help
-alias bathelp='bat --plain --language=help'
-function help() {
-  "$@" --help 2>&1 | bathelp
+batman() {
+    BAT_THEME="Monokai Extended" command batman "$@"
+    return $?
 }
 
 # }}}
@@ -86,13 +69,13 @@ function help() {
 # Nvim Functions ------------------------------------------------------------ {{{
 
 # fvim -> find and open a file in vim
-# function fvim() {
-#   if [[ $# -eq 0 ]]; then
-#     fd -t f | fzf --header "Open File in nvim" --preview "bat --color=always {}" | xargs nvim
-#   else
-#     fd -t f | fzf --header "Open File in nvim" --preview "bat --color=always {}" -q "$@" | xargs nvim
-#   fi
-# }
+function fvim() {
+  if [[ $# -eq 0 ]]; then
+    fd -t f | fzf --header "Open File in nvim" --preview "bat --color=always {}" | xargs nvim
+  else
+    fd -t f | fzf --header "Open File in nvim" --preview "bat --color=always {}" -q "$@" | xargs nvim
+  fi
+}
 
 # vim -> open vim in the current directory or open the target file
 # function vim() {
@@ -167,48 +150,6 @@ function __my_op_plugin_run() {
 function __load_op_completion() {
   completion_function="$(op completion zsh)"
   sed -E 's/^( +)_op_plugin_run/\1__my_op_plugin_run/' <<<"${completion_function}"
-}
-
-# }}}
-
-# Homebrew  Functions ------------------------------------------------------------ {{{
-
-# bubo -> brew update and outdated
-function bubo() {
-  brew update && brew outdated
-}
-
-# bb -> bundle brewfile
-function bb() {
-  if [ -e "$HOME"/.dotfiles/config/brew/Brewfile ]; then
-    echo "-> Bundling Brewfile located at $HOME/.dotfiles/config/brew/Brewfile"
-    sleep 2
-    brew bundle --file "$HOME"/.dotfiles/config/brew/Brewfile
-  else
-    echo "Brewfile not found."
-  fi
-}
-
-# bbc -> bundle brewfile cleanup
-function bbc() {
-  if [ -e "$HOME"/.dotfiles/config/brew/Brewfile ]; then
-    echo "-> Running bundle cleanup dry-run for Brewfile located at $HOME/.dotfiles/config/brew/Brewfile"
-    sleep 2
-    brew bundle cleanup --file "$HOME"/.dotfiles/config/brew/Brewfile
-  else
-    echo "Brewfile not found."
-  fi
-}
-
-# bbcf -> bundle brewfile cleanup force
-function bbcf() {
-  if [ -e "$HOME"/.dotfiles/config/brew/Brewfile ]; then
-    echo "-> Running bundle cleanup (force) for Brewfile located at $HOME/.dotfiles/config/brew/Brewfile"
-    sleep 2
-    brew bundle cleanup --force --file "$HOME"/.dotfiles/config/brew/Brewfile
-  else
-    echo "Brewfile not found."
-  fi
 }
 
 # }}}

@@ -1,8 +1,14 @@
 
-" z Basics ---------------------------------------------------------------- {{{
+" Locations ---------------------------------------------------------------- {{{
+
+set viminfo+=n~/.config/vim/viminfo
+
+" }}}
+
+" Basics ---------------------------------------------------------------- {{{
 
 " no swap file
-set noswapfile
+" set noswapfile
 
 " Enable file types.
 filetype on
@@ -14,7 +20,7 @@ filetype on
 " filetype indent on
 
 " Turn syntax highlighting on.
-" syntax on
+syntax on
 
 " Add numbers to the file.
 set number
@@ -52,7 +58,7 @@ set hlsearch
 
 " }}}
 
-" z Plugins ---------------------------------------------------------------- {{{
+" Plugins ---------------------------------------------------------------- {{{
 
 " }}}
 

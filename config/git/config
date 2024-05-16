@@ -1,3 +1,5 @@
+# git.config
+
 #######################################################################
 # Credentials
 #######################################################################
@@ -127,7 +129,7 @@
 	status = true
 
 [gui]
-	fontui = -family '\"MesloLGS NF\"' -size -13 -weight normal -slant roman -underline 0 -overstrike 0
-	fontdiff = -family '\"MesloLGS NF\"' -size -13 -weight normal -slant roman -underline 0 -overstrike 0
+	fontui = -family '\"MesloLGS Nerd Font Mono\"' -size -13 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family '\"MesloLGS Nerd Font Mono\"' -size -13 -weight normal -slant roman -underline 0 -overstrike 0
 	diffcontext = 10
 	commitmsgwidth = 280

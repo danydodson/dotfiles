@@ -1,10 +1,6 @@
 #!/bin/bash
 
-#######################################################################
-# std logging                                                         #
-# Based on http://serverwizard.heroku.com/script/rvm+git              #
-# added error output to stderr                                        #
-#######################################################################
+# std logging
 
 __echo() { printf ' %s\033[0;m\n' "$1"; }
 

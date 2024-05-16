@@ -1,220 +1,377 @@
 tap "1password/tap"
 tap "aws/tap"
 tap "felixkratz/formulae"
-tap "koekeishiya/formulae"
 tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
-tap "homebrew/core"
 tap "homebrew/services"
+tap "koekeishiya/formulae"
 tap "moritzsternemann/apple-fonts"
 tap "oven-sh/bun"
 tap "stripe/stripe-cli"
 
-# Official Amazon AWS command-line interface
-brew "awscli"
-# Curl like simplicity to access AWS resources
-brew "awscurl"
-# Record your work in a terminal
+# interpreted, interactive, object-oriented programming language
+brew "python@3.12"
+# record your work in a terminal
 brew "asciinema"
-# Bourne-Again SHell, a UNIX command interpreter
+# official Amazon AWS command-line interface
+brew "awscli"
+# curl like simplicity to access AWS resources
+brew "awscurl"
+# bourne-Again shell
 brew "bash"
-# A cat clone with syntax highlighting and Git integration
+# a cat clone with syntax highlighting and Git integration
 brew "bat"
-# Extensions to bat
+# extensions to bat
 brew "bat-extras"
-# A package manager
-brew "bun"
-# View pictures in your terminal
-brew "chafa"
-# GNU internationalization (i18n) and localization (l10n) library
+# yet another cross-platform graphical process/system monitor
+brew "bottom"
+# gnu internationalization and localization library
 brew "gettext"
-# Core application library for C
+# core application library for C
 brew "glib"
-# Statistics utility to count lines of code
-brew "cloc"
-# Cross-platform make
-brew "cmake"
-# GNU File, Shell, and Text utilities
-brew "coreutils"
-# Get a file from an HTTP, HTTPS or FTP server
-brew "curl"
-# Good-lookin' diffs with diff-highlight and more
-brew "diff-so-fancy"
-# Load and unload env variables on the current directory
-brew "direnv"
-# Utility that lets you work with Fly.io
-brew "flyctl"
-# GNU Ubiquitous Intelligent Language for Extensions
-brew "guile"
-# GNU Transport Layer Security (TLS) Library
-brew "gnutls"
-# Generate introspection data for GObject libraries
-brew "gobject-introspection"
-# OpenType text shaping engine
+# openType text shaping engine
 brew "harfbuzz"
-# Subtitle renderer for the ASS/SSA subtitle format
-brew "libass"
-# Play, record, convert, and stream audio and video
-brew "ffmpeg"
-# Collection of GNU find, xargs, and locate
+# view pictures in your terminal
+brew "chafa"
+# statistics utility to count lines of code
+brew "cloc"
+# cross-platform make
+brew "cmake"
+# gnu file, shell, and text utilities
+brew "coreutils"
+# get a file from an http, https or ftp server
+brew "curl"
+# secure runtime for javascript and typescript
+brew "deno"
+# good-lookin diffs with diff-highlight and more
+brew "diff-so-fancy"
+# oad and unload env variables on the current directory
+brew "direnv"
+# simple, fast and user-friendly alternative to find
+brew "fd"
+# collection of gnu find, xargs, and locate
 brew "findutils"
-# User-friendly command-line shell for UNIX-like operating systems
+# user-friendly command-line shell for UNIX-like operating systems
 brew "fish"
-# Cleans up old and inactive forks on your GitHub account
+# utility that lets you work with fly.io
+brew "flyctl"
+# cleans up old and inactive forks on your github account
 brew "fork-cleaner"
-# Command-line fuzzy finder written in Go
+# command-line fuzzy finder written in Go
 brew "fzf"
-# GNU awk utility
+#
 brew "gawk"
-# Geometry Engine
+#
+brew "gdu"
+# geometry Engine
 brew "geos"
-# GitHub command-line tool
+#
 brew "gh"
-# Enable transparent encryption/decryption of files in a git repo
+# enable transparent encryption/decryption of files in a git repo
 brew "git-crypt"
-# GNU implementation of the famous stream editor
-brew "gnu-sed"
-# A system monitoring tool
+#
 brew "glances"
-# GNU version of the tar archiving utility
+# gnu implementation of the famous stream editor
+brew "gnu-sed"
+#
 brew "gnu-tar"
-# GNU Pretty Good Privacy (PGP) package
+# gnu transport layer security (TLS) library
+brew "gnutls"
+#
 brew "gnupg"
-# Colorize logfiles and command output
+#
+brew "go"
+#
+brew "gobject-introspection"
+#
 brew "grc"
-# Interactive process viewer
+# gnu ubiquitous intelligent language for extensions
+brew "guile"
+#
 brew "htop"
-# Add GitHub support to git on the command-line
+#
 brew "hub"
-# Command-line benchmarking tool
+#
 brew "hyperfine"
-# Utility to optimize JPEG files
+#
 brew "jpegoptim"
-# Lightweight and flexible command-line JSON processor
+#
 brew "jq"
-# YAML Parser
+#
+brew "lazygit"
+#
+brew "libass"
+#
 brew "libyaml"
-# Scripting language
+#
 brew "lua"
-# Package manager for Lua modules
+#
 brew "luarocks"
-# Command line interface for the Mac App Store
+#
 brew "mas"
-# Library for a binary-based efficient data interchange format
+# 
 brew "msgpack"
-# 'traceroute' and 'ping' in a single tool
+# 
 brew "mtr"
-# NCurses Disk Usage
+# 
 brew "ncdu"
-# Vim-based text editor
-brew "neovim"
-# Command-line system information tool
+# 
 brew "neofetch"
-# HTTP/2 C Library
+# 
+brew "neovim"
+# 
 brew "nghttp2"
-# Port scanning utility for large networks
+# 
 brew "nmap"
-# Node.js
+# 
 brew "node"
-# Command-line utility for retrieving currently playing media
+# 
 brew "nowplaying-cli"
-# Development kit for the Java programming language
+# 
 brew "openjdk@11"
-# Apache Parquet command-line tools and utilities
-brew "parquet-tools"
-# Pinentry for GPG on Mac
+# 
 brew "pinentry-mac"
-# PNG image optimizing utility
+# 
 brew "pngquant"
-# A package manager
+# 
 brew "pnpm"
-# Show ps output as a tree
+# 
 brew "pstree"
-# A package manager
+# 
 brew "pyenv"
-# Search tool like grep and The Silver Searcher
+# 
+brew "ranger"
+# 
 brew "ripgrep"
-# Powerful, clean, object-oriented scripting language
+# 
 brew "ruby"
-# Static analysis and lint tool, for (ba)sh scripts
+# 
+brew "rustup-init"
+# 
 brew "shellcheck"
-# A highly customizable macOS status bar replacement
-brew "sketchybar"
-# Keyboard-driven window manager
-brew "koekeishiya/formulae/skhd"
-# Change the audio source for Mac OS X from the command line
+# 
 brew "switchaudio-osx"
-# User interface to the TELNET protocol
+# 
 brew "telnet"
-# Simplified manual pages
+# 
 brew "tldr"
-# Display directories as trees (with optional color/HTML output)
+# command-line interface to the trashcan
+brew "trash-cli"
+# 
 brew "tree"
-# Vi 'workalike' with many additional features
+# 
 brew "vim"
-# Executes a program periodically, showing output fullscreen
+# 
 brew "watch"
-# Internet file retriever
+#
 brew "wget"
-# Command-line audio/video downloader
-brew "yt-dlp"
-# Linter for YAML files
+#
 brew "yamllint"
-# General-purpose lossless data-compression library
-brew "zlib"
-# AWS SAM CLI 🐿 is a tool for local development and testing of Serverless applications
-brew "aws/tap/aws-sam-cli"
-# Stripe CLI utility
-brew "stripe/stripe-cli/stripe"
-# Yabai is a tiling window manager for macOS
-brew "koekeishiya/formulae/yabai"
-# A package manager
+# js package manager
 brew "yarn"
-# Brings 1Password to your terminal
+# 
+brew "yt-dlp"
+# general-purpose lossless data-compression library
+brew "zlib"
+# custom macOS statusbar
+brew "felixkratz/formulae/sketchybar"
+# simple hotkey-daemon for macos
+brew "koekeishiya/formulae/skhd"
+# tiling window manager for macos
+brew "koekeishiya/formulae/yabai"
+# js package manager
+brew "oven-sh/bun/bun"
+# 
+brew "stripe/stripe-cli/stripe"
+
+# 1Password to your terminal
 cask "1password-cli"
-# The App That Opens Apps
+# the app that opens apps
 cask "apparency"
-# Web browser
+# display management tool
+cask "betterdisplay"
+# web browser
 cask "brave-browser"
-# Web browser
+# any app as a lightweight container
+cask "docker"
+# dev targeted fonts
+cask "font-anonymice-nerd-font"
+# dev targeted fonts
+cask "font-caskaydia-cove-nerd-font"
+# dev targeted fonts
+cask "font-fira-code-nerd-font"
+# dev targeted fonts
+cask "font-fira-mono-nerd-font"
+# dev targeted fonts
+cask "font-jetbrains-mono-nerd-font"
+# dev targeted fonts
+cask "font-meslo-lg-nerd-font"
+# web browser
 cask "google-chrome"
-# Free and open-source media player
+# free and open-source media player
 cask "iina"
-# Terminal emulator
+# terminal emulator alternative
+cask "iterm2"
+# keyboard customiser
+cask "karabiner-elements"
+# terminal emulator
 cask "kitty"
-# Finder Toolbar app for macOS
-cask "openinterminal"
-# Syncs files between computers and MEGA Cloud drives
+# controls and monitors all fans on Apple computers
+cask "macs-fan-control"
+# mega sync client
 cask "megasync"
-# Tool for working with MongoDB
+# tool for working with MongoDB
 cask "mongodb-compass"
-# Reverse proxy, secure introspectable tunnels to localhost
+# reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
-# App to write, plan, collaborate, and get organized
+# app to write, plan, collaborate, and get organized
 cask "notion"
-# API platform for building and using API
+# cloud gaming platform
+cask "nvidia-geforce-now"
+# finder Toolbar app for macOS
+cask "openinterminal"
+# api platform for building and using apis
 cask "postman"
-# Move and resize windows using keyboard shortcuts or snap areas
+# move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
-# Team communication and collaboration software
-cask "slack"
-# Music streaming service
-cask "spotify"
-# Application for inspecting installer packages
-cask "suspicious-package"
-# Apple symbols
+# apple symbols
 cask "sf-symbols"
-# Bittorrent client
-cask "transmission"
-# Open source cross-platform multimedia playe
-cask "vlc"
-# General-purpose text editor
+# team communication and collaboration software
+cask "slack"
+# music streaming service
+cask "spotify"
+# app for inspecting installer packages
+cask "suspicious-package"
+# general-purpose text editor
 cask "textmate"
-# Open-source code editor
+# bittorrent client
+cask "transmission"
+# open-source code editor
 cask "visual-studio-code"
-# Terminal with AI and collaborative tools
+# open source cross-platform multimedia playe
+cask "vlc"
+# terminal with AI and collaborative tools
 cask "warp"
-# Video communication and virtual meeting platform
+# video communication and virtual meeting platform
 cask "zoom"
+
+# Finder quicklook extention
+mas "Peek", id: 1554235898
+
+# vscode "1password.op-vscode"
+# vscode "aaravb.chrome-extension-developer-tools"
+# vscode "achil.vscode-javascript-repl"
+# vscode "akamud.vscode-javascript-snippet-pack"
+# vscode "andenetalexander.vim-cheatsheet"
+# vscode "antoniormrzz.electron-snippets"
+# vscode "beauallison.brew-services"
+# vscode "bengreenier.vscode-node-readme"
+# vscode "benjaminbenais.copilot-theme"
+# vscode "bierner.lit-html"
+# vscode "bradlc.vscode-tailwindcss"
+# vscode "burkeholland.simple-react-snippets"
+# vscode "catppuccin.catppuccin-vsc"
+# vscode "christian-kohler.npm-intellisense"
+# vscode "cmstead.jsrefactor"
+# vscode "coachrichbart.better-jest"
+# vscode "codezombiech.gitignore"
+# vscode "ctcuff.font-preview"
+# vscode "dbaeumer.vscode-eslint"
+# vscode "denoland.vscode-deno"
+# vscode "donjayamanne.python-environment-manager"
+# vscode "drcika.apc-extension"
+# vscode "dsznajder.es7-react-js-snippets"
+# vscode "dual.zsh-completion-script"
+# vscode "duniul.dircolors"
+# vscode "eamodio.gitlens"
+# vscode "editorconfig.editorconfig"
+# vscode "emilast.logfilehighlighter"
+# vscode "enkia.tokyo-night"
+# vscode "esbenp.prettier-vscode"
+# vscode "everlastengineering.debug-in-titlebar"
+# vscode "frhtylcn.pythonsnippets"
+# vscode "funkyremi.vscode-google-translate"
+# vscode "github.copilot"
+# vscode "github.copilot-chat"
+# vscode "github.remotehub"
+# vscode "golang.go"
+# vscode "henriquebruno.github-repository-manager"
+# vscode "ibm.output-colorizer"
+# vscode "idleberg.applescript"
+# vscode "jakebathman.mysql-syntax"
+# vscode "jeff-hykin.better-csv-syntax"
+# vscode "jeff-hykin.better-dockerfile-syntax"
+# vscode "jeff-hykin.better-go-syntax"
+# vscode "jeff-hykin.better-js-syntax"
+# vscode "jeff-hykin.better-perl-syntax"
+# vscode "jeff-hykin.better-shellscript-syntax"
+# vscode "jeremyrajan.webpack"
+# vscode "jock.svg"
+# vscode "jonsmithers.open-in-vim"
+# vscode "kvnxush.one-dark-operator-theme"
+# vscode "lakshits11.ayu-monokai"
+# vscode "lakshits11.neon-city"
+# vscode "ldez.ignore-files"
+# vscode "leizongmin.node-module-intellisense"
+# vscode "luvxjs.spear"
+# vscode "mhutchie.git-graph"
+# vscode "miguelsolorio.fluent-icons"
+# vscode "mikestead.dotenv"
+# vscode "ms-azuretools.vscode-docker"
+# vscode "ms-python.autopep8"
+# vscode "ms-python.black-formatter"
+# vscode "ms-python.debugpy"
+# vscode "ms-python.python"
+# vscode "ms-python.vscode-pylance"
+# vscode "ms-toolsai.jupyter"
+# vscode "ms-toolsai.jupyter-keymap"
+# vscode "ms-toolsai.jupyter-renderers"
+# vscode "ms-toolsai.vscode-jupyter-cell-tags"
+# vscode "ms-toolsai.vscode-jupyter-slideshow"
+# vscode "ms-vscode-remote.remote-containers"
+# vscode "ms-vscode-remote.remote-ssh"
+# vscode "ms-vscode-remote.remote-ssh-edit"
+# vscode "ms-vscode.cpptools"
+# vscode "ms-vscode.live-server"
+# vscode "ms-vscode.remote-explorer"
+# vscode "ms-vscode.remote-repositories"
+# vscode "ms-vscode.remote-server"
+# vscode "ms-vscode.vscode-typescript-next"
+# vscode "msyrus.go-doc"
+# vscode "mxsdev.typescript-explorer"
+# vscode "naumovs.color-highlight"
+# vscode "nico-castell.linux-desktop-file"
+# vscode "otovo-oss.htmx-tags"
+# vscode "ph1p.zeit-co-vscode-schemas"
+# vscode "rebornix.toggle"
+# vscode "remisa.shellman"
+# vscode "ritwickdey.liveserver"
+# vscode "rogalmic.bash-debug"
+# vscode "rogalmic.zsh-debug"
+# vscode "rvest.vs-code-prettier-eslint"
+# vscode "ryotamannari.babel-plugin-react-css-modules-autocomplete"
+# vscode "sidneys1.gitconfig"
+# vscode "skyran.js-jsx-snippets"
+# vscode "solomonkinard.chrome-extension-api"
+# vscode "solomonkinard.chrome-extensions"
+# vscode "sumneko.lua"
+# vscode "tetradresearch.vscode-h2o"
+# vscode "timonwong.shellcheck"
+# vscode "tobermory.es6-string-html"
+# vscode "tomoki1207.pdf"
+# vscode "tomrijndorp.find-it-faster"
+# vscode "truman.autocomplate-shell"
+# vscode "usernamehw.errorlens"
+# vscode "vintharas.learn-vim"
+# vscode "visualstudioexptteam.intellicode-api-usage-examples"
+# vscode "visualstudioexptteam.vscodeintellicode"
+# vscode "voidei.vscode-vimrc"
+# vscode "vscodevim.vim"
+# vscode "wakatime.vscode-wakatime"
+# vscode "xabikos.javascriptsnippets"
+# vscode "xadillax.viml"
+# vscode "yanzf.playgroundcode"
+# vscode "yoavbls.pretty-ts-errors"
+# vscode "zenclabs.previewjs"
+# vscode "zhuangtongfa.material-theme"

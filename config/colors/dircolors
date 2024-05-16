@@ -20,7 +20,6 @@ SETUID 		37;41
 SETGID 		30;43
 CAPABILITY 	30;41
 
-
 *README               38;5;220;1
 *README.rst           38;5;220;1
 *LICENSE              38;5;220;1
@@ -35,7 +34,6 @@ CAPABILITY 	30;41
 *NOTICE               38;5;220;1
 *CHANGES              38;5;220;1
 
-
 .log                  38;5;190
 .txt                  38;5;253
 
@@ -46,7 +44,6 @@ CAPABILITY 	30;41
 .mmd                  38;5;184
 
 # docs, images
-
 .chm                  38;5;151
 .djvu                 38;5;141
 .pdf                  38;5;141
@@ -66,6 +63,7 @@ CAPABILITY 	30;41
 .jpeg                 38;5;87
 .JPG                  38;5;87
 .jpg                  38;5;87
+.svg                  38;5;87
 
 
 # version control {{{2
@@ -73,6 +71,11 @@ CAPABILITY 	30;41
 .gitignore            38;5;240
 .gitattributes        38;5;240
 .gitmodules           38;5;240
+
+# hide
+.megaignore           38;5;240
+.debris               38;5;240
+Icon?                 38;5;240
 
 # shell {{{2
 .awk                  38;5;170
@@ -105,7 +108,12 @@ CAPABILITY 	30;41
 .pyc                  38;5;240
 
 # Web
+.editorconfig         38;5;175
 .js                   38;5;074
+.jsx                  38;5;074
+.mjs                  38;5;074
+.ts                   38;5;074
+.tsx                  38;5;074
 .css                  38;5;125
 .less                 38;5;125
 .sass                 38;5;125
@@ -115,6 +123,7 @@ CAPABILITY 	30;41
 .json                 38;5;178
 .xml                  38;5;178
 .yml                  38;5;178
+.yaml                 38;5;178
 .php                  38;5;81
 .coffee               38;5;074
 .htaccess             38;5;230
@@ -154,6 +163,7 @@ CAPABILITY 	30;41
 .lock                 38;5;241
 *composer.lock        38;5;96
 *lock.json            38;5;96
+*lock.yaml            38;5;96
 *components*          38;5;241
 
 # state dumps

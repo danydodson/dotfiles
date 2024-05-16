@@ -35,9 +35,6 @@ sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.serve
 echo "  › Disable press-and-hold for keys in favor of key repeat"
 defaults write -g ApplePressAndHoldEnabled -bool false
 
-echo "  › Hide desktop icons"
-defaults write com.apple.finder CreateDesktop true
-
 echo "  › Use AirDrop over every interface"
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
 
@@ -79,10 +76,6 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 echo "  › Disable auto-correct"
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
-
-# echo "  › Set up trackpad & mouse speed to a reasonable number"
-# defaults write -g com.apple.trackpad.scaling 2
-# defaults write -g com.apple.mouse.scaling 2.5
 
 echo "  › Avoid the creation of .DS_Store files on network volumes"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true

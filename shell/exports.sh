@@ -14,19 +14,18 @@ export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
 # misc
 export DOTFILES="$HOME/.dotfiles"
 
-# zsh, omz, zi
+# zsh, omz
 export ZSH="${HOME}/.config/omz"
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export ZSH_CACHE_DIR="${XDG_CACHE_HOME}/zsh"
 export ZSH_CUSTOM="${XDG_CONFIG_HOME}/omz/custom"
-export ZI_HOME_DIR="${XDG_CONFIG_HOME}/zi"
-export ZI_BIN_DIR="${ZI_HOME_DIR}/bin"
 
 # brew
 export HOMEBREW_NO_ANALYTICS=true
 export HOMEBREW_NO_ENV_HINTS=true
 export HOMEBREW_NO_AUTO_UPDATE=true
 export HOMEBREW_NO_INSTALL_CLEANUP=false
+export HOMEBREW_BUNDLE_INSTALL_CLEANUP=true
 
 # go, rust
 export GOPATH="$XDG_CONFIG_HOME/go"
@@ -44,6 +43,10 @@ export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
 export GEM_HOME="$XDG_CONFIG_HOME/gem"
 export GEM_PATH="$XDG_CONFIG_HOME/gem"
 
+# vim
+export MYVIMRC="$HOME/.config/vim/vimrc"
+export VIMINIT="source $MYVIMRC"
+
 # python, conda
 export PYENV_ROOT="$XDG_CONFIG_HOME/pyenv"
 export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
@@ -54,18 +57,16 @@ export OP_CACHE=$XDG_CACHE_HOME/op
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
 export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
-# bat, wakatimee
+# wakatime, bat
 export WAKATIME_HOME=$XDG_CONFIG_HOME/wakatime
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export BAT_CONFIG_PATH="$XDG_CONFIG_HOME/bat/conf"
-export GENCOMPL_FPATH="$ZSH_CUSTOM/plugins/my-zsh-completions/src/custom"
+export BAT_CONFIG_PATH="$DOTFILES/config/bat/bat.conf"
 
 # path
-path-append "$HOME"/.config/iterm2
-path-append /opt/homebrew/opt/fzf/bin
-path-append "$HOME"/.config/pyenv/shims
-path-prepend "$HOME"/.dotfiles/bin
 path-append "$HOME"/.local/bin
+path-append "$HOME"/.config/iterm2
+path-append "$HOME"/.config/pyenv/shims
+path-append /opt/homebrew/opt/fzf/bin
+path-prepend "$HOME"/.dotfiles/bin
 
 # fpath
 fpath-prepend /opt/homebrew/share/zsh/site-functions

@@ -5,47 +5,57 @@
 # fixes
 alias cp='cp -i'
 alias mv='mv -i'
-alias rm='trash'
 
 # keep
 alias cp="nocorrect cp"
 alias mv="nocorrect mv"
-alias rm="nocorrect rm"
 
-# aliases
+# trash
+alias rm='trash-put'
+alias tre='trash-empty'
+alias trl='trash-list'
+alias trr='trash-restore'
+
+# dirs
 alias dirs='dirs -v'
-alias mkdir="nocorrect mkdir"
 
 # sudo
 alias se='sudo -e'
 alias root='sudo -s'
-
-# v -> open nvim
-alias v='nvim'
 
 # b -> brew
 alias b='brew'
 alias bs='b search'
 alias bi='b info'
 alias bu='b update && b upgrade && b autoremove && b cleanup --prune=all -s'
+alias bbi='b bundle install --file="~/.dotfiles/macos/brewfile"'
+alias bbc='b bundle cleanup --file="~/.dotfiles/macos/brewfile"'
+alias bbd='b bundle dump --file="~/.dotfiles/macos/brewfile"'
+
+# bun aliases
+alias lsg-bun='bun pm ls --global'
+
+# npm aliases
+alias n='npm'
+alias lsg-npm='npm ls -g --depth 0'
 
 # pn -> pnpm
 alias pn='pnpm'
 
-# n -> npm
-alias n='npm'
+# yarn aliases
+alias lsg-yarn='yarn global list'
+
+# lvs -> live-server
+alias lvs='live-server'
+
+# v -> open nvim
+alias v='nvim'
 
 # gcp -> github copilot
 alias gcp='gh copilot'
 
 # hts -> http-server
 alias hts='http-server'
-
-# lvs -> live-server
-alias lvs='live-server'
-alias lsg-npm='npm ls -g --depth 0'
-
-alias lsg-yarn='yarn global list'
 
 # r -> ranger
 alias r='ranger'
@@ -65,8 +75,18 @@ alias afk="open -a /System/Library/CoreServices/ScreenSaverEngine.app"
 # brm -> pretty print
 alias brm='bat --plain readme.md'
 
+# man -> batman
+alias man='batman'
+
 # bt -> pretty print
-alias bt='bat --style="numbers" --color=always --theme="Tokyo-Night-Enki" --tabs=2 --map-syntax= --paging=never'
+alias bat='bat --color=always'
+
+# cat -> use bat
+alias cat='bat --paging=never'
+
+# help -> pretty print
+alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
 # uuid -> generate a uuid
 alias uuid='uuidgen'
@@ -144,17 +164,16 @@ alias syscpu='sysctl -n machdep.cpu.brand_string'
 alias lsregister='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister'
 
 # ls -> pretty ls
-alias ls='/opt/homebrew/bin/gls -l --color=auto --group-directories-first'
+alias ls='/opt/homebrew/bin/gls --color=auto --group-directories-first --ignore=.Trash --ignore=.megaignore --ignore=.debris --ignore="Icon?"'
 alias la='ls -A'
-alias ll='ls -lAh' 
-alias l='ll'
+alias ll='ls -lAh'
+alias l='ls -lh'
 
 # scutil -> system configuration utility
-alias sys.get.computername='scutil --get ComputerName'
-alias sys.get.localhostname='scutil --get LocalHostName'
-alias sys.get.hostname='scutil --get HostName'
-alias sys.get.dns='scutil --dns'
-alias sys.get.proxy='scutil --proxy'
-alias sys.get.network.interface='scutil --nwi'
-alias sys.uti.file='mdls -name kMDItemContentTypeTree '
-
+# alias sys.get.computername='scutil --get ComputerName'
+# alias sys.get.localhostname='scutil --get LocalHostName'
+# alias sys.get.hostname='scutil --get HostName'
+# alias sys.get.dns='scutil --dns'
+# alias sys.get.proxy='scutil --proxy'
+# alias sys.get.network.interface='scutil --nwi'
+# alias sys.uti.file='mdls -name kMDItemContentTypeTree '
