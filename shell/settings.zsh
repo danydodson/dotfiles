@@ -100,7 +100,7 @@ zstyle ':completion:*:*:-redirect-,2>,*:*' file-patterns '*.log'
 
 # completion caching
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path $HOME/.config/cache/zsh/zcompcache
+zstyle ':completion:*' cache-path $HOME/.config/cache/zsh
 
 # fuzzy match mistyped completions
 zstyle ':completion:*' completer _complete _match _approximate
