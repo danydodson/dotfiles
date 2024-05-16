@@ -4,19 +4,13 @@
 plugins+=(brew git pyenv zsh-syntax-highlighting zsh-history-substring-search)
 
 # oh-my-zsh -> my-zsh-completions
-source $DOTFILES/custom/plugins/my-zsh-completions/zsh-completions.plugin.zsh
+source $HOME/.config/omz/custom/plugins/my-zsh-completions/zsh-completions.plugin.zsh
 
 # oh-my-zsh -> source
-source $DOTFILES/config/omz/oh-my-zsh.sh
-
-# run -> p10k configure
-[[ ! -f ~/.dotfiles/shell/p10k.zsh ]] || source ~/.dotfiles/shell/p10k.zsh
-
-# zsh -> completions generator
-source "$ZSH_CUSTOM/plugins/my-zsh-completions/src/custom/genhelp/zsh-completion-generator.plugin.zsh"
+source $HOME/.config/omz/oh-my-zsh.sh
 
 # iterm2 -> loads shell integration
-source $DOTFILES/config/iterm2/iterm2-si.zsh
+test -e $DOTFILES/config/iterm2/iterm2_shell_integration.zsh && source $DOTFILES/config/iterm2/iterm2_shell_integration.zsh || true
 
 # vscode -> loads shell integration
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
@@ -78,6 +72,11 @@ _fzf_comprun() {
     *) fzf --preview 'bat -n --color=always {}' "$@" ;;
   esac
 }
+
+# add colors to ls command
+if [ -f "/usr/local/bin/gdircolors"  ] || [ -f "/usr/bin/gdircolors"  ] || [ -f "/opt/homebrew/bin/gdircolors" ]; then
+	eval "$( gdircolors -b "${DOTFILES}"/config/dircolors/dircolors )"
+fi
 
 # fzf -> completion options
 autoload -U compinit && compinit

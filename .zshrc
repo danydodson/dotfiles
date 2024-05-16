@@ -1,5 +1,7 @@
-zmodload zsh/zprof
+# .zshrc
+
 export DOTFILES="${HOME}"/.dotfiles
+
 source "${DOTFILES}"/shell/functions.sh
 source "${DOTFILES}"/shell/prompt.zsh
 source "${DOTFILES}"/shell/exports.sh

@@ -20,8 +20,8 @@ alias mkdir="nocorrect mkdir"
 alias se='sudo -e'
 alias root='sudo -s'
 
-# nvim -> open nvim
-alias nv='nvim'
+# v -> open nvim
+alias v='nvim'
 
 # b -> brew
 alias b='brew'
@@ -134,12 +134,27 @@ alias shf='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finde
 # hide_files -> hide files
 alias hhf='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder /System/Library/CoreServices/Finder.app'
 
-export LS_COLORS='*.*=0;31:di=01;34:ln=01;36:ex=0;32:*.mp4=01;93:*.mov=01;93:*.mp3=01;93:*.dmg=0;35:*.zip=0;35:'
+# syspl -> pkgutil
+alias syspl='pkgutil --pkgs'
 
-if gls &>/dev/null; then
-  alias ls="gls -F --color"
-  alias l="gls -lG --color"
-  alias ll="gls -lAh --color --group-directories-first"
-  alias la='gls -A --color'
-fi
+# syscpu -> show cpu info
+alias syscpu='sysctl -n machdep.cpu.brand_string'
+
+# lsregister -> launch services register
+alias lsregister='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister'
+
+# ls -> pretty ls
+alias ls='/opt/homebrew/bin/gls -l --color=auto --group-directories-first'
+alias la='ls -A'
+alias ll='ls -lAh' 
+alias l='ll'
+
+# scutil -> system configuration utility
+alias sys.get.computername='scutil --get ComputerName'
+alias sys.get.localhostname='scutil --get LocalHostName'
+alias sys.get.hostname='scutil --get HostName'
+alias sys.get.dns='scutil --dns'
+alias sys.get.proxy='scutil --proxy'
+alias sys.get.network.interface='scutil --nwi'
+alias sys.uti.file='mdls -name kMDItemContentTypeTree '
 

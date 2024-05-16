@@ -14,11 +14,13 @@ export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
 # misc
 export DOTFILES="$HOME/.dotfiles"
 
-# zsh,
-export ZSH="$DOTFILES/config/omz"
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
-export ZSH_CUSTOM="$DOTFILES/custom"
+# zsh, omz, zi
+export ZSH="${HOME}/.config/omz"
+export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+export ZSH_CACHE_DIR="${XDG_CACHE_HOME}/zsh"
+export ZSH_CUSTOM="${XDG_CONFIG_HOME}/omz/custom"
+export ZI_HOME_DIR="${XDG_CONFIG_HOME}/zi"
+export ZI_BIN_DIR="${ZI_HOME_DIR}/bin"
 
 # brew
 export HOMEBREW_NO_ANALYTICS=true
@@ -31,7 +33,7 @@ export GOPATH="$XDG_CONFIG_HOME/go"
 export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
 export RUSTUP_HOME="$XDG_CONFIG_HOME/rust"
 
-# npm, deno, yarn, pnpm, bun
+# npm, deno, yarn, pnpm, bun, gem
 export BUN_INSTALL="$XDG_CONFIG_HOME/bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
@@ -39,6 +41,8 @@ export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export DENO_INSTALL="$XDG_CONFIG_HOME/deno"
 export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
+export GEM_HOME="$XDG_CONFIG_HOME/gem"
+export GEM_PATH="$XDG_CONFIG_HOME/gem"
 
 # python, conda
 export PYENV_ROOT="$XDG_CONFIG_HOME/pyenv"

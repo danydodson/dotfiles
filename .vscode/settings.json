@@ -1,13 +1,9 @@
 {
-  "search.exclude": {
-    "**/custom": true,
-    "**/config/omz": true,
-  },
   "files.associations": {
-    "**/bin/*": "shellscript"
+    "**/bin/*": "shellscript",
+    "**/config/dircolors/dircolors": "dircolors"
   },
   "shellcheck.ignorePatterns": {
-    "**/_*": true,
     "**/*.zsh": true,
   }
 }
