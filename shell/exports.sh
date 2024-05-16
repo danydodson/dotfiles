@@ -44,8 +44,8 @@ export GEM_HOME="$XDG_CONFIG_HOME/gem"
 export GEM_PATH="$XDG_CONFIG_HOME/gem"
 
 # vim
-export MYVIMRC="$HOME/.config/vim/vimrc"
-export VIMINIT="source $MYVIMRC"
+# export MYVIMRC="$HOME/.config/vim/vimrc"
+# export VIMINIT="source $MYVIMRC"
 
 # python, conda
 export PYENV_ROOT="$XDG_CONFIG_HOME/pyenv"

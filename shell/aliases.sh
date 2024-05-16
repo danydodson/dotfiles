@@ -23,6 +23,9 @@ alias dirs='dirs -v'
 alias se='sudo -e'
 alias root='sudo -s'
 
+# v -> open nvim
+alias v='nvim'
+
 # b -> brew
 alias b='brew'
 alias bs='b search'
@@ -47,9 +50,6 @@ alias lsg-yarn='yarn global list'
 
 # lvs -> live-server
 alias lvs='live-server'
-
-# v -> open nvim
-alias v='nvim'
 
 # gcp -> github copilot
 alias gcp='gh copilot'
