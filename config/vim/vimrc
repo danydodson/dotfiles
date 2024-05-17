@@ -1,189 +1,144 @@
+" ---------------------------------------------
+set nocompatible    " Disable VI Compatibility
+set viminfo+=n~/.config/vim/viminfo    " Store viminfo in ~/.config/vim/viminfo
 
-" Locations ---------------------------------------------------------------- {{{
+" ---------------------------------------------
+" Init - plugins
+" ---------------------------------------------
+" call plug#begin()
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 
-set viminfo+=n~/.config/vim/viminfo
+" Plug 'godlygeek/tabular'
+" Plug 'preservim/vim-markdown'
 
-" }}}
+" Plug 'rust-lang/rust.vim'
+" Plug 'dense-analysis/ale'
+" call plug#end()
 
-" Basics ---------------------------------------------------------------- {{{
+" ---------------------------------------------
+" Vim Options
+" ---------------------------------------------
+set autoindent			" Default to indenting files
+set backspace=indent,eol,start	" Backspace all characters
+set formatoptions-=t		" Don't add line-breaks for lines over 'textwidth' characters
+set hlsearch			" Highlight search results
+set nonumber			" Disable line numbers
+set nostartofline		" Do not jump to first character with page commands
+set ruler			" Enable the ruler
+set showmatch			" Show matching brackets.
+set showmode			" Show the current mode in status line
+set showcmd			" Show partial command in status line
+set tabstop=8			" Number of spaces <tab> counts for
+set textwidth=80		" 80 columns
+set title			" Set the title
 
-" no swap file
-" set noswapfile
+" ---------------------------------------------
+" Theme / Color Scheme
+" ---------------------------------------------
+set background=light            " Light background is best
 
-" Enable file types.
-filetype on
+" ---------------------------------------------
+" Abbreviations
+" ---------------------------------------------
+iab <expr> me:: strftime("Author: Dany Dodson <dany@danydodson.dev><cr>Date: %B %d, %Y<cr>License: MIT")
 
-" Enable plugins and load plugin for the detected file type.
-" filetype plugin on
+" ---------------------------------------------
+" Aliases
+" ---------------------------------------------
+cmap w!! w !sudo tee > /dev/null %
 
-" Load an indent file for the detected file type.
-" filetype indent on
+" ---------------------------------------------
+" File/Indenting and Syntax Highlighting
+" ---------------------------------------------
+if has("autocmd")
+	filetype plugin indent on
 
-" Turn syntax highlighting on.
-syntax on
+	" Jump to previous cursor location, unless it's a commit message
+	autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+	autocmd BufReadPost COMMIT_EDITMSG exe "normal! gg"
 
-" Add numbers to the file.
-set number
+	" Chef/Ruby
+	autocmd BufNewFile,BufRead                  *.rb setlocal filetype=ruby
+	autocmd FileType                            ruby setlocal sw=2 sts=2 et
 
-" Use space characters instead of tabs.
-set expandtab
+	" Yaml
+	autocmd BufNewFile,BufRead                  *.yaml,*.yml setlocal filetype=yaml
+	autocmd FileType                            yaml         setlocal sw=2 sts=2 et
 
-" Do not save backup files.
-set nobackup
+	" JavaScript files
+	autocmd BufNewFile,BufReadPre,FileReadPre   *.js        setlocal filetype=javascript
+	autocmd FileType                            javascript  setlocal sw=4 sts=4 et
 
-" While searching though a file incrementally highlight matching characters as you type.
-set incsearch
+	" JSON files
+	autocmd BufNewFile,BufReadPre,FileReadPre   *.json setlocal filetype=json
+	autocmd FileType                            json   setlocal sw=2 sts=2 et
 
-" Ignore capital letters during search.
-set ignorecase
+	" Objective C / C++
+	autocmd BufNewFile,BufReadPre,FileReadPre   *.m    setlocal filetype=objc
+	autocmd FileType                            objc   setlocal sw=4 sts=4 et
+	autocmd BufNewFile,BufReadPre,FileReadPre   *.mm   setlocal filetype=objcpp
+	autocmd FileType                            objcpp setlocal sw=4 sts=4 et
 
-" Override the ignorecase option if searching for capital letters.
-" This will allow you to search specifically for capital letters.
-set smartcase
+	" Rust files
+	" autocmd BufNewFile,BufReadPre,FileReadPre   *.rs   setlocal filetype=rust
+	autocmd FileType                            rust   setlocal sw=4 sts=4 et textwidth=80
 
-" Show partial command you type in the last line of the screen.
-set showcmd
+	" Python files
+	autocmd BufNewFile,BufReadPre,FileReadPre   *.py   setlocal filetype=python
+	autocmd FileType                            python setlocal sw=4 sts=4 et
 
-" Show the mode you are on the last line.
-set showmode
+	" Markdown files
+	autocmd BufNewFile,BufRead,FileReadPre      *.md,*.markdown setlocal filetype=markdown
+	autocmd FileType                            markdown      setlocal sw=4 sts=4 et spell
+	" Jekyll posts ignore yaml headers
+	autocmd BufNewFile,BufRead                  */_posts/*.md syntax match Comment /\%^---\_.\{-}---$/
+	autocmd BufNewFile,BufRead                  */_posts/*.md syntax region lqdHighlight start=/^{%\s*highlight\(\s\+\w\+\)\{0,1}\s*%}$/ end=/{%\s*endhighlight\s*%}/
 
-" Show matching words during a search.
-set showmatch
+	" EJS javascript templates
+	autocmd BufNewFile,BufRead,FileReadPre      *.ejs setlocal filetype=html
 
-" Use highlighting when doing a search.
-set hlsearch
+	" TXT files
+	autocmd FileType                            text setlocal spell
+endif
 
-" Set the commands to save in history default number is 20.
-" set history=1000
+" ---------------------------------------------
+" Highlight Unwanted Whitespace
+" ---------------------------------------------
+highlight RedundantWhitespace ctermbg=green guibg=green
+match RedundantWhitespace /\s\+$\| \+\ze\t/
 
-" }}}
+" ---------------------------------------------
+" Spell Check Settings
+" ---------------------------------------------
+set spelllang=en
+highlight clear SpellBad
+highlight SpellBad term=standout cterm=underline ctermfg=red
+highlight clear SpellCap
+highlight SpellCap term=underline cterm=underline
+highlight clear SpellRare
+highlight SpellRare term=underline cterm=underline
+highlight clear SpellLocal
+highlight SpellLocal term=underline cterm=underline
 
-" Plugins ---------------------------------------------------------------- {{{
+" ---------------------------------------------
+" Plugins
+" ---------------------------------------------
+" let g:airline_powerline_fonts = 0
+" let g:airline_theme = "deus"
+" let g:rust_recommended_style = 1
+" let g:ale_linters = {
+" \  'rust': ['analyzer'],
+" \}
+" let g:ale_completion_enabled = 0
+" let g:vim_markdown_folding_disabled = 1
 
-" }}}
-
-" Mappings --------------------------------------------------------------- {{{
-
-" Set the backslash as the leader key.
-" let mapleader = "\\"
-
-" Press \\ to jump back to the last cursor position.
-" nnoremap <leader>\\ ``
-
-" Press \p to print the current file to the default printer from a Linux operating system.
-" View available printers:   lpstat -v
-" Set default printer:       lpoptions -d <printer_name>
-" <silent> means do not display output.
-" nnoremap <silent> <leader>p :%w !lp<CR>
-
-" Type jj to exit insert mode quickly.
-" inoremap jj <Esc>
-
-" Press the space bar to type the : character in command mode.
-" nnoremap <space> :
-
-" Pressing the letter o will open a new line below the current one.
-" Exit insert mode after creating a new line above or below the current line.
-" nnoremap o o<esc>
-" nnoremap O O<esc>
-
-" Center the cursor vertically when moving to the next word during a search.
-" nnoremap n nzz
-" nnoremap N Nzz
-
-" Yank from cursor to the end of line.
-" nnoremap Y y$
-
-" Map the F5 key to run a Python script inside Vim.
-" We map F5 to a chain of commands here.
-" :w saves the file.
-" <CR> (carriage return) is like pressing the enter key.
-" !clear runs the external clear screen command.
-" !python3 % executes the current file with Python.  
-" nnoremap <f5> :w <CR>:!clear <CR>:!python3 % <CR>
-
-" You can split the window in Vim by typing :split or :vsplit.
-" Navigate the split view easier by pressing CTRL+j, CTRL+k, CTRL+h, or CTRL+l.
-" nnoremap <c-j> <c-w>j
-" nnoremap <c-k> <c-w>k
-" nnoremap <c-h> <c-w>h
-" nnoremap <c-l> <c-w>l
-
-" Resize split windows using arrow keys by pressing:
-" CTRL+UP, CTRL+DOWN, CTRL+LEFT, or CTRL+RIGHT.
-" noremap <c-up> <c-w>+
-" noremap <c-down> <c-w>-
-" noremap <c-left> <c-w>>
-" noremap <c-right> <c-w><
-
-" NERDTree specific mappings.
-" Map the F3 key to toggle NERDTree open and close.
-" nnoremap <F3> :NERDTreeToggle<cr>
-
-" Have nerdtree ignore certain files and directories.
-" let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', '\.pyc$', '\.odt$', '\.png$', '\.gif$', '\.db$']
-
-" }}}
-
-" Status Line ------------------------------------------------------------ {{{
-
-" Clear status line when vimrc is reloaded.
-set statusline=
-
-" Status line left side.
-set statusline+=\ %F\ %M\ %Y\ %R
-
-" Use a divider to separate the left side from the right side.
-set statusline+=%=
-
-" Status line right side.
-set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%
-
-" Show the status on the second to last line.
-set laststatus=2
-
-" }}}
-
-" Friends of Vim ------------------------------------------------------------ {{{
-
-" Add ranger as a file chooser in vim
-"
-" If you add this code to the .vimrc, ranger can be started using the command
-" ":RangerChooser" or the keybinding "<leader>r".  Once you select one or more
-" files, press enter and ranger will quit again and vim will open the selected
-" files.
-" 
-" function! RangeChooser()
-"   let temp = tempname()
-  " The option "--choosefiles" was added in ranger 1.5.1. Use the next line
-  " with ranger 1.4.2 through 1.5.0 instead.
-  "exec 'silent !ranger --choosefile=' . shellescape(temp)
-"   
-"   if has("gui_running")
-"       exec 'silent !xterm -e ranger --choosefiles=' . shellescape(temp)
-"   else
-"       exec 'silent !ranger --choosefiles=' . shellescape(temp)
-"   endif
-"   if !filereadable(temp)
-"       redraw!
-"       " Nothing to read.
-"       return
-"   endif
-"   let names = readfile(temp)
-"   if empty(names)
-"       redraw!
-"       " Nothing to open.
-"       return
-"   endif
-"   " Edit the first item.
-"   exec 'edit ' . fnameescape(names[0])
-"   " Add any remaning items to the arg list/buffer list.
-"   for name in names[1:]
-"       exec 'argadd ' . fnameescape(name)
-"   endfor
-"   redraw!
-" endfunction
-" command! -bar RangerChooser call RangeChooser()
-" nnoremap <leader>r :<C-U>RangerChooser<CR>
-
-" }}}
+" ---------------------------------------------
+" Source local config
+" ---------------------------------------------
+if filereadable(expand("~/.vimrc.local"))
+	source ~/.vimrc.local
+endif
+if filereadable(expand("~/.vimrc.indent"))
+	source ~/.vimrc.indent
+endif
