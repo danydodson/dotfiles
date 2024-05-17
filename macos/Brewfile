@@ -1,5 +1,6 @@
 tap "1password/tap"
 tap "aws/tap"
+tap "elixkratz/formulae"
 tap "felixkratz/formulae"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
@@ -110,6 +111,8 @@ brew "lua"
 brew "luarocks"
 #
 brew "mas"
+# media player based on MPlayer and mplayer2
+brew "mpv"
 # 
 brew "msgpack"
 # 
@@ -137,9 +140,13 @@ brew "pngquant"
 # 
 brew "pnpm"
 # 
+brew "prettyping"
+# 
 brew "pstree"
 # 
 brew "pyenv"
+# keyboard-driven, vim-like browser based on PyQt5
+brew "qutebrowser"
 # 
 brew "ranger"
 # 
@@ -156,6 +163,8 @@ brew "switchaudio-osx"
 brew "telnet"
 # 
 brew "tldr"
+# terminal multiplexer
+brew "tmux"
 # command-line interface to the trashcan
 brew "trash-cli"
 # 

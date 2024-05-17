@@ -1,18 +1,18 @@
 #!/bin/bash
 
 # editor
-export EDITOR="nvim"
+export EDITOR='vim'
 export GIT_EDITOR="nvim"
 export BUNDLER_EDITOR=$EDITOR
+
+# dotfiles
+export DOTFILES="$HOME/.dotfiles"
 
 # xdg
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
-
-# misc
-export DOTFILES="$HOME/.dotfiles"
 
 # zsh, omz
 export ZSH="${HOME}/.config/omz"
@@ -43,6 +43,10 @@ export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
 export GEM_HOME="$XDG_CONFIG_HOME/gem"
 export GEM_PATH="$XDG_CONFIG_HOME/gem"
 
+# wakatime, bat
+export WAKATIME_HOME=$XDG_CONFIG_HOME/wakatime
+export BAT_CONFIG_PATH="$DOTFILES/config/bat/bat.conf"
+
 # vim
 # export MYVIMRC="$HOME/.config/vim/vimrc"
 # export VIMINIT="source $MYVIMRC"
@@ -57,17 +61,3 @@ export OP_CACHE=$XDG_CACHE_HOME/op
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
 export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
-# wakatime, bat
-export WAKATIME_HOME=$XDG_CONFIG_HOME/wakatime
-export BAT_CONFIG_PATH="$DOTFILES/config/bat/bat.conf"
-
-# path
-path-append "$HOME"/.local/bin
-path-append "$HOME"/.config/iterm2
-path-append "$HOME"/.config/pyenv/shims
-path-append /opt/homebrew/opt/fzf/bin
-path-prepend "$HOME"/.dotfiles/bin
-
-# fpath
-fpath-prepend /opt/homebrew/share/zsh/site-functions
-fpath-prepend /opt/homebrew/share/zsh/zsh-completions

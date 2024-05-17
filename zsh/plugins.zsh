@@ -1,7 +1,7 @@
-# plugins
+# plugin settings
 
 # oh-my-zsh -> plugins
-plugins+=(brew git pnpm-shell-completion zsh-syntax-highlighting zsh-history-substring-search)
+plugins+=(brew git urltools systemd pnpm-shell-completion zsh-syntax-highlighting zsh-history-substring-search)
 
 # oh-my-zsh -> my-zsh-completions
 source $HOME/.config/omz/custom/plugins/my-zsh-completions/zsh-completions.plugin.zsh
@@ -39,11 +39,6 @@ if command -v ngrok &>/dev/null; then
   eval "$(ngrok completion)"
 fi
 
-# add colors to ls command
-if [ -f "/opt/homebrew/bin/gdircolors" ]; then
-	eval "$(gdircolors -b "${DOTFILES}"/config/colors/dircolors)"
-fi
-
 # fzf -> get completions
 source /opt/homebrew/opt/fzf/shell/completion.zsh
 
@@ -51,32 +46,21 @@ source /opt/homebrew/opt/fzf/shell/completion.zsh
 source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
 
 # fzf -> default options
-export FZF_DEFAULT_OPTS="
-  --ansi 
-  --layout=reverse 
-  --inline-info 
-  --height=60% 
-  --border 
-  --walker-skip .git,.github,node_modules,target,Library,Pictures,Music,.Trash,Desktop
-  --prompt='> ' 
-  --bind 'ctrl-o:toggle-preview' 
-  --bind 'ctrl-s:toggle-sort' 
-  --bind 'ctrl-space:toggle'
-  "
+export FZF_DEFAULT_OPTS="--ansi --layout=reverse --inline-info --height=60% --border --walker-skip .git,.github,node_modules,target,Library,Pictures,Music,.Trash,Desktop--prompt='> ' --bind 'ctrl-o:toggle-preview' --bind 'ctrl-s:toggle-sort' --bind 'ctrl-space:toggle'"
 
 # fzf -> ctrl-t returns only files and previews them with bat
-export FZF_CTRL_T_OPTS="
-  --preview 'bat -n {}' 
-  --bind 'enter:become(vim {} < /dev/tty > /dev/tty)'
-"
+export FZF_CTRL_T_OPTS="--preview 'bat -n {}' --bind 'enter:become(vim {} < /dev/tty > /dev/tty)'"
 
 # fzf -> ctrl+c returns only dirs and previews a file tree
-export FZF_ALT_C_OPTS="
-  --preview 'tree -C {} | head -200'
-"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
 # zsh -> completion options
 autoload -U compinit && compinit
+
+# add colors to ls command
+if [ -f "/opt/homebrew/bin/gdircolors" ]; then
+	eval "$(gdircolors -b "${DOTFILES}"/config/colors/dircolors)"
+fi
 
 # de-dupe $PATH
 typeset -U path

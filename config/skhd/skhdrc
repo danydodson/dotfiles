@@ -1,3 +1,4 @@
+
 # Navigation
 alt - h : yabai -m window --focus west
 alt - j : yabai -m window --focus south
@@ -75,9 +76,19 @@ shift + alt - f : yabai -m window --toggle native-fullscreen
 # open ghostty, blazingly fast compared to iTerm/Hyper
 cmd - return : open -a Ghostty.app
 
+# open terminal, blazingly fast compared to iTerm/Hyper
+cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+
 cmd + shift - return : yabai -m config --space $(yabai -m query --spaces --space|\jq -r .index) layout $(yabai -m query --spaces --space |jq -r 'if .type|contains("float") then "bsp" else "float" end')
+
+# open qutebrowser
+cmd + shift - return : ~/Scripts/qtb.sh
+
+# open mpv
+cmd - m : open -na /Applications/mpv.app $(pbpaste)
 
 .blacklist [
     "slack"
     "discord"
 ]
+

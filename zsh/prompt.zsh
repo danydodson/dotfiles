@@ -1,6 +1,9 @@
-# prompt.zsh
+# prompt settings
 
 DEFAULT_USER=$(whoami)
+
+# my prompt
+# source "${HOME}/.dotfiles/prompt/dany.sh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -11,9 +14,6 @@ fi
 
 # run -> p10k configure
 [[ ! -f ~/.dotfiles/prompt/p10k.zsh ]] || source ~/.dotfiles/prompt/p10k.zsh
-
-# my prompt
-# source "${HOME}/.dotfiles/prompt/dany.sh"
 
 # completion dump
 zcompdump="${ZDOTDIR:-$HOME/.config/zsh}/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"

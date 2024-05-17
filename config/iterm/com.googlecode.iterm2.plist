@@ -34,13 +34,13 @@
 	<key>ClickToSelectCommand</key>
 	<false/>
 	<key>ColoredSelectedTabOutlineStrength</key>
-	<real>0.5</real>
+	<real>0.0</real>
 	<key>CommandSelection</key>
 	<true/>
 	<key>CompactEdgeDragSize</key>
 	<real>30</real>
 	<key>CompactMinimalTabBarHeight</key>
-	<real>32</real>
+	<real>28</real>
 	<key>ComposerHeight</key>
 	<real>674.1640625</real>
 	<key>Compress History</key>
@@ -6019,7 +6019,7 @@
 	<key>Default Toolbelt Width</key>
 	<real>250</real>
 	<key>DefaultTabBarHeight</key>
-	<real>36</real>
+	<real>28</real>
 	<key>DimInactiveSplitPanes</key>
 	<false/>
 	<key>DisableFullscreenTransparency</key>
@@ -6172,7 +6172,7 @@ Show Toolbelt</string>
 		</dict>
 	</dict>
 	<key>HTMLTabTitles</key>
-	<true/>
+	<false/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HideActivityIndicator</key>
@@ -6208,15 +6208,15 @@ Show Toolbelt</string>
 	<key>MinimalSelectedTabUnderlineProminence</key>
 	<real>0.0</real>
 	<key>MinimalSplitPaneDividerProminence</key>
-	<real>0.10000000149011612</real>
+	<real>0.20000000298023224</real>
 	<key>MinimalTabStyleBackgroundColorDifference</key>
-	<real>0.10000000149011612</real>
+	<real>0.0</real>
 	<key>MinimalTabStyleOutlineStrength</key>
-	<real>0.10000000149011612</real>
+	<real>0.0</real>
 	<key>MinimalTabStyleTreatLeftInsetAsPartOfFirstTab</key>
 	<true/>
 	<key>MinimalTextLegibilityAdjustment</key>
-	<real>0.5</real>
+	<real>1</real>
 	<key>MinimumTabLabelWidth</key>
 	<real>35</real>
 	<key>MinimumWeightDifferenceForBoldFont</key>
@@ -6961,7 +6961,7 @@ Show Toolbelt</string>
 			<key>Blink Allowed</key>
 			<false/>
 			<key>Blinking Cursor</key>
-			<false/>
+			<true/>
 			<key>Blur</key>
 			<true/>
 			<key>Blur Radius</key>
@@ -7069,15 +7069,15 @@ Show Toolbelt</string>
 			<key>Cursor Guide Color</key>
 			<dict>
 				<key>Alpha Component</key>
-				<real>0.25</real>
+				<real>0.1021728515625</real>
 				<key>Blue Component</key>
-				<real>1</real>
+				<real>0.98239976167678833</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.9268307089805603</real>
+				<real>0.91545236110687256</real>
 				<key>Red Component</key>
-				<real>0.70213186740875244</real>
+				<real>0.78281623125076294</real>
 			</dict>
 			<key>Cursor Guide Color (Dark)</key>
 			<dict>
@@ -7110,7 +7110,7 @@ Show Toolbelt</string>
 				<real>0.070000000000000007</real>
 			</dict>
 			<key>Cursor Shadow</key>
-			<false/>
+			<true/>
 			<key>Cursor Text Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -7167,7 +7167,7 @@ Show Toolbelt</string>
 			<key>Draw Powerline Glyphs</key>
 			<true/>
 			<key>Faint Text Alpha</key>
-			<real>0.5</real>
+			<real>0.49579893867924529</real>
 			<key>Faint Text Alpha (Dark)</key>
 			<real>0.5</real>
 			<key>Faint Text Alpha (Light)</key>
@@ -7630,7 +7630,7 @@ Show Toolbelt</string>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
-			<string>Main</string>
+			<string>MesloLGS Nerd Font Mono</string>
 			<key>Non Ascii Font</key>
 			<string>Menlo-Regular 11</string>
 			<key>Non-ASCII Anti Aliased</key>
@@ -7656,7 +7656,7 @@ Show Toolbelt</string>
 			<key>Right Option Key Sends</key>
 			<integer>2</integer>
 			<key>Rows</key>
-			<integer>60</integer>
+			<integer>68</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
@@ -7760,7 +7760,7 @@ Show Toolbelt</string>
 			<key>Smart Cursor Color (Light)</key>
 			<false/>
 			<key>Space</key>
-			<integer>-1</integer>
+			<integer>2</integer>
 			<key>Special Font Config</key>
 			<string>{"entries":[{"fontName":"UnicodeIECsymbol","start":9211,"count":4},{"start":9829,"count":1,"fontName":"Octicons"},{"count":1,"fontName":"Octicons","start":9889},{"fontName":"UnicodeIECsymbol","start":11096,"count":1},{"count":11,"fontName":"Pomicons","start":57344},{"start":57504,"fontName":"PowerlineSymbols","count":3},{"count":1,"start":57507,"fontName":"PowerlineExtraSymbols"},{"count":4,"start":57520,"fontName":"PowerlineSymbols"},{"start":57524,"count":21,"fontName":"PowerlineExtraSymbols"},{"start":57546,"fontName":"PowerlineExtraSymbols","count":1},{"fontName":"PowerlineExtraSymbols","count":8,"start":57548},{"count":170,"destination":57856,"start":57344,"fontName":"font-awesome-extension"},{"start":61440,"destination":58112,"fontName":"Weather Icons Regular","count":236},{"fontName":"Nerd Font File Types Regular","count":177,"destination":58874,"start":58618},{"count":198,"fontName":"icomoon","start":58880,"destination":59136},{"fontName":"codicon","start":60000,"count":396},{"start":61440,"count":736,"fontName":"FontAwesome"},{"start":62208,"fontName":"font-logos","count":48},{"count":168,"start":61440,"fontName":"Octicons","destination":62464},{"count":1,"fontName":"Octicons","start":62076,"destination":62633},{"start":61609,"fontName":"Octicons","count":86,"destination":62634},{"start":61441,"destination":62720,"count":2118,"fontName":"Material Design Icons"},{"fontName":"Material Design Icons Desktop","count":6896,"start":983041}],"version":1}</string>
 			<key>Status Bar Layout</key>
@@ -8183,6 +8183,19 @@ Show Toolbelt</string>
 			</dict>
 			<key>Sync Title</key>
 			<false/>
+			<key>Tab Color</key>
+			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
+				<key>Blue Component</key>
+				<real>0.20392156862745098</real>
+				<key>Color Space</key>
+				<string>P3</string>
+				<key>Green Component</key>
+				<real>0.17254901960784313</real>
+				<key>Red Component</key>
+				<real>0.15686274509803921</real>
+			</dict>
 			<key>Tags</key>
 			<array/>
 			<key>Terminal Type</key>
@@ -8190,7 +8203,7 @@ Show Toolbelt</string>
 			<key>Thin Strokes</key>
 			<integer>0</integer>
 			<key>Title Components</key>
-			<integer>513</integer>
+			<integer>4</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Triggers Use Interpolated Strings</key>
@@ -8230,7 +8243,7 @@ Show Toolbelt</string>
 			<key>Use Separate Colors for Light and Dark Mode</key>
 			<false/>
 			<key>Use Tab Color</key>
-			<false/>
+			<true/>
 			<key>Use Tab Color (Dark)</key>
 			<false/>
 			<key>Use Tab Color (Light)</key>
@@ -8248,7 +8261,7 @@ Show Toolbelt</string>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
-			<integer>0</integer>
+			<integer>12</integer>
 			<key>Working Directory</key>
 			<string>/Users/Dany</string>
 		</dict>
@@ -8353,7 +8366,7 @@ Show Toolbelt</string>
 	<key>SplitPaneDimmingAmount</key>
 	<real>0.01</real>
 	<key>SquareWindowCorners</key>
-	<false/>
+	<true/>
 	<key>StatusBarHeight</key>
 	<real>0.0</real>
 	<key>StatusBarIcon</key>
@@ -8379,7 +8392,7 @@ Show Toolbelt</string>
 	<key>TerminalMargin</key>
 	<integer>10</integer>
 	<key>TerminalVMargin</key>
-	<integer>5</integer>
+	<integer>10</integer>
 	<key>TimeBetweenTips</key>
 	<real>0.0</real>
 	<key>ToolbeltFont</key>
@@ -9375,7 +9388,7 @@ Show Toolbelt</string>
 		</data>
 	</array>
 	<key>kCPKSelectionViewPreferredModeKey</key>
-	<integer>7</integer>
+	<integer>1</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
 	<false/>
 </dict>

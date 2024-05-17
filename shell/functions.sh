@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 
-# Helpers Functions ------------------------------------------------------------ {{{
-
 # src -> source .zshrc
 function src() {
-  # shellcheck disable=SC1090
-  source ~/.zshrc && echo 'source ~/.zshrc'
+  source ~/.zshrc && printf '\033[0;34m >>> \033[0;34m%s\033[0;m\n' 'source ~/.zshrc'
 }
 
 # pi -> ping google dns
@@ -40,9 +37,9 @@ function wttr() {
 }
 
 # catr -> tail and head
-function catr() {
-  tail -n "+$1" "$3" | head -n "$(($2 - $1 + 1))"
-}
+# function catr() {
+#   tail -n "+$1" "$3" | head -n "$(($2 - $1 + 1))"
+# }
 
 # validateJson -> validate yaml
 function validateYaml() {
@@ -55,18 +52,10 @@ function eslintify() {
   npx eslint
 }
 
-# }}}
-
-# Bat Functions ------------------------------------------------------------ {{{
-
 batman() {
     BAT_THEME="Monokai Extended" command batman "$@"
     return $?
 }
-
-# }}}
-
-# Nvim Functions ------------------------------------------------------------ {{{
 
 # fvim -> find and open a file in vim
 function fvim() {
@@ -85,52 +74,6 @@ function fvim() {
 #     nvim "$@"
 #   fi
 # }
-
-# }}}
-
-# PATH Modifiers ------------------------------------------------------------ {{{
-
-# path-remove -> remove form path
-function path-remove() {
-  PATH=$(echo -n "$PATH" | awk -v RS=: -v ORS=: "\$0 != \"$1\"" | sed 's/:$//')
-}
-
-#  path-append -> append to path
-function path-append() {
-  path-remove "$1"
-  PATH="${PATH:+"$PATH:"}$1"
-}
-
-# path -> prepend to path
-function path-prepend() {
-  path-remove "$1"
-  PATH="$1${PATH:+":$PATH"}"
-}
-
-# }}}
-
-# FPATH Modifiers ------------------------------------------------------------ {{{
-
-# fpath -> remove from fpath
-function fpath-remove() {
-  FPATH=$(echo -n "$FPATH" | awk -v RS=: -v ORS=: "\$0 != \"$1\"" | sed 's/:$//')
-}
-
-# fpath -> append to fpath
-function fpath-append() {
-  fpath-remove "$1"
-  FPATH="${FPATH:+"$FPATH:"}$1"
-}
-
-# fpath -> prepend to fpath
-function fpath-prepend() {
-  path-remove "$1"
-  FPATH="$1${FPATH:+":$FPATH"}"
-}
-
-# }}}
-
-# 1password Functions ------------------------------------------------------------ {{{
 
 # __my_op_plugin_run -> fixes op completion
 function __my_op_plugin_run() {
@@ -152,4 +95,24 @@ function __load_op_completion() {
   sed -E 's/^( +)_op_plugin_run/\1__my_op_plugin_run/' <<<"${completion_function}"
 }
 
-# }}}
+# pa_rm -> remove form path
+function path_rm() {
+  PATH=$(echo -n "$PATH" | awk -v RS=: -v ORS=: "\$0 != \"$1\"" | sed 's/:$//')
+}
+
+#  pa_ap -> append to path
+function path_ap() {
+  path_rm "$1"
+  PATH="${PATH:+"$PATH:"}$1"
+}
+
+# fp_rm -> remove from fpath
+function fpath_rm() {
+  FPATH=$(echo -n "$FPATH" | awk -v RS=: -v ORS=: "\$0 != \"$1\"" | sed 's/:$//')
+}
+
+# fp_ap -> append to fpath
+function fpath_ap() {
+  fpath_rm "$1"
+  FPATH="${FPATH:+"$FPATH:"}$1"
+}
