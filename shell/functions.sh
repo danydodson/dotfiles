@@ -1,28 +1,33 @@
 #!/usr/bin/env bash
 
-# src -> source .zshrc
-function src() {
-  source ~/.zshrc && printf '\033[0;34m >>> \033[0;34m%s\033[0;m\n' 'source ~/.zshrc'
+function dots() {
+  cd ~/.dotfiles/ && nvim .
 }
 
-# pi -> ping google dns
-function pi() {
-  ping -Anc 5 1.1.1.1
+function nvconf() {
+  cd ~/.config/nvim/ && nvim .
+}
+
+function rconf() {
+  cd ~/.config/ranger/ && nvim .
+}
+
+function yaconf() {
+  cd ~/.config/yabai/ && nvim .
+}
+
+function skconf() {
+  cd ~/.config/skhd/ && nvim .
 }
 
 # dsx -> delete .DS_Store
-function dsx() {
-  fd -H '^\.DS_Store$' -E '.Trash' -E 'Library' -tf -X trash-put
+function rmdss() {
+  find . -name ".DS_Store" -type f -delete
 }
 
 # copy -> copy to clipboard
 function copy() {
   printf "%s" "$*" | tr -d "\n" | pbcopy
-}
-
-# ygs -> yarn generate and serve
-function ygs() {
-  yarn generate && http-server dist/ -p 8080
 }
 
 # randpass -> generate passwords
@@ -31,15 +36,37 @@ function randpass() {
   openssl rand -base64 256 | tr -d '\n/+=' | cut -c -"$len"
 }
 
-# wttr -> get weather forcaset
-function wttr() {
-  curl http://wttr.in/"$1"
+# vim -> open vim in the current directory or open the target file
+function vim() {
+  if [[ $# -eq 0 ]]; then
+    nvim .
+  else
+    nvim "$@"
+  fi
 }
 
-# catr -> tail and head
-# function catr() {
-#   tail -n "+$1" "$3" | head -n "$(($2 - $1 + 1))"
-# }
+# vf -> find and open a file in nvim
+function vf() {
+  if [[ $# -eq 0 ]]; then
+    fd -t f | fzf --header "Open File in nvim" --walker-skip=.git,node_modules,target,Library,Pictures,Documents,Music,.Trash --ansi --no-bold --preview "bat --color=always {}" | xargs nvim
+  else
+    fd -t f | fzf --header "Open File in nvim" --walker-skip=.git,node_modules,target,Library,Pictures,Documents,Music,.Trash --ansi --no-bold --preview "bat --color=always {}" -q "$@" | xargs nvim
+  fi
+}
+
+zle -N vf vf
+bindkey "^[v" vf
+
+# batman -> bat with theme
+function batman() {
+  BAT_THEME="Monokai Extended" command batman "$@"
+  return $?
+}
+
+# batr -> tail and head
+function batr() {
+  tail -n "+$1" "$3" | head -n "$(($2 - $1 + 1))"
+}
 
 # validateJson -> validate yaml
 function validateYaml() {
@@ -51,29 +78,6 @@ function eslintify() {
   cat "$1" >/tmp/file_to_eslint
   npx eslint
 }
-
-batman() {
-    BAT_THEME="Monokai Extended" command batman "$@"
-    return $?
-}
-
-# fvim -> find and open a file in vim
-function fvim() {
-  if [[ $# -eq 0 ]]; then
-    fd -t f | fzf --header "Open File in nvim" --preview "bat --color=always {}" | xargs nvim
-  else
-    fd -t f | fzf --header "Open File in nvim" --preview "bat --color=always {}" -q "$@" | xargs nvim
-  fi
-}
-
-# vim -> open vim in the current directory or open the target file
-# function vim() {
-#   if [[ $# -eq 0 ]]; then
-#     nvim .
-#   else
-#     nvim "$@"
-#   fi
-# }
 
 # __my_op_plugin_run -> fixes op completion
 function __my_op_plugin_run() {

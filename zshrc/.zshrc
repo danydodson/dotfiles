@@ -1,8 +1,8 @@
 export DOTFILES="${HOME}"/.dotfiles
 
 source "${DOTFILES}"/shell/functions.sh
-source "${DOTFILES}"/zsh/prompt.zsh
 source "${DOTFILES}"/shell/exports.sh
+source "${DOTFILES}"/zsh/prompt.zsh
 source "${DOTFILES}"/shell/paths.sh
 source "${DOTFILES}"/zsh/plugins.zsh
 source "${DOTFILES}"/zsh/history.zsh

@@ -1,90 +1,80 @@
-# https://github.com/koekeishiya/yabai/wiki/Configuration
+#!/usr/bin/env bash
 
-# for this to work you must configure sudo such that
-# it will be able to run the command without password
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+set -x
+
+# yabai signals
 sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
-# default layout (can be bsp, stack or float)
+# global settings
 yabai -m config layout bsp
-
-# New window spawns to the right if vertical split, or bottom if horizontal split
+yabai -m config external_bar all:0:0
+yabai -m config top_padding 5
+yabai -m config bottom_padding 6
+yabai -m config left_padding 6
+yabai -m config right_padding 6
+yabai -m config window_gap 8
+yabai -m config window_origin_display default
 yabai -m config window_placement second_child
-
-# Set all padding and gaps to specified value (default: 0)
-yabai -m config top_padding    10
-yabai -m config bottom_padding 10
-yabai -m config left_padding   10
-yabai -m config right_padding  10
-yabai -m config window_gap     10
-
-# yabai -m config focus_follows_mouse          off
-# yabai -m config window_origin_display        default
-# yabai -m config window_topmost               off
-# yabai -m config window_shadow                on
-# yabai -m config window_opacity               off
-# yabai -m config window_opacity_duration      0.0
-# yabai -m config active_window_opacity        1.0
-# yabai -m config normal_window_opacity        0.90
-# yabai -m config window_border                off
-# yabai -m config window_border_width          0
-# yabai -m config active_window_border_color   0xff775759
-# yabai -m config normal_window_border_color   0xff555555
-# yabai -m config insert_feedback_color        0xffd75f5f
-
-# Override gaps for space 2 only
-# yabai -m config --space 2 window_gap 0
-
-# on or off (default: off)
+yabai -m config split_ratio 0.50
 yabai -m config auto_balance off
-
-# Floating point value between 0 and 1 (default: 0.5)
-yabai -m config split_ratio 0.7
-
-# center mouse on window with focus
-yabai -m config mouse_follows_focus off
-
-# modifier for clicking and dragging with mouse
-yabai -m config mouse_modifier ctrl
-
-# set modifier + left-click drag to move window
+yabai -m config window_shadow float
+yabai -m config window_zoom_persist on
+yabai -m config insert_feedback_color 0xE02d74da
+yabai -m config mouse_modifier fn
 yabai -m config mouse_action1 move
-
-# set modifier + right-click drag to resize window
 yabai -m config mouse_action2 resize
+yabai -m config mouse_drop_action swap
+yabai -m config mouse_follows_focus off
+yabai -m config focus_follows_mouse off
 
-# when window is dropped in center of another window, swap them (on edges it will split it)
-yabai -m mouse_drop_action swap
+# desktop Labels
+yabai -m space 1 --label one
+yabai -m space 2 --label two
+yabai -m space 3 --label three
+yabai -m space 4 --label four
+yabai -m space 5 --label five
 
-# add 20 padding to the top and 0 padding to the bottom of every space located on the main display
-yabai -m config external_bar main:20:0
+# window rules
+yabai -m rule --add app=".*" sub-layer=normal
+yabai -m rule --add app="^1Password$" manage=off
+yabai -m rule --add app="^Archive Utility$" manage=off
+yabai -m rule --add app="^Activity Monitor$" manage=off
+yabai -m rule --add app="^Alacritty$" manage=off
+yabai -m rule --add app="^Apparency$" manage=off
+yabai -m rule --add app="^App Store$" manage=off
+yabai -m rule --add app="^Alfred$" manage=off
+yabai -m rule --add app="^choose$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Dictionary$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Find My$" manage=off
+yabai -m rule --add app="^Fantastical$" manage=off
+yabai -m rule --add app="^Font Book$" manage=off
+yabai -m rule --add app="^IINA$" manage=off
+yabai -m rule --add app="^iTerm$" manage=off
+yabai -m rule --add app="^Karabiner-Elements$" manage=off
+yabai -m rule --add app="^Karabiner-MultitouchExtension$" manage=off
+yabai -m rule --add app="^Messages$" manage=off
+yabai -m rule --add app="^Mail$" manage=off
+yabai -m rule --add app="^Podcasts$" manage=off
+yabai -m rule --add app="^Notion$" 
+yabai -m rule --add app="^QuickTime Player$" manage=off
+yabai -m rule --add app="^Postman$" manage=off
+yabai -m rule --add app="^Photo Booth$" manage=off
+yabai -m rule --add app="^Script Editor$" manage=off
+yabai -m rule --add app="^Software Update$" manage=off
+yabai -m rule --add app="^Spotify$" manage=off
+yabai -m rule --add app="^Suspicious Package$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off sub-layer=above
+yabai -m rule --add app="^System Information$" manage=off sub-layer=above
+yabai -m rule --add app="^System Preferences$" manage=off sub-layer=above
+yabai -m rule --add app="^Transmission$" manage=off
+yabai -m rule --add app="^Terminal$" manage=off
+yabai -m rule --add app="^Vesktop$" manage=off
+yabai -m rule --add app="^VLC$" manage=off
+yabai -m rule --add app="^Zoom$" manage=off
 
-# add 20 padding to the top and bottom of all spaces regardless of the display it belongs to
-yabai -m config external_bar all:20:20
+set +x
 
-yabai_apps=(
-  "Affinity Designer"
-  "Affinity Photo"
-  "Affinity Publisher"
-  "Calendar"
-  "Google Chrome"
-  "Marked 2"
-  "Messages"
-  "Obsidian"
-  "Slack"
-  # "iTerm2"
-  # "Brave Browser"
-  "Toggl Track"
-  "e-Sword"
-  "kitty"
-)
-
-YABAI_APPS_REGEX="$(
-  IFS=\|
-  echo "${yabai_apps[*]}"
-)"
-
-# whitelist strategy
-yabai -m rule --add app!="${YABAI_APPS_REGEX}" manage=off
-
-echo "$(date '+%F %T%z') yabai configuration loaded"
+printf '%s' "$(date '+%F %T%z') yabai configuration loaded...\\n"

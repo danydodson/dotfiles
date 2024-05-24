@@ -1,5 +1,3 @@
-# git.config
-
 #######################################################################
 # Credentials
 #######################################################################
@@ -7,6 +5,7 @@
 [user]
   name = danydodson
   email = danydodson@gmail.com
+  signingkey = op://Personal/Git Authentication Key/public key
 
 [gpg]
 	format = ssh
@@ -17,34 +16,17 @@
 [commit]
 	gpgsign = true
 
-[user]
-   signingkey = op://Personal/Git Authentication Key/public key
-
 #######################################################################
-# Formatting
+# Credentials helper
 #######################################################################
 
-[pretty]
-	ld = "%C(yellow)%h %C(reset)%s %C(green)(%cr) %C(blue)<%an>%C(magenta)%d%C(reset)"
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
 
-#######################################################################
-# Color
-#######################################################################
-
-[color]
-	branch = auto
-	diff = auto
-	grep = auto
-	interactive = auto
-	status = auto
-	ui = auto
-	pager = true
-
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
 
 #######################################################################
 # URL aliases
@@ -73,6 +55,25 @@
 # Repo settings and command options
 #######################################################################
 
+[core]
+	compression = -1
+	sharedRepository = 0664
+	commentchar = ";"
+	ignorecase = false
+	editor = nvim
+
+[init]
+	defaultBranch = main
+
+[difftool]
+	prompt = false
+
+[mergetool]
+	prompt = false
+
+[pager]
+	status = true
+
 [blame]
 	date = short
 	showEmail = true
@@ -80,12 +81,6 @@
 [branch]
 	autosetupmerge = always
 	autosetuprebase = always
-
-[core]
-	compression = -1
-	sharedRepository = 0664
-	commentchar = ";"
-	ignorecase = false
 
 [diff]
 	compactionHeuristic = true
@@ -113,23 +108,29 @@
 	enabled = 1
 
 #######################################################################
-# Programs (assumes may be overridden by OS settings)
+# Colors and fonts
 #######################################################################
 
-[init]
-	defaultBranch = main
-
-[difftool]
-	prompt = false
-
-[mergetool]
-	prompt = false
-
-[pager]
-	status = true
-
 [gui]
-	fontui = -family '\"MesloLGS Nerd Font Mono\"' -size -13 -weight normal -slant roman -underline 0 -overstrike 0
-	fontdiff = -family '\"MesloLGS Nerd Font Mono\"' -size -13 -weight normal -slant roman -underline 0 -overstrike 0
+	fontui = -family '\"Operator Mono SSm Lig Book\"' -size -14 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family '\"Operator Mono SSm Lig Book\"' -size -14 -weight normal -slant roman -underline 0 -overstrike 0
 	diffcontext = 10
 	commitmsgwidth = 280
+
+[color]
+	branch = auto
+	diff = auto
+	grep = auto
+	interactive = auto
+	status = auto
+	ui = auto
+	pager = true
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+
+[pretty]
+	ld = "%C(yellow)%h %C(reset)%s %C(green)(%cr) %C(blue)<%an>%C(magenta)%d%C(reset)"

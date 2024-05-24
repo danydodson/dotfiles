@@ -26,7 +26,7 @@ sudo -v
 echo ""
 echo "› System:"
 echo "  › Set computer name (as done via System Preferences → Sharing)"
-name="dany" # or "0x6D746873"
+name="0x636173616e6f7661"
 sudo scutil --set ComputerName "$name" 
 sudo scutil --set HostName "$name"
 sudo scutil --set LocalHostName "$name"
@@ -44,21 +44,33 @@ chflags nohidden ~/Library
 echo "  › Show the /Volumes folder"
 sudo chflags nohidden /Volumes
 
+echo "  › Disable startup sound"
+sudo nvram SystemAudioVolume=" "
+
+echo "  ›Change the macOS selection color to anything (this is my green)"
+defaults write NSGlobalDomain AppleHighlightColor -string "0.615686 0.823529 0.454902"
+
+echo "  › Disable resume system-wide"
+defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
+
 echo "  › Set a really fast key repeat"
-defaults write NSGlobalDomain KeyRepeat -int 2
-defaults write NSGlobalDomain InitialKeyRepeat -int 15
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 echo "  › Enable text replacement almost everywhere"
 defaults write -g WebAutomaticTextReplacementEnabled -bool true
 
-echo "  › Turn off keyboard illumination when computer is not used for 5 minutes"
-defaults write com.apple.BezelServices kDimTime -int 300
+echo "  › Hide Menu Bar in Full Screen Mode"
+defaults write NSGlobalDomain AppleMenuBarVisibleInFullscreen -bool false
+
+echo "  › Hide Menu Bar in Full Screen Mode"
+defaults write NSGlobalDomain HideMenuBarInFullscreen -bool true
 
 echo "  › Require password immediately after sleep or screen saver begins"
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-echo "  › Always show scrollbars"
+echo "  › Only show scrollbars when scrolling"
 defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling"
 
 echo "  › Disable Dashboard"
@@ -69,6 +81,9 @@ defaults write com.apple.dock mru-spaces -bool false
 
 echo "  › Increase the window resize speed for Cocoa applications"
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+
+echo "  › Disable automatic capitalization"
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 
 echo "  › Disable smart quotes and smart dashes as they're annoying when typing code"
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
@@ -90,8 +105,11 @@ sudo pmset -a standbydelay 86400
 echo "  › Disabling the Launchpad gesture (pinch with thumb and three fingers)"
 defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
 
-echo "  › Disable 'natural' (Lion-style) scrolling"
+echo "  › Disable 'natural' scrolling"
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+echo "  › Sleep the display after 15 minutes"
+sudo pmset -a displaysleep 15
 
 echo "  › Removing duplicates in the 'Open With' menu"
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister \
@@ -108,6 +126,16 @@ echo "  › Set the Finder prefs for showing a few different volumes on the Desk
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
+echo "  › Set Home as the default location for new Finder windows"
+defaults write com.apple.finder NewWindowTarget -string "PfLo"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
+
+echo "  › Show hidden files by default"
+defaults write com.apple.finder AppleShowAllFiles -bool true
+
+echo "  › Show all filename extensions"
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
 echo "  › Expand save panel by default"
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
@@ -115,10 +143,13 @@ echo "  › Set sidebar icon size to medium"
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
 echo "  › Show status bar"
-defaults write com.apple.finder ShowStatusBar -bool true
+defaults write com.apple.finder ShowStatusBar -bool false
 
 echo "  › Show path bar"
 defaults write com.apple.finder ShowPathbar -bool true
+
+echo "  › Disable desktop animations to work with skhd"
+defaults write com.apple.finder DisableAllAnimations -bool true
 
 echo "  › Disable the warning before emptying the Trash"
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
@@ -126,7 +157,7 @@ defaults write com.apple.finder WarnOnEmptyTrash -bool false
 echo "  › Save to disk by default, instead of iCloud"
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
-echo "  › Display full POSIX path as Finder window title"
+echo "  › Hide full POSIX path as Finder window title"
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool false
 
 echo "  › Disable the warning when changing a file extension"
@@ -138,8 +169,23 @@ defaults write com.apple.finder _FXSortFoldersFirst -bool true
 echo "  › When performing a search, search the current folder by default"
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
-echo "  › Show all filename extensions"
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+echo "  › Enable spring loading for directories"
+defaults write NSGlobalDomain com.apple.springing.enabled -bool true
+
+echo "  › Remove the spring loading delay for directories"
+defaults write NSGlobalDomain com.apple.springing.delay -float 0
+
+#############################
+
+echo ""
+echo "› Trackpad:"
+echo "  › Disable trackpad force click"
+defaults write NSGlobalDomain com.apple.trackpad.forceClick -bool false
+
+echo "  › Enable tap to click for this user and for the login screen"
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 #############################
 
@@ -175,7 +221,7 @@ defaults write com.apple.dock tilesize -int 45
 
 echo "  › Speeding up Mission Control animations and grouping windows by application"
 defaults write com.apple.dock expose-animation-duration -float 0.1
-defaults write com.apple.dock "expose-group-by-app" -bool true
+defaults write com.apple.dock "expose-group-by-app" -bool false
 
 echo "  › Remove the auto-hiding Dock delay"
 defaults write com.apple.dock autohide-delay -float 0
@@ -191,6 +237,17 @@ defaults write com.apple.dock launchanim -bool false
 
 echo "  > Don’t show recent applications in Dock"
 defaults write com.apple.dock show-recents -bool false
+
+echo "  > Minimize windows into their application’s icon"
+defaults write com.apple.dock minimize-to-application -bool true
+
+echo "  > Top right screen hot corner mission control"
+defaults write com.apple.dock wvous-tr-corner -int 2
+defaults write com.apple.dock wvous-tr-modifier -int 0
+
+echo "  > Bottom left screen hot corner launchpad"
+defaults write com.apple.dock wvous-bl-corner -int 11
+defaults write com.apple.dock wvous-bl-modifier -int 0
 
 #############################
 

@@ -4,10 +4,6 @@
 zmodload -i zsh/complist
 autoload -Uz colors && colors
 
-# hooks -- used for prompt too
-autoload -Uz add-zsh-hook
-autoload -Uz vcs_info
-
 # enable gnu ls in macos
 zstyle ':omz:lib:theme-and-appearance' gnu-ls yes
 

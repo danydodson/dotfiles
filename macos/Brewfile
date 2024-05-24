@@ -1,7 +1,6 @@
 tap "1password/tap"
 tap "aws/tap"
-tap "elixkratz/formulae"
-tap "felixkratz/formulae"
+tap "FelixKratz/formulae"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
@@ -27,12 +26,6 @@ brew "bat"
 brew "bat-extras"
 # yet another cross-platform graphical process/system monitor
 brew "bottom"
-# gnu internationalization and localization library
-brew "gettext"
-# core application library for C
-brew "glib"
-# openType text shaping engine
-brew "harfbuzz"
 # view pictures in your terminal
 brew "chafa"
 # statistics utility to count lines of code
@@ -43,6 +36,8 @@ brew "cmake"
 brew "coreutils"
 # get a file from an http, https or ftp server
 brew "curl"
+# tool for executing mouse clicks
+brew "cliclick"
 # secure runtime for javascript and typescript
 brew "deno"
 # good-lookin diffs with diff-highlight and more
@@ -51,6 +46,8 @@ brew "diff-so-fancy"
 brew "direnv"
 # simple, fast and user-friendly alternative to find
 brew "fd"
+# 
+brew "feh"
 # collection of gnu find, xargs, and locate
 brew "findutils"
 # user-friendly command-line shell for UNIX-like operating systems
@@ -73,6 +70,12 @@ brew "gh"
 brew "git-crypt"
 #
 brew "glances"
+# gnu internationalization and localization library
+brew "gettext"
+# core application library for C
+brew "glib"
+# openType text shaping engine
+brew "harfbuzz"
 # gnu implementation of the famous stream editor
 brew "gnu-sed"
 #
@@ -111,8 +114,6 @@ brew "lua"
 brew "luarocks"
 #
 brew "mas"
-# media player based on MPlayer and mplayer2
-brew "mpv"
 # 
 brew "msgpack"
 # 
@@ -133,6 +134,10 @@ brew "node"
 brew "nowplaying-cli"
 # 
 brew "openjdk@11"
+# 
+brew "osx-cpu-temp"
+# 7zip file archiver
+brew "p7zip"
 # 
 brew "pinentry-mac"
 # 
@@ -157,6 +162,12 @@ brew "ruby"
 brew "rustup-init"
 # 
 brew "shellcheck"
+# Read keystrokes and spit them back at you.
+brew "showkey"
+# 
+brew "spicetify-cli"
+# 
+brew "svim"
 # 
 brew "switchaudio-osx"
 # 
@@ -196,8 +207,12 @@ brew "stripe/stripe-cli/stripe"
 
 # 1Password to your terminal
 cask "1password-cli"
+# gpu-accelerated terminal emulator
+cask "alacritty"
 # the app that opens apps
 cask "apparency"
+# chromium based browser
+cask "arc"
 # display management tool
 cask "betterdisplay"
 # web browser
@@ -206,6 +221,8 @@ cask "brave-browser"
 cask "docker"
 # dev targeted fonts
 cask "font-anonymice-nerd-font"
+# dev targeted fonts
+cask "font-cascadia-mono-pl"
 # dev targeted fonts
 cask "font-caskaydia-cove-nerd-font"
 # dev targeted fonts
@@ -232,6 +249,8 @@ cask "macs-fan-control"
 cask "megasync"
 # tool for working with MongoDB
 cask "mongodb-compass"
+# media player based on MPlayer and mplayer2
+brew "mpv"
 # reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
 # app to write, plan, collaborate, and get organized
@@ -242,12 +261,10 @@ cask "nvidia-geforce-now"
 cask "openinterminal"
 # api platform for building and using apis
 cask "postman"
-# move and resize windows using keyboard shortcuts or snap areas
-cask "rectangle"
-# apple symbols
-cask "sf-symbols"
 # team communication and collaboration software
 cask "slack"
+# 
+cask "sherlock"
 # music streaming service
 cask "spotify"
 # app for inspecting installer packages
@@ -256,6 +273,8 @@ cask "suspicious-package"
 cask "textmate"
 # bittorrent client
 cask "transmission"
+# discord client
+cask "zirixcz/vesktop/vesktop"
 # open-source code editor
 cask "visual-studio-code"
 # open source cross-platform multimedia playe

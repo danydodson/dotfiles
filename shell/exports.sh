@@ -1,14 +1,15 @@
 #!/bin/bash
 
 # editor
-export EDITOR='vim'
+export EDITOR="nvim"
+export VISUAL="nvim"
 export GIT_EDITOR="nvim"
-export BUNDLER_EDITOR=$EDITOR
+# export MANPAGER="nvim"
 
 # dotfiles
 export DOTFILES="$HOME/.dotfiles"
 
-# xdg
+# xdg XDG_DATA_DIRS
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
@@ -21,35 +22,34 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME}/zsh"
 export ZSH_CUSTOM="${XDG_CONFIG_HOME}/omz/custom"
 
 # brew
+export HOMEBREW_BREWFILE="${XDG_CONFIG_HOME}/brewfile"
 export HOMEBREW_NO_ANALYTICS=true
+export HOMEBREW_NO_INSTALL_CLEANUP=true
 export HOMEBREW_NO_ENV_HINTS=true
-export HOMEBREW_NO_AUTO_UPDATE=true
-export HOMEBREW_NO_INSTALL_CLEANUP=false
-export HOMEBREW_BUNDLE_INSTALL_CLEANUP=true
 
 # go, rust
 export GOPATH="$XDG_CONFIG_HOME/go"
+export GOROOT="/opt/homebrew/opt/go/libexec"
 export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
 export RUSTUP_HOME="$XDG_CONFIG_HOME/rust"
 
-# npm, deno, yarn, pnpm, bun, gem
+# npm, deno, yarn, pnpm, bun, gem, less
 export BUN_INSTALL="$XDG_CONFIG_HOME/bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export KITTY_CACHE_DIRECTORY="${XDG_CACHE_HOME}/kitty"
 export DENO_INSTALL="$XDG_CONFIG_HOME/deno"
 export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
+export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 export GEM_HOME="$XDG_CONFIG_HOME/gem"
 export GEM_PATH="$XDG_CONFIG_HOME/gem"
 
-# wakatime, bat
+# wakatime, bat, vimrc
 export WAKATIME_HOME=$XDG_CONFIG_HOME/wakatime
 export BAT_CONFIG_PATH="$DOTFILES/config/bat/bat.conf"
-
-# vim
 # export MYVIMRC="$HOME/.config/vim/vimrc"
-# export VIMINIT="source $MYVIMRC"
 
 # python, conda
 export PYENV_ROOT="$XDG_CONFIG_HOME/pyenv"

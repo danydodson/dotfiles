@@ -6,6 +6,9 @@
 alias se='sudo -e'
 alias root='sudo -s'
 
+# src -> source
+alias src="source ~/.zshrc"
+
 # fixes
 alias cp='cp -i'
 alias mv='mv -i'
@@ -22,18 +25,9 @@ alias l='ls -lh'
 alias v='nvim'
 alias r='ranger'
 
-# b -> brew
-alias b='brew'
-alias bs='b search'
-alias bi='b info'
-alias bu='b update && b upgrade && b autoremove && b cleanup --prune=all -s'
-
 # npm
 alias n='npm'
 alias pn='pnpm'
-
-# gcp -> gh copilot
-alias gcp='gh copilot'
 
 # list global packages
 alias lsg-npm='npm ls -g --depth 0'
@@ -50,9 +44,8 @@ alias lvs='live-server'
 
 # bat
 alias bat='bat --color=always'
+alias cat='bat'
 alias man='batman'
-alias brm='bat --plain readme.md'
-alias cat='bat --paging=never'
 alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
@@ -60,25 +53,23 @@ alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 alias top="sudo htop"
 alias neo='neofetch'
 alias uuid='uuidgen'
-alias ping='prettyping --nolegend'
+alias ping='prettyping --nolegend -Anc 5 1.1.1.1'
 
-# sketchy -> start stop restart
-alias sketchy-start="brew services start sketchybar"
-alias sketchy-stop="brew services stop sketchybar"
-alias sketchy-restart="brew services restart sketchybar"
+# b -> brew
+alias b='brew'
+alias bs='b search'
+alias bi='b info'
+alias bif='b install'
+alias bic='b install --cask'
+alias bbu='b update && b upgrade && b autoremove && b cleanup --prune=all -s'
 
-# bb -> bundle dump install clean
-alias bb-dump='b bundle dump --file="~/.dotfiles/macos/brewfile"'
-alias bb-install='b bundle install --file="~/.dotfiles/macos/brewfile"'
-alias bb-clean='b bundle cleanup --file="~/.dotfiles/macos/brewfile"'
-
-# skhd -> skhd start stop restart
-alias skhd-start="skhd --start-service"
-alias skhd-stop="skhd --stop-service"
-alias skhd-restart="skhd --restart-service"
+# bb -> brew buundle
+alias bbd='b bundle dump --file="~/.dotfiles/macos/brewfile"'
+alias bbi='b bundle install --file="~/.dotfiles/macos/brewfile"'
+alias bbc='b bundle cleanup --file="~/.dotfiles/macos/brewfile"'
 
 # afk ->  open screen saver
-alias afk="open -a /System/Library/CoreServices/ScreenSaverEngine.app"
+alias afk="/System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
 
 # sshm1 -> dany@macbook
 alias sshm1="ssh dany@192.168.0.4"
@@ -106,10 +97,10 @@ alias brave='open -a "Brave Browser.app"'
 alias chrome-dev='open -a "Google Chrome" --args --remote-debugging-port=9229'
 
 # syspl -> pkgutil
-alias syspl='pkgutil --pkgs'
+alias sys-pl='pkgutil --pkgs'
 
 # syscpu -> show cpu info
-alias syscpu='sysctl -n machdep.cpu.brand_string'
+alias sys-cpu='sysctl -n machdep.cpu.brand_string'
 
 # scutil -> name host dns proxy network
 alias sys-get-computername='scutil --get ComputerName'

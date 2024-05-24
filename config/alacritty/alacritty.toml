@@ -1,0 +1,29 @@
+import = ["$HOME/.config/alacritty/themes/one_dark.toml"]
+
+[cursor.style]
+blinking = "On"
+
+[font]
+size = 14.0
+offset.x = 0
+offset.y = 0
+
+[font.normal]
+family = "FiraCode Nerd Font"
+style = "Regular"
+
+[font.italic]
+family = "FiraCode Nerd Font"
+style = "Italic"
+
+[font.bold]
+family = "FiraCode Nerd Font"
+style = "Regular"
+
+[window]
+decorations = "buttonless"
+opacity = 1
+
+[window.padding]
+x = 0
+y = 0

@@ -1,0 +1,23 @@
+{
+  "description": "Keyboard Brightness Controls",
+  "manipulators": [
+    {
+      "from": {
+        "key_code": "f5"
+      },
+      "to": [
+        {
+          "key_code": "illumination_increment",
+          "repeat": true
+        }
+      ],
+      "to_if_held_down": [
+        {
+          "key_code": "illumination_decrement",
+          "repeat": true
+        }
+      ],
+      "type": "basic"
+    }
+  ]
+}

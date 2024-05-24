@@ -2,9 +2,6 @@
 
 DEFAULT_USER=$(whoami)
 
-# my prompt
-# source "${HOME}/.dotfiles/prompt/dany.sh"
-
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # instant prompt

@@ -23,6 +23,9 @@ brew update && brew upgrade && brew autoremove && brew cleanup --prune=all -s
 __info_ ' ➡ Removing node_modules...'
 find ~/Developer -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
 
+__info_ ' ➡ Removing DS_Store files...'
+fd -H '^\.DS_Store$' -E '.Trash' -E 'Library' -tf -X trash-put
+
 __info_ ' ➡ Removing logs...'
 sudo rm -rf /private/var/log/asl/*.asl
 
