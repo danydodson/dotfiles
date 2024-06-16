@@ -2,7 +2,7 @@
   "files.associations": {
     "**/bin/*": "shellscript",
     "**/bin/colortest": "perl",
-    "**/config/dircolors/dircolors": "dircolors"
+    "**/config/colors/*": "dircolors"
   },
   "shellcheck.ignorePatterns": {
     "**/config/**/*": true,

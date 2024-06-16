@@ -1,0 +1,1 @@
+from .catppuccin import setup

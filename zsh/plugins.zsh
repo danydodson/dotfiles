@@ -10,12 +10,12 @@ source $HOME/.config/omz/custom/plugins/my-zsh-completions/zsh-completions.plugi
 source $HOME/.config/omz/oh-my-zsh.sh
 
 # add colors to ls command
-if [ -f "/opt/homebrew/bin/gdircolors" ]; then
-  eval "$(gdircolors -b "${DOTFILES}"/config/colors/dircolors)"
-fi
+# if [ -f "/opt/homebrew/bin/gdircolors" ]; then
+#   eval "$(gdircolors -b "${DOTFILES}"/config/colors/dircolors2)"
+# fi
 
 # iterm2 -> loads shell integration
-test -e /Users/dany/.config/zsh/.iterm2_shell_integration.zsh && source /Users/dany/.config/zsh/.iterm2_shell_integration.zsh || true
+test -e ~/.config/zsh/.iterm2_shell_integration.zsh && source ~/.config/zsh/.iterm2_shell_integration.zsh || true
 
 # vscode -> loads shell path integration
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"

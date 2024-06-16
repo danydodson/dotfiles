@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
 
 function dots() {
-  cd ~/.dotfiles/ && nvim .
+  cd ~/.dotfiles/ && nvim
 }
 
 function nvconf() {
-  cd ~/.config/nvim/ && nvim .
+  cd ~/.config/nvim/ && nvim
 }
 
 function rconf() {
-  cd ~/.config/ranger/ && nvim .
+  cd ~/.config/ranger/ && nvim
 }
 
 function yaconf() {
-  cd ~/.config/yabai/ && nvim .
+  cd ~/.config/yabai/ && nvim
 }
 
 function skconf() {
-  cd ~/.config/skhd/ && nvim .
+  cd ~/.config/skhd/ && nvim
 }
 
 # dsx -> delete .DS_Store

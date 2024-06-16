@@ -13,15 +13,17 @@ alias src="source ~/.zshrc"
 alias cp='cp -i'
 alias mv='mv -i'
 alias dirs='dirs -v'
-alias rm='trash-put'
+alias rm='trash'
 
 # ls -> pretty ls
 alias ls='/opt/homebrew/bin/gls --color=auto --group-directories-first'
 alias la='ls -A'
-alias ll='ls -lAh'
-alias l='ls -lh'
+alias ll='ls -lh'
+alias l='ls -lAh'
 
 # editor
+alias vim="nvim"
+alias vi="nvim"
 alias v='nvim'
 alias r='ranger'
 
@@ -71,8 +73,8 @@ alias bbc='b bundle cleanup --file="~/.dotfiles/macos/brewfile"'
 # afk ->  open screen saver
 alias afk="/System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
 
-# sshm1 -> dany@macbook
-alias sshm1="ssh dany@192.168.0.4"
+# sshm1 -> casanova@macbook
+alias sshm1="ssh casanova@192.168.0.4"
 
 # ssh -> create a public key copy it to the clipboard
 alias sshkeygen='ssh-keygen -o -a 100 -t ed25519'

@@ -27,11 +27,12 @@ export HOMEBREW_NO_ANALYTICS=true
 export HOMEBREW_NO_INSTALL_CLEANUP=true
 export HOMEBREW_NO_ENV_HINTS=true
 
-# go, rust
+# go, rust, java
 export GOPATH="$XDG_CONFIG_HOME/go"
 export GOROOT="/opt/homebrew/opt/go/libexec"
 export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
 export RUSTUP_HOME="$XDG_CONFIG_HOME/rust"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
 
 # npm, deno, yarn, pnpm, bun, gem, less
 export BUN_INSTALL="$XDG_CONFIG_HOME/bun"

@@ -9,7 +9,11 @@ path_ap "$HOME"/.config/go/bin
 path_ap "$HOME"/.config/pyenv/shims
 path_ap /opt/homebrew/opt/fzf/bin
 path_ap /opt/homebrew/opt/go/libexec
+path_ap /opt/homebrew/opt/openjdk@11/bin
+path_ap /opt/homebrew/opt/coreutils/libexec/gnubin
+path_ap /Applications/Alacritty.app/Contents/MacOS
 
 # fpath
 fpath_ap /opt/homebrew/share/zsh/site-functions
 fpath_ap /opt/homebrew/share/zsh/zsh-completions
+

@@ -3,12 +3,13 @@
 set -x
 
 # yabai signals
-sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
 
 # global settings
 yabai -m config layout bsp
 yabai -m config external_bar all:0:0
+# yabai -m config external_bar all:46:0
 yabai -m config top_padding 5
 yabai -m config bottom_padding 6
 yabai -m config left_padding 6
@@ -28,24 +29,18 @@ yabai -m config mouse_drop_action swap
 yabai -m config mouse_follows_focus off
 yabai -m config focus_follows_mouse off
 
-# desktop Labels
-yabai -m space 1 --label one
-yabai -m space 2 --label two
-yabai -m space 3 --label three
-yabai -m space 4 --label four
-yabai -m space 5 --label five
-
 # window rules
 yabai -m rule --add app=".*" sub-layer=normal
 yabai -m rule --add app="^1Password$" manage=off
 yabai -m rule --add app="^Archive Utility$" manage=off
 yabai -m rule --add app="^Activity Monitor$" manage=off
-yabai -m rule --add app="^Alacritty$" manage=off
+yabai -m rule --add app="^Alacritty$"
 yabai -m rule --add app="^Apparency$" manage=off
 yabai -m rule --add app="^App Store$" manage=off
 yabai -m rule --add app="^Alfred$" manage=off
 yabai -m rule --add app="^choose$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Contacts$" manage=off
 yabai -m rule --add app="^Dictionary$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^Find My$" manage=off
@@ -55,14 +50,19 @@ yabai -m rule --add app="^IINA$" manage=off
 yabai -m rule --add app="^iTerm$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^Karabiner-MultitouchExtension$" manage=off
+yabai -m rule --add app="^Keka$" manage=off
 yabai -m rule --add app="^Messages$" manage=off
 yabai -m rule --add app="^Mail$" manage=off
+yabai -m rule --add app="^Music$" manage=off
+yabai -m rule --add app="^Mpv$" manage=off
 yabai -m rule --add app="^Podcasts$" manage=off
-yabai -m rule --add app="^Notion$" 
+yabai -m rule --add app="^Notion$" manage=off
+yabai -m rule --add app="^Notes$" manage=off
 yabai -m rule --add app="^QuickTime Player$" manage=off
-yabai -m rule --add app="^Postman$" manage=off
+yabai -m rule --add app="^Postman$" manage=off 
 yabai -m rule --add app="^Photo Booth$" manage=off
-yabai -m rule --add app="^Script Editor$" manage=off
+yabai -m rule --add app="^Photo Booth$" manage=off
+yabai -m rule --add app="^Qutebrowser$" manage=off
 yabai -m rule --add app="^Software Update$" manage=off
 yabai -m rule --add app="^Spotify$" manage=off
 yabai -m rule --add app="^Suspicious Package$" manage=off

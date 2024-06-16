@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# :: default : sketchybar --set island drawing=off
+# :: window @ : sketchybar --set island drawing=on
+
 # moving windows
 shift + alt - h : yabai -m window --warp west
 shift + alt - j : yabai -m window --warp south
@@ -7,11 +10,11 @@ shift + alt - k : yabai -m window --warp north
 shift + alt - l : yabai -m window --warp east
 
 # move focus container to workspacee
-shift + alt - m : yabai -m window --space last \
+shift + alt - m : yabai -m window --space last; \
   yabai -m space --focus last
-shift + alt - p : yabai -m window --space prev \
+shift + alt - p : yabai -m window --space prev; \
   yabai -m space --focus prev
-shift + alt - n : yabai -m window --space next \
+shift + alt - n : yabai -m window --space next; \
   yabai -m space --focus next
 
 # set insertion point for focused container
@@ -71,31 +74,63 @@ lctrl + alt - e : yabai -m space --balance
 lctrl + alt - g : yabai -m space --toggle gap
 lctrl + alt - p : yabai -m space --toggle padding
 
+# toggle sticky, topmost and resize to picture-in-picture size
+alt - p : yabai -m window --toggle sticky; \
+          yabai -m window --toggle topmost; \
+          yabai -m window --grid 5:5:4:0:1:1
+          
 # resize windows
-lalt - h : yabai -m window --resize left:-12:0 \
+lalt - h : yabai -m window --resize left:-12:0; \
   yabai -m window --resize right:-12:0
-lalt - j : yabai -m window --resize bottom:0:12 \
+lalt - j : yabai -m window --resize bottom:0:12; \
   yabai -m window --resize top:0:12
-lalt - k : yabai -m window --resize top:0:-12 \
+lalt - k : yabai -m window --resize top:0:-12; \
   yabai -m window --resize bottom:0:-12
-lalt - l : yabai -m window --resize right:12:0 \
+lalt - l : yabai -m window --resize right:12:0; \
   yabai -m window --resize left:12:0
 
 # terminals and editors
 hyper - c : open +a "Visual Studio Code.app"
-hyper - x : "$HOME/.config/skhd/scripts/open_iterm.sh"
+hyper - x : ~/.dotfiles/config/skhd/scripts/iterm.sh
 hyper - z : "/Applications/kitty.app/Contents/MacOS/kitty" --single-instance -d ~
 
 # web browsers
 hyper - s : open -a "Safari.app"
 hyper - b : open -a "Brave Browser.app"
-hyper - q : "$HOME/.config/skhd/scripts/open_qb.sh"
-hyper - f : open -a Firefox
+hyper - q : ~/.dotfiles/config/skhd/scripts/qb.sh
+# hyper - f : open -a Firefox
 
 # osx applications
 hyper - d : open -a "Finder.app"
 hyper - m : open -a "Mail.app"
 
-# restart skhd + yabai
-shift + lctrl + alt - s : skhd --restart-service
-shift + lctrl + alt - y : yabai --restart-service
+
+# toggle sketchybar
+shift + lalt - space : sketchybar --bar hidden=toggle
+
+shift + lctrl + alt - s : yabai -m config external_bar all:46:0
+
+shift + lctrl + alt - y : yabai -m config external_bar all:0:0
+
+# restart skhd
+# shift + lctrl + alt - s : \
+#     osascript -e \
+#         "display notification \"Restarting Skhd\" with title \"Skhd\""; \
+#     skhd --restart-service
+
+# restart yabai
+# shift + lctrl + alt - y : \
+#     osascript -e \
+#         "display notification \"Restarting Yabai\" with title \"Yabai\""; \
+#     yabai --restart-service
+
+# restart all wm services
+hyper - r : \
+    osascript -e \
+        "display notification \"Restarting all Services\" with title \"Yabai\""; \
+    brew services stop sketchybar; \
+    brew services start sketchybar; \
+    skhd --stop-service; \
+    skhd --start-service; \
+    yabai --stop-service; \
+    yabai --start-service

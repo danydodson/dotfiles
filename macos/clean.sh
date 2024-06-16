@@ -29,5 +29,5 @@ fd -H '^\.DS_Store$' -E '.Trash' -E 'Library' -tf -X trash-put
 __info_ ' ➡ Removing logs...'
 sudo rm -rf /private/var/log/asl/*.asl
 
-__info_ ' ➡ Emptying trash-put...'
-trash-empty
+# __info_ ' ➡ Emptying trash-put...'
+# trash-empty
