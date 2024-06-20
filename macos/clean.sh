@@ -21,13 +21,11 @@ __info_ ' ➡ Upgrading homebrew...'
 brew update && brew upgrade && brew autoremove && brew cleanup --prune=all -s
 
 __info_ ' ➡ Removing node_modules...'
-find ~/Developer -name 'node_modules' -type d -prune -exec echo '{}' \; -exec rm -rf {} \;
+find . -name "node_modules" -type d -prune -exec rm -vrf '{}' +
 
-__info_ ' ➡ Removing DS_Store files...'
-fd -H '^\.DS_Store$' -E '.Trash' -E 'Library' -tf -X trash-put
+__info_ ' ➡ Removing annoying...'
+find . -name ".DS_Store" -type f -prune -exec rm -vrf '{}' +
 
 __info_ ' ➡ Removing logs...'
 sudo rm -rf /private/var/log/asl/*.asl
 
-# __info_ ' ➡ Emptying trash-put...'
-# trash-empty

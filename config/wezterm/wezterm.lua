@@ -1,5 +1,7 @@
 local wezterm = require("wezterm")
 
+local config = wezterm.config_builder()
+
 local function font_with_fallback(name, params)
 	local names = { name, "FiraCode Nerd Font" }
 	return wezterm.font_with_fallback(names, params)
@@ -54,45 +56,45 @@ end
 -- 	readjust_font_size(window, pane)
 -- end)
 
-return {
-	font_size = 14,
-	bold_brightens_ansi_colors = false,
-	font = wezterm.font("FiraCode Nerd Font", { weight = 'Regular', italic = false }),
-	window_padding = {
-		-- left = 30,
-		-- right = 10,
-		-- top = 30,
-		-- bottom = -30,
-	},
-
-	window_decorations = "RESIZE",
-	native_macos_fullscreen_mode = false,
-	hide_mouse_cursor_when_typing = true,
-	pane_focus_follows_mouse = true,
-	hide_tab_bar_if_only_one_tab = true,
-	tab_bar_at_bottom = true,
-	use_fancy_tab_bar = false,
-	enable_tab_bar = true,
-	tab_max_width = 32,
-
-	-- window_frame = {
-	-- 	border_left_width = '0.5cell',
-	-- 	border_right_width = '0.5cell',
-	-- 	border_bottom_height = '0.25cell',
-	-- 	border_top_height = '0.25cell',
-	-- 	border_left_color = 'purple',
-	-- 	border_right_color = 'purple',
-	-- 	border_bottom_color = 'purple',
-	-- 	border_top_color = 'purple',
-	-- },
-
-	color_scheme = "tokyonight_moon",
-	colors = {
-		-- split = "#444444",
-		tab_bar = {
-
-		}
-	},
-
-
+-- return {
+config.font_size = 14
+config.bold_brightens_ansi_colors = false
+config.font = wezterm.font("FiraCode Nerd Font", { weight = 'Regular', italic = false })
+config.window_padding = {
+	-- left = 30,
+	-- right = 10,
+	-- top = 30,
+	-- bottom = -30,
 }
+
+config.window_decorations = "RESIZE"
+config.native_macos_fullscreen_mode = false
+config.hide_mouse_cursor_when_typing = true
+config.pane_focus_follows_mouse = true
+config.hide_tab_bar_if_only_one_tab = true
+config.tab_bar_at_bottom = true
+config.use_fancy_tab_bar = false
+config.enable_tab_bar = true
+config.tab_max_width = 32
+
+-- window_frame = {
+-- 	border_left_width = '0.5cell',
+-- 	border_right_width = '0.5cell',
+-- 	border_bottom_height = '0.25cell',
+-- 	border_top_height = '0.25cell',
+-- 	border_left_color = 'purple',
+-- 	border_right_color = 'purple',
+-- 	border_bottom_color = 'purple',
+-- 	border_top_color = 'purple',
+-- },
+
+config.color_scheme = "tokyonight"
+
+config.colors = {
+	-- split = "#444444"
+	tab_bar = {
+
+	}
+}
+
+return config

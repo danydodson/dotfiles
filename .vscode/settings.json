@@ -7,8 +7,5 @@
   "shellcheck.ignorePatterns": {
     "**/config/**/*": true,
     "**/*.zsh": true,
-  },
-  "shellcheck.exclude": [
-    "SC2155", "SC2154", "SC1090", "SC1091"
-  ]
+  }
 }

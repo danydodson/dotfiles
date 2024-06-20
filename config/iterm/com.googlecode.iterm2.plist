@@ -7035,7 +7035,7 @@ Show Toolbelt</string>
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>185</integer>
+			<integer>209</integer>
 			<key>Command</key>
 			<string>/bin/zsh</string>
 			<key>Cursor Boost</key>
@@ -7655,7 +7655,7 @@ Show Toolbelt</string>
 			<key>Non-ASCII Ligatures</key>
 			<false/>
 			<key>Normal Font</key>
-			<string>FiraCodeNF-Ret 14 {"featureSettings":[{"CTFeatureSelectorIdentifier":2,"CTFeatureTypeIdentifier":35}]}</string>
+			<string>FiraCodeNF-Ret 13 {"featureSettings":[{"CTFeatureSelectorIdentifier":2,"CTFeatureTypeIdentifier":35}]}</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Open Password Manager Automatically</key>
@@ -7677,7 +7677,7 @@ Show Toolbelt</string>
 			<key>Right Option Key Sends</key>
 			<integer>2</integer>
 			<key>Rows</key>
-			<integer>12</integer>
+			<integer>22</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>

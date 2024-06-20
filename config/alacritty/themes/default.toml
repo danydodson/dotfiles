@@ -1,0 +1,86 @@
+# ┏━━━━━━━━━━━━━┓
+# ┃   Colors    ┃
+# ┗━━━━━━━━━━━━━┛
+
+# Primary colors
+[colors.primary]
+foreground = "#d8d8d8"     # Default
+background = "#181818"     # Default
+dim_foreground = "#828482" # Default
+bright_foreground = "None" # Default
+
+# Cursor colors
+[colors.cursor]
+text = "CellBackground"   # Default
+cursor = "CellForeground" # Default
+
+# Vi mode cursor colors
+[colors.vi_mode_cursor]
+text = "CellBackground"   # Default
+cursor = "CellForeground" # Default
+
+# Search colors
+[colors.search.matches]
+foreground = "#181818" # Default
+background = "#ac4242" # Default
+
+[colors.search.focused_match]
+foreground = "#181818" # Default
+background = "#f4bf75" # Default
+
+# Hint colors
+[colors.hints.start]
+foreground = "#181818" # Default
+background = "#f4bf75" # Default
+
+[colors.hints.end]
+foreground = "#181818" # Default
+background = "#ac4242" # Default
+
+# Line indicator colors
+[colors.line_indicator]
+foreground = "None" # Default
+background = "None" # Default
+
+# Footer bar colors
+[colors.footer_bar]
+foreground = "#181818" # Default
+background = "#d8d8d8" # Default
+
+# Selection colors
+[colors.selection]
+text = "CellBackground"       # Default
+background = "CellForeground" # Default
+
+# Normal colors
+[colors.normal]
+black = "#181818"   # Default
+red = "#ac4242"     # Default
+green = "#90a959"   # Default
+yellow = "#f4bf75"  # Default
+blue = "#6a9fb5"    # Default
+magenta = "#aa759f" # Default
+cyan = "#75b5aa"    # Default
+white = "#d8d8d8"   # Default
+
+# Bright colors
+[colors.bright]
+black = "#6b6b6b"   # Default
+red = "#c55555"     # Default
+green = "#aac474"   # Default
+yellow = "#feca88"  # Default
+blue = "#82b8c8"    # Default
+magenta = "#c28cb8" # Default
+cyan = "#93d3c3"    # Default
+white = "#f8f8f8"   # Default
+
+# Dim colors
+[colors.dim]
+black = "#0f0f0f"   # Default
+red = "#712b2b"     # Default
+green = "#5f6f3a"   # Default
+yellow = "#a17e4d"  # Default
+blue = "#456877"    # Default
+magenta = "#704d68" # Default
+cyan = "#4d7770"    # Default
+white = "#8e8e8e"   # Default

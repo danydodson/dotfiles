@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# :: default : sketchybar --set island drawing=off
-# :: window @ : sketchybar --set island drawing=on
-
 # moving windows
 shift + alt - h : yabai -m window --warp west
 shift + alt - j : yabai -m window --warp south
@@ -24,11 +21,11 @@ shift + lctrl + alt - k : yabai -m window --insert north
 shift + lctrl + alt - l : yabai -m window --insert east
 
 # navigate workspaces
-lalt - 1 : yabai -m space --focus 1
-lalt - 2 : yabai -m space --focus 2
-lalt - 3 : yabai -m space --focus 3
-lalt - 4 : yabai -m space --focus 4
-lalt - 5 : yabai -m space --focus 5
+lcmd - 1 : yabai -m space --focus 1
+lcmd - 2 : yabai -m space --focus 2
+lcmd - 3 : yabai -m space --focus 3
+lcmd - 4 : yabai -m space --focus 4
+lcmd - 5 : yabai -m space --focus 5
 
 # navigate bsp windows
 lctrl + alt - h : yabai -m window --focus west
@@ -62,10 +59,10 @@ lctrl + alt - space : yabai -m window --toggle float
 lctrl + shift + alt - space : yabai -m window --toggle sticky
 
 # move floating windows around
-lctrl - up : yabai -m window --grid 1:1:0:0:1:1
-lctrl - left : yabai -m window --grid 1:2:0:0:1:1
+lctrl - up    : yabai -m window --grid 1:1:0:0:1:1
+lctrl - left  : yabai -m window --grid 1:2:0:0:1:1
 lctrl - right : yabai -m window --grid 1:2:1:0:1:1
-lctrl - down : yabai -m window --grid 5:5:4:0:1:1
+lctrl - down  : yabai -m window --grid 5:5:4:0:1:1
 
 # equalize size of windows
 lctrl + alt - e : yabai -m space --balance
@@ -74,11 +71,14 @@ lctrl + alt - e : yabai -m space --balance
 lctrl + alt - g : yabai -m space --toggle gap
 lctrl + alt - p : yabai -m space --toggle padding
 
-# toggle sticky, topmost and resize to picture-in-picture size
+# toggle topmost
+alt - o : yabai -m window --toggle topmost
+
+# toggle sticky to pip
 alt - p : yabai -m window --toggle sticky; \
-          yabai -m window --toggle topmost; \
-          yabai -m window --grid 5:5:4:0:1:1
-          
+  yabai -m window --toggle topmost; \
+  yabai -m window --grid 5:5:4:0:1:1
+
 # resize windows
 lalt - h : yabai -m window --resize left:-12:0; \
   yabai -m window --resize right:-12:0
@@ -89,48 +89,19 @@ lalt - k : yabai -m window --resize top:0:-12; \
 lalt - l : yabai -m window --resize right:12:0; \
   yabai -m window --resize left:12:0
 
-# terminals and editors
-hyper - c : open +a "Visual Studio Code.app"
-hyper - x : ~/.dotfiles/config/skhd/scripts/iterm.sh
-hyper - z : "/Applications/kitty.app/Contents/MacOS/kitty" --single-instance -d ~
-
-# web browsers
-hyper - s : open -a "Safari.app"
+# open apps
+hyper - z : alacritty
+hyper - v : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
 hyper - b : open -a "Brave Browser.app"
-hyper - q : ~/.dotfiles/config/skhd/scripts/qb.sh
-# hyper - f : open -a Firefox
-
-# osx applications
-hyper - d : open -a "Finder.app"
-hyper - m : open -a "Mail.app"
-
 
 # toggle sketchybar
-shift + lalt - space : sketchybar --bar hidden=toggle
-
-shift + lctrl + alt - s : yabai -m config external_bar all:46:0
-
-shift + lctrl + alt - y : yabai -m config external_bar all:0:0
-
-# restart skhd
-# shift + lctrl + alt - s : \
-#     osascript -e \
-#         "display notification \"Restarting Skhd\" with title \"Skhd\""; \
-#     skhd --restart-service
-
-# restart yabai
-# shift + lctrl + alt - y : \
-#     osascript -e \
-#         "display notification \"Restarting Yabai\" with title \"Yabai\""; \
-#     yabai --restart-service
+# shift + lalt - space : sketchybar --bar hidden=toggle
 
 # restart all wm services
 hyper - r : \
-    osascript -e \
-        "display notification \"Restarting all Services\" with title \"Yabai\""; \
-    brew services stop sketchybar; \
-    brew services start sketchybar; \
-    skhd --stop-service; \
-    skhd --start-service; \
-    yabai --stop-service; \
-    yabai --start-service
+  osascript -e \
+    "display notification \"Restarting all Services\" with title \"Yabai\""; \
+  skhd --stop-service; \
+  skhd --start-service; \
+  yabai --stop-service; \
+  yabai --start-service

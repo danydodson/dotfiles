@@ -39,7 +39,9 @@ eval "$(ssh-agent -s)" >/dev/null 2>&1
 
 # pyenv -> load pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init --path)"
   eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
 fi
 
 # atuin -> shell history
@@ -49,9 +51,6 @@ eval "$(atuin init zsh)"
 if command -v ngrok &>/dev/null; then
   eval "$(ngrok completion)"
 fi
-
-# shellenv -> load brew env
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # fzf -> get completions
 source /opt/homebrew/opt/fzf/shell/completion.zsh
@@ -101,3 +100,4 @@ autoload -U compinit && compinit
 # de-dupe $PATH
 typeset -U path
 typeset -U fpath
+

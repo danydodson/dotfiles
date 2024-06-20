@@ -9,7 +9,6 @@ sudo yabai --load-sa
 # global settings
 yabai -m config layout bsp
 yabai -m config external_bar all:0:0
-# yabai -m config external_bar all:46:0
 yabai -m config top_padding 5
 yabai -m config bottom_padding 6
 yabai -m config left_padding 6
@@ -40,8 +39,11 @@ yabai -m rule --add app="^App Store$" manage=off
 yabai -m rule --add app="^Alfred$" manage=off
 yabai -m rule --add app="^choose$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^CleanMyMac X$" manage=off
+yabai -m rule --add app="^Console$" manage=off
 yabai -m rule --add app="^Contacts$" manage=off
 yabai -m rule --add app="^Dictionary$" manage=off
+yabai -m rule --add app="^Electron$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^Find My$" manage=off
 yabai -m rule --add app="^Fantastical$" manage=off
@@ -55,11 +57,12 @@ yabai -m rule --add app="^Messages$" manage=off
 yabai -m rule --add app="^Mail$" manage=off
 yabai -m rule --add app="^Music$" manage=off
 yabai -m rule --add app="^Mpv$" manage=off
+yabai -m rule --add app="^Peek$" manage=off
 yabai -m rule --add app="^Podcasts$" manage=off
 yabai -m rule --add app="^Notion$" manage=off
 yabai -m rule --add app="^Notes$" manage=off
 yabai -m rule --add app="^QuickTime Player$" manage=off
-yabai -m rule --add app="^Postman$" manage=off 
+yabai -m rule --add app="^Postman$" manage=off
 yabai -m rule --add app="^Photo Booth$" manage=off
 yabai -m rule --add app="^Photo Booth$" manage=off
 yabai -m rule --add app="^Qutebrowser$" manage=off
@@ -69,10 +72,12 @@ yabai -m rule --add app="^Suspicious Package$" manage=off
 yabai -m rule --add app="^System Settings$" manage=off sub-layer=above
 yabai -m rule --add app="^System Information$" manage=off sub-layer=above
 yabai -m rule --add app="^System Preferences$" manage=off sub-layer=above
+yabai -m rule --add app="^TablePlus$" manage=off
 yabai -m rule --add app="^Transmission$" manage=off
 yabai -m rule --add app="^Terminal$" manage=off
 yabai -m rule --add app="^Vesktop$" manage=off
 yabai -m rule --add app="^VLC$" manage=off
+yabai -m rule --add app="^WireGaurd$" manage=off
 yabai -m rule --add app="^Zoom$" manage=off
 
 set +x

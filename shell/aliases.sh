@@ -18,14 +18,21 @@ alias rm='trash'
 # ls -> pretty ls
 alias ls='/opt/homebrew/bin/gls --color=auto --group-directories-first'
 alias la='ls -A'
-alias ll='ls -lh'
-alias l='ls -lAh'
+alias ll='ls -lAh'
+alias l='ls -lh'
 
-# editor
-alias vim="nvim"
-alias vi="nvim"
+# nvim
 alias v='nvim'
+alias vi="nvim"
+alias vim="nvim"
 alias r='ranger'
+
+# other nvims
+alias vd='NVIM_APPNAME=nvim-dany nvim'
+alias ve='NVIM_APPNAME=nvim-ecosse nvim'
+alias vn='NVIM_APPNAME=nvim-normal nvim'
+alias vl='NVIM_APPNAME=nvim-lazyman nvim'
+alias vp='NVIM_APPNAME=nvim-primeagem nvim'
 
 # npm
 alias n='npm'
@@ -117,4 +124,3 @@ alias sys-uti-file='mdls -name kMDItemContentTypeTree '
 
 # lsregister -> launch services register
 alias lsregister='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister'
-

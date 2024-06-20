@@ -8,18 +8,6 @@ function nvconf() {
   cd ~/.config/nvim/ && nvim
 }
 
-function rconf() {
-  cd ~/.config/ranger/ && nvim
-}
-
-function yaconf() {
-  cd ~/.config/yabai/ && nvim
-}
-
-function skconf() {
-  cd ~/.config/skhd/ && nvim
-}
-
 # dsx -> delete .DS_Store
 function rmdss() {
   find . -name ".DS_Store" -type f -delete
@@ -37,13 +25,13 @@ function randpass() {
 }
 
 # vim -> open vim in the current directory or open the target file
-function vim() {
-  if [[ $# -eq 0 ]]; then
-    nvim .
-  else
-    nvim "$@"
-  fi
-}
+# function vim() {
+#   if [[ $# -eq 0 ]]; then
+#     nvim .
+#   else
+#     nvim "$@"
+#   fi
+# }
 
 # vf -> find and open a file in nvim
 function vf() {

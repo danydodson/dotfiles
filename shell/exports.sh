@@ -40,9 +40,9 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
-export KITTY_CACHE_DIRECTORY="${XDG_CACHE_HOME}/kitty"
 export DENO_INSTALL="$XDG_CONFIG_HOME/deno"
 export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
+
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 export GEM_HOME="$XDG_CONFIG_HOME/gem"
 export GEM_PATH="$XDG_CONFIG_HOME/gem"
@@ -50,7 +50,6 @@ export GEM_PATH="$XDG_CONFIG_HOME/gem"
 # wakatime, bat, vimrc
 export WAKATIME_HOME=$XDG_CONFIG_HOME/wakatime
 export BAT_CONFIG_PATH="$DOTFILES/config/bat/bat.conf"
-# export MYVIMRC="$HOME/.config/vim/vimrc"
 
 # python, conda
 export PYENV_ROOT="$XDG_CONFIG_HOME/pyenv"
