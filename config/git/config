@@ -4,14 +4,17 @@
   name = danydodson
   email = danydodson@gmail.com
 
-[includeIf "gitdir:/Users/"]
-	path = "~/.config/git/secret"
-
 [gpg]
 	format = ssh
 
 [gpg "ssh"]
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+# [user]
+#   signingkey = "op://Developer/git-auth-key/public key"
+
+[includeIf "gitdir:/Users/"]
+	path = "~/.config/git/secret"
 
 [commit]
 	gpgsign = true
@@ -69,11 +72,11 @@
 	enabled = 1
 
 [credential "https://github.com"]
-	helper = 
+	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
 
 [credential "https://gist.github.com"]
-	helper = 
+	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
 
 [url "git@github.com:"]

@@ -15,7 +15,7 @@ source $HOME/.config/omz/oh-my-zsh.sh
 # fi
 
 # iterm2 -> loads shell integration
-test -e ~/.config/zsh/.iterm2_shell_integration.zsh && source ~/.config/zsh/.iterm2_shell_integration.zsh || true
+test -e ~/.dotfiles/config/iterm/iterm2_shell_integration.zsh && source ~/.dotfiles/config/iterm/iterm2_shell_integration.zsh || true
 
 # vscode -> loads shell path integration
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"

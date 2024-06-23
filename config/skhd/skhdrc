@@ -58,11 +58,11 @@ lctrl + alt - space : yabai -m window --toggle float
 # toggle sticky
 lctrl + shift + alt - space : yabai -m window --toggle sticky
 
-# move floating windows around
-lctrl - up    : yabai -m window --grid 1:1:0:0:1:1
+# resize based on defined grid.        r:c:x:y:w:h
+lctrl - up    : yabai -m window --grid 2:2:1:2:2:3
+lctrl - down  : yabai -m window --grid 5:5:4:0:1:1
 lctrl - left  : yabai -m window --grid 1:2:0:0:1:1
 lctrl - right : yabai -m window --grid 1:2:1:0:1:1
-lctrl - down  : yabai -m window --grid 5:5:4:0:1:1
 
 # equalize size of windows
 lctrl + alt - e : yabai -m space --balance
@@ -90,12 +90,12 @@ lalt - l : yabai -m window --resize right:12:0; \
   yabai -m window --resize left:12:0
 
 # open apps
-hyper - z : alacritty
-hyper - v : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+hyper - z : alacritty --
+hyper - x : "/Applications/iTerm.app"
+hyper - c : open "/Applications/Visual Studio Code.app"
+hyper - v : open  "/Applications/WezTerm.app"
 hyper - b : open -a "Brave Browser.app"
-
-# toggle sketchybar
-# shift + lalt - space : sketchybar --bar hidden=toggle
+hyper - n : open -a "Finder.app"
 
 # restart all wm services
 hyper - r : \

@@ -42,6 +42,8 @@
 	<false/>
 	<key>BadgeFontIsBold</key>
 	<true/>
+	<key>BordersOnlyInLightMode</key>
+	<false/>
 	<key>BracketedPasteMode</key>
 	<true/>
 	<key>CheckTestRelease</key>
@@ -6974,7 +6976,7 @@ Show Toolbelt</string>
 				<real>0.92929404973983765</real>
 			</dict>
 			<key>Blend</key>
-			<real>0.01</real>
+			<real>0.0</real>
 			<key>Blink Allowed</key>
 			<true/>
 			<key>Blinking Cursor</key>
@@ -6982,7 +6984,7 @@ Show Toolbelt</string>
 			<key>Blur</key>
 			<false/>
 			<key>Blur Radius</key>
-			<real>25.100000000000001</real>
+			<real>0.10000000000000001</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -7677,7 +7679,7 @@ Show Toolbelt</string>
 			<key>Right Option Key Sends</key>
 			<integer>2</integer>
 			<key>Rows</key>
-			<integer>22</integer>
+			<integer>13</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
@@ -8213,7 +8215,7 @@ Show Toolbelt</string>
 			<key>Title Components</key>
 			<integer>384</integer>
 			<key>Transparency</key>
-			<real>0.01</real>
+			<real>0.0017209663120567355</real>
 			<key>Triggers Use Interpolated Strings</key>
 			<false/>
 			<key>Unicode Version</key>

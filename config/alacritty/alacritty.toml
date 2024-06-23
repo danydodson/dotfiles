@@ -14,9 +14,7 @@ args = ["-l"]
 
 [env]
 EDITOR = "nvim"
-# TERM = "alacritty"
 TERM = "xterm-256color"
-# TERM = "screen-256color"
 
 [scrolling]
 history = 10000
@@ -30,7 +28,7 @@ save_to_clipboard = true
 # ┗━━━━━━━━━━┛
 
 [font]
-size = 14
+size = 15
 normal = { family = "FiraCode Nerd Font", style = "Retina" }
 bold = { style = "Retina" }
 italic = { style = "Retina" }
@@ -75,11 +73,12 @@ color = "#ffffff"
 # ┗━━━━━━━━━━━━━┛
 
 [debug]
-# render_timer = false
-# persistent_logging = false
-# print_events = true
-# highlight_damage = false
-# log_level = "Warn"
+render_timer = false
+persistent_logging = false
+print_events = true
+highlight_damage = false
+log_level = "Warn"
+
 
 # ┏━━━━━━━━━━━━━┓
 # ┃ Keybindings ┃
@@ -87,7 +86,7 @@ color = "#ffffff"
 
 [keyboard]
 bindings = [
-  { key = "N",         mods = "Command",                 action = "CreateNewWindow" },
+  { key = "N", mods = "Command", action = "CreateNewWindow" },
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }

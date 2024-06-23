@@ -88,7 +88,7 @@ config.tab_max_width = 32
 -- 	border_top_color = 'purple',
 -- },
 
-config.color_scheme = "tokyonight"
+config.color_scheme = "onedark-pro"
 
 config.colors = {
 	-- split = "#444444"

@@ -60,10 +60,10 @@ yabai -m rule --add app="^Mpv$" manage=off
 yabai -m rule --add app="^Peek$" manage=off
 yabai -m rule --add app="^Podcasts$" manage=off
 yabai -m rule --add app="^Notion$" manage=off
+yabai -m rule --add app="^NVIDIA Gefore NOW$" manage=off
 yabai -m rule --add app="^Notes$" manage=off
 yabai -m rule --add app="^QuickTime Player$" manage=off
 yabai -m rule --add app="^Postman$" manage=off
-yabai -m rule --add app="^Photo Booth$" manage=off
 yabai -m rule --add app="^Photo Booth$" manage=off
 yabai -m rule --add app="^Qutebrowser$" manage=off
 yabai -m rule --add app="^Software Update$" manage=off

@@ -29,10 +29,12 @@ alias r='ranger'
 
 # other nvims
 alias vd='NVIM_APPNAME=nvim-dany nvim'
-alias ve='NVIM_APPNAME=nvim-ecosse nvim'
+alias vj='NVIM_APPNAME=nvim-teej nvim'
 alias vn='NVIM_APPNAME=nvim-normal nvim'
 alias vl='NVIM_APPNAME=nvim-lazyman nvim'
 alias vp='NVIM_APPNAME=nvim-primeagem nvim'
+alias ve='NVIM_APPNAME=nvim-ecosse nvim'
+alias nvs='NVIM_APPNAME=nvim-s9tpepper nvim'
 
 # npm
 alias n='npm'

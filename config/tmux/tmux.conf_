@@ -1,0 +1,75 @@
+set -g default-shell /bin/zsh
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+# Turn xterm-keys so things like resizing windows in iTerm2 works
+set -gw xterm-keys on
+
+# Turn on selecting pane with mouse
+set -g mouse on
+
+# Move tmux status bar to the top
+set -g status-position bottom
+
+# Enable pane flash on focus
+set -g focus-events on
+# set-hook -g pane-focus-in 'selectp -P bg=teal; run "sleep 0.1"; selectp -P bg=default'
+
+# Other examples:
+# set -g @plugin 'github_username/plugin_name'
+# set -g @plugin 'github_username/plugin_name#branch'
+# set -g @plugin 'git@github.com:user/plugin'
+# set -g @plugin 'git@bitbucket.com:user/plugin'
+
+# Spotify - disabled, added as Catpuccin module
+set -g status-right "#(tmux-spotify-info)"
+
+# tmux-resurrect
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+# Restore neovim sessions
+set -g @resurrect-strategy-nvim 'session'
+set -g @resurrect-capture-pane-contents 'on'
+
+# tmux-continuum
+set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @continuum-restore 'on'
+
+# Catpuccin Theme
+set -g @plugin 'catppuccin/tmux'
+
+# # Set Catpuccin flavor
+set -g @catppuccin_flavour 'mocha' # latte, frappe, macchiato, mocha
+
+# # Config 2
+set -g @catppuccin_window_left_separator "█"
+set -g @catppuccin_window_right_separator "█ "
+set -g @catppuccin_window_number_position "right"
+set -g @catppuccin_window_middle_separator "  █"
+
+set -g @catppuccin_window_default_fill "number"
+
+set -g @catppuccin_window_current_fill "number"
+set -g @catppuccin_window_current_text "#{b:pane_current_path}"
+
+set -g @catppuccin_status_modules_right "spotify application session date_time"
+set -g @catppuccin_status_left_separator  ""
+set -g @catppuccin_status_right_separator " "
+set -g @catppuccin_status_right_separator_inverse "no"
+set -g @catppuccin_status_fill "all"
+set -g @catppuccin_status_connect_separator "yes"
+
+
+# Fix tmux opening new windows in no directory and things break
+bind '"' split-window -c "#{pane_current_path}"
+bind % split-window -h -c "#{pane_current_path}"
+bind c new-window -c "#{pane_current_path}"
+
+set-option -g default-command zsh
+
+set-environment -g PATH "/opt/homebrew/bin:/bin:/usr/bin"
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.config/tmux/plugins/tpm/tpm'
+
