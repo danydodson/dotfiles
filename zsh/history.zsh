@@ -1,4 +1,4 @@
-# history settings
+# 
 
 export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE

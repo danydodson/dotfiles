@@ -1,4 +1,4 @@
-# completion settings
+# 
 
 # color complist
 zmodload -i zsh/complist

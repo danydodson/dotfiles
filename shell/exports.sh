@@ -19,8 +19,8 @@ export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export ZSH_CACHE_DIR="${XDG_CACHE_HOME}/zsh"
 export ZSH_CUSTOM="${XDG_CONFIG_HOME}/omz/custom"
 
-# brew
-export HOMEBREW_BREWFILE="${XDG_CONFIG_HOME}/brewfile"
+# homebrew
+export HOMEBREW_BUNDLE_FILE_GLOBAL="$DOTFILES/macos/brewfile"
 
 # go
 export GOPATH="$XDG_CONFIG_HOME/go"
@@ -37,9 +37,12 @@ export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export DENO_INSTALL="$XDG_CONFIG_HOME/deno"
 export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
 
-# wakatime, bat
-export WAKATIME_HOME="$XDG_CONFIG_HOME/wakatime"
+# bat, ranger, wakatime, nnn
 export BAT_CONFIG_PATH="$DOTFILES/config/bat/bat.conf"
+export RANGER_LOAD_DEFAULT_RC=false
+export WAKATIME_HOME="$XDG_CONFIG_HOME/wakatime"
+# export NNN_FIFO="/tmp/nnn.fifo"
+# export NNN_PLUG='f:finder;o:fzopen;p:mocplay;d:diffs;t:nmount;v:imgview'
 
 # python,
 export PYENV_ROOT="$XDG_CONFIG_HOME/pyenv"

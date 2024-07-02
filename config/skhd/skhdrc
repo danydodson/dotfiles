@@ -90,12 +90,15 @@ lalt - l : yabai -m window --resize right:12:0; \
   yabai -m window --resize left:12:0
 
 # open apps
-hyper - z : alacritty --
-hyper - x : "/Applications/iTerm.app"
+hyper - z : open -a /Applications/kitty.app
+hyper - x : alacritty --
 hyper - c : open "/Applications/Visual Studio Code.app"
-hyper - v : open  "/Applications/WezTerm.app"
+hyper - v : "/Applications/iTerm.app"
 hyper - b : open -a "Brave Browser.app"
 hyper - n : open -a "Finder.app"
+
+# toggle kitty
+ctrl - 0x32 : ~/.dotfiles/config/skhd/scripts/kitty.sh
 
 # restart all wm services
 hyper - r : \

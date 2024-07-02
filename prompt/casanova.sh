@@ -1,6 +1,4 @@
 #!/usr/bin/env zsh
-# vim:syntax=zsh
-# vim:filetype=zsh
 
 # http://zshwiki.org/home/config/prompt
 # enable colors and predefined variables

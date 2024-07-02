@@ -57,16 +57,19 @@ end
 -- end)
 
 -- return {
-config.font_size = 14
-config.bold_brightens_ansi_colors = false
-config.font = wezterm.font("FiraCode Nerd Font", { weight = 'Regular', italic = false })
+config.font_size = 15
+config.audible_bell = "Disabled"
+-- config.dpi = 192
+config.bold_brightens_ansi_colors = "No"
+config.font = wezterm.font("FiraCode Nerd Font", { weight = "Regular", italic = false })
 config.window_padding = {
-	-- left = 30,
-	-- right = 10,
-	-- top = 30,
-	-- bottom = -30,
+	left = 15,
+	right = 10,
+	top = 10,
+	bottom = 0,
 }
 
+config.exit_behavior = "CloseOnCleanExit"
 config.window_decorations = "RESIZE"
 config.native_macos_fullscreen_mode = false
 config.hide_mouse_cursor_when_typing = true
@@ -77,24 +80,23 @@ config.use_fancy_tab_bar = false
 config.enable_tab_bar = true
 config.tab_max_width = 32
 
--- window_frame = {
--- 	border_left_width = '0.5cell',
--- 	border_right_width = '0.5cell',
--- 	border_bottom_height = '0.25cell',
--- 	border_top_height = '0.25cell',
--- 	border_left_color = 'purple',
--- 	border_right_color = 'purple',
--- 	border_bottom_color = 'purple',
--- 	border_top_color = 'purple',
+-- config.window_frame = {
+-- border_left_width = '0.5cell',
+-- border_right_width = '0.5cell',
+-- border_bottom_height = '0.25cell',
+-- border_top_height = '0.25cell',
+-- border_left_color = 'purple',
+-- border_right_color = 'purple',
+-- border_bottom_color = 'purple',
+-- border_top_color = 'purple',
 -- },
 
-config.color_scheme = "onedark-pro"
+config.color_scheme = "OneDark (base16)"
+--config.color_scheme = "One Dark (Gogh)"
 
 config.colors = {
 	-- split = "#444444"
-	tab_bar = {
-
-	}
+	tab_bar = {},
 }
 
 return config

@@ -1,4 +1,4 @@
-# plugin settings
+# 
 
 # oh-my-zsh -> plugins
 plugins+=(brew git pnpm-shell-completion zsh-syntax-highlighting zsh-history-substring-search)
@@ -10,12 +10,12 @@ source $HOME/.config/omz/custom/plugins/my-zsh-completions/zsh-completions.plugi
 source $HOME/.config/omz/oh-my-zsh.sh
 
 # add colors to ls command
-# if [ -f "/opt/homebrew/bin/gdircolors" ]; then
-#   eval "$(gdircolors -b "${DOTFILES}"/config/colors/dircolors2)"
-# fi
+if [ -f "/opt/homebrew/bin/gdircolors" ]; then
+  eval "$(gdircolors -b "${DOTFILES}"/config/dircolors/dircolors)"
+fi
 
 # iterm2 -> loads shell integration
-test -e ~/.dotfiles/config/iterm/iterm2_shell_integration.zsh && source ~/.dotfiles/config/iterm/iterm2_shell_integration.zsh || true
+# test -e ~/.dotfiles/config/iterm2/shell_integration.zsh && source ~/.dotfiles/config/iterm2/shell_integration.zsh || true
 
 # vscode -> loads shell path integration
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"

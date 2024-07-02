@@ -2,7 +2,7 @@
   "files.associations": {
     "**/bin/*": "shellscript",
     "**/bin/colortest": "perl",
-    "**/config/colors/*": "dircolors"
+    "**/config/dircolors/*": "dircolors"
   },
   "shellcheck.exclude": [
     "1071"
@@ -10,5 +10,5 @@
   "shellcheck.ignorePatterns": {
     "**/config/**/*": true,
     "**/*.zsh": true,
-  }
+  },
 }

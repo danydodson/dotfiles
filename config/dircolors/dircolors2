@@ -1,259 +1,237 @@
-# from: http://hocuspokus.net/2008/01/a-better-ls-for-mac-os-x/
-
-# Configuration file for dircolors, a utility to help you set the
-# LS_COLORS environment variable used by GNU ls with the --color option.
-
-# The keywords COLOR, OPTIONS, and EIGHTBIT (honored by the
-# slackware version of dircolors) are recognized but ignored.
-
-# Below, there should be one TERM entry for each termtype that is colorizable
-TERM Eterm
-TERM ansi
-TERM color-xterm
-TERM con132x25
-TERM con132x30
-TERM con132x43
-TERM con132x60
-TERM con80x25
-TERM con80x28
-TERM con80x30
-TERM con80x43
-TERM con80x50
-TERM con80x60
-TERM cons25
-TERM console
-TERM cygwin
-TERM dtterm
-TERM eterm-color
-TERM gnome
-TERM gnome-256color
-TERM hurd
-TERM jfbterm
-TERM konsole
-TERM kterm
-TERM linux
-TERM linux-c
-TERM mach-color
-TERM mach-gnu-color
-TERM mlterm
-TERM putty
-TERM putty-256color
-TERM rxvt
-TERM rxvt-256color
-TERM rxvt-cygwin
-TERM rxvt-cygwin-native
-TERM rxvt-unicode
-TERM rxvt-unicode-256color
-TERM rxvt-unicode256
-TERM screen
-TERM screen-256color
-TERM screen-256color-bce
-TERM screen-bce
-TERM screen-w
-TERM screen.Eterm
-TERM screen.rxvt
-TERM screen.linux
-TERM st
-TERM st-256color
-TERM terminator
-TERM vt100
-TERM xterm
-TERM xterm-16color
-TERM xterm-256color
-TERM xterm-88color
-TERM xterm-color
-TERM xterm-debian
-
-# Below are the color init strings for the basic file types. A color init
-# string consists of one or more of the following numeric codes:
-# Attribute codes:
-# 00=none 01=bold 04=underscore 05=blink 07=reverse 08=concealed
-# Text color codes:
-# 30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white
-# Background color codes:
-# 40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
-#NORMAL 00       # global default, although everything should be something.
-#FILE 00         # normal file
-RESET 0          # reset to "normal" color
-DIR 01;34        # directory
-LINK 00;36       # symbolic link.  (If you set this to 'target' instead of a
-                 # numerical value, the color is as for the file pointed to.)
-MULTIHARDLINK 00 # regular file with more than one link
-FIFO 40;33       # pipe
-SOCK 01;35       # socket
-DOOR 01;35       # door
-BLK 40;33;01     # block device driver
-CHR 40;33;01     # character device driver
-ORPHAN 01;05;41;30 # symlink to nonexistent file
-MISSING 00       # ... and the files they point to
-SETUID 37;41     # file that is setuid (u+s)
-SETGID 30;43     # file that is setgid (g+s)
-CAPABILITY 30;41 # file with capability
-STICKY_OTHER_WRITABLE 30;42 # dir that is sticky and other-writable (+t,o+w)
-OTHER_WRITABLE 30;43 # dir that is other-writable (o+w) and not sticky
-STICKY 30;44     # dir with the sticky bit set (+t) and not other-writable
-
-# WSL overrides - TODO override for WSL only
-STICKY_OTHER_WRITABLE 01;34 # dir that is sticky and other-writable (+t,o+w)
-OTHER_WRITABLE 01;34 # dir that is other-writable (o+w) and not sticky
-
-# This is for files with execute permission:
-EXEC 01;32
-
-# List any file extensions like '.gz' or '.tar' that you would like ls
-# to colorize below. Put the extension, a space, and the color init string.
-# (and any comments you want to add after a '#')
-
-# If you use DOS-style suffixes, you may want to uncomment the following:
-#.cmd 01;32 # executables (bright green)
-.exe 01;32
-.com 01;32
-.btm 01;32
-.bat 01;32
-
- # archives or compressed (bright red)
-.tar 00;35
-.tgz 00;35
-.arc 00;35
-.arj 00;35
-.taz 00;35
-.lha 00;35
-.lz4 00;35
-.lzh 00;35
-.lzma 00;35
-.tlz 00;35
-.txz 00;35
-.tzo 00;35
-.t7z 00;35
-.zip 00;35
-.z 00;35
-.Z 00;35
-.dz 00;35
-.gz 00;35
-.lrz 00;35
-.lz 00;35
-.lzo 00;35
-.xz 00;35
-.bz2 00;35
-.bz 00;35
-.tbz 00;35
-.tbz2 00;35
-.tz 00;35
-.deb 00;35
-.rpm 00;35
-.jar 00;35
-.war 00;35
-.ear 00;35
-.sar 00;35
-.rar 00;35
-.alz 00;35
-.ace 00;35
-.zoo 00;35
-.cpio 00;35
-.7z 00;35
-.rz 00;35
-.cab 00;35
-
-# image formats
-.jpg 01;31
-.jpeg 01;31
-.gif 01;31
-.bmp 01;31
-.pbm 01;31
-.pgm 01;31
-.ppm 01;31
-.tga 01;31
-.xbm 01;31
-.xpm 01;31
-.tif 01;31
-.tiff 01;31
-.png 01;31
-.svg 01;31
-.svgz 01;31
-.mng 01;31
-.pcx 01;31
-.mov 01;31
-.mpg 01;31
-.mpeg 01;31
-.m2v 01;31
-.mkv 01;31
-.webm 01;31
-.ogm 01;31
-.mp4 01;31
-.m4v 01;31
-.mp4v 01;31
-.vob 01;31
-.qt 01;31
-.nuv 01;31
-.wmv 01;31
-.asf 01;31
-.rm 01;31
-.rmvb 01;31
-.flc 01;31
-.avi 01;31
-.fli 01;31
-.flv 01;31
-.gl 01;31
-.dl 01;31
-.xcf 01;31
-.xwd 01;31
-.yuv 01;31
-.cgm 01;31
-.emf 01;31
-.ogv 01;31
-.ogx 01;31
-
-# audio formats
-.aif 00;36
-.aiff 00;36
-.aac 00;36
-.au 00;36
-.flac 00;36
-.m4a 00;36
-.mid 00;36
-.midi 00;36
-.mka 00;36
-.mp3 00;36
-.mpc 00;36
-.ogg 00;36
-.ra 00;36
-.wav 00;36
-.oga 00;36
-.opus 00;36
-.spx 00;36
-.xspf 00;36
-.mod 00;36
-.mo3 00;36
-.xm 00;36
-.xi 00;36
-.s3m 00;36
-.it 00;36
-.sid 00;36
-
-# source code files
-.pl 00;33
-.PL 00;33
-.pm 00;33
-.tt 00;33
-.yml 00;33
-.sql 00;33
-.html 00;33
-.css 00;33
-.scss 00;33
-.js 00;33
-.sass 00;33
-.json 00;33
-.php 00;33
-.py 00;33
-.java 00;33
-.scala 00;33
-.c 00;33
-.h 00;33
-.cpp 00;33
-.xml 00;33
-.xsl 00;33
-.rb 00;33
-.nim 00;33
-.lua 00;33
-
 # vim: ft=dircolors:fdm=marker:et:sw=2:
+
+#
+# See:
+#		https://unix.stackexchange.com/a/94306/27109
+#		"The format for 256 color escape codes is 38;5;colorN for foreground colors 
+#   and 48;5;colorN for background colors."
+#
+#   https://github.com/trapd00r/LS_COLORS
+#		http://linux-sxs.org/housekeeping/lscolors.html
+#
+# Needs dircolors/gdircolors from GNU coreutils
+# brew info coreutils
+
+DIR                   01;34       # directory
+LINK                  00;36       # symbolic link.  (If you set this to 'target' instead of a numerical value, the color is as for the file pointed to.)
+SOCK                  01;35       # socket
+MISSING               00          # ... and the files they point to
+SETUID                37;41       # file that is setuid (u+s)
+SETGID                30;43       # file that is setgid (g+s)
+CAPABILITY            30;41       # file with capability
+
+*README               38;5;220;1
+*README.rst           38;5;220;1
+*LICENSE              38;5;220;1
+*COPYING              38;5;220;1
+*INSTALL              38;5;220;1
+*COPYRIGHT            38;5;220;1
+*AUTHORS              38;5;220;1
+*HISTORY              38;5;220;1
+*CONTRIBUTORS         38;5;220;1
+*PATENTS              38;5;220;1
+*VERSION              38;5;220;1
+*NOTICE               38;5;220;1
+*CHANGES              38;5;220;1
+
+.log                  38;5;190
+.txt                  38;5;253
+
+# markup
+.info                 38;5;184
+.markdown             38;5;184
+.md                   38;5;184
+.mmd                  38;5;184
+
+# docs, images
+.chm                  38;5;151
+.djvu                 38;5;141
+.pdf                  38;5;141
+.PDF                  38;5;141
+.epub                 38;5;131
+.doc                  38;5;111
+.docx                 38;5;111
+.eps                  38;5;111
+.ps                   38;5;111
+.rtf                  38;5;111
+.pps                  38;5;166
+.ppt                  38;5;166
+.pptx                 38;5;166
+.xls                  38;5;112
+.xlsx                 38;5;112
+.xltx                 38;5;73
+.jpeg                 38;5;87
+.JPG                  38;5;87
+.jpg                  38;5;87
+.svg                  38;5;87
+
+
+# version control
+.git                  38;5;197
+.gitignore            38;5;240
+.gitattributes        38;5;240
+.gitmodules           38;5;240
+
+# hide
+.megaignore           38;5;240
+.debris               38;5;240
+Icon?                 38;5;240
+
+# shell
+.awk                  38;5;170
+.bash                 38;5;171
+.sh                   38;5;172
+.vim                  38;5;173
+*conf                 38;5;174
+*rc                   38;5;175
+.login                38;5;176
+.logout               38;5;177
+.zsh                  38;5;180
+
+
+# python
+.py                   38;5;41
+
+# perl
+.pl                   38;5;208
+.PL                   38;5;160
+
+# sql
+.msql                 38;5;222
+.mysql                38;5;222
+.pgsql                38;5;222
+.sql                  38;5;222
+.sqlite               38;5;60
+
+# python
+.py                   38;5;41
+.pyc                  38;5;240
+
+# web
+.editorconfig         38;5;175
+.js                   38;5;074
+.jsx                  38;5;074
+.mjs                  38;5;074
+.ts                   38;5;074
+.tsx                  38;5;074
+.css                  38;5;125
+.less                 38;5;125
+.sass                 38;5;125
+.scss                 38;5;125
+.htm                  38;5;125
+.html                 38;5;125
+.json                 38;5;178
+.xml                  38;5;178
+.yml                  38;5;178
+.yaml                 38;5;178
+.php                  38;5;81
+.coffee               38;5;074
+.htaccess             38;5;230
+
+# cakephp
+.ctp                  38;5;81
+
+# twig
+.twig                 38;5;81
+
+# java
+.java                 38;5;074
+.jsp                  38;5;074
+
+# build stuff 
+*Dockerfile           38;5;155
+.dockerignore         38;5;240
+*Makefile             38;5;155
+*Makefile             38;5;155
+*MANIFEST             38;5;243
+
+# packaged apps 
+.apk                  38;5;215
+.jad                  38;5;215
+.jar                  38;5;215
+
+# partition images
+.dmg                  38;5;124
+.sparseimage          38;5;124
+.dmg                  38;5;215
+
+# state files
+.pid                  38;5;248
+.state                38;5;248
+*lockfile             38;5;248
+.lock                 38;5;241
+*composer.lock        38;5;96
+*lock.json            38;5;96
+*lock.yaml            38;5;96
+*components*          38;5;241
+
+# state dumps
+.dump                 38;5;241
+.stackdump            38;5;241
+.zcompdump            38;5;241
+.zwc                  38;5;241
+
+# macOS
+.DS_Store             38;5;239
+.localized            38;5;239
+.CFUserTextEncoding   38;5;239
+
+.md5                  38;5;116
+.properties           38;5;116
+.torrent              38;5;116
+
+# RStudio project file
+.Rproj                38;5;11
+
+# archives
+.7z                   38;5;210
+.bz2                  38;5;210
+.gz                   38;5;210
+.lzma                 38;5;210
+.rar                  38;5;210
+.tar                  38;5;210
+.tgz                  38;5;210
+.zip                  38;5;210
+
+
+# 0 = default colour
+# 1 = bold
+# 4 = underlined
+# 5 = flashing text
+# 6 = no change
+# 7 = reverse field
+# 8 = black
+# 9 = strikethrough (cool!)
+# 10 - 29= no change
+# 30 = light green
+# 31 = red
+# 32 = green
+# 33 = orange
+# 34 = blue
+# 35 = purple
+# 36 = cyan
+# 37 = grey
+# 38 = underline
+# 39 = no change
+# 40 = black background
+# 41 = red background
+# 42 = green background
+# 43 = orange background
+# 44 = blue background
+# 45 = purple background
+# 46 = cyan background
+# 47 = grey background
+# 90 = dark grey
+# 91 = light red
+# 92 = light green
+# 93 = yellow
+# 94 = light blue
+# 95 = light purple
+# 96 = turquoise
+# 100 = dark grey background
+# 101 = light red background
+# 102 = light green background
+# 103 = yellow background
+# 104 = light blue background
+# 105 = light purple background
+# 106 = turquoise background

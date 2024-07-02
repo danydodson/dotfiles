@@ -28,13 +28,15 @@ alias vim="nvim"
 alias r='ranger'
 
 # other nvims
+alias vc='NVIM_APPNAME=nvim-chad nvim'
 alias vd='NVIM_APPNAME=nvim-dany nvim'
-alias vj='NVIM_APPNAME=nvim-teej nvim'
-alias vn='NVIM_APPNAME=nvim-normal nvim'
-alias vl='NVIM_APPNAME=nvim-lazyman nvim'
-alias vp='NVIM_APPNAME=nvim-primeagem nvim'
 alias ve='NVIM_APPNAME=nvim-ecosse nvim'
-alias nvs='NVIM_APPNAME=nvim-s9tpepper nvim'
+alias vjl='NVIM_APPNAME=nvim-juanlopez nvim'
+alias vn='NVIM_APPNAME=nvim-normal nvim'
+alias vp='NVIM_APPNAME=nvim-primeagem nvim'
+alias vsn='NVIM_APPNAME=nvim-s9tpepper nvim'
+alias vj='NVIM_APPNAME=nvim-teej nvim'
+alias vt='NVIM_APPNAME=nvim-togglebyte nvim'
 
 # npm
 alias n='npm'

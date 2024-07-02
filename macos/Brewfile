@@ -1,405 +1,294 @@
 tap "1password/tap"
 tap "aws/tap"
-tap "FelixKratz/formulae"
+tap "felixkratz/formulae"
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 tap "homebrew/services"
 tap "koekeishiya/formulae"
 tap "moritzsternemann/apple-fonts"
 tap "oven-sh/bun"
+tap "rigellute/tap"
 tap "stripe/stripe-cli"
-
-# interpreted, interactive, object-oriented programming language
+tap "thezoraiz/ascii-image-converter"
+tap "zirixcz/vesktop"
 brew "python@3.12"
-# record your work in a terminal
 brew "asciinema"
-# official Amazon AWS command-line interface
+brew "atuin"
 brew "awscli"
-# curl like simplicity to access AWS resources
 brew "awscurl"
-# bourne-Again shell
 brew "bash"
-# a cat clone with syntax highlighting and Git integration
 brew "bat"
-# extensions to bat
 brew "bat-extras"
-# yet another cross-platform graphical process/system monitor
+brew "binutils"
 brew "bottom"
-# view pictures in your terminal
-brew "chafa"
-# statistics utility to count lines of code
-brew "cloc"
-# cross-platform make
-brew "cmake"
-# gnu file, shell, and text utilities
-brew "coreutils"
-# get a file from an http, https or ftp server
-brew "curl"
-# tool for executing mouse clicks
-brew "cliclick"
-# secure runtime for javascript and typescript
-brew "deno"
-# good-lookin diffs with diff-highlight and more
-brew "diff-so-fancy"
-# oad and unload env variables on the current directory
-brew "direnv"
-# simple, fast and user-friendly alternative to find
-brew "fd"
-# 
-brew "feh"
-# collection of gnu find, xargs, and locate
-brew "findutils"
-# user-friendly command-line shell for UNIX-like operating systems
-brew "fish"
-# utility that lets you work with fly.io
-brew "flyctl"
-# cleans up old and inactive forks on your github account
-brew "fork-cleaner"
-# command-line fuzzy finder written in Go
-brew "fzf"
-#
-brew "gawk"
-#
-brew "gdu"
-# geometry Engine
-brew "geos"
-#
-brew "gh"
-# enable transparent encryption/decryption of files in a git repo
-brew "git-crypt"
-#
-brew "glances"
-# gnu internationalization and localization library
 brew "gettext"
-# core application library for C
 brew "glib"
-# openType text shaping engine
-brew "harfbuzz"
-# gnu implementation of the famous stream editor
+brew "ccls"
+brew "cliclick"
+brew "clipboard"
+brew "cloc"
+brew "cmake"
+brew "coreutils"
+brew "curl"
+brew "deno"
+brew "diff-so-fancy"
+brew "direnv"
+brew "elixir"
+brew "exercism"
+brew "fd"
+brew "figlet"
+brew "findutils"
+brew "fish"
+brew "flyctl"
+brew "fork-cleaner"
+brew "fzf"
+brew "gawk"
+brew "gcc"
+brew "gdu"
+brew "geos"
+brew "gh"
+brew "git-crypt"
+brew "git-delta"
+brew "gitui"
+brew "glances"
 brew "gnu-sed"
-#
 brew "gnu-tar"
-# gnu transport layer security (TLS) library
 brew "gnutls"
-#
 brew "gnupg"
-#
 brew "go"
-#
-brew "gobject-introspection"
-#
+brew "gpatch"
+brew "harfbuzz"
+brew "graphviz"
 brew "grc"
-# gnu ubiquitous intelligent language for extensions
 brew "guile"
-#
+brew "helix"
 brew "htop"
-#
 brew "hub"
-#
 brew "hyperfine"
-#
-brew "jpegoptim"
-#
 brew "jq"
-#
 brew "lazygit"
-#
 brew "libass"
-#
 brew "libyaml"
-#
+brew "lolcat"
+brew "lsd"
 brew "lua"
-#
+brew "lua-language-server"
 brew "luarocks"
-#
+brew "make"
 brew "mas"
-# 
-brew "msgpack"
-# 
-brew "mtr"
-# 
-brew "ncdu"
-# 
-brew "neofetch"
-# 
-brew "neovim"
-# 
-brew "nghttp2"
-# 
-brew "nmap"
-# 
 brew "node"
-# 
+brew "mongosh"
+brew "msgpack"
+brew "mtr"
+brew "nasm"
+brew "ncdu"
+brew "nghttp2"
+brew "nmap"
+brew "nnn"
 brew "nowplaying-cli"
-# 
+brew "openjdk"
 brew "openjdk@11"
-# 
 brew "osx-cpu-temp"
-# 7zip file archiver
-brew "p7zip"
-# 
+brew "perl"
 brew "pinentry-mac"
-# 
 brew "pngquant"
-# 
 brew "pnpm"
-# 
+brew "postgresql@14", restart_service: true
+brew "prettier"
 brew "prettyping"
-# 
 brew "pstree"
-# 
 brew "pyenv"
-# keyboard-driven, vim-like browser based on PyQt5
-brew "qutebrowser"
-# 
+brew "pyenv-virtualenv"
 brew "ranger"
-# 
+brew "rich-cli"
 brew "ripgrep"
-# 
 brew "ruby"
-# 
+brew "rust"
+brew "rust-analyzer"
 brew "rustup-init"
-# 
+brew "sd"
 brew "shellcheck"
-# Read keystrokes and spit them back at you.
+brew "shfmt"
 brew "showkey"
-# 
 brew "spicetify-cli"
-# 
-brew "svim"
-# 
+brew "stylua"
 brew "switchaudio-osx"
-# 
 brew "telnet"
-# 
 brew "tldr"
-# terminal multiplexer
 brew "tmux"
-# command-line interface to the trashcan
 brew "trash-cli"
-# 
 brew "tree"
-# 
+brew "tty-clock"
 brew "vim"
-# 
+brew "viu"
 brew "watch"
-#
 brew "wget"
-#
+brew "wireguard-tools"
+brew "xclip"
+brew "xsel"
 brew "yamllint"
-# js package manager
 brew "yarn"
-# 
 brew "yt-dlp"
-# general-purpose lossless data-compression library
 brew "zlib"
-# custom macOS statusbar
 brew "felixkratz/formulae/sketchybar"
-# simple hotkey-daemon for macos
+brew "koekeishiya/formulae/krp"
 brew "koekeishiya/formulae/skhd"
-# tiling window manager for macos
 brew "koekeishiya/formulae/yabai"
-# js package manager
 brew "oven-sh/bun/bun"
-# 
+brew "rigellute/tap/spotify-tui"
 brew "stripe/stripe-cli/stripe"
-
-# 1Password to your terminal
 cask "1password-cli"
-# gpu-accelerated terminal emulator
 cask "alacritty"
-# the app that opens apps
 cask "apparency"
-# chromium based browser
 cask "arc"
-# display management tool
 cask "betterdisplay"
-# web browser
 cask "brave-browser"
-# any app as a lightweight container
+cask "discord"
 cask "docker"
-# dev targeted fonts
-cask "font-anonymice-nerd-font"
-# dev targeted fonts
 cask "font-cascadia-mono-pl"
-# dev targeted fonts
 cask "font-caskaydia-cove-nerd-font"
-# dev targeted fonts
+cask "font-caskaydia-mono-nerd-font"
 cask "font-fira-code-nerd-font"
-# dev targeted fonts
 cask "font-fira-mono-nerd-font"
-# dev targeted fonts
-cask "font-jetbrains-mono-nerd-font"
-# dev targeted fonts
-cask "font-meslo-lg-nerd-font"
-# web browser
+cask "font-go-mono-nerd-font"
 cask "google-chrome"
-# free and open-source media player
 cask "iina"
-# terminal emulator alternative
 cask "iterm2"
-# keyboard customiser
 cask "karabiner-elements"
-# terminal emulator
 cask "kitty"
-# controls and monitors all fans on Apple computers
 cask "macs-fan-control"
-# mega sync client
 cask "megasync"
-# tool for working with MongoDB
 cask "mongodb-compass"
-# media player based on MPlayer and mplayer2
-brew "mpv"
-# reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
-# app to write, plan, collaborate, and get organized
-cask "notion"
-# cloud gaming platform
 cask "nvidia-geforce-now"
-# finder Toolbar app for macOS
 cask "openinterminal"
-# api platform for building and using apis
 cask "postman"
-# team communication and collaboration software
-cask "slack"
-# 
+cask "qutebrowser"
+cask "sf-symbols"
 cask "sherlock"
-# music streaming service
+cask "slack"
 cask "spotify"
-# app for inspecting installer packages
+cask "steam"
+cask "stolendata-mpv"
 cask "suspicious-package"
-# general-purpose text editor
-cask "textmate"
-# bittorrent client
+cask "tableplus"
 cask "transmission"
-# discord client
-cask "zirixcz/vesktop/vesktop"
-# open-source code editor
 cask "visual-studio-code"
-# open source cross-platform multimedia playe
 cask "vlc"
-# terminal with AI and collaborative tools
-cask "warp"
-# video communication and virtual meeting platform
-cask "zoom"
-
-# Finder quicklook extention
-mas "Peek", id: 1554235898
-
-# vscode "1password.op-vscode"
-# vscode "aaravb.chrome-extension-developer-tools"
-# vscode "achil.vscode-javascript-repl"
-# vscode "akamud.vscode-javascript-snippet-pack"
-# vscode "andenetalexander.vim-cheatsheet"
-# vscode "antoniormrzz.electron-snippets"
-# vscode "beauallison.brew-services"
-# vscode "bengreenier.vscode-node-readme"
-# vscode "benjaminbenais.copilot-theme"
-# vscode "bierner.lit-html"
-# vscode "bradlc.vscode-tailwindcss"
-# vscode "burkeholland.simple-react-snippets"
-# vscode "catppuccin.catppuccin-vsc"
-# vscode "christian-kohler.npm-intellisense"
-# vscode "cmstead.jsrefactor"
-# vscode "coachrichbart.better-jest"
-# vscode "codezombiech.gitignore"
-# vscode "ctcuff.font-preview"
-# vscode "dbaeumer.vscode-eslint"
-# vscode "denoland.vscode-deno"
-# vscode "donjayamanne.python-environment-manager"
-# vscode "drcika.apc-extension"
-# vscode "dsznajder.es7-react-js-snippets"
-# vscode "dual.zsh-completion-script"
-# vscode "duniul.dircolors"
-# vscode "eamodio.gitlens"
-# vscode "editorconfig.editorconfig"
-# vscode "emilast.logfilehighlighter"
-# vscode "enkia.tokyo-night"
-# vscode "esbenp.prettier-vscode"
-# vscode "everlastengineering.debug-in-titlebar"
-# vscode "frhtylcn.pythonsnippets"
-# vscode "funkyremi.vscode-google-translate"
-# vscode "github.copilot"
-# vscode "github.copilot-chat"
-# vscode "github.remotehub"
-# vscode "golang.go"
-# vscode "henriquebruno.github-repository-manager"
-# vscode "ibm.output-colorizer"
-# vscode "idleberg.applescript"
-# vscode "jakebathman.mysql-syntax"
-# vscode "jeff-hykin.better-csv-syntax"
-# vscode "jeff-hykin.better-dockerfile-syntax"
-# vscode "jeff-hykin.better-go-syntax"
-# vscode "jeff-hykin.better-js-syntax"
-# vscode "jeff-hykin.better-perl-syntax"
-# vscode "jeff-hykin.better-shellscript-syntax"
-# vscode "jeremyrajan.webpack"
-# vscode "jock.svg"
-# vscode "jonsmithers.open-in-vim"
-# vscode "kvnxush.one-dark-operator-theme"
-# vscode "lakshits11.ayu-monokai"
-# vscode "lakshits11.neon-city"
-# vscode "ldez.ignore-files"
-# vscode "leizongmin.node-module-intellisense"
-# vscode "luvxjs.spear"
-# vscode "mhutchie.git-graph"
-# vscode "miguelsolorio.fluent-icons"
-# vscode "mikestead.dotenv"
-# vscode "ms-azuretools.vscode-docker"
-# vscode "ms-python.autopep8"
-# vscode "ms-python.black-formatter"
-# vscode "ms-python.debugpy"
-# vscode "ms-python.python"
-# vscode "ms-python.vscode-pylance"
-# vscode "ms-toolsai.jupyter"
-# vscode "ms-toolsai.jupyter-keymap"
-# vscode "ms-toolsai.jupyter-renderers"
-# vscode "ms-toolsai.vscode-jupyter-cell-tags"
-# vscode "ms-toolsai.vscode-jupyter-slideshow"
-# vscode "ms-vscode-remote.remote-containers"
-# vscode "ms-vscode-remote.remote-ssh"
-# vscode "ms-vscode-remote.remote-ssh-edit"
-# vscode "ms-vscode.cpptools"
-# vscode "ms-vscode.live-server"
-# vscode "ms-vscode.remote-explorer"
-# vscode "ms-vscode.remote-repositories"
-# vscode "ms-vscode.remote-server"
-# vscode "ms-vscode.vscode-typescript-next"
-# vscode "msyrus.go-doc"
-# vscode "mxsdev.typescript-explorer"
-# vscode "naumovs.color-highlight"
-# vscode "nico-castell.linux-desktop-file"
-# vscode "otovo-oss.htmx-tags"
-# vscode "ph1p.zeit-co-vscode-schemas"
-# vscode "rebornix.toggle"
-# vscode "remisa.shellman"
-# vscode "ritwickdey.liveserver"
-# vscode "rogalmic.bash-debug"
-# vscode "rogalmic.zsh-debug"
-# vscode "rvest.vs-code-prettier-eslint"
-# vscode "ryotamannari.babel-plugin-react-css-modules-autocomplete"
-# vscode "sidneys1.gitconfig"
-# vscode "skyran.js-jsx-snippets"
-# vscode "solomonkinard.chrome-extension-api"
-# vscode "solomonkinard.chrome-extensions"
-# vscode "sumneko.lua"
-# vscode "tetradresearch.vscode-h2o"
-# vscode "timonwong.shellcheck"
-# vscode "tobermory.es6-string-html"
-# vscode "tomoki1207.pdf"
-# vscode "tomrijndorp.find-it-faster"
-# vscode "truman.autocomplate-shell"
-# vscode "usernamehw.errorlens"
-# vscode "vintharas.learn-vim"
-# vscode "visualstudioexptteam.intellicode-api-usage-examples"
-# vscode "visualstudioexptteam.vscodeintellicode"
-# vscode "voidei.vscode-vimrc"
-# vscode "vscodevim.vim"
-# vscode "wakatime.vscode-wakatime"
-# vscode "xabikos.javascriptsnippets"
-# vscode "xadillax.viml"
-# vscode "yanzf.playgroundcode"
-# vscode "yoavbls.pretty-ts-errors"
-# vscode "zenclabs.previewjs"
-# vscode "zhuangtongfa.material-theme"
+cask "wezterm"
+vscode "1password.op-vscode"
+vscode "aaravb.chrome-extension-developer-tools"
+vscode "achil.vscode-javascript-repl"
+vscode "akamud.vscode-javascript-snippet-pack"
+vscode "alexcvzz.vscode-sqlite"
+vscode "antoniormrzz.electron-snippets"
+vscode "asciidoctor.asciidoctor-vscode"
+vscode "beauallison.brew-services"
+vscode "benjaminbenais.copilot-theme"
+vscode "bierner.lit-html"
+vscode "bradlc.vscode-tailwindcss"
+vscode "brandonjmatthews.one-dark-dark-plus"
+vscode "burkeholland.simple-react-snippets"
+vscode "catppuccin.catppuccin-vsc"
+vscode "catppuccin.catppuccin-vsc-icons"
+vscode "christian-kohler.npm-intellisense"
+vscode "coachrichbart.better-jest"
+vscode "codezombiech.gitignore"
+vscode "conradludgate.rust-playground"
+vscode "ctcuff.font-preview"
+vscode "dbaeumer.vscode-eslint"
+vscode "donjayamanne.python-environment-manager"
+vscode "drcika.apc-extension"
+vscode "dsznajder.es7-react-js-snippets"
+vscode "duniul.dircolors"
+vscode "dunstontc.vscode-go-syntax"
+vscode "dunstontc.vscode-rust-syntax"
+vscode "dustypomerleau.rust-syntax"
+vscode "editorconfig.editorconfig"
+vscode "emilast.logfilehighlighter"
+vscode "enkia.tokyo-night"
+vscode "esbenp.prettier-vscode"
+vscode "foxundermoon.shell-format"
+vscode "frhtylcn.pythonsnippets"
+vscode "fsdevon.one-dark-plus"
+vscode "github.copilot"
+vscode "github.copilot-chat"
+vscode "github.remotehub"
+vscode "golang.go"
+vscode "henriquebruno.github-repository-manager"
+vscode "ibm.output-colorizer"
+vscode "idleberg.applescript"
+vscode "ivhernandez.vscode-plist"
+vscode "jakebathman.mysql-syntax"
+vscode "jeff-hykin.better-csv-syntax"
+vscode "jeff-hykin.better-dockerfile-syntax"
+vscode "jeff-hykin.better-go-syntax"
+vscode "jeff-hykin.better-js-syntax"
+vscode "jeff-hykin.better-perl-syntax"
+vscode "jeff-hykin.better-shellscript-syntax"
+vscode "jinliming2.vscode-go-template"
+vscode "jock.svg"
+vscode "jscearcy.rust-doc-viewer"
+vscode "kshetline.ligatures-limited"
+vscode "ldez.ignore-files"
+vscode "leizongmin.node-module-intellisense"
+vscode "mads-hartmann.bash-ide-vscode"
+vscode "maximilionus.dark-shell"
+vscode "mhutchie.git-graph"
+vscode "miguelsolorio.fluent-icons"
+vscode "mikestead.dotenv"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-python.autopep8"
+vscode "ms-python.black-formatter"
+vscode "ms-python.debugpy"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-toolsai.jupyter"
+vscode "ms-toolsai.vscode-jupyter-cell-tags"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode-remote.remote-ssh"
+vscode "ms-vscode-remote.remote-ssh-edit"
+vscode "ms-vscode.azure-repos"
+vscode "ms-vscode.cpptools"
+vscode "ms-vscode.remote-explorer"
+vscode "ms-vscode.remote-repositories"
+vscode "ms-vscode.remote-server"
+vscode "ms-vscode.vscode-typescript-next"
+vscode "msyrus.go-doc"
+vscode "naumovs.color-highlight"
+vscode "otovo-oss.htmx-tags"
+vscode "paulmolluzzo.convert-css-in-js"
+vscode "qufiwefefwoyn.inline-sql-syntax"
+vscode "rebornix.toggle"
+vscode "remisa.shellman"
+vscode "rogalmic.bash-debug"
+vscode "rogalmic.zsh-debug"
+vscode "rpinski.shebang-snippets"
+vscode "rust-lang.rust-analyzer"
+vscode "ryotamannari.babel-plugin-react-css-modules-autocomplete"
+vscode "sensnerd.pributan"
+vscode "serayuzgur.crates"
+vscode "sharat.vscode-brewfile"
+vscode "sidneys1.gitconfig"
+vscode "skyran.js-jsx-snippets"
+vscode "solomonkinard.chrome-extension-api"
+vscode "solomonkinard.chrome-extensions"
+vscode "sourcegraph.cody-ai"
+vscode "sumneko.lua"
+vscode "tamasfe.even-better-toml"
+vscode "tetradresearch.vscode-h2o"
+vscode "timonwong.shellcheck"
+vscode "tobermory.es6-string-html"
+vscode "tomoki1207.pdf"
+vscode "truman.autocomplate-shell"
+vscode "usernamehw.errorlens"
+vscode "vadimcn.vscode-lldb"
+vscode "vintharas.learn-vim"
+vscode "visualstudioexptteam.intellicode-api-usage-examples"
+vscode "visualstudioexptteam.vscodeintellicode"
+vscode "vscodevim.vim"
+vscode "wakatime.vscode-wakatime"
+vscode "wangweixuan.yithemes"
+vscode "xadillax.viml"
+vscode "yanzf.playgroundcode"
+vscode "yoavbls.pretty-ts-errors"
+vscode "zhuangtongfa.material-theme"
