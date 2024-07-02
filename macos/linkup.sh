@@ -4,6 +4,10 @@
 cp ~/.dotfiles/zsh/zshrc ~/.zshrc
 cp ~/.dotfiles/zsh/zshrc ~/.config/zsh/.zshrc
 cp ~/.dotfiles/zsh/hushlogin ~/.hushlogin
+cp ~/.dotfiles/config/ranger/commands.py ~/.config/ranger/commands.py
+cp ~/.dotfiles/config/ranger/custom.py ~/.config/ranger/custom.py
+cp ~/.dotfiles/config/ranger/rifle.conf ~/.config/ranger/rifle.conf
+cp ~/.dotfiles/config/ranger/scope.sh ~/.config/ranger/scope.sh
 cp ~/.dotfiles/config/ranger/colorschemes/ls_colors.py ~/.config/ranger/colorschemes/ls_colors.py
 cp ~/.dotfiles/config/ssh/config ~/.ssh/config
 
