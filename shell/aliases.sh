@@ -27,7 +27,7 @@ alias vi="nvim"
 alias vim="nvim"
 alias r='ranger'
 
-# other nvims
+# more nvim
 alias vc='NVIM_APPNAME=nvim-chad nvim'
 alias vd='NVIM_APPNAME=nvim-dany nvim'
 alias ve='NVIM_APPNAME=nvim-ecosse nvim'
@@ -51,10 +51,6 @@ alias lsg-bun='bun pm ls --global'
 alias curl='curl --silent'
 alias wget='wget --hsts-file="${HOME}/.config/wget/wget-hsts" --no-check-certificate'
 
-# servers
-alias hts='http-server'
-alias lvs='live-server'
-
 # bat
 alias bat='bat --color=always'
 alias cat='bat'
@@ -70,10 +66,8 @@ alias ping='prettyping --nolegend -Anc 5 1.1.1.1'
 
 # b -> brew
 alias b='brew'
-alias bs='b search'
-alias bi='b info'
-alias bif='b install'
-alias bic='b install --cask'
+
+# bbu -> brew update and clean
 alias bbu='b update && b upgrade && b autoremove && b cleanup --prune=all -s'
 
 # bb -> brew buundle
@@ -85,7 +79,7 @@ alias bbc='b bundle cleanup --file="~/.dotfiles/macos/brewfile"'
 alias afk="/System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
 
 # sshm1 -> casanova@macbook
-alias sshm1="ssh casanova@192.168.0.4"
+alias sshm1="ssh casanova@192.168.0.5"
 
 # ssh -> create a public key copy it to the clipboard
 alias sshkeygen='ssh-keygen -o -a 100 -t ed25519'
@@ -95,9 +89,6 @@ alias pubkey='more ~/.config/ssh/id_rsa.pub | pbcopy | echo "=> Public key copie
 alias fpath='echo -e ${FPATH//:/\\n}'
 alias path='echo -e ${PATH//:/\\n}'
 
-# rmquar -> removes quarantine properties
-alias rmquar='xattr -d com.apple.quarantine'
-
 # spot -> on off
 alias spot_off='sudo mdutil -a -i off'
 alias spot_on='sudo mdutil -a -i on'
@@ -106,7 +97,6 @@ alias spot_on='sudo mdutil -a -i on'
 alias ios='open -a Simulator.app'
 alias xcode='open -a Xcode.app'
 alias mon_icloud="brctl monitor com.apple.CloudDocs | grep %"
-alias brave='open -a "Brave Browser.app"'
 alias chrome-dev='open -a "Google Chrome" --args --remote-debugging-port=9229'
 
 # syspl -> pkgutil

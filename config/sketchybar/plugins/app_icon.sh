@@ -1,43 +1,44 @@
 #!/bin/sh
+# shellcheck disable=all
 
 source $HOME/.dotfiles/config/sketchybar/icons.sh
 
 case "$1" in
 "Terminal" | "Warp" | "iTerm2")
   RESULT=$ICON_TERM
-	if grep -q "btop" <<< $2;
+	if grep -q "btop" <<< "$2";
   then
 	 RESULT=$ICON_CHART
 	fi
-	if grep -q "brew" <<< $2;
+	if grep -q "brew" <<< "$2";
   then
 	 RESULT=$ICON_PACKAGE
 	fi
-	if grep -q "nvim" <<< $2;
+	if grep -q "nvim" <<< "$2";
   then
 	 RESULT=$ICON_DEV
 	fi
-	if grep -q "ranger" <<< $2;
+	if grep -q "ranger" <<< "$2";
   then
 	 RESULT=$ICON_FILE
 	fi
-	if grep -q "lazygit" <<< $2;
+	if grep -q "lazygit" <<< "$2";
   then
 	 RESULT=$ICON_GIT
 	fi
-	if grep -q "taskwarrior-tui" <<< $2;
+	if grep -q "taskwarrior-tui" <<< "$2";
   then
 	 RESULT=$ICON_LIST
 	fi
-	if grep -q "unimatrix\|pipes.sh" <<< $2;
+	if grep -q "unimatrix\|pipes.sh" <<< "$2";
   then
 	 RESULT=$ICON_SCREENSAVOR
 	fi
-	if grep -q "bat" <<< $2;
+	if grep -q "bat" <<< "$2";
   then
 	 RESULT=$ICON_NOTE
 	fi
-	if grep -q "tty-clock" <<< $2;
+	if grep -q "tty-clock" <<< "$2";
   then
 	 RESULT=$ICON_CLOCK
 	fi
@@ -149,4 +150,4 @@ case "$1" in
 	;;
 esac
 
-echo $RESULT
+echo "$RESULT"

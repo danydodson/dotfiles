@@ -1,4 +1,5 @@
 #!/bin/sh
+# shellcheck disable=all
 
 IS_ACTIVE=$(timew get dom.active)
 

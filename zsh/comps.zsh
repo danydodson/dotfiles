@@ -1,4 +1,4 @@
-# 
+#!/bin/zsh
 
 # color complist
 zmodload -i zsh/complist

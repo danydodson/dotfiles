@@ -1,4 +1,5 @@
 #!/bin/sh
+# shellcheck disable=all
 
 source $HOME/.dotfiles/config/sketchybar/icons.sh
 
@@ -6,9 +7,9 @@ source $HOME/.dotfiles/config/sketchybar/icons.sh
 # the space invoking this script (with name: $NAME) is currently selected:
 # https://felixkratz.github.io/SketchyBar/config/components#space----associate-mission-control-spaces-with-an-item
 
-sketchybar --set $NAME background.drawing=$SELECTED \
-	icon.highlight=$SELECTED \
-	label.highlight=$SELECTED
+sketchybar --set "$NAME" background.drawing="$SELECTED" \
+	icon.highlight="$SELECTED" \
+	label.highlight="$SELECTED"
 
 if [[ $SENDER == "front_app_switched" || $SENDER == "window_change" ]];
 then
@@ -18,10 +19,10 @@ then
    LABEL=""
  
    QUERY=$(yabai -m query --windows --space $sid)
-   APPS=$(echo $QUERY | jq '.[].app')
-   TITLES=$(echo $QUERY | jq '.[].title')
+   APPS=$(echo "$QUERY" | jq '.[].app')
+   TITLES=$(echo "$QUERY" | jq '.[].title')
  
-   if grep -q "\"" <<< $APPS;
+   if grep -q "\"" <<< "$APPS";
    then
      APPS_ARR=()
      while read -r line; do APPS_ARR+=("$line"); done <<< "$APPS"
@@ -34,7 +35,7 @@ then
        APP=$(echo ${APPS_ARR[j]} | sed 's/"//g')
        TITLE=$(echo ${TITLES_ARR[j]} | sed 's/"//g')
  
-       ICON=$($HOME/.config/sketchybar/plugins/app_icon.sh "$APP" "$TITLE")
+       ICON=$("$HOME"/.config/sketchybar/plugins/app_icon.sh "$APP" "$TITLE")
        LABEL+="$ICON"
        if [[ $j < $(($LENGTH-1)) ]]; then
          LABEL+=" "

@@ -1,4 +1,5 @@
 #!/bin/sh
+# shellcheck disable=all
 
 PENDING_TASK=$(task +PENDING count)
 OVERDUE_TASK=$(task +OVERDUE count)

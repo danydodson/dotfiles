@@ -1,4 +1,5 @@
 #!/bin/sh
+# shellcheck disable=all
 
 STATUS_LABEL=$(lsappinfo info -only StatusLabel "Slack")
 LABEL=""

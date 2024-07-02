@@ -1,4 +1,4 @@
-# 
+#!/bin/zsh
 
 # changing dirs
 setopt AUTO_PUSHD            # push the directory onto the directory stack after cd

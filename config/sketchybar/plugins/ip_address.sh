@@ -1,4 +1,5 @@
 #!/bin/sh
+# shellcheck disable=all
 
 source $HOME/.dotfiles/config/sketchybar/colors.sh
 source $HOME/.dotfiles/config/sketchybar/icons.sh

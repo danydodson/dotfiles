@@ -9,7 +9,7 @@ function nvconf() {
 }
 
 # batr -> tail and head
-function batr() {
+function battail() {
   tail -n "+$1" "$3" | head -n "$(($2 - $1 + 1))"
 }
 
@@ -47,17 +47,6 @@ function batman() {
   return $?
 }
 
-# # validateJson -> validate yaml
-# function validateYaml() {
-#   python -c 'import yaml,sys;yaml.safe_load(sys.stdin)' <"$1"
-# }
-
-# # eslintify -> run eslint
-# function eslintify() {
-#   cat "$1" >/tmp/file_to_eslint
-#   npx eslint
-# }
-
 # __my_op_plugin_run -> fixes op completion
 function __my_op_plugin_run() {
   _op_plugin_run
@@ -77,25 +66,3 @@ function __load_op_completion() {
   completion_function="$(op completion zsh)"
   sed -E 's/^( +)_op_plugin_run/\1__my_op_plugin_run/' <<<"${completion_function}"
 }
-
-# # pa_rm -> remove form path
-# function path_rm() {
-#   PATH=$(echo -n "$PATH" | awk -v RS=: -v ORS=: "\$0 != \"$1\"" | sed 's/:$//')
-# }
-
-# #  pa_ap -> append to path
-# function path_ap() {
-#   path_rm "$1"
-#   PATH="${PATH:+"$PATH:"}$1"
-# }
-
-# # fp_rm -> remove from fpath
-# function fpath_rm() {
-#   FPATH=$(echo -n "$FPATH" | awk -v RS=: -v ORS=: "\$0 != \"$1\"" | sed 's/:$//')
-# }
-
-# # fp_ap -> append to fpath
-# function fpath_ap() {
-#   fpath_rm "$1"
-#   FPATH="${FPATH:+"$FPATH:"}$1"
-# }

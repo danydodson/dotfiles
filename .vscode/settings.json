@@ -7,8 +7,4 @@
   "shellcheck.exclude": [
     "1071"
   ],
-  "shellcheck.ignorePatterns": {
-    "**/config/**/*": true,
-    "**/*.zsh": true,
-  },
 }

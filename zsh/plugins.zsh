@@ -1,4 +1,4 @@
-# 
+#!/bin/zsh
 
 # oh-my-zsh -> plugins
 plugins+=(brew git pnpm-shell-completion zsh-syntax-highlighting zsh-history-substring-search)

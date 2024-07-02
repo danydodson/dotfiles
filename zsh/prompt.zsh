@@ -1,4 +1,4 @@
-# 
+#!/bin/zsh
 
 DEFAULT_USER=$(whoami)
 
