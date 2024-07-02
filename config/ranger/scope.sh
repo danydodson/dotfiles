@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck disable=all
 
 set -o noclobber -o noglob -o nounset -o pipefail
 IFS=$'\n'

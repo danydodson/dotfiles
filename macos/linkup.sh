@@ -18,6 +18,8 @@ ln -s -f ~/.dotfiles/config/bottom/bottom.toml ~/.config/bottom/bottom.toml
 ln -s -f ~/.dotfiles/config/git/config ~/.config/git/config
 ln -s -f ~/.dotfiles/config/htop/htoprc ~/.config/htop/htoprc
 ln -s -f ~/.dotfiles/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
+ln -s -f ~/.dotfiles/config/kitty/launch-actions.conf ~/.config/kitty/launch-actions.conf
+ln -s -f ~/.dotfiles/config/kitty/open-actions.conf ~/.config/kitty/open-actions.conf
 ln -s -f ~/.dotfiles/config/mpv/mpv.conf ~/.config/mpv/mpv.conf
 ln -s -f ~/.dotfiles/config/neofetch/config.conf ~/.config/neofetch/config.conf
 ln -s -f ~/.dotfiles/config/ranger/rc.conf ~/.config/ranger/rc.conf
