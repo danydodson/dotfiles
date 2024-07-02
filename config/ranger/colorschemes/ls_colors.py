@@ -1,7 +1,7 @@
-from ranger.gui.colorscheme import ColorScheme  # type: ignore
-import ranger.gui.color as style  # type: ignore
-import ranger.gui.context  # type: ignore
-import ranger.gui.widgets.browsercolumn  # type: ignore
+from ranger.gui.colorscheme import ColorScheme
+import ranger.gui.color as style
+import ranger.gui.context
+import ranger.gui.widgets.browsercolumn
 from os import getenv
 from subprocess import check_output, CalledProcessError
 
