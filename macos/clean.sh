@@ -11,11 +11,11 @@ sudo softwareupdate -i -a
 __info_ ' ➡ Upgrading oh-my-zsh...'
 "$ZSH/tools/upgrade.sh"
 
-__info_ ' ➡ Updating npm global pkgs...'
-npm update --location=global
+# __info_ ' ➡ Updating npm global pkgs...'
+# npm update --location=global
 
-__info_ ' ➡ Upgrading yarn global pkgs...'
-yarn global upgrade
+# __info_ ' ➡ Upgrading yarn global pkgs...'
+# yarn global upgrade
 
 __info_ ' ➡ Upgrading homebrew...'
 brew update && brew upgrade && brew autoremove && brew cleanup --prune=all -s

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # copy files
-cp ~/.dotfiles/zsh/.zshrc ~/.zshrc
-cp ~/.dotfiles/zsh/.zshrc ~/.config/zsh/.zshrc
-cp ~/.dotfiles/zsh/.hushlogin ~/.hushlogin
+cp ~/.dotfiles/zsh/zshrc ~/.zshrc
+cp ~/.dotfiles/zsh/zshrc ~/.config/zsh/.zshrc
+cp ~/.dotfiles/zsh/hushlogin ~/.hushlogin
 cp ~/.dotfiles/config/ranger/colorschemes/ls_colors.py ~/.config/ranger/colorschemes/ls_colors.py
 cp ~/.dotfiles/config/ssh/config ~/.ssh/config
 
@@ -17,7 +17,6 @@ ln -s -f ~/.dotfiles/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 ln -s -f ~/.dotfiles/config/mpv/mpv.conf ~/.config/mpv/mpv.conf
 ln -s -f ~/.dotfiles/config/neofetch/config.conf ~/.config/neofetch/config.conf
 ln -s -f ~/.dotfiles/config/ranger/rc.conf ~/.config/ranger/rc.conf
-ln -s -f ~/.dotfiles/config/ranger/colorschemes/custom.py ~/.config/ranger/colorschemes/custom.py
 ln -s -f ~/.dotfiles/config/skhd/skhdrc ~/.config/skhd/skhdrc
 ln -s -f ~/.dotfiles/config/tmux/tmux.conf ~/.config/tmux/tmux.conf
 ln -s -f ~/.dotfiles/config/vim/vimrc ~/.config/vim/vimrc

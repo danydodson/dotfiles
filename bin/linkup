@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Copy and link dotfiles
+
+cd "$HOME"/.dotfiles/macos && ./linkup.sh

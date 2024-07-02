@@ -90,10 +90,15 @@ EXEC                  01;32       # this is for files with execute permission
 .sh         00;36
 .vim        00;36
 vimrc       00;36
+*Brewfile   00;36
+*brewfile   00;36
 *conf       00;36
+.conf       00;36
 *config     00;36
+.config     00;36
 *dircolors  00;36
 *dircolors2 00;36
+*dircolors3 00;36
 *rc         00;36
 .login      00;36
 .logout     00;36
