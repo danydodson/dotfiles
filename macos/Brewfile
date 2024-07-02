@@ -175,6 +175,12 @@ cask "transmission"
 cask "visual-studio-code"
 cask "vlc"
 cask "wezterm"
+mas "1Password for Safari", id: 1569813296
+mas "Color Picker", id: 1545870783
+mas "Peek", id: 1554235898
+mas "SF Menu Bar", id: 1615595104
+mas "WireGuard", id: 1451685025
+mas "Xcode", id: 497799835
 vscode "1password.op-vscode"
 vscode "aaravb.chrome-extension-developer-tools"
 vscode "achil.vscode-javascript-repl"
