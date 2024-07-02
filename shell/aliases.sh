@@ -66,14 +66,16 @@ alias ping='prettyping --nolegend -Anc 5 1.1.1.1'
 
 # b -> brew
 alias b='brew'
+alias bb='brew bundle'
 
 # bbu -> brew update and clean
 alias bbu='b update && b upgrade && b autoremove && b cleanup --prune=all -s'
 
 # bb -> brew buundle
-alias bbd='b bundle dump --file="~/.dotfiles/macos/brewfile"'
-alias bbi='b bundle install --file="~/.dotfiles/macos/brewfile"'
-alias bbc='b bundle cleanup --file="~/.dotfiles/macos/brewfile"'
+alias bbdump='bb dump -f --file="~/.dotfiles/macos/brewfile"'
+alias bbinstall='bb install --file="~/.dotfiles/macos/brewfile"'
+alias bbclean='bb cleanup --file="~/.dotfiles/macos/brewfile"'
+alias bbcheck='bb check --file="~/.dotfiles/macos/brewfile"'
 
 # afk ->  open screen saver
 alias afk="/System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
