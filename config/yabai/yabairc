@@ -27,6 +27,11 @@ yabai -m config \
 # rules for all
 yabai -m rule --add app=".*" sub-layer=normal
 
+# move qutebrowser to space 2
+yabai -m rule --add app="^qutebrowser$" space=2
+yabai -m rule --add app="^Ghostty$" space=2
+yabai -m rule --add app="^Mail$" space=2
+
 # rules for apps by name
 yabai -m rule --add app="^1Password$" manage=off
 yabai -m rule --add app="^Adium$" manage=off
@@ -58,7 +63,6 @@ yabai -m rule --add app="^Keychain Access$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^Karabiner-MultitouchExtension$" manage=off
 yabai -m rule --add app="^Keka$" manage=off
-yabai -m rule --add app="^Mail$" manage=off
 yabai -m rule --add app="^Manage WireGaurd Tunnels$" manage=off
 yabai -m rule --add app="^Mpv$" manage=off
 yabai -m rule --add app="^mpv$" manage=off
@@ -87,9 +91,6 @@ yabai -m rule --add app="^UTM$" manage=off
 yabai -m rule --add app="^Vesktop$" manage=off
 yabai -m rule --add app="^VLC$" manage=off
 yabai -m rule --add app="^WireGaurd$" manage=off
-
-# move qutebrowser to space 3
-yabai -m rule --add app="^qutebrowser$" space=2
 
 # fix for borderless qutebrowser
 yabai -m rule --add app="^qutebrowser$" title!="^$" role="AXWindow" subrole="AXDialog" manage=on

@@ -7,56 +7,53 @@ show_hidden = true
 
 [preview]
 wrap = "no"
+max_width = 1200
+max_height = 1200
 
-# mime-ext
+# yazi-rs/plugins:mime-ext
 [[plugin.prepend_fetchers]]
 id = "mime"
 name = "*"
 run = "mime-ext"
 prio = "high"
 
-#
+# boydaihungst/file-extra-metadata
+[[plugin.append_spotters]]
+name = "*"
+run = "file-extra-metadata"
 [[plugin.append_previewers]]
 name = "*/"
 run = "folder"
 sync = true
-
-#
 [[plugin.append_previewers]]
 name = "text/*"
 run = "codium"
+[[plugin.append_previewers]]
+name = "*"
+run = "file-extra-metadata"
 
-# rich-preview
+# AnirudhG07/rich-preview
 [[plugin.prepend_previewers]]
 name = "*.csv"
 run = "rich-preview"
-
-# rich-preview
 [[plugin.prepend_previewers]]
 name = "*.md"
 run = "rich-preview"
 
-# torrent-preview
+# kirasok/torrent-preview.yazi.git
 [[plugin.prepend_previewers]]
 mime = "application/bittorrent"
 run = "torrent-preview"
 
-# exifaudio
+# Sonico98/exifaudio.yazi.git
 [[plugin.prepend_previewers]]
 mime = "audio/*"
 run = "exifaudio"
 
-# lsar
+# yazi-rs/plugins:lsar
 [[plugin.prepend_previewers]]
 mime = "application/{,g}zip"
 run = "lsar"
-
-# lsar
 [[plugin.prepend_previewers]]
 mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}"
 run = "lsar"
-
-# file-extra-metadata
-[[plugin.spotters]]
-mime = "*"
-run = "file-extra-metadata"

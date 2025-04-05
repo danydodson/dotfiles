@@ -21,11 +21,15 @@ shift + lctrl + alt - k : yabai -m window --insert north
 shift + lctrl + alt - l : yabai -m window --insert east
 
 # navigate workspaces
-lcmd - 1 : yabai -m space --focus 1
-lcmd - 2 : yabai -m space --focus 2
-lcmd - 3 : yabai -m space --focus 3
-lcmd - 4 : yabai -m space --focus 4
-lcmd - 5 : yabai -m space --focus 5
+cmd - 1 : yabai -m space --focus 1
+cmd - 2 : yabai -m space --focus 2
+cmd - 3 : yabai -m space --focus 3
+cmd - 4 : yabai -m space --focus 4
+cmd - 5 : yabai -m space --focus 5
+cmd - 5 : yabai -m space --focus 6
+cmd - 5 : yabai -m space --focus 7
+cmd - 5 : yabai -m space --focus 8
+cmd - 5 : yabai -m space --focus 9
 
 # navigate bsp windows
 lctrl + alt - h : yabai -m window --focus west
@@ -90,7 +94,7 @@ lalt - l : yabai -m window --resize right:12:0; \
   yabai -m window --resize left:12:0
 
 # open apps
-hyper - z : open -a /Applications/Ghostty.app
+hyper - z : open -a "/Applications/Ghostty.app"
 hyper - b : open -a "Brave Browser.app"
 hyper - c : open "/Applications/VSCodium.app"
 hyper - q : open "/Applications/qutebrowser.app"

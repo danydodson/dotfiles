@@ -68,6 +68,10 @@ alias poetry-install-master='pipx install --suffix=@master --force git+https://g
 alias activate='source .venv/bin/activate'
 alias venv='PIP_REQUIRE_VIRTUALENV=false python3 -m pip install --upgrade --user pip virtualenv && python3 -m virtualenv .venv && source .venv/bin/activate && python3 -m pip install --upgrade pip && which pip && pip list && pip --version && python3 --version'
 
+# transmission
+alias tran='transmission-remote'
+alias trand='transmission-daemon --dump-settings'
+
 # gls
 alias ls='/opt/homebrew/bin/gls --color=auto --human-readable --group-directories-first -I .DS_Store -I .Trash -I "Icon'$'\r"'
 alias l="ls -gol"

@@ -29,6 +29,9 @@
     ~/.config/btop/btop.conf:
       create: true
       path: config/btop/btop.conf
+    ~/.config/btop/themes/onedark.theme:
+      create: true
+      path: config/btop/themes/onedark.theme
     ~/.config/fastfetch/config.jsonc:
       create: true
       path: config/fastfetch/config.jsonc
