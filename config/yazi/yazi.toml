@@ -1,59 +1,148 @@
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
 [manager]
-ratio = [2, 3, 4]
-show_symlink = true
+ratio = [ 2, 3, 4 ]
+sort_by = "alphabetical"
+sort_sensitive = false
+sort_reverse = false
+sort_dir_first = true
+sort_translit = false
+linemode = "size"
 show_hidden = true
+show_symlink = false
+scrolloff = 5
+mouse_events = [ "click", "scroll" ]
 
 [preview]
 wrap = "no"
+tab_size = 2
 max_width = 1200
-max_height = 1200
+max_height = 1500
+image_filter = "catmull-rom"
+image_quality = 90
+sixel_fraction = 10
+ueberzug_scale = 2
+ueberzug_offset = [ 0, 0, 0, 0 ]
 
-# yazi-rs/plugins:mime-ext
-[[plugin.prepend_fetchers]]
-id = "mime"
-name = "*"
-run = "mime-ext"
-prio = "high"
+[opener]
+edit = [
+  { run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
+  { run = 'code %*', orphan = true, desc = "code", for = "windows" },
+  { run = 'code -w %*', block = true, desc = "code (block)", for = "windows" },
+]
 
-# boydaihungst/file-extra-metadata
-[[plugin.append_spotters]]
-name = "*"
-run = "file-extra-metadata"
-[[plugin.append_previewers]]
-name = "*/"
-run = "folder"
-sync = true
-[[plugin.append_previewers]]
-name = "text/*"
-run = "codium"
-[[plugin.append_previewers]]
-name = "*"
-run = "file-extra-metadata"
+open = [
+  { run = 'xdg-open "$1"', desc = "Open", for = "linux" },
+  { run = 'open "$@"', desc = "Open", for = "macos" },
+  { run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
+]
+reveal = [
+  { run = 'xdg-open "$(dirname "$1")"', desc = "Reveal", for = "linux" },
+  { run = 'open -R "$1"', desc = "Reveal", for = "macos" },
+  { run = 'explorer /select,"%1"', orphan = true, desc = "Reveal", for = "windows" },
+  { run = '''exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
+]
+extract = [
+  { run = 'ya pub extract --list "$@"', desc = "Extract here", for = "unix" },
+  { run = 'ya pub extract --list %*', desc = "Extract here", for = "windows" },
+]
+play = [
+  { run = 'mpv --force-window "$@"', orphan = true, for = "unix" },
+  { run = 'mpv --force-window %*', orphan = true, for = "windows" },
+  { run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
+]
 
-# AnirudhG07/rich-preview
-[[plugin.prepend_previewers]]
-name = "*.csv"
-run = "rich-preview"
-[[plugin.prepend_previewers]]
-name = "*.md"
-run = "rich-preview"
+[open]
+rules = [
+  # folder
+  { name = "*/", use = [ "edit", "open", "reveal" ] },
+  # text
+  { mime = "text/*", use = [ "edit", "reveal" ] },
+  # image
+  { mime = "image/*", use = [ "open", "reveal" ] },
+  # media
+  { mime = "{audio,video}/*", use = [ "play", "reveal" ] },
+  # archive
+  { mime = "application/{,g}zip", use = [ "extract", "reveal" ] },
+  { mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", use = [ "extract", "reveal" ] },
+  # json
+  { mime = "application/{json,x-ndjson}", use = [ "edit", "reveal" ] },
+  { mime = "*/javascript", use = [ "edit", "reveal" ] },
+  # empty file
+  { mime = "inode/x-empty", use = [ "edit", "reveal" ] },
+  # fallback
+  { name = "*", use = [ "open", "reveal" ] },
+]
 
-# kirasok/torrent-preview.yazi.git
-[[plugin.prepend_previewers]]
-mime = "application/bittorrent"
-run = "torrent-preview"
+[tasks]
+micro_workers = 10
+macro_workers = 25
+bizarre_retry = 5
+image_alloc = 536870912  # 512MB
+image_bound = [ 0, 0 ]
+suppress_preload = false
 
-# Sonico98/exifaudio.yazi.git
-[[plugin.prepend_previewers]]
-mime = "audio/*"
-run = "exifaudio"
+[plugin]
+fetchers = [
+  # mimetype
+  { id = "mime", name = "*", run = "mime", if = "!mime", prio = "high" },
+]
+preloaders = [
+  # image
+  { mime = "image/{avif,hei?,jxl,svg+xml}", run = "magick" },
+  { mime = "image/*", run = "image" },
+  # video
+  { mime = "video/*", run = "video" },
+  # pdf
+  { mime = "application/pdf", run = "pdf" },
+  # font
+  { mime = "font/*", run = "font" },
+  { mime = "application/vnd.ms-opentype", run = "font" },
+]
+previewers = [
+  { name = "*/", run = "folder", sync = true },
+  # code
+  { mime = "text/*", run = "code" },
+  { mime = "*/{xml,javascript,x-wine-extension-ini}", run = "code" },
+  # json
+  { mime = "application/{json,x-ndjson}", run = "json" },
+  # image
+  { mime = "image/{avif,hei?,jxl,svg+xml}", run = "magick" },
+  { mime = "image/*", run = "image" },
+  # video
+  { mime = "video/*", run = "video" },
+  # pdf
+  { mime = "application/pdf", run = "pdf" },
+  # archive
+  { mime = "application/{,g}zip", run = "archive" },
+  { mime = "application/x-{tar,bzip*,7z-compressed,xz,rar,iso9660-image}", run = "archive" },
+  # font
+  { mime = "font/*", run = "font" },
+  { mime = "application/vnd.ms-opentype", run = "font" },
+  # empty file
+  { mime = "inode/x-empty", run = "empty" },
+  # extra-metadata
+  # { name = "*", run = "file-extra-metadata" },
+  # fallback
+  { name = "*", run = "file" },
+]
+prepend_previewers = [
+  # files
+  # { mime = "text/csv", run = "miller" },
+  { name = "*.csv", run = "duckdb" },
+  { name = "*.md", run = "rich-preview" },
+  { mime = "application/bittorrent", run = "torrent-preview" },
+  # pedia
+  { mime = "audio/*", run = "exifaudio" },
+  # packages
+  { mime = "application/{,g}zip", run = "lsar" },
+  { mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", run = "lsar" },
+]
+prepend_preloaders = [
+  { name = "*.csv", run = "duckdb", multi = false },
+  # { name = "*.db", run = "duckdb" },
+  # { name = "*.duckdb", run = "duckdb" },
+]
 
-# yazi-rs/plugins:lsar
-[[plugin.prepend_previewers]]
-mime = "application/{,g}zip"
-run = "lsar"
-[[plugin.prepend_previewers]]
-mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}"
-run = "lsar"
+[input]
+cursor_blink = false

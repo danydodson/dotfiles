@@ -46,6 +46,9 @@ install_tmux_plugins() {
 	if [ ! -d "$HOME/.tmux/plugins/tmux-continuum" ]; then
 		git clone https://github.com/tmux-plugins/tmux-continuum "$HOME/.tmux/plugins/tmux-continuum"
 	fi
+	if [ ! -d "$HOME/.tmux/plugins/tmux-resurrect" ]; then
+		git clone https://github.com/tmux-plugins/tmux-resurrect "$HOME/.tmux/plugins/tmux-resurrect"
+	fi
 	if [ ! -d "$HOME/.tmux/plugins/vim-tmux-navigator" ]; then
 		git clone https://github.com/christoomey/vim-tmux-navigator "$HOME/.tmux/plugins/vim-tmux-navigator"
 	fi

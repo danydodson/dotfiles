@@ -35,12 +35,10 @@ function install_python_packages() {
     fi
     info "Installing python packages..."
     "$HOME"/.pyenv/shims/python -m pip install --upgrade pip
-    "$HOME"/.pyenv/shims/python -m pip install --upgrade pip setuptools
-    "$HOME"/.pyenv/shims/python -m pip install --upgrade pip pynvim
-    "$HOME"/.pyenv/shims/python -m pip install --upgrade pip rich
-    "$HOME"/.pyenv/shims/python -m pip install --upgrade pip rich pip-review
-    "$HOME"/.pyenv/shims/python -m pip install --upgrade pip https://github.com/darkdragn/party/releases/download/v0.7.6/party-0.7.6-py3-none-any.whl
-    "$HOME"/.pyenv/shims/python pip cache purge
+    "$HOME"/.pyenv/shims/python -m pip install setuptools
+    "$HOME"/.pyenv/shims/python -m pip install rich
+    "$HOME"/.pyenv/shims/python -m pip install pip-review
+    "$HOME"/.pyenv/shims/python -m pip install https://github.com/darkdragn/party/releases/download/v0.7.6/party-0.7.6-py3-none-any.whl
     echo
   else
     error "Error: python is not available"

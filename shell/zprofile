@@ -9,7 +9,7 @@ export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 # my paths
 export PATH=$PATH:${DOTFILES}/bin
 
-# homebrew
+# homebrew path
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # lua path
@@ -18,6 +18,9 @@ export PATH=$HOME/.local/share/lua/bin:$PATH
 # go path
 export PATH=$PATH:$GO_PATH/bin
 export PATH=$PATH:$GOROOT/bin
+
+# conda
+export PATH="/opt/homebrew/anaconda3/bin:$PATH"
 
 # java path
 export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"

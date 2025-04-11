@@ -107,7 +107,7 @@ rules = [
   # Empty files
   # { mime = "inode/x-empty", fg = "#f7768e" },
   # Special files
-  { name = "*", is = "orphan", bg = "#f7768e" },
+  { name = "*", is = "orphan", bg = "#292b33" },
   { name = "*", is = "exec", fg = "#9ece6a" },
   # Fallback
   { name = "*/", fg = "#7aa2f7" },

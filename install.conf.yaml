@@ -13,6 +13,7 @@
     - ~/Developer/security
     - ~/Developer/served
     - ~/Developer/temp
+    - ~/Games
 
 - link:
     ~/.zlogin:
@@ -23,27 +24,34 @@
       path: shell/zshenv
     ~/.zshrc:
       path: shell/zshrc
+      #
     ~/.config/1password/ssh/agent.toml:
       create: true
       path: config/1password/ssh/agent.toml
+      #
     ~/.config/btop/btop.conf:
       create: true
       path: config/btop/btop.conf
     ~/.config/btop/themes/onedark.theme:
       create: true
       path: config/btop/themes/onedark.theme
+      #
     ~/.config/fastfetch/config.jsonc:
       create: true
       path: config/fastfetch/config.jsonc
+      #
     ~/.gitconfig:
       path: config/git/gitconfig
     ~/.gitignore:
       path: config/git/gitignore
+      #
     ~/.config/gh/config.yml:
       path: config/gh/config.yml
+      #
     ~/.config/ghostty/config:
       create: true
       path: config/ghostty/config
+      #
     ~/.qutebrowser/config.py:
       create: true
       path: config/qutebrowser/config.py
@@ -62,22 +70,29 @@
     ~/.qutebrowser/greasemonkey/yt-autoclose.user.js:
       create: true
       path: config/qutebrowser/greasemonkey/yt-autoclose.user.js
+      #
     ~/.config/ranger/rc.conf:
       create: true
       path: config/ranger/rc.conf
+      #
     ~/.ssh/config:
       create: true
       path: config/ssh/config
+      #
     ~/.tmux.conf:
       path: config/tmux/tmux.conf
+      #
     ~/.vimrc:
       path: config/vim/vimrc
+      #
     ~/.config/skhd/skhdrc:
       create: true
       path: config/skhd/skhdrc
+      #
     ~/.config/yabai/yabairc:
       create: true
       path: config/yabai/yabairc
+      # yazi
     ~/.config/yazi/init.lua:
       create: true
       path: config/yazi/init.lua

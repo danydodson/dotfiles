@@ -5,7 +5,6 @@ alias sudo="sudo "
 # file managers
 alias o="open"
 alias oo="open ."
-alias yy="yazi"
 alias rr="ranger"
 
 alias cl="clear"
@@ -156,4 +155,14 @@ alias spotlight_on="sudo mdutil -a -i on"
 # create and cd into directory
 function mkd() {
   mkdir -p $@ && cd ${@:$#}
+}
+
+# yazi wrapper
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
 }

@@ -15,20 +15,26 @@ setup_yazi() {
 		if [ ! -d "$HOME/.config/yazi/plugins/chmod.yazi" ]; then
 			ya pack -a yazi-rs/plugins:chmod
 		fi
+		if [ ! -d "$HOME/.config/yazi/plugins/duckdb.yazi" ]; then
+			ya pack -a wylie102/duckdb
+		fi
+		if [ ! -d "$HOME/.config/yazi/plugins/exifaudio.yazi" ]; then
+			ya pack -a "Sonico98/exifaudio"
+		fi
 		if [ ! -d "$HOME/.config/yazi/plugins/file-extra-metadata.yazi" ]; then
 			ya pack -a boydaihungst/file-extra-metadata
 		fi
 		if [ ! -d "$HOME/.config/yazi/plugins/full-border.yazi" ]; then
 			ya pack -a yazi-rs/plugins:full-border
 		fi
-		if [ ! -d "$HOME/.config/yazi/plugins/hide-preview.yazi" ]; then
-			ya pack -a yazi-rs/plugins:hide-preview
-		fi
 		if [ ! -d "$HOME/.config/yazi/plugins/lsar.yazi" ]; then
 			ya pack -a yazi-rs/plugins:lsar
 		fi
 		if [ ! -d "$HOME/.config/yazi/plugins/max-preview.yazi" ]; then
 			ya pack -a yazi-rs/plugins:max-preview
+		fi
+		if [ ! -d "$HOME/.config/yazi/plugins/miller.yazi" ]; then
+			ya pack -a Reledia/miller
 		fi
 		if [ ! -d "$HOME/.config/yazi/plugins/mime-ext.yazi" ]; then
 			ya pack -a yazi-rs/plugins:mime-ext
@@ -44,9 +50,6 @@ setup_yazi() {
 		fi
 		if [ ! -d "$HOME/.config/yazi/plugins/sudo-demo.yazi" ]; then
 			ya pack -a yazi-rs/plugins:sudo-demo
-		fi
-		if [ ! -d "$HOME/.config/yazi/plugins/exifaudio.yazi" ]; then
-			ya pack -a "Sonico98/exifaudio"
 		fi
 		if [ ! -d "$HOME/.config/yazi/plugins/torrent-preview.yazi" ]; then
 			git clone https://github.com/kirasok/torrent-preview.yazi.git ~/.config/yazi/plugins/torrent-preview.yazi
