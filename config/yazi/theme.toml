@@ -1,8 +1,7 @@
+# yazi theme.toml
+
 [manager]
 cwd = { fg = "#a9b1d6", italic = true }
-
-# hovered         = { bg = "#292e42" }
-# preview_hovered = { bg = "#292e42" }
 
 find_keyword = { fg = "#1f2335", bg = "#ff9e64", bold = true }
 find_position = { fg = "#0db9d7", bg = "#22374b", bold = true }
@@ -12,9 +11,9 @@ marker_cut = { fg = "#f7768e", bg = "#f7768e" }
 marker_marked = { fg = "#bb9af7", bg = "#bb9af7" }
 marker_selected = { fg = "#7aa2f7", bg = "#7aa2f7" }
 
+tab_width = 1
 tab_active = { fg = "#c0caf5", bg = "#292e42" }
 tab_inactive = { fg = "#3b4261", bg = "#24283b" }
-tab_width = 1
 
 count_copied = { fg = "#c0caf5", bg = "#41a6b5" }
 count_cut = { fg = "#c0caf5", bg = "#db4b4b" }
@@ -50,8 +49,6 @@ inactive = { fg = "#c0caf5" }
 [spot]
 border = { fg = "#4fa6ed" }
 title = { fg = "#4fa6ed" }
-
-# Table. Currently only support nightly.
 tbl_cell = { fg = "#4fa6ed", reversed = true }
 tbl_col = { fg = "#4fa6ed" }
 
@@ -85,7 +82,6 @@ title_info = { fg = "#0db9d7" }
 title_warn = { fg = "#e0af68" }
 title_error = { fg = "#f7768e" }
 
-# Help
 [help]
 on = { fg = "#9ece6a" }
 run = { fg = "#bb9af7" }
@@ -93,22 +89,14 @@ hovered = { bg = "#2e3c64" }
 footer = { fg = "#c0caf5", bg = "#24283b" }
 
 [filetype]
-
 rules = [
-  # Images
   { mime = "image/*", fg = "#e0af68" },
-  # Media
   { mime = "{audio,video}/*", fg = "#bb9af7" },
-  # Archives
   { mime = "application/*zip", fg = "#f7768e" },
   { mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", fg = "#f7768e" },
-  # Documents
   { mime = "application/{pdf,doc,rtf,vnd.*}", fg = "#7dcfff" },
-  # Empty files
-  # { mime = "inode/x-empty", fg = "#f7768e" },
-  # Special files
+  { mime = "inode/x-empty", fg = "#f7768e" },
   { name = "*", is = "orphan", bg = "#292b33" },
   { name = "*", is = "exec", fg = "#9ece6a" },
-  # Fallback
   { name = "*/", fg = "#7aa2f7" },
 ]

@@ -11,3 +11,17 @@
 div.sc-eBMEME.iovIio {
   color: #787c99 !important;
 }
+
+.monaco-workbench .part.sidebar>.title {
+  max-height: 24px !important;
+  margin-bottom: 12px !important;
+}
+
+.monaco-workbench .monaco-action-bar:not(.vertical) .action-label:not(.disabled):hover,
+.monaco-workbench .monaco-action-bar:not(.vertical) .monaco-dropdown-with-primary:not(.disabled):hover {
+  background-color: #1e2227 !important
+}
+
+.monaco-scrollable-element>.scrollbar>.slider{
+  display: none !important;
+}

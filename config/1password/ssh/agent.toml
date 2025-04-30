@@ -16,3 +16,8 @@ account = "Dany Dodson"
 item = "ollama ssh key"
 vault = "Personal"
 account = "Dany Dodson"
+
+[[ssh-keys]]
+item = "hetzner ssh key"
+vault = "Personal"
+account = "Dany Dodson"

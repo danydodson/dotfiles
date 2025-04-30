@@ -7,6 +7,7 @@
 
 - create:
     - ~/Developer/boiler
+    - ~/Developer/conda
     - ~/Developer/plugins
     - ~/Developer/practice
     - ~/Developer/repos
@@ -81,6 +82,9 @@
       #
     ~/.tmux.conf:
       path: config/tmux/tmux.conf
+      #
+    ~/Library/Application Support/transmission-daemon/settings.json:
+      path: config/transmission/settings.json
       #
     ~/.vimrc:
       path: config/vim/vimrc

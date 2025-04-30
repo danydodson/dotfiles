@@ -68,8 +68,13 @@ alias activate='source .venv/bin/activate'
 alias venv='PIP_REQUIRE_VIRTUALENV=false python3 -m pip install --upgrade --user pip virtualenv && python3 -m virtualenv .venv && source .venv/bin/activate && python3 -m pip install --upgrade pip && which pip && pip list && pip --version && python3 --version'
 
 # transmission
-alias tran='transmission-remote'
-alias trand='transmission-daemon --dump-settings'
+alias trc='transmission-cli'
+alias trd='transmission-daemon'
+alias tr='transmission-remote'
+alias tra='transmission-remote -a'
+alias trl='transmission-remote -l'
+alias tre='transmission-edit'
+alias trs='transmission-show'
 
 # gls
 alias ls='/opt/homebrew/bin/gls --color=auto --human-readable --group-directories-first -I .DS_Store -I .Trash -I "Icon'$'\r"'
@@ -86,6 +91,9 @@ alias ff="fastfetch"
 
 # clean .DS_Store files
 alias rmds="find . -type f -name '*.DS_Store' -ls -delete"
+
+# clean node_modules directories
+alias rmnm="find . -type d -name 'node_modules' -ls -delete"
 
 [ -d $HOME/Downloads ] && alias dl="cd $HOME/Downloads"
 [ -d $HOME/.dotfiles ] && alias dots="cd $HOME/.dotfiles"

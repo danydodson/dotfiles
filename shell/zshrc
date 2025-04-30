@@ -45,22 +45,24 @@ if [ $(command -v fzf) ]; then
   source $DOTFILES/config/fzf/fzf.zsh
 fi
 
-# pyenv
-if [[ -d "$PYENV_ROOT" ]] && \
-  command -v pyenv >/dev/null 2>&1 && \
-  command -v pyenv-virtualenv-init >/dev/null; then
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-fi
-
-# iterm2 integration
-[[ -f "${DOTFILES}/config/iterm/iterm.zsh" ]] && . "${DOTFILES}/config/iterm/iterm.zsh"
-
-# opam ocaml
-[[ ! -r '/Users/dany/.opam/opam-init/init.zsh' ]] || source '/Users/dany/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+# zsh compgen
+source "$ZSH/custom/plugins/zsh-comp-generator/zsh-completion-generator.plugin.zsh"
 
 # used with magick rock
 export DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_FALLBACK_LIBRARY_PATH"
+
+# conda initialize
+__conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+  eval "$__conda_setup"
+else
+  if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
+    . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
+  else
+    export PATH="/opt/homebrew/anaconda3/bin:$PATH"
+  fi
+fi
+unset __conda_setup
 
 # load completions
 autoload -Uz compinit
@@ -70,21 +72,3 @@ else
   compinit -C
 fi
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/homebrew/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/dany/.lmstudio/bin"

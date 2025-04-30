@@ -1,56 +1,62 @@
 #!/usr/bin/env zsh
 
-# system executables
+# system executables -> path
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/libexec
 
-# local system binaries
+# local system binaries -> path
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
-# my paths
+# dotfiles bin -> path
 export PATH=$PATH:${DOTFILES}/bin
 
 # homebrew path
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# lua path
+# lua -> path
 export PATH=$HOME/.local/share/lua/bin:$PATH
 
-# go path
+# go -> path
 export PATH=$PATH:$GO_PATH/bin
 export PATH=$PATH:$GOROOT/bin
 
-# conda
+# conda -> path
 export PATH="/opt/homebrew/anaconda3/bin:$PATH"
 
-# java path
+# java -> path
 export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 
-# jaro mail
+# jaro mail -> path
 export PATH=/Applications/JaroMail.app/Contents/Resources/jaro/bin:$PATH
 
-# add zsh-completions to fpath
+# zsh-completions -> fpath
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.omz}/custom}/plugins/zsh-completions/src
 
-# global yarn bin
+#
+# source "$HOME/.dotfiles/huggingface-cli-completion.sh"
+
+# global yarn bin -> path
 export PATH="$HOME/.yarn/bin:$PATH"
 
-# global go bin
+# global go bin -> path
 export PATH="$HOME/.go/bin:$PATH"
 
-# php
+# ls studio -> path
+export PATH="$PATH:/Users/dany/.lmstudio/bin"
+
+# php -> path
 export PATH="/opt/homebrew/opt/php/bin:/$PATH"
 
 # nvm and completions
 [[ -f "/opt/homebrew/opt/nvm/nvm.sh" ]] && . "/opt/homebrew/opt/nvm/nvm.sh"
 [[ -f "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ]] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
-# macos paths
+# macos paths -> path
 for path_file in /etc/paths.d/*(.N); do
   path+=($(<$path_file))
 done
 unset path_file
 
-# clear duplicates
+# clear duplicate paths
 typeset -gU fpath path
 
 # set the path for macos

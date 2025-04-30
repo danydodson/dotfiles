@@ -24,9 +24,6 @@ setup_yazi() {
 		if [ ! -d "$HOME/.config/yazi/plugins/file-extra-metadata.yazi" ]; then
 			ya pack -a boydaihungst/file-extra-metadata
 		fi
-		if [ ! -d "$HOME/.config/yazi/plugins/full-border.yazi" ]; then
-			ya pack -a yazi-rs/plugins:full-border
-		fi
 		if [ ! -d "$HOME/.config/yazi/plugins/lsar.yazi" ]; then
 			ya pack -a yazi-rs/plugins:lsar
 		fi

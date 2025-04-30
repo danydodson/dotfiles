@@ -1,53 +1,13 @@
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
-# open shell here
-[[manager.prepend_keymap]]
-on = "!"
-run = 'shell "$SHELL" --block'
-desc = "Open shell here"
-
-# cancel cmd on escape
-[[input.prepend_keymap]]
-on = "<Esc>"
-run = "close"
-desc = "Cancel input"
-
-# quicklook
-[[manager.prepend_keymap]]
-on = "<C-p>"
-run = '''
-  shell 'qlmanage -p "$@"'
-'''
-
-# yazi-rs/plugins:chmod
-[[manager.prepend_keymap]]
-on = [ "c", "m" ]
-run = "plugin chmod"
-desc = "Chmod on selected files"
-
-# yazi-rs/plugins:sudo-demo
-[[manager.prepend_keymap]]
-on = "<C-t>"
-run = "plugin sudo-demo"
-
-# yazi-rs/plugins:max-preview
-[[manager.prepend_keymap]]
-on = "t"
-run = "plugin max-preview"
-desc = "Maximize or restore preview"
-
-# file-extra-metadata
-[[manager.prepend_keymap]]
-on = "<Tab>"
-run = "spot"
-desc = "Spot hovered file"
-
-# -- wylie102/duckdb.yazi
-[[manager.prepend_keymap]]
-on = "H"
-run = "plugin duckdb -1"
-desc = "Scroll one column to the left"
-[[manager.prepend_keymap]]
-on = "L"
-run = "plugin duckdb +1"
-desc = "Scroll one column to the right"
+[manager]
+prepend_keymap = [
+  { on = [ "<Esc>" ], run = "close", desc = "Cancel input" },
+  { on = [ "!" ], run = 'shell "$SHELL" --block', desc = "Open shell here" },
+  { on = [ "<Tab>" ], run = "spot", desc = "Spot hovered file" },
+  { on = [ "<C-p>" ], run = 'shell "qlmanage -p "$@"" ', desc = "Open file in quicklook" },
+  { on = [ "c", "m" ], run = "plugin chmod", desc = "chmod selected files" },
+  { on = [ "<C-e>" ], run = "seek 5", desc = "Scroll down glow preview" },
+  { on = [ "<C-y>" ], run = "seek -5", desc = "Scroll up glow preview" },
+  { on = [ "<C-t>" ], run = "plugin sudo-demo", desc = "sudo selected files" },
+]

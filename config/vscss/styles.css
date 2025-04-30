@@ -1,0 +1,114 @@
+/* activity bar height */
+/* .monaco-workbench .activitybar>.content :not(.monaco-menu)>.monaco-action-bar .action-label {
+  /height: 40px; 
+  width: 30px;
+} */
+
+/* activity bar width */
+/* .monaco-workbench .part.activitybar {
+  width: 30px;
+} */
+
+/* activity bar icons */
+/* .monaco-workbench .activitybar>.content :not(.monaco-menu)>.monaco-action-bar .action-label.codicon {
+  font-size: 13px;
+  right: 9px;
+} */
+
+/* more bar icons */
+/* .monaco-workbench .activitybar .monaco-action-bar .action-label.activity-workbench-view-extension-python-2feba58765770a361f8d8edc3863b0d249d57bf0 {
+  mask: url(vscode-file://vscode-app/Users/dany/.vscode/extens…hon-envs-0.3.10991008-darwin-arm64/files/logo.svg) 50% 50% / 24px no-repeat padding border-box;
+} */
+
+/* body > div.file-icons-enabled.enable-motion.monaco-workbench.mac.chromium.nopanel.noauxiliarybar.macos-bigsur-or-newer.maximized.vs-dark.zhuangtongfa-material-theme-themes-OneDark-Pro-darker-json > div.monaco-grid-view > div > div > div.monaco-scrollable-element.mac > div.split-view-container > div:nth-child(3) > div > div > div.monaco-scrollable-element.mac > div.split-view-container > div:nth-child(2){
+  left: 30px;
+  width: 283px;
+} */
+
+/* line numbers */
+.monaco-editor .margin-view-overlays .line-numbers {
+  font-size: 0.7rem !important;
+}
+
+.relative-current-line-number {
+  text-align: unset !important;
+}
+
+div.sc-eBMEME.iovIio {
+  color: #787c99 !important;
+}
+
+/* .editor .title .actions-container .action-item a {
+  visibility: hidden;
+} */
+
+/* .editor .title .actions-container {
+  flex-direction: row-reverse;
+} */
+
+/* .monaco-workbench .part>.header-or-footer,
+.monaco-workbench .part>.title {
+  height: 28px !important;
+  padding-left: 0px !important;
+} */
+
+/* .monaco-workbench .part>.title>.title-label {
+  line-height: 30px !important;
+} */
+
+/* Code canvas top shadow */
+/* .monaco-editor .scroll-decoration {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, .75) !important;
+  top: -6px !important;
+}
+
+.monaco-workbench .part.titlebar>.titlebar-container {
+  background-color: #2b2e3c !important;
+} */
+
+/* Project title's style at the top. */
+/* .monaco-workbench .part.titlebar>.titlebar-container>.titlebar-center>.window-title>.command-center .action-item.command-center-center {
+  border: none !important;
+  background: transparent !important;
+} */
+
+
+/* File Explorer Selected Item */
+/* .monaco-list.list_id_1 .monaco-list-row.selected {
+  background-color: #4f5971 !important;
+  opacity: 1 !important;
+  border-top: 1px #727b90 solid;
+  border-bottom: 1px #727b90 solid;
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title .editor-actions {
+  display: none !important;
+}
+
+
+.monaco-editor-hover,
+.monaco-hover {
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.45) !important;
+  padding: 10px !important;
+  background-color: #2b2e3c !important;
+  backdrop-filter: blur(3px) !important;
+  background-color: #2b2e3c !important;
+  margin: 6px !important;
+  border-radius: 6px !important;
+  border: 1px solid #63697355 !important;
+} */
+
+/* Project Title */
+/* .titlebar-left {
+  justify-content: flex-start !important;
+  flex-grow: 0 !important;
+  width: auto !important;
+}
+
+.monaco-split-view2.horizontal>.monaco-scrollable-element>.split-view-container>.split-view-view {
+  background-color: rgb(49, 52, 69) !important;
+}
+
+.monaco-workbench .part.titlebar>.titlebar-container>.titlebar-center>.window-title>.command-center .action-item.command-center-center {
+  width: 200px !important;
+} */

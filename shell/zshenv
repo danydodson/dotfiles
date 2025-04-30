@@ -19,13 +19,13 @@ export GOPATH="${HOME}/.go"
 export GOBIN="${HOME}/.go/bin"
 export GOROOT="/opt/homebrew/opt/go/libexec"
 
-export PYENV_ROOT="$HOME/.pyenv"
-
 export NVM_HOMEBREW="/opt/homebrew/opt/nvm"
 
 export HOMEBREW_NO_ENV_HINTS=true
 
 export BAT_CONFIG_PATH="$HOME/.dotfiles/config/bat/config"
+
+export GENCOMPL_FPATH="$HOME/.omz/custom/completions"
 
 export CURL_HOME="${DOTFILES}/config/curl"
 export WGETRC="${DOTFILES}/config/wget/wgetrc"

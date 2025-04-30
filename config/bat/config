@@ -1,4 +1,4 @@
-# ~/.dotfiles/config/bat/config
+# bat/config
 
 # --theme="OneHalfDark"
 --theme="TwoDark"

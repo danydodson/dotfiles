@@ -3,63 +3,43 @@
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
-yabai -m config \
-  layout bsp \
-  external_bar all:0:0 \
-  top_padding 2 \
-  bottom_padding 3 \
-  left_padding 3 \
-  right_padding 3 \
-  window_gap 8 \
-  window_origin_display default \
-  window_placement second_child \
-  split_ratio 0.50 \
-  auto_balance off \
-  window_shadow float \
-  window_zoom_persist on \
-  mouse_modifier fn \
-  mouse_action1 move \
-  mouse_action2 resize \
-  mouse_drop_action swap \
-  mouse_follows_focus off \
-  focus_follows_mouse of
+yabai -m config
+yabai -m layout stack
+yabai -m external_bar all:0:0
+yabai -m top_padding 2
+yabai -m bottom_padding 3
+yabai -m left_padding 3
+yabai -m right_padding 3
+yabai -m window_gap 4
+yabai -m window_origin_display default
+yabai -m window_placement second_child
+yabai -m split_ratio 0.50
+yabai -m auto_balance off
+yabai -m window_shadow float
+yabai -m window_zoom_persist on
+yabai -m mouse_modifier fn
+yabai -m mouse_action1 move
+yabai -m mouse_action2 resize
+yabai -m mouse_drop_action swap
+yabai -m mouse_follows_focus off
+yabai -m focus_follows_mouse off
 
-# rules for all
 yabai -m rule --add app=".*" sub-layer=normal
-
-# move qutebrowser to space 2
-yabai -m rule --add app="^qutebrowser$" space=2
-yabai -m rule --add app="^Ghostty$" space=2
-yabai -m rule --add app="^Mail$" space=2
-
-# rules for apps by name
 yabai -m rule --add app="^1Password$" manage=off
-yabai -m rule --add app="^Adium$" manage=off
-yabai -m rule --add app="^AppCleaner$" manage=off
-yabai -m rule --add app="^Apparency$" manage=off
-yabai -m rule --add app="^Alacritty$" manage=off
-yabai -m rule --add app="^Alfred Preferences$" manage=off
-yabai -m rule --add app="^Activity Monitor$" manage=off
-yabai -m rule --add app="^App Store$" manage=off
-yabai -m rule --add app="^Better Display$" manage=off
 yabai -m rule --add app="^Bluetooth Inspector$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^ChatGPT$" manage=off
 yabai -m rule --add app="^choose$" manage=off
-yabai -m rule --add app="^Console$" manage=off
 yabai -m rule --add app="^Contacts$" manage=off
 yabai -m rule --add app="^DevTools$" manage=off
 yabai -m rule --add app="^Downie 4$" manage=off
 yabai -m rule --add app="^Dictionary$" manage=off
+yabai -m rule --add app="^EdgeView$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^Find My$" manage=off
-yabai -m rule --add app="^Font Book$" manage=off
-yabai -m rule --add app="^Ghostty$" manage=off
 yabai -m rule --add app="^GPG Keychain$" manage=off
-yabai -m rule --add app="^GIMP$" manage=off
 yabai -m rule --add app="^iPhone Mirroring$" manage=off
 yabai -m rule --add app="^IINA$" manage=off
-yabai -m rule --add app="^Keychain Access$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^Karabiner-MultitouchExtension$" manage=off
 yabai -m rule --add app="^Keka$" manage=off
@@ -67,22 +47,17 @@ yabai -m rule --add app="^Manage WireGaurd Tunnels$" manage=off
 yabai -m rule --add app="^Mpv$" manage=off
 yabai -m rule --add app="^mpv$" manage=off
 yabai -m rule --add app="^Messages$" manage=off
-yabai -m rule --add app="^Music$" manage=off
-yabai -m rule --add app="^MurGaa Auto Clicker$" manage=off
 yabai -m rule --add app="^Notes$" manage=off
-yabai -m rule --add app="^Ollama$" manage=off
-yabai -m rule --add app="^Peek$" manage=off
-yabai -m rule --add app="^Postman$" manage=off
 yabai -m rule --add app="^Permute 3$" manage=off
 yabai -m rule --add app="^Photo Booth$" manage=off
 yabai -m rule --add app="^QuickTime Player$" manage=off
 yabai -m rule --add app="^Reminders$" manage=off
 yabai -m rule --add app="^RiseupVPN$" manage=off
-yabai -m rule --add app="^Spotify$" manage=off
 yabai -m rule --add app="^Source$" manage=off
 yabai -m rule --add app="^Suspicious Package$" manage=off
 yabai -m rule --add app="^Shortcuts$" manage=off
 yabai -m rule --add app="^Software Update$" manage=off
+yabai -m rule --add app="^Stickies$" manage=off
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^System Information$" manage=off sub-layer=above
 yabai -m rule --add app="^System Preferences$" manage=off sub-layer=above
