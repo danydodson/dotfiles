@@ -1,9 +1,9 @@
 # dotfiles 🍩
 
-![screenshot](.github/nvim.png)
+![screenshot](docs/nvim.png)
 
 These are my personal dotfiles. The setup is based on
-[dotbot](https://github.com/anishathalye/dotbot) and aims to be as idempotent as
+[dotbot](https://github.com/danydodson/dotfiles) and aims to be as idempotent as
 possible.
 
 ### Systems 🚀
