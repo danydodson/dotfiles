@@ -60,11 +60,11 @@ systemsetup -setcomputersleep Off >/dev/null
 # Set to dark mode
 defaults write -globalDomain "AppleInterfaceStyle" -string "Dark"
 
-# Set a custom wallpaper image. `DefaultDesktop.jpg` is already a symlink, and
+# Set a custom wallpaper image. `DefaultBackground.jpg` is already a symlink, and
 # all wallpapers are in `/Library/Desktop Pictures/`. The default is `Wave.jpg`.
 # rm -rf ~/Library/Application Support/Dock/desktoppicture.db
-# sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
-# sudo ln -s /path/to/your/image /System/Library/CoreServices/DefaultDesktop.jpg
+# sudo rm -rf /System/Library/CoreServices/DefaultBackground.jpg
+# sudo ln -s /Users/dany/.dotfiles/docs/dd.png /System/Library/CoreServices/DefaultBackground.png
 
 # Remove duplicates in the “Open With” menu (also see `lscleanup` alias)
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
@@ -141,9 +141,6 @@ defaults write com.apple.screencapture type -string "png"
 # Disable shadow in screenshots
 defaults write com.apple.screencapture disable-shadow -bool true
 
-# Enable subpixel font rendering on non-Apple LCDs
-# defaults write NSGlobalDomain AppleFontSmoothing -int 2
-
 ###############################################################################
 # Finder                                                                      #
 ###############################################################################
@@ -188,8 +185,6 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
 # Set Desktop as the default location for new Finder windows
 # For other paths, use `PfLo` and `file:///full/path/here/`
-# defaults write com.apple.finder NewWindowTarget -string "PfDe"
-# defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
 defaults write com.apple.finder NewWindowTarget -string "PfLo"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
 
@@ -227,7 +222,7 @@ defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 ###############################################################################
 
 # Wipe all (default) app icons from the Dock
-# defaults write com.apple.dock persistent-apps -array
+defaults write com.apple.dock persistent-apps -array
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
@@ -268,11 +263,6 @@ defaults write com.apple.dock show-recents -bool false
 # Disable the Launchpad gesture (pinch with thumb and three fingers)
 defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
 
-# Reset Launchpad
-# find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
-# Reset Launchpad, but keep the desktop wallpaper intact
-# find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -delete
-
 # Mission Control: Speed up animations
 defaults write com.apple.dock expose-animation-duration -float 0.1
 
@@ -285,12 +275,6 @@ defaults write com.apple.dock mru-spaces -bool false
 # Add iOS Simulator to Launchpad
 ln -s /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app /Applications/iOS\ Simulator.app
 sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator (Watch).app" "/Applications/Simulator (Watch).app"
-
-# Add a spacer to the left side of the Dock (where the applications are)
-defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
-
-# Add a spacer to the right side of the Dock (where the Trash is)
-defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}'
 
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
@@ -313,7 +297,7 @@ defaults write com.apple.dock wvous-tl-corner -int 0
 defaults write com.apple.dock wvous-tl-modifier -int 0
 
 # Top right screen corner → Launchpad
-defaults write com.apple.dock wvous-tr-corner -int 2
+defaults write com.apple.dock wvous-tr-corner -int 0
 defaults write com.apple.dock wvous-tr-modifier -int 0
 
 # Bottom left screen corner → Mission Control
@@ -416,12 +400,6 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 defaults write com.apple.Safari WebKitJavaScriptCanOpenWindowsAutomatically -bool false
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically -bool false
 
-# Disable auto-playing video
-#defaults write com.apple.Safari WebKitMediaPlaybackAllowsInline -bool false
-#defaults write com.apple.SafariTechnologyPreview WebKitMediaPlaybackAllowsInline -bool false
-#defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2AllowsInlineMediaPlayback -bool false
-#defaults write com.apple.SafariTechnologyPreview com.apple.Safari.ContentPageGroupIdentifier.WebKit2AllowsInlineMediaPlayback -bool false
-
 # Enable “Do Not Track”
 defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 
@@ -516,49 +494,31 @@ defaults write com.google.Chrome.canary ExtensionInstallSources -array "https://
 # Battery
 
 # Computer sleep: 10 min
-# sudo pmset -b sleep 15
+sudo pmset -b sleep 5
 
-# Display sleep: 5 min
-# sudo pmset -b displaysleep 10
+# Display sleep: 10 min
+sudo pmset -b displaysleep 5
 
 # Put the hard disk(s) to sleep when possible: 10 min
-# sudo pmset -b disksleep 15
-
-# Slightly dim the display when using this power source
-# sudo pmset -b lessbright 0
-
-# Restart automatically if the computer freezes
-# sudo pmset -b panicrestart 15
+sudo pmset -b disksleep 10
 
 # Power Adapter
 
-# Computer sleep: 30 min
-# sudo pmset -c sleep 15
+# Computer sleep: 15 min
+sudo pmset -c sleep 10
 
 # Display sleep: 10 min
-# sudo mset -c displaysleep 10
+sudo pmset -c displaysleep 10
 
 # Put the hard disk(s) to sleep when possible: 10 min
-# sudo pmset -c disksleep 10
+sudo pmset -c disksleep 10
 
 # Wake for network access
-# sudo pmset -c womp 0
-
-# Start up automatically after a power failure
-# sudo pmset -c autorestart 1
-
-# Restart automatically if the computer freezes
-# sudo pmset -c panicrestart 15
+sudo pmset -c womp 0
 
 ###############################################################################
 # Mac App Store                                                               #
 ###############################################################################
-
-# Enable the WebKit Developer Tools in the Mac App Store
-# defaults write com.apple.appstore WebKitDeveloperExtras -bool true
-
-# Enable Debug Menu in the Mac App Store
-# defaults write com.apple.appstore ShowDebugMenu -bool true
 
 # Enable the automatic update check
 defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
@@ -577,9 +537,6 @@ defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
 
 # Turn on app auto-update
 defaults write com.apple.commerce AutoUpdate -bool true
-
-# Allow the App Store to reboot machine on macOS updates
-#defaults write com.apple.commerce AutoUpdateRestartRequired -bool true
 
 ###############################################################################
 # Messages                                                                    #
