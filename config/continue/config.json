@@ -109,6 +109,33 @@
     { "name": "http", "params": { "url": "https://api.example.com/v1/users" } },
     { "name": "debugger", "params": { "stackDepth": 3 } }
   ],
+  "docs": [
+    {
+      "startUrl": "https://docs.github.com/en/actions",
+      "title": "github-actions",
+      "faviconUrl": "https://docs.github.com/favicon.ico"
+    },
+    {
+      "startUrl": "https://developer.1password.com/docs/cli/",
+      "title": "g1password",
+      "faviconUrl": "https://1password.com/favicon.ico"
+    },
+    {
+      "startUrl": "https://jestjs.io/",
+      "title": "jest",
+      "faviconUrl": "https://jestjs.io/img/jest.png"
+    },
+    {
+      "startUrl": "https://github.com/qutebrowser/qutebrowser/blob/main/doc/help/settings.asciidoc",
+      "title": "qutebrowser",
+      "faviconUrl": "https://qutebrowser.org/favicon.ico"
+    },
+    {
+      "startUrl": "https://manned.org/transmission-cli",
+      "title": "transmission-cli",
+      "faviconUrl": "https://manned.org/favicon.ico"
+    }
+  ],
   "slashCommands": [
     {
       "name": "onboard",
@@ -131,12 +158,12 @@
     {
       "name": "commit",
       "description": "Generate a commit message for the current changes"
-    },
-    {
-      "name": "issue",
-      "description": "Generate a link to a drafted GitHub issue",
-      "params": { "repositoryUrl": "https://github.com/continuedev/continue" }
     }
+    // {
+    //   "name": "issue",
+    //   "description": "Generate a link to a drafted GitHub issue",
+    //   "params": { "repositoryUrl": "https://github.com/continuedev/continue" }
+    // }
   ],
   "ui": {
     "fontSize": 14,
