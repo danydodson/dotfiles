@@ -13,7 +13,11 @@ export PAGER='less'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export LESSHISTFILE="-"
 
-export GPG_TTY=$(tty) 
+export GPG_TTY=$(tty)
+
+export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'
+
+export HOMEBREW_NO_ENV_HINTS=true
 
 export GOPATH="${HOME}/.go"
 export GOBIN="${HOME}/.go/bin"
@@ -21,11 +25,9 @@ export GOROOT="/opt/homebrew/opt/go/libexec"
 
 export NVM_HOMEBREW="/opt/homebrew/opt/nvm"
 
-export HOMEBREW_NO_ENV_HINTS=true
+export GENCOMPL_FPATH="$ZSH/completions"
 
 export BAT_CONFIG_PATH="$HOME/.dotfiles/config/bat/config"
-
-export GENCOMPL_FPATH="$HOME/.omz/custom/completions"
 
 export CURL_HOME="${DOTFILES}/config/curl"
 export WGETRC="${DOTFILES}/config/wget/wgetrc"
@@ -33,6 +35,4 @@ export WGETRC="${DOTFILES}/config/wget/wgetrc"
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
 export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#555555"
 
-export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'

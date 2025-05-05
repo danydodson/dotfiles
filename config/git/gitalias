@@ -2,7 +2,7 @@
 	ch = checkout
 	co = commit
 	st = status -sMu
-  changed = diff --stat
+    changed = diff --stat
 	br = branch
 	first = rev-list --max-parents=0 HEAD
 	ci = commit
@@ -12,6 +12,6 @@
 	psh = push
 	pll = pull
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  graph = log --all --decorate --oneline --graph
+    graph = log --all --decorate --oneline --graph
 	fame = !python -m gitfame
-  cp = cherry-pick
+    cp = cherry-pick

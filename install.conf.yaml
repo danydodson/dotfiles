@@ -53,6 +53,13 @@
       create: true
       path: config/ghostty/config
       #
+    ~/.config/lsd/config.yaml:
+      path: config/lsd/config.yaml
+    ~/.config/lsd/colors.yaml:
+      path: config/lsd/colors.yaml
+    ~/.config/lsd/icons.yaml:
+      path: config/lsd/icons.yaml
+      #
     ~/.qutebrowser/config.py:
       create: true
       path: config/qutebrowser/config.py

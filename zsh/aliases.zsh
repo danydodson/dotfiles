@@ -27,9 +27,9 @@ alias dotconf="cd $DOTFILES && nvim"
 alias nvconf="cd $HOME/.config/nvim && nvim"
 
 # git
-alias gcl="git clone"
-alias gcm="git commit -S -m"
-alias gpm="git push -u origin main"
+alias gcl="git clone --recursive"
+alias gco="git commit -S -m"
+alias gpu="git push -u origin main"
 
 # tmux
 alias tn="tmux new"
@@ -50,14 +50,16 @@ alias lsg-npm="npm ls -g --depth 0"
 alias lsg-yarn="yarn global list"
 alias lsg-pnpm="pnpm ls -g"
 
+alias hf="huggingface-cli"
+
 # brew bundle
 alias bbin="brew bundle install --file=$HOME/.dotfiles/macos/brewfile"
 alias bbcl="brew bundle cleanup --file=$HOME/.dotfiles/macos/brewfile"
 alias bbch="brew bundle check --file=$HOME/.dotfiles/macos/brewfile"
 
 # pretty list of brew pkgs with pkg info
-alias bleaves="brew leaves | xargs brew desc --eval-all"
-alias bleavesc="brew ls --casks | xargs brew desc --eval-all"
+alias blea="brew leaves | xargs brew desc --eval-all"
+alias bleac="brew ls --casks | xargs brew desc --eval-all"
 
 # python
 alias pyclean='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rvf'
@@ -73,8 +75,6 @@ alias trd='transmission-daemon'
 alias tr='transmission-remote'
 alias tra='transmission-remote -a'
 alias trl='transmission-remote -l'
-alias tre='transmission-edit'
-alias trs='transmission-show'
 
 # gls
 alias ls='/opt/homebrew/bin/gls --color=auto --human-readable --group-directories-first -I .DS_Store -I .Trash -I "Icon'$'\r"'
@@ -99,13 +99,13 @@ alias rmnm="find . -type d -name 'node_modules' -ls -delete"
 [ -d $HOME/.dotfiles ] && alias dots="cd $HOME/.dotfiles"
 [ -d $HOME/.config/nvim ] && alias nvims="cd $HOME/.config/nvim"
 [ -d $HOME/Developer ] && alias dev="cd $HOME/Developer"
-[ -d $HOME/Developer/boiler ] && alias boiler="cd $HOME/Developer/boiler"
-[ -d $HOME/Developer/plugins ] && alias plugins="cd $HOME/Developer/plugins"
-[ -d $HOME/Developer/practice ] && alias practice="cd $HOME/Developer/practice"
-[ -d $HOME/Developer/courses ] && alias courses="cd $HOME/Developer/courses"
-[ -d $HOME/Developer/repos ] && alias repos="cd $HOME/Developer/repos"
-[ -d $HOME/Developer/security ] && alias security="cd $HOME/Developer/security"
-[ -d $HOME/Developer/served ] && alias served="cd $HOME/Developer/served"
+[ -d $HOME/Developer/boiler ] && alias boil="cd $HOME/Developer/boiler"
+[ -d $HOME/Developer/plugins ] && alias plug="cd $HOME/Developer/plugins"
+[ -d $HOME/Developer/practice ] && alias prac="cd $HOME/Developer/practice"
+[ -d $HOME/Developer/courses ] && alias course="cd $HOME/Developer/courses"
+[ -d $HOME/Developer/repos ] && alias repo="cd $HOME/Developer/repos"
+[ -d $HOME/Developer/security ] && alias sec="cd $HOME/Developer/security"
+[ -d $HOME/Developer/served ] && alias ser="cd $HOME/Developer/served"
 [ -d $HOME/Developer/temp ] && alias temp="cd $HOME/Developer/temp"
 
 # canonical hex dump

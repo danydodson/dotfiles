@@ -6,11 +6,11 @@ sort_by = "alphabetical"
 sort_dir_first = true
 show_hidden = true
 show_symlink = false
-scrolloff = 100
+# scrolloff = 100
 
 [preview]
 wrap = "no"
-tab_size = 2
+tab_size = 4
 image_filter = "catmull-rom"
 image_quality = 90
 
@@ -36,8 +36,32 @@ rules = [
 ]
 
 [plugin]
-fetchers = [
+prepend_fetchers = [
   { id = "mime", name = "*", run = "mime", if = "!mime", prio = "high" },
+]
+
+prepend_spotters = [
+  { name = "*", run = "file-extra-metadata" },
+]
+
+prepend_previewers = [
+  { name = "*/", run = "folder", sync = true },
+  { mime = "text/*", run = "code" },
+  { mime = "*/{xml,javascript,x-wine-extension-ini}", run = "code" },
+  { mime = "application/{json,x-ndjson}", run = "json" },
+  { mime = "text/csv", run = "miller" },
+  { mime = "application/bittorrent", run = "torrent-preview" },
+  { mime = "audio/*", run = "exifaudio" },
+  { mime = "image/{avif,hei?,jxl,svg+xml}", run = "magick" },
+  { mime = "image/*", run = "image" },
+  { mime = "video/*", run = "video" },
+  { mime = "application/pdf", run = "pdf" },
+  { mime = "application/{,g}zip", run = "lsar" },
+  { mime = "application/{x-tar,bzip*,7z-compressed,xz,rar,iso9660-image}", run = "lsar" },
+  { mime = "font/*", run = "font" },
+  { mime = "application/vnd.ms-opentype", run = "font" },
+  { mime = "inode/x-empty", run = "empty" },
+  { name = "*", run = "file-extra-metadata" },
 ]
 
 prepend_preloaders = [
@@ -47,30 +71,6 @@ prepend_preloaders = [
   { mime = "application/pdf", run = "pdf" },
   { mime = "font/*", run = "font" },
   { mime = "application/vnd.ms-opentype", run = "font" },
-]
-
-prepend_previewers = [
-  { name = "*/", run = "folder", sync = true },
-  { mime = "text/*", run = "code" },
-  { mime = "*/{xml,javascript,x-wine-extension-ini}", run = "code" },
-  { mime = "application/{json,x-ndjson}", run = "json" },
-  { mime = "text/csv", run = "miller" },
-  { mime = "audio/*", run = "exifaudio" },
-  { mime = "image/{avif,hei?,jxl,svg+xml}", run = "magick" },
-  { mime = "image/*", run = "image" },
-  { mime = "video/*", run = "video" },
-  { mime = "application/pdf", run = "pdf" },
-  { mime = "application/{,g}zip", run = "lsar" },
-  { mime = "application/{x-tar,bzip*,7z-compressed,xz,rar,iso9660-image}", run = "lsar" },
-  { mime = "application/bittorrent", run = "torrent-preview" },
-  { mime = "font/*", run = "font" },
-  { mime = "application/vnd.ms-opentype", run = "font" },
-  { mime = "inode/x-empty", run = "empty" },
-  { name = "*", run = "file-extra-metadata" },
-]
-
-spotters = [
-  { name = "*", run = "file-extra-metadata" },
 ]
 
 [input]

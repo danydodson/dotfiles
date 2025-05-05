@@ -9,7 +9,7 @@ find_position = { fg = "#0db9d7", bg = "#22374b", bold = true }
 marker_copied = { fg = "#73daca", bg = "#73daca" }
 marker_cut = { fg = "#f7768e", bg = "#f7768e" }
 marker_marked = { fg = "#bb9af7", bg = "#bb9af7" }
-marker_selected = { fg = "#7aa2f7", bg = "#7aa2f7" }
+marker_selected = { fg = "#7aa2f7", bg = "#7aa2f7" } 
 
 tab_width = 1
 tab_active = { fg = "#c0caf5", bg = "#292e42" }
@@ -99,4 +99,29 @@ rules = [
   { name = "*", is = "orphan", bg = "#292b33" },
   { name = "*", is = "exec", fg = "#9ece6a" },
   { name = "*/", fg = "#7aa2f7" },
+]
+
+[icon]
+append_dirs = [
+  { name = "Desktop", text = "" },
+  { name = "Documents", text = "" },
+  { name = "Downloads", text = "" },
+  { name = "Library", text = "" },
+  { name = "Music", text = "" },
+  { name = "Movies", text = "" },
+  { name = "Pictures", text = "" },
+  { name = ".config", text = "", fg = "#626262" },
+  { name = ".npm", text = "", fg = "#626262" },
+]
+
+append_exts = [
+  { name = "mp3", text = "", fg = "#bb9af7" },
+  { name = "mp4", text = "󰟞", fg = "#bb9af7" },
+  { name = "dmg", text = "", fg = "#f7768e" },
+]
+
+prepend_conds = [
+  { if = "hidden & dir", text = "", fg = "#626262" },
+  { if = "dir", text = "", fg = "#7aa2f7" },
+  { if = "!(dir | link)", text = "" },
 ]

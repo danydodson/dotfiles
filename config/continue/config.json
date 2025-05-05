@@ -12,6 +12,13 @@
       "contextLength": 32000
     },
     {
+      "model": "gpt-4o",
+      "title": "GPT-4o",
+      "systemMessage": "You are an expert software developer. You give helpful and concise responses.",
+      "provider": "openai",
+      "apiKey": "op://Personal/openai.com/credentials/api_key"
+    },
+    {
       "title": "Claude-3.5-Sonnet",
       "model": "claude-3-5-sonnet-20241022",
       "provider": "anthropic",
@@ -82,6 +89,24 @@
     "apiKey": "op://Personal/mistral api key/credential",
     "apiBase": "https://api.mistral.ai/v1"
   },
+  // "embeddingsProvider": {
+  //   "provider": "transformers.js"
+  //   "apiKey": "op://Personal/voyageai api key/credential",
+  // },
+  "reranker": {
+    "name": "cohere",
+    "params": {
+      "model": "rerank-english-v3.0",
+      "apiKey": "op://Personal/voyageai api key/credential"
+    }
+  },
+  // "reranker": {
+  //   "name": "voyage",
+  //   "params": {
+  //     "model": "rerank-2",
+  //     "apiKey": "<YOUR_VOYAGE_API_KEY>"
+  //   }
+  // },
   "tabAutocompleteOptions": {
     "useCopyBuffer": false,
     "useFileSuffix": true,

@@ -20,15 +20,15 @@
   },
   {
     "key": "f4",
-    "command": "settings.cycle.lineNumbers"
+    "command": "settings.cycle.lineNumbers",
   },
   {
     "key": "f6",
-    "command": "settings.cycle.continueCompletions"
+    "command": "settings.cycle.continueCompletions",
   },
   {
     "key": "f9",
-    "command": "vscode-neovim.stop"
+    "command": "settings.cycle.tabsVisible",
   },
   {
     "key": "cmd+l",
@@ -52,5 +52,41 @@
   {
     "key": "alt+cmd+b",
     "command": "-workbench.action.toggleAuxiliaryBar"
+  },
+  {
+    "key": "cmd+e",
+    "command": "workbench.action.terminal.kill"
+  },
+  {
+    "key": "cmd+w",
+    "command": "-workbench.action.terminal.killEditor",
+    "when": "terminalEditorFocus && terminalFocus && terminalHasBeenCreated || terminalEditorFocus && terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "cmd+w",
+    "command": "workbench.action.closeActiveEditor"
+  },
+  {
+    "key": "cmd+w",
+    "command": "-workbench.action.closeActiveEditor"
+  },
+  {
+    "key": "cmd+w",
+    "command": "-workbench.action.closeWindow",
+    "when": "!editorIsOpen && !multipleEditorGroups"
+  },
+  {
+    "key": "cmd+k cmd+m",
+    "command": "-continue.toggleFullScreen",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "cmd+'",
+    "command": "continue.newSession"
+  },
+  {
+    "key": "cmd+k cmd+a",
+    "command": "-continue.toggleTabAutocompleteEnabled",
+    "when": "!terminalFocus"
   }
 ]
