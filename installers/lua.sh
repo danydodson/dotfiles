@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# Download and install lua 5.1
+# Installs lua 5.1
 
 # shellcheck disable=SC1091
 . "$HOME/.dotfiles/tools/reports.sh"

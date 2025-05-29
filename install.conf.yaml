@@ -41,7 +41,7 @@
     ~/.config/ghostty/config:
       create: true
       path: config/ghostty/config
-    
+
     # GPG:
     ~/.gnupg/gpg-agent.conf:
       path: config/gnupg/gpg-agent.conf
@@ -75,6 +75,10 @@
     ~/.vimrc:
       path: config/vim/vimrc
 
+    ~/.config/sketchybar/sketchybarrc:
+      create: true
+      path: config/sketchybar/sketchybarrc
+
     ~/.config/skhd/skhdrc:
       create: true
       path: config/skhd/skhdrc
@@ -97,7 +101,6 @@
       path: config/yazi/yazi.toml
 
 - create:
-    - ~/Developer/boiler
     - ~/Developer/conda
     - ~/Developer/plugins
     - ~/Developer/practice
@@ -119,30 +122,22 @@
         mkdir -p ~/.ssh && chmod 700 ~/.ssh
         touch ~/.ssh/known_hosts && chmod 644 ~/.ssh/known_hosts
         touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
-    
-    # See https://ohmyz.sh
-    - description: Install Oh-My-Zsh
-      command: |
-        sh -c \
-          "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-        || true
-      stdout: true
-      stderr: true
 
-    # - description: codium setup
-    #   command: ./installers/codium.sh
+    - description: ohmyzsh setup
+      command: ./installers/omz.sh
 
-    # - description: go setup
-    #   command: ./installers/go.sh
+    - description: codium setup
+      command: ./installers/codium.sh
 
-    # - description: nvim setup
-    #   command: ./installers/nvim.sh
+    - description: go setup
+      command: ./installers/go.sh
 
-    # - description: tmux setup
-    #   command: ./installers/tmux.sh
+    - description: nvim setup
+      command: ./installers/nvim.sh
 
-    # - description: yazi setup
-    #   command: ./installers/yazi.sh
+    - description: tmux setup
+      command: ./installers/tmux.sh
 
-    # - description: python setup
-    #   command: ./installers/python.sh
+    - description: yazi setup
+      command: ./installers/yazi.sh
+

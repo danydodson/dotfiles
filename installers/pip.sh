@@ -1,6 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# install all pip packages required
+# Install pip packages
+
 install_pip_packages() {
     packages=(
         aiohappyeyeballs aiohttp aiosignal annotated-types anyio attrs black Brotli cachetools certifi cffi charset-normalizer
@@ -14,19 +15,19 @@ install_pip_packages() {
         setuptools six sniffio sortedcontainers stem sympy tinycss2 tokenizers torch tqdm transformers trio trio-websocket
         typing_extensions tzdata uritemplate urllib3 weasyprint webencodings websocket-client wrapt wsproto yarl zopfli
     )
-    
+
     echo -e "\n[i] total packages to install: ${#packages[@]}"
-    
+
     for package in "${packages[@]}"; do
         echo "[→] Installing $package..."
         pip install "$package"
     done
 }
 
-# Ensure pip is installed and up-to-date
+# ensure pip is installed and up-to-date
 ensure_pip_installed
 
-# Install all packages
+# install all packages
 install_pip_packages
 
 echo -e "\n[*] all pip packages installed."

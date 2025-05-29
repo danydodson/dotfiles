@@ -64,17 +64,16 @@ alias psql_start="brew services start postgresql"
 alias psql_restart="brew services restart postgresql"
 alias psql_stop="brew services stop postgresql"
 
-# pretty list of brew pkgs with pkg info
+# brew leaves
 alias blea="brew leaves | xargs brew desc --eval-all"
 alias bleac="brew ls --casks | xargs brew desc --eval-all"
 
 # python
 alias py_clean='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rvf'
-alias pip_purge='pip list --format freeze | xargs pip uninstall -y'
-alias pip_install_reqs='ls requirements*.txt | xargs -n 1 pip install -r'
-alias poetry_install_master='pipx install --suffix=@master --force git+https://github.com/python-poetry/poetry.git'
 alias activate='source .venv/bin/activate'
 alias venv='PIP_REQUIRE_VIRTUALENV=false python3 -m pip install --upgrade --user pip virtualenv && python3 -m virtualenv .venv && source .venv/bin/activate && python3 -m pip install --upgrade pip && which pip && pip list && pip --version && python3 --version'
+alias pip_purge='pip list --format freeze | xargs pip uninstall -y'
+alias pip_install_reqs='ls requirements*.txt | xargs -n 1 pip install -r'
 
 # transmission
 alias trc='transmission-cli'
