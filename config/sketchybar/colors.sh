@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
-export BLACK=0x1E2127ff
-export WHITE=0xECEFF4ff
-export RED=0xE06C75ff
-export GREEN=0x98C379ff
-export BLUE=0x61AFEFff
-export YELLOW=0xeed49fff
-export ORANGE=0xD19A66ff
-export MAGENTA=0xC678DDff
-export SKY=0x91d7e3ff
-export PINK=0xd3869bff
-export GREY=0x5d626eff
+export BLACK=0xff1E2127
+export WHITE=0xffECEFF4
+export RED=0xffE06C75
+export GREEN=0xff98C379
+export BLUE=0xff61AFEF
+export YELLOW=0xffeed49f
+export ORANGE=0xffD19A66
+export MAGENTA=0xffC678DD
+export SKY=0xff91d7e3
+export PINK=0xffd3869b
+export GREY=0xff5d626e
 export TRANS=0x00000000
 export TRANS_BLACK=0x40000000
 export TRANS_GREY=0xF01E2127
