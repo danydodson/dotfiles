@@ -23,7 +23,6 @@ if [ "$RUNNING" -eq 0 ] && [ $PLAYING -eq 0 ]; then
 		sketchybar --set "$NAME" label="| $TRACK - $ALBUM |" --set '/spot.*/' drawing=on icon.font='Hack Nerd Font:Regular:20'
 	else
 		sketchybar --set "$NAME" label="| $TRACK - $ARTIST |" --set '/spot.*/' drawing=on icon.font='Hack Nerd Font:Regular:20'
-
 	fi
 else
 	sketchybar --set '/spot.*/' drawing=off

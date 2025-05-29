@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+export BLACK=0x1E2127ff
+export WHITE=0xECEFF4ff
+export RED=0xE06C75ff
+export GREEN=0x98C379ff
+export BLUE=0x61AFEFff
+export YELLOW=0xeed49fff
+export ORANGE=0xD19A66ff
+export MAGENTA=0xC678DDff
+export SKY=0x91d7e3ff
+export PINK=0xd3869bff
+export GREY=0x5d626eff
+export TRANS=0x00000000
+export TRANS_BLACK=0x40000000
+export TRANS_GREY=0xF01E2127
+
+export BAR_COLOR=$TRANS
+export ICON_COLOR=$WHITE
+export LABEL_COLOR=$WHITE
+
+export SPACE_BACKGROUND=$ITEM_COLOR
+export SPACE_SELECTED=$WHITE
+export SPACE_DESELECTED=$BLACK
+
+export POPUP_BACKGROUND_COLOR=$BLACK
+export POPUP_BORDER_COLOR=$WHITE
+
+export SHADOW_COLOR=$BLACK

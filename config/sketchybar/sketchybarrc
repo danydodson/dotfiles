@@ -1,28 +1,32 @@
 #!/usr/bin/env bash
 
-# sketchybar configs
+# shellcheck disable=SC1091
+source "/Users/dany/.dotfiles/config/sketchybar/colors.sh"
+source "/Users/dany/.dotfiles/config/sketchybar/icons.sh"
 
 ITEM_DIR="/Users/dany/.dotfiles/config/sketchybar/items"
 PLUGIN_DIR="/Users/dany/.dotfiles/config/sketchybar/plugins"
 
-FONT="Hack Nerd Font"
+ICON_FONT="Hack Nerd Font"
+LABEL_FONT="SF Pro"
 
 ##### Bar Appearance #####
 sketchybar --bar height=30 \
                  position=top \
-                 blur_radius=30 \
+                 corner_radius=0 \
+                 y_offset=2 \
+                 blur_radius=70 \
                  padding_left=0 \
-                 padding_right=0 \
-                 margin=0 \
-                 color=0x40000000
-
-# shadow=off
+                 padding_right=6 \
+                 margin=3 \
+                 color="$TRANS_BLACK" \
+                 shadow=off
 
 ############## GLOBAL DEFAULTS ##############
 sketchybar --default updates=when_shown \
-                     icon.color=0xffECEFF4 \
-                     icon.highlight_color=0xffE48FA8 \
-                     label.color=0xffECEFF4 \
+                     icon.color="$WHITE" \
+                     icon.highlight_color="$PINK" \
+                     label.color="$WHITE" \
                      background.corner_radius=0 \
                      background.height=30
 
@@ -30,12 +34,9 @@ sketchybar --add item logo left \
            --set logo icon= \
                  icon.padding_left=10 \
                  icon.padding_right=10 \
-                 background.color=0xffA5E0D5 \
-                 background.padding_right=8 \
+                 background.padding_right=4 \
                  background.padding_left=4 \
                  click_script="sketchybar --update"
-
-# icon.color=0xff010101
 
 ##### Adding Mission Control Space Indicators #####
 SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
@@ -50,10 +51,9 @@ do
                               icon="${SPACE_ICONS[i]}" \
                               icon.padding_left=20 \
                               icon.padding_right=20 \
-                              icon.highlight_color=0xffE48FA8 \
+                              icon.highlight_color="$PINK" \
                               background.padding_left=-4 \
                               background.padding_right=-4 \
-                              background.color=0xff3C3E4F \
                               background.drawing=on \
                               label.drawing=off \
                               click_script="yabai -m space --focus $sid"
@@ -63,47 +63,46 @@ done
 sketchybar --default updates=when_shown \
                      padding_left=5 \
                      padding_right=5 \
-                     icon.font="$FONT:Bold:16.0" \
-                     label.font="$FONT:Bold:14.0" \
-                     icon.color=0xffffffff \
-                     label.color=0xffffffff \
+                     icon.font="$ICON_FONT:Regular:15.0" \
+                     label.font="$LABEL_FONT:Medium:12.0" \
+                     icon.color="$WHITE" \
+                     label.color="$WHITE" \
                      icon.padding_left=4 \
                      icon.padding_right=4 \
                      label.padding_left=4 \
                      label.padding_right=4
 
 ##### Adding Left Items #####
-sketchybar --add item space_separator left \
-           --set space_separator icon= \
-                                 background.padding_left=23 \
-                                 background.padding_right=23 \
-                                 label.drawing=off \
-                                 icon.color=0xff92B3F5
+# sketchybar --add item space_separator left \
+#            --set space_separator icon= \
+#                                  background.padding_left=23 \
+#                                  background.padding_right=23 \
+#                                  label.drawing=off \
+#                                  icon.color="$WHITE"
 
 sketchybar --add item window_title left \
            --set window_title script="$PLUGIN_DIR/window_title.sh" \
                               icon.drawing=off \
-                              label.color=0xffb7bdf4 \
+                              label.color="$WHITE" \
+                              label.font="$LABEL_FONT:Heavy:13.0" \
            --subscribe window_title front_app_switched
 
 ##### Adding Center Items #####
 sketchybar --add item spot_logo center \
            --set spot_logo icon= \
                            label.drawing=off \
-                           icon.color=0xff121219 \
-                           background.color=0xffEDC4E5
+                           icon.color="$GREEN" \
 
 sketchybar --add item spot center \
            --set spot update_freq=1 \
                       icon.drawing=off \
                       updates=on \
                       script="$PLUGIN_DIR/spotifyIndicator.sh" \
-                      background.color=0xff3C3E4F \
                       background.padding_left=0
 
 ##### Adding Right Items #####
 sketchybar --add item clock right \
-           --set clock update_freq=10 icon=  script="$PLUGIN_DIR/clock.sh" \
+           --set clock update_freq=10 script="$PLUGIN_DIR/clock.sh" \
            --add item volume right \
            --set volume script="$PLUGIN_DIR/volume.sh" \
            --subscribe volume volume_change \
@@ -116,14 +115,8 @@ sketchybar --update
 
 echo "sketchybar configuration loaded..."
 
-# Some items refresh on a fixed cycle, e.g. the clock runs its script once
-# every 10s. Other items respond to events they subscribe to, e.g. the
-# volume.sh script is only executed once an actual change in system audio
-# volume is registered. More info about the event system can be found here:
 # https://felixkratz.github.io/SketchyBar/config/events
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 # https://felixkratz.github.io/SketchyBar/config/items
 # https://felixkratz.github.io/SketchyBar/config/items#adding-items-to-sketchybar
 # https://felixkratz.github.io/SketchyBar/config/components#space----associate-mission-control-spaces-with-an-item
-
-#                          ﱦ 齃     ﮂ  ﵁ 爵        ﭵ     ﱦ  ﰊ 異 ﴱ אַ  'Y⃣'
