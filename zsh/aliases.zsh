@@ -57,7 +57,7 @@ alias hf="huggingface-cli"
 alias bbinstall="brew bundle install --file=$HOME/.dotfiles/macos/brewfile"
 alias bbcleanup="brew bundle cleanup --file=$HOME/.dotfiles/macos/brewfile"
 alias bbcheck="brew bundle check --file=$HOME/.dotfiles/macos/brewfile"
-alias bbdump="brew bundle dump --file=$HOME/.dotfiles/macos/brewfile --force"
+alias bbdump="brew bundle dump --file=$HOME/.dotfiles/macos/brewfile --global --force"
 
 # postgresql
 alias psql_status="brew services info postgresql"
