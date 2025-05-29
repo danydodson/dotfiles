@@ -26,8 +26,9 @@ install_sketchybar() {
 
     # fonts
     brew install --cask sf-symbols
-    brew install --cask homebrew/cask-fonts/font-sf-mono
-    brew install --cask homebrew/cask-fonts/font-sf-pro
+    brew install --cask font-sf-mono
+    brew install --cask font-sf-pro
+    brew install --cask font-hack-nerd-font
 
     curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v2.0.5/sketchybar-app-font.ttf -o "$HOME"/Library/Fonts/sketchybar-app-font.ttf
 
