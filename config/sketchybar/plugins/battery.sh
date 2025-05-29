@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 source "$CONFIG_DIR/colors.sh"
 TMP="/tmp/drawing_state.txt"
@@ -15,38 +15,37 @@ render_item() {
     fi
 
     case ${PERCENTAGE} in
-    [8-9][0-9] | 100)
-        ICON=""
-        ICON_COLOR=0xffa6da95
+    9[0-9] | 100)
+        ICON="􀛨"
         ;;
-    7[0-9])
-        ICON=""
-        ICON_COLOR=0xffeed49f
+    [6-8][0-9])
+        ICON="􀺸"
         ;;
-    [4-6][0-9])
-        ICON=""
-        ICON_COLOR=0xfff5a97f
+    [3-5][0-9])
+        ICON="􀺶"
         ;;
-    [1-3][0-9])
-        ICON=""
-        ICON_COLOR=0xffee99a0
+    [1-2][0-9])
+        ICON="􀛩"
+        COLOR=$(getcolor yellow)
+        DRAWING="on"
         ;;
-    [0-9])
-        ICON=""
-        ICON_COLOR=0xffed8796
+    *)
+        ICON="􀛪"
+        COLOR=$(getcolor red)
+        DRAWING="on"
         ;;
     esac
 
     if [[ $CHARGING != "" ]]; then
-        ICON=""
+        ICON="􀢋"
         COLOR=$(getcolor green)
     fi
 
-    sketchybar --set "$NAME" icon="$ICON" icon.color="$COLOR" label="$PERCENTAGE"% label.color="$LABEL_COLOR" label.drawing="$DRAWING"
+    sketchybar --set "$NAME" icon=$ICON icon.color="$COLOR" label="$PERCENTAGE"% label.color="$LABEL_COLOR" label.drawing="$DRAWING"
 }
 
 save_label_state() {
-    echo "$(sketchybar --query $NAME | jq -r '.label.drawing')" >"$TMP"
+    echo "$(sketchybar --query "$NAME" | jq -r '.label.drawing')" >"$TMP"
 }
 
 get_label_state() {

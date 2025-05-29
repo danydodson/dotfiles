@@ -98,7 +98,7 @@ rules = [
   { mime = "inode/x-empty", fg = "#f7768e" },
   { name = "*", is = "orphan", bg = "#292b33" },
   { name = "*", is = "exec", fg = "#9ece6a" },
-  { name = "*/", fg = "#7aa2f7" },
+  # { name = "*/", fg = "#7aa2f7" },
 ]
 
 [icon]

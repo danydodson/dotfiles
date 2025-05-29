@@ -23,7 +23,7 @@ source "$ITEM_DIR/spaces_simple.sh"
 # source "$ITEM_DIR/dnd.sh"
 source "$ITEM_DIR/wifi.sh"
 # source "$ITEM_DIR/volume.sh"
-# source "$ITEM_DIR/battery.sh"
+source "$ITEM_DIR/battery.sh"
 # source "$ITEM_DIR/diskmonitor.sh"
 
 source "$ITEM_DIR/spacer.sh" 2 right

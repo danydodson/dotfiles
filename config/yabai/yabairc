@@ -7,7 +7,7 @@ sudo yabai --load-sa
 
 yabai -m config \
   layout stack \
-  external_bar all:30:0 \
+  external_bar all:0:0 \
   top_padding 3 \
   bottom_padding 3 \
   left_padding 3 \
