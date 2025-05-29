@@ -83,8 +83,8 @@ lalt - l : yabai -m window --resize right:12:0; \
   yabai -m window --resize left:12:0
 
 # open apps
-hyper - x : open -a "Ghostty.app"
-hyper - b : open -a "Zen.app"
+hyper - x : open -a "/Applications/Ghostty.app"
+hyper - b : open -a "/Applications/Zen.app"
 hyper - c : open -a "VSCodium.app"
 hyper - d : open -a "Discord.app"
 hyper - f : open -a "Finder.app"
@@ -95,8 +95,10 @@ hyper - q : open -a "qutebrowser.app"
 # restart all wm services
 hyper - r : \
   osascript -e \
-  "display notification \"Restarting all Services\" with title \"Yabai\""; \
+  "display notification \"Restarting all Services\" with title \"WM Services\""; \
   skhd --stop-service; \
   skhd --start-service; \
   yabai --stop-service; \
-  yabai --start-service
+  yabai --start-service; \
+  brew services stop sketchybar; \
+  brew services start sketchybar
