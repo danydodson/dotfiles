@@ -6,6 +6,7 @@
 - clean: ["~", ~/.config]
 
 - link:
+    # zsh
     ~/.zlogin:
       path: shell/zlogin
     ~/.zprofile:
@@ -15,10 +16,12 @@
     ~/.zshrc:
       path: shell/zshrc
 
+    # 1password
     ~/.config/1password/ssh/agent.toml:
       create: true
       path: config/1password/ssh/agent.toml
 
+    # btop
     ~/.config/btop/btop.conf:
       create: true
       path: config/btop/btop.conf
@@ -26,28 +29,33 @@
       create: true
       path: config/btop/themes/onedark.theme
 
+    # fastfetch
     ~/.config/fastfetch/config.jsonc:
       create: true
       path: config/fastfetch/config.jsonc
 
+    # git
     ~/.gitconfig:
       path: config/git/gitconfig
     ~/.gitignore:
       path: config/git/gitignore
 
+    # gh
     ~/.config/gh/config.yml:
       path: config/gh/config.yml
 
+    # ghostty
     ~/.config/ghostty/config:
       create: true
       path: config/ghostty/config
 
-    # GPG:
+    # gpg
     ~/.gnupg/gpg-agent.conf:
       path: config/gnupg/gpg-agent.conf
       force: true
       create: true
 
+    # lsd
     ~/.config/lsd/config.yaml:
       path: config/lsd/config.yaml
     ~/.config/lsd/colors.yaml:
@@ -55,6 +63,7 @@
     ~/.config/lsd/icons.yaml:
       path: config/lsd/icons.yaml
 
+    # qutebrowser
     ~/.qutebrowser/config.py:
       create: true
       path: config/qutebrowser/config.py
@@ -62,31 +71,39 @@
       create: true
       path: config/qutebrowser/onedark.py
 
+    # ssh
     ~/.ssh/config:
       create: true
       path: config/ssh/config
 
+    # tmux
     ~/.tmux.conf:
       path: config/tmux/tmux.conf
 
+    # transmission
     ~/Library/Application Support/transmission-daemon/settings.json:
       path: config/transmission/settings.json
 
+    # vim
     ~/.vimrc:
       path: config/vim/vimrc
 
+    # sketchybar
     ~/.config/sketchybar/sketchybarrc:
       create: true
       path: config/sketchybar/sketchybarrc
 
+    # skhd
     ~/.config/skhd/skhdrc:
       create: true
       path: config/skhd/skhdrc
 
+    # yabai
     ~/.config/yabai/yabairc:
       create: true
       path: config/yabai/yabairc
 
+    # yazi
     ~/.config/yazi/init.lua:
       create: true
       path: config/yazi/init.lua
@@ -122,9 +139,6 @@
         mkdir -p ~/.ssh && chmod 700 ~/.ssh
         touch ~/.ssh/known_hosts && chmod 644 ~/.ssh/known_hosts
         touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
-
-    - description: ohmyzsh setup
-      command: ./installers/omz.sh
 
     - description: codium setup
       command: ./installers/codium.sh
