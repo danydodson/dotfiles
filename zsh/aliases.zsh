@@ -54,9 +54,10 @@ alias lsg_pnpm="pnpm ls -g"
 alias hf="huggingface-cli"
 
 # brew bundle
-alias bbin="brew bundle install --file=$HOME/.dotfiles/macos/brewfile"
-alias bbcl="brew bundle cleanup --file=$HOME/.dotfiles/macos/brewfile"
-alias bbch="brew bundle check --file=$HOME/.dotfiles/macos/brewfile"
+alias bbinstall="brew bundle install --file=$HOME/.dotfiles/macos/brewfile"
+alias bbcleanup="brew bundle cleanup --file=$HOME/.dotfiles/macos/brewfile"
+alias bbcheck="brew bundle check --file=$HOME/.dotfiles/macos/brewfile"
+alias bbdump="brew bundle dump --file=$HOME/.dotfiles/macos/brewfile --force"
 
 # postgresql
 alias psql_status="brew services info postgresql"

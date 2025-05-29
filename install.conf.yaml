@@ -101,6 +101,7 @@
       path: config/yazi/yazi.toml
 
 - create:
+    - ~/Games
     - ~/Developer/conda
     - ~/Developer/plugins
     - ~/Developer/practice
@@ -108,7 +109,6 @@
     - ~/Developer/security
     - ~/Developer/served
     - ~/Developer/temp
-    - ~/Games
 
 - shell:
     - description: update submodules
