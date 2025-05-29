@@ -6,9 +6,7 @@ export HISTSIZE=1000000000           # Sets maximum history entries in memory
 export SAVEHIST=$HISTSIZE            # Sets maximum history entries in file
 
 # history configs
-setopt APPEND_HISTORY          # Adds history entries as they are executed
 setopt EXTENDED_HISTORY        # Saves timestamp and duration for commands
-setopt INC_APPEND_HISTORY      # Adds commands to history immediately
 setopt SHARE_HISTORY           # Shares history across multiple zsh sessions
 setopt HIST_EXPIRE_DUPS_FIRST  # Removes duplicate commands first when trimming history
 setopt HIST_FIND_NO_DUPS       # Skips duplicate entries when searching history
@@ -117,8 +115,8 @@ then
     zcompile "$zcompdump"
 fi
 
-# disable pattern matching
-unsetopt extendedglob # Disable extended globbing so that ^ will behave as normal
+# Disable extended globbing so that ^ will behave as normal
+unsetopt extendedglob
 
 # use passphase from macOS keychain
 # if [[ "$OSTYPE" == "darwin"* ]]; then

@@ -6,15 +6,19 @@ name:
 extension:
   go: 
   hs: 
-  rs: 🦀
+  rs: 
+  js: 
+  ts: 
+  json: 
 filetype:
-  dir: 📂
-  file: 📄
-  pipe: 📩
-  socket: 󰆨
+  dir: 󰉋
+  file: 
+  pipe: 󰟥
+  socket:  # 󰆨
   executable: 
   symlink-dir: 
   symlink-file: 
   device-char: 
   device-block: 󰜫
   special: 
+

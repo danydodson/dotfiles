@@ -1,0 +1,23 @@
+#compdef yabai
+
+# zsh completions for 'yabai'
+# automatically generated with http://github.com/RobSis/zsh-completion-generator
+local arguments
+
+arguments=(
+  '--load-sa[install and load the scripting-addition.]'
+  '--uninstall-sa[uninstall the scripting-addition.]'
+  '--install-service[write launchd service file to disk.]'
+  '--uninstall-service[remove launchd service file from disk.]'
+  '--start-service[enable, load, and start the launchd service.]'
+  '--restart-service[attempts to restart the service instance.]'
+  '--stop-service[stops a running instance of the service.]'
+  {--message,-m}'[send message to a running instance of yabai.]'
+  {--config,-c}'[use the specified configuration file.]'
+  {--verbose,-V}'[output debug information to stdout.]'
+  {--version,-v}'[print version to stdout and exit.]'
+  {--help,-h}'[print options to stdout and exit.]'
+  '*:filename:_files'
+)
+
+_arguments -s $arguments

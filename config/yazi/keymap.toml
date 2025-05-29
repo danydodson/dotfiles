@@ -1,6 +1,6 @@
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
-[manager]
+[mgr]
 prepend_keymap = [
   { on = [ "<Esc>" ], run = "close", desc = "Cancel input" },
   { on = [ "!" ], run = 'shell "$SHELL" --block', desc = "Open shell here" },

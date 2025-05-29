@@ -40,9 +40,6 @@ function install_npm_deps() {
     info "Installing npm global packages..."
     npm install -g bash-handbook
     npm install -g nodemon
-    npm install -g neovim
-    npm install -g pnpm
-    npm install -g yarn
     echo
   else
     error "Error: npm is not available"

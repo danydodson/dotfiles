@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -e
+
+#FILE_TITLE="${QUTE_TITLE// /-}"
+
+#FILE_PATH="~/Desktop/"${FILE_TITLE}".md"
+
+echo "message-info 'Clipping readable content from $QUTE_URL...'" >> "$QUTE_FIFO"
+CONTENT=$(readable "$QUTE_HTML" | pandoc -f html -t commonmark-raw_html --wrap none)
+
+#CONTENT=$(cat ${QUTE_HTML} | pandoc -f html -t commonmark-raw_html --wrap none)
+
+TAG=$(bear tags | choose)
+
+if [ $(bear create "$CONTENT" --tag="$TAG") || true ]; then
+  echo "message-info 'Note created successfully with tag $TAG'" >> "$QUTE_FIFO"
+else
+  echo "message-error 'something went wrong'" >> "$QUTE_FIFO"
+fi

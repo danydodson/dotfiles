@@ -15,6 +15,11 @@ while true; do
   kill -0 "$$" || exit
 done 2>/dev/null &
 
+# update dotfiles
+function update_dotfiles(){
+  "$HOME"/.dotfiles/bin/dotfiles
+}
+
 # update oh-my-zsh
 function update_omz() {
   "$ZSH/tools/upgrade.sh"
@@ -60,6 +65,7 @@ function clean_up() {
 }
 
 update() {
+  update_dotfiles "$*"
   update_omz "$*"
   update_macos_apps "$*"
   update_homebrew_packages "$*"

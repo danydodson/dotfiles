@@ -5,17 +5,6 @@
 
 - clean: ["~", ~/.config]
 
-- create:
-    - ~/Developer/boiler
-    - ~/Developer/conda
-    - ~/Developer/plugins
-    - ~/Developer/practice
-    - ~/Developer/repos
-    - ~/Developer/security
-    - ~/Developer/served
-    - ~/Developer/temp
-    - ~/Games
-
 - link:
     ~/.zlogin:
       path: shell/zlogin
@@ -25,85 +14,75 @@
       path: shell/zshenv
     ~/.zshrc:
       path: shell/zshrc
-      #
+
     ~/.config/1password/ssh/agent.toml:
       create: true
       path: config/1password/ssh/agent.toml
-      #
+
     ~/.config/btop/btop.conf:
       create: true
       path: config/btop/btop.conf
     ~/.config/btop/themes/onedark.theme:
       create: true
       path: config/btop/themes/onedark.theme
-      #
+
     ~/.config/fastfetch/config.jsonc:
       create: true
       path: config/fastfetch/config.jsonc
-      #
+
     ~/.gitconfig:
       path: config/git/gitconfig
     ~/.gitignore:
       path: config/git/gitignore
-      #
+
     ~/.config/gh/config.yml:
       path: config/gh/config.yml
-      #
+
     ~/.config/ghostty/config:
       create: true
       path: config/ghostty/config
-      #
+    
+    # GPG:
+    ~/.gnupg/gpg-agent.conf:
+      path: config/gnupg/gpg-agent.conf
+      force: true
+      create: true
+
     ~/.config/lsd/config.yaml:
       path: config/lsd/config.yaml
     ~/.config/lsd/colors.yaml:
       path: config/lsd/colors.yaml
     ~/.config/lsd/icons.yaml:
       path: config/lsd/icons.yaml
-      #
+
     ~/.qutebrowser/config.py:
       create: true
       path: config/qutebrowser/config.py
-    ~/.qutebrowser/qutebrowser-themes/onedark.py:
+    ~/.qutebrowser/onedark.py:
       create: true
-      path: config/qutebrowser/qutebrowser-themes/onedark.py
-    ~/.qutebrowser/user.css:
-      create: true
-      path: config/qutebrowser/user.css
-    ~/.qutebrowser/bookmarks/urls:
-      create: true
-      path: config/qutebrowser/bookmarks/urls
-    ~/.qutebrowser/userscripts/1password:
-      create: true
-      path: config/qutebrowser/userscripts/1password
-    ~/.qutebrowser/greasemonkey/yt-autoclose.user.js:
-      create: true
-      path: config/qutebrowser/greasemonkey/yt-autoclose.user.js
-      #
-    ~/.config/ranger/rc.conf:
-      create: true
-      path: config/ranger/rc.conf
-      #
+      path: config/qutebrowser/onedark.py
+
     ~/.ssh/config:
       create: true
       path: config/ssh/config
-      #
+
     ~/.tmux.conf:
       path: config/tmux/tmux.conf
-      #
+
     ~/Library/Application Support/transmission-daemon/settings.json:
       path: config/transmission/settings.json
-      #
+
     ~/.vimrc:
       path: config/vim/vimrc
-      #
+
     ~/.config/skhd/skhdrc:
       create: true
       path: config/skhd/skhdrc
-      #
+
     ~/.config/yabai/yabairc:
       create: true
       path: config/yabai/yabairc
-      # yazi
+
     ~/.config/yazi/init.lua:
       create: true
       path: config/yazi/init.lua
@@ -117,13 +96,53 @@
       create: true
       path: config/yazi/yazi.toml
 
+- create:
+    - ~/Developer/boiler
+    - ~/Developer/conda
+    - ~/Developer/plugins
+    - ~/Developer/practice
+    - ~/Developer/repos
+    - ~/Developer/security
+    - ~/Developer/served
+    - ~/Developer/temp
+    - ~/Games
+
 - shell:
     - description: update submodules
       command: git submodule update --init --recursive
+
     - description: sync dotbot
       command: git submodule sync --recursive
+
     - description: ssh setup
       command: |
         mkdir -p ~/.ssh && chmod 700 ~/.ssh
         touch ~/.ssh/known_hosts && chmod 644 ~/.ssh/known_hosts
         touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
+    
+    # See https://ohmyz.sh
+    - description: Install Oh-My-Zsh
+      command: |
+        sh -c \
+          "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        || true
+      stdout: true
+      stderr: true
+
+    # - description: codium setup
+    #   command: ./installers/codium.sh
+
+    # - description: go setup
+    #   command: ./installers/go.sh
+
+    # - description: nvim setup
+    #   command: ./installers/nvim.sh
+
+    # - description: tmux setup
+    #   command: ./installers/tmux.sh
+
+    # - description: yazi setup
+    #   command: ./installers/yazi.sh
+
+    # - description: python setup
+    #   command: ./installers/python.sh

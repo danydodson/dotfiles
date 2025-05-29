@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# Starts an HTTP server at the current folder.
+#
+# - Start a server with the default port (8000):
+#
+# `server`
+#
+# - Start a server with a specified port:
+#
+# `server {{port}}`
+#
+# ---
+# Author: Artem Sapegin, sapegin.me
+# License: MIT
+# https://github.com/sapegin/dotfiles
+
+port="${1:-8000}"
+myip=$(ifconfig | grep "inet " | grep -v 127.0.0.1 | awk '{print $2}')
+echo "Access from the network: http://$myip:$port"
+echo
+open "http://localhost:${port}/"
+
+python3 -m http.server "$port"

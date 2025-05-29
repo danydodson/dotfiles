@@ -1,25 +1,43 @@
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
-[manager]
+[mgr]
 ratio = [ 2, 3, 4 ]
 sort_by = "alphabetical"
 sort_dir_first = true
 show_hidden = true
 show_symlink = false
-# scrolloff = 100
 
 [preview]
 wrap = "no"
 tab_size = 4
+max_width = 1080
+max_height = 1080
 image_filter = "catmull-rom"
 image_quality = 90
 
 [opener]
-edit = [ { run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "unix" } ]
-open = [ { run = 'xdg-open "$1"', desc = "Open", for = "linux" }, { run = 'open "$@"', desc = "Open", for = "macos" } ]
-reveal = [ { run = 'xdg-open "$(dirname "$1")"', desc = "Reveal", for = "linux" }, { run = 'open -R "$1"', desc = "Reveal", for = "macos" }, { run = '''exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" } ]
-extract = [ { run = 'ya pub extract --list "$@"', desc = "Extract here", for = "unix" } ]
-play = [ { run = 'mpv --force-window "$@"', orphan = true, for = "unix" }, { run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" } ]
+edit = [
+  { run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
+]
+add = [
+  { run = 'transmission-remote -a "$@"', for = "macos" },
+]
+open = [
+  { run = 'open "$@"', desc = "Open", for = "macos" },
+  { run = 'xdg-open "$1"', desc = "Open", for = "linux" },
+]
+reveal = [
+  { run = 'open -R "$1"', desc = "Reveal", for = "macos" },
+  { run = 'xdg-open "$(dirname "$1")"', desc = "Reveal", for = "linux" },
+  { run = '''exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
+]
+extract = [
+  { run = 'ya pub extract --list "$@"', desc = "Extract here", for = "unix" },
+]
+play = [
+  { run = 'mpv --force-window "$@"', orphan = true, for = "unix" },
+  { run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
+]
 
 [open]
 rules = [
@@ -27,6 +45,7 @@ rules = [
   { mime = "text/*", use = [ "edit", "reveal" ] },
   { mime = "image/*", use = [ "open", "reveal" ] },
   { mime = "{audio,video}/*", use = [ "play", "reveal" ] },
+  { mime = "application/bittorrent", use = [ "add" ] },
   { mime = "application/{,g}zip", use = [ "extract", "reveal" ] },
   { mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", use = [ "extract", "reveal" ] },
   { mime = "application/{json,x-ndjson}", use = [ "edit", "reveal" ] },
@@ -37,7 +56,7 @@ rules = [
 
 [plugin]
 prepend_fetchers = [
-  { id = "mime", name = "*", run = "mime", if = "!mime", prio = "high" },
+  { id = "mime", name = "*", run = "mime", prio = "high" },
 ]
 
 prepend_spotters = [

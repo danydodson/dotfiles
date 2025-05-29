@@ -32,6 +32,9 @@ install_nvim_release() {
     info "download https://github.com/neovim/neovim/releases/latest/download/$filename..."
     wget -q -P "$downloads" "https://github.com/neovim/neovim/releases/latest/download/$filename"
 
+    # for nightly version
+    # wget -q -P "$downloads" "https://github.com/neovim/neovim/releases/download/nightly/$filename"
+
     info 'removing quarintine...'
     xattr -c "$downloads/$filename"
 

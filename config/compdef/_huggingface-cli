@@ -1,0 +1,25 @@
+#compdef huggingface-cli
+
+_huggingface_download_completion() {
+    local commands=("download" "upload" "repo-files" "env" "login" "whoami" "logout" "repo" "lfs-enable-largefiles" "scan-cache" "delete-cache" "tag" "version" "upload-large-folder")
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    
+    # If no command has been specified, suggest commands
+    if [[ $COMP_CWORD -eq 1 ]]; then
+        COMPREPLY=( "$(compgen -W "${commands[*]}" -- "$cur")" )
+        return
+    fi
+
+    # If the command is 'download', suggest model names
+    if [[ ${COMP_WORDS[1]} == "download" ]]; then
+        # Fetch available models from Hugging Face Model Hub
+        local models
+        models=$(curl -s https://huggingface.co/api/models | jq -r '.[].modelId')
+        
+        # Generate completions based on fetched model names
+        COMPREPLY=( "$(compgen -W "$models" -- "$cur")" )
+        return
+    fi
+}
+
+complete -F _huggingface_download_completion huggingface-cli

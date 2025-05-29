@@ -1,0 +1,245 @@
+#compdef ghostty
+
+_fonts () {
+  local font_list=$(ghostty +list-fonts | grep -Z '^[A-Z]')
+  local fonts=(${(f)font_list})
+  _describe -t fonts 'fonts' fonts
+}
+
+_themes() {
+  local theme_list=$(ghostty +list-themes | sed -E 's/^(.*) \(.*$/\1/')
+  local themes=(${(f)theme_list})
+  _describe -t themes 'themes' themes
+}
+_config() {
+  _arguments \
+    "--help" \
+    "--version" \
+    "--font-family=-:::_fonts" \
+    "--font-family-bold=-:::_fonts" \
+    "--font-family-italic=-:::_fonts" \
+    "--font-family-bold-italic=-:::_fonts" \
+    "--font-style=-:::( )" \
+    "--font-style-bold=-:::( )" \
+    "--font-style-italic=-:::( )" \
+    "--font-style-bold-italic=-:::( )" \
+    "--font-synthetic-style=-:::(bold no-bold italic no-italic bold-italic no-bold-italic)" \
+    "--font-feature=-:::( )" \
+    "--font-size=-:::( )" \
+    "--font-variation=-:::( )" \
+    "--font-variation-bold=-:::( )" \
+    "--font-variation-italic=-:::( )" \
+    "--font-variation-bold-italic=-:::( )" \
+    "--font-codepoint-map=-:::( )" \
+    "--font-thicken=-:::(true false)" \
+    "--adjust-cell-width=-:::( )" \
+    "--adjust-cell-height=-:::( )" \
+    "--adjust-font-baseline=-:::( )" \
+    "--adjust-underline-position=-:::( )" \
+    "--adjust-underline-thickness=-:::( )" \
+    "--adjust-strikethrough-position=-:::( )" \
+    "--adjust-strikethrough-thickness=-:::( )" \
+    "--adjust-overline-position=-:::( )" \
+    "--adjust-overline-thickness=-:::( )" \
+    "--adjust-cursor-thickness=-:::( )" \
+    "--adjust-cursor-height=-:::( )" \
+    "--adjust-box-thickness=-:::( )" \
+    "--grapheme-width-method=-:::(legacy unicode)" \
+    "--freetype-load-flags=-:::(hinting no-hinting force-autohint no-force-autohint monochrome no-monochrome autohint no-autohint)" \
+    "--theme=-:::_themes" \
+    "--background=-:::( )" \
+    "--foreground=-:::( )" \
+    "--selection-foreground=-:::( )" \
+    "--selection-background=-:::( )" \
+    "--selection-invert-fg-bg=-:::(true false)" \
+    "--minimum-contrast=-:::( )" \
+    "--palette=-:::( )" \
+    "--cursor-color=-:::( )" \
+    "--cursor-invert-fg-bg=-:::(true false)" \
+    "--cursor-opacity=-:::( )" \
+    "--cursor-style=-:::(bar block underline block_hollow)" \
+    "--cursor-style-blink=-:::( )" \
+    "--cursor-text=-:::( )" \
+    "--cursor-click-to-move=-:::(true false)" \
+    "--mouse-hide-while-typing=-:::(true false)" \
+    "--mouse-shift-capture=-:::(false true always never)" \
+    "--mouse-scroll-multiplier=-:::( )" \
+    "--background-opacity=-:::( )" \
+    "--background-blur-radius=-:::( )" \
+    "--unfocused-split-opacity=-:::( )" \
+    "--unfocused-split-fill=-:::( )" \
+    "--command=-:::( )" \
+    "--initial-command=-:::( )" \
+    "--wait-after-command=-:::(true false)" \
+    "--abnormal-command-exit-runtime=-:::( )" \
+    "--scrollback-limit=-:::( )" \
+    "--link=-:::( )" \
+    "--link-url=-:::(true false)" \
+    "--fullscreen=-:::(true false)" \
+    "--title=-:::( )" \
+    "--class=-:::( )" \
+    "--x11-instance-name=-:::( )" \
+    "--working-directory=-:::{_files -/}" \
+    "--keybind=-:::( )" \
+    "--window-padding-x=-:::( )" \
+    "--window-padding-y=-:::( )" \
+    "--window-padding-balance=-:::(true false)" \
+    "--window-padding-color=-:::(background extend extend-always)" \
+    "--window-vsync=-:::(true false)" \
+    "--window-inherit-working-directory=-:::(true false)" \
+    "--window-inherit-font-size=-:::(true false)" \
+    "--window-decoration=-:::(true false)" \
+    "--window-title-font-family=-:::( )" \
+    "--window-theme=-:::(auto system light dark ghostty)" \
+    "--window-colorspace=-:::(srgb display-p3)" \
+    "--window-height=-:::( )" \
+    "--window-width=-:::( )" \
+    "--window-save-state=-:::(default never always)" \
+    "--window-step-resize=-:::(true false)" \
+    "--window-new-tab-position=-:::(current end)" \
+    "--resize-overlay=-:::(always never after-first)" \
+    "--resize-overlay-position=-:::(center top-left top-center top-right bottom-left bottom-center bottom-right)" \
+    "--resize-overlay-duration=-:::( )" \
+    "--focus-follows-mouse=-:::(true false)" \
+    "--clipboard-read=-:::(allow deny ask)" \
+    "--clipboard-write=-:::(allow deny ask)" \
+    "--clipboard-trim-trailing-spaces=-:::(true false)" \
+    "--clipboard-paste-protection=-:::(true false)" \
+    "--clipboard-paste-bracketed-safe=-:::(true false)" \
+    "--image-storage-limit=-:::( )" \
+    "--copy-on-select=-:::(false true clipboard)" \
+    "--click-repeat-interval=-:::( )" \
+    "--config-file=-:::_files" \
+    "--config-default-files=-:::(true false)" \
+    "--confirm-close-surface=-:::(true false)" \
+    "--quit-after-last-window-closed=-:::(true false)" \
+    "--quit-after-last-window-closed-delay=-:::( )" \
+    "--initial-window=-:::(true false)" \
+    "--quick-terminal-position=-:::(top bottom left right center)" \
+    "--quick-terminal-screen=-:::(main mouse macos-menu-bar)" \
+    "--quick-terminal-animation-duration=-:::( )" \
+    "--quick-terminal-autohide=-:::(true false)" \
+    "--shell-integration=-:::(none detect bash elvish fish zsh)" \
+    "--shell-integration-features=-:::(cursor no-cursor sudo no-sudo title no-title)" \
+    "--osc-color-report-format=-:::(none 8-bit 16-bit)" \
+    "--vt-kam-allowed=-:::(true false)" \
+    "--custom-shader=-:::_files" \
+    "--custom-shader-animation=-:::(false true always)" \
+    "--macos-non-native-fullscreen=-:::(false true visible-menu)" \
+    "--macos-titlebar-style=-:::(native transparent tabs hidden)" \
+    "--macos-titlebar-proxy-icon=-:::(visible hidden)" \
+    "--macos-option-as-alt=-:::( )" \
+    "--macos-window-shadow=-:::(true false)" \
+    "--macos-auto-secure-input=-:::(true false)" \
+    "--macos-secure-input-indication=-:::(true false)" \
+    "--macos-icon=-:::(official custom-style)" \
+    "--macos-icon-frame=-:::(aluminum beige plastic chrome)" \
+    "--macos-icon-ghost-color=-:::( )" \
+    "--macos-icon-screen-color=-:::( )" \
+    "--linux-cgroup=-:::(never always single-instance)" \
+    "--linux-cgroup-memory-limit=-:::( )" \
+    "--linux-cgroup-processes-limit=-:::( )" \
+    "--linux-cgroup-hard-fail=-:::(true false)" \
+    "--gtk-single-instance=-:::(desktop false true)" \
+    "--gtk-titlebar=-:::(true false)" \
+    "--gtk-tabs-location=-:::(top bottom left right hidden)" \
+    "--adw-toolbar-style=-:::(flat raised raised-border)" \
+    "--gtk-wide-tabs=-:::(true false)" \
+    "--gtk-adwaita=-:::(true false)" \
+    "--desktop-notifications=-:::(true false)" \
+    "--bold-is-bright=-:::(true false)" \
+    "--term=-:::( )" \
+    "--enquiry-response=-:::( )" \
+    "--auto-update=-:::(off check download)" \
+    "--auto-update-channel=-:::( )" \
+
+}
+
+_ghostty() {
+  typeset -A opt_args
+  local context state line
+  local opt=('-e' '--help' '--version')
+
+  _arguments -C \
+    '1:actions:->actions' \
+    '*:: :->rest' \
+
+  if [[ "$line[1]" == "--help" || "$line[1]" == "--version" || "$line[1]" == "-e" ]]; then
+    return
+  fi
+
+  if [[ "$line[1]" == -* ]]; then
+    _config
+    return
+  fi
+
+  case "$state" in
+    (actions)
+      local actions; actions=(
+        '+list-fonts'
+        '+list-keybinds'
+        '+list-themes'
+        '+list-colors'
+        '+list-actions'
+        '+show-config'
+        '+validate-config'
+        '+crash-report'
+        '+show-face'
+      )
+      _describe '' opt
+      _describe -t action 'action' actions
+    ;;
+    (rest)
+      if [[ "$line[2]" == "--help" ]]; then
+        return
+      fi
+
+      local help=('--help')
+      _describe '' help
+
+      case $line[1] in
+        (+list-fonts)
+          _arguments \
+            '--family=-:::( )' \
+            '--style=-:::( )' \
+            '--bold=-:::(true false)' \
+            '--italic=-:::(true false)' \
+        ;;
+        (+list-keybinds)
+          _arguments \
+            '--default=-:::(true false)' \
+            '--docs=-:::(true false)' \
+            '--plain=-:::(true false)' \
+        ;;
+        (+list-themes)
+          _arguments \
+            '--path=-:::(true false)' \
+            '--plain=-:::(true false)' \
+        ;;
+        (+list-actions)
+          _arguments \
+            '--docs=-:::(true false)' \
+        ;;
+        (+show-config)
+          _arguments \
+            '--default=-:::(true false)' \
+            '--changes-only=-:::(true false)' \
+            '--docs=-:::(true false)' \
+        ;;
+        (+validate-config)
+          _arguments \
+            '--config-file=-:::_files' \
+        ;;
+        (+show-face)
+          _arguments \
+            '--cp=-:::( )' \
+            '--string=-:::( )' \
+            '--style=-:::(regular bold italic bold_italic)' \
+            '--presentation=-:::(text emoji)' \
+        ;;
+      esac
+    ;;
+  esac
+}
+
+_ghostty "$@"

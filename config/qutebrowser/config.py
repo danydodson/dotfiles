@@ -1,6 +1,6 @@
 config.load_autoconfig()
 
-config.source('qutebrowser-themes/onedark.py')
+config.source('onedark.py')
 
 # c.colors.webpage.bg = ''
 # c.colors.webpage.darkmode.enabled = True

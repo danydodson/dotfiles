@@ -19,8 +19,8 @@ alias wget="wget --no-check-certificate"
 alias e="$EDITOR"
 alias cc="codium"
 alias v="nvim"
-alias nv-normal="NVIM_APPNAME=nvim-normal nvim"
-alias nv-ide="NVIM_APPNAME=nv-ide nvim"
+alias nv_normal="NVIM_APPNAME=nvim-normal nvim"
+alias nv_ide="NVIM_APPNAME=nv-ide nvim"
 
 # shortcuts
 alias dotconf="cd $DOTFILES && nvim"
@@ -46,10 +46,11 @@ alias -g :b='-h 2>&1 | bat --language=help --style=plain'
 alias -g :b='--help 2>&1 | bat --language=help --style=plain'
 
 # pkg managers
-alias lsg-npm="npm ls -g --depth 0"
-alias lsg-yarn="yarn global list"
-alias lsg-pnpm="pnpm ls -g"
+alias lsg_npm="npm ls -g --depth 0"
+alias lsg_yarn="yarn global list"
+alias lsg_pnpm="pnpm ls -g"
 
+# huggingface
 alias hf="huggingface-cli"
 
 # brew bundle
@@ -57,15 +58,21 @@ alias bbin="brew bundle install --file=$HOME/.dotfiles/macos/brewfile"
 alias bbcl="brew bundle cleanup --file=$HOME/.dotfiles/macos/brewfile"
 alias bbch="brew bundle check --file=$HOME/.dotfiles/macos/brewfile"
 
+# postgresql
+alias psql_status="brew services info postgresql"
+alias psql_start="brew services start postgresql"
+alias psql_restart="brew services restart postgresql"
+alias psql_stop="brew services stop postgresql"
+
 # pretty list of brew pkgs with pkg info
 alias blea="brew leaves | xargs brew desc --eval-all"
 alias bleac="brew ls --casks | xargs brew desc --eval-all"
 
 # python
-alias pyclean='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rvf'
-alias pip-purge='pip list --format freeze | xargs pip uninstall -y'
-alias pip-install-reqs='ls requirements*.txt | xargs -n 1 pip install -r'
-alias poetry-install-master='pipx install --suffix=@master --force git+https://github.com/python-poetry/poetry.git'
+alias py_clean='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rvf'
+alias pip_purge='pip list --format freeze | xargs pip uninstall -y'
+alias pip_install_reqs='ls requirements*.txt | xargs -n 1 pip install -r'
+alias poetry_install_master='pipx install --suffix=@master --force git+https://github.com/python-poetry/poetry.git'
 alias activate='source .venv/bin/activate'
 alias venv='PIP_REQUIRE_VIRTUALENV=false python3 -m pip install --upgrade --user pip virtualenv && python3 -m virtualenv .venv && source .venv/bin/activate && python3 -m pip install --upgrade pip && which pip && pip list && pip --version && python3 --version'
 
@@ -75,6 +82,18 @@ alias trd='transmission-daemon'
 alias tr='transmission-remote'
 alias tra='transmission-remote -a'
 alias trl='transmission-remote -l'
+
+# fastfetch
+alias ff="fastfetch"
+
+# ollama
+alias ai_install="docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama"
+alias ai_start="docker start ollama"
+alias ai_stop="docker stop ollama"
+alias ai="docker exec -it ollama ollama run mistral:latest"
+alias ai_code="docker exec -it ollama ollama run mistral:ruby-mentor"
+alias ai_ls="docker exec -it ollama ollama ls"
+alias ai_rm="docker exec -it ollama ollama rm"
 
 # gls
 alias ls='/opt/homebrew/bin/gls --color=auto --human-readable --group-directories-first -I .DS_Store -I .Trash -I "Icon'$'\r"'
@@ -86,27 +105,11 @@ alias la="ls -Algo"
 alias path="printf '%s\n' $path"
 alias fpath="printf '%s\n' $fpath"
 
-# fastfetch
-alias ff="fastfetch"
-
 # clean .DS_Store files
 alias rmds="find . -type f -name '*.DS_Store' -ls -delete"
 
 # clean node_modules directories
 alias rmnm="find . -type d -name 'node_modules' -ls -delete"
-
-[ -d $HOME/Downloads ] && alias dl="cd $HOME/Downloads"
-[ -d $HOME/.dotfiles ] && alias dots="cd $HOME/.dotfiles"
-[ -d $HOME/.config/nvim ] && alias nvims="cd $HOME/.config/nvim"
-[ -d $HOME/Developer ] && alias dev="cd $HOME/Developer"
-[ -d $HOME/Developer/boiler ] && alias boil="cd $HOME/Developer/boiler"
-[ -d $HOME/Developer/plugins ] && alias plug="cd $HOME/Developer/plugins"
-[ -d $HOME/Developer/practice ] && alias prac="cd $HOME/Developer/practice"
-[ -d $HOME/Developer/courses ] && alias course="cd $HOME/Developer/courses"
-[ -d $HOME/Developer/repos ] && alias repo="cd $HOME/Developer/repos"
-[ -d $HOME/Developer/security ] && alias sec="cd $HOME/Developer/security"
-[ -d $HOME/Developer/served ] && alias ser="cd $HOME/Developer/served"
-[ -d $HOME/Developer/temp ] && alias temp="cd $HOME/Developer/temp"
 
 # canonical hex dump
 alias hd="hexdump -C"
@@ -159,6 +162,20 @@ alias sys_uti_file="mdls -name kMDItemContentTypeTree "
 # spotlight on/off
 alias spotlight_off="sudo mdutil -a -i off"
 alias spotlight_on="sudo mdutil -a -i on"
+
+# directories
+[ -d $HOME/Downloads ] && alias dl="cd $HOME/Downloads"
+[ -d $HOME/.dotfiles ] && alias dots="cd $HOME/.dotfiles"
+[ -d $HOME/.config/nvim ] && alias nvims="cd $HOME/.config/nvim"
+[ -d $HOME/Developer ] && alias dev="cd $HOME/Developer"
+[ -d $HOME/Developer/boiler ] && alias boil="cd $HOME/Developer/boiler"
+[ -d $HOME/Developer/plugins ] && alias plug="cd $HOME/Developer/plugins"
+[ -d $HOME/Developer/practice ] && alias prac="cd $HOME/Developer/practice"
+[ -d $HOME/Developer/courses ] && alias course="cd $HOME/Developer/courses"
+[ -d $HOME/Developer/repos ] && alias repo="cd $HOME/Developer/repos"
+[ -d $HOME/Developer/security ] && alias sec="cd $HOME/Developer/security"
+[ -d $HOME/Developer/served ] && alias ser="cd $HOME/Developer/served"
+[ -d $HOME/Developer/temp ] && alias temp="cd $HOME/Developer/temp"
 
 # create and cd into directory
 function mkd() {
