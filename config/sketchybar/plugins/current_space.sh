@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+source "$CONFIG_DIR/styles.sh"
+
 update_space() {
     SPACE_ID=$(echo "$INFO" | jq -r '."display-1"')
 
@@ -24,7 +26,7 @@ update_space() {
 
 case "$SENDER" in
 "mouse.clicked")
-    # Reload sketchybar
+    # reload sketchybar
     sketchybar --remove '/.*/'
     source $HOME/.config/sketchybar/sketchybarrc
     ;;

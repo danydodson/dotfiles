@@ -27,6 +27,7 @@ source $ZSH/oh-my-zsh.sh
 
 # zsh files
 source ${DOTFILES}/zsh/settings.zsh
+source ${DOTFILES}/zsh/functions.zsh
 source ${DOTFILES}/zsh/aliases.zsh
 
 # start ssh
@@ -41,9 +42,7 @@ if [ $(command -v fzf) ]; then
 fi
 
 # conda
-if [ $(command -v conda) ]; then
-  source $DOTFILES/config/conda/conda.zsh
-fi
+source $DOTFILES/config/conda/conda.zsh
 
 # zsh compgen
 source "$ZSH/custom/plugins/zsh-comp-generator/zsh-completion-generator.plugin.zsh"
@@ -55,4 +54,3 @@ if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
 else
   compinit -C
 fi
-

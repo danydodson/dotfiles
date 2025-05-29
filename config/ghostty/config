@@ -71,12 +71,14 @@ macos-secure-input-indication = false
 
 # background ---------------------------------------------------------
 
-background-opacity = 0.94
-unfocused-split-opacity = 0.94
+background-opacity = 0.92
+unfocused-split-opacity = 0.92
 background-blur = true
-background-blur-radius = 70
+background-blur-radius = 80
 
 # keybinds ---------------------------------------------------------
+
+keybind = super+m=toggle_visibility
 
 keybind = ctrl+b>d=new_split:down
 keybind = ctrl+b>r=new_split:right

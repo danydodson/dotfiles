@@ -1,29 +1,70 @@
 #!/usr/bin/env bash
 
-export BLACK=0xff1E2127
-export WHITE=0xffECEFF4
-export RED=0xffE06C75
-export GREEN=0xff98C379
-export BLUE=0xff61AFEF
-export YELLOW=0xffeed49f
-export ORANGE=0xffD19A66
-export MAGENTA=0xffC678DD
-export SKY=0xff91d7e3
-export PINK=0xffd3869b
-export GREY=0xff5d626e
-export TRANS=0x00000000
-export TRANS_BLACK=0x40000000
-export TRANS_GREY=0xF01E2127
+ONEDARK=(
+    blue "#61AFEF"
+    teal "#94e2d5"
+    cyan "#56B6C2"
+    grey "#5d626e"
+    green "#98C379"
+    yellow "#eed49f"
+    orange "#D19A66"
+    red "#E06C75"
+    purple "#C678DD"
+    maroon "#d3869b"
+    black "#1E2127"
+    trueblack "#1c1c1c"
+    white "#ECEFF4"
+)
 
-export BAR_COLOR=$TRANS
-export ICON_COLOR=$WHITE
-export LABEL_COLOR=$WHITE
+COLORS=("${ONEDARK[@]}")
 
-export SPACE_BACKGROUND=$ITEM_COLOR
-export SPACE_SELECTED=$WHITE
-export SPACE_DESELECTED=$BLACK
+getcolor() {
+    COLOR_NAME=$1
+    local COLOR=""
 
-export POPUP_BACKGROUND_COLOR=$BLACK
-export POPUP_BORDER_COLOR=$WHITE
+    if [[ -z $2 ]]; then
+        OPACITY=100
+    else
+        OPACITY=$2
+    fi
 
-export SHADOW_COLOR=$BLACK
+    # loop through the array to find the color hex by name
+    for ((i = 0; i < ${#COLORS[@]}; i += 2)); do
+        if [[ "${COLORS[i]}" == "$COLOR_NAME" ]]; then
+            COLOR="${COLORS[i + 1]}"
+            break
+        fi
+    done
+
+    # check if color was found
+    if [[ -z $COLOR ]]; then
+        echo "Invalid color name: $COLOR_NAME" >&2
+        return 1
+    fi
+
+    echo "$(PERCENT2HEX "$OPACITY")${COLOR:1}"
+}
+
+PERCENT2HEX() {
+    local PERCENTAGE=$1
+    local DECIMAL=$(((PERCENTAGE * 255) / 100))
+    printf "0x%02X\n" "$DECIMAL"
+}
+
+# color Tokens
+BAR_COLOR=$(getcolor black)
+BAR_BORDER_COLOR=$(getcolor black 0)
+BAR_COLOR_TRANSPARENT=$(getcolor black 40)
+HIGHLIGHT=$(getcolor cyan)
+HIGHLIGHT_75=$(getcolor cyan 75)
+HIGHLIGHT_50=$(getcolor cyan 50)
+HIGHLIGHT_25=$(getcolor cyan 25)
+HIGHLIGHT_10=$(getcolor cyan 10)
+ICON_COLOR=$(getcolor white)
+ICON_COLOR_INACTIVE=$(getcolor white 25)
+LABEL_COLOR=$(getcolor white 75)
+LABEL_COLOR_NEGATIVE=$(getcolor black)
+POPUP_BACKGROUND_COLOR=$(getcolor black 75)
+POPUP_BORDER_COLOR=$(getcolor black 0)
+SHADOW_COLOR=$(getcolor black)
+TRANSPARENT=$(getcolor black 0)

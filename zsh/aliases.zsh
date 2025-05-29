@@ -5,7 +5,6 @@ alias sudo="sudo "
 # file managers
 alias o="open"
 alias oo="open ."
-alias rr="ranger"
 
 alias cl="clear"
 alias or="omz reload"
@@ -19,8 +18,8 @@ alias wget="wget --no-check-certificate"
 alias e="$EDITOR"
 alias cc="codium"
 alias v="nvim"
-alias nv_normal="NVIM_APPNAME=nvim-normal nvim"
-alias nv_ide="NVIM_APPNAME=nv-ide nvim"
+alias v_normal="NVIM_APPNAME=nvim-normal nvim"
+alias v_ide="NVIM_APPNAME=nv-ide nvim"
 
 # shortcuts
 alias dotconf="cd $DOTFILES && nvim"
@@ -71,10 +70,7 @@ alias bleac="brew ls --casks | xargs brew desc --eval-all"
 
 # python
 alias py_clean='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rvf'
-alias activate='source .venv/bin/activate'
-alias venv='PIP_REQUIRE_VIRTUALENV=false python3 -m pip install --upgrade --user pip virtualenv && python3 -m virtualenv .venv && source .venv/bin/activate && python3 -m pip install --upgrade pip && which pip && pip list && pip --version && python3 --version'
 alias pip_purge='pip list --format freeze | xargs pip uninstall -y'
-alias pip_install_reqs='ls requirements*.txt | xargs -n 1 pip install -r'
 
 # transmission
 alias trc='transmission-cli'
@@ -162,32 +158,3 @@ alias sys_uti_file="mdls -name kMDItemContentTypeTree "
 # spotlight on/off
 alias spotlight_off="sudo mdutil -a -i off"
 alias spotlight_on="sudo mdutil -a -i on"
-
-# directories
-[ -d $HOME/Downloads ] && alias dl="cd $HOME/Downloads"
-[ -d $HOME/.dotfiles ] && alias dots="cd $HOME/.dotfiles"
-[ -d $HOME/.config/nvim ] && alias nvims="cd $HOME/.config/nvim"
-[ -d $HOME/Developer ] && alias dev="cd $HOME/Developer"
-[ -d $HOME/Developer/boiler ] && alias boil="cd $HOME/Developer/boiler"
-[ -d $HOME/Developer/plugins ] && alias plug="cd $HOME/Developer/plugins"
-[ -d $HOME/Developer/practice ] && alias prac="cd $HOME/Developer/practice"
-[ -d $HOME/Developer/courses ] && alias course="cd $HOME/Developer/courses"
-[ -d $HOME/Developer/repos ] && alias repo="cd $HOME/Developer/repos"
-[ -d $HOME/Developer/security ] && alias sec="cd $HOME/Developer/security"
-[ -d $HOME/Developer/served ] && alias ser="cd $HOME/Developer/served"
-[ -d $HOME/Developer/temp ] && alias temp="cd $HOME/Developer/temp"
-
-# create and cd into directory
-function mkd() {
-  mkdir -p $@ && cd ${@:$#}
-}
-
-# yazi wrapper
-function y() {
-  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-  yazi "$@" --cwd-file="$tmp"
-  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-    builtin cd -- "$cwd"
-  fi
-  rm -f -- "$tmp"
-}

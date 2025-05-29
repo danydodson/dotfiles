@@ -20,16 +20,13 @@ export PATH="$PATH:$GO_PATH/bin"
 export PATH="$PATH:$GOROOT/bin"
 
 # conda -> path
-export PATH="/opt/homebrew/anaconda3/bin:$PATH"
+export PATH="/Users/dany/.config/miniconda3/bin:$PATH"
 
 # java -> path
 export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 
 # jaro mail -> path
 export PATH="/Applications/JaroMail.app/Contents/Resources/jaro/bin:$PATH"
-
-# zsh-completions -> fpath
-fpath+="${ZSH_CUSTOM:-${ZSH:-~/.omz}/custom}/plugins/zsh-completions/src"
 
 # global yarn bin -> path
 export PATH="$HOME/.yarn/bin:$PATH"
@@ -42,6 +39,9 @@ export PATH="$HOME/.lmstudio/bin:$PATH"
 
 # php -> path
 export PATH="/opt/homebrew/opt/php/bin:$PATH"
+
+# zsh-completions -> fpath
+fpath+="${ZSH_CUSTOM:-${ZSH:-~/.omz}/custom}/plugins/zsh-completions/src"
 
 # nvm and completions
 [[ -f "/opt/homebrew/opt/nvm/nvm.sh" ]] && . "/opt/homebrew/opt/nvm/nvm.sh"

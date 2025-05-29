@@ -1,7 +1,0 @@
-channels:
-  - pytorch-nightly
-  - defaults
-  - https://repo.anaconda.com/pkgs/main
-  - https://repo.anaconda.com/pkgs/r
-ssl_verify: true
-env_prompt: ({name})

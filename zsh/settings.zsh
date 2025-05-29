@@ -1,28 +1,65 @@
 #!/usr/bin/env zsh
 
 # history file
-export HISTFILE="$HOME/.zsh_history" # Sets the file where history is saved
-export HISTSIZE=1000000000           # Sets maximum history entries in memory
-export SAVEHIST=$HISTSIZE            # Sets maximum history entries in file
+export HISTSIZE=1000000000 # Sets maximum history entries in memory
+export SAVEHIST=$HISTSIZE # Sets maximum history entries in file
+export HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history" # Sets the file where history is saved
 
 # history configs
-setopt EXTENDED_HISTORY        # Saves timestamp and duration for commands
-setopt SHARE_HISTORY           # Shares history across multiple zsh sessions
-setopt HIST_EXPIRE_DUPS_FIRST  # Removes duplicate commands first when trimming history
-setopt HIST_FIND_NO_DUPS       # Skips duplicate entries when searching history
-setopt HIST_IGNORE_ALL_DUPS    # Removes older duplicate entries in history
-setopt HIST_IGNORE_SPACE       # Ignores commands that start with a space
-setopt HIST_SAVE_NO_DUPS       # Prevents duplicate entries from being saved
-setopt HIST_REDUCE_BLANKS      # Removes extra blank spaces from commands
-setopt HIST_VERIFY             # Shows history expansion before executing
+setopt EXTENDED_HISTORY # saves timestamp and duration for commands
+setopt SHARE_HISTORY # shares history across multiple zsh sessions
+setopt HIST_EXPIRE_DUPS_FIRST # removes duplicate commands first when trimming history
+setopt HIST_FIND_NO_DUPS # skips duplicate entries when searching history
+setopt HIST_IGNORE_ALL_DUPS # removes older duplicate entries in history
+setopt HIST_IGNORE_SPACE # ignores commands that start with a space
+setopt HIST_SAVE_NO_DUPS # prevents duplicate entries from being saved
+setopt HIST_REDUCE_BLANKS # removes extra blank spaces from commands
+setopt HIST_VERIFY # shows history expansion before executing
+
+# prevents the shell from reading global configs files
+setopt noglobalrcs 
+
+# disable extended globbing so that ^ will behave as normal
+unsetopt extendedglob 
+
+# vi mode
+bindkey -v
+export KEYTIMEOUT=1
 
 # history search
-bindkey '^[[A' history-substring-search-up    # Up arrow for searching history backwards
-bindkey '^[[B' history-substring-search-down  # Down arrow for searching history forwards
+bindkey '^[[A' history-substring-search-up # up arrow for searching history backwards
+bindkey '^[[B' history-substring-search-down  # down arrow for searching history forwards
 
 # vim keymaps history search
-bindkey -M vicmd 'k' history-substring-search-up    # Vim 'k' key for searching history backwards
-bindkey -M vicmd 'j' history-substring-search-down  # Vim 'j' key for searching history forwards
+bindkey -M vicmd 'k' history-substring-search-up # vim 'k' key for searching history backwards
+bindkey -M vicmd 'j' history-substring-search-down # vim 'j' key for searching history forwards
+
+# use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
+# change cursor shape for different vi modes.
+function zle-keymap-select () {
+    case $KEYMAP in
+        vicmd) echo -ne '\e[1 q';; # block
+        viins|main) echo -ne '\e[5 q';; # beam
+    esac
+}
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+
+# Edit line in vim with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
 
 # colors
 export CLICOLOR=1
@@ -35,71 +72,73 @@ if [ -f "/opt/homebrew/bin/gdircolors" ]; then
 fi
 
 # complist and colors
-zmodload -i zsh/complist       # Loads the completion system module
-autoload -Uz colors && colors  # Enables color support in the shell
+zmodload -i zsh/complist # Loads the completion system module
+autoload -Uz colors && colors # Enables color support in the shell
 
 # enable gnu ls in macOS
-zstyle ':omz:lib:theme-and-appearance' gnu-ls yes     # Uses GNU ls formatting in MacOS
+zstyle ':omz:lib:theme-and-appearance' gnu-ls yes # Uses GNU ls formatting in MacOS
 
 # completion menu and grouping settings
-zstyle ':completion:*:*:*:*:*' menu select            # Enables interactive menu for completions
-zstyle ':completion:*:matches' group yes              # Groups similar matches together
-zstyle ':completion:*:options' description yes        # Shows descriptions for options
-zstyle ':completion:*:options' auto-description '%d'  # Automatic descriptions for options
+zstyle ':completion:*:*:*:*:*' menu select # Enables interactive menu for completions
+zstyle ':completion:*:matches' group yes # Groups similar matches together
+zstyle ':completion:*:options' description yes # Shows descriptions for options
+zstyle ':completion:*:options' auto-description '%d' # Automatic descriptions for options
 
 # formatting for different completion messages
-zstyle ':completion:*:corrections' format ' %F{green}-- %d (errors: %e) --%f'  # Format for corrections
-zstyle ':completion:*:descriptions' format ' %F{yellow}-- %d --%f'             # set descriptions format to enable group support
-zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'                # Format for messages
-zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'      # Format for no matches
-zstyle ':completion:*:default' list-prompt '%S%M matches%s'                    # Format for match count
+zstyle ':completion:*:corrections' format ' %F{green}-- %d (errors: %e) --%f' # Format for corrections
+zstyle ':completion:*:descriptions' format ' %F{yellow}-- %d --%f' # set descriptions format to enable group support
+zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f' # Format for messages
+zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f' # Format for no matches
+zstyle ':completion:*:default' list-prompt '%S%M matches%s' # Format for match count
 
 # general completion behavior
-zstyle ':completion:*' format ' %F{yellow}-- %d --%f'                               # Configures how completion headers appear in the shell
-zstyle ':completion:*' list-dirs-first yes                                          # Lists directories first
-zstyle ':completion:*' group-name ''                                                # Groups completions by name
-zstyle ':completion:*' verbose yes                                                  # Shows detailed completion info
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'     # Case-insensitive matching
-zstyle ':completion:*' expand yes                                                   # Expands aliases before completing
-zstyle ':completion:*:processes-names' command 'ps c -u ${USER} -o command | uniq'  # Process completion
-zstyle ':completion:*:*:-redirect-,2>,*:*' file-patterns '*.log'                    # Log file completion for redirections
+zstyle ':completion:*' format ' %F{yellow}-- %d --%f' # Configures how completion headers appear in the shell
+zstyle ':completion:*' list-dirs-first yes # Lists directories first
+zstyle ':completion:*' group-name '' # Groups completions by name
+zstyle ':completion:*' verbose yes # Shows detailed completion info
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*' # Case-insensitive matching
+zstyle ':completion:*' expand yes # Expands aliases before completing
+zstyle ':completion:*:processes-names' command 'ps c -u ${USER} -o command | uniq' # Process completion
+zstyle ':completion:*:*:-redirect-,2>,*:*' file-patterns '*.log' # Log file completion for redirections
 
 # caching completions
-zstyle ':completion:*' use-cache on             # Enables completion caching
+zstyle ':completion:*' use-cache on # Enables completion caching
 zstyle ':completion:*' cache-path ${ZSH}/cache  # Sets cache location
 
 # fuzzy matching settings
 zstyle ':completion:*' completer _complete _match _approximate  # Enables fuzzy matching
-zstyle ':completion:*:match:*' original only                    # Only shows original matches
-zstyle ':completion:*:approximate:*' max-errors 1 numeric       # Allows 1 error in completion
+zstyle ':completion:*:match:*' original only # Only shows original matches
+zstyle ':completion:*:approximate:*' max-errors 1 numeric # Allows 1 error in completion
 
 # directory and color settings
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}                                         # Uses ls colors for completion
-zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories            # Directory completion order
-zstyle ':completion:*:*:cd:*:directory-stack' menu yes select                                         # Directory stack menu
-zstyle ':completion:*:-tilde-:*' group-order 'path-directories' 'named-directories' 'users' 'expand'  # Tilde completion order
-zstyle ':completion:*' squeeze-slashes true                                                           # Combines multiple slashes
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} # Uses ls colors for completion
+zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories # Directory completion order
+zstyle ':completion:*:*:cd:*:directory-stack' menu yes select # Directory stack menu
+zstyle ':completion:*:-tilde-:*' group-order 'path-directories' 'named-directories' 'users' 'expand' # Tilde completion order
+zstyle ':completion:*' squeeze-slashes true # Combines multiple slashes
 
 # function and parameter handling
-zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec)|prompt_*)'  # Ignores certain functions
-zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters              # Subscript completion order
+zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec)|prompt_*)' # Ignores certain functions
+zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters # Subscript completion order
 
 # manual page settings
-zstyle ':completion:*:manuals' separate-sections true      # Separates manual sections
-zstyle ':completion:*:manuals.(^1*)' insert-sections true  # Inserts section headers
+zstyle ':completion:*:manuals' separate-sections true # Separates manual sections
+zstyle ':completion:*:manuals.(^1*)' insert-sections true # Inserts section headers
 
 # history completion settings
-zstyle ':completion:*:history-words' stop yes             # Enables history word completion
-zstyle ':completion:*:history-words' remove-all-dups yes  # Removes duplicates
-zstyle ':completion:*:history-words' list false           # Disables listing
-zstyle ':completion:*:history-words' menu yes             # Enables menu
+zstyle ':completion:*:history-words' stop yes # Enables history word completion
+zstyle ':completion:*:history-words' remove-all-dups yes # Removes duplicates
+zstyle ':completion:*:history-words' list false # Disables listing
+zstyle ':completion:*:history-words' menu yes # Enables menu
 
 # multiple entry handling
-zstyle ':completion:*:(rm|kill|diff):*' ignore-line other  # Ignores current line for certain commands
-zstyle ':completion:*:rm:*' file-patterns '*:all-files'    # File patterns for rm command
+zstyle ':completion:*:(rm|kill|diff):*' ignore-line other # Ignores current line for certain commands
+zstyle ':completion:*:rm:*' file-patterns '*:all-files' # File patterns for rm command
 
-# zoxide support
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+# use passphase from macos keychain
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  zstyle :omz:plugins:ssh-agent ssh-add-args --apple-load-keychain
+fi
 
 # location for completions
 zcompdump="${HOME}/.zcompdump"
@@ -114,48 +153,3 @@ if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdu
 then
     zcompile "$zcompdump"
 fi
-
-# Disable extended globbing so that ^ will behave as normal
-unsetopt extendedglob
-
-# use passphase from macOS keychain
-# if [[ "$OSTYPE" == "darwin"* ]]; then
-#   zstyle :omz:plugins:ssh-agent ssh-add-args --apple-load-keychain
-# fi
-
-# change working dir in shell to last dir in lf on exit
-lfcd () {
-    tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp"
-        if [ -d "$dir" ]; then
-            if [ "$dir" != "$(pwd)" ]; then
-                cd "$dir"
-            fi
-        fi
-    fi
-}
-bindkey -s '^o' 'lfcd\n'
-
-# nvm autoload node version
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version="$(nvm version "$(<"$nvmrc_path")")"
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
-      nvm use
-    fi
-  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc

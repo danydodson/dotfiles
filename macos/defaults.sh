@@ -493,25 +493,25 @@ defaults write com.google.Chrome.canary ExtensionInstallSources -array "https://
 
 # Battery
 
-# Computer sleep: 10 min
-sudo pmset -b sleep 5
+# Computer sleep: 15 min
+sudo pmset -b sleep 15
 
 # Display sleep: 10 min
-sudo pmset -b displaysleep 5
+sudo pmset -b displaysleep 10
 
-# Put the hard disk(s) to sleep when possible: 10 min
-sudo pmset -b disksleep 10
+# Put the hard disk(s) to sleep when possible: 20 min
+sudo pmset -b disksleep 20
 
 # Power Adapter
 
 # Computer sleep: 15 min
-sudo pmset -c sleep 10
+sudo pmset -c sleep 15
 
 # Display sleep: 10 min
 sudo pmset -c displaysleep 10
 
-# Put the hard disk(s) to sleep when possible: 10 min
-sudo pmset -c disksleep 10
+# Put the hard disk(s) to sleep when possible: 20 min
+sudo pmset -c disksleep 20
 
 # Wake for network access
 sudo pmset -c womp 0

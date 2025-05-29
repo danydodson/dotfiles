@@ -93,14 +93,12 @@ hyper - n : open -a "Notes.app"
 hyper - q : open -a "qutebrowser.app"
 
 # restart all wm services
-# "display notification \"Restarting all Services\" with title \"WM Services\""; \
+# osascript -e "display notification \"Restarting all Services\" with title \"WM Services\""; \
 hyper - r : \
-  osascript -e \
   skhd --stop-service; \
   skhd --start-service; \
   yabai --stop-service; \
   yabai --start-service; \
-  brew services stop sketchybar; \
-  brew services start sketchybar
+  sketchybar --reload
 
 

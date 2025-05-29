@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Downloads the embedded video on any web page straight to the Downloads folder
+
+cd ~/Downloads && yt-dlp -S "ext" "$1"

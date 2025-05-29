@@ -15,7 +15,6 @@ dockutil --no-restart --add "/Applications/DiffusionBee.app"
 dockutil --no-restart --add "/Applications/ChatGPT.app"
 dockutil --no-restart --add "/Applications/VLC.app"
 dockutil --no-restart --add "/Applications/MEGAVPN.app"
-dockutil --no-restart --add "/Applications/Transmission.app"
 dockutil --no-restart --add "/System/Applications/Mail.app"
 dockutil --no-restart --add "/System/Applications/Calendar.app"
 
