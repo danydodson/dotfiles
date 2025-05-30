@@ -325,6 +325,9 @@
   },
   "diffEditor.hideUnchangedRegions.enabled": true,
   "1password.debug.enabled": true,
+  "extensions.autoCheckUpdates": false,
+  "editor.largeFileOptimizations": false,
+  "workbench.statusBar.visible": false,
   // "explorer.fileNesting.patterns": {
   // "*.ts": "${capture}.js",
   // "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
