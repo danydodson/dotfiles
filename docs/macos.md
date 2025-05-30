@@ -62,8 +62,8 @@ nvim
 ### OS configuration
 
 ```bash
-macos/set_defaults.sh
-macos/set_hostname.sh $DESIRED_HOSTNAME
+macos/defaults.sh
+macos/names.sh $DESIRED_HOSTNAME
 ```
 
 #### System settings

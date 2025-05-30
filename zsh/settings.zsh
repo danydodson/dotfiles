@@ -3,7 +3,7 @@
 # history file
 export HISTSIZE=1000000000 # Sets maximum history entries in memory
 export SAVEHIST=$HISTSIZE # Sets maximum history entries in file
-export HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history" # Sets the file where history is saved
+export HISTFILE="$HOME/.zsh_history" # Sets the file where history is saved
 
 # history configs
 setopt EXTENDED_HISTORY # saves timestamp and duration for commands
@@ -22,10 +22,6 @@ setopt noglobalrcs
 # disable extended globbing so that ^ will behave as normal
 unsetopt extendedglob 
 
-# vi mode
-bindkey -v
-export KEYTIMEOUT=1
-
 # history search
 bindkey '^[[A' history-substring-search-up # up arrow for searching history backwards
 bindkey '^[[B' history-substring-search-down  # down arrow for searching history forwards
@@ -33,33 +29,6 @@ bindkey '^[[B' history-substring-search-down  # down arrow for searching history
 # vim keymaps history search
 bindkey -M vicmd 'k' history-substring-search-up # vim 'k' key for searching history backwards
 bindkey -M vicmd 'j' history-substring-search-down # vim 'j' key for searching history forwards
-
-# use vim keys in tab complete menu:
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
-
-# change cursor shape for different vi modes.
-function zle-keymap-select () {
-    case $KEYMAP in
-        vicmd) echo -ne '\e[1 q';; # block
-        viins|main) echo -ne '\e[5 q';; # beam
-    esac
-}
-zle -N zle-keymap-select
-zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q"
-}
-zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
-
-# Edit line in vim with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
 
 # colors
 export CLICOLOR=1
@@ -77,6 +46,11 @@ autoload -Uz colors && colors # Enables color support in the shell
 
 # enable gnu ls in macOS
 zstyle ':omz:lib:theme-and-appearance' gnu-ls yes # Uses GNU ls formatting in MacOS
+
+# use passphase from macos keychain
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  zstyle :omz:plugins:ssh-agent ssh-add-args --apple-load-keychain
+fi
 
 # completion menu and grouping settings
 zstyle ':completion:*:*:*:*:*' menu select # Enables interactive menu for completions
@@ -103,7 +77,7 @@ zstyle ':completion:*:*:-redirect-,2>,*:*' file-patterns '*.log' # Log file comp
 
 # caching completions
 zstyle ':completion:*' use-cache on # Enables completion caching
-zstyle ':completion:*' cache-path ${ZSH}/cache  # Sets cache location
+zstyle ':completion:*' cache-path ${ZSH}/cache # Sets cache location
 
 # fuzzy matching settings
 zstyle ':completion:*' completer _complete _match _approximate  # Enables fuzzy matching
@@ -135,10 +109,8 @@ zstyle ':completion:*:history-words' menu yes # Enables menu
 zstyle ':completion:*:(rm|kill|diff):*' ignore-line other # Ignores current line for certain commands
 zstyle ':completion:*:rm:*' file-patterns '*:all-files' # File patterns for rm command
 
-# use passphase from macos keychain
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  zstyle :omz:plugins:ssh-agent ssh-add-args --apple-load-keychain
-fi
+# zoxide support
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # location for completions
 zcompdump="${HOME}/.zcompdump"

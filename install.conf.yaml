@@ -63,14 +63,6 @@
     ~/.config/lsd/icons.yaml:
       path: config/lsd/icons.yaml
 
-    # qutebrowser
-    ~/.qutebrowser/config.py:
-      create: true
-      path: config/qutebrowser/config.py
-    ~/.qutebrowser/onedark.py:
-      create: true
-      path: config/qutebrowser/onedark.py
-
     # sketchybar
     ~/.config/sketchybar/sketchybarrc:
       create: true
@@ -197,11 +189,9 @@
 
 - create:
     - ~/Games
-    - ~/Developer/conda
     - ~/Developer/plugins
     - ~/Developer/practice
     - ~/Developer/repos
-    - ~/Developer/security
     - ~/Developer/served
     - ~/Developer/temp
 
@@ -218,18 +208,24 @@
         touch ~/.ssh/known_hosts && chmod 644 ~/.ssh/known_hosts
         touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
 
-    # - description: codium setup
-    #   command: ./installers/codium.sh
+    - description: codium setup
+      command: ./installers/codium.sh
 
-    # - description: go setup
-    #   command: ./installers/go.sh
+    - description: go setup
+      command: ./installers/go.sh
 
-    # - description: nvim setup
-    #   command: ./installers/nvim.sh
+    - description: nvim setup
+      command: ./installers/nvim.sh
 
-    # - description: tmux setup
-    #   command: ./installers/tmux.sh
+    - description: tmux setup
+      command: ./installers/tmux.sh
 
-    # - description: yazi setup
-    #   command: ./installers/yazi.sh
+    - description: yazi setup
+      command: ./installers/yazi.sh
+
+    - description: create a ~/.gitsecret file
+      command: touch ~/.gitsecret
+
+    - description: create a ~/.hushlogin file
+      command: touch ~/.hushlogin
 

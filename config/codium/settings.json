@@ -20,7 +20,6 @@
   "git.enableStatusBarSync": false,
   "git.enableSmartCommit": true,
   "git.openRepositoryInParentFolders": "never",
-  "git.defaultCloneDirectory": "/Users/dany/repos",
   "git.decorations.enabled": true,
   // 
   "github.gitProtocol": "ssh",

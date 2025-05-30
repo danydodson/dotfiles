@@ -10,20 +10,16 @@ alias cl="clear"
 alias or="omz reload"
 alias c="cl && or"
 
-# get files
-alias get="curl -O -L --silent"
-alias wget="wget --no-check-certificate"
-
 # editors
 alias e="$EDITOR"
-alias cc="codium"
 alias v="nvim"
-alias v_normal="NVIM_APPNAME=nvim-normal nvim"
-alias v_ide="NVIM_APPNAME=nv-ide nvim"
-
-# shortcuts
+alias cc="codium"
 alias dotconf="cd $DOTFILES && nvim"
 alias nvconf="cd $HOME/.config/nvim && nvim"
+
+# download files
+alias get="curl -O -L --silent"
+alias wget="wget --no-check-certificate --hsts-file=$DOTFILES/config/wget/wget-hsts"
 
 # git
 alias gcl="git clone --recursive"
@@ -58,19 +54,9 @@ alias bbcleanup="brew bundle cleanup --file=$HOME/.dotfiles/macos/brewfile"
 alias bbcheck="brew bundle check --file=$HOME/.dotfiles/macos/brewfile"
 alias bbdump="brew bundle dump --file=$HOME/.dotfiles/macos/brewfile --global --force"
 
-# postgresql
-alias psql_status="brew services info postgresql"
-alias psql_start="brew services start postgresql"
-alias psql_restart="brew services restart postgresql"
-alias psql_stop="brew services stop postgresql"
-
 # brew leaves
 alias blea="brew leaves | xargs brew desc --eval-all"
 alias bleac="brew ls --casks | xargs brew desc --eval-all"
-
-# python
-alias py_clean='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rvf'
-alias pip_purge='pip list --format freeze | xargs pip uninstall -y'
 
 # transmission
 alias trc='transmission-cli'
@@ -158,3 +144,29 @@ alias sys_uti_file="mdls -name kMDItemContentTypeTree "
 # spotlight on/off
 alias spotlight_off="sudo mdutil -a -i off"
 alias spotlight_on="sudo mdutil -a -i on"
+
+# directories
+[ -d $HOME/.dotfiles ] && alias dots="cd $HOME/.dotfiles"
+[ -d $HOME/.config/nvim ] && alias nvims="cd $HOME/.config/nvim"
+[ -d $HOME/Downloads ] && alias dl="cd $HOME/Downloads"
+[ -d $HOME/Games ] && alias games="cd $HOME/Games"
+[ -d $HOME/Developer/plugins ] && alias plug="cd $HOME/Developer/plugins"
+[ -d $HOME/Developer/practice ] && alias prac="cd $HOME/Developer/practice"
+[ -d $HOME/Developer/repos ] && alias repo="cd $HOME/Developer/repos"
+[ -d $HOME/Developer/served ] && alias ser="cd $HOME/Developer/served"
+[ -d $HOME/Developer/temp ] && alias temp="cd $HOME/Developer/temp"
+
+# create and cd into directory
+function mkd() {
+  mkdir -p $@ && cd ${@:$#}
+}
+
+# yazi wrapper
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}

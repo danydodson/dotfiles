@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # system executables -> path
-export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/libexec"
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/libexec:$PATH"
 
 # local system binaries -> path
 export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
@@ -10,42 +10,20 @@ export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # dotfiles bin -> path
-export PATH="$PATH:${DOTFILES}/bin"
-
-# lua -> path
-export PATH="$HOME/.local/share/lua/bin:$PATH"
+export PATH="$DOTFILES/bin:$PATH"
 
 # go -> path
-export PATH="$PATH:$GO_PATH/bin"
-export PATH="$PATH:$GOROOT/bin"
+export PATH="$GO_PATH/bin:$PATH"
+export PATH="$GOROOT/bin:$PATH"
 
-# conda -> path
-export PATH="/Users/dany/.config/miniconda3/bin:$PATH"
+# go bin -> path
+export PATH="$HOME/.config/go/bin:$PATH"
 
 # java -> path
-export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
-
-# jaro mail -> path
-export PATH="/Applications/JaroMail.app/Contents/Resources/jaro/bin:$PATH"
-
-# global yarn bin -> path
-export PATH="$HOME/.yarn/bin:$PATH"
-
-# global go bin -> path
-export PATH="$HOME/.go/bin:$PATH"
-
-# ls studio -> path
-export PATH="$HOME/.lmstudio/bin:$PATH"
-
-# php -> path
-export PATH="/opt/homebrew/opt/php/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 # zsh-completions -> fpath
-fpath+="${ZSH_CUSTOM:-${ZSH:-~/.omz}/custom}/plugins/zsh-completions/src"
-
-# nvm and completions
-[[ -f "/opt/homebrew/opt/nvm/nvm.sh" ]] && . "/opt/homebrew/opt/nvm/nvm.sh"
-[[ -f "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ]] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+fpath+="$ZSH_CUSTOM/plugins/zsh-completions/src"
 
 # macos paths -> path
 for path_file in /etc/paths.d/*(.N); do

@@ -1,13 +1,4 @@
-# git 🐙
-
-## HTTPS
-
-### Repository access via HTTPS
-
-- For HTTPS authentication, use the GitHub CLI; `gh auth login`.
-- When HTTPS is desired, use `git clone --recursive https://github.com/user/repo.git`.
-
-> [!NOTE]
+# git 🐙 ## HTTPS ### Repository access via HTTPS - For HTTPS authentication, use the GitHub CLI; `gh auth login`.  - When HTTPS is desired, use `git clone --recursive https://github.com/user/repo.git`.  > [!NOTE]
 > Please note that the GitHub CLI must be installed via `brew`. See the how the helper is invoked in [gitconfig](gitconfig).
 
 ## SSH
