@@ -109,19 +109,13 @@ zstyle ':completion:*:history-words' menu yes # Enables menu
 zstyle ':completion:*:(rm|kill|diff):*' ignore-line other # Ignores current line for certain commands
 zstyle ':completion:*:rm:*' file-patterns '*:all-files' # File patterns for rm command
 
-# zoxide support
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
-
 # location for completions
-zcompdump="${HOME}/.zcompdump"
+# zcompdump="${HOME}/.zcompdump"
 
 # load completions if present
-if [ -f $zsh_dump_file ]; then
-    compinit -d $zcompdump
-fi
+# if [ -f $zsh_dump_file ]; then
+#     compinit -d $zcompdump
+# fi
 
 # only perform compinit once a day
-if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]];
-then
-    zcompile "$zcompdump"
-fi
+# ß

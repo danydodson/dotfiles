@@ -19,7 +19,7 @@
   editor = nvim
   pager = delta
   fileMode = false
-	autocrlf = input
+  autocrlf = input
 
 [init]
 	defaultBranch = main
