@@ -1,9 +1,9 @@
 #!/usr/bin/env zsh
 
 # history file
+export HISTFILE="$HOME/.zsh_history" # Sets the file where history is saved
 export HISTSIZE=1000000000 # Sets maximum history entries in memory
 export SAVEHIST=$HISTSIZE # Sets maximum history entries in file
-export HISTFILE="$HOME/.zsh_history" # Sets the file where history is saved
 
 # history configs
 setopt EXTENDED_HISTORY # saves timestamp and duration for commands
@@ -16,11 +16,8 @@ setopt HIST_SAVE_NO_DUPS # prevents duplicate entries from being saved
 setopt HIST_REDUCE_BLANKS # removes extra blank spaces from commands
 setopt HIST_VERIFY # shows history expansion before executing
 
-# prevents the shell from reading global configs files
-setopt noglobalrcs 
-
-# disable extended globbing so that ^ will behave as normal
-unsetopt extendedglob 
+# disable pattern matching
+# unsetopt extendedglob # Disable extended globbing so that ^ will behave as normal
 
 # history search
 bindkey '^[[A' history-substring-search-up # up arrow for searching history backwards
@@ -30,15 +27,15 @@ bindkey '^[[B' history-substring-search-down  # down arrow for searching history
 bindkey -M vicmd 'k' history-substring-search-up # vim 'k' key for searching history backwards
 bindkey -M vicmd 'j' history-substring-search-down # vim 'j' key for searching history forwards
 
-# colors
-export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#555555"
-
 # lscolors
+export CLICOLOR=1
+# export LSCOLORS=ExFxBxDxCxegedabagacad
 if [ -f "/opt/homebrew/bin/gdircolors" ]; then
   eval "$(gdircolors -b "${DOTFILES}"/config/lscolors/ls_colors)"
 fi
+
+# suggestion color
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#555555"
 
 # complist and colors
 zmodload -i zsh/complist # Loads the completion system module
@@ -110,12 +107,16 @@ zstyle ':completion:*:(rm|kill|diff):*' ignore-line other # Ignores current line
 zstyle ':completion:*:rm:*' file-patterns '*:all-files' # File patterns for rm command
 
 # location for completions
-# zcompdump="${HOME}/.zcompdump"
+zcompdump="${HOME}/.zcompdump"
 
 # load completions if present
-# if [ -f $zsh_dump_file ]; then
-#     compinit -d $zcompdump
-# fi
+if [ -f $zsh_dump_file ]; then
+    compinit -d $zcompdump
+fi
 
 # only perform compinit once a day
-# ß
+if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]];
+then
+    zcompile "$zcompdump"
+fi
+

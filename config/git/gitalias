@@ -1,17 +1,17 @@
 [alias]
-	ch = checkout
-	co = commit
-	st = status -sMu
-    changed = diff --stat
-	br = branch
-	first = rev-list --max-parents=0 HEAD
-	ci = commit
-	unstage = reset HEAD --
-	last = log -1 HEAD
-	ad = add
-	psh = push
-	pll = pull
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    graph = log --all --decorate --oneline --graph
-	fame = !python -m gitfame
-    cp = cherry-pick
+  ch = checkout
+  co = commit
+  st = status -sMu
+  changed = diff --stat
+  br = branch
+  first = rev-list --max-parents=0 HEAD
+  ci = commit
+  unstage = reset HEAD --
+  last = log -1 HEAD
+  ad = add
+  psh = push
+  pll = pull
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  graph = log --all --decorate --oneline --graph
+  fame = !python -m gitfame
+  cp = cherry-pick

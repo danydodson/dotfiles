@@ -1,10 +1,29 @@
 #!/usr/bin/env zsh
+# vim:syntax=zsh
+# vim:filetype=zsh
 
 {
-  zcompdump="${HOME}/.zcompdump"
-  if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]];
-  then
-    zcompile "$zcompdump"
+  # compile the completion dump to increase startup speed.
+  setopt LOCAL_OPTIONS EXTENDED_GLOB
+  autoload -U zrecompile
+  
+  zcompdump="${ZDOTDIR:-$HOME/.cache/zsh}/.zcompdump"
+  if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then
+    if command mkdir "${zcompdump}.zwc.lock" 2>/dev/null; then
+      zcompile "$zcompdump"
+      command rmdir  "${zcompdump}.zwc.lock" 2>/dev/null
+    fi
   fi
 } &!
 
+# print a random, hopefully interesting, adage.
+# if (( $+commands[fortune] )); then
+#   fortune -a
+#   print
+# fi
+
+# if (( $+commands[figlet] )); then
+#   print '\n'
+#   figlet -f slant $USER@$HOST | lolcat
+#   print
+# fi

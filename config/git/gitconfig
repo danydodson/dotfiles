@@ -22,13 +22,13 @@
   autocrlf = input
 
 [init]
-	defaultBranch = main
+  defaultBranch = main
 
 [merge]
   tool = vimdiff
 
 [pull]
-	rebase = false
+  rebase = false
 
 [color]
   ui = true
@@ -38,37 +38,37 @@
   autoSetupRemote = true
 
 [interactive]
-	diffFilter = diff-so-fancy --patch
+  diffFilter = diff-so-fancy --patch
 
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
 
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
 
 [color "diff"]
-	meta = 11
-	frag = magenta bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
-	func = 146 bold
+  meta = 11
+  frag = magenta bold
+  commit = yellow bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+  func = 146 bold
 
 [diff-so-fancy]
-	markEmptyLines = false
-	changeHunkIndicators = false
-	stripLeadingSymbols = false
-	useUnicodeRuler = false
-	rulerWidth = 80
+  markEmptyLines = false
+  changeHunkIndicators = false
+  stripLeadingSymbols = false
+  useUnicodeRuler = false
+  rulerWidth = 80
 
 [url "ssh://git@"]
-	insteadOf = https://
+  insteadOf = https://
 
 [url "git://github.com/"]
   insteadOf = "github:"
@@ -90,9 +90,9 @@
   insteadOf = "heroku:"
 
 [credential "https://github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
+  helper = 
+  helper = !/opt/homebrew/bin/gh auth git-credential
 	
 [credential "https://gist.github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
+  helper = 
+  helper = !/opt/homebrew/bin/gh auth git-credential
