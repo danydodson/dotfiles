@@ -29,7 +29,7 @@ bindkey -M vicmd 'j' history-substring-search-down # vim 'j' key for searching h
 
 # lscolors
 export CLICOLOR=1
-# export LSCOLORS=ExFxBxDxCxegedabagacad
+export LSCOLORS=ExFxBxDxCxegedabagacad
 if [ -f "/opt/homebrew/bin/gdircolors" ]; then
   eval "$(gdircolors -b "${DOTFILES}"/config/lscolors/ls_colors)"
 fi
