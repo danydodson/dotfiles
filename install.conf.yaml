@@ -50,10 +50,12 @@
       path: config/ghostty/config
 
     # gpg
-    ~/.gnupg/gpg-agent.conf:
-      path: config/gnupg/gpg-agent.conf
-      force: true
+    ~/.gnupg/gpg.conf:
       create: true
+      path: config/gnupg/gpg.conf
+    ~/.gnupg/gpg-agent.conf:
+      create: true
+      path: config/gnupg/gpg-agent.conf
 
     # lsd
     ~/.config/lsd/config.yaml:
