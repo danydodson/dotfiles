@@ -7,14 +7,6 @@ Host *
   ForwardAgent yes
   ServerAliveInterval 60
 
-Host github.com
-  Hostname ssh.github.com
-  User git
-  Port 443
-  UseKeychain yes
-  AddKeysToAgent yes
-  IdentityFile ~/.ssh/id_ed25519
-
 Host *github.com
   User git
   Hostname ssh.github.com
