@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
 
-skip_global_compinit=1
-
 setopt noglobalrcs
 
 export DOTFILES=$HOME/.dotfiles

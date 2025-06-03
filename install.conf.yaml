@@ -63,6 +63,10 @@
     ~/.config/lsd/icons.yaml:
       path: config/lsd/icons.yaml
 
+    # mpv
+    ~/.config/mpv/mpv.conf:
+      path: config/mpv/mpv.conf
+
     # sketchybar
     ~/.config/sketchybar/sketchybarrc:
       create: true
@@ -228,4 +232,3 @@
 
     - description: create a ~/.hushlogin file
       command: touch ~/.hushlogin
-

@@ -13,15 +13,3 @@
     fi
   fi
 } &!
-
-# print a random, hopefully interesting, adage.
-# if (( $+commands[fortune] )); then
-#   fortune -a
-#   print
-# fi
-
-# if (( $+commands[figlet] )); then
-#   print '\n'
-#   figlet -f slant $USER@$HOST | lolcat
-#   print
-# fi

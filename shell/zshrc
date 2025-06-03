@@ -1,20 +1,22 @@
 #!/usr/bin/env zsh
 
+# skips compinit
+skip_global_compinit=1
+
+# enable colors
+export CLICOLOR=1
+
+# pure prompt
+source ${DOTFILES}/zsh/pure.zsh
+
 # p10k instant prompt
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# run p10k configure
-[[ ! -f ${HOME}/.cache/p10k.zsh ]] || source ${HOME}/.cache/p10k.zsh
-
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# source ${DOTFILES}/zsh/p10k.zsh
 
 plugins=(
-  brew
+  macos
+  thefuck
   nvm
   golang
-  tmux
   zsh-autosuggestions
   fast-syntax-highlighting
   zsh-history-substring-search
@@ -37,6 +39,9 @@ fi
 
 # conda
 source $DOTFILES/config/conda/conda.zsh
+
+# thefuck
+eval $(thefuck --alias)
 
 # completions
 autoload -Uz compinit

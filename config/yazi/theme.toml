@@ -124,7 +124,7 @@ append_exts = [
 ]
 
 prepend_conds = [
-  { if = "hidden & dir", text = "", fg = "#626262" },
-  { if = "dir", text = "", fg = "#7aa2f7" },
-  { if = "!(dir | link)", text = "" },
+  # { if = "hidden & dir", text = "", fg = "#626262" },
+  # { if = "dir", text = "", fg = "#7aa2f7" },
+  # { if = "!(dir | link)", text = "" },
 ]
