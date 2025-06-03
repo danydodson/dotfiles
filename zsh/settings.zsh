@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # history file
-export HISTFILE="$HOME/.history" # Sets the file where history is saved
+export HISTFILE="$HOME/.zsh_history" # Sets the file where history is saved
 export HISTSIZE=1000000000 # Sets maximum history entries in memory
 export SAVEHIST=$HISTSIZE # Sets maximum history entries in file
 

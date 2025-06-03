@@ -3,7 +3,7 @@
   email ="danydodson@gmail.com"
 
 [includeIf "gitdir:/Users/"]
-  path = "~/.gitsecret"
+  path = "~/.dotfiles/.gitsecret"
   
 [gpg]
   format = ssh
@@ -15,7 +15,7 @@
   gpgsign = true
 
 [core]
-  excludesfile = ~/.gitignore
+  excludesfile = ~/.config/git/ignore
   editor = nvim
   pager = delta
   fileMode = false

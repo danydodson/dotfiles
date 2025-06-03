@@ -3,5 +3,5 @@ brewfile.lock.json
 .env
 .DS_Store
 Icon
-
-
+*.log
+.gitsecret

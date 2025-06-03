@@ -2,6 +2,8 @@
 
 set -e
 
+exec &> >(tee -a "$HOME"/.dotfiles/install.log)
+
 CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"
 

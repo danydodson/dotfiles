@@ -1,5 +1,8 @@
 # yazi theme.toml
 
+[flavor]
+dark = "onedark"
+
 [mgr]
 cwd = { fg = "#a9b1d6", italic = true }
 
@@ -96,13 +99,13 @@ rules = [
   { mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", fg = "#f7768e" },
   { mime = "application/{pdf,doc,rtf,vnd.*}", fg = "#7dcfff" },
   { mime = "inode/x-empty", fg = "#f7768e" },
-  { name = "*", is = "orphan", bg = "#292b33" },
+  { name = "*", is = "orphan", bg = "reset" },
   { name = "*", is = "exec", fg = "#9ece6a" },
-  # { name = "*/", fg = "#7aa2f7" },
+  { name = "*/", fg = "#7aa2f7" },
 ]
 
 [icon]
-append_dirs = [
+prepend_dirs = [
   { name = "Desktop", text = "" },
   { name = "Documents", text = "" },
   { name = "Downloads", text = "" },
@@ -110,6 +113,7 @@ append_dirs = [
   { name = "Music", text = "" },
   { name = "Movies", text = "" },
   { name = "Pictures", text = "" },
+  { name = "Public", text = "" },
   { name = ".config", text = "", fg = "#626262" },
   { name = ".npm", text = "", fg = "#626262" },
   { name = ".git", text = "", fg = "#626262" },
@@ -124,7 +128,7 @@ append_exts = [
 ]
 
 prepend_conds = [
-  # { if = "hidden & dir", text = "", fg = "#626262" },
-  # { if = "dir", text = "", fg = "#7aa2f7" },
-  # { if = "!(dir | link)", text = "" },
+  { if = "hidden & dir", text = "", fg = "#626262" },
+  { if = "dir", text = "", fg = "#7aa2f7" },
+  { if = "!(dir | link)", text = "" },
 ]

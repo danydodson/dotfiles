@@ -6,192 +6,109 @@
 - clean: ["~", ~/.config]
 
 - link:
-    # zsh
-    ~/.zlogin:
-      path: shell/zlogin
-    ~/.zprofile:
-      path: shell/zprofile
-    ~/.zshenv:
-      path: shell/zshenv
-    ~/.zshrc:
-      path: shell/zshrc
+    ~/.config/:
+      glob: true
+      path: config/*
+      relink: true
+      exclude:
+        [
+          config/codium,
+          config/conda,
+          config/continue,
+          config/fzf,
+          config/gnupg,
+          config/lscolors,
+          config/ssh,
+          config/tmux,
+          config/transmission,
+          config/vim,
+          config/yazi,
+        ]
 
-    # 1password
-    ~/.config/1password/ssh/agent.toml:
-      create: true
-      path: config/1password/ssh/agent.toml
-
-    # btop
-    ~/.config/btop/btop.conf:
-      create: true
-      path: config/btop/btop.conf
-    ~/.config/btop/themes/onedark.theme:
-      create: true
-      path: config/btop/themes/onedark.theme
-
-    # fastfetch
-    ~/.config/fastfetch/config.jsonc:
-      create: true
-      path: config/fastfetch/config.jsonc
-
-    # git
-    ~/.gitconfig:
-      path: config/git/gitconfig
-    ~/.gitignore:
-      path: config/git/gitignore
-
-    # gh
-    ~/.config/gh/config.yml:
-      path: config/gh/config.yml
-
-    # ghostty
-    ~/.config/ghostty/config:
-      create: true
-      path: config/ghostty/config
-
-    # gpg
     ~/.gnupg/gpg.conf:
       create: true
+      force: true
+      relink: true
       path: config/gnupg/gpg.conf
     ~/.gnupg/gpg-agent.conf:
       create: true
+      force: true
+      relink: true
       path: config/gnupg/gpg-agent.conf
 
-    # lsd
-    ~/.config/lsd/config.yaml:
-      path: config/lsd/config.yaml
-    ~/.config/lsd/colors.yaml:
-      path: config/lsd/colors.yaml
-    ~/.config/lsd/icons.yaml:
-      path: config/lsd/icons.yaml
-
-    # mpv
-    ~/.config/mpv/mpv.conf:
-      path: config/mpv/mpv.conf
-
-    # sketchybar
-    ~/.config/sketchybar/sketchybarrc:
-      create: true
-      path: config/sketchybar/sketchybarrc
-    ~/.config/sketchybar/styles.sh:
-      create: true
-      path: config/sketchybar/styles.sh
-    ~/.config/sketchybar/icons.sh:
-      create: true
-      path: config/sketchybar/icons.sh
-    ~/.config/sketchybar/colors.sh:
-      create: true
-      path: config/sketchybar/colors.sh
-    ~/.config/sketchybar/items/battery.sh:
-      create: true
-      path: config/sketchybar/items/battery.sh
-    ~/.config/sketchybar/items/front_app.sh:
-      create: true
-      path: config/sketchybar/items/front_app.sh
-    ~/.config/sketchybar/items/spacer.sh:
-      create: true
-      path: config/sketchybar/items/spacer.sh
-    ~/.config/sketchybar/items/spaces_simple.sh:
-      create: true
-      path: config/sketchybar/items/spaces_simple.sh
-    ~/.config/sketchybar/items/spaces.sh:
-      create: true
-      path: config/sketchybar/items/spaces.sh
-    ~/.config/sketchybar/items/wifi.sh:
-      create: true
-      path: config/sketchybar/items/wifi.sh
-    ~/.config/sketchybar/items/yabai.sh:
-      create: true
-      path: config/sketchybar/items/yabai.sh
-    ~/.config/sketchybar/plugins/app_icon.sh:
-      create: true
-      path: config/sketchybar/plugins/app_icon.sh
-    ~/.config/sketchybar/plugins/app_space_simple.sh:
-      create: true
-      path: config/sketchybar/plugins/app_space_simple.sh
-    ~/.config/sketchybar/plugins/app_space.sh:
-      create: true
-      path: config/sketchybar/plugins/app_space.sh
-    ~/.config/sketchybar/plugins/battery.sh:
-      create: true
-      path: config/sketchybar/plugins/battery.sh
-    ~/.config/sketchybar/plugins/clock.sh:
-      create: true
-      path: config/sketchybar/plugins/clock.sh
-    ~/.config/sketchybar/plugins/current_space.sh:
-      create: true
-      path: config/sketchybar/plugins/current_space.sh
-    ~/.config/sketchybar/plugins/date.sh:
-      create: true
-      path: config/sketchybar/plugins/date.sh
-    ~/.config/sketchybar/plugins/front_app.sh:
-      create: true
-      path: config/sketchybar/plugins/front_app.sh
-    ~/.config/sketchybar/plugins/net.sh:
-      create: true
-      path: config/sketchybar/plugins/net.sh
-    ~/.config/sketchybar/plugins/space.sh:
-      create: true
-      path: config/sketchybar/plugins/space.sh
-    ~/.config/sketchybar/plugins/spotify.sh:
-      create: true
-      path: config/sketchybar/plugins/spotify.sh
-    ~/.config/sketchybar/plugins/time.sh:
-      create: true
-      path: config/sketchybar/plugins/time.sh
-    ~/.config/sketchybar/plugins/volume.sh:
-      create: true
-      path: config/sketchybar/plugins/volume.sh
-    ~/.config/sketchybar/plugins/wifi.sh:
-      create: true
-      path: config/sketchybar/plugins/wifi.sh
-    ~/.config/sketchybar/plugins/window_title.sh:
-      create: true
-      path: config/sketchybar/plugins/window_title.sh
-    ~/.config/sketchybar/plugins/yabai.sh:
-      create: true
-      path: config/sketchybar/plugins/yabai.sh
-
-    # skhd
-    ~/.config/skhd/skhdrc:
-      create: true
-      path: config/skhd/skhdrc
-
-    # ssh
     ~/.ssh/config:
       create: true
+      force: true
+      relink: true
       path: config/ssh/config
 
-    # tmux
     ~/.tmux.conf:
+      relink: true
+      force: true
       path: config/tmux/tmux.conf
 
-    # transmission
     ~/Library/Application Support/transmission-daemon/settings.json:
+      create: true
+      relink: true
       path: config/transmission/settings.json
 
-    # vim
+    /Applications/codium-portable-data/user-data/User/settings.json:
+      create: true
+      glob: true
+      relink: true
+      force: true
+      path: config/codium/settings.json
+    /Applications/codium-portable-data/user-data/User/keybindings.json:
+      create: true
+      glob: true
+      relink: true
+      force: true
+      path: config/codium/keybindings.json
+    /Applications/codium-portable-data/user-data/User/snippets:
+      create: true
+      glob: true
+      relink: true
+      force: true
+      path: config/codium/snippets/*
+
     ~/.vimrc:
+      relink: true
+      force: true
       path: config/vim/vimrc
 
-    # yabai
-    ~/.config/yabai/yabairc:
-      create: true
-      path: config/yabai/yabairc
-
-    # yazi
     ~/.config/yazi/init.lua:
       create: true
+      force: true
       path: config/yazi/init.lua
     ~/.config/yazi/keymap.toml:
       create: true
+      force: true
       path: config/yazi/keymap.toml
     ~/.config/yazi/theme.toml:
       create: true
+      force: true
       path: config/yazi/theme.toml
     ~/.config/yazi/yazi.toml:
       create: true
+      force: true
       path: config/yazi/yazi.toml
+
+    ~/.zlogin:
+      relink: true
+      force: true
+      path: shell/zlogin
+    ~/.zprofile:
+      relink: true
+      force: true
+      path: shell/zprofile
+    ~/.zshenv:
+      relink: true
+      force: true
+      path: shell/zshenv
+    ~/.zshrc:
+      relink: true
+      force: true
+      path: shell/zshrc
 
 - create:
     - ~/Games
@@ -208,29 +125,28 @@
     - description: sync dotbot
       command: git submodule sync --recursive
 
-    - description: ssh setup
-      command: |
-        mkdir -p ~/.ssh && chmod 700 ~/.ssh
-        touch ~/.ssh/known_hosts && chmod 644 ~/.ssh/known_hosts
-        touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
+    # - description: setup ssh
+    #   command: |
+    #     mkdir -p ~/.ssh && chmod 700 ~/.ssh
+    #     touch ~/.ssh/known_hosts && chmod 644 ~/.ssh/known_hosts
+    #     touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
 
-    - description: codium setup
-      command: ./installers/codium.sh
+    # - description: create blank config files
+    #   command: |
+    #     touch ~/.dotfiles/.gitsecret
+    #     touch ~/.hushlogin
 
-    - description: go setup
-      command: ./installers/go.sh
+    # - description: codium setup
+    #   command: ./installers/codium.sh
 
-    - description: nvim setup
-      command: ./installers/nvim.sh
+    # - description: go setup
+    #   command: ./installers/go.sh
 
-    - description: tmux setup
-      command: ./installers/tmux.sh
+    # - description: nvim setup
+    #   command: ./installers/nvim.sh
 
-    - description: yazi setup
-      command: ./installers/yazi.sh
+    # - description: tmux setup
+    #   command: ./installers/tmux.sh
 
-    - description: create a ~/.gitsecret file
-      command: touch ~/.gitsecret
-
-    - description: create a ~/.hushlogin file
-      command: touch ~/.hushlogin
+    # - description: yazi setup
+    #   command: ./installers/yazi.sh

@@ -6,16 +6,17 @@ alias sudo="sudo "
 alias o="open"
 alias oo="open ."
 
-alias cl="clear"
-alias or="omz reload"
-alias c="cl && or"
-
 # editors
 alias e="$EDITOR"
-alias v="nvim"
+alias vv="nvim"
 alias cc="codium"
 alias dotconf="cd $DOTFILES && nvim"
 alias nvconf="cd $HOME/.config/nvim && nvim"
+
+# gls
+alias ls='/opt/homebrew/bin/gls --color=auto --group-directories-first -I .DS_Store -I .Trash -I "Icon'$'\r"'
+alias l="ls -hLg --no-group --time-style=iso"
+alias ll="ls -AhLg --no-group --time-style=iso"
 
 # download files
 alias get="curl -O -L --silent"
@@ -49,39 +50,18 @@ alias lsg_pnpm="pnpm ls -g"
 alias hf="huggingface-cli"
 
 # brew bundle
-alias bbinstall="brew bundle install --file=$HOME/.dotfiles/macos/brewfile"
-alias bbcleanup="brew bundle cleanup --file=$HOME/.dotfiles/macos/brewfile"
-alias bbcheck="brew bundle check --file=$HOME/.dotfiles/macos/brewfile"
-alias bbdump="brew bundle dump --file=$HOME/.dotfiles/macos/brewfile --global --force"
+alias bb="brew bundle --file=$HOME/.dotfiles/macos/brewfile --global --force"
 
 # brew leaves
-alias blea="brew leaves | xargs brew desc --eval-all"
-alias bleac="brew ls --casks | xargs brew desc --eval-all"
+alias b-leaves="brew leaves | xargs brew desc --eval-all"
+alias b-leaves-casks="brew ls --casks | xargs brew desc --eval-all"
 
 # transmission
-alias trc='transmission-cli'
 alias trd='transmission-daemon'
 alias tr='transmission-remote'
-alias tra='transmission-remote -a'
-alias trl='transmission-remote -l'
 
 # fastfetch
 alias ff="fastfetch"
-
-# ollama
-alias ai_install="docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama"
-alias ai_start="docker start ollama"
-alias ai_stop="docker stop ollama"
-alias ai="docker exec -it ollama ollama run mistral:latest"
-alias ai_code="docker exec -it ollama ollama run mistral:ruby-mentor"
-alias ai_ls="docker exec -it ollama ollama ls"
-alias ai_rm="docker exec -it ollama ollama rm"
-
-# gls
-alias ls='/opt/homebrew/bin/gls --color=auto --human-readable --group-directories-first -I .DS_Store -I .Trash -I "Icon'$'\r"'
-alias l="ls -gol"
-alias ll="ls -AlgoL"
-alias la="ls -Algo"
 
 # pretty paths
 alias path="printf '%s\n' $path"
@@ -102,16 +82,10 @@ alias md5sum="md5"
 # macos has no sha1sum, so use shasum as a fallback
 alias sha1sum="shasum"
 
-# js core repl
-jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc"
-[ -e "${jscbin}" ] && alias jsc="${jscbin}"
-unset jscbin
-
 # launch macos apps
 alias ios="open -a Simulator.app"
 alias xcode="open -a Xcode.app"
 alias mon_icloud="brctl monitor com.apple.CloudDocs | grep %"
-alias chrome-dev="open -a 'Brave Browser' --args --remote-debugging-port=9229"
 
 # scutil shortcuts
 alias sc_computername="scutil --get ComputerName"
@@ -123,14 +97,6 @@ alias sc_net_info="scutil --nwi"
 
 # sysctl shortcuts
 alias sys_cpu="sysctl -n machdep.cpu.brand_string"
-
-# osx"s launchctl
-alias launch_list="launchctl list "
-alias launch_load="launchctl load "
-alias launch_unload="launchctl unload "
-alias launch_getenv="launchctl getenv "
-alias launch_start="launchctl start "
-alias launch_stop="launchctl stop "
 
 # list installed packages
 alias sys_pkg_list="pkgutil --pkgs"
@@ -145,15 +111,25 @@ alias sys_uti_file="mdls -name kMDItemContentTypeTree "
 alias spotlight_off="sudo mdutil -a -i off"
 alias spotlight_on="sudo mdutil -a -i on"
 
+# shortcuts
+alias cl="clear"
+alias or="omz reload"
+alias c="cl && or"
+
+# js core repl
+jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc"
+[ -e "${jscbin}" ] && alias jsc="${jscbin}"
+unset jscbin
+
 # directories
 [ -d $HOME/.dotfiles ] && alias dots="cd $HOME/.dotfiles"
 [ -d $HOME/.config/nvim ] && alias nvims="cd $HOME/.config/nvim"
 [ -d $HOME/Downloads ] && alias dl="cd $HOME/Downloads"
 [ -d $HOME/Games ] && alias games="cd $HOME/Games"
-[ -d $HOME/Developer/plugins ] && alias plug="cd $HOME/Developer/plugins"
-[ -d $HOME/Developer/practice ] && alias prac="cd $HOME/Developer/practice"
-[ -d $HOME/Developer/repos ] && alias repo="cd $HOME/Developer/repos"
-[ -d $HOME/Developer/served ] && alias ser="cd $HOME/Developer/served"
+[ -d $HOME/Developer/plugins ] && alias plugins="cd $HOME/Developer/plugins"
+[ -d $HOME/Developer/practice ] && alias practice="cd $HOME/Developer/practice"
+[ -d $HOME/Developer/repos ] && alias repos="cd $HOME/Developer/repos"
+[ -d $HOME/Developer/served ] && alias served="cd $HOME/Developer/served"
 [ -d $HOME/Developer/temp ] && alias temp="cd $HOME/Developer/temp"
 
 # create and cd into directory
