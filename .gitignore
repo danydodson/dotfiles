@@ -5,3 +5,4 @@ brewfile.lock.json
 Icon
 *.log
 .gitsecret
+*/**/watch_later/*

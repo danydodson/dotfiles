@@ -93,12 +93,18 @@ footer = { fg = "#c0caf5", bg = "#24283b" }
 
 [filetype]
 rules = [
+  # Media
   { mime = "image/*", fg = "#e0af68" },
-  { mime = "{audio,video}/*", fg = "#bb9af7" },
-  { mime = "application/*zip", fg = "#f7768e" },
-  { mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", fg = "#f7768e" },
+  { mime = "video/*", fg = "#bb9af7" },
+  { mime = "audio/*", fg = "#bb9af7" },
+  # Torrent
+  { mime = "application/bittorrent", fg = "#44cda8" },
+  # Archives
+  { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar}", fg = "#f7768e" },
+  # Documents
   { mime = "application/{pdf,doc,rtf,vnd.*}", fg = "#7dcfff" },
-  { mime = "inode/x-empty", fg = "#f7768e" },
+  # Fallback
+  { mime = "inode/empty", fg = "#626262" },
   { name = "*", is = "orphan", bg = "reset" },
   { name = "*", is = "exec", fg = "#9ece6a" },
   { name = "*/", fg = "#7aa2f7" },
@@ -114,11 +120,11 @@ prepend_dirs = [
   { name = "Movies", text = "" },
   { name = "Pictures", text = "" },
   { name = "Public", text = "" },
-  { name = ".config", text = "", fg = "#626262" },
-  { name = ".npm", text = "", fg = "#626262" },
-  { name = ".git", text = "", fg = "#626262" },
-  { name = ".github", text = "", fg = "#626262" },
-  { name = "__pycache__", text = "", fg = "#626262" },
+  { name = ".config", text = "", fg = "#7aa2f7" },
+  { name = ".npm", text = "", fg = "#7aa2f7" },
+  { name = ".git", text = "", fg = "#7aa2f7" },
+  { name = ".github", text = "", fg = "#7aa2f7" },
+  { name = "__pycache__", text = "", fg = "#7aa2f7" },
 ]
 
 append_exts = [
@@ -128,7 +134,8 @@ append_exts = [
 ]
 
 prepend_conds = [
-  { if = "hidden & dir", text = "", fg = "#626262" },
+  { if = "hidden & dir", text = "", fg = "#7aa2f7" },
   { if = "dir", text = "", fg = "#7aa2f7" },
-  { if = "!(dir | link)", text = "" },
+  { if = "!(dir | link)", text = "" },
+  { if = "exec", text = "" },
 ]
