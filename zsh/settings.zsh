@@ -24,9 +24,6 @@ bindkey '^[[B' history-substring-search-down  # down arrow for searching history
 bindkey -M vicmd 'k' history-substring-search-up # vim 'k' key for searching history backwards
 bindkey -M vicmd 'j' history-substring-search-down # vim 'j' key for searching history forwards
 
-# suggestion color
-# export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#555555"
-
 # lscolors
 export LSCOLORS=ExFxBxDxCxegedabagacad
 if [ -f "/opt/homebrew/bin/gdircolors" ]; then
@@ -36,6 +33,9 @@ fi
 # complist and colors
 zmodload -i zsh/complist # Loads the completion system module
 autoload -Uz colors && colors # Enables color support in the shell
+
+# suggestion color
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#D19A66"
 
 # completion menu and grouping settings
 zstyle ':completion:*:*:*:*:*' menu select # Enables interactive menu for completions

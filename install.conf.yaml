@@ -26,27 +26,22 @@
           config/yazi,
         ]
 
-    ~/.gnupg/gpg.conf:
+    ~/.config/yazi/init.lua:
       create: true
       force: true
-      relink: true
-      path: config/gnupg/gpg.conf
-    ~/.gnupg/gpg-agent.conf:
+      path: config/yazi/init.lua
+    ~/.config/yazi/keymap.toml:
       create: true
       force: true
-      relink: true
-      path: config/gnupg/gpg-agent.conf
-
-    ~/.ssh/config:
+      path: config/yazi/keymap.toml
+    ~/.config/yazi/theme.toml:
       create: true
       force: true
-      relink: true
-      path: config/ssh/config
-
-    ~/.tmux.conf:
-      relink: true
+      path: config/yazi/theme.toml
+    ~/.config/yazi/yazi.toml:
+      create: true
       force: true
-      path: config/tmux/tmux.conf
+      path: config/yazi/yazi.toml
 
     ~/Library/Application Support/transmission-daemon/settings.json:
       create: true
@@ -72,27 +67,32 @@
       force: true
       path: config/codium/snippets/*
 
+    ~/.gnupg/gpg.conf:
+      create: true
+      force: true
+      relink: true
+      path: config/gnupg/gpg.conf
+    ~/.gnupg/gpg-agent.conf:
+      create: true
+      force: true
+      relink: true
+      path: config/gnupg/gpg-agent.conf
+
+    ~/.ssh/config:
+      create: true
+      force: true
+      relink: true
+      path: config/ssh/config
+
+    ~/.tmux.conf:
+      relink: true
+      force: true
+      path: config/tmux/tmux.conf
+
     ~/.vimrc:
       relink: true
       force: true
       path: config/vim/vimrc
-
-    ~/.config/yazi/init.lua:
-      create: true
-      force: true
-      path: config/yazi/init.lua
-    ~/.config/yazi/keymap.toml:
-      create: true
-      force: true
-      path: config/yazi/keymap.toml
-    ~/.config/yazi/theme.toml:
-      create: true
-      force: true
-      path: config/yazi/theme.toml
-    ~/.config/yazi/yazi.toml:
-      create: true
-      force: true
-      path: config/yazi/yazi.toml
 
     ~/.zlogin:
       relink: true

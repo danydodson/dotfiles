@@ -4,13 +4,14 @@ setopt noglobalrcs
 
 export DOTFILES=$HOME/.dotfiles
 
-export EDITOR="nvim"
-export VISUAL="codium"
 export GPG_TTY=$TTY
-
 export PAGER="less"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export LESSHISTFILE="-"
+
+export EDITOR="nvim"
+export VISUAL="codium"
+export BROWSER="/Applications/Zen.app/Contents/MacOS/zen"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"

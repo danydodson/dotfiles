@@ -325,5 +325,6 @@
         "settings": { "foreground": "#e0af68", "fontStyle": "italic" }
       }
     ]
-  }
+  },
+  "workbench.statusBar.visible": false
 }

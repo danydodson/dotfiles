@@ -2,7 +2,12 @@
 
 alias sudo="sudo "
 
-# file managers
+# reload
+alias cl="clear"
+alias or="omz reload"
+alias c="cl && or"
+
+# finder
 alias o="open"
 alias oo="open ."
 
@@ -10,17 +15,10 @@ alias oo="open ."
 alias e="$EDITOR"
 alias vv="nvim"
 alias cc="codium"
-alias dotconf="cd $DOTFILES && nvim"
-alias nvconf="cd $HOME/.config/nvim && nvim"
 
-# gls
-alias ls='/opt/homebrew/bin/gls --color=auto --group-directories-first -I .DS_Store -I .Trash -I "Icon'$'\r"'
-alias l="ls -hLg --no-group --time-style=iso"
-alias ll="ls -AhLg --no-group --time-style=iso"
-
-# download files
-alias get="curl -O -L --silent"
-alias wget="wget --no-check-certificate --hsts-file=$DOTFILES/config/wget/wget-hsts"
+# nvim edit
+alias vdots="cd $DOTFILES && nvim"
+alias vnvim="cd $HOME/.config/nvim && nvim"
 
 # git
 alias gcl="git clone --recursive"
@@ -40,6 +38,10 @@ bindkey -s ^w "tmux new\n"
 alias cat="bat"
 alias -g :b='-h 2>&1 | bat --language=help --style=plain'
 alias -g :b='--help 2>&1 | bat --language=help --style=plain'
+
+# get files
+alias get="curl -O -L --silent"
+alias wget="wget --no-check-certificate --hsts-file=$DOTFILES/config/wget/wget-hsts"
 
 # pkg managers
 alias lsg_npm="npm ls -g --depth 0"
@@ -63,6 +65,11 @@ alias tr='transmission-remote'
 # fastfetch
 alias ff="fastfetch"
 
+# gls coreutils
+alias ls='/opt/homebrew/bin/gls --color=auto --group-directories-first -I .DS_Store -I .Trash -I "Icon'$'\r"'
+alias l="ls -hLg --no-group --time-style=iso"
+alias ll="ls -AhLg --no-group --time-style=iso"
+
 # pretty paths
 alias path="printf '%s\n' $path"
 alias fpath="printf '%s\n' $fpath"
@@ -82,55 +89,40 @@ alias md5sum="md5"
 # macos has no sha1sum, so use shasum as a fallback
 alias sha1sum="shasum"
 
-# launch macos apps
-alias ios="open -a Simulator.app"
+# macos apps
 alias xcode="open -a Xcode.app"
 alias mon_icloud="brctl monitor com.apple.CloudDocs | grep %"
 
-# scutil shortcuts
-alias sc_computername="scutil --get ComputerName"
-alias sc_localhostname="scutil --get LocalHostName"
-alias sc_hostname="scutil --get HostName"
-alias sc_dns="scutil --dns"
-alias sc_proxy="scutil --proxy"
-alias sc_net_info="scutil --nwi"
+# scutil
+alias sc="scutil"
 
-# sysctl shortcuts
+# display cpu info
 alias sys_cpu="sysctl -n machdep.cpu.brand_string"
 
 # list installed packages
-alias sys_pkg_list="pkgutil --pkgs"
+alias sys_pkgs="pkgutil --pkgs"
 
-# osx"s launch services
+# get kMDItemContentTypeTree metadata for a file
+alias sys_mdls="mdls -name kMDItemContentTypeTree "
+
+# osxs launch services
 alias lsregister="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister"
 
-# get kMDItemContentTypeTree metadata for file
-alias sys_uti_file="mdls -name kMDItemContentTypeTree "
-
-# spotlight on/off
+# turn spotlight on/off
 alias spotlight_off="sudo mdutil -a -i off"
 alias spotlight_on="sudo mdutil -a -i on"
 
-# shortcuts
-alias cl="clear"
-alias or="omz reload"
-alias c="cl && or"
-
-# js core repl
-jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc"
-[ -e "${jscbin}" ] && alias jsc="${jscbin}"
-unset jscbin
-
 # directories
-[ -d $HOME/.dotfiles ] && alias dots="cd $HOME/.dotfiles"
-[ -d $HOME/.config/nvim ] && alias nvims="cd $HOME/.config/nvim"
-[ -d $HOME/Downloads ] && alias dl="cd $HOME/Downloads"
-[ -d $HOME/Games ] && alias games="cd $HOME/Games"
-[ -d $HOME/Developer/plugins ] && alias plugins="cd $HOME/Developer/plugins"
-[ -d $HOME/Developer/practice ] && alias practice="cd $HOME/Developer/practice"
-[ -d $HOME/Developer/repos ] && alias repos="cd $HOME/Developer/repos"
-[ -d $HOME/Developer/served ] && alias served="cd $HOME/Developer/served"
-[ -d $HOME/Developer/temp ] && alias temp="cd $HOME/Developer/temp"
+alias home="cd $HOME"
+alias dots="cd $HOME/.dotfiles"
+alias dl="cd $HOME/Downloads"
+alias games="cd $HOME/Games"
+alias nv="cd $HOME/.config/nvim"
+alias plugins="cd $HOME/Developer/plugins"
+alias practice="cd $HOME/Developer/practice"
+alias repos="cd $HOME/Developer/repos"
+alias served="cd $HOME/Developer/served"
+alias temp="cd $HOME/Developer/temp"
 
 # create and cd into directory
 function mkd() {
@@ -159,3 +151,8 @@ function brews() {
   echo "${formulae}" | sed "s/^\(.*\):\(.*\)$/\1${blue}\2${off}/"
   echo "\n${blue}==>${off} ${bold}Casks${off}\n${casks}"
 }
+
+# js core repl
+jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc"
+[ -e "${jscbin}" ] && alias jsc="${jscbin}"
+unset jscbin
