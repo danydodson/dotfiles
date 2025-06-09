@@ -62,7 +62,6 @@ at_blinkoff=%{$'\e[25m'%}
 at_reverseoff=%{$'\e[27m'%}
 at_strikeoff=%{$'\e[29m'%}
 
-
 local prompt_suffix='%{$reset_color%}'
 local current_dir='${fg_purple}%~%f%{$reset_color%}'
 local user_host='%B${fg_lgreen}%n%{$reset_color%}${fg_pink}@${fg_lcyan}%M%b%f${prompt_suffix}'
