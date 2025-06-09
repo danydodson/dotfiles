@@ -31,8 +31,8 @@ alias -g :b='-h 2>&1 | bat --language=help --style=plain'
 alias -g :b='--help 2>&1 | bat --language=help --style=plain'
 
 # get files
-alias get="curl -O -L --silent"
-alias wget="wget --config=$HOME/.dotfiles/config/wget/wgetr --no-check-certificate"
+alias get="curl $HOME/.dotfiles/config/curl/curlrc -O"
+alias wget="wget --config=$HOME/.dotfiles/config/wget/wgetrc --no-check-certificate"
 
 # edit in nvim
 alias dotsconf="cd $DOTFILES && nvim"
