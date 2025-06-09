@@ -20,9 +20,6 @@ install_miniconda() {
         info "running miniconda.sh..."
         bash ~/.config/miniconda3/miniconda.sh -b -u -p ~/.config/miniconda3
 
-        info "removing miniconda.sh..."
-        rm ~/.config/miniconda3/miniconda.sh
-
         echo
     fi
 

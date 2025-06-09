@@ -17,7 +17,6 @@
       exclude:
         [
           config/codium,
-          config/conda,
           config/continue,
           config/fzf,
           config/gnupg,
@@ -47,6 +46,17 @@
       force: true
       path: config/yazi/yazi.toml
 
+    ~/.config/gnupg/gpg.conf:
+      create: true
+      force: true
+      relink: true
+      path: config/gnupg/gpg.conf
+    ~/.config/gnupg/gpg-agent.conf:
+      create: true
+      force: true
+      relink: true
+      path: config/gnupg/gpg-agent.conf
+
     ~/Library/Application Support/transmission-daemon/settings.json:
       create: true
       relink: true
@@ -70,17 +80,6 @@
       relink: true
       force: true
       path: config/codium/snippets/*
-
-    ~/.config/gnupg/gpg.conf:
-      create: true
-      force: true
-      relink: true
-      path: config/gnupg/gpg.conf
-    ~/.config/gnupg/gpg-agent.conf:
-      create: true
-      force: true
-      relink: true
-      path: config/gnupg/gpg-agent.conf
 
     ~/.ssh/config:
       create: true
@@ -125,29 +124,29 @@
     - ~/Developer/temp
 
 - shell:
-    - description: update submodules
+    - description: Update submodules
       command: git submodule update --init --recursive
 
-    - description: sync dotbot
+    - description: Sync dotbot
       command: git submodule sync --recursive
 
-    - description: create blank config files
+    - description: Create blank config files
       command: touch ~/.hushlogin
 
-    - description: codium setup
+    - description: Setup codium
       command: ./installers/codium.sh
 
-    - description: conda setup
+    - description: Setup conda
       command: ./installers/conda.sh
 
-    - description: go setup
+    - description: Setup go
       command: ./installers/go.sh
 
-    - description: ssh setup
+    - description: Setup ssh
       command: ./installers/ssh.sh
 
-    - description: tmux setup
+    - description: Setup tmux
       command: ./installers/tmux.sh
 
-    - description: yazi setup
+    - description: Setup yazi
       command: ./installers/yazi.sh

@@ -37,6 +37,8 @@ export RUSTUP_HOME="$HOME/.config/rust"
 export FLY_CONFIG_DIR="$HOME/.config/fly"
 export GNUPGHOME="$HOME/.config/gnupg"
 
+export CONDA_ENVS_PATH="$HOME/.config/miniconda3/envs"
+
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
 export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 

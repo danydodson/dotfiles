@@ -3,7 +3,7 @@
 # skips compinit
 skip_global_compinit=1
 
-# 
+#
 autoload -U compaudit compinit zrecompile
 
 # prompt
@@ -20,7 +20,7 @@ source ${DOTFILES}/zsh/settings.zsh
 source ${DOTFILES}/zsh/aliases.zsh
 
 # start ssh-agent
-eval "$(ssh-agent -s)" > /dev/null 2>&1
+eval "$(ssh-agent -s)" >/dev/null 2>&1
 
 # fzf
 if [ $(command -v fzf) ]; then
@@ -28,4 +28,14 @@ if [ $(command -v fzf) ]; then
 fi
 
 # conda
-source $DOTFILES/config/conda/conda.zsh
+__conda_setup="$('/Users/stache/.config/miniconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
+if [ $? -eq 0 ]; then
+  eval "$__conda_setup"
+else
+  if [ -f "/Users/stache/.config/miniconda3/etc/profile.d/conda.sh" ]; then
+    . "/Users/stache/.config/miniconda3/etc/profile.d/conda.sh"
+  else
+    export PATH="/Users/stache/.config/miniconda3/bin:$PATH"
+  fi
+fi
+unset __conda_setup
