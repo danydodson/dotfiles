@@ -10,10 +10,10 @@ autoload -U compaudit compinit zrecompile
 source ${DOTFILES}/zsh/prompt.zsh
 
 # plugins
-source ${DOTFILES}/tools/zsh-completions/zsh-completions.plugin.zsh
-source ${DOTFILES}/tools/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ${DOTFILES}/tools/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source ${DOTFILES}/tools/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ${DOTFILES}/plugins/zsh-completions/zsh-completions.plugin.zsh
+source ${DOTFILES}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${DOTFILES}/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source ${DOTFILES}/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # zsh files
 source ${DOTFILES}/zsh/settings.zsh

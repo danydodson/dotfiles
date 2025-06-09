@@ -60,6 +60,8 @@ install_tmux_plugins() {
     fi
 
     info "to finish the installation, install all plugins with <prefix> + I in tmux."
+
+    finish
 }
 
 main() {

@@ -4,7 +4,7 @@
 export CLICOLOR=1
 
 # pure prompt
-fpath+=("$HOME/.config/ohmyzsh/custom/themes/pure")
+fpath+=("$HOME/.dotfiles/plugins/pure")
 
 autoload -U promptinit; promptinit
 

@@ -26,6 +26,7 @@ function install_node_with_nvm() {
     else
         error "Error: nvm is not available"
     fi
+    
     finish
 }
 

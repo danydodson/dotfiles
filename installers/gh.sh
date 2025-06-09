@@ -26,6 +26,7 @@ function setup_gh_tool() {
     else
         error "Error: gh is not available"
     fi
+    
     finish
 }
 

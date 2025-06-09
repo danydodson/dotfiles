@@ -140,14 +140,11 @@
     - description: conda setup
       command: ./installers/conda.sh
 
-    - description: gh setup
-      command: ./installers/gh.sh
-
     - description: go setup
       command: ./installers/go.sh
 
-    # - description: nvim setup
-    #   command: ./installers/nvim.sh
+    - description: nvim setup
+      command: ./installers/nvim.sh
 
     - description: ssh setup
       command: ./installers/ssh.sh
