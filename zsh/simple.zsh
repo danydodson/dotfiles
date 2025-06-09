@@ -67,10 +67,12 @@ local prompt_suffix='%{$reset_color%}'
 local current_dir='${fg_purple}%~%f%{$reset_color%}'
 local user_host='%B${fg_lgreen}%n%{$reset_color%}${fg_pink}@${fg_lcyan}%M%b%f${prompt_suffix}'
 local current_datetime='${fg_blue}%D{%d.%m.%Y} ${fg_red}%T%f${prompt_suffix}'
-local the_prompt_sign='%b $fg[105]»%f${prompt_suffix}'
+local the_prompt_sign='%b $fg[105]❯%f${prompt_suffix}'
 
+# ❯ ❮ ⇣ ⇡ ≡ 
 # export PROMPT="${current_datetime} - ${user_host} [${current_dir}] ${the_prompt_sign} "
-export PROMPT="${user_host} [${current_dir}] ${the_prompt_sign} "
+# export PROMPT="${user_host} [${current_dir}] ${the_prompt_sign} "
+export PROMPT="${current_dir} ${the_prompt_sign} "
 
 # precmd is called just before the prompt is printed
 precmd () {

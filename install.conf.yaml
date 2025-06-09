@@ -17,8 +17,6 @@
       exclude:
         [
           config/codium,
-          config/continue,
-          config/fzf,
           config/gnupg,
           config/lscolors,
           config/ssh,

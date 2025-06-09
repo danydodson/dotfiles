@@ -7,7 +7,7 @@ skip_global_compinit=1
 autoload -U compaudit compinit zrecompile
 
 # prompt
-source ${DOTFILES}/zsh/simple.zsh
+source ${DOTFILES}/zsh/prompt.zsh
 
 # plugins
 source ${DOTFILES}/plugins/zsh-completions/zsh-completions.plugin.zsh
@@ -22,12 +22,41 @@ source ${DOTFILES}/zsh/aliases.zsh
 # start ssh-agent
 eval "$(ssh-agent -s)" >/dev/null 2>&1
 
-# fzf
-if [ $(command -v fzf) ]; then
-  source $DOTFILES/config/fzf/fzf.zsh
-fi
-
 # conda
 if [ -f "$HOME/.config/miniconda3/etc/profile.d/conda.sh" ]; then
   source "$HOME/.config/miniconda3/etc/profile.d/conda.sh"
 fi
+
+# fzf completions and keybindings
+source /opt/homebrew/opt/fzf/shell/completion.zsh
+source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+
+# fzf base options
+export FZF_DEFAULT_OPTS="\
+  --height=60% \
+  --layout=reverse \
+  --prompt='> ' \
+  --walker-skip=.git,node_modules,target,Library,Pictures,Documents,Movies,Music,.Trash \
+  --tmux=center \
+  --no-info --no-scrollbar --no-hscroll \
+  --margin=0 --padding=0 \
+  --bind='ctrl-space:toggle' \
+  --bind='ctrl-o:toggle-preview' \
+  --bind='ctrl-s:toggle-sort' \
+  --bind='ctrl-y:execute-silent(echo {+} | pbcopy)' \
+  --bind='ctrl-e:execute(codium {+})' \
+  --bind='ctrl-n:execute(nvim {+})'"
+
+# fzf dir search
+export FZF_CTRL_T_OPTS="\
+  --header='Directories' \
+  --walker=dir,hidden,follow \
+  --preview='tree -C {} | head -200' \
+  --bind='enter:execute(nvim {})+abort'"
+
+# fzf file search
+export FZF_ALT_C_OPTS="\
+  --header='Files' \
+  --walker=file \
+  --preview='bat -n --color=always {}' \
+  --bind='enter:execute(nvim {} +1)'"
