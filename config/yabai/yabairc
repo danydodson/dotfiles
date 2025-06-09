@@ -3,7 +3,7 @@
 # unload the window manager
 launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist >/dev/null 2>&1 &
 
-# unload the macOS on screen indicator overlay for volume change
+# unload the macos on screen indicator overlay for volume change
 launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
 
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
@@ -55,7 +55,6 @@ yabai -m rule --add app="^Karabiner-MultitouchExtension$" manage=off
 yabai -m rule --add app="^Keka$" manage=off
 yabai -m rule --add app="^Manage WireGaurd Tunnels$" manage=off
 yabai -m rule --add app="^Mpv$" manage=off
-yabai -m rule --add app="^mpv$" manage=off
 yabai -m rule --add app="^Messages$" manage=off
 yabai -m rule --add app="^Notes$" manage=off
 yabai -m rule --add app="^Permute 3$" manage=off
@@ -72,8 +71,6 @@ yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^System Information$" manage=off sub-layer=above
 yabai -m rule --add app="^System Preferences$" manage=off sub-layer=above
 yabai -m rule --add app="^Transmission$" manage=off
-yabai -m rule --add app="^UTM$" manage=off
-yabai -m rule --add app="^Vesktop$" manage=off
 yabai -m rule --add app="^VLC$" manage=off
 yabai -m rule --add app="^WireGaurd$" manage=off
 
@@ -82,7 +79,7 @@ yabai -m rule --add app="^Ghostty$" space=^2
 yabai -m rule --add app="^Discord$" space=^4
 
 # fix for borderless qutebrowser
-yabai -m rule --add app="^qutebrowser$" title!="^$" role="AXWindow" subrole="AXDialog" manage=on
+# yabai -m rule --add app="^qutebrowser$" title!="^$" role="AXWindow" subrole="AXDialog" manage=on
 
 # sketchybar events
 yabai -m signal --add event=window_focused action="sketchybar -m --trigger window_focus &> /dev/null"
