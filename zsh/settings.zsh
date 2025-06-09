@@ -30,72 +30,72 @@ if [ -f "/opt/homebrew/bin/gdircolors" ]; then
   eval "$(gdircolors -b "${DOTFILES}"/config/lscolors/ls_colors)"
 fi
 
-# complist and colors
-zmodload -i zsh/complist # Loads the completion system module
-autoload -Uz colors && colors # Enables color support in the shell
-
 # suggestion color
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#D19A66"
 
+# complist & colors
+zmodload -i zsh/complist # loads the completion system module
+autoload -Uz colors && colors # enables color support in the shell
+
 # completion menu and grouping settings
-zstyle ':completion:*:*:*:*:*' menu select # Enables interactive menu for completions
-zstyle ':completion:*:matches' group yes # Groups similar matches together
-zstyle ':completion:*:options' description yes # Shows descriptions for options
-zstyle ':completion:*:options' auto-description '%d' # Automatic descriptions for options
+zstyle ':completion:*:*:*:*:*' menu select # enables interactive menu for completions
+zstyle ':completion:*:matches' group yes # groups similar matches together
+zstyle ':completion:*:options' description yes # shows descriptions for options
+zstyle ':completion:*:options' auto-description '%d' # automatic descriptions for options
 
 # formatting for different completion messages
-zstyle ':completion:*:corrections' format ' %F{green}-- %d (errors: %e) --%f' # Format for corrections
+zstyle ':completion:*:corrections' format ' %F{green}-- %d (errors: %e) --%f' # format for corrections
 zstyle ':completion:*:descriptions' format ' %F{yellow}-- %d --%f' # set descriptions format to enable group support
-zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f' # Format for messages
-zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f' # Format for no matches
-zstyle ':completion:*:default' list-prompt '%S%M matches%s' # Format for match count
+zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f' # format for messages
+zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f' # format for no matches
+zstyle ':completion:*:default' list-prompt '%S%M matches%s' # format for match count
 
 # general completion behavior
-zstyle ':completion:*' format ' %F{yellow}-- %d --%f' # Configures how completion headers appear in the shell
-zstyle ':completion:*' list-dirs-first yes # Lists directories first
-zstyle ':completion:*' group-name '' # Groups completions by name
-zstyle ':completion:*' verbose yes # Shows detailed completion info
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*' # Case-insensitive matching
-zstyle ':completion:*' expand yes # Expands aliases before completing
-zstyle ':completion:*:processes-names' command 'ps c -u ${USER} -o command | uniq' # Process completion
-zstyle ':completion:*:*:-redirect-,2>,*:*' file-patterns '*.log' # Log file completion for redirections
+zstyle ':completion:*' format ' %F{yellow}-- %d --%f' # configures how completion headers appear in the shell
+zstyle ':completion:*' list-dirs-first yes # lists directories first
+zstyle ':completion:*' group-name '' # groups completions by name
+zstyle ':completion:*' verbose yes # shows detailed completion info
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*' # case-insensitive matching
+zstyle ':completion:*' expand yes # expands aliases before completing
+zstyle ':completion:*:processes-names' command 'ps c -u ${USER} -o command | uniq' # process completion
+zstyle ':completion:*:*:-redirect-,2>,*:*' file-patterns '*.log' # log file completion for redirections
 
 # caching completions
-zstyle ':completion:*' use-cache on # Enables completion caching
-zstyle ':completion:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh" # Sets cache location
+zstyle ':completion:*' use-cache on # enables completion caching
+zstyle ':completion:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh" # sets cache location
 
 # fuzzy matching settings
-zstyle ':completion:*' completer _complete _match _approximate  # Enables fuzzy matching
-zstyle ':completion:*:match:*' original only # Only shows original matches
-zstyle ':completion:*:approximate:*' max-errors 1 numeric # Allows 1 error in completion
+zstyle ':completion:*' completer _complete _match _approximate  # enables fuzzy matching
+zstyle ':completion:*:match:*' original only # only shows original matches
+zstyle ':completion:*:approximate:*' max-errors 1 numeric # allows 1 error in completion
 
 # directory and color settings
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} # Uses ls colors for completion
-zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories # Directory completion order
-zstyle ':completion:*:*:cd:*:directory-stack' menu yes select # Directory stack menu
-zstyle ':completion:*:-tilde-:*' group-order 'path-directories' 'named-directories' 'users' 'expand' # Tilde completion order
-zstyle ':completion:*' squeeze-slashes true # Combines multiple slashes
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} # uses ls colors for completion
+zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories # directory completion order
+zstyle ':completion:*:*:cd:*:directory-stack' menu yes select # directory stack menu
+zstyle ':completion:*:-tilde-:*' group-order 'path-directories' 'named-directories' 'users' 'expand' # tilde completion order
+zstyle ':completion:*' squeeze-slashes true # combines multiple slashes
 
 # function and parameter handling
-zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec)|prompt_*)' # Ignores certain functions
-zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters # Subscript completion order
+zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec)|prompt_*)' # ignores certain functions
+zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters # subscript completion order
 
 # manual page settings
-zstyle ':completion:*:manuals' separate-sections true # Separates manual sections
-zstyle ':completion:*:manuals.(^1*)' insert-sections true # Inserts section headers
+zstyle ':completion:*:manuals' separate-sections true # separates manual sections
+zstyle ':completion:*:manuals.(^1*)' insert-sections true # inserts section headers
 
 # history completion settings
-zstyle ':completion:*:history-words' stop yes # Enables history word completion
-zstyle ':completion:*:history-words' remove-all-dups yes # Removes duplicates
-zstyle ':completion:*:history-words' list false # Disables listing
-zstyle ':completion:*:history-words' menu yes # Enables menu
+zstyle ':completion:*:history-words' stop yes # enables history word completion
+zstyle ':completion:*:history-words' remove-all-dups yes # removes duplicates
+zstyle ':completion:*:history-words' list false # disables listing
+zstyle ':completion:*:history-words' menu yes # enables menu
 
 # multiple entry handling
-zstyle ':completion:*:(rm|kill|diff):*' ignore-line other # Ignores current line for certain commands
-zstyle ':completion:*:rm:*' file-patterns '*:all-files' # File patterns for rm command
+zstyle ':completion:*:(rm|kill|diff):*' ignore-line other # ignores current line for certain commands
+zstyle ':completion:*:rm:*' file-patterns '*:all-files' # file patterns for rm command
 
 # enable gnu ls in macOS
-zstyle ':omz:lib:theme-and-appearance' gnu-ls yes # Uses GNU ls formatting in MacOS
+zstyle ':omz:lib:theme-and-appearance' gnu-ls yes
 
 # use passphase from macos keychain
 if [[ "$OSTYPE" == "darwin"* ]]; then

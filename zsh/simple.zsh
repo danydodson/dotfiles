@@ -67,11 +67,10 @@ local prompt_suffix='%{$reset_color%}'
 local current_dir='${fg_purple}%~%f%{$reset_color%}'
 local user_host='%B${fg_lgreen}%n%{$reset_color%}${fg_pink}@${fg_lcyan}%M%b%f${prompt_suffix}'
 local current_datetime='${fg_blue}%D{%d.%m.%Y} ${fg_red}%T%f${prompt_suffix}'
-local the_prompt_sign='%b
-$fg[105]»%f${prompt_suffix}'
+local the_prompt_sign='%b $fg[105]»%f${prompt_suffix}'
 
-export PROMPT="
-${current_datetime} - ${user_host} [${current_dir}] ${the_prompt_sign} "
+# export PROMPT="${current_datetime} - ${user_host} [${current_dir}] ${the_prompt_sign} "
+export PROMPT="${user_host} [${current_dir}] ${the_prompt_sign} "
 
 # precmd is called just before the prompt is printed
 precmd () {
@@ -86,10 +85,8 @@ preexec () {
 #
 autoload -Uz vcs_info
 
-zstyle ':vcs_info:*' actionformats \
-    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
-zstyle ':vcs_info:*' formats       \
-    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
+zstyle ':vcs_info:*' actionformats             '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
+zstyle ':vcs_info:*' formats                   '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 
 zstyle ':vcs_info:*' enable git cvs svn
@@ -106,7 +103,8 @@ vcs_info_wrapper() {
 function zle-line-init zle-keymap-select {
     RPROMPT=""
     VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]% %{$reset_color%}"
-    RPROMPT="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $(vcs_info_wrapper) $EPS1"
+    RPROMPT="${KEYMAP/vicmd/$VIM_PROMPT}" 
+    RPROMPT="${RPROMPT/(main|viins)/} $(vcs_info_wrapper) $EPS1"
     zle reset-prompt
 }
 zle -N zle-line-init

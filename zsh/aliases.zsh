@@ -11,10 +11,6 @@ alias e="$EDITOR"
 alias v="nvim"
 alias cc="codium"
 
-# edit in nvim
-alias dotsconf="cd $DOTFILES && nvim"
-alias nvimconf="cd $HOME/.config/nvim && nvim"
-
 # git
 alias gcl="git clone --recursive"
 alias gco="git commit -S -m"
@@ -37,6 +33,10 @@ alias -g :b='--help 2>&1 | bat --language=help --style=plain'
 # get files
 alias get="curl -O -L --silent"
 alias wget="wget --config=$HOME/.dotfiles/config/wget/wgetr --no-check-certificate"
+
+# edit in nvim
+alias dotsconf="cd $DOTFILES && nvim"
+alias nvimconf="cd $HOME/.config/nvim && nvim"
 
 # pkg managers
 alias lsg_npm="npm ls -g --depth 0"

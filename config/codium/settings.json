@@ -190,6 +190,7 @@
   "[lua]": {
     "editor.defaultFormatter": "JohnnyMorganz.stylua"
   },
+  "markdown.preview.doubleClickToSwitchToEditor": false,
   "[markdown]": {
     "editor.wordWrap": "off",
     "editor.defaultFormatter": "esbenp.prettier-vscode"

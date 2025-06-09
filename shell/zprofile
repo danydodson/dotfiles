@@ -19,9 +19,6 @@ export PATH="$GOROOT/bin:$PATH"
 # go bin -> path
 export PATH="$HOME/.config/go/bin:$PATH"
 
-# conda -> path
-# export PATH="$HOME/.config/miniconda3/bin:$PATH"
-
 # gnupg -> path
 export PATH="$PATH:$HOME/.config/gnupg"
 

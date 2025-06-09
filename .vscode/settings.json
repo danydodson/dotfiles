@@ -1,0 +1,21 @@
+{
+    "files.associations": {
+        "**/bin/*": "shellscript",
+        "**/bin/colortest": "perl",
+        "**/bin/jwt-pem.py": "python",
+        "**/config/git/ignore": "ignore",
+        "**/config/git/config": "properties",
+        "**/config/lscolors/ls_colors": "dircolors",
+        "**/config/sketchybar/sketchybarrc": "shellscript",
+    },
+    "shellcheck.ignorePatterns": {
+        "**/config/**/*": true,
+        "**/*.zsh": true,
+    },
+    "yaml.schemas": {
+        "/Applications/codium-portable-data/extensions/continue.continue-1.1.24-darwin-arm64/config-yaml-schema.json": [
+            ".continue/**/*.yaml",
+            "file:///Users/stache/.continue/config.yaml"
+        ]
+    }
+}
