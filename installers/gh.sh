@@ -12,10 +12,15 @@ function setup_gh_tool() {
     if exists gh; then
         info "Setting up gh..."
 
+        if [ ! -f ~/.dotfiles/.gitsecret ]; then
+            touch ~/.dotfiles/.gitsecret
+        fi
+
         gh auth login
-        gh auth refresh -h github.com -s admin:public_key
-        gh auth refresh -h github.com -s admin:ssh_signing_key
-        gh auth refresh -s read:gpg_key
+
+        # gh auth refresh -h github.com -s admin:public_key
+        # gh auth refresh -h github.com -s admin:ssh_signing_key
+        # gh auth refresh -s read:gpg_key
 
         echo
     else

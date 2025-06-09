@@ -3,8 +3,8 @@
 " for more info, see docs at: https://github.com/lissy93/dotfiles
 
 " set paths for plug.vim and directory for plugins
-  let vim_plug_location='$HOME/.vim/autoload/plug.vim'
-  let vim_plug_plugins_dir='$HOME/.vim/plugins'
+  let vim_plug_location='$HOME/.config/vim/autoload/plug.vim'
+  let vim_plug_plugins_dir='$HOME/.config/vim/plugins'
   
   " if vim-plug not present, install it now
   if !filereadable(expand(vim_plug_location))

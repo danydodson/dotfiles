@@ -3,7 +3,11 @@
       create: true
       relink: true
 
-- clean: ["~", ~/.config]
+- clean:
+    ~/:
+      force: true
+    ~/.config:
+      recursive: true
 
 - link:
     ~/.config/:
@@ -127,29 +131,29 @@
     - description: sync dotbot
       command: git submodule sync --recursive
 
-    # - description: setup ssh
-    #   command: |
-    #     mkdir -p ~/.ssh && chmod 700 ~/.ssh
-    #     touch ~/.ssh/known_hosts && chmod 644 ~/.ssh/known_hosts
-    #     touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
+    - description: create blank config files
+      command: touch ~/.hushlogin
 
-    # - description: create blank config files
-    #   command: |
-    #     touch ~/.dotfiles/.gitsecret
-    #     touch ~/.hushlogin
+    - description: codium setup
+      command: ./installers/codium.sh
 
-    # - description: codium setup
-    #   command: ./installers/codium.sh
-    
+    - description: conda setup
+      command: ./installers/conda.sh
 
-    # - description: go setup
-    #   command: ./installers/go.sh
+    - description: gh setup
+      command: ./installers/gh.sh
+
+    - description: go setup
+      command: ./installers/go.sh
 
     # - description: nvim setup
     #   command: ./installers/nvim.sh
 
-    # - description: tmux setup
-    #   command: ./installers/tmux.sh
+    - description: ssh setup
+      command: ./installers/ssh.sh
 
-    # - description: yazi setup
-    #   command: ./installers/yazi.sh
+    - description: tmux setup
+      command: ./installers/tmux.sh
+
+    - description: yazi setup
+      command: ./installers/yazi.sh

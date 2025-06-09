@@ -71,8 +71,8 @@ macos-secure-input-indication = false
 
 # background ---------------------------------------------------------
 
-background-opacity = 0.92
-unfocused-split-opacity = 0.92
+background-opacity = 0.95
+unfocused-split-opacity = 0.95
 background-blur = true
 background-blur-radius = 80
 

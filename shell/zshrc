@@ -3,27 +3,23 @@
 # skips compinit
 skip_global_compinit=1
 
-# enable colors
-export CLICOLOR=1
+# 
+autoload -U compaudit compinit zrecompile
 
 # prompt
 source ${DOTFILES}/zsh/prompt.zsh
 
-plugins=(
-  nvm
-  zsh-autosuggestions
-  fast-syntax-highlighting
-  zsh-history-substring-search
-)
-
-# source oh-my-zsh.
-source $ZSH/oh-my-zsh.sh
+# plugins
+source ${DOTFILES}/tools/zsh-completions/zsh-completions.plugin.zsh
+source ${DOTFILES}/tools/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${DOTFILES}/tools/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source ${DOTFILES}/tools/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # zsh files
 source ${DOTFILES}/zsh/settings.zsh
 source ${DOTFILES}/zsh/aliases.zsh
 
-# start ssh
+# start ssh-agent
 eval "$(ssh-agent -s)" > /dev/null 2>&1
 
 # fzf
@@ -33,12 +29,3 @@ fi
 
 # conda
 source $DOTFILES/config/conda/conda.zsh
-
-# completions
-# autoload -Uz compinit
-# zcompdump="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
-# if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' "$zcompdump") ]; then
-#   compinit
-# else
-#   compinit -C
-# fi

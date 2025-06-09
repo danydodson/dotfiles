@@ -4,7 +4,7 @@
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/libexec:$PATH"
 
 # local system binaries -> path
-export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/MacGPG2/libexec:$PATH"
 
 # homebrew -> shell
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -20,7 +20,7 @@ export PATH="$GOROOT/bin:$PATH"
 export PATH="$HOME/.config/go/bin:$PATH"
 
 # gnupg -> path
-export PATH="$HOME/.config/gnupg:$PATH"
+export PATH="$PATH:$HOME/.config/gnupg"
 
 # java -> path
 export PATH="$PATH:/opt/homebrew/opt/openjdk/bin"

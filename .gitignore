@@ -6,3 +6,9 @@ Icon
 *.log
 .gitsecret
 */**/watch_later/*
+tools/fast-syntax-highlighting
+tools/powerlevel10k
+tools/pure
+tools/zsh-autosuggestions
+tools/zsh-completions
+tools/zsh-history-substring-search

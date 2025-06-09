@@ -58,7 +58,8 @@ restart() {
 reloadConfig() {
   echo "Reloading yabai config..."
   # sid=$(yabai -m query --spaces index --space | jq -r '.index')
-  source ~/.dotfiles/config.symlink/yabai/yabairc
+
+  source "${HOME}/.dotfiles/config/yabai/yabairc"
   # yabai -m space --focus $sid
 }
 
@@ -98,7 +99,7 @@ arrange() {
     ;;
   esac
 
-  yabai -m window --grid $destination
+  yabai -m window --grid "$destination"
   updateSketchybar
 
   echo "Window moved to $1"
@@ -122,9 +123,9 @@ cycle() {
 
 float() {
   windowInfo=$(yabai -m query --windows id,frame,app,is-floating --window)
-  appName=$(echo $windowInfo | jq -r '.app')
-  isFloating=$(echo $windowInfo | jq -r '."is-floating"')
-  positionX=$(printf "%.0f" $(echo $windowInfo | jq -r '.frame.x'))
+  appName=$(echo "$windowInfo" | jq -r '.app')
+  isFloating=$(echo "$windowInfo" | jq -r '."is-floating"')
+  positionX="$(printf "%.0f" "$(echo "$windowInfo" | jq -r '.frame.x')")"
 
   echo "$windowInfo" | jq -er '"yabai -m window \(.id) --toggle float --resize top_left:\(.frame.w/40):\(.frame.h/40) --resize bottom_right:\(.frame.w/-40):\(.frame.h/-40)"' |
     sh -
@@ -143,13 +144,13 @@ float() {
 }
 
 focusSpace() {
-  yabai -m space --focus $1
+  yabai -m space --focus "$1"
 
   echo "Welcome to Space $1!"
 }
 
 focusWin() {
-  yabai -m window --focus $1 > /dev/null
+  yabai -m window --focus "$1" > /dev/null
 }
 
 maximize() {
@@ -158,9 +159,9 @@ maximize() {
   yabai -m window --toggle zoom-fullscreen
   updateSketchybar
 
-  appName=$(echo $windowInfo | jq -r '.app')
+  appName=$(echo "$windowInfo" | jq -r '.app')
 
-  isFullScreen=$(echo $windowInfo | jq -r '."has-fullscreen-zoom"')
+  isFullScreen=$(echo "$windowInfo" | jq -r '."has-fullscreen-zoom"')
 
   if [[ "$isFullScreen" = "false" ]]; then
     echo "Making $appName full screen"
@@ -182,8 +183,8 @@ move() {
 resize() {
   windowResizeAmount=100
   window=$(yabai -m query --windows split-type,split-child --window)
-  splitType=$(echo $window | jq -r '."split-type"')
-  splitChild=$(echo $window | jq -r '."split-child"')
+  splitType=$(echo "$window" | jq -r '."split-type"')
+  splitChild=$(echo "$window" | jq -r '."split-child"')
 
   if [[ $1 = "+" ]]; then
     symbol="-"
@@ -207,7 +208,7 @@ resize() {
     resizeCommand="$direction:0:$symbol$windowResizeAmount"
   fi
 
-  yabai -m window --resize $resizeCommand
+  yabai -m window --resize "$resizeCommand"
 }
 
 swap() {
@@ -215,7 +216,7 @@ swap() {
   window=$(yabai -m query --windows id --window last | jq '.id')
 
   while :; do
-    yabai -m window $window --swap prev &>/dev/null
+    yabai -m window "$window" --swap prev &>/dev/null
     if [[ $? -eq 1 ]]; then
       break
     fi
@@ -235,7 +236,7 @@ toggleLayout() {
   echo "Toggling stack and bsp layouts"
   currentLayout=$(yabai -m query --spaces type --space | jq -r .type)
   [[ $currentLayout == "bsp" ]] && setToLayout="stack" || setToLayout="bsp"
-  yabai -m space --layout $setToLayout
+  yabai -m space --layout "$setToLayout"
   echo "Layout changed to $setToLayout"
   updateSketchybar
 }
@@ -246,9 +247,9 @@ updateYabai() {
 
   function updatesudoers() {
     echo "updating sudoers.d sha256"
-    sha256=$(shasum -a 256 $(which yabai) | awk "{print \$1;}")
+    sha256=$(shasum -a 256 "$(which yabai)" | awk "{print \$1;}")
     if [ -f "/private/etc/sudoers.d/yabai" ]; then
-      sudo sed -i '' -e 's/sha256:[[:alnum:]]*/sha256:'${sha256}'/' /private/etc/sudoers.d/yabai
+      sudo sed -i '' -e 's/sha256:[[:alnum:]]*/sha256:'"${sha256}"'/' /private/etc/sudoers.d/yabai
       echo "sudoers > yabai > sha256 hash update complete"
     else
       echo "sudoers file does not exist yet, or could not be found."

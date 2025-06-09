@@ -2,8 +2,8 @@
 
 WINDOW_RESIZE_AMOUNT=100
 WINDOW=$(yabai -m query --windows split-type,split-child --window)
-SPLIT_TYPE=$(echo $WINDOW | jq -r '."split-type"')
-SPLIT_CHILD=$(echo $WINDOW | jq -r '."split-child"')
+SPLIT_TYPE=$(echo "$WINDOW" | jq -r '."split-type"')
+SPLIT_CHILD=$(echo "$WINDOW" | jq -r '."split-child"')
 
 resize() {
 
@@ -30,4 +30,4 @@ else
   SYMBOL=
 fi
 
-yabai -m window --resize $(resize $SYMBOL)
+yabai -m window --resize "$(resize $SYMBOL)"

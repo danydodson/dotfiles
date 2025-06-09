@@ -62,7 +62,7 @@ zstyle ':completion:*:*:-redirect-,2>,*:*' file-patterns '*.log' # Log file comp
 
 # caching completions
 zstyle ':completion:*' use-cache on # Enables completion caching
-zstyle ':completion:*' cache-path ${ZSH}/cache # Sets cache location
+zstyle ':completion:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh" # Sets cache location
 
 # fuzzy matching settings
 zstyle ':completion:*' completer _complete _match _approximate  # Enables fuzzy matching
@@ -70,7 +70,7 @@ zstyle ':completion:*:match:*' original only # Only shows original matches
 zstyle ':completion:*:approximate:*' max-errors 1 numeric # Allows 1 error in completion
 
 # directory and color settings
-# zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} # Uses ls colors for completion
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} # Uses ls colors for completion
 zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories # Directory completion order
 zstyle ':completion:*:*:cd:*:directory-stack' menu yes select # Directory stack menu
 zstyle ':completion:*:-tilde-:*' group-order 'path-directories' 'named-directories' 'users' 'expand' # Tilde completion order
@@ -115,4 +115,3 @@ if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdu
 then
     zcompile "$zcompdump"
 fi
-

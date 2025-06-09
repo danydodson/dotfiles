@@ -1,17 +1,18 @@
-# bat/config
-
-# --theme="OneHalfDark"
+# theme
+--color=always
 --theme="TwoDark"
-
+# --theme="OneHalfDark"
 # --italic-text=always
 
---paging=never
-
---decorations=auto
---color=always
-
---style=numbers
+# style
 --tabs=4
+--wrap=never
+--style=plain
+--paging=never
+--decorations=auto
 
+# syntax
+--map-syntax "*.prettierrc:JSON"
+--map-syntax "*.eslintrc:JSON"
 --map-syntax "*.ino:C++"
 --map-syntax ".ignore:Git Ignore"

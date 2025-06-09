@@ -18,11 +18,6 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-export ZSH="$HOME/.config/ohmyzsh"
-export ZSH_CACHE_DIR="$HOME/.cache/zsh"
-export NPM_CONFIG_CACHE="$HOME/.cache/npm"
-export YARN_CACHE_FOLDER="$HOME/.cache/yarn"
-
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
@@ -44,5 +39,9 @@ export GNUPGHOME="$HOME/.config/gnupg"
 
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
 export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
+export ZSH_CACHE_DIR="$HOME/.cache/zsh"
+export NPM_CONFIG_CACHE="$HOME/.cache/npm"
+export YARN_CACHE_FOLDER="$HOME/.cache/yarn"
 
 export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'

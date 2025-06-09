@@ -3,20 +3,15 @@
 alias sudo="sudo "
 
 # reload
-alias cl="clear"
-alias or="omz reload"
-alias c="cl && or"
+alias c="clear && source $HOME/.zshrc"
 
-# finder
+# open
 alias o="open"
-alias oo="open ."
-
-# editors
 alias e="$EDITOR"
-alias vv="nvim"
+alias v="nvim"
 alias cc="codium"
 
-# nvim edit
+# edit in nvim
 alias dotsconf="cd $DOTFILES && nvim"
 alias nvimconf="cd $HOME/.config/nvim && nvim"
 
@@ -41,7 +36,7 @@ alias -g :b='--help 2>&1 | bat --language=help --style=plain'
 
 # get files
 alias get="curl -O -L --silent"
-alias wget="wget --no-check-certificate --hsts-file=$DOTFILES/config/wget/wget-hsts"
+alias wget="wget --config=$HOME/.dotfiles/config/wget/wgetr --no-check-certificate"
 
 # pkg managers
 alias lsg_npm="npm ls -g --depth 0"
@@ -69,6 +64,11 @@ alias ff="fastfetch"
 alias ls='/opt/homebrew/bin/gls --color=auto --group-directories-first -I .DS_Store -I .Trash -I "Icon'$'\r"'
 alias l="ls -hLg --no-group --time-style=iso"
 alias ll="ls -AhLg --no-group --time-style=iso"
+
+# grep
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
 
 # pretty paths
 alias path="printf '%s\n' $path"

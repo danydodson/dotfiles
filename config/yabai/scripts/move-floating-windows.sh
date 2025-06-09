@@ -32,7 +32,7 @@ case "$argument" in
   ;;
 esac
 
-yabai -m window --grid $destination
+yabai -m window --grid "$destination"
 
 echo "Window moved to $argument"
 

@@ -1,4 +1,4 @@
-set viminfo+=n~/.vim/viminfo
+set viminfo+=n~/.config/vim/viminfo
 
 source ~/.dotfiles/config/vim/src-plug.vim
 

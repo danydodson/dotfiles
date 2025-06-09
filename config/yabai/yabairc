@@ -77,6 +77,10 @@ yabai -m rule --add app="^Vesktop$" manage=off
 yabai -m rule --add app="^VLC$" manage=off
 yabai -m rule --add app="^WireGaurd$" manage=off
 
+# open in specific spaces
+yabai -m rule --add app="^Ghostty$" space=^2
+yabai -m rule --add app="^Discord$" space=^4
+
 # fix for borderless qutebrowser
 yabai -m rule --add app="^qutebrowser$" title!="^$" role="AXWindow" subrole="AXDialog" manage=on
 
