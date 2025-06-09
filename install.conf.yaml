@@ -67,12 +67,12 @@
       force: true
       path: config/codium/snippets/*
 
-    ~/.gnupg/gpg.conf:
+    ~/.config/gnupg/gpg.conf:
       create: true
       force: true
       relink: true
       path: config/gnupg/gpg.conf
-    ~/.gnupg/gpg-agent.conf:
+    ~/.config/gnupg/gpg-agent.conf:
       create: true
       force: true
       relink: true
@@ -113,6 +113,7 @@
 
 - create:
     - ~/Games
+    - ~/.cache/zsh
     - ~/Developer/plugins
     - ~/Developer/practice
     - ~/Developer/repos
@@ -139,6 +140,7 @@
 
     # - description: codium setup
     #   command: ./installers/codium.sh
+    
 
     # - description: go setup
     #   command: ./installers/go.sh

@@ -6,7 +6,7 @@ skip_global_compinit=1
 # enable colors
 export CLICOLOR=1
 
-# pure prompt
+# prompt
 source ${DOTFILES}/zsh/prompt.zsh
 
 plugins=(
@@ -34,13 +34,11 @@ fi
 # conda
 source $DOTFILES/config/conda/conda.zsh
 
-# thefuck
-eval $(thefuck --alias)
-
 # completions
-autoload -Uz compinit
-if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
-  compinit
-else
-  compinit -C
-fi
+# autoload -Uz compinit
+# zcompdump="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
+# if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' "$zcompdump") ]; then
+#   compinit
+# else
+#   compinit -C
+# fi

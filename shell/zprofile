@@ -19,6 +19,9 @@ export PATH="$GOROOT/bin:$PATH"
 # go bin -> path
 export PATH="$HOME/.config/go/bin:$PATH"
 
+# gnupg -> path
+export PATH="$HOME/.config/gnupg:$PATH"
+
 # java -> path
 export PATH="$PATH:/opt/homebrew/opt/openjdk/bin"
 
@@ -32,4 +35,5 @@ unset path_file
 typeset -gU fpath path
 
 # set the path for macos
+[[ -x /bin/launchctl ]] && /bin/launchctl setenv GNUPGHOME /Users/stache/.config/gnupg
 [[ -x /bin/launchctl ]] && /bin/launchctl setenv PATH $PATH

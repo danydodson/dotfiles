@@ -17,8 +17,8 @@ alias vv="nvim"
 alias cc="codium"
 
 # nvim edit
-alias vdots="cd $DOTFILES && nvim"
-alias vnvim="cd $HOME/.config/nvim && nvim"
+alias dotsconf="cd $DOTFILES && nvim"
+alias nvimconf="cd $HOME/.config/nvim && nvim"
 
 # git
 alias gcl="git clone --recursive"

@@ -16,7 +16,7 @@ while true; do
 done 2>/dev/null &
 
 # update dotfiles
-function update_dotfiles(){
+function update_dotfiles() {
   "$HOME"/.dotfiles/bin/dotfiles
 }
 
@@ -49,13 +49,19 @@ function update_npm_packages() {
   finish
 }
 
-function update_pip_packages() {
-  info "Updating pip packages..."
-  # pip --disable-pip-version-check list --outdated --format=json |
-  #   python -c "import json, sys; print('\n'.join([x['name'] for x in json.load(sys.stdin)]))" |
-  #   xargs -n1 pip install -U
+function update_yarn_packages() {
+  info "Updating yarn packages..."
+  yarn global upgrade
   finish
 }
+
+# function update_pip_packages() {
+#   info "Updating pip packages..."
+#   pip --disable-pip-version-check list --outdated --format=json |
+#     python -c "import json, sys; print('\n'.join([x['name'] for x in json.load(sys.stdin)]))" |
+#     xargs -n1 pip install -U
+#   finish
+# }
 
 function clean_up() {
   info "Emptying trash and cleaning logs..."
@@ -70,7 +76,8 @@ update() {
   update_macos_apps "$*"
   update_homebrew_packages "$*"
   update_npm_packages "$*"
-  update_pip_packages "$*"
+  update_yarn_packages "$*"
+  # update_pip_packages "$*"
   clean_up "$*"
   on_finish "$*"
 }

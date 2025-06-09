@@ -5,7 +5,7 @@
   setopt LOCAL_OPTIONS EXTENDED_GLOB
   autoload -U zrecompile
   
-  zcompdump="${ZDOTDIR:-$HOME/.cache/zsh}/.zcompdump"
+  zcompdump="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
   if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then
     if command mkdir "${zcompdump}.zwc.lock" 2>/dev/null; then
       zcompile "$zcompdump"

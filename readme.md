@@ -1,6 +1,6 @@
 # dotfiles 🍩
 
-![screenshot](docs/nvim.png)
+![screenshot](/nvim.png)
 
 These are my personal dotfiles. The setup is based on
 [dotbot](https://github.com/danydodson/dotfiles) and aims to be as idempotent as
@@ -8,27 +8,28 @@ possible.
 
 ### Systems 🚀
 
-- [macOS](docs/macos.md)
+- [Setup macos](/docs/macos.md)
 
 ### Neovim ⌨️
 
-- [nvim](installers/nvim.sh)
+- [Setup nvim](/installers/nvim.sh)
 
 ### Git 🐙
 
-- [Configure git](docs/git.md)
+- [Configure git](/docs/git.md)
 
 ### Project config/tooling 🧢
 
-- [Configure projects](installers)
-- [Local commands](bin/)
+- [Configure projects](/installers)
+- [Local commands](/bin/)
 
 ### Fonts 💯
-
+- [FiraCode Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
+- [FiraMono Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraMono)
+- [JetBrains Mono Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono)
+- [San Francisco Apple Fonts](https://developer.apple.com/fonts/)
 - [Operator Mono](https://typography.com/blog/introducing-operator)
-- [FiraCode Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
-- [Iconic Fonts](https://github.com/mdSlash/iconic-fonts)
-- [Nerd Font](https://github.com/ryanoasis/nerd-fonts)
+
 
 ### Ansi art 🎨
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-# pure
+# pure prompt
 fpath+=("$HOME/.config/ohmyzsh/custom/themes/pure")
 
 ZSH_THEME=""
@@ -9,7 +9,7 @@ autoload -U promptinit; promptinit
 
 prompt pure
 
-# p10k
+# p10k prompt
 # if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
 #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi

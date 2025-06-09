@@ -1,9 +1,9 @@
 #!/usr/bin/env zsh
 
 # history file
-export HISTFILE="$HOME/.zsh_history" # Sets the file where history is saved
-export HISTSIZE=1000000000 # Sets maximum history entries in memory
-export SAVEHIST=$HISTSIZE # Sets maximum history entries in file
+export HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zsh_history" # sets the file where history is saved
+export HISTSIZE=1000000000 # sets maximum history entries in memory
+export SAVEHIST=$HISTSIZE # sets maximum history entries in file
 
 # history configs
 setopt EXTENDED_HISTORY # saves timestamp and duration for commands
@@ -70,7 +70,7 @@ zstyle ':completion:*:match:*' original only # Only shows original matches
 zstyle ':completion:*:approximate:*' max-errors 1 numeric # Allows 1 error in completion
 
 # directory and color settings
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} # Uses ls colors for completion
+# zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} # Uses ls colors for completion
 zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories # Directory completion order
 zstyle ':completion:*:*:cd:*:directory-stack' menu yes select # Directory stack menu
 zstyle ':completion:*:-tilde-:*' group-order 'path-directories' 'named-directories' 'users' 'expand' # Tilde completion order
@@ -103,7 +103,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # location for completions
-zcompdump="${HOME}/.zcompdump"
+zcompdump="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
 
 # load completions if present
 if [ -f $zsh_dump_file ]; then

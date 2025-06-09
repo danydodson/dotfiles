@@ -4,14 +4,14 @@ setopt noglobalrcs
 
 export DOTFILES=$HOME/.dotfiles
 
-export GPG_TTY=$TTY
-export PAGER="less"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export LESSHISTFILE="-"
-
 export EDITOR="nvim"
 export VISUAL="codium"
 export BROWSER="/Applications/Zen.app/Contents/MacOS/zen"
+export GPG_TTY=$TTY
+
+export PAGER="less"
+export LESSHISTFILE="-"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -19,9 +19,13 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
 export ZSH="$HOME/.config/ohmyzsh"
+export ZSH_CACHE_DIR="$HOME/.cache/zsh"
+export NPM_CONFIG_CACHE="$HOME/.cache/npm"
+export YARN_CACHE_FOLDER="$HOME/.cache/yarn"
 
 export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_NO_INSTALL_CLEANUP=true
+export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_BUNDLE_FILE_GLOBAL="$DOTFILES/macos/brewfile"
 
 export CURL_HOME="$DOTFILES/config/curl"
@@ -36,6 +40,7 @@ export AWS_HOME="$HOME/.config/aws"
 export CARGO_HOME="$HOME/.config/cargo"
 export RUSTUP_HOME="$HOME/.config/rust"
 export FLY_CONFIG_DIR="$HOME/.config/fly"
+export GNUPGHOME="$HOME/.config/gnupg"
 
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
 export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
