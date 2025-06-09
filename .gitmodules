@@ -1,5 +1,5 @@
-[submodule "dotbot"]
-	path = dotbot
+[submodule "plugins/dotbot"]
+	path = plugins/dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
 [submodule "plugins/fast-syntax-highlighting"]
@@ -23,7 +23,4 @@
 [submodule "plugins/zsh-syntax-highlighting"]
 	path = plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "plugins/dotbot"]
-	path = plugins/dotbot
-	url = https://github.com/anishathalye/dotbot
-	ignore = dirty
+
