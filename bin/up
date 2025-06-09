@@ -15,17 +15,6 @@ while true; do
   kill -0 "$$" || exit
 done 2>/dev/null &
 
-# update dotfiles
-function update_dotfiles() {
-  "$HOME"/.dotfiles/bin/dotfiles
-}
-
-# update oh-my-zsh
-function update_omz() {
-  "$ZSH/tools/upgrade.sh"
-  finish
-}
-
 function update_macos_apps() {
   info "Updating macOS..."
   sudo -v
@@ -49,11 +38,11 @@ function update_npm_packages() {
   finish
 }
 
-function update_yarn_packages() {
-  info "Updating yarn packages..."
-  yarn global upgrade
-  finish
-}
+# function update_yarn_packages() {
+#   info "Updating yarn packages..."
+#   yarn global upgrade
+#   finish
+# }
 
 # function update_pip_packages() {
 #   info "Updating pip packages..."
@@ -71,12 +60,10 @@ function clean_up() {
 }
 
 update() {
-  update_dotfiles "$*"
-  update_omz "$*"
   update_macos_apps "$*"
   update_homebrew_packages "$*"
   update_npm_packages "$*"
-  update_yarn_packages "$*"
+  # update_yarn_packages "$*"
   # update_pip_packages "$*"
   clean_up "$*"
   on_finish "$*"
