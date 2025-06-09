@@ -64,6 +64,10 @@ alias ff="fastfetch"
 alias ls='/opt/homebrew/bin/gls --color=auto --group-directories-first -I .DS_Store -I .Trash -I "Icon'$'\r"'
 alias l="ls -hLg --no-group --time-style=iso"
 alias ll="ls -AhLg --no-group --time-style=iso"
+alias la="ls -A"
+
+# lsd ls app
+alias lsd="lsd -Al"
 
 # grep
 alias egrep='egrep --color=auto'
