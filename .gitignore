@@ -6,4 +6,3 @@ Icon
 *.log
 .gitsecret
 */**/watch_later/*
-plugins/*
