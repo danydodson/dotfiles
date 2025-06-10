@@ -12,8 +12,8 @@
 - link:
     ~/.config/:
       glob: true
-      path: config/*
       relink: true
+      path: config/*
       exclude:
         [
           config/codium,
@@ -29,6 +29,25 @@
           config/yazi,
         ]
 
+    ~/.config/weechat/:
+      glob: true
+      relink: true
+      path: config/weechat/*
+      exclude:
+        [
+          config/weechat/python,
+          config/weechat/themes,
+        ]
+
+    ~/.local/share/weechat/python/theme.py:
+      create: true
+      relink: true
+      path: config/weechat/python/theme.py
+    ~/.local/share/weechat/themes/:
+      glob: true
+      relink: true
+      path: config/weechat/themes/*
+    
     ~/.config/yazi/init.lua:
       create: true
       force: true
@@ -127,7 +146,6 @@
 - create:
     - ~/.cache/zsh
     - ~/Developer/plugins
-    - ~/Developer/practice
     - ~/Developer/repos
     - ~/Developer/served
     - ~/Developer/temp
@@ -139,7 +157,7 @@
     - description: Sync dotbot
       command: git submodule sync --recursive
 
-    - description: Create blank config files
+    - description: Create .hushlogin file
       command: touch ~/.hushlogin
 
     - description: Setup codium

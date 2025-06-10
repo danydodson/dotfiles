@@ -339,6 +339,5 @@
     "*.sdb": "${capture}.${extname}-*",
     "*.s3db": "${capture}.${extname}-*"
   },
-  "vue.server.hybridMode": false,
-  "workbench.statusBar.visible": false
+  "vue.server.hybridMode": false
 }
