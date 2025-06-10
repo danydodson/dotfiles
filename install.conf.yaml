@@ -46,12 +46,12 @@
       force: true
       path: config/yazi/yazi.toml
 
-    ~/.config/gnupg/gpg.conf:
+    ~/.gnupg/gpg.conf:
       create: true
       force: true
       relink: true
       path: config/gnupg/gpg.conf
-    ~/.config/gnupg/gpg-agent.conf:
+    ~/.gnupg/gpg-agent.conf:
       create: true
       force: true
       relink: true
@@ -125,7 +125,6 @@
       path: shell/zshrc
 
 - create:
-    - ~/Games
     - ~/.cache/zsh
     - ~/Developer/plugins
     - ~/Developer/practice

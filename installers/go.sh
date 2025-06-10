@@ -53,7 +53,6 @@ function install_go_packages() {
 
 main() {
     install_go_packages "$*"
-    on_finish "$*"
 }
 
 main "$*"

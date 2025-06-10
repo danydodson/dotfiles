@@ -66,7 +66,6 @@ install_tmux_plugins() {
 
 main() {
     install_tmux "$"
-    on_finish "$*"
 }
 
 main "$*"

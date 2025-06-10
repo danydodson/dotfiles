@@ -40,7 +40,6 @@ install_sketchybar() {
 
 main() {
     setup_sketchybar "$"
-    on_finish "$*"
 }
 
 main "$*"

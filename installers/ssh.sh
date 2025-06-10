@@ -26,7 +26,6 @@ setup_ssh() {
 
 main() {
     setup_ssh "$"
-    on_finish "$*"
 }
 
 main "$*"

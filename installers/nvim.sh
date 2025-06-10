@@ -69,7 +69,6 @@ install_nvim_configs() {
 
 main() {
     setup_nvim "$"
-    on_finish "$*"
 }
 
 main "$*"

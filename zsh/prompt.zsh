@@ -18,6 +18,6 @@ PURE_CMD_MAX_EXEC_TIME=10
 # zstyle ':prompt:pure:prompt:*' color cyan
 
 # turn on git stash status
-# zstyle :prompt:pure:git:stash show yes
+zstyle :prompt:pure:git:stash show yes
 
 prompt pure

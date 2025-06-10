@@ -31,7 +31,7 @@ if [ -f "/opt/homebrew/bin/gdircolors" ]; then
 fi
 
 # suggestion color
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#D19A66"
+# export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#D19A66"
 
 # complist & colors
 zmodload -i zsh/complist # loads the completion system module

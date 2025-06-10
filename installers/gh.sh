@@ -32,7 +32,6 @@ function setup_gh_tool() {
 
 main() {
     setup_gh_tool "$*"
-    on_finish "$*"
 }
 
 main "$*"

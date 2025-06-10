@@ -42,7 +42,6 @@ setup_yazi() {
 
 main() {
     setup_yazi "$"
-    on_finish "$*"
 }
 
 main "$*"

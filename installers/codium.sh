@@ -35,7 +35,6 @@ install_codium() {
 
 main() {
     install_codium "$"
-    on_finish "$*"
 }
 
 main "$*"

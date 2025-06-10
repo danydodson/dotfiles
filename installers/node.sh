@@ -51,7 +51,6 @@ function install_npm_deps() {
 main() {
     install_node_with_nvm "$*"
     install_npm_deps "$*"
-    on_finish "$*"
 }
 
 main "$*"

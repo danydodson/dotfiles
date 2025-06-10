@@ -28,7 +28,6 @@ install_miniconda() {
 
 main() {
     install_miniconda "$*"
-    on_finish "$*"
 }
 
 main "$*"

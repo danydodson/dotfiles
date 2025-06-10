@@ -26,7 +26,6 @@ install_repos() {
 
 main() {
     install_repos "$"
-    on_finish "$*"
 }
 
 main "$*"

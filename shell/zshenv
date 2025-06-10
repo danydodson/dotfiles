@@ -8,7 +8,6 @@ export EDITOR="nvim"
 export VISUAL="codium"
 export BROWSER="/Applications/Zen.app/Contents/MacOS/zen"
 export GPG_TTY=$TTY
-
 export PAGER="less"
 export LESSHISTFILE="-"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -35,7 +34,6 @@ export AWS_HOME="$HOME/.config/aws"
 export CARGO_HOME="$HOME/.config/cargo"
 export RUSTUP_HOME="$HOME/.config/rust"
 export FLY_CONFIG_DIR="$HOME/.config/fly"
-export GNUPGHOME="$HOME/.config/gnupg"
 
 export CONDA_ENVS_PATH="$HOME/.config/miniconda3/envs"
 
