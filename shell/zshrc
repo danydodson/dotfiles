@@ -4,7 +4,7 @@
 skip_global_compinit=1
 
 #
-autoload -U compaudit compinit zrecompile
+autoload -Uz compaudit compinit zrecompile
 
 # prompt
 source ${DOTFILES}/zsh/prompt.zsh
