@@ -4,5 +4,5 @@ brewfile.lock.json
 .DS_Store
 Icon
 *.log
-.gitsecret
+/config/git/secret
 */**/watch_later/*

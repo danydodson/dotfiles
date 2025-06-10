@@ -3,7 +3,7 @@
   email ="danydodson@gmail.com"
 
 [includeIf "gitdir:/Users/"]
-  path = "~/.dotfiles/.gitsecret"
+  path = "~/.dotfiles/config/git/secret"
   
 [gpg]
   format = ssh

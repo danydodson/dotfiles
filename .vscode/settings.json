@@ -5,6 +5,7 @@
         "**/bin/jwt-pem.py": "python",
         "**/config/git/ignore": "ignore",
         "**/config/git/config": "properties",
+        "**/config/git/secret": "properties",
         "**/config/lscolors/ls_colors": "dircolors",
         "**/config/sketchybar/sketchybarrc": "shellscript",
     },
