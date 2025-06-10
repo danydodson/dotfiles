@@ -54,20 +54,20 @@ alias b-leaves="brew leaves | xargs brew desc --eval-all"
 alias b-leaves-casks="brew ls --casks | xargs brew desc --eval-all"
 
 # transmission
-alias trd='transmission-daemon'
-alias tr='transmission-remote'
+alias trd="transmission-daemon"
+alias tr="transmission-remote"
+alias tra="tr -a"
+alias trl="tr -l"
+alias trs="tr -s"
 
 # fastfetch
 alias ff="fastfetch"
 
 # gls coreutils
 alias ls='/opt/homebrew/bin/gls --color=auto --group-directories-first -I .DS_Store -I .Trash -I "Icon'$'\r"'
-alias l="ls -hLg --no-group --time-style=iso"
-alias ll="ls -AhLg --no-group --time-style=iso"
+alias l="ls -AhLg --no-group --time-style=iso"
+alias ll="lsd -Al"
 alias la="ls -A"
-
-# lsd ls app
-alias lsd="lsd -Al"
 
 # grep
 alias egrep='egrep --color=auto'

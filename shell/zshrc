@@ -10,7 +10,7 @@ autoload -U compaudit compinit zrecompile
 source ${DOTFILES}/zsh/prompt.zsh
 
 # plugins
-source ${DOTFILES}/plugins/zsh-completions/zsh-completions.plugin.zsh
+source ${DOTFILES}/plugins/zsh-completions/zsh-completions.zsh
 source ${DOTFILES}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ${DOTFILES}/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ${DOTFILES}/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -26,6 +26,11 @@ eval "$(ssh-agent -s)" >/dev/null 2>&1
 if [ -f "$HOME/.config/miniconda3/etc/profile.d/conda.sh" ]; then
   source "$HOME/.config/miniconda3/etc/profile.d/conda.sh"
 fi
+
+# nvm
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # fzf completions and keybindings
 source /opt/homebrew/opt/fzf/shell/completion.zsh

@@ -9,7 +9,7 @@
   // 
   "continue.enableQuickActions": true,
   "continue.telemetryEnabled": false,
-  "continue.enableTabAutocomplete": true,
+  "continue.enableTabAutocomplete": false,
   "continue.enableConsole": true,
   // 
   "code-runner.enableAppInsights": false,
@@ -60,10 +60,8 @@
   "explorer.confirmDelete": false,
   "explorer.compactFolders": false,
   "explorer.decorations.badges": false,
-  //
-  "editor.lightbulb.enabled": "onCode",
   // 
-  "window.zoomLevel": 0.4,
+  // "window.zoomLevel": 0.4,
   // "window.customTitleBarVisibility": "never",
   "window.commandCenter": false,
   "window.nativeFullScreen": false,
@@ -83,7 +81,7 @@
   "workbench.editor.decorations.badges": false,
   "workbench.colorTheme": "One Dark Pro Darker",
   //
-
+  "editor.lightbulb.enabled": "onCode",
   "editor.largeFileOptimizations": false,
   "editor.overviewRulerBorder": false,
   "editor.hideCursorInOverviewRuler": false,
@@ -340,5 +338,6 @@
     "*.db3": "${capture}.${extname}-*",
     "*.sdb": "${capture}.${extname}-*",
     "*.s3db": "${capture}.${extname}-*"
-  }
+  },
+  "vue.server.hybridMode": false
 }

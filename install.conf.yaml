@@ -22,7 +22,9 @@
           config/ssh,
           config/tmux,
           config/transmission,
+          config/vencord,
           config/vim,
+          config/vlc,
           config/weechat,
           config/yazi,
         ]
@@ -59,6 +61,16 @@
       create: true
       relink: true
       path: config/transmission/settings.json
+
+    ~/Library/Preferences/org.videolan.vlc/vlcrc:
+      create: true
+      relink: true
+      path: config/vlc/vlcrc
+
+    ~/Library/Application Support/Vencord/settings/quickCss.css:
+      create: true
+      relink: true
+      path: config/vencord/settings/quickCss.css
 
     /Applications/codium-portable-data/user-data/User/settings.json:
       create: true
