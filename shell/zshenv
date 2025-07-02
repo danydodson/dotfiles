@@ -6,6 +6,8 @@ export DOTFILES=$HOME/.dotfiles
 
 export EDITOR="nvim"
 export VISUAL="codium"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 export BROWSER="/Applications/Zen.app/Contents/MacOS/zen"
 export GPG_TTY=$TTY
 export PAGER="less"

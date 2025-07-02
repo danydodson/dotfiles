@@ -22,6 +22,9 @@ export PATH="$HOME/.config/go/bin:$PATH"
 # java -> path
 export PATH="$PATH:/opt/homebrew/opt/openjdk/bin"
 
+# spicetify -> path
+export PATH="$PATH:/Users/stache/.spicetify"
+
 # macos paths -> path
 for path_file in /etc/paths.d/*(.N); do
   path+=($(<$path_file))

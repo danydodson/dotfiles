@@ -1,15 +1,11 @@
 #!/usr/bin/env zsh
 
-alias sudo="sudo "
-
-# reload
-alias c="clear && source $HOME/.zshrc"
-
 # open
 alias o="open"
 alias e="$EDITOR"
 alias v="nvim"
 alias cc="codium"
+alias sudo="sudo "
 
 # git
 alias gcl="git clone --recursive"
@@ -115,6 +111,16 @@ alias lsregister="/System/Library/Frameworks/CoreServices.framework/Frameworks/L
 # turn spotlight on/off
 alias spotlight_off="sudo mdutil -a -i off"
 alias spotlight_on="sudo mdutil -a -i on"
+
+# reload
+alias c="clear && source $HOME/.zshrc"
+
+# short
+alias ~="cd ~"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 
 # directories
 alias home="cd $HOME"
