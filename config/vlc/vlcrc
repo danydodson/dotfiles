@@ -1835,7 +1835,7 @@ audiobargraph_v-position=0
 [auhal] # HAL AudioUnit output
 
 # Audio volume (integer)
-auhal-volume=243
+#auhal-volume=256
 
 # Last audio device (string)
 auhal-audio-device=0

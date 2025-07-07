@@ -1,25 +1,25 @@
 {
-    // "var": {
-    //     "prefix": "var",
-    //     "body": [
-    //         "var ${1:name}: ${2:type} = ${3:value};$0"
-    //     ],
-    //     "description": "var decl"
-    // },
-    // "const": {
-    //     "prefix": "const",
-    //     "body": [
-    //         "const ${1:name}: ${2:type} = ${3:value};$0"
-    //     ],
-    //     "description": "const decl"
-    // },
-    // "arr_init": {
-    //     "prefix": "arr_init",
-    //     "body": [
-    //         "[_:${1:sentinel}]${1:type}{${2:val1}, ${3:val2}, ${4:val3}};$0"
-    //     ],
-    //     "description": "array/sentinel init"
-    // },
+    "var": {
+        "prefix": "var",
+        "body": [
+            "var ${1:name}: ${2:type} = ${3:value};$0"
+        ],
+        "description": "var decl"
+    },
+    "const": {
+        "prefix": "const",
+        "body": [
+            "const ${1:name}: ${2:type} = ${3:value};$0"
+        ],
+        "description": "const decl"
+    },
+    "arr_init": {
+        "prefix": "arr_init",
+        "body": [
+            "[_:${1:sentinel}]${1:type}{${2:val1}, ${3:val2}, ${4:val3}};$0"
+        ],
+        "description": "array/sentinel init"
+    },
     "list": {
         "prefix": "list",
         "body": [
@@ -27,67 +27,67 @@
         ],
         "description": "anonymous list"
     },
-    // "fn": {
-    //     "prefix": "fn",
-    //     "body": [
-    //         "fn ${1:name}() ${2:return_type} {",
-    //         "    $0",
-    //         "}"
-    //     ],
-    //     "description": "fn decl"
-    // },
-    // "generic_fn": {
-    //     "prefix": "fn_T",
-    //     "body": [
-    //         "fn ${1:name}(comptime T: type) ${2:return_type} {",
-    //         "    $0",
-    //         "}"
-    //     ],
-    //     "description": "generic fn decl"
-    // },
-    // "pub_fn": {
-    //     "prefix": "pub_fn",
-    //     "body": [
-    //         "pub fn ${1:main}() ${2:void} {",
-    //         "    $0",
-    //         "}"
-    //     ],
-    //     "description": "pub fn decl"
-    // },
-    // "extern_fn": {
-    //     "prefix": "ext_fn",
-    //     "body": [
-    //         "extern \"${1:sourceName}\" stdcallcc fn ${2:name}() ${3:return_type};$0"
-    //     ],
-    //     "description": "extern fn"
-    // },
-    // "exp_fn": {
-    //     "prefix": "exp_fn",
-    //     "body": [
-    //         "export fn ${1:name}() ${2:return_type} {",
-    //         "    $0",
-    //         "}"
-    //     ],
-    //     "description": "export fn"
-    // },
-    // "inl_fn": {
-    //     "prefix": "inline",
-    //     "body": [
-    //         "inline fn ${1:name}() ${2:return_type} {",
-    //         "    $0",
-    //         "}"
-    //     ],
-    //     "description": "inline fn"
-    // },
-    // "nakedcc_fn": {
-    //     "prefix": "naked",
-    //     "body": [
-    //         "nakedcc fn _${1:name}() ${2:return_type} {",
-    //         "    $0",
-    //         "}"
-    //     ],
-    //     "description": "nakedcc fn"
-    // },
+    "fn": {
+        "prefix": "fn",
+        "body": [
+            "fn ${1:name}() ${2:return_type} {",
+            "    $0",
+            "}"
+        ],
+        "description": "fn decl"
+    },
+    "generic_fn": {
+        "prefix": "fn_T",
+        "body": [
+            "fn ${1:name}(comptime T: type) ${2:return_type} {",
+            "    $0",
+            "}"
+        ],
+        "description": "generic fn decl"
+    },
+    "pub_fn": {
+        "prefix": "pub_fn",
+        "body": [
+            "pub fn ${1:main}() ${2:void} {",
+            "    $0",
+            "}"
+        ],
+        "description": "pub fn decl"
+    },
+    "extern_fn": {
+        "prefix": "ext_fn",
+        "body": [
+            "extern \"${1:sourceName}\" stdcallcc fn ${2:name}() ${3:return_type};$0"
+        ],
+        "description": "extern fn"
+    },
+    "exp_fn": {
+        "prefix": "exp_fn",
+        "body": [
+            "export fn ${1:name}() ${2:return_type} {",
+            "    $0",
+            "}"
+        ],
+        "description": "export fn"
+    },
+    "inl_fn": {
+        "prefix": "inline",
+        "body": [
+            "inline fn ${1:name}() ${2:return_type} {",
+            "    $0",
+            "}"
+        ],
+        "description": "inline fn"
+    },
+    "nakedcc_fn": {
+        "prefix": "naked",
+        "body": [
+            "nakedcc fn _${1:name}() ${2:return_type} {",
+            "    $0",
+            "}"
+        ],
+        "description": "nakedcc fn"
+    },
     "block": {
         "prefix": "block",
         "body": [
@@ -118,26 +118,26 @@
         ],
         "description": "struct decl"
     },
-    // "enum": {
-    //     "prefix": "enum",
-    //     "body": [
-    //         "const ${1:EnumName} = enum(${2:type}) {",
-    //         "    ${3:variant} = ${4:count},",
-    //         "    ${5:variant} = ${6:count},$0",
-    //         "};"
-    //     ],
-    //     "description": "enum decl"
-    // },
-    // "union": {
-    //     "prefix": "union",
-    //     "body": [
-    //         "const ${1:UnionName} = union(${2:enum}) {",
-    //         "    ${3:variant} : ${4:type},",
-    //         "    ${5:variant} : ${6:type},$0",
-    //         "};"
-    //     ],
-    //     "description": "tagged union decl"
-    // },
+    "enum": {
+        "prefix": "enum",
+        "body": [
+            "const ${1:EnumName} = enum(${2:type}) {",
+            "    ${3:variant} = ${4:count},",
+            "    ${5:variant} = ${6:count},$0",
+            "};"
+        ],
+        "description": "enum decl"
+    },
+    "union": {
+        "prefix": "union",
+        "body": [
+            "const ${1:UnionName} = union(${2:enum}) {",
+            "    ${3:variant} : ${4:type},",
+            "    ${5:variant} : ${6:type},$0",
+            "};"
+        ],
+        "description": "tagged union decl"
+    },
     "for_val": {
         "prefix": "for_v",
         "body": [
@@ -686,9 +686,7 @@
         ],
         "description": "Algebraic Data Type"
     },
-    // 
-    // 
-    // 
+
     "import std library": {
         "prefix": "imstd",
         "body": "const std = @import(\"std\");",

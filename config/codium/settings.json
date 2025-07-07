@@ -339,5 +339,6 @@
     "*.sdb": "${capture}.${extname}-*",
     "*.s3db": "${capture}.${extname}-*"
   },
-  "vue.server.hybridMode": false
+  "vue.server.hybridMode": false,
+  "go.toolsManagement.autoUpdate": true
 }

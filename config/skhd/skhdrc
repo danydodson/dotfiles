@@ -84,6 +84,7 @@ lalt - l : yabai -m window --resize right:12:0; \
 
 # open apps
 hyper - x : open -a "/Applications/Ghostty.app"
+hyper - t : open -a "/Applications/Twilight.app"
 hyper - b : open -a "Brave Browser.app"
 hyper - c : open -a "VSCodium.app"
 hyper - d : open -a "Discord.app"

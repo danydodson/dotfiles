@@ -31,8 +31,8 @@ alias get="curl $HOME/.dotfiles/config/curl/curlrc -O"
 alias wget="wget --config=$HOME/.dotfiles/config/wget/wgetrc --no-check-certificate"
 
 # edit in nvim
-alias dotsconf="cd $DOTFILES && nvim"
-alias nvimconf="cd $HOME/.config/nvim && nvim"
+alias dotconf="cd $DOTFILES && nvim"
+alias nvconf="cd $HOME/.config/nvim && nvim"
 
 # pkg managers
 alias lsg_npm="npm ls -g --depth 0"
