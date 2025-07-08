@@ -18,6 +18,7 @@
         [
           config/codium,
           config/gnupg,
+          config/iina,
           config/lscolors,
           config/ssh,
           config/tmux,
@@ -85,6 +86,11 @@
       create: true
       relink: true
       path: config/vlc/vlcrc
+
+    ~/Library/Preferences/com.colliderli.iina.plist:
+      create: true
+      relink: true
+      path: config/iina/com.colliderli.iina.plist
 
     ~/Library/Application Support/Vencord/settings/quickCss.css:
       create: true

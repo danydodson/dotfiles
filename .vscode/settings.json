@@ -21,5 +21,23 @@
             ".continue/**/*.yaml",
             "file:///Users/stache/.continue/config.yaml"
         ]
-    }
+    },
+    "Lua.diagnostics.globals": [
+        "sbar",
+        "mp",
+        "Tab",
+        "ui",
+        "ya",
+        "Status",
+        "cx",
+        "Header",
+        "icons",
+        "message",
+        "window_scale_checklist_cb",
+        "space_bracket",
+        "animate_detail",
+        "id",
+        "interrupt",
+        "current"
+    ]
 }

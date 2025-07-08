@@ -54,7 +54,7 @@
   "prettier.semi": true,
   // 
   "color-highlight.markRuler": false,
-  "color-highlight.matchWords": true,
+  // "color-highlight.matchWords": true,
   "color-highlight.useARGB": true,
   "color-highlight.matchHslWithNoFunction": true,
   "color-highlight.matchRgbWithNoFunction": true,
@@ -116,7 +116,7 @@
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.lineHeight": 1.22,
   "terminal.integrated.fontWeightBold": "normal",
-  "terminal.integrated.fontFamily": "FiraCode Nerd Font",
+  "terminal.integrated.fontFamily": "'FiraCode Nerd Font'",
   "terminal.integrated.drawBoldTextInBrightColors": false,
   "terminal.integrated.inheritEnv": false,
   "terminal.integrated.stickyScroll.enabled": false,
@@ -168,7 +168,10 @@
   "gopls": { "ui.semanticTokens": true },
   "go.toolsManagement.autoUpdate": true,
   "go.enableCodeLens": {
-    "runtest": false
+    "runtest": false,
+  },
+  "[go]": {
+    // "editor.semanticHighlighting.enabled": false
   },
   "[handlebars]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -278,6 +281,11 @@
       "id": "continueCompletions",
       "overrideWorkspaceSettings": false,
       "values": [ { "continue.enableTabAutocomplete": true }, { "continue.enableTabAutocomplete": false } ]
+    },
+    {
+      "id": "color-highlight-useARGB",
+      "overrideWorkspaceSettings": false,
+      "values": [ { "color-highlight.useARGB": true, }, { "color-highlight.useARGB": false, } ]
     }
   ],
   // 
@@ -294,7 +302,8 @@
     "activityBar.activeBorder": "#7e8185",
     "activityBar.border": "#222528",
     "statusBar.focusBorder": "#ffffff00",
-    "focusBorder": "#ffffff00"
+    // "focusBorder": "#dad2d2",
+    "focusBorder": "#ffffff00",
   },
   "editor.tokenColorCustomizations": {
     "textMateRules": [

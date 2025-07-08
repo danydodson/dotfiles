@@ -27,6 +27,10 @@
     "command": "settings.cycle.continueCompletions",
   },
   {
+    "key": "f7",
+    "command": "settings.cycle.color-highlight-useARGB",
+  },
+  {
     "key": "f9",
     "command": "settings.cycle.tabsVisible",
   },
@@ -88,10 +92,6 @@
     "key": "cmd+k cmd+a",
     "command": "-continue.toggleTabAutocompleteEnabled",
     "when": "!terminalFocus"
-  },
-  {
-    "key": "cmd+w",
-    "command": "workbench.action.closeEditorsAndGroup"
   },
   {
     "key": "shift+cmd+w",

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# only 0xAARRGGBB color arguments supported
+
+options=(
+	style=square
+	width=3.0
+	hidpi=off
+	active_color=0xc0ff00f2
+	inactive_color=0xff0080ff
+)
+
+borders "${options[@]}"
+
+# 0xff76cce0
+# 0xff414550
+# 0xc0ff00f2
+# 0xff0080ff
+# 0xffdad2d2
