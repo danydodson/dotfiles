@@ -88,5 +88,13 @@
     "key": "cmd+k cmd+a",
     "command": "-continue.toggleTabAutocompleteEnabled",
     "when": "!terminalFocus"
+  },
+  {
+    "key": "cmd+w",
+    "command": "workbench.action.closeEditorsAndGroup"
+  },
+  {
+    "key": "shift+cmd+w",
+    "command": "-workbench.action.closeWindow"
   }
 ]

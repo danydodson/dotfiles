@@ -13,6 +13,9 @@
         "**/config/**/*": true,
         "**/*.zsh": true,
     },
+    "shellcheck.exclude": [
+        "1090", "1091", "2034"
+    ],
     "yaml.schemas": {
         "/Applications/codium-portable-data/extensions/continue.continue-1.1.24-darwin-arm64/config-yaml-schema.json": [
             ".continue/**/*.yaml",

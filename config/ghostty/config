@@ -71,10 +71,10 @@ macos-secure-input-indication = false
 
 # background ---------------------------------------------------------
 
-background-opacity = 0.95
-unfocused-split-opacity = 0.95
+background-opacity = 0.90
+unfocused-split-opacity = 0.90
 background-blur = true
-background-blur-radius = 80
+background-blur-radius = 40
 
 # keybinds ---------------------------------------------------------
 

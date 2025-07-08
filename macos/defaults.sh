@@ -216,9 +216,6 @@ defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 # Dock & hot corners                                                          #
 ###############################################################################
 
-# Wipe all (default) app icons from the Dock
-# defaults write com.apple.dock persistent-apps -array
-
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
 
@@ -296,7 +293,7 @@ defaults write com.apple.dock wvous-tr-corner -int 0
 defaults write com.apple.dock wvous-tr-modifier -int 0
 
 # Bottom left screen corner → Mission Control
-defaults write com.apple.dock wvous-bl-corner -int 11
+defaults write com.apple.dock wvous-bl-corner -int 0
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
 # Bottom right screen corner → disabled

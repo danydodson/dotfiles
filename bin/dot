@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+
+BIN_NAME=$(basename "$0")
+COMMAND_NAME=$1
+SUB_COMMAND_NAME=$2
+
+sub_help () {
+  echo "Usage: $BIN_NAME <command>"
+  echo
+  echo "Commands:"
+  echo "   clean            Clean up caches (brew, cargo, gem, pip)"
+  echo "   dock             Apply macOS Dock settings"
+  echo "   duti             Set default apps for file types (UTI)"
+  echo "   edit             Open dotfiles in IDE ($VISUAL) and Git GUI ($VISUAL_GIT)"
+  echo "   help             This help message"
+  echo "   macos            Apply macOS system defaults"
+  echo "   test             Run tests"
+  echo "   update           Update packages and pkg managers (brew, casks, cargo, pip3, npm, gems, macOS)"
+}
+
+sub_clean () {
+  echo "$ brew cleanup"
+  brew cleanup --prune=all
+  echo "$ cargo cache --autoclean"
+  cargo cache --autoclean
+  echo "$ gem cleanup"
+  gem cleanup
+  echo "$ pip cache purge"
+  pip cache purge
+}
+
+sub_dock () {
+  . "${DOTFILES_DIR}/macos/dock.sh" && echo "Dock reloaded."
+}
+
+sub_edit () {
+  sh -c "$VISUAL $DOTFILES_DIR"
+  sh -c "$VISUAL_GIT $DOTFILES_DIR"
+}
+
+sub_test () {
+  bats "$DOTFILES_DIR"/test/*.bats
+}
+
+sub_update () {
+  topgrade
+}
+
+sub_duti () {
+  duti -v "${DOTFILES_DIR}/install/duti"
+}
+
+sub_macos () {
+  for DEFAULTS_FILE in "${DOTFILES_DIR}"/macos/defaults*.sh; do
+    echo "Applying ${DEFAULTS_FILE}" && . "${DEFAULTS_FILE}"
+  done
+  echo "Done. Some changes may require a logout/restart to take effect."
+}
+
+case $COMMAND_NAME in
+  "" | "-h" | "--help")
+    sub_help
+    ;;
+  *)
+    shift
+    sub_"${COMMAND_NAME}" "$@"
+    if [ $? = 127 ]; then
+      echo "'$COMMAND_NAME' is not a known command or has errors." >&2
+      sub_help
+      exit 1
+    fi
+    ;;
+esac

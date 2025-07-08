@@ -54,7 +54,7 @@ PERCENT2HEX() {
 # color Tokens
 BAR_COLOR=$(getcolor black)
 BAR_BORDER_COLOR=$(getcolor black 0)
-BAR_COLOR_TRANSPARENT=$(getcolor black 40)
+BAR_COLOR_TRANSPARENT=$(getcolor black 80)
 HIGHLIGHT=$(getcolor cyan)
 HIGHLIGHT_75=$(getcolor cyan 75)
 HIGHLIGHT_50=$(getcolor cyan 50)

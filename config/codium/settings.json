@@ -54,6 +54,10 @@
   "prettier.semi": true,
   // 
   "color-highlight.markRuler": false,
+  "color-highlight.matchWords": true,
+  "color-highlight.useARGB": true,
+  "color-highlight.matchHslWithNoFunction": true,
+  "color-highlight.matchRgbWithNoFunction": true,
   // 
   "explorer.incrementalNaming": "smart",
   "explorer.confirmDragAndDrop": false,
@@ -161,6 +165,8 @@
   "[dockerfile]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
+  "gopls": { "ui.semanticTokens": true },
+  "go.toolsManagement.autoUpdate": true,
   "go.enableCodeLens": {
     "runtest": false
   },
@@ -214,6 +220,7 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
+  "vue.server.hybridMode": false,
   "[vue]": {
     "editor.defaultFormatter": "Vue.volar"
   },
@@ -339,6 +346,5 @@
     "*.sdb": "${capture}.${extname}-*",
     "*.s3db": "${capture}.${extname}-*"
   },
-  "vue.server.hybridMode": false,
-  "go.toolsManagement.autoUpdate": true
+  "workbench.statusBar.visible": false
 }

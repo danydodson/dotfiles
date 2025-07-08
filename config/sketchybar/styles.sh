@@ -6,6 +6,9 @@ source "$CONFIG_DIR/colors.sh"
 PADDINGS=8
 ICON_FONT="Hack Nerd Font"
 LABEL_FONT="SF Pro"
+NERD_FONT="SFMono Nerd Font"
+
+Liga SFMono Nerd Font
 
 # bar appearance
 bar=(
@@ -13,7 +16,7 @@ bar=(
   position=top
   topmost=off
   sticky=on
-  height=32
+  height=33
   padding_left=4
   padding_right=4
   corner_radius=0
@@ -23,18 +26,18 @@ bar=(
 
 # item defaults
 item_defaults=(
-  background.corner_radius=4
-  background.height=20
+  background.corner_radius=2
+  background.height=26
   background.padding_left=$((PADDINGS / 2))
   background.padding_right=$((PADDINGS / 2))
-  icon.background.corner_radius=4
+  icon.background.corner_radius=2
   icon.color="$ICON_COLOR"
   icon.font="$ICON_FONT:Regular:11"
   icon.highlight_color="$HIGHLIGHT"
   icon.padding_left=0
   icon.padding_right=0
   label.color="$LABEL_COLOR"
-  label.font="$LABEL_FONT:Regular:11"
+  label.font="$LABEL_FONT:Regular:12"
   label.highlight_color="$HIGHLIGHT"
   label.padding_left=$((PADDINGS / 2))
   scroll_texts=on

@@ -10,12 +10,11 @@ POPUP_OFF="sketchybar --set \$NAME popup.drawing=off"
 
 SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 
-# unload the macOS on screen indicator overlay for volume change
+# unload the macos on screen indicator overlay for volume change
 launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
 
 sketchybar --bar "${bar[@]}" \
            --default "${item_defaults[@]}"
-
 
 source "$ITEM_DIR/spaces_simple.sh"
 
