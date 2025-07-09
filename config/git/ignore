@@ -1,4 +1,4 @@
-# os generated files
+# os files
 .Spotlight-V100
 .Trashes
 ehthumbs.db
@@ -7,23 +7,23 @@ Thumbs.db
 .DS_Store?
 ._*
 
-# Editing
-/.nvim.lua
-/.lazy.lua
-
-# Environments
+# envs
 /.pkgx.yaml
 .envrc
 
-# Node
+# editing
+/.nvim.lua
+/.lazy.lua
+
+# node
 /node_modules
 
-# byte-compiled / optimized / dll files
+# compiled
 __pycache__/
 *.py[cod]
 *$py.class
 
-# python distribution / packaging
+# python
 .Python
 build/
 develop-eggs/

@@ -3,7 +3,7 @@
 # Copies gpg public key to clipboard
 #
 # > gpg --list-secret-keys --keyid-format SHORT <EMAIL>
-# > gpg-key-copy [key ID]
+# > gpg-copy [key ID]
 # 
 
 if command -v gpg >/dev/null 2>&1; then

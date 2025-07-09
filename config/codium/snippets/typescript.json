@@ -1,43 +1,43 @@
 {
-	"XXX Debug": {
-		"prefix": "xxx",
-		"body": [
-			"console.log(\"XXX\", $1)"
-		]
-	},
-	"XXX Debug Stringify": {
-		"prefix": "xxs",
-		"body": [
-			"console.log(\"XXX\", JSON.stringify($1, null, 2))"
-		]
-	},
-	"YYY Debug": {
-		"prefix": "yyy",
-		"body": [
-			"console.log(\"YYY\", $1)"
-		]
-	},
-	"ZZZ Debug": {
-		"prefix": "zzz",
-		"body": [
-			"console.log(\"ZZZ\", $1)"
-		]
-	},
-	"console.log": {
-		"prefix": "clog",
-		"body": [
-			"console.log($1)"
-		]
-	},
-	"console.error": {
-		"prefix": "cerr",
-		"body": [
-			"console.error($1)"
-		]
-	},
-	"Import React": {
+  "XXX Debug": {
+    "prefix": "xxx",
+    "body": [
+      "console.log(\"XXX\", $1)"
+    ]
+  },
+  "XXX Debug Stringify": {
+    "prefix": "xxs",
+    "body": [
+      "console.log(\"XXX\", JSON.stringify($1, null, 2))"
+    ]
+  },
+  "YYY Debug": {
+    "prefix": "yyy",
+    "body": [
+      "console.log(\"YYY\", $1)"
+    ]
+  },
+  "ZZZ Debug": {
+    "prefix": "zzz",
+    "body": [
+      "console.log(\"ZZZ\", $1)"
+    ]
+  },
+  "console.log": {
+    "prefix": "clog",
+    "body": [
+      "console.log($1)"
+    ]
+  },
+  "console.error": {
+    "prefix": "cerr",
+    "body": [
+      "console.error($1)"
+    ]
+  },
+  "Import React": {
     "prefix": "imr",
-    "body": ["import React from 'react';"],
+    "body": [ "import React from 'react';" ],
     "description": "Imports React"
   },
   "componentFunctionalTypescript": {
@@ -62,12 +62,12 @@
   },
   "Create useEffect hook": {
     "prefix": "useEffect",
-    "body": ["useEffect(() => {", "\t", "}, []);"],
+    "body": [ "useEffect(() => {", "\t", "}, []);" ],
     "description": "Creates React useEffect hook"
   },
   "Create useContext hook": {
     "prefix": "useContext",
-    "body": ["const ${1:value} = useContext(MyContext);"],
+    "body": [ "const ${1:value} = useContext(MyContext);" ],
     "description": "Creates React useContext hook"
   },
   "Create useReducer hook": {
@@ -88,27 +88,27 @@
   },
   "Create useMemo hook": {
     "prefix": "useMemo",
-    "body": ["const ${1:memoizedValue} = useMemo(() => {", "\t", "}, []);"],
+    "body": [ "const ${1:memoizedValue} = useMemo(() => {", "\t", "}, []);" ],
     "description": "Creates React useMemo hook"
   },
   "Create useRef hook": {
     "prefix": "useRef",
-    "body": ["const ${1:refContainer} = useRef(${2:initialValue});"],
+    "body": [ "const ${1:refContainer} = useRef(${2:initialValue});" ],
     "description": "Creates React useRef hook"
   },
   "Create useImperativeHandle hook": {
     "prefix": "useImperativeHandle",
-    "body": ["useImperativeHandle(${1:initialValue}, () => {", "\t", "}, []);"],
+    "body": [ "useImperativeHandle(${1:initialValue}, () => {", "\t", "}, []);" ],
     "description": "Creates React useImperativeHandle hook"
   },
   "Create useLayoutEffect hook": {
     "prefix": "useLayoutEffect",
-    "body": ["useLayoutEffect(() => {", "\t", "}, []);"],
+    "body": [ "useLayoutEffect(() => {", "\t", "}, []);" ],
     "description": "Creates React useLayoutEffect hook"
   },
   "Create useDebugValue hook": {
     "prefix": "useDebugValue",
-    "body": ["useDebugValue(${1:value}"],
+    "body": [ "useDebugValue(${1:value}" ],
     "description": "Creates React useDebugValue hook"
   },
   "Create useSelector hook": {
@@ -120,12 +120,12 @@
   },
   "Create useDispatch hook": {
     "prefix": "useDispatch",
-    "body": ["const dispatch = useDispatch();"],
+    "body": [ "const dispatch = useDispatch();" ],
     "description": "Creates Redux useDispatch hook"
   },
   "Create useStore hook": {
     "prefix": "useStore",
-    "body": ["const store = useStore();"],
+    "body": [ "const store = useStore();" ],
     "description": "Creates Redux useStore hook"
   }
 }

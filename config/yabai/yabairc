@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # unload the window manager
-launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist >/dev/null 2>&1 &
+# launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist >/dev/null 2>&1 &
 
 # unload the macos on screen indicator overlay for volume change
 # launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
@@ -53,7 +53,7 @@ yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^Karabiner-MultitouchExtension$" manage=off
 yabai -m rule --add app="^Keka$" manage=off
 yabai -m rule --add app="^Manage WireGaurd Tunnels$" manage=off
-yabai -m rule --add app="^Mpv$" manage=off
+yabai -m rule --add app="^mpv$" manage=off
 yabai -m rule --add app="^Messages$" manage=off
 yabai -m rule --add app="^Notes$" manage=off
 yabai -m rule --add app="^Permute 3$" manage=off
@@ -75,12 +75,14 @@ yabai -m rule --add app="^WireGaurd$" manage=off
 
 # open in specific spaces
 yabai -m rule --add app="^Twilight$" space=^1
+yabai -m rule --add app="^LM Studio$" space=^1
 yabai -m rule --add app="^Ghostty$" space=^2
 yabai -m rule --add app="^VSCodium$" space=^2
 yabai -m rule --add app="^Postman$" space=^2
 yabai -m rule --add app="^Brave Browser$" space=^3
 yabai -m rule --add app="^Discord$" space=^4
 yabai -m rule --add app="^IINA$" space=^4
+yabai -m rule --add app="^mpv$" space=^4
 yabai -m rule --add app="^VLC$" space=^4
 yabai -m rule --add app="^Spotify$" space=^4
 
@@ -88,8 +90,8 @@ yabai -m rule --add app="^Spotify$" space=^4
 # yabai -m rule --add app="^qutebrowser$" title!="^$" role="AXWindow" subrole="AXDialog" manage=on
 
 # sketchybar events
-# yabai -m signal --add event=window_focused action="sketchybar -m --trigger window_focus &> /dev/null"
-# yabai -m signal --add event=window_title_changed action="sketchybar -m --trigger title_change &> /dev/null"
+yabai -m signal --add event=window_focused action="sketchybar -m --trigger window_focus &> /dev/null"
+yabai -m signal --add event=window_title_changed action="sketchybar -m --trigger title_change &> /dev/null"
 
 # signals
 yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"

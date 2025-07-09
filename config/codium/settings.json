@@ -231,7 +231,13 @@
     "breadcrumbs.showArrays": true
   },
   "yaml.schemas": {
-    "/Applications/codium-portable-data/extensions/continue.continue-1.1.24-darwin-arm64/config-yaml-schema.json": [ ".continue/**/*.yaml" ]
+    "/Applications/codium-portable-data/extensions/continue.continue-1.1.24-darwin-arm64/config-yaml-schema.json": [
+      ".continue/**/*.yaml",
+      "file:///Users/stache/.continue/config.yaml"
+    ],
+    "/Applications/codium-portable-data/extensions/continue.continue-1.0.15-darwin-arm64/config-yaml-schema.json": [
+      ".continue/**/*.yaml"
+    ]
   },
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml",
@@ -247,8 +253,8 @@
   ],
   "apc.listRow": {
     // "lists": [ "explorer-folders-view" ],
-    // "height": 10,
-    // "fontSize": 10,
+    "height": 24,
+    "fontSize": 14,
   },
   "apc.header": {
     "default": 24,
@@ -355,5 +361,6 @@
     "*.sdb": "${capture}.${extname}-*",
     "*.s3db": "${capture}.${extname}-*"
   },
-  "workbench.statusBar.visible": false
+  "snippets.backupFolder": "/Users/stache/Documents/backup/snippets",
+  "workbench.editor.enablePreview": false
 }
