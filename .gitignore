@@ -6,3 +6,4 @@ Icon
 *.log
 /config/git/secret
 */**/watch_later/*
+*/**/shaders/cache
