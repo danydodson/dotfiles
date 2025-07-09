@@ -45,7 +45,3 @@ export FZF_CTRL_T_OPTS="--header='Directories' --walker=dir,hidden,follow --prev
 # fzf file search
 export FZF_ALT_C_OPTS="--header='Files' --walker=file --preview='bat -n --color=always {}' --bind='enter:execute(nvim {} +1)'"
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/stache/.lmstudio/bin"
-# End of LM Studio CLI section
-

@@ -2,17 +2,16 @@
 
 setopt noglobalrcs
 
-export DOTFILES=$HOME/.dotfiles
-
 export EDITOR="nvim"
 export VISUAL="codium"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export BROWSER="/Applications/Zen.app/Contents/MacOS/zen"
 export GPG_TTY=$TTY
 export PAGER="less"
 export LESSHISTFILE="-"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+export DOTFILES=$HOME/.dotfiles
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"

@@ -22,8 +22,11 @@ export PATH="$HOME/.config/go/bin:$PATH"
 # java -> path
 export PATH="$PATH:/opt/homebrew/opt/openjdk/bin"
 
+# lm studio -> path
+export PATH="$PATH:/Users/stache/.lmstudio/bin"
+
 # spicetify -> path
-export PATH="$PATH:/Users/stache/.spicetify"
+export PATH="$PATH:$HOME/.spicetify"
 
 # macos paths -> path
 for path_file in /etc/paths.d/*(.N); do
