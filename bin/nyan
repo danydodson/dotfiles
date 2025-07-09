@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Print nyan cat - https://github.com/steckel/Git-Nyan-Graph/blob/master/nyan.sh
+# Nyan Cat - https://github.com/steckel/Git-Nyan-Graph/blob/master/nyan.sh
 
 e='\033'
 RESET="${e}[0m"
