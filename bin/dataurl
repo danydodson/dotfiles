@@ -2,7 +2,8 @@
 
 # Create a data URL from a file and copy it to clipboard
 
-# Usage: dataurl {{filename}}
+# usage:
+# > dataurl {{filename}}
 
 mimeType=$(file -b --mime-type "$1")
 

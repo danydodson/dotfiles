@@ -3,10 +3,10 @@
 set -e
 
 # Detect *nix operating system info
-#
-# Usage:
-#   $ eval "$(./detect-operating-system.sh)"
-#   $ env | grep ^SYSTEM_
+
+# usage:
+# > eval "$(./detect-operating-system.sh)"
+# > env | grep ^SYSTEM_
 
 # ==============================================================================
 

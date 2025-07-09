@@ -2,7 +2,6 @@
 
 # Installs pyenv, python, and pips
 
-# shellcheck disable=SC1091
 . "$HOME/.dotfiles/tools/reports.sh"
 
 set -e

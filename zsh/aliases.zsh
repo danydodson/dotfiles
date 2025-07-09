@@ -51,7 +51,7 @@ alias b-leaves-casks="brew ls --casks | xargs brew desc --eval-all"
 
 # transmission
 alias trd="transmission-daemon"
-alias tr="transmission-remote"
+alias tr="transmission-remote --auth stache:open"
 alias tra="tr -a"
 alias trl="tr -l"
 alias trs="tr -s"

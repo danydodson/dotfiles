@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 # Copies gpg public key to clipboard
-#
+
+# usage:
 # > gpg --list-secret-keys --keyid-format SHORT <EMAIL>
 # > gpg-copy [key ID]
-# 
 
 if command -v gpg >/dev/null 2>&1; then
 	if [ -z "$1" ]; then

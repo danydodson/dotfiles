@@ -10,7 +10,7 @@ autoload -Uz compaudit compinit zrecompile
 source ${DOTFILES}/zsh/prompt.zsh
 
 # plugins
-source ${DOTFILES}/plugins/zsh-completions/zsh-completions.zsh
+# source ${DOTFILES}/plugins/zsh-completions/zsh-completions.zsh
 source ${DOTFILES}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ${DOTFILES}/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ${DOTFILES}/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -44,4 +44,5 @@ export FZF_CTRL_T_OPTS="--header='Directories' --walker=dir,hidden,follow --prev
 
 # fzf file search
 export FZF_ALT_C_OPTS="--header='Files' --walker=file --preview='bat -n --color=always {}' --bind='enter:execute(nvim {} +1)'"
+
 

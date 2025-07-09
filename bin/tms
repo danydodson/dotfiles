@@ -6,7 +6,7 @@ if [[ $# -eq 1 ]]; then
     selected=$1
 else
     selected=$(find \
-        ~/Developer/{boiler,plugins,practice,repos,security,served,temp} \
+        ~/Developer/{plugins,repos,served,temp} \
         -maxdepth 1 \
         -mindepth 1 \
         -type d \

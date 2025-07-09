@@ -2,7 +2,6 @@
 
 # Gets macOS software, Homebrew and npm updates and cleans trash and logs.
 
-# shellcheck disable=SC1091
 . "$HOME/.dotfiles/tools/reports.sh"
 
 trap on_error SIGTERM

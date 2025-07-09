@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+  "runtime.version": "Lua 5.4",
+  "diagnostics.globals": [
+    // "vim",
+    // "bufnr",
+    // "init"
+  ],
+  "diagnostics.disable": [
+    "lowercase-global",
+    "undefined-global",
+    "need-check-nil",
+    "unbalanced-assignments",
+    "undefined-field",
+    "inject-field",
+    "param-type-mismatch",
+    "duplicate-set-field",
+    "cast-local-type"
+  ]
+}

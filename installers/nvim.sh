@@ -2,7 +2,6 @@
 
 # Installs nvim
 
-# shellcheck disable=SC1091
 source "$HOME/.dotfiles/tools/reports.sh"
 
 set -e

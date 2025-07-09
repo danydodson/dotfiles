@@ -1,35 +1,42 @@
 #!/usr/bin/env bash
 
+# Gets a list of trackers and adds them to a torrent in transmission
 # https://github.com/oilervoss/transmission
 
-# Below is a command that will get a list of trackers with one tracker per line
-# command can be 'cat /some/path/trackers.txt' for a static list
+# usage:
+# > tracks <torrent-id-number>
+# > cat /some/path/trackers.txt # returns a static list
+
+. "$HOME/.dotfiles/tools/reports.sh"
 
 LIVE_TRACKERS_LIST_CMD='curl -fs --url https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt'
 
-TRANSMISSION_REMOTE='/opt/homebrew/bin/transmission-remote -n kabum:Hr7qeB6Fkscdn2zbzUmf'
+TRANSMISSION_REMOTE='/opt/homebrew/bin/transmission-remote -n stache:open'
 
-TORRENTS=$($TRANSMISSION_REMOTE -l 2>/dev/null)
 if ! TORRENTS=$($TRANSMISSION_REMOTE -l 2>/dev/null); then
-  echo -e "\n\e[0;91;1mFail on transmission. Aborting.\n\e[0m"
+  info "Fail on transmission. Aborting."
   exit 1
 fi
 
 if [ $# -eq 0 ]; then
-  echo -e "\n\e[31mThis script expects one or more parameters\e[0m"
-  echo -e "\e[0;36tracker \t\t- list current torrents "
-  echo -e "tracker \$n1 \$n2...\t- add trackers to torrent of number \$n1 and \$n2"
-  echo -e "tracker \$s1 \$s2...\t- add trackers to first torrent with part of name \$s1 and \$s2"
-  echo -e "tracker .\t\t- add trackers to all torrents"
-  echo -e "Names are case insensitive "
-  echo -e "\n\e[0;32;1mCurrent torrents:\e[0;32m"
-  echo "$TORRENTS" | sed -nr 's:^\s+(\d+\s).{64}:\1:p'
-  echo -e "\n\e[0m"
+  info ""
+  info "This script expects one or more parameters"
+  info ""
+  info "tracker \t\t- list current torrents "
+  info "tracker \$n1 \$n2...\t- add trackers to torrent of number \$n1 and \$n2"
+  info "tracker \$s1 \$s2...\t- add trackers to first torrent with part of name \$s1 and \$s2"
+  info "tracker .\t\t- add trackers to all torrents"
+  info ""
+  info "Names are case insensitive "
+  info ""
+  info "Current torrents:"
+  info "$TORRENTS"
+  info ""
   exit 1
 fi
 
-TRACKER_LIST=$($LIVE_TRACKERS_LIST_CMD)
-if [ $? -ne 0 ] || [ -z "$TRACKER_LIST" ]; then
+# Try to get trackers list, fall back to static list if unavailable
+if ! TRACKER_LIST=$($LIVE_TRACKERS_LIST_CMD) || [ -z "$TRACKER_LIST" ]; then
   TRACKER_LIST="udp://tracker.skyts.net:6969/announce
   udp://tracker.safe.moe:6969/announce
   udp://tracker.piratepublic.com:1337/announce
@@ -50,52 +57,57 @@ if [ $? -ne 0 ] || [ -z "$TRACKER_LIST" ]; then
   udp://tracker1.xku.tv:6969/announce
   udp://tracker1.wasabii.com.tw:6969/announce
   udp://tracker.zer0day.to:1337/announce"
-
 fi
 
 while [ $# -ne 0 ]; do
-
   PARAMETER="$1"
   [ "$PARAMETER" = "." ] && PARAMETER=" "
 
-  if [ ! -z "${PARAMETER//[0-9]/}" ]; then
-    PARAMETER=$(echo "$TORRENTS" |
-      sed -nr '1d;/^Sum:/d;s:^\s+(\d+\s).{64}:\1:p' |
-      grep -i "$PARAMETER" |
-      sed -nr 's:^(\d+)\s.*:\1:p')
+  if [ -n "${PARAMETER//[0-9]/}" ]; then
 
-    if [ ! -z "$PARAMETER" ] && [ -z "${PARAMETER//[0-9]/}" ]; then
-      NUMBERCHECK=1
-      echo -e "\n\e[0;32;1mI found the following torrent:\e[0;32m"
-      echo "$TORRENTS" | sed -nr 's:^\s+(\d+\s).{64}:\1:p' | grep -i "$1"
+    PARAMETER=$(echo "$TORRENTS" |
+      sed -nr '1d;/^Sum:/d;s:^\s+([0-9]+\s).{64}:\1:p' |
+      grep -i "$PARAMETER" |
+      sed -nr 's:^([0-9]+)\s.*:\1:p')
+
+    if [ -n "$PARAMETER" ] && [ -z "${PARAMETER//[0-9]/}" ]; then
+      FOUND_TORRENT=true
+      info "I found the following torrent: "
+      echo "$TORRENTS" | sed -nr 's:^\s+([0-9]+\s).{64}:\1:p' | grep -i "$1"
     else
-      NUMBERCHECK=0
+      FOUND_TORRENT=false
     fi
   else
-    NUMBERCHECK=$(echo "$TORRENTS" |
-      sed -nr '1d;/^Sum:/d;s:^(\s+\d+)\s.*:\1:p;s: :0:gp' |
+    # Parameter is numeric, check if torrent with this ID exists
+    TORRENT_CHECK=$(echo "$TORRENTS" |
+      sed -nr '1d;/^Sum:/d;s:^(\s+[0-9]+)\s.*:\1:p;s: :0:gp' |
       grep "$(echo 0000"$PARAMETER" | sed -nr 's:.*([0-9]{4}$):\1:p')")
 
+    if [ -n "$TORRENT_CHECK" ]; then
+      FOUND_TORRENT=true
+    else
+      FOUND_TORRENT=false
+    fi
   fi
 
-  if [ "${NUMBERCHECK:-0}" -eq 0 ]; then
-    echo -e "\n\e[0;31;1mI didn't find a torrent with the text/number: \e[21m$1"
-    echo -e "\e[0m"
+  if [ "$FOUND_TORRENT" = false ]; then
+    error "I didn't find a torrent with the text/number: $1"
+    info " "
     shift
     continue
   fi
 
   for TORRENT in $PARAMETER; do
-    echo -ne "\n\e[0;1;4;32mFor the Torrent: \e[0;4;32m"
-    $TRANSMISSION_REMOTE -t "$TORRENT" -i | sed -nr 's/ *Name: ?(.*)/\1/p'
+    info " "
+    info "For the Torrent: $($TRANSMISSION_REMOTE -t "$TORRENT" -i | sed -nr 's/ *Name: ?(.*)/\1/p')"
+    info " "
     echo "$TRACKER_LIST" | while read -r TRACKER; do
-      if [ ! -z "$TRACKER" ]; then
-        echo -ne "\e[0;36;1mAdding $TRACKER\e[0;36m"
-        $TRANSMISSION_REMOTE -t "$TORRENT" -td "$TRACKER" 1>/dev/null 2>&1
-        if [ $? -eq 0 ]; then
-          echo -e " -> \e[32mSuccess! "
+      if [ -n "$TRACKER" ]; then
+
+        if $TRANSMISSION_REMOTE -t "$TORRENT" -td "$TRACKER" 1>/dev/null 2>&1; then
+          success "Adding $TRACKER "
         else
-          echo -e " - \e[31m< Failed > "
+          error "Adding $TRACKER "
         fi
       fi
     done
@@ -104,4 +116,4 @@ while [ $# -ne 0 ]; do
   shift
 done
 
-echo -e "\e[0m"
+info " "

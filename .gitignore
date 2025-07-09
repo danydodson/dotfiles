@@ -7,3 +7,4 @@ Icon
 /config/git/secret
 */**/watch_later/*
 */**/shaders/cache
+*.netrwhist

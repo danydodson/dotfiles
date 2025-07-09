@@ -50,7 +50,7 @@
   //
   "notebook.output.fontSize": 12,
   // 
-  "prettier.tabWidth": 4,
+  "prettier.tabWidth": 2,
   "prettier.semi": true,
   // 
   "color-highlight.markRuler": false,
@@ -194,7 +194,11 @@
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
+  "stylua.searchParentDirectories": true,
   "[lua]": {
+    "editor.defaultFormatter": "JohnnyMorganz.stylua"
+  },
+  "[luau]": {
     "editor.defaultFormatter": "JohnnyMorganz.stylua"
   },
   "markdown.preview.doubleClickToSwitchToEditor": false,
@@ -362,5 +366,6 @@
     "*.s3db": "${capture}.${extname}-*"
   },
   "snippets.backupFolder": "/Users/stache/Documents/backup/snippets",
-  "workbench.editor.enablePreview": false
+  "workbench.editor.enablePreview": false,
+  "workbench.statusBar.visible": false
 }

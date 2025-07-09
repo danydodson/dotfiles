@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Copies the public ssh key to clipboard and prints it.
+# Copies the public ssh key to clipboard and prints it
 
 ssh_key=$1
 

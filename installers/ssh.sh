@@ -2,7 +2,6 @@
 
 # Installs yazi plugins
 
-# shellcheck disable=SC1091
 . "$HOME/.dotfiles/tools/reports.sh"
 
 set -e

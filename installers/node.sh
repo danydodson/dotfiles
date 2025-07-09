@@ -2,7 +2,6 @@
 
 # Installs nvm, node lts, and global packages
 
-# shellcheck disable=SC1091
 . "$HOME/.dotfiles/tools/reports.sh"
 
 set -e

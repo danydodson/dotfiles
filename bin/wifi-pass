@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Get plaintext saved wifi passwords
+# Get plain text saved wifi passwords
 
 __wifi-pass() {
   if [[ "$OSTYPE" == *'arwin'* ]]; then
