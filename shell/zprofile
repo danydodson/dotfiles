@@ -4,10 +4,7 @@
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/libexec:$PATH"
 
 # local system binaries -> path
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/MacGPG2/libexec:$PATH"
-
-# homebrew -> shell
-eval "$(/opt/homebrew/bin/brew shellenv)"
+export PATH="/usr/local/bin:/usr/local/MacGPG2/libexec:$PATH"
 
 # dotfiles bin -> path
 export PATH="$DOTFILES/bin:$PATH"
@@ -20,18 +17,16 @@ export PATH="$GOROOT/bin:$PATH"
 export PATH="$HOME/.config/go/bin:$PATH"
 
 # java -> path
-export PATH="$PATH:/opt/homebrew/opt/openjdk/bin"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 # lm studio -> path
-export PATH="$PATH:$HOME/.lmstudio/bin"
+export PATH="$HOME/.lmstudio/bin:$PATH"
 
 # spicetify -> path
-export PATH="$PATH:$HOME/.spicetify"
+export PATH="$HOME/.spicetify:$PATH"
 
-# osx-zsh-completions
-fpath=($HOME/.dotfiles/plugins/zsh-completions/src/ $fpath)
-autoload -Uz compinit
-compinit -d $HOME/.cache/zsh/zcompdump
+# homebrew -> shell
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # macos paths -> path
 for path_file in /etc/paths.d/*(.N); do
@@ -39,7 +34,7 @@ for path_file in /etc/paths.d/*(.N); do
 done
 unset path_file
 
-# clear duplicate paths
+# clear duplicates
 typeset -gU fpath path
 
 # set the path for macos

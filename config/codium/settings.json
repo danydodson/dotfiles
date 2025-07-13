@@ -7,9 +7,9 @@
   // 
   "redhat.telemetry.enabled": false,
   // 
+  "continue.enableTabAutocomplete": false,
   "continue.enableQuickActions": true,
   "continue.telemetryEnabled": false,
-  "continue.enableTabAutocomplete": false,
   "continue.enableConsole": true,
   // 
   "code-runner.enableAppInsights": false,
@@ -18,14 +18,26 @@
   // 
   "1password.debug.enabled": true,
   //
-  "git.confirmSync": false,
+  "snippets.backupFolder": "/Users/stache/Developer/snippets",
+  // 
+  "github.gitProtocol": "ssh",
+  // 
   "git.enableStatusBarSync": false,
   "git.enableSmartCommit": true,
   "git.openRepositoryInParentFolders": "never",
-  "git.defaultCloneDirectory": "/Users/dany/repos",
+  "git.defaultCloneDirectory": "~/Developer/repos",
   "git.decorations.enabled": true,
-  // 
-  "github.gitProtocol": "ssh",
+  "git.autofetch": true,
+  "git.branchRandomName.enable": true,
+  "git.countBadge": "off",
+  "git.enableCommitSigning": true,
+  "git.scanRepositories": [
+    "~/Developer/plugins",
+    "~/Developer/repos",
+    "~/Developer/served",
+    "~/Developer/temp",
+    "/opt/homebrew"
+  ],
   //
   "scm.countBadge": "off",
   "scm.repositories.visible": 0,
@@ -34,11 +46,6 @@
   "scm.diffDecorationsGutterVisibility": "hover",
   // 
   "breadcrumbs.enabled": false,
-  // 
-  "sync.autoUpload": false,
-  "sync.forceUpload": false,
-  "sync.quietSync": false,
-  "sync.gist": "71825053bddd9002c55a15962d1804cf",
   //
   "autoOpenPreviewPanel.languages": "markdown,asciidoc",
   //
@@ -54,7 +61,6 @@
   "prettier.semi": true,
   // 
   "color-highlight.markRuler": false,
-  // "color-highlight.matchWords": true,
   "color-highlight.useARGB": true,
   "color-highlight.matchHslWithNoFunction": true,
   "color-highlight.matchRgbWithNoFunction": true,
@@ -65,13 +71,11 @@
   "explorer.compactFolders": false,
   "explorer.decorations.badges": false,
   // 
-  // "window.zoomLevel": 0.4,
-  // "window.customTitleBarVisibility": "never",
+  "window.customTitleBarVisibility": "never",
   "window.commandCenter": false,
   "window.nativeFullScreen": false,
   "window.titleBarStyle": "native",
   "window.confirmSaveUntitledWorkspace": false,
-  "window.density.editorTabHeight": "compact",
   // 
   "workbench.startupEditor": "none",
   "workbench.layoutControl.enabled": false,
@@ -106,7 +110,7 @@
   "editor.lineDecorationsWidth": 12,
   "editor.stickyScroll.enabled": false,
   "editor.fontWeight": 400,
-  "editor.fontFamily": "FiraCode Nerd Font",
+  // "editor.fontFamily": "FiraCode Nerd Font",
   "editor.fontLigatures": true,
   "editor.unicodeHighlight.ambiguousCharacters": false,
   "editor.minimap.enabled": false,
@@ -116,7 +120,7 @@
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.lineHeight": 1.22,
   "terminal.integrated.fontWeightBold": "normal",
-  "terminal.integrated.fontFamily": "'FiraCode Nerd Font'",
+  // "terminal.integrated.fontFamily": "'FiraCode Nerd Font'",
   "terminal.integrated.drawBoldTextInBrightColors": false,
   "terminal.integrated.inheritEnv": false,
   "terminal.integrated.stickyScroll.enabled": false,
@@ -212,6 +216,10 @@
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg",
+    "editor.wordWrap": "off"
+  },
   "evenBetterToml.formatter.allowedBlankLines": 2,
   "evenBetterToml.formatter.arrayAutoCollapse": false,
   "evenBetterToml.formatter.columnWidth": 380,
@@ -248,15 +256,59 @@
   },
   "zig.zls.enabled": "on",
   //
-  "apc.electron": {
-    "frame": false
-  },
+  "editor.fontFamily": "FiraCode Nerd Font",
+  "editor.inlayHints.fontFamily": "SF Pro",
+  "editor.codeLensFontFamily": "SF Pro",
+  "terminal.integrated.fontFamily": "FiraCode Nerd Font",
+  "scm.inputFontFamily": "SF Pro",
+  "chat.editor.fontFamily": "SF Pro",
+  "debug.console.fontFamily": "SF Pro",
+  "notebook.output.fontFamily": "SF Pro",
+  "markdown.preview.fontFamily": "SF Pro",
+  // 
+  "apc.iframe.style": "${userHome}/.dotfiles/config/codium/apc/styles.css",
   "apc.imports": [
     "${userHome}/.dotfiles/.config/codium/apc/main.js",
     "${userHome}/.dotfiles/config/codium/apc/styles.css"
   ],
+  "apc.font.family": "SF Pro",
+  "apc.monospace.font.family": "SF Pro",
+  "apc.parts.font.family": {
+    "sidebar": "SF Pro",
+    "titlebar": "SF Pro",
+    "activityBar": "SF Pro",
+    "panel": "SF Pro",
+    "tabs": "SF Pro",
+    "statusbar": "SF Pro",
+    "settings-body": "SF Pro",
+    "extension-editor": "SF Pro",
+    "monaco-menu": "SF Pro"
+  },
+  "apc.electron": {
+    // "backgroundColor": "rgba(123, 123, 123, 0.5)",
+    "frame": false,
+    "transparent": true,
+    "vibrancy": "window",
+    "opacity": 0.96,
+    "visualEffectState": "active",
+    "titleBarOverlay": {
+      "color": "#2f3241",
+      "symbolColor": "#74b1be",
+      "height": 60
+    }
+  },
   "apc.listRow": {
-    // "lists": [ "explorer-folders-view" ],
+    "lists": [
+      "customview-tree",
+      "results",
+      "open-editors",
+      "explorer-folders-view",
+      "outline-tree", "scm-view",
+      "debug-view-content",
+      "debug-breakpoints",
+      "tree", "explorer-folders-view",
+      "results"
+    ],
     "height": 24,
     "fontSize": 14,
   },
@@ -265,6 +317,10 @@
     "compact": 24,
     "height": 24,
     "fontSize": 10
+  },
+  "apc.sidebar.titlebar": {
+    "fontSize": 7,
+    "height": 35
   },
   "apc.statusBar": {
     "fontSize": 9.5,
@@ -296,7 +352,7 @@
       "id": "color-highlight-useARGB",
       "overrideWorkspaceSettings": false,
       "values": [ { "color-highlight.useARGB": true, }, { "color-highlight.useARGB": false, } ]
-    }
+    },
   ],
   // 
   "oneDarkPro.editorTheme": "One Dark Pro Darker",
@@ -365,7 +421,5 @@
     "*.sdb": "${capture}.${extname}-*",
     "*.s3db": "${capture}.${extname}-*"
   },
-  "snippets.backupFolder": "/Users/stache/Documents/backup/snippets",
-  "workbench.editor.enablePreview": false,
-  "workbench.statusBar.visible": false
+  "svg.preview.mode": "svg",
 }

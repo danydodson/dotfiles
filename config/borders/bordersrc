@@ -3,15 +3,18 @@
 # only 0xAARRGGBB color arguments supported
 
 options=(
-	style=square
-	width=3.0
-	hidpi=off
+	style=rounded
+	width=4
+	hidpi=on
 	active_color=0xc0ff00f2
 	inactive_color=0xff0080ff
+	ax_focus=off
+    blur_radius=160.0
 )
 
 borders "${options[@]}"
 
+# background_color=0xff414550
 # 0xff76cce0
 # 0xff414550
 # 0xc0ff00f2

@@ -3,14 +3,16 @@
 # skips compinit
 skip_global_compinit=1
 
-#
+source ${DOTFILES}/plugins/zsh-completion-generator/zsh-completion-generator.plugin.zsh
+
+# completions
 autoload -Uz compaudit compinit zrecompile
 
 # prompt
 source ${DOTFILES}/zsh/prompt.zsh
 
 # plugins
-# source ${DOTFILES}/plugins/zsh-completions/zsh-completions.zsh
+source ${DOTFILES}/plugins/zsh-completions/zsh-completions.plugin.zsh
 source ${DOTFILES}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ${DOTFILES}/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ${DOTFILES}/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh

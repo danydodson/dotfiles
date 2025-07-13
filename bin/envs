@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# 
+
+blue="$(tput setaf 4)"
+yellow="$(tput setaf 3)"
+off="$(tput sgr0)"
+
+env | sort | while read -r line; do
+    key="${line%%=*}"
+    value="${line#*=}"
+    echo "${blue}${key}${yellow} = ${off}${value}"
+done

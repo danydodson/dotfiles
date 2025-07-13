@@ -31,7 +31,7 @@ if [ -f "/opt/homebrew/bin/gdircolors" ]; then
 fi
 
 # suggestion color
-# export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#D19A66"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#D19A66"
 
 # complist & colors
 zmodload -i zsh/complist # loads the completion system module
@@ -93,14 +93,6 @@ zstyle ':completion:*:history-words' menu yes # enables menu
 # multiple entry handling
 zstyle ':completion:*:(rm|kill|diff):*' ignore-line other # ignores current line for certain commands
 zstyle ':completion:*:rm:*' file-patterns '*:all-files' # file patterns for rm command
-
-# enable gnu ls in macOS
-zstyle ':omz:lib:theme-and-appearance' gnu-ls yes
-
-# use passphase from macos keychain
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  zstyle :omz:plugins:ssh-agent ssh-add-args --apple-load-keychain
-fi
 
 # location for completions
 zcompdump="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"

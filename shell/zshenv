@@ -2,16 +2,13 @@
 
 setopt noglobalrcs
 
+export DOTFILES=$HOME/.dotfiles
+
 export EDITOR="nvim"
 export VISUAL="codium"
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export GPG_TTY=$TTY
 export PAGER="less -RF"
 export LESSHISTFILE="-"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
-export DOTFILES=$HOME/.dotfiles
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -30,6 +27,7 @@ export BAT_CONFIG_PATH="$DOTFILES/config/bat/config"
 export GOPATH="$HOME/.config/go"
 export GOBIN="$HOME/.config/go/bin"
 export GOROOT="/opt/homebrew/opt/go/libexec"
+export GOTELEMETRY="off"
 
 export AWS_HOME="$HOME/.config/aws"
 export CARGO_HOME="$HOME/.config/cargo"
@@ -45,4 +43,8 @@ export ZSH_CACHE_DIR="$HOME/.cache/zsh"
 export NPM_CONFIG_CACHE="$HOME/.cache/npm"
 export YARN_CACHE_FOLDER="$HOME/.cache/yarn"
 
-export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'
+export GPG_TTY=$TTY
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+export TIMEFMT=$'%J \n================\n CPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'

@@ -84,8 +84,8 @@ lalt - l : yabai -m window --resize right:32:0; \
   yabai -m window --resize left:32:0
 
 # open apps
-hyper - x : open -a "/Applications/Ghostty.app"
-hyper - t : open -a "/Applications/Twilight.app"
+hyper - x : open -a "Ghostty.app"
+hyper - z : open -a "Twilight.app"
 hyper - b : open -a "Brave Browser.app"
 hyper - c : open -a "VSCodium.app"
 hyper - d : open -a "Discord.app"
@@ -98,6 +98,6 @@ hyper - r : \
   skhd --start-service; \
   yabai --stop-service; \
   yabai --start-service; \
-  sketchybar --reload
+  brew services restart borders;
 
 

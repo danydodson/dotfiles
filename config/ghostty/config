@@ -41,21 +41,27 @@ mouse-hide-while-typing = true
 clipboard-read = allow
 clipboard-write = allow
 
+copy-on-select = clipboard
+
+clipboard-trim-trailing-spaces = true
+
+
 # window -----------------------------------------------------------
 
 title = " "
 
 window-vsync = true
 
-window-padding-x = 8
+window-padding-x = 6
 window-padding-y = 2
 
 window-padding-balance = true
 window-padding-color = background
 
-window-decoration = false
 window-save-state = never
 window-new-tab-position = current
+
+window-theme = ghostty
 
 initial-window = true
 confirm-close-surface = false
@@ -64,8 +70,8 @@ quit-after-last-window-closed = true
 # macos -------------------------------------------------------------
 
 macos-option-as-alt = true
-macos-window-shadow = true
-macos-titlebar-style = tabs
+macos-window-shadow = false
+macos-titlebar-style = hidden
 macos-non-native-fullscreen = true
 macos-secure-input-indication = false
 
@@ -74,14 +80,16 @@ macos-secure-input-indication = false
 background-opacity = 0.90
 unfocused-split-opacity = 0.90
 background-blur = true
-background-blur-radius = 40
+
+# custom-shader = "shaders/glow-rgbsplit-twitchy.glsl"
+custom-shader-animation = true
 
 # keybinds ---------------------------------------------------------
 
-keybind = super+m=toggle_visibility
+keybind = ctrl+k=clear_screen
 
-keybind = ctrl+b>d=new_split:down
-keybind = ctrl+b>r=new_split:right
+keybind = ctrl+b>h=new_split:down
+keybind = ctrl+b>v=new_split:right
 
 keybind = super+alt+k=goto_split:top
 keybind = super+alt+j=goto_split:bottom

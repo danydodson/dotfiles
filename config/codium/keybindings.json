@@ -30,6 +30,10 @@
     "key": "f7",
     "command": "settings.cycle.color-highlight-useARGB",
   },
+  // {
+  //   "key": "f8",
+  //   "command": "settings.cycle.apc.electron",
+  // },
   {
     "key": "f9",
     "command": "settings.cycle.tabsVisible",
@@ -96,5 +100,17 @@
   {
     "key": "shift+cmd+w",
     "command": "-workbench.action.closeWindow"
+  },
+  {
+    "key": "cmd+q",
+    "command": "workbench.action.closeWindow"
+  },
+  {
+    "key": "cmd+q cmd+q",
+    "command": "workbench.action.quit"
+  },
+  {
+    "key": "cmd+q",
+    "command": "-workbench.action.quit"
   }
 ]

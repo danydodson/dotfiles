@@ -42,9 +42,6 @@ alias lsg_pnpm="pnpm ls -g"
 # huggingface
 alias hf="huggingface-cli"
 
-# brew bundle
-alias bb="brew bundle --file=$HOME/.dotfiles/macos/brewfile --global --force"
-
 # brew leaves
 alias b-leaves="brew leaves | xargs brew desc --eval-all"
 alias b-leaves-casks="brew ls --casks | xargs brew desc --eval-all"
@@ -55,9 +52,6 @@ alias tr="transmission-remote --auth stache:open"
 alias tra="tr -a"
 alias trl="tr -l"
 alias trs="tr -s"
-
-# fastfetch
-alias ff="fastfetch"
 
 # gls coreutils
 alias ls='/opt/homebrew/bin/gls --color=auto --group-directories-first -I .DS_Store -I .Trash -I "Icon'$'\r"'
@@ -70,45 +64,29 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
 
-# pretty paths
-alias path="printf '%s\n' $path"
-alias fpath="printf '%s\n' $fpath"
-
-# clean .DS_Store files
+# clean hidden files
 alias rmds="find . -type f -name '*.DS_Store' -ls -delete"
-
-# clean node_modules directories
 alias rmnm="find . -type d -name 'node_modules' -ls -delete"
 
 # canonical hex dump
 alias hd="hexdump -C"
 
-# macos has no md5sum, so use md5 as a fallback
+# fallback for md5sum
 alias md5sum="md5"
 
-# macos has no sha1sum, so use shasum as a fallback
+# fallback for sha1sum
 alias sha1sum="shasum"
 
-# macos apps
-alias xcode="open -a Xcode.app"
+# monitor icloud
 alias mon_icloud="brctl monitor com.apple.CloudDocs | grep %"
 
-# scutil
-alias sc="scutil"
-
-# display cpu info
-alias sys_cpu="sysctl -n machdep.cpu.brand_string"
-
-# list installed packages
-alias sys_pkgs="pkgutil --pkgs"
-
-# get kMDItemContentTypeTree metadata for a file
+# show file metadata
 alias sys_mdls="mdls -name kMDItemContentTypeTree "
 
 # osxs launch services
 alias lsregister="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister"
 
-# turn spotlight on/off
+# spotlight on/off
 alias spotlight_off="sudo mdutil -a -i off"
 alias spotlight_on="sudo mdutil -a -i on"
 
@@ -139,27 +117,48 @@ function mkd() {
   mkdir -p $@ && cd ${@:$#}
 }
 
-# yazi wrapper
+# yazi launcher
 function y() {
-  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  local tmp
+  tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   yazi "$@" --cwd-file="$tmp"
   if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-    builtin cd -- "$cwd"
+    builtin cd -- "$cwd" || exit
   fi
   rm -f -- "$tmp"
 }
 
-function brews() {
-  local formulae="$(brew leaves | xargs brew deps --installed --for-each)"
-  local casks="$(brew list --cask 2>/dev/null)"
+# pretty paths
+function paths() {
+  local blue="\e[34m"
+  local green="\e[32m"
+  local yellow="\e[0;93m"
+  local red="\e[31m"
+  local reset="\e[0m"
 
-  local blue="$(tput setaf 4)"
-  local bold="$(tput bold)"
-  local off="$(tput sgr0)"
+  for dir in ${(s.:.)PATH}; do
+    if [[ -d "$dir" ]]; then
+      echo "${green}✓${reset} ${blue}$dir${reset}"
+    else
+      echo "${red}✗${reset} $dir"
+    fi
+  done
+}
 
-  echo "${blue}==>${off} ${bold}Formulae${off}"
-  echo "${formulae}" | sed "s/^\(.*\):\(.*\)$/\1${blue}\2${off}/"
-  echo "\n${blue}==>${off} ${bold}Casks${off}\n${casks}"
+function fpaths() {
+  local blue="\e[34m"
+  local green="\e[32m"
+  local yellow="\e[0;93m"
+  local red="\e[31m"
+  local reset="\e[0m"
+
+  for dir in ${(s.:.)FPATH}; do
+    if [[ -d "$dir" ]]; then
+      echo "${green}✓${reset} ${blue}$dir${reset}"
+    else
+      echo "${red}✗${reset} $dir"
+    fi
+  done
 }
 
 # js core repl
