@@ -3,6 +3,7 @@
 # skips compinit
 skip_global_compinit=1
 
+# completion generator plugin
 source ${DOTFILES}/plugins/zsh-completion-generator/zsh-completion-generator.plugin.zsh
 
 # completions
@@ -46,5 +47,10 @@ export FZF_CTRL_T_OPTS="--header='Directories' --walker=dir,hidden,follow --prev
 
 # fzf file search
 export FZF_ALT_C_OPTS="--header='Files' --walker=file --preview='bat -n --color=always {}' --bind='enter:execute(nvim {} +1)'"
+
+# load completions if present
+zcompdump="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
+autoload -Uz compinit
+compinit -d $zcompdump
 
 

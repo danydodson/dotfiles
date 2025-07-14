@@ -3,6 +3,9 @@
 # enable colors
 export CLICOLOR=1
 
+# simple prompt
+# PS1="\W \[$(tput -T xterm-256color bold)\]\$\[$(tput -T xterm-256color sgr0)\] "
+
 # pure prompt
 fpath+=("$HOME/.dotfiles/plugins/pure")
 

@@ -2,15 +2,9 @@
 
 # open
 alias o="open"
-alias e="$EDITOR"
 alias v="nvim"
 alias cc="codium"
-alias sudo="sudo "
-
-# git
-alias gcl="git clone --recursive"
-alias gco="git commit -S -m"
-alias gpu="git push -u origin main"
+alias src="source $HOME/.zshrc"
 
 # tmux
 alias tn="tmux new"
@@ -32,7 +26,7 @@ alias wget="wget --config=$HOME/.dotfiles/config/wget/wgetrc --no-check-certific
 
 # edit in nvim
 alias dotconf="cd $DOTFILES && nvim"
-alias nvconf="cd $HOME/.config/nvim && nvim"
+alias nvconf="cd $DOTFILES/.config/nvim && nvim"
 
 # pkg managers
 alias lsg_npm="npm ls -g --depth 0"
@@ -89,9 +83,6 @@ alias lsregister="/System/Library/Frameworks/CoreServices.framework/Frameworks/L
 # spotlight on/off
 alias spotlight_off="sudo mdutil -a -i off"
 alias spotlight_on="sudo mdutil -a -i on"
-
-# reload
-alias c="clear && source $HOME/.zshrc"
 
 # short
 alias ~="cd ~"

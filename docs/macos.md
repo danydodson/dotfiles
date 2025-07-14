@@ -86,11 +86,10 @@ chmod 644 ~/Public/*
 #### System settings
 
 -   Mission control related in Desktop & Dock → Mission Control:
-    -   [ ] Automatically rearrange Spaces based on most recent use.
-    -   [ ] Shortcuts: Mission control keyboard shortcut
-    -   Hot corners:
-        -   Upper right: Mission Control
-        -   Lower left: Launchpad
+    -   [x] Automatically hide and show the menu bar.
+    -   [x] Automatically hide and show the dock.
+    -   [x] Shortcuts: Mission control keyboard shortcut.
+    -   [x] Hot corners are disabled.
 -   Keyboard
     -   Key repeat rate: fast
     -   Delay until repeat: short
