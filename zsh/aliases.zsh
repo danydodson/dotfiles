@@ -1,8 +1,6 @@
 #!/usr/bin/env zsh
 
 # open
-alias ~="cd ~"
-alias ..="cd .."
 alias o="open"
 alias v="nvim"
 alias cc="codium"
@@ -15,6 +13,16 @@ alias tk="tmux kill-session"
 alias td="tmux detach"
 bindkey -s ^p "tms\n"
 bindkey -s ^w "tmux new\n"
+bindkey -s ^o "tmux attach -t main_session\n"
+
+# bat
+alias cat="bat"
+alias -g :h='-h 2>&1 | bat --language=help --style=plain'
+alias -g :h='--help 2>&1 | bat --language=help --style=plain'
+
+# dirs
+alias ~="cd ~"
+alias ..="cd .."
 
 # ssh
 alias sshrawdog="ssh ubuntu@18.235.113.176"
@@ -38,11 +46,6 @@ alias wget="wget --config=$HOME/.dotfiles/config/wget/wgetrc --no-check-certific
 alias b-leaves="brew leaves | xargs brew desc --eval-all"
 alias b-leaves-casks="brew ls --casks | xargs brew desc --eval-all"
 
-# bat
-alias cat="bat"
-alias -g :h='-h 2>&1 | bat --language=help --style=plain'
-alias -g :h='--help 2>&1 | bat --language=help --style=plain'
-
 # transmission
 alias trd="transmission-daemon"
 alias tr="transmission-remote --auth stache:open"
@@ -63,7 +66,7 @@ alias grep='grep --color=auto'
 
 # edit in nvim
 alias dotconf="cd $DOTFILES && nvim"
-alias nvconf="cd $DOTFILES/.config/nvim && nvim"
+alias nvconf="cd $DOTFILES/config/nvim && nvim"
 
 # list global pkgs
 alias lsg_npm="npm ls -g --depth 0"

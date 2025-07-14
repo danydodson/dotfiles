@@ -5,6 +5,8 @@ shell-integration-features = no-cursor,sudo,title
 
 working-directory = home
 
+# command = zsh --login -c "if command -v tmux >/dev/null 2>&1; then tmux attach -t stach: || tmux; else zsh; fi"
+
 # fonts -----------------------------------------------------------
 
 font-family = "FiraCode Nerd Font Mono"
@@ -81,12 +83,19 @@ background-opacity = 0.90
 unfocused-split-opacity = 0.90
 background-blur = true
 
-# custom-shader = "shaders/glow-rgbsplit-twitchy.glsl"
+# shaders ------------------------------------------------------------
+
 custom-shader-animation = true
 
-# keybinds ---------------------------------------------------------
+# custom-shader = shaders/bloom.glsl
+# custom-shader = shaders/bloom1.glsl
+# custom-shader = shaders/bloom025.glsl
+# custom-shader = shaders/bloom050.glsl
+# custom-shader = shaders/bloom060.glsl
+# custom-shader = shaders/bloom075.glsl
 
-keybind = ctrl+k=text:\x0c
+# keybinds -----------------------------------------------------------
+
 keybind = command+k=text:\x0c
 
 keybind = ctrl+b>h=new_split:down
