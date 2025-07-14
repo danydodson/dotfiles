@@ -17,6 +17,7 @@
   },
   "shellcheck.ignorePatterns": {
     "**/config/**/*": true,
+    "**/plugins/zsh-completions/**/*": true,
     "**/*.zsh": true,
   },
 }
