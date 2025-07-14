@@ -26,8 +26,6 @@ function update_homebrew_packages() {
   sudo -v
   brew update
   brew upgrade
-  brew autoremove
-  brew cleanup --prune=all -s
   finish
 }
 
@@ -37,21 +35,12 @@ function update_npm_packages() {
   finish
 }
 
-# function update_yarn_packages() {
-#   info "Updating yarn packages..."
-#   yarn global upgrade
-#   finish
-# }
-
-# function update_pip_packages() {
-#   info "Updating pip packages..."
-#   pip --disable-pip-version-check list --outdated --format=json |
-#     python -c "import json, sys; print('\n'.join([x['name'] for x in json.load(sys.stdin)]))" |
-#     xargs -n1 pip install -U
-#   finish
-# }
-
 function clean_up() {
+  info "Cleaning homebrew packages..."
+  brew autoremove
+  brew cleanup --prune=all -s
+  info "Cleaning pip cache..."
+  pip cache purge
   info "Emptying trash and cleaning logs..."
   command rm -rfv ~/.Trash/*
   command rm -rfv /Volumes/*/.Trashes
@@ -62,8 +51,6 @@ update() {
   update_macos_apps "$*"
   update_homebrew_packages "$*"
   update_npm_packages "$*"
-  # update_yarn_packages "$*"
-  # update_pip_packages "$*"
   clean_up "$*"
   on_finish "$*"
 }

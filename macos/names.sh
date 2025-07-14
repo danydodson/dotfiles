@@ -1,5 +1,8 @@
 #!/bin/bash -ex
 
+# Sets host/localhost/computer name
+# usage: names {{new name}}
+
 # take hostname as argument
 # if no argument, raise error
 if [ -z "$1" ]; then

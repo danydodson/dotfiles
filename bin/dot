@@ -1,73 +1,103 @@
 #!/usr/bin/env bash
 
+# Gets macOS software, Homebrew and npm updates and cleans trash and logs.
+
+. "$HOME/.dotfiles/tools/reports.sh"
+
 BIN_NAME=$(basename "$0")
 COMMAND_NAME=$1
 SUB_COMMAND_NAME=$2
 
-sub_help () {
-  echo "Usage: $BIN_NAME <command>"
+sub_help() {
+  echo "usage: $BIN_NAME <command>"
   echo
   echo "Commands:"
-  echo "   clean            Clean up caches (brew, cargo, gem, pip)"
+  echo "   clean            Clean up caches (brew, cargo, gem, pip) and empty"
   echo "   dock             Apply macOS Dock settings"
   echo "   duti             Set default apps for file types (UTI)"
   echo "   edit             Open dotfiles in IDE ($VISUAL) and Git GUI ($VISUAL_GIT)"
   echo "   help             This help message"
   echo "   macos            Apply macOS system defaults"
   echo "   test             Run tests"
-  echo "   update           Update packages and pkg managers (brew, casks, cargo, pip3, npm, gems, macOS)"
+  echo "   update           Update packages and pkg managers (macOS, brew, casks, npm, yarn, cargo, pip3, gems)"
 }
 
-sub_clean () {
-  echo "$ brew cleanup"
-  brew cleanup --prune=all
-  echo "$ cargo cache --autoclean"
-  cargo cache --autoclean
-  echo "$ gem cleanup"
-  gem cleanup
-  echo "$ pip cache purge"
-  pip cache purge
+sub_clean() {
+  info "$ brew cleanup..."
+  brew cleanup --prune=all --scrub
+  # info "$ cargo cache --autoclean..."
+  # cargo cache --autoclean
+  # info "$ gem cleanup..."
+  # gem cleanup
+  # info "$ pip cache purge..."
+  # pip cache purge
+  info "$ emptying trash..."
+  command rm -rfv ~/.Trash/*
+  command rm -rfv /Volumes/*/.Trashes
+  on_finish
 }
 
-sub_dock () {
-  . "${DOTFILES_DIR}/macos/dock.sh" && echo "Dock reloaded."
+function sub_update() {
+  sudo -v
+  info "$ softwareupdate..."
+  sudo softwareupdate -i -a
+  info "$ brew update..."
+  brew update
+  brew upgrade
+  brew autoremove
+  info "$ npm update..."
+  npm update -g
+  # info "Updating global pnpm packages..."
+  #
+  # info "$ yarn upgrade..."
+  # yarn global upgrade
+  # info "$ pip update..."
+  # pip --disable-pip-version-check list --outdated --format=json |
+  #   python -c "import json, sys; print('\n'.join([x['name'] for x in json.load(sys.stdin)]))" |
+  #   xargs -n1 pip install -U
+  on_finish
 }
 
-sub_edit () {
-  sh -c "$VISUAL $DOTFILES_DIR"
-  sh -c "$VISUAL_GIT $DOTFILES_DIR"
+sub_edit() {
+  sh -c "$VISUAL $DOTFILES"
+  sh -c "$VISUAL_GIT $DOTFILES"
+  finish
 }
 
-sub_test () {
-  bats "$DOTFILES_DIR"/test/*.bats
+sub_test() {
+  bats "$DOTFILES"/test/*.bats
+  finish
 }
 
-sub_update () {
-  topgrade
+sub_duti() {
+  "${DOTFILES}/macos/duti.sh"
+  finish
 }
 
-sub_duti () {
-  duti -v "${DOTFILES_DIR}/install/duti"
-}
-
-sub_macos () {
-  for DEFAULTS_FILE in "${DOTFILES_DIR}"/macos/defaults*.sh; do
-    echo "Applying ${DEFAULTS_FILE}" && . "${DEFAULTS_FILE}"
+sub_macos() {
+  for DEFAULTS_FILE in "${DOTFILES}"/macos/defaults*.sh; do
+    info "applying ${DEFAULTS_FILE}" && . "${DEFAULTS_FILE}"
   done
-  echo "Done. Some changes may require a logout/restart to take effect."
+  info "done. some changes may require a logout/restart to take effect..."
+  on_finish
+}
+
+sub_dock() {
+  . "${DOTFILES}/macos/dock.sh" && info "dock reloaded..."
+  on_finish
 }
 
 case $COMMAND_NAME in
-  "" | "-h" | "--help")
+"" | "-h" | "--help")
+  sub_help
+  ;;
+*)
+  shift
+  sub_"${COMMAND_NAME}" "$@"
+  if [ $? = 127 ]; then
+    info "'$COMMAND_NAME' is not a known command or has errors." >&2
     sub_help
-    ;;
-  *)
-    shift
-    sub_"${COMMAND_NAME}" "$@"
-    if [ $? = 127 ]; then
-      echo "'$COMMAND_NAME' is not a known command or has errors." >&2
-      sub_help
-      exit 1
-    fi
-    ;;
+    exit 1
+  fi
+  ;;
 esac

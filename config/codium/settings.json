@@ -61,7 +61,7 @@
   "prettier.semi": true,
   // 
   "color-highlight.markRuler": false,
-  "color-highlight.useARGB": true,
+  "color-highlight.useARGB": false,
   "color-highlight.matchHslWithNoFunction": true,
   "color-highlight.matchRgbWithNoFunction": true,
   // 
@@ -289,7 +289,7 @@
     "frame": false,
     "transparent": true,
     "vibrancy": "window",
-    "opacity": 0.96,
+    // "opacity": 0.96,
     "visualEffectState": "active",
     "titleBarOverlay": {
       "color": "#2f3241",
@@ -364,7 +364,7 @@
     "statusBar.border": "#202326",
     "statusBarItem.remoteForeground": "#7e8185",
     "statusBar.foreground": "#7e8185",
-    "activityBar.background": "#1e2227",
+    // "activityBar.background": "#1e2227",
     "activityBar.activeBorder": "#7e8185",
     "activityBar.border": "#222528",
     "statusBar.focusBorder": "#ffffff00",

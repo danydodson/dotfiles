@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 
-#
+# Pretty list of brew installed packages
 
 off="$(tput sgr0)"
 bold="$(tput bold)"
 blue="$(tput setaf 4)"
 yellow="$(tput setaf 3)"
-green="$(tput setaf 2)"
 
 formulae="$(brew leaves | xargs brew deps --installed --for-each)"
 casks="$(brew list --cask 2>/dev/null)"
@@ -17,4 +16,4 @@ echo "${formulae}" | sed "s/^\(.*\):\(.*\)$/${blue}\1${off}\2/"
 
 echo ""
 echo "${yellow}==>${off} ${bold}Casks${off}"
-echo "${green}${casks}${off}"
+echo "${blue}${casks}${off}"
