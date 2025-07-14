@@ -6,7 +6,6 @@ alias ..="cd .."
 alias o="open"
 alias v="nvim"
 alias cc="codium"
-alias src="source $HOME/.zshrc"
 
 # tmux
 alias tn="tmux new"
@@ -17,19 +16,19 @@ alias td="tmux detach"
 bindkey -s ^p "tms\n"
 bindkey -s ^w "tmux new\n"
 
+# ssh
+alias sshrawdog="ssh ubuntu@18.235.113.176"
+alias sshsparta="ssh -X danny@unix.spartaglobal.com -R 52698:localhost:52698"
+
 # file commands
 alias hd="hexdump -C"
 alias md5sum="md5"
 alias sha1sum="shasum"
 alias sys_mdls="mdls -name kMDItemContentTypeTree "
 
-# bat
-alias cat="bat"
-alias -g :h='-h 2>&1 | bat --language=help --style=plain'
-alias -g :h='--help 2>&1 | bat --language=help --style=plain'
-
-# 
-# alias sshrawdog=”ssh -X danny@unix.spartaglobal.com -R 52698:localhost:52698"
+# view http traffic
+alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en1 -n -s 0 -w — | grep -a -o -E \"Host\: .*|GET \/.*\""
 
 # get files
 alias get="curl $HOME/.dotfiles/config/curl/curlrc -O"
@@ -38,6 +37,11 @@ alias wget="wget --config=$HOME/.dotfiles/config/wget/wgetrc --no-check-certific
 # brew leaves
 alias b-leaves="brew leaves | xargs brew desc --eval-all"
 alias b-leaves-casks="brew ls --casks | xargs brew desc --eval-all"
+
+# bat
+alias cat="bat"
+alias -g :h='-h 2>&1 | bat --language=help --style=plain'
+alias -g :h='--help 2>&1 | bat --language=help --style=plain'
 
 # transmission
 alias trd="transmission-daemon"
@@ -78,10 +82,68 @@ alias repos="cd $HOME/Developer/repos"
 alias served="cd $HOME/Developer/served"
 alias temp="cd $HOME/Developer/temp"
 
-# macos apps
+# reload
+alias reload="exec $SHELL -l"
+alias src="source $HOME/.zshrc"
+alias c="reload && src"
+
+# turn spotlight on/off
 alias spotlight_off="sudo mdutil -a -i off"
 alias spotlight_on="sudo mdutil -a -i on"
-alias brctl_monitor="brctl monitor com.apple.CloudDocs | grep %"
-alias jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc"
-alias lsregister="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister"
 
+# monitor icloud
+alias brctl_monitor="brctl monitor com.apple.CloudDocs | grep %"
+
+# js repl
+alias jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc"
+
+# clean up LaunchServices to remove duplicates in the "open with" menu
+alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
+
+# create and cd into directory
+mkcd() {
+  mkdir -p $@ && cd ${@:$#}
+}
+
+# yazi launcher
+y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
+
+# pretty paths
+paths() {
+  local blue="\e[34m"
+  local green="\e[32m"
+  local yellow="\e[0;93m"
+  local red="\e[31m"
+  local reset="\e[0m"
+
+  for dir in ${(s.:.)PATH}; do
+    if [[ -d "$dir" ]]; then
+      echo "${green}✓${reset} ${blue}$dir${reset}"
+    else
+      echo "${red}✗${reset} $dir"
+    fi
+  done
+}
+
+fpaths() {
+  local blue="\e[34m"
+  local green="\e[32m"
+  local yellow="\e[0;93m"
+  local red="\e[31m"
+  local reset="\e[0m"
+
+  for dir in ${(s.:.)FPATH}; do
+    if [[ -d "$dir" ]]; then
+      echo "${green}✓${reset} ${blue}$dir${reset}"
+    else
+      echo "${red}✗${reset} $dir"
+    fi
+  done
+}

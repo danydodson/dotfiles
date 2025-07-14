@@ -68,6 +68,13 @@ defaults write -globalDomain "AppleInterfaceStyle" -string "Dark"
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 
 ###############################################################################
+# ssh                                                                         #
+###############################################################################
+
+# run ssh daemon permanently
+sudo launchctl list -w /System/Library/LaunchDaemons/ssh.plist
+
+###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
 

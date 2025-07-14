@@ -25,12 +25,8 @@ sub_help() {
 sub_clean() {
   info "$ brew cleanup..."
   brew cleanup --prune=all --scrub
-  # info "$ cargo cache --autoclean..."
-  # cargo cache --autoclean
-  # info "$ gem cleanup..."
-  # gem cleanup
-  # info "$ pip cache purge..."
-  # pip cache purge
+  info "$ pip cache purge..."
+  pip cache purge
   info "$ emptying trash..."
   command rm -rfv ~/.Trash/*
   command rm -rfv /Volumes/*/.Trashes
@@ -44,17 +40,12 @@ function sub_update() {
   info "$ brew update..."
   brew update
   brew upgrade
-  brew autoremove
-  info "$ npm update..."
+  info "$ npm global update..."
   npm update -g
-  # info "Updating global pnpm packages..."
-  #
+  # info "$ gem update system..."
+  # sudo gem update —system
   # info "$ yarn upgrade..."
   # yarn global upgrade
-  # info "$ pip update..."
-  # pip --disable-pip-version-check list --outdated --format=json |
-  #   python -c "import json, sys; print('\n'.join([x['name'] for x in json.load(sys.stdin)]))" |
-  #   xargs -n1 pip install -U
   on_finish
 }
 

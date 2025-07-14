@@ -20,7 +20,6 @@ source ${DOTFILES}/plugins/zsh-history-substring-search/zsh-history-substring-se
 # zsh files
 source ${DOTFILES}/zsh/settings.zsh
 source ${DOTFILES}/zsh/aliases.zsh
-source ${DOTFILES}/zsh/functions.zsh
 
 # start ssh-agent
 eval "$(ssh-agent -s)" >/dev/null 2>&1
@@ -48,7 +47,7 @@ export FZF_CTRL_T_OPTS="--header='Directories' --walker=dir,hidden,follow --prev
 # fzf file search
 export FZF_ALT_C_OPTS="--header='Files' --walker=file --preview='bat -n --color=always {}' --bind='enter:execute(nvim {} +1)'"
 
-# load completions if present
+# load completions
 zcompdump="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
 autoload -Uz compinit
 compinit -d $zcompdump
