@@ -423,4 +423,6 @@
   },
   "svg.preview.mode": "svg",
   "git.confirmSync": false,
+  "workbench.activityBar.location": "hidden",
+  "workbench.statusBar.visible": false,
 }
