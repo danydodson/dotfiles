@@ -86,7 +86,8 @@ custom-shader-animation = true
 
 # keybinds ---------------------------------------------------------
 
-keybind = ctrl+k=clear_screen
+keybind = ctrl+k=text:\x0c
+keybind = command+k=text:\x0c
 
 keybind = ctrl+b>h=new_split:down
 keybind = ctrl+b>v=new_split:right
