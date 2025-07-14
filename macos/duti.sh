@@ -2,7 +2,7 @@
 
 # Set default handlers/programs for file-types
 
-# VSCodium Text
+# vscodium
 duti -vs com.vscodium .c all
 duti -vs com.vscodium .cabal all
 duti -vs com.vscodium .conf all
@@ -32,7 +32,7 @@ duti -vs com.vscodium .xml all
 duti -vs com.vscodium .yaml all
 duti -vs com.vscodium .yml all
 
-# IINA (media files)
+# iina
 duti -vs com.colliderli.iina .3gp all
 duti -vs com.colliderli.iina .aac all
 duti -vs com.colliderli.iina .avi all
@@ -51,7 +51,7 @@ duti -vs com.colliderli.iina .webm all
 duti -vs com.colliderli.iina .wma all
 duti -vs com.colliderli.iina .wmv all
 
-# OpenEmu
+# openemu
 duti -vs org.openemu.OpenEmu .agb all
 duti -vs org.openemu.OpenEmu .g64 all
 duti -vs org.openemu.OpenEmu .gb all

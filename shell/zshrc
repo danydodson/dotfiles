@@ -4,7 +4,7 @@
 skip_global_compinit=1
 
 # completion generator plugin
-source ${DOTFILES}/plugins/zsh-completion-generator/zsh-completion-generator.plugin.zsh
+source ${DOTFILES}/plugins/zsh-completions/zsh-completion-generator.plugin.zsh
 
 # completions
 autoload -Uz compaudit compinit zrecompile
@@ -21,6 +21,7 @@ source ${DOTFILES}/plugins/zsh-history-substring-search/zsh-history-substring-se
 # zsh files
 source ${DOTFILES}/zsh/settings.zsh
 source ${DOTFILES}/zsh/aliases.zsh
+source ${DOTFILES}/zsh/functions.zsh
 
 # start ssh-agent
 eval "$(ssh-agent -s)" >/dev/null 2>&1

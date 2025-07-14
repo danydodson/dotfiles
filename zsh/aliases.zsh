@@ -1,6 +1,8 @@
 #!/usr/bin/env zsh
 
 # open
+alias ~="cd ~"
+alias ..="cd .."
 alias o="open"
 alias v="nvim"
 alias cc="codium"
@@ -15,26 +17,23 @@ alias td="tmux detach"
 bindkey -s ^p "tms\n"
 bindkey -s ^w "tmux new\n"
 
+# file commands
+alias hd="hexdump -C"
+alias md5sum="md5"
+alias sha1sum="shasum"
+alias sys_mdls="mdls -name kMDItemContentTypeTree "
+
 # bat
 alias cat="bat"
-alias -g :b='-h 2>&1 | bat --language=help --style=plain'
-alias -g :b='--help 2>&1 | bat --language=help --style=plain'
+alias -g :h='-h 2>&1 | bat --language=help --style=plain'
+alias -g :h='--help 2>&1 | bat --language=help --style=plain'
+
+# 
+# alias sshrawdog=”ssh -X danny@unix.spartaglobal.com -R 52698:localhost:52698"
 
 # get files
 alias get="curl $HOME/.dotfiles/config/curl/curlrc -O"
 alias wget="wget --config=$HOME/.dotfiles/config/wget/wgetrc --no-check-certificate"
-
-# edit in nvim
-alias dotconf="cd $DOTFILES && nvim"
-alias nvconf="cd $DOTFILES/.config/nvim && nvim"
-
-# pkg managers
-alias lsg_npm="npm ls -g --depth 0"
-alias lsg_yarn="yarn global list"
-alias lsg_pnpm="pnpm ls -g"
-
-# huggingface
-alias hf="huggingface-cli"
 
 # brew leaves
 alias b-leaves="brew leaves | xargs brew desc --eval-all"
@@ -58,101 +57,31 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
 
+# edit in nvim
+alias dotconf="cd $DOTFILES && nvim"
+alias nvconf="cd $DOTFILES/.config/nvim && nvim"
+
+# list global pkgs
+alias lsg_npm="npm ls -g --depth 0"
+alias lsg_yarn="yarn global list"
+alias lsg_pnpm="pnpm ls -g"
+
 # clean hidden files
 alias rmds="find . -type f -name '*.DS_Store' -ls -delete"
 alias rmnm="find . -type d -name 'node_modules' -ls -delete"
 
-# canonical hex dump
-alias hd="hexdump -C"
-
-# fallback for md5sum
-alias md5sum="md5"
-
-# fallback for sha1sum
-alias sha1sum="shasum"
-
-# monitor icloud
-alias mon_icloud="brctl monitor com.apple.CloudDocs | grep %"
-
-# show file metadata
-alias sys_mdls="mdls -name kMDItemContentTypeTree "
-
-# osxs launch services
-alias lsregister="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister"
-
-# spotlight on/off
-alias spotlight_off="sudo mdutil -a -i off"
-alias spotlight_on="sudo mdutil -a -i on"
-
-# short
-alias ~="cd ~"
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-
 # directories
-alias home="cd $HOME"
-alias dots="cd $HOME/.dotfiles"
+alias dotfiles="cd $HOME/.dotfiles"
 alias dl="cd $HOME/Downloads"
-alias games="cd $HOME/Games"
-alias nv="cd $HOME/.config/nvim"
 alias plugins="cd $HOME/Developer/plugins"
-alias practice="cd $HOME/Developer/practice"
 alias repos="cd $HOME/Developer/repos"
 alias served="cd $HOME/Developer/served"
 alias temp="cd $HOME/Developer/temp"
 
-# create and cd into directory
-function mkd() {
-  mkdir -p $@ && cd ${@:$#}
-}
+# macos apps
+alias spotlight_off="sudo mdutil -a -i off"
+alias spotlight_on="sudo mdutil -a -i on"
+alias brctl_monitor="brctl monitor com.apple.CloudDocs | grep %"
+alias jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc"
+alias lsregister="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister"
 
-# yazi launcher
-function y() {
-  local tmp
-  tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-  yazi "$@" --cwd-file="$tmp"
-  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-    builtin cd -- "$cwd" || exit
-  fi
-  rm -f -- "$tmp"
-}
-
-# pretty paths
-function paths() {
-  local blue="\e[34m"
-  local green="\e[32m"
-  local yellow="\e[0;93m"
-  local red="\e[31m"
-  local reset="\e[0m"
-
-  for dir in ${(s.:.)PATH}; do
-    if [[ -d "$dir" ]]; then
-      echo "${green}✓${reset} ${blue}$dir${reset}"
-    else
-      echo "${red}✗${reset} $dir"
-    fi
-  done
-}
-
-function fpaths() {
-  local blue="\e[34m"
-  local green="\e[32m"
-  local yellow="\e[0;93m"
-  local red="\e[31m"
-  local reset="\e[0m"
-
-  for dir in ${(s.:.)FPATH}; do
-    if [[ -d "$dir" ]]; then
-      echo "${green}✓${reset} ${blue}$dir${reset}"
-    else
-      echo "${red}✗${reset} $dir"
-    fi
-  done
-}
-
-# js core repl
-jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc"
-[ -e "${jscbin}" ] && alias jsc="${jscbin}"
-unset jscbin
