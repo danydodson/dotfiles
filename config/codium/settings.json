@@ -422,4 +422,5 @@
     "*.s3db": "${capture}.${extname}-*"
   },
   "svg.preview.mode": "svg",
+  "git.confirmSync": false,
 }
