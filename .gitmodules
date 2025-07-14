@@ -17,6 +17,3 @@
 [submodule "plugins/zsh-completions"]
 	path = plugins/zsh-completions
 	url = https://github.com/danydodson/zsh-completions
-[submodule "plugins/zsh-completion-generator"]
-	path = plugins/zsh-completion-generator
-	url = https://github.com/danydodson/zsh-completion-generator
