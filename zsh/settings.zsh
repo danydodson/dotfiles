@@ -33,6 +33,9 @@ fi
 # suggestion color
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#D19A66"
 
+# defaults
+stty stop undef # disable ctrl+s from stopping the terminal output
+
 # complist & colors
 zmodload -i zsh/complist # loads the completion system module
 autoload -Uz colors && colors # enables color support in the shell

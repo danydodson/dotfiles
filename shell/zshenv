@@ -36,9 +36,6 @@ export FLY_CONFIG_DIR="$HOME/.config/fly"
 
 export CONDA_ENVS_PATH="$HOME/.config/miniconda3/envs"
 
-export OP_BIOMETRIC_UNLOCK_ENABLED=true
-export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-
 export ZSH_CACHE_DIR="$HOME/.cache/zsh"
 export NPM_CONFIG_CACHE="$HOME/.cache/npm"
 export YARN_CACHE_FOLDER="$HOME/.cache/yarn"
@@ -46,5 +43,9 @@ export YARN_CACHE_FOLDER="$HOME/.cache/yarn"
 export GPG_TTY=$TTY
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+
+export TRANSMISSION_WEB_HOME=""
+export OP_BIOMETRIC_UNLOCK_ENABLED=true
+export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
 export TIMEFMT=$'%J \n================\n CPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'

@@ -14,15 +14,8 @@ alias td="tmux detach"
 bindkey -s ^p "tms\n"
 bindkey -s ^w "tmux new\n"
 bindkey -s ^o "tmux attach -t main_session\n"
-
-# bat
-alias cat="bat"
-alias -g :h='-h 2>&1 | bat --language=help --style=plain'
-alias -g :h='--help 2>&1 | bat --language=help --style=plain'
-
-# dirs
-alias ~="cd ~"
-alias ..="cd .."
+bindkey '^s' vicmd '^s' sesh-sessions
+bindkey '^s' viins '^s' sesh-sessions
 
 # ssh
 alias sshrawdog="ssh ubuntu@18.235.113.176"
@@ -42,6 +35,15 @@ alias httpdump="sudo tcpdump -i en1 -n -s 0 -w — | grep -a -o -E \"Host\: .*|G
 alias get="curl $HOME/.dotfiles/config/curl/curlrc -O"
 alias wget="wget --config=$HOME/.dotfiles/config/wget/wgetrc --no-check-certificate"
 
+# bat
+alias cat="bat"
+alias -g :h='-h 2>&1 | bat --language=help --style=plain'
+alias -g :h='--help 2>&1 | bat --language=help --style=plain'
+
+# dirs
+alias ~="cd ~"
+alias ..="cd .."
+
 # brew leaves
 alias b-leaves="brew leaves | xargs brew desc --eval-all"
 alias b-leaves-casks="brew ls --casks | xargs brew desc --eval-all"
@@ -49,6 +51,7 @@ alias b-leaves-casks="brew ls --casks | xargs brew desc --eval-all"
 # transmission
 alias trd="transmission-daemon"
 alias tr="transmission-remote --auth stache:open"
+alias trw="watch --interval 2 'transmission-remote -n 'stache:open' -l'"
 alias tra="tr -a"
 alias trl="tr -l"
 alias trs="tr -s"
@@ -117,6 +120,27 @@ y() {
   fi
   rm -f -- "$tmp"
 }
+
+sesh-sessions() {
+  {
+    exec </dev/tty
+    exec <&1
+    local session
+    session=$(
+      sesh list -t -c \
+        --icons | fzf-tmux -p 80%,70% \
+        --no-sort \
+        --ansi \
+        --border \
+        --prompt '⚡' \
+        --preview 'sesh preview {}'
+    )
+    zle reset-prompt > /dev/null 2>&1 || true
+    [[ -z "$session" ]] && return
+    sesh connect $session
+  }
+}
+zle -N sesh-sessions
 
 # pretty paths
 paths() {
