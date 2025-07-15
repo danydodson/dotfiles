@@ -9,6 +9,11 @@ export VISUAL="codium"
 export PAGER="less -RF"
 export LESSHISTFILE="-"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export GPG_TTY=$TTY
+
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LOCALE=en_US.UTF-8
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -33,16 +38,13 @@ export AWS_HOME="$HOME/.config/aws"
 export CARGO_HOME="$HOME/.config/cargo"
 export RUSTUP_HOME="$HOME/.config/rust"
 export FLY_CONFIG_DIR="$HOME/.config/fly"
+export PNPM_HOME="$HOME/.config/pnpm"
 
 export CONDA_ENVS_PATH="$HOME/.config/miniconda3/envs"
 
 export ZSH_CACHE_DIR="$HOME/.cache/zsh"
 export NPM_CONFIG_CACHE="$HOME/.cache/npm"
 export YARN_CACHE_FOLDER="$HOME/.cache/yarn"
-
-export GPG_TTY=$TTY
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 
 export TRANSMISSION_WEB_HOME=""
 export OP_BIOMETRIC_UNLOCK_ENABLED=true

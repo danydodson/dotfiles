@@ -72,8 +72,9 @@ rules = [
 
 [plugin]
 prepend_fetchers = [
+  { id = "mime", name = "*", run = "mime", if = "!mime", prio = "high" },
   # mimetype
-  { id = "mime", name = "*", run = "mime-ext", prio = "high" },
+  # { id = "mime", name = "*", run = "mime-ext", prio = "high" },
 ]
 
 prepend_spotters = [

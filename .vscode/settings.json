@@ -8,6 +8,7 @@
   "files.associations": {
     "**/bin/*": "shellscript",
     "**/bin/colortest": "perl",
+    "**/system/*": "shellscript",
     "**/bin/jwt-pem.py": "python",
     "**/config/git/ignore": "ignore",
     "**/config/git/config": "properties",
@@ -17,6 +18,7 @@
   },
   "shellcheck.ignorePatterns": {
     "**/config/**/*": true,
+    "**/system/*": true,
     "**/plugins/zsh-completions/**/*": true,
     "**/*.zsh": true,
   },

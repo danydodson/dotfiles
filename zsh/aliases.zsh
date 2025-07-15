@@ -142,7 +142,6 @@ sesh-sessions() {
 }
 zle -N sesh-sessions
 
-# pretty paths
 paths() {
   local blue="\e[34m"
   local green="\e[32m"
@@ -167,6 +166,22 @@ fpaths() {
   local reset="\e[0m"
 
   for dir in ${(s.:.)FPATH}; do
+    if [[ -d "$dir" ]]; then
+      echo "${green}✓${reset} ${blue}$dir${reset}"
+    else
+      echo "${red}✗${reset} $dir"
+    fi
+  done
+}
+
+manpaths() {
+  local blue="\e[34m"
+  local green="\e[32m"
+  local yellow="\e[0;93m"
+  local red="\e[31m"
+  local reset="\e[0m"
+
+  for dir in ${(s.:.)MANPATH}; do
     if [[ -d "$dir" ]]; then
       echo "${green}✓${reset} ${blue}$dir${reset}"
     else

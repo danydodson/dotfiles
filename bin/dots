@@ -9,7 +9,7 @@ COMMAND_NAME=$1
 SUB_COMMAND_NAME=$2
 
 sub_help() {
-  echo "usage: $BIN_NAME <command>"
+  echo "Usage: $BIN_NAME <command>"
   echo
   echo "Commands:"
   echo "   clean            Clean up caches (brew, cargo, gem, pip) and empty"
@@ -25,8 +25,12 @@ sub_help() {
 sub_clean() {
   info "$ brew cleanup..."
   brew cleanup --prune=all --scrub
-  info "$ pip cache purge..."
-  pip cache purge
+  # info "$ nvim cleanup..."
+  # rm -rf "${HOME}/.local/state/nvim"
+  # find "${HOME}/.local/share/nvim" -mindepth 1 -maxdepth 1 ! -name "dadbod_ui" -exec rm -rf {} +
+  # rm -rf "${HOME}/.cache/nvim"
+  # info "$ pip cache purge..."
+  # pip cache purge
   info "$ emptying trash..."
   command rm -rfv ~/.Trash/*
   command rm -rfv /Volumes/*/.Trashes
@@ -42,10 +46,6 @@ function sub_update() {
   brew upgrade
   info "$ npm global update..."
   npm update -g
-  # info "$ gem update system..."
-  # sudo gem update —system
-  # info "$ yarn upgrade..."
-  # yarn global upgrade
   on_finish
 }
 

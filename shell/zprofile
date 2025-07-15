@@ -6,6 +6,9 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/libexec:$PATH"
 # local system binaries -> path
 export PATH="/usr/local/bin:/usr/local/MacGPG2/libexec:$PATH"
 
+# man pages -> manpath
+export MANPATH="/usr/local/MacGPG2/share/man:/usr/local/share/man:/usr/share/man:$MANPATH"
+
 # dotfiles bin -> path
 export PATH="$DOTFILES/bin:$PATH"
 
@@ -38,7 +41,7 @@ done
 unset path_file
 
 # clear duplicates
-typeset -gU fpath path
+typeset -gU fpath path manpath
 
 # set the path for macos
 [[ -x /bin/launchctl ]] && /bin/launchctl setenv PATH $PATH

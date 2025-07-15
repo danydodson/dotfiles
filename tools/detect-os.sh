@@ -77,7 +77,7 @@ elif [ -f /etc/redhat-release ]; then
   { uname -m | grep -q "arm[_]*64" || uname -m | grep -q "aarch64"; } && SYSTEM_ARCH_NAME="arm64"
 
 # Detect Alpine
-elif which apk > /dev/null 2>&1; then
+elif which apk >/dev/null 2>&1; then
 
   SYSTEM_DIST="alpine"
   SYSTEM_DIST_BASED_ON="alpine"
@@ -88,7 +88,7 @@ elif which apk > /dev/null 2>&1; then
   { uname -m | grep -q "arm[_]*64" || uname -m | grep -q "aarch64"; } && SYSTEM_ARCH_NAME="arm64"
 
 # Detect Busybox
-elif which busybox > /dev/null 2>&1; then
+elif which busybox >/dev/null 2>&1; then
 
   SYSTEM_DIST="busybox"
   SYSTEM_DIST_BASED_ON="busybox"
@@ -99,7 +99,7 @@ elif which busybox > /dev/null 2>&1; then
   { uname -m | grep -q "arm[_]*64" || uname -m | grep -q "aarch64"; } && SYSTEM_ARCH_NAME="arm64"
 
 # Detect Amazon Linux
-elif grep -iq "amazon linux" /etc/os-release 2> /dev/null; then
+elif grep -iq "amazon linux" /etc/os-release 2>/dev/null; then
 
   SYSTEM_DIST="amazon"
   SYSTEM_DIST_BASED_ON="redhat"
@@ -113,7 +113,7 @@ elif grep -iq "amazon linux" /etc/os-release 2> /dev/null; then
 fi
 
 # Detect if inside Docker
-if grep -iq docker /proc/1/cgroup 2> /dev/null || head -n 1 /proc/1/sched 2> /dev/null | grep -Eq '^(bash|sh) ' || [ -f /.dockerenv ]; then
+if grep -iq docker /proc/1/cgroup 2>/dev/null || head -n 1 /proc/1/sched 2>/dev/null | grep -Eq '^(bash|sh) ' || [ -f /.dockerenv ]; then
   SYSTEM_CONTAINER="true"
 fi
 

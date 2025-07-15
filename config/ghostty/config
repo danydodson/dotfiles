@@ -1,11 +1,9 @@
 # shell -----------------------------------------------------------
 
 shell-integration = zsh
-shell-integration-features = no-cursor,sudo,title
+shell-integration-features = no-cursor,sudo,no-title
 
 working-directory = home
-
-# command = zsh --login -c "if command -v tmux >/dev/null 2>&1; then tmux attach -t stach: || tmux; else zsh; fi"
 
 # fonts -----------------------------------------------------------
 
@@ -23,16 +21,11 @@ font-synthetic-style = false
 
 bold-is-bright = false
 
-adjust-cell-width = 1
 adjust-underline-thickness = 20%
-adjust-box-thickness = 20%
-adjust-cursor-thickness = 2
 
 # cursor -----------------------------------------------------------
 
 cursor-style = block
-cursor-invert-fg-bg = true
-cursor-opacity = 0.75
 
 # mouse ------------------------------------------------------------
 
@@ -46,7 +39,6 @@ clipboard-write = allow
 copy-on-select = clipboard
 
 clipboard-trim-trailing-spaces = true
-
 
 # window -----------------------------------------------------------
 
@@ -63,7 +55,7 @@ window-padding-color = background
 window-save-state = never
 window-new-tab-position = current
 
-window-theme = ghostty
+resize-overlay-duration = 10ms
 
 initial-window = true
 confirm-close-surface = false
@@ -79,20 +71,15 @@ macos-secure-input-indication = false
 
 # background ---------------------------------------------------------
 
-background-opacity = 0.90
-unfocused-split-opacity = 0.90
+background-opacity = 0.95
+unfocused-split-opacity = 0.95
 background-blur = true
 
 # shaders ------------------------------------------------------------
 
-custom-shader-animation = true
-
 # custom-shader = shaders/bloom.glsl
-# custom-shader = shaders/bloom1.glsl
-# custom-shader = shaders/bloom025.glsl
-# custom-shader = shaders/bloom050.glsl
-# custom-shader = shaders/bloom060.glsl
-# custom-shader = shaders/bloom075.glsl
+
+custom-shader-animation = true
 
 # keybinds -----------------------------------------------------------
 
@@ -106,6 +93,10 @@ keybind = super+alt+j=goto_split:bottom
 keybind = super+alt+l=goto_split:right
 keybind = super+alt+h=goto_split:left
 
+# update ------------------------------------------------------------
+
+auto-update-channel = tip
+
 # colors -----------------------------------------------------------
 
 split-divider-color = #3f4350
@@ -113,26 +104,27 @@ split-divider-color = #3f4350
 background = #1E2127
 foreground = #ABB2BF
 
-cursor-color = #5C6370
+cursor-color = #61AFEF
+cursor-text = #000000
 
-# selection-foreground = #3A3F4B
-# selection-background = #FFFFFF
+selection-background = #c678dd
+selection-foreground = #3A3F4B
 
 palette = 0=#2d313b
-palette = 8=#3f4350
+palette = 8=#5c6370
 palette = 1=#E06C75
-palette = 9=#E06C75
+palette = 9=#e9969d
 palette = 2=#98C379
-palette = 10=#98C379
+palette = 10=#b3d39c
 palette = 3=#D19A66
-palette = 11=#D19A66
+palette = 11=#edd4a6
 palette = 4=#61AFEF
-palette = 12=#61AFEF
+palette = 12=#8fc6f4
 palette = 5=#C678DD
-palette = 13=#C678DD
+palette = 13=#d7a1e7
 palette = 6=#56B6C2
-palette = 14=#56B6C2
+palette = 14=#7bc6d0
 palette = 7=#5d626e
-palette = 15=#5d626e
+palette = 15=#c8cdd5
 
 # vim:filetype=ghostty:syntax=ghostty

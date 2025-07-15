@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Appends a string to a file if it doesn't already exist
+
+APPEND="$1"
+TARGET="$2"
+
+pcregrep -qM "$APPEND" "$TARGET" || echo "$APPEND" >> "$TARGET"

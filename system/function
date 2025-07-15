@@ -1,0 +1,37 @@
+# switch long/short prompt
+
+ps0() {
+  unset PROMPT_COMMAND
+  PS1='$ '
+}
+
+ps1() {
+  source "$DOTFILES"/system/prompt
+}
+
+ps2() {
+  unset PROMPT_COMMAND
+  PS1="${P_GREEN}$ ${P_RESET}"
+}
+
+# get named var (usage: get "VAR_NAME")
+
+get() {
+  echo "${!1}"
+}
+
+# calculator
+
+calc() {
+  echo "$*" | bc -l
+}
+
+# weather
+
+meteo() {
+  local LOCALE
+  LOCALE=$(echo ${LANG:-en} | cut -c1-2)
+  local LOCATION="$*"
+  LOCATION="${LOCATION// /%20}"
+  curl -s "$LOCALE.wttr.in/${LOCATION:-}"
+}

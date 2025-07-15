@@ -3,15 +3,37 @@
 # Set default handlers/programs for file-types
 
 # vscodium
+duti -vs com.vscodium .alias all
+duti -vs com.vscodium .bash all
+duti -vs com.vscodium .bash_profile all
+duti -vs com.vscodium .bashrc all
+duti -vs com.vscodium .bats all
 duti -vs com.vscodium .c all
 duti -vs com.vscodium .cabal all
 duti -vs com.vscodium .conf all
 duti -vs com.vscodium .cpp all
 duti -vs com.vscodium .css all
+duti -vs com.vscodium .cfg all
+duti -vs com.vscodium .cjs all
+duti -vs com.vscodium .colors all
+duti -vs com.vscodium .completion all
+duti -vs com.vscodium .conf all
+duti -vs com.vscodium .config all
+duti -vs com.vscodium .csv all
+duti -vs com.vscodium .dir_colors all
 duti -vs com.vscodium .erb all
+duti -vs com.vscodium .env all
+duti -vs com.vscodium .exports all
+duti -vs com.vscodium .fix all
+duti -vs com.vscodium .gitignore all
+duti -vs com.vscodium .graphql all
+duti -vs com.vscodium .grep all
 duti -vs com.vscodium .go all
 duti -vs com.vscodium .h all
 duti -vs com.vscodium .hs all
+duti -vs com.vscodium .ignore all
+duti -vs com.vscodium .ini all
+duti -vs com.vscodium .inputrc all
 duti -vs com.vscodium .js all
 duti -vs com.vscodium .json all
 duti -vs com.vscodium .map all
@@ -19,18 +41,39 @@ duti -vs com.vscodium .md all
 duti -vs com.vscodium .nginxconf all
 duti -vs com.vscodium .pl all
 duti -vs com.vscodium .plist all
+duti -vs com.vscodium .prettierignore all
+duti -vs com.vscodium .prettierrc all
+duti -vs com.vscodium .prompt all
 duti -vs com.vscodium .py all
 duti -vs com.vscodium .rb all
 duti -vs com.vscodium .sass all
+duti -vs com.vscodium .svelte all
+duti -vs com.vscodium .svg all
 duti -vs com.vscodium .scss all
 duti -vs com.vscodium .sh all
 duti -vs com.vscodium .slim all
 duti -vs com.vscodium .swift all
+duti -vs com.vscodium .shellcheckrc all
 duti -vs com.vscodium .toml all
 duti -vs com.vscodium .txt all
+duti -vs com.vscodium .ts all
+duti -vs com.vscodium .tsx all
+duti -vs com.vscodium .tsv all
+duti -vs com.vscodium .vue all
 duti -vs com.vscodium .xml all
 duti -vs com.vscodium .yaml all
 duti -vs com.vscodium .yml all
+duti -vs com.vscodium .zshrc all
+duti -vs com.vscodium .zshenv all
+duti -vs com.vscodium .zprofile all
+duti -vs com.vscodium .zlogin all
+duti -vs com.vscodium .yml all
+duti -vs com.vscodium Brewfile all
+duti -vs com.vscodium Caskfile all
+duti -vs com.vscodium Codefile all
+duti -vs com.vscodium Dockerfile all
+duti -vs com.vscodium Makefile all
+duti -vs com.vscodium npmfile all
 
 # iina
 duti -vs com.colliderli.iina .3gp all

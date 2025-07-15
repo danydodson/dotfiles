@@ -7,7 +7,7 @@
   // 
   "redhat.telemetry.enabled": false,
   // 
-  "continue.enableTabAutocomplete": false,
+  "continue.enableTabAutocomplete": true,
   "continue.enableQuickActions": true,
   "continue.telemetryEnabled": false,
   "continue.enableConsole": true,
@@ -22,6 +22,9 @@
   // 
   "github.gitProtocol": "ssh",
   // 
+  "svg.preview.mode": "svg",
+  // 
+  "git.confirmSync": false,
   "git.enableStatusBarSync": false,
   "git.enableSmartCommit": true,
   "git.openRepositoryInParentFolders": "never",
@@ -243,12 +246,12 @@
     "breadcrumbs.showArrays": true
   },
   "yaml.schemas": {
+    "/Applications/codium-portable-data/extensions/continue.continue-1.0.15-darwin-arm64/config-yaml-schema.json": [
+      ".continue/**/*.yaml"
+    ],
     "/Applications/codium-portable-data/extensions/continue.continue-1.1.24-darwin-arm64/config-yaml-schema.json": [
       ".continue/**/*.yaml",
       "file:///Users/stache/.continue/config.yaml"
-    ],
-    "/Applications/codium-portable-data/extensions/continue.continue-1.0.15-darwin-arm64/config-yaml-schema.json": [
-      ".continue/**/*.yaml"
     ]
   },
   "[yaml]": {
@@ -288,8 +291,8 @@
     // "backgroundColor": "rgba(123, 123, 123, 0.5)",
     "frame": false,
     "transparent": true,
-    "vibrancy": "window",
-    // "opacity": 0.96,
+    "vibrancy": "appearance-based",
+    "opacity": 1,
     "visualEffectState": "active",
     "titleBarOverlay": {
       "color": "#2f3241",
@@ -421,8 +424,5 @@
     "*.sdb": "${capture}.${extname}-*",
     "*.s3db": "${capture}.${extname}-*"
   },
-  "svg.preview.mode": "svg",
-  "git.confirmSync": false,
-  "workbench.activityBar.location": "hidden",
-  "workbench.statusBar.visible": false,
+  "liveServer.settings.donotVerifyTags": true,
 }
