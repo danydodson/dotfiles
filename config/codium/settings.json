@@ -7,7 +7,7 @@
   // 
   "redhat.telemetry.enabled": false,
   // 
-  "continue.enableTabAutocomplete": true,
+  "continue.enableTabAutocomplete": false,
   "continue.enableQuickActions": true,
   "continue.telemetryEnabled": false,
   "continue.enableConsole": true,
@@ -64,7 +64,7 @@
   "prettier.semi": true,
   // 
   "color-highlight.markRuler": false,
-  "color-highlight.useARGB": false,
+  "color-highlight.useARGB": true,
   "color-highlight.matchHslWithNoFunction": true,
   "color-highlight.matchRgbWithNoFunction": true,
   // 
@@ -425,4 +425,7 @@
     "*.s3db": "${capture}.${extname}-*"
   },
   "liveServer.settings.donotVerifyTags": true,
+  "[shellscript]": {
+    "editor.defaultFormatter": "mads-hartmann.bash-ide-vscode"
+  },
 }

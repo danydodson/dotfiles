@@ -89,9 +89,11 @@ alias served="cd $HOME/Developer/served"
 alias temp="cd $HOME/Developer/temp"
 
 # reload
+alias clear="clear "
 alias reload="exec $SHELL -l"
 alias src="source $HOME/.zshrc"
-alias c="reload && src"
+alias cl="clear"
+alias c="cl && reload && src"
 
 # turn spotlight on/off
 alias spotlight_off="sudo mdutil -a -i off"

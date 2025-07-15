@@ -55,7 +55,7 @@ window-padding-color = background
 window-save-state = never
 window-new-tab-position = current
 
-resize-overlay-duration = 10ms
+resize-overlay = never
 
 initial-window = true
 confirm-close-surface = false
@@ -77,7 +77,7 @@ background-blur = true
 
 # shaders ------------------------------------------------------------
 
-# custom-shader = shaders/bloom.glsl
+# custom-shader = shaders/heartfelt.glsl
 
 custom-shader-animation = true
 

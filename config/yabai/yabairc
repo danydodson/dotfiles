@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#unload macos window manager
+# unload macos window manager
 launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist >/dev/null 2>&1 &
 
 # unload macos volume and brightness osd
@@ -12,7 +12,7 @@ sudo yabai --load-sa
 
 # ui configs
 yabai -m config layout bsp
-yabai -m config external_bar all:0:0
+yabai -m config external_bar all:33:0
 yabai -m config window_gap 6
 yabai -m config top_padding 6
 yabai -m config right_padding 6
@@ -33,10 +33,6 @@ yabai -m config focus_follows_mouse off
 
 # configs for all apps
 yabai -m rule --add app=".*" sub-layer=normal
-
-# apps to keep on top
-yabai -m rule --add app="^System Information$" sub-layer=above manage=off
-yabai -m rule --add app="^System Preferences$" sub-layer=above manage=off
 
 # open in space 1
 yabai -m rule --add app="^Twilight$" space=^1
@@ -59,6 +55,10 @@ yabai -m rule --add app="^mpv$" space=^4 manage=off
 
 # fix for borderless qutebrowser
 yabai -m rule --add app="^qutebrowser$" title!="^$" role="AXWindow" subrole="AXDialog" manage=on
+
+# apps to keep on top
+yabai -m rule --add app="^System Information$" sub-layer=above manage=off
+yabai -m rule --add app="^System Preferences$" sub-layer=above manage=off
 
 # apps to ignore
 yabai -m rule --add app="^1Password$" manage=off
@@ -92,11 +92,8 @@ yabai -m rule --add app="^Transmission$" manage=off
 yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
 yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
 
-# janky borders
-# borders style=rounded active_color=0xc0ff00f2 inactive_color=0xff0080ff width=4 hidpi=off &
-
 # sketchybar events
-# yabai -m signal --add event=window_focused action="sketchybar -m --trigger window_focus &> /dev/null"
-# yabai -m signal --add event=window_title_changed action="sketchybar -m --trigger title_change &> /dev/null"
+yabai -m signal --add event=window_focused action="sketchybar -m --trigger window_focus &> /dev/null"
+yabai -m signal --add event=window_title_changed action="sketchybar -m --trigger title_change &> /dev/null"
 
 echo "yabai configuration loaded.."
