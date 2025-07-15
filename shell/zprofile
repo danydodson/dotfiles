@@ -11,6 +11,7 @@ export MANPATH="/usr/local/MacGPG2/share/man:/usr/local/share/man:/usr/share/man
 
 # dotfiles bin -> path
 export PATH="$DOTFILES/bin:$PATH"
+export PATH="$DOTFILES/scripts:$PATH"
 
 # go -> path
 export PATH="$GO_PATH/bin:$PATH"
