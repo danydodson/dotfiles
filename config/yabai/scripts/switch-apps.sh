@@ -14,6 +14,5 @@ if [[ $finder_space_id =~ ^[0-9]+$ ]]; then
 else
   if [[ $finder_space_id = null ]]; then
     open -a Finder
-    echo "Opened a new Finder window in the current space $current_space_id."
   fi
 fi

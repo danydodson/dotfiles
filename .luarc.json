@@ -15,6 +15,7 @@
     "inject-field",
     "param-type-mismatch",
     "duplicate-set-field",
-    "cast-local-type"
+    "cast-local-type",
+    "redundant-parameter"
   ]
 }

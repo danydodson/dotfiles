@@ -7,5 +7,6 @@ Icon
 /config/git/secret
 */**/watch_later/*
 */**/shaders/cache
+*/**/shaders/cfl/CfL_Prediction_Test.glsl
 *.netrwhist
 _/

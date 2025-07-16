@@ -8,9 +8,8 @@
   "redhat.telemetry.enabled": false,
   // 
   "continue.enableTabAutocomplete": false,
-  "continue.enableQuickActions": true,
   "continue.telemetryEnabled": false,
-  "continue.enableConsole": true,
+  // "continue.disableQuickFix": false,
   // 
   "code-runner.enableAppInsights": false,
   // 
@@ -63,8 +62,12 @@
   "prettier.tabWidth": 2,
   "prettier.semi": true,
   // 
+  // "color-highlight.sass.includePaths": [],
   "color-highlight.markRuler": false,
+  "color-highlight.markerType": "foreground",
   "color-highlight.useARGB": true,
+  // "color-highlight.useARGB": true,
+  // "color-highlight.useARGB": false,
   "color-highlight.matchHslWithNoFunction": true,
   "color-highlight.matchRgbWithNoFunction": true,
   // 
@@ -96,34 +99,40 @@
   "editor.largeFileOptimizations": false,
   "editor.overviewRulerBorder": false,
   "editor.hideCursorInOverviewRuler": false,
-  "editor.codeLens": false,
+  "editor.codeLens": true,
   "editor.autoClosingQuotes": "never",
   "editor.autoClosingBrackets": "never",
   "editor.fontSize": 14.3,
-  "editor.lineHeight": 27,
-  "editor.tabSize": 4,
+  "editor.lineHeight": 22,
+  "editor.tabSize": 2,
   "editor.folding": false,
   "editor.padding.top": 15,
   "editor.padding.bottom": 15,
   "editor.cursorStyle": "line",
   "editor.cursorBlinking": "solid",
   "editor.renderLineHighlight": "none",
-  "editor.glyphMargin": false,
+  // "editor.glyphMargin": false,
   "editor.lineNumbers": "relative",
-  "editor.lineDecorationsWidth": 12,
+  "editor.lineDecorationsWidth": 16,
   "editor.stickyScroll.enabled": false,
   "editor.fontWeight": 400,
-  // "editor.fontFamily": "FiraCode Nerd Font",
+  "editor.fontFamily": "FiraCode Nerd Font",
   "editor.fontLigatures": true,
-  "editor.unicodeHighlight.ambiguousCharacters": false,
+
+  // "editor.colorDecoratorsLimit": 500,
+  "editor.colorDecoratorsActivatedOn": "click",
+  "editor.defaultColorDecorators": true,
   "editor.minimap.enabled": false,
   "editor.scrollbar.horizontal": "hidden",
   "editor.scrollbar.verticalScrollbarSize": 8,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "editor.unicodeHighlight.nonBasicASCII": false,
   //
-  "terminal.integrated.fontSize": 14,
-  "terminal.integrated.lineHeight": 1.22,
+  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.lineHeight": 1.1,
   "terminal.integrated.fontWeightBold": "normal",
-  // "terminal.integrated.fontFamily": "'FiraCode Nerd Font'",
+  "terminal.integrated.fontFamily": "FiraMono Nerd Font",
   "terminal.integrated.drawBoldTextInBrightColors": false,
   "terminal.integrated.inheritEnv": false,
   "terminal.integrated.stickyScroll.enabled": false,
@@ -170,13 +179,10 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[dockerfile]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
+    // "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "gopls": { "ui.semanticTokens": true },
   "go.toolsManagement.autoUpdate": true,
-  "go.enableCodeLens": {
-    "runtest": false,
-  },
   "[go]": {
     // "editor.semanticHighlighting.enabled": false
   },
@@ -196,7 +202,7 @@
   },
   "json.format.keepLines": true,
   "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
@@ -246,7 +252,7 @@
     "breadcrumbs.showArrays": true
   },
   "yaml.schemas": {
-    "/Applications/codium-portable-data/extensions/continue.continue-1.0.15-darwin-arm64/config-yaml-schema.json": [
+    "/Applications/codium-portable-data/extensions/continue.continue-1.0.18-darwin-arm64/config-yaml-schema.json": [
       ".continue/**/*.yaml"
     ],
     "/Applications/codium-portable-data/extensions/continue.continue-1.1.24-darwin-arm64/config-yaml-schema.json": [
@@ -255,50 +261,45 @@
     ]
   },
   "[yaml]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.wordWrap": "off",
+    "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "zig.zls.enabled": "on",
   //
-  "editor.fontFamily": "FiraCode Nerd Font",
-  "editor.inlayHints.fontFamily": "SF Pro",
-  "editor.codeLensFontFamily": "SF Pro",
-  "terminal.integrated.fontFamily": "FiraCode Nerd Font",
-  "scm.inputFontFamily": "SF Pro",
-  "chat.editor.fontFamily": "SF Pro",
-  "debug.console.fontFamily": "SF Pro",
-  "notebook.output.fontFamily": "SF Pro",
-  "markdown.preview.fontFamily": "SF Pro",
+  // "editor.fontFamily": "FiraCode Nerd Font Retina",
+  // "editor.inlayHints.fontFamily": "SF Pro",
+  // "editor.codeLensFontFamily": "SF Pro",
+  // "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
+  // "scm.inputFontFamily": "SF Pro",
+  // "chat.editor.fontFamily": "SF Pro",
+  // "debug.console.fontFamily": "SF Pro",
+  // "notebook.output.fontFamily": "SF Pro",
+  // "markdown.preview.fontFamily": "SF Pro",
   // 
-  "apc.iframe.style": "${userHome}/.dotfiles/config/codium/apc/styles.css",
   "apc.imports": [
     "${userHome}/.dotfiles/.config/codium/apc/main.js",
     "${userHome}/.dotfiles/config/codium/apc/styles.css"
   ],
-  "apc.font.family": "SF Pro",
-  "apc.monospace.font.family": "SF Pro",
-  "apc.parts.font.family": {
-    "sidebar": "SF Pro",
-    "titlebar": "SF Pro",
-    "activityBar": "SF Pro",
-    "panel": "SF Pro",
-    "tabs": "SF Pro",
-    "statusbar": "SF Pro",
-    "settings-body": "SF Pro",
-    "extension-editor": "SF Pro",
-    "monaco-menu": "SF Pro"
-  },
+  // "apc.font.family": "SF Pro",
+  // "apc.monospace.font.family": "SF Pro",
+  // "apc.parts.font.family": {
+  //   "sidebar": "SF Pro",
+  //   "titlebar": "SF Pro",
+  //   "activityBar": "SF Pro",
+  //   "panel": "SF Pro",
+  //   "tabs": "SF Pro",
+  //   "statusbar": "SF Pro",
+  //   "settings-body": "SF Pro",
+  //   "extension-editor": "SF Pro",
+  //   "monaco-menu": "SF Pro"
+  // },
   "apc.electron": {
-    // "backgroundColor": "rgba(123, 123, 123, 0.5)",
+    //  "backgroundColor": "rgba(123, 123, 123, 0.5)",
     "frame": false,
-    "transparent": true,
-    "vibrancy": "appearance-based",
-    "opacity": 1,
-    "visualEffectState": "active",
-    "titleBarOverlay": {
-      "color": "#2f3241",
-      "symbolColor": "#74b1be",
-      "height": 60
-    }
+    //  "transparent": true,
+    //  "vibrancy": "window",
+    //  "opacity": 0.96,
+    //  "visualEffectState": "active",
   },
   "apc.listRow": {
     "lists": [
@@ -312,8 +313,8 @@
       "tree", "explorer-folders-view",
       "results"
     ],
-    "height": 24,
-    "fontSize": 14,
+    "height": 25,
+    "fontSize": 15
   },
   "apc.header": {
     "default": 24,
@@ -322,17 +323,17 @@
     "fontSize": 10
   },
   "apc.sidebar.titlebar": {
-    "fontSize": 7,
+    "fontSize": 11,
     "height": 35
   },
   "apc.statusBar": {
-    "fontSize": 9.5,
-    "height": 18,
+    "fontSize": 10,
+    "height": 16
   },
   "apc.activityBar": {
-    "size": 30,
+    "size": 40,
     "itemSize": 26,
-    "itemMargin": 16,
+    "itemMargin": 16
   },
   // 
   "settings.cycle": [
@@ -352,27 +353,33 @@
       "values": [ { "continue.enableTabAutocomplete": true }, { "continue.enableTabAutocomplete": false } ]
     },
     {
+      "id": "codelens",
+      "overrideWorkspaceSettings": false,
+      "values": [ { "editor.codeLens": true }, { "editor.codeLens": false } ]
+    },
+    {
       "id": "color-highlight-useARGB",
       "overrideWorkspaceSettings": false,
-      "values": [ { "color-highlight.useARGB": true, }, { "color-highlight.useARGB": false, } ]
-    },
+      "values": [ { "color-highlight.useARGB": true }, { "color-highlight.useARGB": false } ]
+    }
   ],
   // 
   "oneDarkPro.editorTheme": "One Dark Pro Darker",
   //
+
   "workbench.colorCustomizations": {
     "editorLineNumber.foreground": "#71717178",
     "tab.activeBorder": "#1f2225",
-    "statusBarItem.remoteBackground": "#ff000000",
+    "statusBarItem.remoteBackground": "#00000000",
+    "statusBarItem.hoverBackground": "#00000000",
+    "statusBarItem.hoverForeground": "#c2c5ca",
     "statusBar.border": "#202326",
     "statusBarItem.remoteForeground": "#7e8185",
     "statusBar.foreground": "#7e8185",
-    // "activityBar.background": "#1e2227",
     "activityBar.activeBorder": "#7e8185",
     "activityBar.border": "#222528",
-    "statusBar.focusBorder": "#ffffff00",
-    // "focusBorder": "#dad2d2",
-    "focusBorder": "#ffffff00",
+    "statusBar.focusBorder": "#00000000",
+    "focusBorder": "#00000000"
   },
   "editor.tokenColorCustomizations": {
     "textMateRules": [
@@ -428,4 +435,35 @@
   "[shellscript]": {
     "editor.defaultFormatter": "mads-hartmann.bash-ide-vscode"
   },
+  "deepl.formality": "default",
+  "deepl.tagHandling": "off",
+  "deepl.splitSentences": "1",
+  "deepl.translationMode": "Replace",
+  "sherlock.userId": "971f9f90-d365-48fb-b236-80e7b4f3d52c",
+  "Lua.codeLens.enable": true,
+  "javascript.referencesCodeLens.enabled": true,
+  "typescript.referencesCodeLens.enabled": true,
+  // "diffEditor.codeLens": true,
+  "workbench.editor.tabSizing": "fixed",
+  "m3u8.chrome.profileDirectory": "Default",
+  "m3u8.chrome.executablePath": "/Applications/Brave Browser.app",
+  "totalTypeScript.hideAllTips": false,
+  "totalTypeScript.hideBasicTips": false,
+  "totalTypeScript.hiddenTips": [
+    "type-alias-declaration",
+    "literal-type",
+    "union-type",
+    "interface-declaration",
+    "basic-types",
+    "optional-object-property",
+    "array-type",
+    "passing-generics-to-types",
+    "record-utility-type",
+    "ts-object-type",
+    "variable-type-annotation",
+    "null-keyword",
+    "typing-function-parameters",
+    "function-return-type",
+    "typeof"
+  ]
 }

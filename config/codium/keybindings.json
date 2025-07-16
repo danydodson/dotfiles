@@ -30,10 +30,10 @@
     "key": "f7",
     "command": "settings.cycle.color-highlight-useARGB",
   },
-  // {
-  //   "key": "f8",
-  //   "command": "settings.cycle.apc.electron",
-  // },
+  {
+    "key": "f8",
+    "command": "settings.cycle.codelens",
+  },
   {
     "key": "f9",
     "command": "settings.cycle.tabsVisible",
@@ -79,11 +79,6 @@
     "command": "-workbench.action.closeActiveEditor"
   },
   {
-    "key": "cmd+w",
-    "command": "-workbench.action.closeWindow",
-    "when": "!editorIsOpen && !multipleEditorGroups"
-  },
-  {
     "key": "cmd+k cmd+m",
     "command": "-continue.toggleFullScreen",
     "when": "!terminalFocus"
@@ -96,21 +91,5 @@
     "key": "cmd+k cmd+a",
     "command": "-continue.toggleTabAutocompleteEnabled",
     "when": "!terminalFocus"
-  },
-  {
-    "key": "shift+cmd+w",
-    "command": "-workbench.action.closeWindow"
-  },
-  {
-    "key": "cmd+q",
-    "command": "workbench.action.closeWindow"
-  },
-  {
-    "key": "cmd+q cmd+q",
-    "command": "workbench.action.quit"
-  },
-  {
-    "key": "cmd+q",
-    "command": "-workbench.action.quit"
   }
 ]

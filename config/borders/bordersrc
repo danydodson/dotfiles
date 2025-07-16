@@ -4,19 +4,21 @@
 
 options=(
 	style=rounded
-	width=4
+	width=3.0
 	hidpi=on
-	active_color=0xc0ff00f2
-	inactive_color=0xff0080ff
+	active_color=0xc0FF00F2
+	inactive_color=0xc00080FF
 	ax_focus=off
-    blur_radius=160.0
 )
 
 borders "${options[@]}"
 
-# background_color=0xff414550
+# blur_radius=160.0
 # 0xff76cce0
 # 0xff414550
-# 0xc0ff00f2
-# 0xff0080ff
 # 0xffdad2d2
+# 0xc0FF00F2 0xFFAC34a6
+# 0xFF0080FF 0xFF29639E
+# gradient(top_left=0xc0FF00F2,bottom_right=0xFF0080FF)
+# gradient(top_right=0xFF0080FF,bottom_left=0xc0FF00F2)
+# glow(0xc0FF00F2)

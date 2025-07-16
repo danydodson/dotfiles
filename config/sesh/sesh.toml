@@ -1,22 +1,22 @@
-# [[session]]
-# name = "Downloads"
-# path = "~/Downloads"
-# startup_command = "ls"
+[[session]]
+name = "Downloads"
+path = "~/Downloads"
+startup_command = "ls"
 
-# [[session]]
-# name = "tmux config"
-# path = "~/.dotfiles/config/tmux"
-# startup_command = "v tmux.conf.sh"
-# preview_command = "bat --color=always ~/.dotfiles/config/tmux/tmux.conf.sh"
+[[session]]
+name = "tmux config"
+path = "~/.dotfiles/config/tmux"
+startup_command = "v tmux.conf"
+preview_command = "bat --color=always ~/.dotfiles/config/tmux/tmux.conf"
 
-# [[session]]
-# name = "sesh config"
-# path = "~/.dotfiles/config/sesh"
-# startup_command = "v sesh.toml"
-# preview_command = "bat --color=always ~/.dotfiles/config/sesh/sesh.toml"
+[[session]]
+name = "sesh config"
+path = "~/.dotfiles/config/sesh"
+startup_command = "v sesh.toml"
+preview_command = "bat --color=always ~/.dotfiles/config/sesh/sesh.toml"
 
-# [[session]]
-# name = "neovim keymaps"
-# path = "~/.dotfiles/config/nvim/lua/config"
-# startup_command = "v keymaps.lua"
-# preview_command = "bat --color=always ~/.dotfiles/config/nvim/lua/config/keymaps.lua"
+[[session]]
+name = "neovim keymaps"
+path = "~/.dotfiles/config/nvim/lua/config"
+startup_command = "v keymaps.lua"
+preview_command = "bat --color=always ~/.dotfiles/config/nvim/lua/config/keymaps.lua"

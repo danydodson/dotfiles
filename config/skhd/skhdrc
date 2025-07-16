@@ -92,12 +92,14 @@ hyper - d : open -a Discord.app
 hyper - f : ./$HOME/.dotfiles/config/yabai/scripts/switch-apps.sh
 hyper - m : open -a Mail.app
 hyper - n : open -a Notes.app
+hyper - a : open -a "Activity Monitor.app"
+hyper - p : open -a Launchpad.app
 
 hyper - r : \
   skhd --restart-service; \
-  yabai --restart-service; \
-  brew services restart borders; \
-  brew services restart sketchybar; \
-  brew services restart svim;
+  yabai --restart-service;
+
+# brew services restart borders;
+# brew services restart svim;
 
 

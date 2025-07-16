@@ -51,5 +51,3 @@ export FZF_ALT_C_OPTS="--header='Files' --walker=file --preview='bat -n --color=
 zcompdump="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
 autoload -Uz compinit
 compinit -d $zcompdump
-
-
