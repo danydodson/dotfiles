@@ -39,7 +39,6 @@ unmanaged=(
     Preferences
     Quicktime Player
     Reminders
-    Screen Sharing
     Source
     Software Update
     Stickies
@@ -95,7 +94,6 @@ for ((i = 1; i <= "${#SPACE4[@]}"; i++)); do
   yabai -m rule --add label="space4_${SPACE4[(($i - 1))]}" app="^${SPACE4[(($i - 1))]}.*$" space=^4
 done
 
-# app rules - Use $( yabai -m query --windows | jq '.[].app' ) to find app name
 # automatically float non-resizable windows, such as palettes, system settings etc.
 yabai -m signal --add event=window_created action="yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float"
 
