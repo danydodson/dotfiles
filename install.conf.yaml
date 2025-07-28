@@ -10,6 +10,44 @@
       recursive: true
 
 - link:
+    ~/.zshrc:
+      relink: true
+      force: true
+      path: shell/zshrc
+    ~/.zlogin:
+      relink: true
+      force: true
+      path: shell/zlogin
+    ~/.zprofile:
+      relink: true
+      force: true
+      path: shell/zprofile
+    ~/.zshenv:
+      relink: true
+      force: true
+      path: shell/zshenv
+
+    ~/.ssh/config:
+      create: true
+      force: true
+      relink: true
+      path: config/ssh/config
+
+    ~/.tmux.conf:
+      relink: true
+      force: true
+      path: config/tmux/tmux.conf
+
+    ~/.vimrc:
+      relink: true
+      force: true
+      path: config/vim/vimrc
+
+    ~/.shellcheckrc:
+      relink: true
+      force: true
+      path: .shellcheckrc
+
     ~/.config/:
       glob: true
       relink: true
@@ -91,44 +129,6 @@
       relink: true
       force: true
       path: config/codium/snippets/*
-
-    ~/.ssh/config:
-      create: true
-      force: true
-      relink: true
-      path: config/ssh/config
-
-    ~/.tmux.conf:
-      relink: true
-      force: true
-      path: config/tmux/tmux.conf
-
-    ~/.vimrc:
-      relink: true
-      force: true
-      path: config/vim/vimrc
-
-    ~/.shellcheckrc:
-      relink: true
-      force: true
-      path: .shellcheckrc
-
-    ~/.zlogin:
-      relink: true
-      force: true
-      path: shell/zlogin
-    ~/.zprofile:
-      relink: true
-      force: true
-      path: shell/zprofile
-    ~/.zshenv:
-      relink: true
-      force: true
-      path: shell/zshenv
-    ~/.zshrc:
-      relink: true
-      force: true
-      path: shell/zshrc
 
 - create:
     - ~/.cache/zsh
