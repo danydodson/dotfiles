@@ -5,6 +5,7 @@ brewfile.lock.json
 Icon
 *.log
 /config/git/secret
+/config/sketchybar/helpers/secret.lua
 */**/watch_later/*
 */**/shaders/cache
 */**/shaders/cfl/CfL_Prediction_Test.glsl
