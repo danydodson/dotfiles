@@ -1,7 +1,11 @@
 # yazi theme.toml
 
-[flavor]
-dark = "onedark"
+# [flavor]
+# dark = "onedark"
+
+# [manager]
+# tmTheme files can be found here: https://github.com/scottmckendry/cyberdream.nvim/tree/main/extras/textmate 
+# syntect_theme = "flavors/cyberdream.tmTheme"
 
 [mgr]
 cwd = { fg = "#a9b1d6", italic = true }
