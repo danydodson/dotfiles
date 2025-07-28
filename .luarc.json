@@ -14,9 +14,6 @@
     "Url",
     "Command",
     "PREVIEW"
-    // "vim",
-    // "bufnr",
-    // "init"
   ],
   "diagnostics.disable": [
     "lowercase-global",
@@ -28,6 +25,7 @@
     "param-type-mismatch",
     "duplicate-set-field",
     "cast-local-type",
-    "redundant-parameter"
+    "redundant-parameter",
+    "undefined-doc-name"
   ]
 }
