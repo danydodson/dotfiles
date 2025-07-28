@@ -19,7 +19,7 @@ font-thicken = true
 font-thicken-strength = 0
 font-synthetic-style = false
 
-bold-is-bright = false
+bold-is-bright = true
 
 adjust-underline-thickness = 20%
 
@@ -99,7 +99,8 @@ auto-update-channel = tip
 
 # colors -----------------------------------------------------------
 
-split-divider-color = #3f4350
+
+# split-divider-color = #3f4350
 
 background = #1E2127
 foreground = #ABB2BF

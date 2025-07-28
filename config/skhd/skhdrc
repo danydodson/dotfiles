@@ -89,7 +89,7 @@ hyper - z : open -a Twilight.app
 hyper - b : open -a "Brave Browser.app"
 hyper - c : open -a VSCodium.app
 hyper - d : open -a Discord.app
-hyper - f : ./$HOME/.dotfiles/config/yabai/scripts/switch-apps.sh
+hyper - f : ./$HOME/.dotfiles/config/yabai/scripts/show-finder.sh
 hyper - m : open -a Mail.app
 hyper - n : open -a Notes.app
 hyper - a : open -a "Activity Monitor.app"

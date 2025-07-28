@@ -106,6 +106,8 @@ endif
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 
+set rtp+=/opt/homebrew/opt/fzf
+
 "---------------------
 " Plugin configuration
 "---------------------

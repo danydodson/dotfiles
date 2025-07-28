@@ -1,95 +1,76 @@
 #!/usr/bin/env bash
 
-# unload macos window manager
-launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist >/dev/null 2>&1 &
-
-# unload macos volume and brightness osd
-launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist >/dev/null 2>&1 &
-
 # load yabi as sudo
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
-# ui configs
-yabai -m config layout bsp
-yabai -m config external_bar all:0:0
-yabai -m config window_gap 6
-yabai -m config top_padding 6
-yabai -m config right_padding 6
-yabai -m config bottom_padding 6
-yabai -m config left_padding 6
-yabai -m config split_ratio 0.5
-yabai -m config auto_balance off
-yabai -m config window_zoom_persist on
-yabai -m config window_shadow float
-yabai -m config window_origin_display default
-yabai -m config window_placement second_child
-yabai -m config mouse_modifier fn
-yabai -m config mouse_action1 move
-yabai -m config mouse_action2 resize
-yabai -m config mouse_drop_action swap
-yabai -m config mouse_follows_focus off
-yabai -m config focus_follows_mouse off
+# define sketchybar
+# yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus &> /dev/null"
+# yabai -m signal --add event=window_title_changed action="sketchybar --trigger title_change &> /dev/null"
+# yabai -m signal --add event=window_created action="sketchybar --trigger space_windows_change" label="sketchybarNewWindowCreated"
+# yabai -m signal --add event=window_destroyed action="sketchybar --trigger space_windows_change" label="sketchybarWindowDestroyed"
 
-# app specific spaces
-yabai -m rule --add app="^Twilight$" space=^1
-yabai -m rule --add app="^VSCodium$" space=^2
-yabai -m rule --add app="^Ghostty$" space=^2
-yabai -m rule --add app="^Brave Browser$" space=^3
-yabai -m rule --add app="^Spotify$" space=^4
-yabai -m rule --add app="^Discord$" space=^4
+# sketchybar
+# yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
+# yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
+# yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
+# yabai -m signal --add event=application_front_switched action="sketchybar --trigger title_change"
+# yabai -m signal --add event=window_focused action="sketchybar --trigger title_change"
+# yabai -m signal --add event=window_title_changed action="sketchybar --trigger title_change" active=yes
 
-# configs for all apps
-yabai -m rule --add app=".*" sub-layer=normal
+# float small, non-resizable windows
+# yabai -m signal --add event=window_created action="yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float" label="floatSmallWindows"
 
-# apps to keep on top
-yabai -m rule --add app="^System Information$" sub-layer=above manage=off
-yabai -m rule --add app="^System Preferences$" sub-layer=above manage=off
 
-# apps to ignore
-yabai -m rule --add app="^1Password$" manage=off
-yabai -m rule --add app="^Bluetooth Inspector$" manage=off
-yabai -m rule --add app="^Calculator$" manage=off
-yabai -m rule --add app="^ChatGPT$" manage=off
-yabai -m rule --add app="^choose$" manage=off
-yabai -m rule --add app="^Contacts$" manage=off
-yabai -m rule --add app="^Downie 4$" manage=off
-yabai -m rule --add app="^Dictionary$" manage=off
-yabai -m rule --add app="^Finder$" manage=off
-yabai -m rule --add app="^GPG Keychain$" manage=off
-yabai -m rule --add app="^iPhone Mirroring$" manage=off
-yabai -m rule --add app="^IINA$" manage=off
-yabai -m rule --add app="^Karabiner-Elements$" manage=off
-yabai -m rule --add app="^Karabiner-MultitouchExtension$" manage=off
-yabai -m rule --add app="^Keka$" manage=off
-yabai -m rule --add app="^Messages$" manage=off
-yabai -m rule --add app="^mpv$" manage=off
-yabai -m rule --add app="^Notes$" manage=off
-yabai -m rule --add app="^Permute 3$" manage=off
-yabai -m rule --add app="^Photo Booth$" manage=off
-yabai -m rule --add app="^QuickTime Player$" manage=off
-yabai -m rule --add app="^Reminders$" manage=off
-yabai -m rule --add app="^Source$" manage=off
-yabai -m rule --add app="^Suspicious Package$" manage=off
-yabai -m rule --add app="^Software Update$" manage=off
-yabai -m rule --add app="^Stickies$" manage=off
-yabai -m rule --add app="^Select path to save file$" manage=off
-yabai -m rule --add app="^System Settings$" manage=off
-yabai -m rule --add app="^Transmission$" manage=off
-yabai -m rule --add app="^VLC$" manage=off
+BAR_HEIGHT=0 # $(sketchybar -m --query bar | jq -r '.height')
 
-# fix for borderless qutebrowser
-yabai -m rule --add app="^qutebrowser$" title!="^$" role="AXWindow" subrole="AXDialog" manage=on
+GENERAL=(
+    external_bar all:"${BAR_HEIGHT}":0
+    split_type auto
+    split_ratio 0.5
+    auto_balance off
+    insert_feedback_color 0xff282a36
+)
 
-# fix for focusing on next app when a windows closes
-yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
-yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
+LAYOUT=(
+    layout bsp
+    top_padding 6
+    bottom_padding 6
+    left_padding 6
+    right_padding 6
+    window_gap 6
+)
 
-# sketchybar events
-# yabai -m signal --add event=window_focused action="sketchybar -m --trigger window_focus &> /dev/null"
-# yabai -m signal --add event=window_title_changed action="sketchybar -m --trigger title_change &> /dev/null"
+WINDOWS=(
+    window_placement second_child
+    window_shadow float
+    window_opacity off
+    active_window_opacity 1.0
+    normal_window_opacity 0.97
+    window_opacity_duration 0.15
+    window_animation_duration 0.0
+    window_origin_display default
+    window_zoom_persist on
+)
 
-# flash window when in focus
-# yabai -m signal --add label="flash_focus" event="window_focused" action="yabai -m window \$YABAI_WINDOW_ID --opacity 0.1 && sleep $(yabai -m config window_opacity_duration) && yabai -m window \$YABAI_WINDOW_ID --opacity 0.0"
+MOUSE=(
+    mouse_modifier fn
+    mouse_action1 move
+    mouse_action2 resize
+    mouse_drop_action swap
+    focus_follows_mouse off
+    mouse_follows_focus off
+)
+
+yabai -m config "${GENERAL[@]}"
+yabai -m config "${LAYOUT[@]}"
+yabai -m config "${WINDOWS[@]}"
+yabai -m config "${MOUSE[@]}"
+
+# use apprc file
+source "${HOME}/.config/yabai/apprc"
+
+# apply rules to existing windows
+yabai -m rule --apply
 
 echo "yabai configuration loaded.."
