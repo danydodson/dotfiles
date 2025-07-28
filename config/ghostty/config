@@ -19,13 +19,14 @@ font-thicken = true
 font-thicken-strength = 0
 font-synthetic-style = false
 
-bold-is-bright = true
+bold-is-bright = false
 
 adjust-underline-thickness = 20%
 
 # cursor -----------------------------------------------------------
 
 cursor-style = block
+cursor-invert-fg-bg = true
 
 # mouse ------------------------------------------------------------
 
@@ -64,22 +65,22 @@ quit-after-last-window-closed = true
 # macos -------------------------------------------------------------
 
 macos-option-as-alt = true
-macos-window-shadow = false
+macos-window-shadow = true
 macos-titlebar-style = hidden
 macos-non-native-fullscreen = true
 macos-secure-input-indication = false
 
 # background ---------------------------------------------------------
 
-background-opacity = 0.95
-unfocused-split-opacity = 0.95
+background-opacity = 0.96
+unfocused-split-opacity = 0.96
 background-blur = true
 
 # shaders ------------------------------------------------------------
 
 # custom-shader = shaders/heartfelt.glsl
 
-custom-shader-animation = true
+# custom-shader-animation = true
 
 # keybinds -----------------------------------------------------------
 
@@ -99,33 +100,35 @@ auto-update-channel = tip
 
 # colors -----------------------------------------------------------
 
+palette = 0=#282c34
+palette = 1=#e06c75
+palette = 2=#98c379
+palette = 3=#e5c07b
+palette = 4=#61afef
+palette = 5=#c678dd
+palette = 6=#56b6c2
+palette = 7=#abb2bf
+palette = 8=#3e4451
+palette = 9=#e06c75
+palette = 10=#98c379
+palette = 11=#e5c07b
+palette = 12=#61afef
+palette = 13=#c678dd
+palette = 14=#56b6c2
+palette = 15=#c8ccd4
+palette = 16=#d19a66
+palette = 17=#be5046
+palette = 18=#353b45
+palette = 19=#3e4451
+palette = 20=#565c64
+palette = 21=#b6bdca
 
-# split-divider-color = #3f4350
+background = #1e2127
+foreground = #abb2bf
+selection-background = #4f5666
+selection-foreground = #abb2bf
 
-background = #1E2127
-foreground = #ABB2BF
+# cursor-color = #abb2bf
+split-divider-color = #2f3138
 
-cursor-color = #61AFEF
-cursor-text = #000000
-
-selection-background = #c678dd
-selection-foreground = #3A3F4B
-
-palette = 0=#2d313b
-palette = 8=#5c6370
-palette = 1=#E06C75
-palette = 9=#e9969d
-palette = 2=#98C379
-palette = 10=#b3d39c
-palette = 3=#D19A66
-palette = 11=#edd4a6
-palette = 4=#61AFEF
-palette = 12=#8fc6f4
-palette = 5=#C678DD
-palette = 13=#d7a1e7
-palette = 6=#56B6C2
-palette = 14=#7bc6d0
-palette = 7=#5d626e
-palette = 15=#c8cdd5
-
-# vim:filetype=ghostty:syntax=ghostty
+# vim: ft=ghostty:filetype=ghostty:syntax=ghostty

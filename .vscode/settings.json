@@ -10,6 +10,7 @@
     "**/bin/colortest": "perl",
     "**/system/*": "shellscript",
     "**/bin/jwt-pem.py": "python",
+    "**/config/ghostty/config": "inputrc",
     "**/config/git/ignore": "ignore",
     "**/config/git/config": "properties",
     "**/config/git/secret": "properties",
