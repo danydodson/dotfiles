@@ -31,9 +31,9 @@ sub_clean() {
   # rm -rf "${HOME}/.cache/nvim"
   # info "$ pip cache purge..."
   # pip cache purge
-  info "$ emptying trash..."
-  command rm -rfv ~/.Trash/*
-  command rm -rfv /Volumes/*/.Trashes
+  # info "$ emptying trash..."
+  # command rm -rfv ~/.Trash/*
+  # command rm -rfv /Volumes/*/.Trashes
   on_finish
 }
 

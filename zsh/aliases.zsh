@@ -56,11 +56,20 @@ alias tra="tr -a"
 alias trl="tr -l"
 alias trs="tr -s"
 
-# gls coreutils
+# ls replacement - gls coreutils
 alias ls='/opt/homebrew/bin/gls --color=auto --group-directories-first -I .DS_Store -I .Trash -I "Icon'$'\r"'
 alias l="ls -AhLg --no-group --time-style=iso"
 alias ll="lsd -Al"
 alias la="ls -A"
+
+# ls replacement - eza https://github.com/eza-community/eza
+ezargs="--icons -I='$(awk '{$1=$1} NF{printf "%s|", $0}' "${DOTFILES}/config/eza/ezaignore" | sed 's/|$//')' --group-directories-first"
+alias els="eza -lah $ezargs" # all files and dirs; long format
+alias elg="eza -Galh $ezargs" # all files and dirs; long format/grid
+alias ela="eza -a $ezargs" # all files and dirs
+alias etr="eza -aT $ezargs" # tree listing
+alias ell='eza -l --all --show-symlinks | grep "^l"'
+alias el.='eza -la --git-ignore --group-directories-first | egrep "^\."'
 
 # grep
 alias egrep='egrep --color=auto'
@@ -168,6 +177,25 @@ fpaths() {
   local reset="\e[0m"
 
   for dir in ${(s.:.)FPATH}; do
+    if [[ -d "$dir" ]]; then
+      echo "${green}✓${reset} ${blue}$dir${reset}"
+    else
+      echo "${red}✗${reset} $dir"
+    fi
+  done
+}
+
+macos_paths() {
+  local blue="\e[34m"
+  local green="\e[32m"
+  local yellow="\e[0;93m"
+  local red="\e[31m"
+  local reset="\e[0m"
+  
+  local macos_path 
+  macos_path=$(launchctl getenv PATH)
+
+  for dir in ${(s.:.)PATH}; do
     if [[ -d "$dir" ]]; then
       echo "${green}✓${reset} ${blue}$dir${reset}"
     else
