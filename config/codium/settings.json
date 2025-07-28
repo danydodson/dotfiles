@@ -17,7 +17,8 @@
   // 
   "1password.debug.enabled": true,
   //
-  "snippets.backupFolder": "/Users/stache/Developer/snippets",
+  "m3u8.chrome.profileDirectory": "Default",
+  "m3u8.chrome.executablePath": "/Applications/Brave Browser.app",
   // 
   "github.gitProtocol": "ssh",
   // 
@@ -99,7 +100,7 @@
   "editor.largeFileOptimizations": false,
   "editor.overviewRulerBorder": false,
   "editor.hideCursorInOverviewRuler": false,
-  "editor.codeLens": true,
+  "editor.codeLens": false,
   "editor.autoClosingQuotes": "never",
   "editor.autoClosingBrackets": "never",
   "editor.fontSize": 14.3,
@@ -313,8 +314,8 @@
       "tree", "explorer-folders-view",
       "results"
     ],
-    "height": 25,
-    "fontSize": 15
+    "height": 23,
+    "fontSize": 13.5
   },
   "apc.header": {
     "default": 24,
@@ -444,26 +445,5 @@
   "javascript.referencesCodeLens.enabled": true,
   "typescript.referencesCodeLens.enabled": true,
   // "diffEditor.codeLens": true,
-  "workbench.editor.tabSizing": "fixed",
-  "m3u8.chrome.profileDirectory": "Default",
-  "m3u8.chrome.executablePath": "/Applications/Brave Browser.app",
-  "totalTypeScript.hideAllTips": false,
-  "totalTypeScript.hideBasicTips": false,
-  "totalTypeScript.hiddenTips": [
-    "type-alias-declaration",
-    "literal-type",
-    "union-type",
-    "interface-declaration",
-    "basic-types",
-    "optional-object-property",
-    "array-type",
-    "passing-generics-to-types",
-    "record-utility-type",
-    "ts-object-type",
-    "variable-type-annotation",
-    "null-keyword",
-    "typing-function-parameters",
-    "function-return-type",
-    "typeof"
-  ]
+  "workbench.editor.tabSizing": "shrink",
 }
