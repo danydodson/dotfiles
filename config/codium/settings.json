@@ -448,5 +448,4 @@
   "typescript.referencesCodeLens.enabled": true,
   // "diffEditor.codeLens": true,
   "workbench.editor.tabSizing": "shrink",
-  "workbench.statusBar.visible": false,
 }

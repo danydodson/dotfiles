@@ -137,29 +137,26 @@
     - ~/Developer/served
 
 - shell:
-    - description: Update submodules
+    - description: update submodules -------- 
       command: git submodule update --init --recursive
 
-    - description: Sync dotbot
+    - description: sync dotbot -------------- 
       command: git submodule sync --recursive
 
-    - description: Create .hushlogin file
+    - description: create hushlogin --------- 
       command: touch ~/.hushlogin
 
-    - description: Setup codium
+    - description: setup codium ------------- 
       command: ./installers/codium.sh
 
-    - description: Setup conda
+    - description: setup conda -------------- 
       command: ./installers/conda.sh
 
-    - description: Setup go
+    - description: setup go ----------------- 
       command: ./installers/go.sh
 
-    - description: Setup ssh
+    - description: setup ssh ---------------- 
       command: ./installers/ssh.sh
 
-    - description: Setup tmux
+    - description: setup tmux --------------- 
       command: ./installers/tmux.sh
-
-    - description: Setup yazi
-      command: ./installers/yazi.sh
