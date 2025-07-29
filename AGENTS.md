@@ -3,7 +3,7 @@
 ## Build/Lint/Test Commands
 
 - Build: npm run build
-- Lint: npm run lint
+- Lint: shellcheck .*
 - Test: npm test
 - Run a single test: npm test -- -t "test name"
 
