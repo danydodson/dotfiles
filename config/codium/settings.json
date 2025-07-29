@@ -7,7 +7,7 @@
   // 
   "redhat.telemetry.enabled": false,
   // 
-  "continue.enableTabAutocomplete": false,
+  "continue.enableTabAutocomplete": true,
   // "continue.remoteConfigSyncPeriod": 60,
   "continue.telemetryEnabled": false,
   "continue.enableConsole": false,
@@ -448,4 +448,5 @@
   "typescript.referencesCodeLens.enabled": true,
   // "diffEditor.codeLens": true,
   "workbench.editor.tabSizing": "shrink",
+  "editor.hover.delay": 900,
 }

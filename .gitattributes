@@ -1,8 +1,8 @@
 # dont included these in the repository language stats
-*/**/shaders/*.glsl  linguist-vendored
-*/**/shaders/*.hook  linguist-vendored
-*/**/scripts/*       linguist-vendored
+*/**/shaders/*.glsl linguist-vendored
+*/**/shaders/*.hook linguist-vendored
+*/**/scripts/* linguist-vendored
 
 # do not show lock files changes in `git diff`
-*.lock               diff=nodiff
-package-lock.json    diff=nodiff
+*.lock diff=nodiff
+package-lock.json diff=nodiff

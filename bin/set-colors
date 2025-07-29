@@ -1,39 +1,39 @@
 #!/usr/bin/env bash
 
-# Create colors for multiple tools
+# Create colors scheme files for multiple tools
 
-# Path to the directory containing color scheme scripts
+# path to the directory containing color scheme scripts
 COLORSCHEME_DIR=~/.dotfiles/colors/list
 
-# Path to the colorscheme-set script
-COLORSCHEME_SET_SCRIPT=~/.dotfiles/colors/colorscheme-set.sh
+# path to the colorscheme-set script
+COLORS_SET_SCRIPT=~/.dotfiles/colors/colors-set.sh
 
-# Ensure fzf is installed
+# ensure fzf is installed
 if ! command -v fzf &>/dev/null; then
   echo "fzf is not installed. Please install it first."
   exit 1
 fi
 
-# List available color scheme scripts
+# list available color scheme scripts
 schemes=()
 while IFS= read -r -d '' file; do
   schemes+=("$(basename "$file")")
 done < <(find "$COLORSCHEME_DIR" -maxdepth 1 -name '*.sh' -print0)
 
-# Check if any schemes are available
+# check if any schemes are available
 if [ ${#schemes[@]} -eq 0 ]; then
   echo "No color scheme scripts found in $COLORSCHEME_DIR."
   exit 1
 fi
 
-# Use fzf to select a scheme
+# use fzf to select a scheme
 selected_scheme=$(printf "%s\n" "${schemes[@]}" | fzf --height=40% --reverse --header="Select a Color Scheme" --prompt="Theme > ")
 
-# Check if a selection was made
+# check if a selection was made
 if [ -z "$selected_scheme" ]; then
   echo "No color scheme selected."
   exit 0
 fi
 
-# Apply the selected color scheme
-"$COLORSCHEME_SET_SCRIPT" "$selected_scheme"
+# apply the selected color scheme
+"$COLORS_SET_SCRIPT" "$selected_scheme"
