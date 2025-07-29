@@ -2,7 +2,7 @@
 
 # Installs nvm, node lts, and global packages
 
-. "$HOME/.dotfiles/tools/shell-reports/dot-reports.sh"
+. "$HOME/.dotfiles/reports/pretty-dots.sh"
 
 set -e
 trap on_error SIGTERM

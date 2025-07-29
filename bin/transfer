@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Upload file to transfer.sh
+# https://github.com/dutchcoders/transfer.sh
+
+# usage:
+# > transfer <file>
+
+tmpfile=$(mktemp -t transferXXX)
+curl --progress-bar --upload-file "$1" https://transfer.sh/"$(basename $1)" >>$tmpfile
+bat $tmpfile
+rm -f $tmpfile

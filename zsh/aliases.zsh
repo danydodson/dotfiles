@@ -84,10 +84,6 @@ alias lsg_npm="npm ls -g --depth 0"
 alias lsg_yarn="yarn global list"
 alias lsg_pnpm="pnpm ls -g"
 
-# clean hidden files
-alias rmds="find . -type f -name '*.DS_Store' -ls -delete"
-alias rmnm="find . -type d -name 'node_modules' -ls -delete"
-
 # directories
 alias dotfiles="cd $HOME/.dotfiles"
 alias dl="cd $HOME/Downloads"
@@ -113,8 +109,47 @@ alias brctl_monitor="brctl monitor com.apple.CloudDocs | grep %"
 # js repl
 alias jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc"
 
-# clean up LaunchServices to remove duplicates in the "open with" menu
+# browsers
+alias chrome="open -a /Applications/Google\ Chrome.app"
+alias canary="open -a /Applications/Google\ Chrome\ Canary.app"
+alias firefox="open -a /Applications/Firefox.app"
+
+# exclude macOS specific files in zip archives
+alias zip="zip -x *.DS_Store -x *__MACOSX* -x *.AppleDouble*"
+
+# start screen saver
+alias afk="open /System/Library/CoreServices/ScreenSaverEngine.app"
+
+# log off
+alias logoff="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+# clean hidden files
+alias rmds="find . -type f -name '*.DS_Store' -ls -delete"
+alias rmnm="find . -type d -name 'node_modules' -ls -delete"
+alias rmad="find . -type d -name '.AppleD*' -ls -exec /bin/rm -r {} \;"
+
+# clean up launch services to remove duplicates in the "open with" menu
 alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
+
+# empty trash on mounted volumes and main HDD, and clear system logs
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash/*; sudo rm -rfv /private/var/log/asl/*.asl"
+
+# reload native apps
+alias killfinder="killall Finder"
+alias killdock="killall Dock"
+alias killmenubar="killall SystemUIServer NotificationCenter"
+alias killos="killfinder && killdock && killmenubar"
+
+# show system information
+alias displays="system_profiler SPDisplaysDataType"
+alias cpu="sysctl -n machdep.cpu.brand_string"
+alias ram="top -l 1 -s 0 | grep PhysMem"
+
+# misc
+alias hosts="sudo $EDITOR /etc/hosts"
+alias quit="exit"
+alias speedtest="wget -O /dev/null http://speed.transip.nl/100mb.bin"
+alias fkill="ps -e | fzf | awk '{print $1}' | xargs kill"
 
 # create and cd into directory
 mkcd() {

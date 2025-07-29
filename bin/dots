@@ -2,7 +2,7 @@
 
 # Gets macOS software, Homebrew and npm updates and cleans trash and logs.
 
-. "$HOME/.dotfiles/tools/shell-reports/dot-reports.sh"
+. "$HOME/.dotfiles/reports/pretty-dots.sh"
 
 BIN_NAME=$(basename "$0")
 COMMAND_NAME=$1

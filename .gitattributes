@@ -1,6 +1,8 @@
-# Treats all of the paths/files below as vendored
-# and therefore are not included in the language
-# statistics for the repository
-# */**/shaders/*.glsl linguist-vendored
-# */**/shaders/*.hook linguist-vendored
-# */**/scripts/* linguist-vendored
+# dont included these in the repository language stats
+*/**/shaders/*.glsl  linguist-vendored
+*/**/shaders/*.hook  linguist-vendored
+*/**/scripts/*       linguist-vendored
+
+# do not show lock files changes in `git diff`
+*.lock               diff=nodiff
+package-lock.json    diff=nodiff

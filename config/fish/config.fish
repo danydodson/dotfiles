@@ -1,3 +1,4 @@
+#!/usr/bin/env fish
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -11,9 +12,3 @@ else
     end
 end
 # <<< conda initialize <<<
-
-
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH /Users/stache/.lmstudio/bin
-# End of LM Studio CLI section
-

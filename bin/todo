@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Creates something for me to do
+# usage:
+# > todo <title>
+
+touch ~/Desktop/"$*"

@@ -16,6 +16,7 @@ disable=SC1090 # disable 'can't follow non-constant source. Use a directive to s
 disable=SC1091 # disable 'not following' errors
 disable=SC2005 # disable useless echo warning
 disable=SC2034 # appears unused. Verify use (or export if used externally)
+disable=SC2155 # disable declare and assign separately to avoid masking return values
 disable=SC2162 # disable read without -r will mangle backslashes
 disable=SC2154 # disable variable is referenced but not assigned
 disable=SC2164 # disable use || return in case cd fails

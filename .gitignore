@@ -1,5 +1,6 @@
 !.vscode/settings.json
 brewfile.lock.json
+.assets
 .env
 .DS_Store
 Icon
@@ -10,4 +11,3 @@ Icon
 */**/shaders/cache
 */**/shaders/cfl/CfL_Prediction_Test.glsl
 *.netrwhist
-zz-extras

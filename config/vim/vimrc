@@ -1,6 +1,6 @@
 set viminfo+=n~/.config/vim/viminfo
 
-source ~/.dotfiles/config/vim/src-plug.vim
+source ~/.dotfiles/config/vim/src.plug.vim
 
 call plug#begin(vim_plug_plugins_dir)
   " Light-weight status line

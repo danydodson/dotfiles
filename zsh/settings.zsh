@@ -40,36 +40,6 @@ stty stop undef # disable ctrl+s from stopping the terminal output
 zmodload -i zsh/complist # loads the completion system module
 autoload -Uz colors && colors # enables color support in the shell
 
-# ### terminal Module
-# # Auto set the tab and window titles.
-# zstyle ':dotzsh:module:terminal' auto-title 'yes'
-
-# # editor module
-# zstyle ':dotzsh:module:editor' keymap 'vi' # set the key mapping style to 'emacs' or 'vi'.
-# zstyle ':dotzsh:module:editor' editor 'vi' # set EDITOR to 'emacs' or 'vi'.
-# zstyle ':dotzsh:module:editor' dot-expansion 'yes' # auto convert .... to ../..
-
-# # ssh module
-# zstyle ':dotzsh:module:ssh:agent' forwarding 'yes' # 
-# #zstyle ':dotzsh:module:ssh:aliases' hosts 'yes' # 
-# ##zstyle ':dotzsh:module:ssh:agent' identities 'id_rsa' 'id_rsa2' 'id_github' # 
-
-# # gnupg module
-# zstyle ':dotzsh:module:gnupg' agent-ssh-support 'yes' # enable ssh-agent protocol emulation for gpg-agent
-
-# # osx module
-# zstyle ':dotzsh:module:osx' launcher 'yes' # add aliases for Applications
-# zstyle ':dotzsh:module:osx' terminal-resume 'yes' # open/resume temrinal in correct dir
-
-# # tmux module
-# # Setting it to 'local' only starts a session for local terminals.
-# # Setting it to 'remote' only starts a session for SSH connections.
-# zstyle ':dotzsh:module:tmux' auto-start 'local' # auto start a session when zsh is launched.
-
-# # syntax highlighting module
-# zstyle ':dotzsh:module:syntax-highlighting' highlighters 'main' 'brackets' 'pattern' \
-#  'cursor' 'root' \
-
 # completion menu and grouping settings
 zstyle ':completion:*:*:*:*:*' menu select # enables interactive menu for completions
 zstyle ':completion:*:matches' group yes # groups similar matches together

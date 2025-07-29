@@ -4,9 +4,11 @@ set -e
 
 # exec &> >(tee -a "$HOME"/.dotfiles/install.log)
 
-CONFIG="install.conf.yaml"
-DOTBOT_DIR="plugins/dotbot"
+STEPS_ENVIORNMENT="steps/enviornment.yml"
+STEPS_BREW_FORMULA="steps/brew-formula.yml"
+STEPS_BREW_CASKS="steps/brew-casks.yml"
 
+DOTBOT_DIR="plugins/dotbot"
 DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -14,4 +16,16 @@ cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
+run_dotbot() {
+  local config
+  config="$1"
+
+  "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
+    -d "${BASEDIR}" \
+    --plugin-dir plugins/dotbot-brewfile \
+    -c "${config}" "${@}"
+}
+
+run_dotbot $STEPS_ENVIORNMENT
+# run_dotbot $STEPS_BREW_FORMULA
+# run_dotbot $STEPS_BREW_CASKS

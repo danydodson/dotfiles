@@ -1,0 +1,163 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean:
+    ~/:
+      force: true
+    ~/.config:
+      recursive: true
+
+- link:
+    ~/.zshrc:
+      relink: true
+      force: true
+      path: shell/zshrc
+    ~/.zlogin:
+      relink: true
+      force: true
+      path: shell/zlogin
+    ~/.zprofile:
+      relink: true
+      force: true
+      path: shell/zprofile
+    ~/.zshenv:
+      relink: true
+      force: true
+      path: shell/zshenv
+
+    ~/.ssh/config:
+      create: true
+      force: true
+      relink: true
+      path: config/ssh/config
+
+    ~/.tmux.conf:
+      relink: true
+      force: true
+      path: config/tmux/tmux.conf
+
+    ~/.vimrc:
+      relink: true
+      force: true
+      path: config/vim/vimrc
+
+    ~/.shellcheckrc:
+      relink: true
+      force: true
+      path: .shellcheckrc
+
+    ~/.config/:
+      glob: true
+      relink: true
+      path: config/*
+      exclude:
+        [
+          config/codium,
+          config/firefox,
+          config/gnupg,
+          config/iina,
+          config/lscolors,
+          config/mpv-con,
+          config/spotify-player,
+          config/ssh,
+          config/starship,
+          config/tmux,
+          config/transmission,
+          config/vencord,
+          config/vim,
+          config/vlc,
+          config/weechat,
+        ]
+
+    ~/.config/weechat/:
+      glob: true
+      relink: true
+      path: config/weechat/*
+      exclude: [config/weechat/python, config/weechat/themes]
+
+    ~/.local/share/weechat/python/theme.py:
+      create: true
+      relink: true
+      path: config/weechat/python/theme.py
+    ~/.local/share/weechat/themes/:
+      glob: true
+      relink: true
+      path: config/weechat/themes/*
+
+    ~/.gnupg/gpg.conf:
+      create: true
+      force: true
+      relink: true
+      path: config/gnupg/gpg.conf
+    ~/.gnupg/gpg-agent.conf:
+      create: true
+      force: true
+      relink: true
+      path: config/gnupg/gpg-agent.conf
+
+    ~/Library/Application Support/transmission-daemon/settings.json:
+      create: true
+      relink: true
+      path: config/transmission/settings.json
+
+    ~/Library/Preferences/org.videolan.vlc/vlcrc:
+      create: true
+      relink: true
+      path: config/vlc/vlcrc
+
+    ~/Library/Application Support/Vencord/settings/quickCss.css:
+      create: true
+      relink: true
+      path: config/vencord/settings/quickCss.css
+
+    /Applications/codium-portable-data/user-data/User/settings.json:
+      create: true
+      glob: true
+      relink: true
+      force: true
+      path: config/codium/settings.json
+    /Applications/codium-portable-data/user-data/User/keybindings.json:
+      create: true
+      glob: true
+      relink: true
+      force: true
+      path: config/codium/keybindings.json
+    /Applications/codium-portable-data/user-data/User/snippets:
+      create: true
+      glob: true
+      relink: true
+      force: true
+      path: config/codium/snippets/*
+
+- create:
+    - ~/.cache/zsh
+    - ~/Developer/plugins
+    - ~/Developer/repos
+    - ~/Developer/served
+
+- shell:
+    - description: update submodules --------
+      command: git submodule update --init --recursive
+
+    - description: sync dotbot --------------
+      command: git submodule sync --recursive
+
+    - description: create hushlogin ---------
+      command: touch ~/.hushlogin
+
+    - description: setup codium -------------
+      command: ./installers/codium.sh
+
+    - description: setup conda --------------
+      command: ./installers/conda.sh
+
+    - description: setup go -----------------
+      command: ./installers/go.sh
+
+    - description: setup ssh ----------------
+      command: ./installers/ssh.sh
+
+    - description: setup tmux ---------------
+      command: ./installers/tmux.sh

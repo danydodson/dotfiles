@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-# Filename: ~/.dotfiles/bin/set-colors
+# Create colors for multiple tools
 
 # Path to the directory containing color scheme scripts
-COLORSCHEME_DIR=~/.dotfiles/tools/colors/list
+COLORSCHEME_DIR=~/.dotfiles/colors/list
 
 # Path to the colorscheme-set script
-COLORSCHEME_SET_SCRIPT=~/.dotfiles/tools/colors/colorscheme-set.sh
+COLORSCHEME_SET_SCRIPT=~/.dotfiles/colors/colorscheme-set.sh
 
 # Ensure fzf is installed
 if ! command -v fzf &>/dev/null; then
