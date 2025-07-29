@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Filename: ~/github/dotfiles-latest/colorscheme/list/linkarzu-colors.sh
-# ~/github/dotfiles-latest/colorscheme/list/linkarzu-colors.sh
+# Filename: ~/.dotfiles/colors/list/pastel-fiambre.sh
+# ~/.dotfiles/colors/list/pastel-fiambre.sh
 
 # These files have to be executable
 

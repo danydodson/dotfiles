@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Filename: ~/github/dotfiles-latest/colorscheme/colorscheme-vars.sh
-# ~/github/dotfiles-latest/colorscheme/colorscheme-vars.sh
+# Filename: ~/.dotfiles/tools/colors/colorscheme-vars.sh
+# ~/.dotfiles/tools/colors/colorscheme-vars.sh
 
 # colorscheme_profile="minty-lemon.sh"
 # colorscheme_profile="linkarzu-new-headings.sh"

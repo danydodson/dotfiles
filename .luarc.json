@@ -2,30 +2,30 @@
   "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
   "runtime.version": "Lua 5.4",
   "diagnostics.globals": [
-    "ui",
-    "ya",
-    "th",
-    "rt",
+    "Command",
+    "cx",
     "err",
     "Err",
     "fs",
-    "cx",
+    "PREVIEW",
+    "rt",
+    "th",
+    "ui",
     "units",
     "Url",
-    "Command",
-    "PREVIEW"
+    "ya"
   ],
   "diagnostics.disable": [
+    "cast-local-type",
+    "duplicate-set-field",
+    "inject-field",
     "lowercase-global",
+    "param-type-mismatch",
     "undefined-global",
     "need-check-nil",
+    "redundant-parameter",
     "unbalanced-assignments",
     "undefined-field",
-    "inject-field",
-    "param-type-mismatch",
-    "duplicate-set-field",
-    "cast-local-type",
-    "redundant-parameter",
     "undefined-doc-name"
   ]
 }

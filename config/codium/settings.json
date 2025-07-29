@@ -8,7 +8,12 @@
   "redhat.telemetry.enabled": false,
   // 
   "continue.enableTabAutocomplete": false,
+  // "continue.remoteConfigSyncPeriod": 60,
   "continue.telemetryEnabled": false,
+  "continue.enableConsole": false,
+  "continue.enableQuickActions": false,
+  "continue.pauseCodebaseIndexOnStart": false,
+  "continue.showInlineTip": true,
   // "continue.disableQuickFix": false,
   // 
   "code-runner.enableAppInsights": false,
@@ -91,6 +96,7 @@
   "workbench.panel.showLabels": false,
   "workbench.list.fastScrollSensitivity": 5,
   "workbench.tree.enableStickyScroll": false,
+  "workbench.tree.indent": 14,
   "workbench.editor.revealIfOpen": true,
   "workbench.settings.editor": "json",
   "workbench.editor.decorations.badges": false,
@@ -253,12 +259,8 @@
     "breadcrumbs.showArrays": true
   },
   "yaml.schemas": {
-    "/Applications/codium-portable-data/extensions/continue.continue-1.0.18-darwin-arm64/config-yaml-schema.json": [
+    "/Applications/codium-portable-data/extensions/continue.continue-1.0.19-darwin-arm64/config-yaml-schema.json": [
       ".continue/**/*.yaml"
-    ],
-    "/Applications/codium-portable-data/extensions/continue.continue-1.1.24-darwin-arm64/config-yaml-schema.json": [
-      ".continue/**/*.yaml",
-      "file:///Users/stache/.continue/config.yaml"
     ]
   },
   "[yaml]": {
@@ -324,7 +326,7 @@
     "fontSize": 10
   },
   "apc.sidebar.titlebar": {
-    "fontSize": 11,
+    "fontSize": 9,
     "height": 35
   },
   "apc.statusBar": {

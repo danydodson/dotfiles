@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Filename: ~/github/dotfiles-latest/colorscheme/list/linkarzu-colors.sh
-# ~/github/dotfiles-latest/colorscheme/list/linkarzu-colors.sh
+# Filename: ~/.dotfiles/colors/list/minty-lemon.sh
+# ~/.dotfiles/colors/list/minty-lemon.sh
 
 # These files have to be executable
 
@@ -14,28 +14,29 @@
 # C (#37f499) becomes when darkened 4 steps to the right.
 #
 # Markdown heading 1 - color04
-linkarzu_color18=#2d244b
+linkarzu_color18=#20925b
 # Markdown heading 2 - color02
-linkarzu_color19=#10492d
+linkarzu_color19=#027d95
 # Markdown heading 3 - color03
-linkarzu_color20=#013e4a
+linkarzu_color20=#4d9472
 # Markdown heading 4 - color01
-linkarzu_color21=#4b314c
+linkarzu_color21=#2f8696
 # Markdown heading 5 - color05
-linkarzu_color22=#334800
+linkarzu_color22=#029494
 # Markdown heading 6 - color08
-linkarzu_color23=#264361
+# Also inactive tmux window, make it 6 darker to the right
+linkarzu_color23=#1f645e
 # Markdown heading foreground
 # usually set to color10 which is the terminal background
 linkarzu_color26=#0D1116
 
-linkarzu_color04=#987afb
-linkarzu_color02=#37f499
-linkarzu_color03=#04d1f9
-linkarzu_color01=#fca6ff
-linkarzu_color05=#acf200
-linkarzu_color08=#5fa9f4
-linkarzu_color06=#1682ef
+linkarzu_color04=#37f499
+linkarzu_color02=#04d1f9
+linkarzu_color03=#81f8bf
+linkarzu_color01=#4fe0fc
+linkarzu_color05=#04F9F8
+linkarzu_color08=#4ffced
+linkarzu_color06=#9deefd
 
 # Colors to the right from https://www.colorhexa.com
 # Terminal and neovim background
@@ -43,26 +44,26 @@ linkarzu_color10=#0D1116
 # Lualine across, 1 color to the right of background
 linkarzu_color17=#141b22
 # Markdown codeblock, 2 to the right of background
-linkarzu_color07=#141b22
+linkarzu_color07=#1c242f
 # Background of inactive tmux pane, 3 to the right of background
 linkarzu_color25=#232e3b
 # line across cursor, 5 to the right of background
-linkarzu_color13=#232e3b
+linkarzu_color13=#314154
 # Tmux inactive windows, 7 colors to the right of background
 linkarzu_color15=#013e4a
 
 # Comments
-linkarzu_color09=#b7bfce
-# Underline spellbad
-linkarzu_color11=#f16c75
-# Underline spellcap
-linkarzu_color12=#f1fc79
+linkarzu_color09=#a5afc2
+# Underline spellbad, color02 7 tones to the left in colorhexa
+linkarzu_color11=#026072
+# Underline spellcap, color04 7 tones to the left in colorhexa
+linkarzu_color12=#089954
 # Cursor and tmux windows text
-linkarzu_color14=#ffffff
+linkarzu_color14=#ebfafa
 # Selected text
-linkarzu_color16=#e9b3fd
-# Cursor color
-linkarzu_color24=#f94dff
+linkarzu_color16=#ccfce5
+# Cursor color, color04 9 tones to the left in colorhexa
+linkarzu_color24=#06743f
 
 # Wallpaper for this colorscheme
-wallpaper="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Images/wallpapers/official/skyrim-dragon-4.webp"
+wallpaper="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Images/wallpapers/official/minty-lemon.jpg"

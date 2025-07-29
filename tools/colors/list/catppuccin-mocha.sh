@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-# Filename: ~/github/dotfiles-latest/colorscheme/list/darkppuccin.sh
-# ~/github/dotfiles-latest/colorscheme/list/darkppuccin.sh
-
-# These files have to be executable
+# Filename: ~/.dotfiles/colors/list/catppuccin-mocha.sh
+# ~/.dotfiles/colors/list/catppuccin-mocha.sh
 
 # Lighter markdown headings
 # 4 colors to the right for these ligher headings
@@ -27,7 +25,7 @@ linkarzu_color22="#6c7298"
 linkarzu_color23="#966b51"
 # Markdown heading foreground
 # usually set to color10 which is the terminal background
-linkarzu_color26=#161622
+linkarzu_color26=#1e1e2e
 
 # Mauve
 linkarzu_color04="#cba6f7"
@@ -45,13 +43,13 @@ linkarzu_color08="#fab387"
 linkarzu_color06="#74c7ec"
 # Surface 0
 # Markdown codeblock
-linkarzu_color07="#26263a"
+linkarzu_color07="#313244"
 # Subtext0
 # Comments
 linkarzu_color09="#a6adc8"
 # Base
 # Terminal and neovim background
-linkarzu_color10="#161622"
+linkarzu_color10="#1e1e2e"
 # Red
 # Underline spellbad
 linkarzu_color11="#f38ba8"
@@ -60,18 +58,18 @@ linkarzu_color11="#f38ba8"
 linkarzu_color12="#f9e2af"
 # Surface2
 # line across cursor
-linkarzu_color13="#3d3d5d"
+linkarzu_color13="#585b70"
 # Text
 # Cursor and tmux windows text
 linkarzu_color14="#cdd6f4"
 # Surface1
-# Tmux inactive windows (7 colors to the right)
+# Tmux inactive windows
 linkarzu_color15="#314430"
 # Flamingo
 # Selected text
 linkarzu_color16="#f2cdcd"
 # Lualine across
-linkarzu_color17="#1e1e2e"
+linkarzu_color17="#313244"
 # Cursor color
 linkarzu_color24="#F712FF"
 # https://www.colorhexa.com/1e1e2e
