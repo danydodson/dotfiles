@@ -2,17 +2,21 @@
     link:
       create: true
       relink: true
+
     brewfile:
       no-upgrade: true
-      include: ["tap", "brew", "cask", "mas"]
       stdout: true
       stderr: true
+      include: ["tap", "brew", "cask", "mas"]
 
 - clean:
     ~/:
       force: true
     ~/.config:
       recursive: true
+
+- plugins:
+    - plugins/dotbot-brewfile/
 
 - brewfile:
     file: macos/brewfile
@@ -138,7 +142,6 @@
       relink: true
       force: true
       path: config/codium/snippets/*
-
 - create:
     - ~/.cache/zsh
     - ~/Developer/plugins
