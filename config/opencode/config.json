@@ -1,4 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "mistral/codestral-latest"
+  "theme": "one-dark",
+  "model": "mistral/codestral-latest",
+  "keybinds": {}
 }
