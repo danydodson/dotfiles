@@ -1,8 +1,0 @@
-# Installing dependencies:
-
-- brewfile:
-      file: macos/brewfile
-      no-upgrade: true
-      stdout: true
-      stderr: true
-      include: ["cask", "mas"]

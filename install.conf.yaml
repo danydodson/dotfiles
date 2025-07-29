@@ -2,12 +2,20 @@
     link:
       create: true
       relink: true
+    brewfile:
+      no-upgrade: true
+      include: ["tap", "brew", "cask", "mas"]
+      stdout: true
+      stderr: true
 
 - clean:
     ~/:
       force: true
     ~/.config:
       recursive: true
+
+- brewfile:
+    file: macos/brewfile
 
 - link:
     ~/.zshrc:

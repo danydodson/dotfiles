@@ -7,7 +7,6 @@ tap "koekeishiya/formulae"
 tap "opencode-ai/tap"
 tap "oven-sh/bun"
 tap "rigellute/tap"
-tap "sst/tap"
 # Library for command-line editing
 brew "readline"
 # Command-line interface for SQLite
@@ -62,6 +61,8 @@ brew "flyctl"
 brew "fortune"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# Command-line downloader for image-hosting site galleries and collections
+brew "gallery-dl"
 # GNU awk utility
 brew "gawk"
 # GNU compiler collection
@@ -184,6 +185,10 @@ brew "tmux"
 brew "transmission-cli"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Incremental parsing library
+brew "tree-sitter"
+# Parser generator tool
+brew "tree-sitter-cli"
 # Digital clock in ncurses
 brew "tty-clock"
 # Language for application scale JavaScript development
@@ -224,10 +229,9 @@ brew "koekeishiya/formulae/krp"
 brew "koekeishiya/formulae/skhd"
 # A tiling window manager for macOS based on binary space partitioning.
 brew "koekeishiya/formulae/yabai"
+brew "opencode-ai/tap/opencode"
 # A terminal user interface for Spotify
 brew "rigellute/tap/spotify-tui"
-# The AI coding agent built for the terminal.
-brew "sst/tap/opencode"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Command-line interface for 1Password
@@ -315,7 +319,6 @@ mas "Unsplash Wallpapers", id: 1284863847
 mas "Xcode", id: 497799835
 vscode "1password.op-vscode"
 vscode "adamraichu.font-viewer"
-vscode "alexcvzz.vscode-sqlite"
 vscode "andrewbutson.vscode-openai"
 vscode "astro-build.astro-vscode"
 vscode "asvetliakov.vscode-neovim"
@@ -333,7 +336,6 @@ vscode "emilast.logfilehighlighter"
 vscode "esbenp.prettier-vscode"
 vscode "fogio.inline-go-struct-tags-syntax-highlight"
 vscode "formulahendry.code-runner"
-vscode "foxundermoon.shell-format"
 vscode "furkanozalp.go-syntax"
 vscode "golang.go"
 vscode "hangxingliu.vscode-nginx-conf-hint"
@@ -365,7 +367,6 @@ vscode "redhat.vscode-yaml"
 vscode "ritwickdey.liveserver"
 vscode "rogalmic.bash-debug"
 vscode "slevesque.shader"
-vscode "soerenuhrbach.vscode-deepl"
 vscode "solomonkinard.chrome-extension-api"
 vscode "solomonkinard.chrome-extensions"
 vscode "sumneko.lua"
@@ -380,6 +381,5 @@ vscode "wabiloo.m3u8-hls-vscode"
 vscode "xabikos.javascriptsnippets"
 vscode "xadillax.viml"
 vscode "xaver.clang-format"
-vscode "zhang-renyang.chat-gpt"
 vscode "zhuangtongfa.material-theme"
 vscode "ziglang.vscode-zig"
