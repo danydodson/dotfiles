@@ -2,7 +2,7 @@
 
 # Gets macOS software, Homebrew and npm updates and cleans trash and logs.
 
-. "$HOME/.dotfiles/reports/pretty-dots.sh"
+. "$HOME/.dotfiles/reports/feedback.sh"
 
 trap on_error SIGTERM
 

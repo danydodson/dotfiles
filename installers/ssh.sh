@@ -2,7 +2,7 @@
 
 # Installs yazi plugins
 
-. "$HOME/.dotfiles/reports/pretty-dots.sh"
+. "$HOME/.dotfiles/reports/feedback.sh"
 
 set -e
 trap on_error SIGTERM
@@ -19,8 +19,6 @@ setup_ssh() {
     if [ ! -f ~/.ssh/authorized_keys ]; then
         touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
     fi
-
-    finish
 }
 
 main() {

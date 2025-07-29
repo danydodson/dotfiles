@@ -2,7 +2,7 @@
 
 # Installs nvim
 
-source "$HOME/.dotfiles/reports/pretty-dots.sh"
+source "$HOME/.dotfiles/reports/feedback.sh"
 
 set -e
 trap on_error SIGTERM

@@ -2,7 +2,7 @@
 
 # Clones github repos
 
-. "$HOME/.dotfiles/reports/pretty-dots.sh"
+. "$HOME/.dotfiles/reports/feedback.sh"
 
 set -e
 trap on_error SIGTERM
@@ -19,8 +19,6 @@ install_repos() {
     cd ~/Developer/repos
     info "Getting $GH_USER's github repos..."
     curl "https://api.github.com/users/$GH_USER/repos?page=$PAGE&per_page=5" | grep -F 'clone_url' | cut -d \" -f 4 | xargs -L1 git clone --recursive
-
-    finish
 }
 
 main() {

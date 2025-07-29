@@ -2,7 +2,7 @@
 
 # Installs tmux and plugins
 
-. "$HOME/.dotfiles/reports/pretty-dots.sh"
+. "$HOME/.dotfiles/reports/feedback.sh"
 
 set -e
 trap on_error SIGTERM
@@ -23,8 +23,6 @@ install_tmux() {
         ;;
     *) ;;
     esac
-
-    finish
 }
 
 install_tmux_plugins() {
@@ -59,8 +57,6 @@ install_tmux_plugins() {
     fi
 
     info "to finish the installation, install all plugins with <prefix> + I in tmux."
-
-    finish
 }
 
 main() {

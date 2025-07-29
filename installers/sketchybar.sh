@@ -2,7 +2,7 @@
 
 # Installs sketchybar
 
-. "$HOME/.dotfiles/reports/pretty-dots.sh"
+. "$HOME/.dotfiles/reports/feedback.sh"
 
 set -e
 trap on_error SIGTERM

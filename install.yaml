@@ -3,23 +3,11 @@
       create: true
       relink: true
 
-    brewfile:
-      no-upgrade: true
-      stdout: true
-      stderr: true
-      include: ["tap", "brew", "cask", "mas"]
-
 - clean:
     ~/:
       force: true
     ~/.config:
       recursive: true
-
-- plugins:
-    - plugins/dotbot-brewfile/
-
-- brewfile:
-    file: macos/brewfile
 
 - link:
     ~/.zshrc:
@@ -71,8 +59,6 @@
           config/gnupg,
           config/iina,
           config/lscolors,
-          config/mpv-con,
-          config/spotify-player,
           config/ssh,
           config/starship,
           config/tmux,
@@ -142,6 +128,7 @@
       relink: true
       force: true
       path: config/codium/snippets/*
+
 - create:
     - ~/.cache/zsh
     - ~/Developer/plugins
@@ -149,26 +136,26 @@
     - ~/Developer/served
 
 - shell:
-    - description: update submodules --------
+    - description: update submodules
       command: git submodule update --init --recursive
 
-    - description: sync dotbot --------------
+    - description: sync dotbot
       command: git submodule sync --recursive
 
-    - description: create hushlogin ---------
+    - description: create hushlogin
       command: touch ~/.hushlogin
 
-    - description: setup codium -------------
+    - description: setup codium
       command: ./installers/codium.sh
 
-    - description: setup conda --------------
+    - description: setup conda
       command: ./installers/conda.sh
 
-    - description: setup go -----------------
+    - description: setup go
       command: ./installers/go.sh
 
-    - description: setup ssh ----------------
+    - description: setup ssh
       command: ./installers/ssh.sh
 
-    - description: setup tmux ---------------
+    - description: setup tmux
       command: ./installers/tmux.sh

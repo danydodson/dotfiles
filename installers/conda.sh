@@ -2,7 +2,7 @@
 
 # Installs pyenv, python, and pips
 
-. "$HOME/.dotfiles/reports/pretty-dots.sh"
+. "$HOME/.dotfiles/reports/feedback.sh"
 
 set -e
 trap on_error SIGTERM
@@ -38,8 +38,6 @@ install_miniconda() {
 
         echo
     fi
-
-    finish
 }
 
 main() {

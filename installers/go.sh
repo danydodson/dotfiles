@@ -2,7 +2,7 @@
 
 # Installs go packages
 
-. "$HOME/.dotfiles/reports/pretty-dots.sh"
+. "$HOME/.dotfiles/reports/feedback.sh"
 
 set -e
 trap on_error SIGTERM
@@ -41,13 +41,9 @@ function install_go_packages() {
         if ! which gotestsum >/dev/null 2>&1; then
             go install gotest.tools/gotestsum@latest
         fi
-
-        echo
     else
         error "Error: go is not available"
     fi
-
-    finish
 }
 
 main() {

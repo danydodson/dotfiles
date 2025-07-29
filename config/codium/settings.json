@@ -7,7 +7,7 @@
   // 
   "redhat.telemetry.enabled": false,
   // 
-  "continue.enableTabAutocomplete": true,
+  "continue.enableTabAutocomplete": false,
   // "continue.remoteConfigSyncPeriod": 60,
   "continue.telemetryEnabled": false,
   "continue.enableConsole": false,

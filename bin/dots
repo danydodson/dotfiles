@@ -2,7 +2,7 @@
 
 # Gets macOS software, Homebrew and npm updates and cleans trash and logs.
 
-. "$HOME/.dotfiles/reports/pretty-dots.sh"
+. "$HOME/.dotfiles/reports/feedback.sh"
 
 BIN_NAME=$(basename "$0")
 COMMAND_NAME=$1
@@ -12,28 +12,33 @@ sub_help() {
   echo "Usage: $BIN_NAME <command>"
   echo
   echo "Commands:"
-  echo "   clean            Clean up caches (brew, cargo, gem, pip) and empty"
+  echo "   clean            Clean up caches (brew) and empty trash"
+  echo "   nvim             Clean up nvim caches"
   echo "   dock             Apply macOS Dock settings"
   echo "   duti             Set default apps for file types (UTI)"
   echo "   edit             Open dotfiles in IDE ($VISUAL) and Git GUI ($VISUAL_GIT)"
   echo "   help             This help message"
   echo "   macos            Apply macOS system defaults"
-  echo "   test             Run tests"
   echo "   update           Update packages and pkg managers (macOS, brew, casks, npm, yarn, cargo, pip3, gems)"
 }
 
 sub_clean() {
   info "$ brew cleanup..."
   brew cleanup --prune=all --scrub
-  # info "$ nvim cleanup..."
-  # rm -rf "${HOME}/.local/state/nvim"
-  # find "${HOME}/.local/share/nvim" -mindepth 1 -maxdepth 1 ! -name "dadbod_ui" -exec rm -rf {} +
-  # rm -rf "${HOME}/.cache/nvim"
-  # info "$ pip cache purge..."
-  # pip cache purge
-  # info "$ emptying trash..."
-  # command rm -rfv ~/.Trash/*
-  # command rm -rfv /Volumes/*/.Trashes
+
+  info "$ emptying trash..."
+  command rm -rfv ~/.Trash/*
+  command rm -rfv /Volumes/*/.Trashes
+
+  on_finish
+}
+
+sub_nvim() {
+  info "$ nvim cleanup..."
+  rm -rf "${HOME}/.cache/nvim"
+  rm -rf "${HOME}/.local/state/nvim"
+  find "${HOME}/.local/share/nvim" -mindepth 1 -maxdepth 1 ! -name "dadbod_ui" -exec rm -rf {} +
+
   on_finish
 }
 
@@ -41,27 +46,27 @@ function sub_update() {
   sudo -v
   info "$ softwareupdate..."
   sudo softwareupdate -i -a
+
   info "$ brew update..."
   brew update
   brew upgrade
+
   info "$ npm global update..."
   npm update -g
+
   on_finish
 }
 
 sub_edit() {
   sh -c "$VISUAL $DOTFILES"
   sh -c "$VISUAL_GIT $DOTFILES"
-  finish
-}
 
-sub_test() {
-  bats "$DOTFILES"/tools/tests/*.bats
   finish
 }
 
 sub_duti() {
   "${DOTFILES}/macos/duti.sh"
+
   finish
 }
 
@@ -69,12 +74,15 @@ sub_macos() {
   for DEFAULTS_FILE in "${DOTFILES}"/macos/defaults*.sh; do
     info "applying ${DEFAULTS_FILE}" && . "${DEFAULTS_FILE}"
   done
+
   info "done. some changes may require a logout/restart to take effect..."
+
   on_finish
 }
 
 sub_dock() {
   . "${DOTFILES}/macos/dock.sh" && info "dock reloaded..."
+
   on_finish
 }
 

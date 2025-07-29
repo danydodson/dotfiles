@@ -2,7 +2,7 @@
 
 # Yabai helper commands
 
-. "$HOME/.dotfiles/reports/pretty-dots.sh"
+. "$HOME/.dotfiles/reports/feedback.sh"
 
 # function: show help
 help() {

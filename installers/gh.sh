@@ -2,7 +2,7 @@
 
 # Sets up gh cli tool.
 
-. "$HOME/.dotfiles/reports/pretty-dots.sh"
+. "$HOME/.dotfiles/reports/feedback.sh"
 
 set -e
 trap on_error SIGTERM
@@ -25,8 +25,6 @@ function setup_gh_tool() {
     else
         error "Error: gh is not available"
     fi
-    
-    finish
 }
 
 main() {

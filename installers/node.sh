@@ -2,7 +2,7 @@
 
 # Installs nvm, node lts, and global packages
 
-. "$HOME/.dotfiles/reports/pretty-dots.sh"
+. "$HOME/.dotfiles/reports/feedback.sh"
 
 set -e
 trap on_error SIGTERM
@@ -25,8 +25,6 @@ function install_node_with_nvm() {
     else
         error "Error: nvm is not available"
     fi
-    
-    finish
 }
 
 function install_npm_deps() {
@@ -44,7 +42,6 @@ function install_npm_deps() {
     else
         error "Error: npm is not available"
     fi
-    finish
 }
 
 main() {

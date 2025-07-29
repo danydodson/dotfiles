@@ -7,7 +7,7 @@
 # > tracks <torrent-id-number>
 # > cat /some/path/trackers.txt # returns a static list
 
-. "$HOME/.dotfiles/reports/pretty-dots.sh"
+. "$HOME/.dotfiles/reports/feedback.sh"
 
 LIVE_TRACKERS_LIST_CMD='curl -fs --url https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt'
 

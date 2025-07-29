@@ -7,7 +7,6 @@
   },
   "files.associations": {
     "**/bin/*": "shellscript",
-    "**/bin/colortest": "perl",
     "**/system/*": "shellscript",
     "**/bin/jwt-pem.py": "python",
     "**/config/ghostty/config": "inputrc",
