@@ -1,3 +1,7 @@
+#!/usr/bin/env bash
+
+# Variables used in dotfiles and scripts
+
 boldGreen="\033[1;32m"
 boldYellow="\033[1;33m"
 boldRed="\033[1;31m"

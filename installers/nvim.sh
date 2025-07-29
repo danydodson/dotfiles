@@ -2,7 +2,7 @@
 
 # Installs nvim
 
-source "$HOME/.dotfiles/tools/reports.sh"
+source "$HOME/.dotfiles/tools/shell-reports/dot-reports.sh"
 
 set -e
 trap on_error SIGTERM

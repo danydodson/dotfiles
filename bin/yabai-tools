@@ -2,7 +2,7 @@
 
 # Yabai helper commands
 
-. "$HOME/.dotfiles/tools/reports.sh"
+. "$HOME/.dotfiles/tools/shell-reports/dot-reports.sh"
 
 # function: show help
 help() {

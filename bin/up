@@ -2,7 +2,7 @@
 
 # Gets macOS software, Homebrew and npm updates and cleans trash and logs.
 
-. "$HOME/.dotfiles/tools/reports.sh"
+. "$HOME/.dotfiles/tools/shell-reports/dot-reports.sh"
 
 trap on_error SIGTERM
 

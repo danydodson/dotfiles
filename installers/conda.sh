@@ -2,7 +2,7 @@
 
 # Installs pyenv, python, and pips
 
-. "$HOME/.dotfiles/tools/reports.sh"
+. "$HOME/.dotfiles/tools/shell-reports/dot-reports.sh"
 
 set -e
 trap on_error SIGTERM
