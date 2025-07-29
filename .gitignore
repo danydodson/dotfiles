@@ -10,4 +10,4 @@ Icon
 */**/shaders/cache
 */**/shaders/cfl/CfL_Prediction_Test.glsl
 *.netrwhist
-_/
+zz-extras

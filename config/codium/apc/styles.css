@@ -19,6 +19,24 @@ div.sc-eBMEME.iovIio {
   color: #787c99 !important;
 }
 
+/* right sidebar extension icons */
+.monaco-workbench .pane-composite-part>.header-or-footer>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item.icon,
+.monaco-workbench .pane-composite-part>.title>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item.icon {
+  padding: 0 7px;
+  opacity: 0.7;
+}
+
+/* right sidebar active extension indicator */
+.monaco-workbench .pane-composite-part>.header-or-footer>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item.icon .active-item-indicator,
+.monaco-workbench .pane-composite-part>.title>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item.icon .active-item-indicator {
+  display: none !important;
+}
+
+/* right sidebar extension container */
+.no-custom-title-bar-visibility div.monaco-workbench .has-composite-bar {
+  padding-left: calc(var(--traffic-X) + 9px) !important;
+}
+
 /* .monaco-workbench .part.sidebar>.title {
   max-height: 24px !important;
   margin-bottom: 12px !important;
