@@ -13,7 +13,7 @@
   "continue.enableConsole": false,
   "continue.enableQuickActions": false,
   "continue.pauseCodebaseIndexOnStart": false,
-  "continue.showInlineTip": true,
+  "continue.showInlineTip": false,
   // "continue.disableQuickFix": false,
   // 
   "code-runner.enableAppInsights": false,
