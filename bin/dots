@@ -56,7 +56,7 @@ sub_edit() {
 }
 
 sub_test() {
-  bats "$DOTFILES"/test/*.bats
+  bats "$DOTFILES"/tools/tests/*.bats
   finish
 }
 
