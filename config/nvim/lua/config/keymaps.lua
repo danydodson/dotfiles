@@ -43,7 +43,7 @@ map('v', '>', '>gv', { desc = 'indent right' })
 -- line controls
 map('n', '<S-k>', '<cmd>m .-2<cr>==', { desc = 'move up' })
 map('n', '<S-j>', '<cmd>m .+1<cr>==', { desc = 'move down' })
-map('i', '<S-j>', '<esc><cmd>m .+1<cr>==gi', { desc = 'move down' })
+
 map('i', '<S-k>', '<esc><cmd>m .-2<cr>==gi', { desc = 'move up' })
 map('v', '<S-j>', ":m '>+1<cr>gv=gv", { desc = 'move down' })
 map('v', '<S-k>', ":m '<-2<cr>gv=gv", { desc = 'move up' })
@@ -60,9 +60,9 @@ map('n', '<C-m>', require('smart-splits').resize_right, { noremap = true, desc =
 
 -- tab life
 map('n', '<leader><tab><tab>', '<cmd>tabnew<cr>', { desc = 'new tab' })
-map('n', '<leader><tab>c', '<cmd>tabclose<cr>', { desc = 'close tab' })
-map('n', '<leader><tab>n', '<cmd>tabnext<cr>', { desc = 'next tab' })
-map('n', '<leader><tab>p', '<cmd>tabprevious<cr>', { desc = 'previous tab' })
+map('n', '<leader><tab>x', '<cmd>tabclose<cr>', { desc = 'close tab' })
+map('n', '<leader><tab>m', '<cmd>tabnext<cr>', { desc = 'next tab' })
+map('n', '<leader><tab>n', '<cmd>tabprevious<cr>', { desc = 'previous tab' })
 
 -- window life
 map('n', '<leader>up', '<c-w>', { remap = true, desc = 'windows' })

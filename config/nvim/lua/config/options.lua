@@ -100,7 +100,7 @@ vim.g.semantic_tokens_enabled = true -- Enable semantic tokens
 vim.g.loaded_node_provider = 0 -- Disable node provider
 vim.g.loaded_perl_provider = 0 -- Disable Perl provider
 vim.g.loaded_ruby_provider = 0 -- Disable Ruby provider
-vim.g.python3_host_prog = vim.fn.exepath 'python3' -- Set Python 3 provider path
+vim.g.python3_host_prog = "/Users/stache/.config/miniconda3/bin/python" -- Set Python 3 provider
 
 -- Add LuaRocks paths to package.path
 -- package.path = package.path .. ';' .. vim.fn.expand '$HOME' .. '/.luarocks/share/lua/5.1/?/init.lua;'

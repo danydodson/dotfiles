@@ -123,7 +123,8 @@ palette = 19=#3e4451
 palette = 20=#565c64
 palette = 21=#b6bdca
 
-background = #1e2127
+background = #1f2328
+# background = #1e2127
 foreground = #abb2bf
 selection-background = #4f5666
 selection-foreground = #abb2bf

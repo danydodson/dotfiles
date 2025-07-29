@@ -47,7 +47,5 @@ export FZF_CTRL_T_OPTS="--header='Directories' --walker=dir,hidden,follow --prev
 # fzf file search
 export FZF_ALT_C_OPTS="--header='Files' --walker=file --preview='bat -n --color=always {}' --bind='enter:execute(nvim {} +1)'"
 
-# load completions
-zcompdump="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
-autoload -Uz compinit
-compinit -d $zcompdump
+# zoxide
+eval "$(zoxide init zsh)"

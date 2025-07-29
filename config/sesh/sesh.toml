@@ -1,7 +1,32 @@
 [[session]]
-name = "Downloads"
+name = "working"
+preview_command = "ls"
+windows = [ "nvim", "dotfiles" ]
+
+[[session]]
+name = "torrents"
+preview_command = "ls"
+windows = [ "dotfiles" ]
+
+[[session]]
+name = "downloads"
 path = "~/Downloads"
-startup_command = "ls"
+preview_command = "ls"
+
+[[session]]
+name = "repos"
+path = "~/Developer/repos"
+preview_command = "ls"
+
+[[session]]
+name = "plugins"
+path = "~/Developer/plugins"
+preview_command = "ls"
+
+[[session]]
+name = "served"
+path = "~/Developer/served"
+preview_command = "ls"
 
 [[session]]
 name = "tmux config"
@@ -10,13 +35,31 @@ startup_command = "v tmux.conf"
 preview_command = "bat --color=always ~/.dotfiles/config/tmux/tmux.conf"
 
 [[session]]
+name = "ssh config"
+path = "~/.ssh"
+startup_command = "v config"
+preview_command = "bat --color=always ~/.ssh/config"
+
+[[session]]
 name = "sesh config"
 path = "~/.dotfiles/config/sesh"
 startup_command = "v sesh.toml"
 preview_command = "bat --color=always ~/.dotfiles/config/sesh/sesh.toml"
 
 [[session]]
-name = "neovim keymaps"
+name = "nvim keymaps"
 path = "~/.dotfiles/config/nvim/lua/config"
 startup_command = "v keymaps.lua"
 preview_command = "bat --color=always ~/.dotfiles/config/nvim/lua/config/keymaps.lua"
+
+[[window]]
+name = "dotfiles"
+path = "~/.dotfiles"
+
+[[window]]
+name = "nvim"
+path = "~/.config/nvim"
+
+[[window]]
+name = "torrents"
+path = "~/Downloads"

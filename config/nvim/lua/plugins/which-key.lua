@@ -27,6 +27,7 @@ return {
         { '<leader>h', group = 'harpoon' },
         { '<leader>l', group = 'lazy' },
         { '<leader>m', group = 'markdown' },
+        { '<leader>o', group = 'opencode' },
         { '<leader>p', group = 'projects' },
         { '<leader>s', group = 'sessions' },
         { '<leader>t', group = 'toggle' },

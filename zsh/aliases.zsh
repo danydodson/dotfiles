@@ -13,7 +13,7 @@ alias tk="tmux kill-session"
 alias td="tmux detach"
 bindkey -s ^p "tms\n"
 bindkey -s ^w "tmux new\n"
-bindkey -s ^o "tmux attach -t main_session\n"
+bindkey -s ^o "tmux attach -t working\n"
 bindkey '^s' vicmd '^s' sesh-sessions
 bindkey '^s' viins '^s' sesh-sessions
 
@@ -77,8 +77,7 @@ alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
 
 # edit in nvim
-alias dotconf="cd $DOTFILES && nvim"
-alias nvconf="cd $DOTFILES/config/nvim && nvim"
+alias dotcon="cd $DOTFILES && nvim"
 
 # list global pkgs
 alias lsg_npm="npm ls -g --depth 0"
@@ -144,6 +143,13 @@ sesh-sessions() {
         --ansi \
         --border \
         --prompt '⚡' \
+        --header '' \
+        --bind 'tab:down,btab:up' \
+        --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list --icons)' \
+        --bind 'ctrl-t:change-prompt(   )+reload(sesh list -t --icons)' \
+        --bind 'ctrl-c:change-prompt(⛭  )+reload(sesh list -c --icons)' \
+        --bind 'ctrl-z:change-prompt(  )+reload(sesh list -z --icons)' \
+        --bind 'ctrl-f:change-prompt(  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
         --preview 'sesh preview {}'
     )
     zle reset-prompt > /dev/null 2>&1 || true
@@ -191,8 +197,8 @@ macos_paths() {
   local yellow="\e[0;93m"
   local red="\e[31m"
   local reset="\e[0m"
-  
-  local macos_path 
+
+  local macos_path
   macos_path=$(launchctl getenv PATH)
 
   for dir in ${(s.:.)PATH}; do
