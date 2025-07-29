@@ -5,7 +5,7 @@ setopt noglobalrcs
 export DOTFILES=$HOME/.dotfiles
 
 export VISUAL="codium"
-export EDITOR="ghostty nvim"
+export EDITOR="nvim"
 export PAGER="less -RF"
 export BROWSER="Twilight"
 export LESSHISTFILE="-"
