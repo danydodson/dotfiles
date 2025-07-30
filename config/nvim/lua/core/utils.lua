@@ -201,8 +201,8 @@ function M.trigger_event(event, is_urgent)
   end
 end
 
---- convert a path to the path format of the current operative system.
---- it converts 'slash' to 'inverted slash' if on windows, and vice versa on UNIX.
+-- convert a path to the path format of the current operative system.
+-- it converts 'slash' to 'inverted slash' if on windows, and vice versa on UNIX.
 function M.os_path(path)
   if path == nil then
     return nil

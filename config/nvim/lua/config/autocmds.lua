@@ -113,7 +113,7 @@ autocmd({ 'InsertEnter', 'WinLeave' }, {
   end,
 })
 
--- fix conceallevel for json files
+-- fix conceal level for json files
 autocmd({ 'FileType' }, {
   group = augroup 'json_conceal',
   pattern = { 'json', 'jsonc', 'json5' },

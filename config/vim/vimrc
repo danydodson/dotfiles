@@ -43,6 +43,8 @@ set term=xterm-256color
 filetype plugin indent on
 set termguicolors
 
+"  autocmd BufRead,BufNewFile .tmux.conf*,tmux.conf*,*/.tmux/*.conf set filetype=tmux
+
 " Make Vim more useful
 set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)

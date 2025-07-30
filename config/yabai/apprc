@@ -64,7 +64,6 @@ done
 
 # space 2
 SPACE2=(
-    VSCodium
     Ghostty
 )
 
@@ -74,7 +73,7 @@ done
 
 # space 3
 SPACE3=(
-    Brave Browser
+    VSCodium
 )
 
 for ((i = 1; i <= "${#SPACE3[@]}"; i++)); do
@@ -83,6 +82,7 @@ done
 
 # space 4
 SPACE4=(
+    Brave Browser
     Discord
     IINA
     mpv

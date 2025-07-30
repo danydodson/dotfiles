@@ -8,13 +8,12 @@
   "redhat.telemetry.enabled": false,
   // 
   "continue.enableTabAutocomplete": false,
-  // "continue.remoteConfigSyncPeriod": 60,
   "continue.telemetryEnabled": false,
-  "continue.enableConsole": false,
-  "continue.enableQuickActions": false,
+  "continue.enableConsole": true,
+  "continue.enableQuickActions": true,
   "continue.pauseCodebaseIndexOnStart": false,
-  "continue.showInlineTip": false,
-  // "continue.disableQuickFix": false,
+  "continue.showInlineTip": true,
+  "continue.disableQuickFix": false,
   // 
   "code-runner.enableAppInsights": false,
   // 
@@ -259,7 +258,7 @@
     "breadcrumbs.showArrays": true
   },
   "yaml.schemas": {
-    "/Applications/codium-portable-data/extensions/continue.continue-1.0.19-darwin-arm64/config-yaml-schema.json": [
+    "/Applications/codium-portable-data/extensions/continue.continue-1.1.71-darwin-arm64/config-yaml-schema.json": [
       ".continue/**/*.yaml"
     ]
   },
@@ -449,4 +448,5 @@
   // "diffEditor.codeLens": true,
   "workbench.editor.tabSizing": "shrink",
   "editor.hover.delay": 900,
+  "workbench.statusBar.visible": false,
 }

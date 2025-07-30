@@ -1,7 +1,6 @@
 [[session]]
 name = "working"
 preview_command = "ls"
-windows = [ "nvim", "dotfiles" ]
 
 [[session]]
 name = "torrents"
@@ -61,5 +60,10 @@ name = "nvim"
 path = "~/.config/nvim"
 
 [[window]]
+name = "home"
+path = "~/"
+
+[[window]]
 name = "torrents"
 path = "~/Downloads"
+
