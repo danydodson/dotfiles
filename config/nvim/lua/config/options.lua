@@ -27,7 +27,7 @@ vim.opt.completeopt = 'menuone,noselect' -- Completion options: show menu even f
 
 vim.opt.modeline = true
 vim.opt.modelines = 5
-vim.opt.showmode = true -- Show current mode in command line
+vim.opt.showmode = false -- Duplicates what a statusline plugin does so disabled
 vim.opt.ruler = false -- Don't show cursor position in command line
 vim.opt.showcmd = false -- Don't show partial commands in command line
 
@@ -54,7 +54,7 @@ vim.opt.scrolloff = 10 -- Keep 10 lines above/below cursor when scrolling
 vim.opt.smoothscroll = true -- Enable smooth scrolling
 
 vim.opt.conceallevel = 0 -- Don't hide/conceal any text
-vim.opt.autochdir = true -- Automatically change directory to current file
+-- vim.opt.autochdir = true -- Automatically change directory to current file
 vim.opt.inccommand = 'nosplit' -- Show effects of substitution in real time without split
 vim.opt.clipboard = 'unnamedplus' -- Use system clipboard for all operations
 

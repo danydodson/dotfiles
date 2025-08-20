@@ -77,7 +77,7 @@ alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
 
 # edit in nvim
-alias dotcon="cd $DOTFILES && nvim"
+alias dot="cd $DOTFILES && nvim"
 
 # list global pkgs
 alias lsg_npm="npm ls -g --depth 0"

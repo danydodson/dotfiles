@@ -11,7 +11,7 @@ local is_available = utils.is_available
 -- don't auto comment new line
 autocmd({ 'FileType' }, {
   desc = 'Disables auto commenting next line',
-  pattern = '*',
+  -- pattern = '*',
   callback = function()
     vim.cmd 'set formatoptions-=cro'
   end,
@@ -122,20 +122,6 @@ autocmd({ 'FileType' }, {
   end,
 })
 
--- autocmd to show diagnostics on cursorhold
-autocmd('CursorHold', {
-  desc = 'lsp show diagnostics on CursorHold',
-  callback = function()
-    local hover_opts = {
-      focusable = false,
-      close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter', 'FocusLost' },
-      border = 'rounded',
-      source = 'always',
-    }
-    vim.diagnostic.open_float(nil, hover_opts)
-  end,
-})
-
 -- code folding type depends on file
 autocmd({ 'FileType' }, {
   callback = function()
@@ -199,10 +185,10 @@ if is_available 'alpha-nvim' then
           -- showtabline = vim.opt.showtabline:get(),
           laststatus = vim.opt.laststatus:get(),
         }
-        vim.opt.showtabline, vim.opt.laststatus = 0, 0
+        -- vim.opt.showtabline, vim.opt.laststatus = 0, 0
       elseif vim.g.before_alpha and args.event == 'BufEnter' and not is_empty_file then
         vim.opt.laststatus = vim.g.before_alpha.laststatus
-        vim.opt.showtabline = vim.g.before_alpha.showtabline
+        -- vim.opt.showtabline = vim.g.before_alpha.showtabline
         vim.g.before_alpha = nil
       end
     end,

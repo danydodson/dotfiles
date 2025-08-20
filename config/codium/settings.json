@@ -448,5 +448,4 @@
   // "diffEditor.codeLens": true,
   "workbench.editor.tabSizing": "shrink",
   "editor.hover.delay": 900,
-  "workbench.statusBar.visible": false,
 }

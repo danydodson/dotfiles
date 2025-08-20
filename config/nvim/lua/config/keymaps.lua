@@ -49,14 +49,14 @@ map('v', '<S-j>', ":m '>+1<cr>gv=gv", { desc = 'move down' })
 map('v', '<S-k>', ":m '<-2<cr>gv=gv", { desc = 'move up' })
 
 -- buffer life
-map('n', '<leader>bn', '<cmd>enew<cr>', { remap = true, desc = 'new buffer' })
-map('n', '<leader>bd', '<cmd>bd %<cr>', { remap = true, desc = 'delete buffer' })
+map('n', '<leader>bn', '<cmd>enew<cr>', { desc = 'new buffer' })
+map('n', '<leader>bd', '<cmd>bd %<cr>', { desc = 'delete buffer' })
 
 -- window controls
-map('n', '<C-i>', require('smart-splits').resize_up, { noremap = true, desc = 'resize split up' })
-map('n', '<C-u>', require('smart-splits').resize_down, { noremap = true, desc = 'resize split down' })
-map('n', '<C-n>', require('smart-splits').resize_left, { noremap = true, desc = 'resize split left' })
-map('n', '<C-m>', require('smart-splits').resize_right, { noremap = true, desc = 'resize split right' })
+-- map('n', '<C-i>', require('smart-splits').resize_up, { noremap = true, desc = 'resize split up' })
+-- map('n', '<C-u>', require('smart-splits').resize_down, { noremap = true, desc = 'resize split down' })
+-- map('n', '<C-n>', require('smart-splits').resize_left, { noremap = true, desc = 'resize split left' })
+-- map('n', '<C-m>', require('smart-splits').resize_right, { noremap = true, desc = 'resize split right' })
 
 -- tab life
 map('n', '<leader><tab><tab>', '<cmd>tabnew<cr>', { desc = 'new tab' })
@@ -71,7 +71,7 @@ map('n', '<leader>u|', '<C-W>v', { remap = true, desc = 'split window right' })
 map('n', '<leader>ud', '<C-W>c', { remap = true, desc = 'delete window' })
 
 -- terminal controls
-map('t', '<C-/>', '<cmd>close<cr>', { silent = true, desc = 'hide terminal' })
+map('t', '<C-?>', '<cmd>close<cr>', { silent = true, desc = 'hide terminal' })
 map('t', '<C-w>', '<c-\\><C-n><C-w>', { silent = true, desc = 'toggle focus' })
 map('t', '<esc>', '<c-\\><c-n>', { silent = true, desc = 'enter normal mode' })
 
