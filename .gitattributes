@@ -1,4 +1,6 @@
 # dont included these in the repository language stats
+*.glsl linguist-vendored
+*.hook linguist-vendored
 */**/shaders/*.glsl linguist-vendored
 */**/shaders/*.hook linguist-vendored
 */**/scripts/* linguist-vendored

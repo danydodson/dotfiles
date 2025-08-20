@@ -5,57 +5,57 @@ yabai -m rule --add app=".*" sub-layer=normal
 
 # above apps
 sub_layer_above=(
-    System Settings
-    System Information
-    System Preferences
+  System Settings
+  System Information
+  System Preferences
 )
 
 for ((i = 1; i <= "${#sub_layer_above[@]}"; i++)); do
-    yabai -m rule --add label="unmanage_${sub_layer_above[(($i - 1))]}" app="^${sub_layer_above[(($i - 1))]}.*$" sub-layer=above
+  yabai -m rule --add label="unmanage_${sub_layer_above[(($i - 1))]}" app="^${sub_layer_above[(($i - 1))]}.*$" sub-layer=above
 done
 
 # floating apps
 unmanaged=(
-    1Password
-    Archive Utility
-    Calculator
-    ChatGPT
-    Contacts
-    Dictionary
-    Downie 4
-    FaceTime
-    Finder
-    GPG Keychain
-    IINA
-    iPhone Mirroring
-    Karabiner-Elements
-    Karabiner-MultitouchExtension
-    Keka
-    Messages
-    mpv
-    Notes
-    Permute 3
-    Photo Booth
-    Preferences
-    Quicktime Player
-    Reminders
-    Source
-    Software Update
-    Stickies
-    Suspicious Package
-    System Settings
-    System Preferences
-    System Information
-    VLC
+  1Password
+  Archive Utility
+  Calculator
+  ChatGPT
+  Contacts
+  Dictionary
+  Downie 4
+  FaceTime
+  Finder
+  GPG Keychain
+  IINA
+  iPhone Mirroring
+  Karabiner-Elements
+  Karabiner-MultitouchExtension
+  Keka
+  Messages
+  mpv
+  Notes
+  Permute 3
+  Photo Booth
+  Preferences
+  Quicktime Player
+  Reminders
+  Source
+  Software Update
+  Stickies
+  Suspicious Package
+  System Settings
+  System Preferences
+  System Information
+  VLC
 )
 
 for ((i = 1; i <= "${#unmanaged[@]}"; i++)); do
-    yabai -m rule --add label="unmanage_${unmanaged[(($i - 1))]}" app="^${unmanaged[(($i - 1))]}.*$" manage=off
+  yabai -m rule --add label="unmanage_${unmanaged[(($i - 1))]}" app="^${unmanaged[(($i - 1))]}.*$" manage=off
 done
 
 # space 1
 SPACE1=(
-    Twilight
+  Twilight
 )
 
 for ((i = 1; i <= "${#SPACE1[@]}"; i++)); do
@@ -64,8 +64,11 @@ done
 
 # space 2
 SPACE2=(
-    Ghostty
-    VSCodium
+  Ghostty
+  VSCodium
+  Postman
+  Docker Desktop
+  Xcode
 )
 
 for ((i = 1; i <= "${#SPACE2[@]}"; i++)); do
@@ -74,7 +77,8 @@ done
 
 # space 3
 SPACE3=(
-    Brave Browser
+  Brave Browser
+  Tor Browser
 )
 
 for ((i = 1; i <= "${#SPACE3[@]}"; i++)); do
@@ -83,20 +87,23 @@ done
 
 # space 4
 SPACE4=(
-    Discord
-    IINA
-    mpv
-    Spotify
-    VLC
+  Calendar
+  Discord
+  IINA
+  Mail
+  mpv
+  Spotify
+  VLC
 )
 
 for ((i = 1; i <= "${#SPACE4[@]}"; i++)); do
   yabai -m rule --add label="space4_${SPACE4[(($i - 1))]}" app="^${SPACE4[(($i - 1))]}.*$" space=^4
 done
 
+yabai -m config --space 2 layout stack
+
 # automatically float non-resizable windows, such as palettes, system settings etc.
 yabai -m signal --add event=window_created action="yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float"
-
 
 # fix for borderless qutebrowser
 yabai -m rule --add app="^qutebrowser$" title!="^$" role="AXWindow" subrole="AXDialog" manage=on
