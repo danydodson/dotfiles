@@ -47,6 +47,7 @@ unmanaged=(
   System Preferences
   System Information
   VLC
+  VMware Fusion
 )
 
 for ((i = 1; i <= "${#unmanaged[@]}"; i++)); do
@@ -55,7 +56,7 @@ done
 
 # space 1
 SPACE1=(
-  Twilight
+  Calendar
 )
 
 for ((i = 1; i <= "${#SPACE1[@]}"; i++)); do
@@ -64,11 +65,8 @@ done
 
 # space 2
 SPACE2=(
-  Ghostty
-  VSCodium
-  Postman
-  Docker Desktop
-  Xcode
+  Zen
+  Safari
 )
 
 for ((i = 1; i <= "${#SPACE2[@]}"; i++)); do
@@ -77,8 +75,11 @@ done
 
 # space 3
 SPACE3=(
-  Brave Browser
-  Tor Browser
+  Ghostty
+  VSCodium
+  Postman
+  Docker Desktop
+  Xcode
 )
 
 for ((i = 1; i <= "${#SPACE3[@]}"; i++)); do
@@ -87,13 +88,8 @@ done
 
 # space 4
 SPACE4=(
-  Calendar
-  Discord
-  IINA
-  Mail
-  mpv
-  Spotify
-  VLC
+  Brave Browser
+  Tor Browser
 )
 
 for ((i = 1; i <= "${#SPACE4[@]}"; i++)); do
@@ -101,22 +97,3 @@ for ((i = 1; i <= "${#SPACE4[@]}"; i++)); do
 done
 
 yabai -m config --space 2 layout stack
-
-# automatically float non-resizable windows, such as palettes, system settings etc.
-yabai -m signal --add event=window_created action="yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float"
-
-# fix for borderless qutebrowser
-yabai -m rule --add app="^qutebrowser$" title!="^$" role="AXWindow" subrole="AXDialog" manage=on
-
-# fix for focusing on next app when a windows closes
-yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
-yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
-
-# flash window when in focus
-# yabai -m signal --add label="flash_focus" event="window_focused" action="yabai -m window \$YABAI_WINDOW_ID --opacity 0.1 && sleep $(yabai -m config window_opacity_duration) && yabai -m window \$YABAI_WINDOW_ID --opacity 0.0"
-
-# unload macos window manager
-launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist >/dev/null 2>&1 &
-
-# unload macos volume and brightness osd
-launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist >/dev/null 2>&1 &

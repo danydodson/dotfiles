@@ -76,15 +76,18 @@ macos-secure-input-indication = false
 
 # background ---------------------------------------------------------
 
-background-blur = 60
+background-blur = 20
 
-background-opacity = 1
-unfocused-split-opacity = 1
+background-opacity = 0.92
+unfocused-split-opacity = 0.92
 
-background-image = images/zelda.png
-background-image-opacity = 0.05
-background-image-position = center
-background-image-fit = none
+# background-opacity = 1
+# unfocused-split-opacity = 1
+
+# background-image = images/zelda.png
+# background-image-opacity = 0.04
+# background-image-position = center
+# background-image-fit = none
 
 # shaders ------------------------------------------------------------
 

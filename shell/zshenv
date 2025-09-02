@@ -2,12 +2,15 @@
 
 setopt noglobalrcs
 
+ulimit -S -n 8192
+
 export DOTFILES=$HOME/.dotfiles
 
+export TERMINAL="ghostty"
 export VISUAL="codium"
 export EDITOR="nvim"
 export PAGER="less -RF"
-export LESSHISTFILE="-"
+export LESSHISTFILE=-
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export GPG_TTY=$TTY
 
@@ -45,6 +48,10 @@ export CARGO_HOME="$HOME/.config/cargo"
 export RUSTUP_HOME="$HOME/.config/rust"
 export FLY_CONFIG_DIR="$HOME/.config/fly"
 export PNPM_HOME="$HOME/.config/pnpm"
+export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
+
+export GEM_HOME="$HOME/.local/share/gem"
+export GEM_SPEC_CACHE="$HOME/.cache/gem"
 
 export CONDA_ENVS_PATH="$HOME/.config/miniconda3/envs"
 
@@ -56,10 +63,10 @@ export CHROME_BIN="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 export CHROME_CANARY_BIN="/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
 export FIREFOX_BIN="/Applications/Firefox.app/Contents/MacOS/firefox-bin"
 
-ulimit -S -n 8192 # raise limit for open files and processes
-
 export TRANSMISSION_WEB_HOME=""
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
 export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
 export TIMEFMT=$'%J \n================\n CPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'
+
+export SHELLCHECK_OPTS='--exclude=SC1090,SC1091,SC2005,SC2034,SC2155,SC2162,SC2154,SC2164,SC2086,SC2236,SC2248,SC2250'

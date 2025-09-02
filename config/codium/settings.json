@@ -15,6 +15,8 @@
   "continue.showInlineTip": true,
   "continue.disableQuickFix": false,
   // 
+  // "clangd.enable": false,
+  // 
   "code-runner.enableAppInsights": false,
   // 
   "diffEditor.hideUnchangedRegions.enabled": true,
@@ -60,6 +62,7 @@
   "npm-intellisense.packageSubfoldersIntellisense": true,
   "npm-intellisense.scanDevDependencies": true,
   //
+  "liveServer.settings.NoBrowser": true,
   "liveServer.settings.donotShowInfoMsg": true,
   //
   "notebook.output.fontSize": 12,
@@ -258,7 +261,7 @@
     "breadcrumbs.showArrays": true
   },
   "yaml.schemas": {
-    "/Applications/codium-portable-data/extensions/continue.continue-1.1.71-darwin-arm64/config-yaml-schema.json": [
+    "file:///Applications/codium-portable-data/extensions/continue.continue-1.3.1-darwin-arm64/config-yaml-schema.json": [
       ".continue/**/*.yaml"
     ]
   },
@@ -448,4 +451,5 @@
   // "diffEditor.codeLens": true,
   "workbench.editor.tabSizing": "shrink",
   "editor.hover.delay": 900,
+  "explorer.autoReveal": false
 }
