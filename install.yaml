@@ -43,11 +43,6 @@
       force: true
       path: config/vim/vimrc
 
-    ~/.shellcheckrc:
-      relink: true
-      force: true
-      path: .shellcheckrc
-
     ~/.config/:
       glob: true
       relink: true
