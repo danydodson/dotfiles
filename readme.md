@@ -10,17 +10,21 @@ possible.
 
 - [Setup macos](/docs/macos.md)
 
+### Git 🐙
+
+- [Configure git](/docs/git.md)
+
 ### Yabai 🪟
 
 - [Setup yabai](/docs/yabai.md)
 
+### SketchyBar 🍫
+
+- [Setup sketchybar](/docs/sketchy.md)
+
 ### Neovim ⌨️
 
 - [Setup nvim](/installers/nvim.sh)
-
-### Git 🐙
-
-- [Configure git](/docs/git.md)
 
 ### Project config/tooling 🧢
 

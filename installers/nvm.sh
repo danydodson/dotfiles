@@ -17,10 +17,16 @@ function install_node_with_nvm() {
       return
     fi
     echo
-    info "Installing node with nvm..."
-    nvm install v22.18.0
-    nvm use v22.18.0
-    nvm install-latest-npm
+    if nvm ls | grep -q 'v22.18.0'; then
+      info "Node v22.18.0 is already installed. Skipping installation."
+      nvm use v22.18.0
+      nvm install-latest-npm
+    else
+      info "Installing node with nvm..."
+      nvm install v22.18.0
+      nvm use v22.18.0
+      nvm install-latest-npm
+    fi
     echo
   else
     error "Error: nvm is not available"
@@ -37,17 +43,14 @@ function install_npm_deps() {
     echo
     info "Installing npm global packages..."
     npm install -g bash-handbook
+    npm install -g diff
+    npm install -g http-server
     npm install -g nodemon
     echo
   else
     error "Error: npm is not available"
   fi
 }
-
-# yarn config set prefix ~/.config/yarn
-# yarn config set global-folder ~/.config/yarn
-# npm config set cache /path/to/your/desired/cache --global
-
 
 main() {
   install_node_with_nvm "$*"

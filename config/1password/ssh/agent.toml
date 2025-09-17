@@ -8,12 +8,12 @@ vault = "Personal"
 account = "Dany Dodson"
 
 [[ssh-keys]]
-item = "ollama ssh key"
+item = "hetzner ssh key"
 vault = "Personal"
 account = "Dany Dodson"
 
 [[ssh-keys]]
-item = "hetzner ssh key"
+item = "ollama ssh key"
 vault = "Personal"
 account = "Dany Dodson"
 
