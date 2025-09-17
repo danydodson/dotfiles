@@ -2,7 +2,7 @@
 
 # Installs go packages
 
-. "$HOME/.dotfiles/reports/feedback.sh"
+. "$HOME/.dotfiles/ansi/feedback.sh"
 
 set -e
 trap on_error SIGTERM
