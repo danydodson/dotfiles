@@ -10,6 +10,10 @@ possible.
 
 - [Setup macos](/docs/macos.md)
 
+### Yabai 🪟
+
+- [Setup yabai](/docs/yabai.md)
+
 ### Neovim ⌨️
 
 - [Setup nvim](/installers/nvim.sh)
