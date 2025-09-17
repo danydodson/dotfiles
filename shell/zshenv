@@ -63,7 +63,8 @@ export GEM_HOME="$HOME/.local/share/gem"
 export GEM_SPEC_CACHE="$HOME/.cache/gem"
 
 export CONDA_ENVS_PATH="$HOME/.config/miniconda3/envs"
-export PYENV_ROOT="$HOME/.config/pyenv"
+
+export JUPYTER_CONFIG_DIR="$HOME/.config/jupiter"
 
 export CHROME_BIN="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 export CHROME_CANARY_BIN="/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
