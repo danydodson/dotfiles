@@ -24,16 +24,17 @@ possible.
 
 ### Project config/tooling 🧢
 
-- [Configure projects](/installers)
+- [Configure projects](/installers/)
 - [Local commands](/bin/)
+- [Local ansi scripts](/ansi/)
 
 ### Fonts 💯
+
 - [FiraCode Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
 - [FiraMono Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraMono)
 - [JetBrains Mono Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono)
 - [San Francisco Apple Fonts](https://developer.apple.com/fonts/)
 - [Operator Mono](https://typography.com/blog/introducing-operator)
-
 
 ### Ansi art 🎨
 
