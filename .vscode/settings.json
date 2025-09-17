@@ -6,8 +6,11 @@
     ]
   },
   "files.associations": {
+    "**/bash/*": "shellscript",
     "**/bin/*": "shellscript",
     "**/system/*": "shellscript",
+    "**/reports/*/*.py": "python",
+    "**/reports/*/*": "shellscript",
     "**/bin/jwt-pem.py": "python",
     "**/config/ghostty/config": "inputrc",
     "**/config/git/ignore": "ignore",
