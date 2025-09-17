@@ -47,8 +47,13 @@ export RUSTUP_HOME="$HOME/.config/rust"
 
 export FLY_CONFIG_DIR="$HOME/.config/fly"
 
-export PNPM_HOME="$HOME/.config/pnpm"
+export ZSH_CACHE_DIR="$HOME/.cache/zsh"
+export NPM_CONFIG_CACHE="$HOME/.cache/npm"
+export YARN_CACHE_FOLDER="$HOME/.cache/yarn"
+
 export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
+
+export PNPM_HOME="$HOME/.config/pnpm"
 
 export GEM_HOME="$HOME/.local/share/gem"
 export GEM_SPEC_CACHE="$HOME/.cache/gem"
@@ -56,13 +61,10 @@ export GEM_SPEC_CACHE="$HOME/.cache/gem"
 export CONDA_ENVS_PATH="$HOME/.config/miniconda3/envs"
 export PYENV_ROOT="$HOME/.config/pyenv"
 
-export ZSH_CACHE_DIR="$HOME/.cache/zsh"
-export NPM_CONFIG_CACHE="$HOME/.cache/npm"
-export YARN_CACHE_FOLDER="$HOME/.cache/yarn"
-
-export FIREFOX_BIN="/Applications/Firefox.app/Contents/MacOS/firefox-bin"
 export CHROME_BIN="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 export CHROME_CANARY_BIN="/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
+export FIREFOX_BIN="/Applications/Firefox.app/Contents/MacOS/firefox-bin"
+export TWILIGHT_BIN="/Applications/Twilight.app/Contents/MacOS/zen"
 
 export TRANSMISSION_WEB_HOME=""
 
