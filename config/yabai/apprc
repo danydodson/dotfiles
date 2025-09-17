@@ -72,8 +72,8 @@ done
 # space 2
 SPACE2=(
   Twilight
-  Zen
   Safari
+  Zen
 )
 
 for ((i = 1; i <= "${#SPACE2[@]}"; i++)); do
@@ -82,10 +82,10 @@ done
 
 # space 3
 SPACE3=(
-  Ghostty
-  VSCodium
-  Postman
   Docker Desktop
+  Ghostty
+  Postman
+  VSCodium
   Xcode
 )
 
