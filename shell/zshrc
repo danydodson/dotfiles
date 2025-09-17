@@ -24,6 +24,10 @@ source ${DOTFILES}/zsh/aliases.zsh
 # start ssh-agent
 eval "$(ssh-agent -s)" >/dev/null 2>&1
 
+# pyenv
+# eval "$(pyenv init --path)"
+# eval "$(pyenv init -)"
+
 # conda
 if [ -f "$HOME/.config/miniconda3/etc/profile.d/conda.sh" ]; then
   source "$HOME/.config/miniconda3/etc/profile.d/conda.sh"

@@ -25,6 +25,8 @@ unmanaged=(
   Downie 4
   FaceTime
   Finder
+  FINAL FANTASY XIV
+  FINAL FANTASY XIV ONLINE
   GPG Keychain
   IINA
   iPhone Mirroring
@@ -57,6 +59,10 @@ done
 # space 1
 SPACE1=(
   Calendar
+  Mail
+  Steam
+  NVIDIA GeForce NOW
+  FINAL FANTASY XIV
 )
 
 for ((i = 1; i <= "${#SPACE1[@]}"; i++)); do
@@ -65,6 +71,7 @@ done
 
 # space 2
 SPACE2=(
+  Twilight
   Zen
   Safari
 )

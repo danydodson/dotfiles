@@ -27,6 +27,10 @@ alias md5sum="md5"
 alias sha1sum="shasum"
 alias sys_mdls="mdls -name kMDItemContentTypeTree "
 
+# python
+# alias python2=""
+# alias python3=""
+
 # view http traffic
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w — | grep -a -o -E \"Host\: .*|GET \/.*\""
@@ -115,7 +119,7 @@ alias canary="open -a /Applications/Google\ Chrome\ Canary.app"
 alias firefox="open -a /Applications/Firefox.app"
 
 # exclude macOS specific files in zip archives
-alias zip="zip -x *.DS_Store -x *__MACOSX* -x *.AppleDouble*"
+# alias zip="zip -x *.DS_Store -x *__MACOSX* -x *.AppleDouble*"
 
 # start screen saver
 alias afk="open /System/Library/CoreServices/ScreenSaverEngine.app"

@@ -20,11 +20,11 @@ export PATH="$GOROOT/bin:$PATH"
 # go bin -> path
 export PATH="$HOME/.config/go/bin:$PATH"
 
+# pyenv -> path
+# export PATH="$HOME/.config/pyenv/bin:$PATH"
+
 # java -> path
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-
-# lm studio -> path
-export PATH="$HOME/.lmstudio/bin:$PATH"
 
 # spicetify -> path
 export PATH="$HOME/.spicetify:$PATH"
