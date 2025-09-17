@@ -79,9 +79,6 @@ yabai -m signal --add event=application_terminated action="yabai -m query --wind
 # float small, non-resizable windows
 # yabai -m signal --add event=window_created action="yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float" label="floatSmallWindows"
 
-# use apprc file
-# source "${HOME}/.config/yabai/apprc"
-
 # configs for all apps
 yabai -m rule --add app=".*" sub-layer=normal
 

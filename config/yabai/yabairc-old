@@ -1,0 +1,127 @@
+#!/usr/bin/env bash
+
+# wiki - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
+
+# load yabi as sudo
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+BAR_HEIGHT=0 # $(sketchybar -m --query bar | jq -r '.height')
+
+# general
+yabai -m config external_bar all:"${BAR_HEIGHT}":0
+yabai -m config menubar_opacity 1.0
+yabai -m config split_type auto
+yabai -m config split_ratio 0.50
+yabai -m config auto_balance off
+yabai -m config insert_feedback_color 0xff282a36
+
+# layout
+yabai -m config layout bsp
+yabai -m config window_gap 4
+yabai -m config top_padding 4
+yabai -m config right_padding 4
+yabai -m config bottom_padding 4
+yabai -m config left_padding 4
+
+# windows
+yabai -m config window_shadow float
+yabai -m config window_opacity off
+yabai -m config active_window_opacity 1.0
+yabai -m config normal_window_opacity 0.97
+yabai -m config window_opacity_duration 0.15
+yabai -m config window_animation_duration 0.0
+yabai -m config window_placement second_child
+yabai -m config window_origin_display default
+yabai -m config window_zoom_persist on
+
+# mouse
+yabai -m config mouse_modifier fn
+yabai -m config mouse_action1 move
+yabai -m config mouse_action2 resize
+yabai -m config mouse_drop_action swap
+yabai -m config focus_follows_mouse off
+yabai -m config mouse_follows_focus off
+
+# configs for all apps
+yabai -m rule --add app=".*" sub-layer=normal
+
+# layer above apps
+yabai -m rule --add app="^System Information$" sub-layer=above
+yabai -m rule --add app="^System Preferences$" sub-layer=above
+yabai -m rule --add app="^System Settings$" sub-layer=above
+
+# floating apps
+yabai -m rule --add app="^1Password$" manage=off
+yabai -m rule --add app="^Archive Utility$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^ChatGPT$" manage=off
+yabai -m rule --add app="^Contacts$" manage=off
+yabai -m rule --add app="^Dictionary$" manage=off
+yabai -m rule --add app="^FaceTime$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^FINAL FANTASY XIV$" manage=off
+yabai -m rule --add app="^FINAL FANTASY XIV ONLINE$" manage=off
+yabai -m rule --add app="^GPG Keychain$" manage=off
+yabai -m rule --add app="^IINA$" manage=off
+yabai -m rule --add app="^iPhone Mirroring$" manage=off
+yabai -m rule --add app="^Karabiner-Elements$" manage=off
+yabai -m rule --add app="^Karabiner-MultitouchExtension$" manage=off
+yabai -m rule --add app="^Keka$" manage=off
+yabai -m rule --add app="^Messages$" manage=off
+yabai -m rule --add app="^mpv$" manage=off
+yabai -m rule --add app="^Notes$" manage=off
+yabai -m rule --add app="^Photo Booth$" manage=off
+yabai -m rule --add app="^Preferences$" manage=off
+yabai -m rule --add app="^Quicktime Player$" manage=off
+yabai -m rule --add app="^Reminders$" manage=off
+yabai -m rule --add app="^Source$" manage=off
+yabai -m rule --add app="^Software Update$" manage=off
+yabai -m rule --add app="^Stickies$" manage=off
+yabai -m rule --add app="^Suspicious Package$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^System Information$" manage=off
+yabai -m rule --add app="^VLC$" manage=off
+yabai -m rule --add app="^VMware Fusion$" manage=off
+
+# space 1
+yabai -m rule --add app="^Calendar$" space=^1
+yabai -m rule --add app="^Mail$" space=^1
+yabai -m rule --add app="^Steam$" space=^1
+yabai -m rule --add app="^NVIDIA GeForce NOW$" space=^1
+yabai -m rule --add app="^FINAL FANTASY XIV$" space=^1
+
+# space 2 apps
+yabai -m rule --add app="^Twilight$" space=^2
+yabai -m rule --add app="^Safari$" space=^2
+yabai -m rule --add app="^Zen$" space=^2
+
+# space 2 layout
+yabai -m config --space 2 layout stack
+
+# space 3
+yabai -m rule --add app="^Docker Desktop$" space=^3
+yabai -m rule --add app="^Ghostty$" space=^3
+yabai -m rule --add app="^Postman$" space=^3
+yabai -m rule --add app="^VSCodium$" space=^3
+yabai -m rule --add app="^Xcode$" space=^3
+
+# space 4
+yabai -m rule --add app="^Brave Browser$" space=^4
+yabai -m rule --add app="^Tor Browser$" space=^4
+
+# space 5
+yabai -m rule --add app="^Spotify$" space=^5
+
+# signals
+yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
+yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
+
+# unload macos window manager
+launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist
+
+# unload macos volume and brightness osd
+launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist
+
+echo "yabai configuration loaded.."

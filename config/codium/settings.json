@@ -451,6 +451,5 @@
   // "diffEditor.codeLens": true,
   "workbench.editor.tabSizing": "shrink",
   "editor.hover.delay": 900,
-  "explorer.autoReveal": false,
-  "workbench.statusBar.visible": false
+  "explorer.autoReveal": false
 }
