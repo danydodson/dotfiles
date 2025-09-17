@@ -43,11 +43,27 @@ install_miniconda() {
         fi
       done
 
-      if pip show "debugpy" >/dev/null 2>&1; then
-        info "pip package 'debugpy' already installed, skipping..."
-      else
-        pip install "debugpy"
-      fi
+      packages=(
+        aiohappyeyeballs aiohttp aiosignal annotated-types anyio attrs black Brotli cachetools certifi cffi charset-normalizer
+        click colorama contourpy cryptography cssselect2 cycler debugpy Deprecated distro et-xmlfile fake-useragent filelock
+        fonttools frozenlist fsspec google-api-core google-api-python-client google-auth google-auth-httplib2
+        google-auth-oauthlib googleapis-common-protos h11 html5lib httpcore httplib2 httpx huggingface-hub idna ipaddress
+        isort Jinja2 jiter kiwisolver mail-parser Markdown MarkupSafe matplotlib mpmath multidict mypy-extensions
+        networkx numpy oauthlib openai openpyxl outcome packaging pandas pathspec pdfkit pillow platformdirs proto-plus
+        protobuf pyasn1 pyasn1_modules pycparser pydantic pydantic_core pydyf PyGithub PyJWT PyNaCl pypandoc pyparsing pyphen
+        PySocks python-dateutil pytz PyYAML regex requests requests-oauthlib rsa safetensors schedule scipy selenium
+        setuptools six sniffio sortedcontainers sympy tinycss2 tokenizers torch tqdm transformers trio trio-websocket
+        typing_extensions tzdata uritemplate urllib3 weasyprint webencodings websocket-client wrapt wsproto yarl zopfli
+      )
+
+      for package in "${packages[@]}"; do
+        if python -m pip show "$package" >/dev/null 2>&1; then
+          info "conda pip package ($package) is already installed, skipping..."
+        else
+          info "conda installing pip package ($package)..."
+          python -m pip install "$package"
+        fi
+      done
 
     fi
   else
