@@ -3,6 +3,8 @@
 # open
 alias o="open"
 alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
 alias cc="codium"
 
 # tmux
@@ -26,10 +28,6 @@ alias hd="hexdump -C"
 alias md5sum="md5"
 alias sha1sum="shasum"
 alias sys_mdls="mdls -name kMDItemContentTypeTree "
-
-# python
-# alias python2=""
-# alias python3=""
 
 # view http traffic
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"

@@ -18,8 +18,8 @@ function install_node_with_nvm() {
     fi
     echo
     info "Installing node with nvm..."
-    nvm install v22.11.0
-    nvm use v22.11.0
+    nvm install v22.18.0
+    nvm use v22.18.0
     nvm install-latest-npm
     echo
   else
@@ -43,6 +43,11 @@ function install_npm_deps() {
     error "Error: npm is not available"
   fi
 }
+
+# yarn config set prefix ~/.config/yarn
+# yarn config set global-folder ~/.config/yarn
+# npm config set cache /path/to/your/desired/cache --global
+
 
 main() {
   install_node_with_nvm "$*"
