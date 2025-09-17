@@ -14,11 +14,11 @@ shift + alt - l : yabai -m window --warp east
 # alt - 5 : yabai -m window --space 5 --focus
 
 # navigate workspaces
-# hyper - 1 : yabai -m space --focus 1
-# hyper - 2 : yabai -m space --focus 2
-# hyper - 3 : yabai -m space --focus 3
-# hyper - 4 : yabai -m space --focus 4
-# hyper - 5 : yabai -m space --focus 5
+alt - 1 : yabai -m space --focus 1 
+alt - 2 : yabai -m space --focus 2
+alt - 3 : yabai -m space --focus 3
+alt - 4 : yabai -m space --focus 4
+alt - 5 : yabai -m space --focus 5
 
 # navigate bsp windows inside a workspace
 lctrl + alt - h : yabai -m window --focus west
@@ -47,7 +47,7 @@ lalt - d : yabai -m window --toggle zoom-parent
 lalt - f : yabai -m window --toggle zoom-fullscreen
 
 # toggle float
-lctrl + shift + alt - space : yabai -m window --toggle float
+# lctrl + shift + alt - space : yabai -m window --toggle float
 
 # toggle sticky
 lctrl + alt - space : yabai -m window --toggle sticky
