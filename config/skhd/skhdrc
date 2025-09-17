@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 # navigate workspaces
-alt - 1 : yabai -m space --focus 1 
+lctrl - 1 : yabai -m space --focus 1
+
+alt - 1 : yabai -m space --focus 1
 alt - 2 : yabai -m space --focus 2
 alt - 3 : yabai -m space --focus 3
 alt - 4 : yabai -m space --focus 4
@@ -27,8 +29,8 @@ lctrl + alt - k : yabai -m window --focus north
 lctrl + alt - l : yabai -m window --focus east
 
 # navigate stacked windows
-alt - m : yabai -m window --focus stack.next
-alt - n : yabai -m window --focus stack.prev
+lalt - m : yabai -m window --focus stack.next
+lalt - n : yabai -m window --focus stack.prev
 
 # rotate on x and y axis
 # alt - x : yabai -m space --mirror x-axis

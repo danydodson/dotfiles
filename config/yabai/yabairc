@@ -2,12 +2,6 @@
 
 # wiki - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
 
-# unload macos window manager
-launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist >/dev/null 2>&1 &
-
-# unload macos volume and brightness osd
-launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist >/dev/null 2>&1 &
-
 # load yabi as sudo
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
@@ -181,5 +175,11 @@ done
 
 # apply rules to existing windows
 yabai -m rule --apply
+
+# unload macos window manager
+# launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist >/dev/null 2>&1 &
+
+# unload macos volume and brightness osd
+# launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist >/dev/null 2>&1 &
 
 echo "yabai configuration loaded.."
