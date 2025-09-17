@@ -11,8 +11,8 @@ function setup_gh_tool() {
   if exists gh; then
     info "Setting up gh..."
 
-    if [ ! -f ~/.dotfiles/.gitsecret ]; then
-      touch ~/.dotfiles/.gitsecret
+    if [ ! -f ~/.config/git/.secret ]; then
+      touch ~/.config/git/.secret
     fi
 
     gh auth login

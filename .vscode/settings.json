@@ -25,4 +25,5 @@
     "**/plugins/zsh-completions/**/*": true,
     "**/*.zsh": true,
   },
+  "stylua.targetReleaseVersion": "latest",
 }
