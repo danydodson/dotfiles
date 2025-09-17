@@ -30,6 +30,7 @@ W=$(tput cols) H=$(tput lines)
 # maximal random value + 1
 M=32768
 
+# shellcheck disable=SC1003
 SETS=('╱╲' '/\')
 COLORS=(31 32 33 34 35 36 37)
 
@@ -57,6 +58,7 @@ Options:
 "
 
 while getopts "n:t:i:P:r:RCXh" arg; do
+  # shellcheck disable=SC2220
   case $arg in
     n)
       ((N = OPTARG > 0 ? OPTARG : N))

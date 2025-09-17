@@ -10,6 +10,7 @@ declare -ar v=( [00]="\x83" [01]="\x8f" [03]="\x93"
 
 OPTIND=1
 while getopts "f:s:r:h" arg; do
+# shellcheck disable=SC2220
 case $arg in
     f) ((f=($OPTARG>19 && $OPTARG<101)?$OPTARG:$f));;
     s) ((s=($OPTARG>4 && $OPTARG<16 )?$OPTARG:$s));;
@@ -45,6 +46,7 @@ while ! read -t0.0$((1000/$f)) -n1; do
     # Print:
     tput cup $y $x
     echo -ne "\033[1;3${c}m\xe2\x94${v[$l$n]}"
+    # shellcheck disable=SC2015
     (($t>$r)) && tput reset && tput civis && t=0 || ((t++))
     l=$n
 done
