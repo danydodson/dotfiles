@@ -115,6 +115,7 @@ alias jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Hel
 alias chrome="open -a /Applications/Google\ Chrome.app"
 alias canary="open -a /Applications/Google\ Chrome\ Canary.app"
 alias firefox="open -a /Applications/Firefox.app"
+alias twighlight="open -a /Applications/Twilight.app"
 
 # exclude macOS specific files in zip archives
 # alias zip="zip -x *.DS_Store -x *__MACOSX* -x *.AppleDouble*"

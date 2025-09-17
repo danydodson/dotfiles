@@ -6,6 +6,12 @@
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
+# unload macos window manager
+launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist >/dev/null 2>&1 &
+
+# unload macos volume and brightness osd
+launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist >/dev/null 2>&1 &
+
 BAR_HEIGHT=0 # $(sketchybar -m --query bar | jq -r '.height')
 
 GENERAL=(
@@ -52,26 +58,9 @@ yabai -m config "${LAYOUT[@]}"
 yabai -m config "${WINDOWS[@]}"
 yabai -m config "${MOUSE[@]}"
 
-# define sketchybar
-# yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus &> /dev/null"
-# yabai -m signal --add event=window_title_changed action="sketchybar --trigger title_change &> /dev/null"
-# yabai -m signal --add event=window_created action="sketchybar --trigger space_windows_change" label="sketchybarNewWindowCreated"
-# yabai -m signal --add event=window_destroyed action="sketchybar --trigger space_windows_change" label="sketchybarWindowDestroyed"
-
-# sketchybar
-# yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
-# yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
-# yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
-# yabai -m signal --add event=application_front_switched action="sketchybar --trigger title_change"
-# yabai -m signal --add event=window_focused action="sketchybar --trigger title_change"
-# yabai -m signal --add event=window_title_changed action="sketchybar --trigger title_change" active=yes
-
 # fix for focusing on next app when a windows closes
 yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
 yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
-
-# float small, non-resizable windows
-# yabai -m signal --add event=window_created action="yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float" label="floatSmallWindows"
 
 # configs for all apps
 yabai -m rule --add app=".*" sub-layer=normal
@@ -135,6 +124,9 @@ SPACE1=(
   NVIDIA GeForce NOW
   FINAL FANTASY XIV
 )
+
+yabai -m space 1 --label main
+
 for ((i = 1; i <= "${#SPACE1[@]}"; i++)); do
   yabai -m rule --add label="space1_${SPACE1[(($i - 1))]}" app="^${SPACE1[(($i - 1))]}.*$" space=^1
 done
@@ -146,11 +138,12 @@ SPACE2=(
   Zen
 )
 
+yabai -m space 2 --label web
+yabai -m config --space 2 layout stack
+
 for ((i = 1; i <= "${#SPACE2[@]}"; i++)); do
   yabai -m rule --add label="space2_${SPACE2[(($i - 1))]}" app="^${SPACE2[(($i - 1))]}.*$" space=^2
 done
-
-yabai -m config --space 2 layout stack
 
 # space 3
 SPACE3=(
@@ -160,6 +153,9 @@ SPACE3=(
   VSCodium
   Xcode
 )
+
+yabai -m space 3 --label dev
+
 for ((i = 1; i <= "${#SPACE3[@]}"; i++)); do
   yabai -m rule --add label="space3_${SPACE3[(($i - 1))]}" app="^${SPACE3[(($i - 1))]}.*$" space=^3
 done
@@ -169,17 +165,25 @@ SPACE4=(
   Brave Browser
   Tor Browser
 )
+
+yabai -m space 4 --label tools
+
 for ((i = 1; i <= "${#SPACE4[@]}"; i++)); do
   yabai -m rule --add label="space4_${SPACE4[(($i - 1))]}" app="^${SPACE4[(($i - 1))]}.*$" space=^4
 done
 
+# space 5
+SPACE5=(
+  Spotify
+)
+
+yabai -m space 5 --label media
+
+for ((i = 1; i <= "${#SPACE5[@]}"; i++)); do
+  yabai -m rule --add label="space4_${SPACE5[(($i - 1))]}" app="^${SPACE5[(($i - 1))]}.*$" space=^5
+done
+
 # apply rules to existing windows
 yabai -m rule --apply
-
-# unload macos window manager
-# launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist >/dev/null 2>&1 &
-
-# unload macos volume and brightness osd
-# launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist >/dev/null 2>&1 &
 
 echo "yabai configuration loaded.."

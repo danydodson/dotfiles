@@ -24,15 +24,6 @@ source ${DOTFILES}/zsh/aliases.zsh
 # start ssh-agent
 eval "$(ssh-agent -s)" >/dev/null 2>&1
 
-# conda
-if [ -f "$HOME/.config/miniconda3/etc/profile.d/conda.sh" ]; then
-  source "$HOME/.config/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
-fi
-
-# pyenv
-# eval "$(pyenv init --path)"
-# eval "$(pyenv init -)"
-
 # nvm
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -56,3 +47,20 @@ export FZF_ALT_C_OPTS="--header='Files' --walker=file --preview='bat -n --color=
 
 # zoxide
 eval "$(zoxide init zsh)"
+
+# conda
+if [ -f "/Users/stache/.config/miniconda3/etc/profile.d/conda.sh" ]; then
+  . "/Users/stache/.config/miniconda3/etc/profile.d/conda.sh"
+fi
+
+# conda_setup="$('/Users/stache/.config/miniconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
+# if [ $? -eq 0 ]; then
+#   eval "$conda_setup"
+# else
+#   if [ -f "/Users/stache/.config/miniconda3/etc/profile.d/conda.sh" ]; then
+#     . "/Users/stache/.config/miniconda3/etc/profile.d/conda.sh"
+#   else
+#     export PATH="/Users/stache/.config/miniconda3/bin:$PATH"
+#   fi
+# fi
+# unset conda_setup

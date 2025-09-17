@@ -18,6 +18,10 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
 
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LOCALE=en_US.UTF-8
+
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -72,11 +76,6 @@ export OP_BIOMETRIC_UNLOCK_ENABLED=true
 
 export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
-export SHELLCHECK_OPTS='--exclude=SC1090,SC1091,SC2005,SC2034,SC2155,SC2162,SC2154,SC2164,SC2086,SC2236,SC2248,SC2250 --external-sources'
-
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export LOCALE=en_US.UTF-8
+export SHELLCHECK_OPTS='--exclude=SC1090,SC1091,SC2005,SC2034,SC2148,SC2155,SC2162,SC2154,SC2164,SC2086,SC2236,SC2248,SC2250 --external-sources'
 
 export TIMEFMT=$'%J \n================\n CPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'
-

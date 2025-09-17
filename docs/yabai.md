@@ -84,6 +84,17 @@ sudo yabai --load-sa
 # .. more yabai startup stuff
 ```
 
+### View yabai logs
+
+```bash
+# view the last lines of the error log
+tail -f /tmp/yabai_$USER.err.log
+
+# view the last lines of the debug log
+tail -f /tmp/yabai_$USER.out.log
+
+```
+
 ### Uninstalling yabai
 
 ```bash
@@ -111,4 +122,11 @@ rm /tmp/yabai-sa_$USER.socket
 
 # unload the scripting addition by forcing a restart of Dock.app
 killall Dock
+```
+
+
+```bash
+# ignore this
+yabai --stop-service
+sudo killall yabai; make all; sudo yabai --uninstall-sa; make install; make sign; sudo cp ./bin/yabai /usr/local/bin/yabai; sudo yabai --uninstall-sa; sleep 2s; sudo yabai --uninstall-sa; sleep 2s; sudo sh -c 'yabai --load-sa --verbose'; sleep 2s; sudo sh -c 'yabai --load-sa --verbose'; echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d " " -f 1) $(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai
 ```
