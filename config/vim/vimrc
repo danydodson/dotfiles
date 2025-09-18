@@ -1,5 +1,5 @@
-set viminfofile='~/.config/vim/viminfo'
 "  set viminfofile=NONE
+set viminfofile='~/.config/vim/viminfo'
 
 source "$HOME/.dotfiles/config/vim/src.plug.vim"
 
@@ -38,6 +38,7 @@ call plug#end()
 set termguicolors
 set term=xterm-256color
 filetype plugin indent on
+
 " Make Vim more useful
 set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)

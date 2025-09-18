@@ -2,19 +2,17 @@
 
 # open
 alias o="open"
+alias nvim='VIMINIT="" nvim'
 alias v="nvim"
-alias vi="vim"
 alias cc="codium"
 
 # tmux
 alias tmux="tmux -f ~/.config/tmux/tmux.conf"
-
 alias tn="tmux new"
 alias tl="tmux ls"
 alias ta="tmux attach"
 alias tk="tmux kill-session"
 alias td="tmux detach"
-
 bindkey -s ^p "tms\n"
 bindkey -s ^w "tmux new\n"
 bindkey -s ^o "tmux attach -t working\n"
