@@ -99,7 +99,7 @@ end
 
 --- Here you can specify custom settings for the lsp servers you install.
 function M.apply_user_lsp_settings(server_name)
-  local server = require('lspconfig')[server_name]
+  local server = vim.lsp.config[server_name]
 
   -- Define user server capabilities.
   M.capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -154,7 +154,7 @@ M.setup = function(server)
   local opts = M.apply_user_lsp_settings(server)
 
   -- Get a handler from lspconfig.
-  local setup_handler = stored_handlers[server] or require('lspconfig')[server].setup(opts)
+  local setup_handler = stored_handlers[server] or vim.lsp.config[server].setup(opts)
 
   -- Apply our user settings to the lspconfig handler.
   if setup_handler then
