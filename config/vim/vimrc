@@ -1,9 +1,9 @@
 "  set viminfofile=NONE
 set viminfofile='~/.config/vim/viminfo'
 
-source "$HOME/.dotfiles/config/vim/src.plug.vim"
+source "~/.config/vim/src.plug.vim"
 
-call plug#begin("$HOME/.config/vim/plugins")
+call plug#begin("~/.config/vim/plugins")
 
   " Light-weight status line
   Plug 'vim-airline/vim-airline'
