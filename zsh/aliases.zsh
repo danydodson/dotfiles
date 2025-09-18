@@ -3,16 +3,18 @@
 # open
 alias o="open"
 alias v="nvim"
-alias vi="nvim"
-alias vim="nvim"
+alias vi="vim"
 alias cc="codium"
 
 # tmux
+alias tmux="tmux -f ~/.config/tmux/tmux.conf"
+
 alias tn="tmux new"
 alias tl="tmux ls"
 alias ta="tmux attach"
 alias tk="tmux kill-session"
 alias td="tmux detach"
+
 bindkey -s ^p "tms\n"
 bindkey -s ^w "tmux new\n"
 bindkey -s ^o "tmux attach -t working\n"
@@ -115,7 +117,6 @@ alias jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Hel
 alias chrome="open -a /Applications/Google\ Chrome.app"
 alias canary="open -a /Applications/Google\ Chrome\ Canary.app"
 alias firefox="open -a /Applications/Firefox.app"
-alias twighlight="open -a /Applications/Twilight.app"
 
 # exclude macOS specific files in zip archives
 # alias zip="zip -x *.DS_Store -x *__MACOSX* -x *.AppleDouble*"

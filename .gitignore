@@ -7,6 +7,12 @@ Icon
 *.log
 /config/git/secret
 /config/sketchybar/helpers/secret.lua
+/config/vim/autoload
+/config/vim/plugins
+/config/vim/undodir
+/config/vim/viminfo
+/config/vim/tmux.vim
+/config/tmux/plugins
 */**/watch_later/*
 */**/shaders/cache
 */**/shaders/cfl/CfL_Prediction_Test.glsl

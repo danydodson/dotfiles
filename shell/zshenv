@@ -6,13 +6,13 @@ ulimit -S -n 8192
 
 export DOTFILES=$HOME/.dotfiles
 
-export TERMINAL="ghostty"
-export VISUAL="codium"
+export VISUAL="nvim"
 export EDITOR="nvim"
 export PAGER="less -RF"
 export LESSHISTFILE=-
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export GPG_TTY=$TTY
+export TERMINAL="ghostty"
 
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
@@ -33,6 +33,10 @@ export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_BUNDLE_FILE_GLOBAL="$DOTFILES/macos/brewfile"
+
+export VIMINIT="source \$HOME/.config/vim/vimrc"
+# export VIMFILES="$HOME/.config/vim"
+# export VIM="$HOME/.config/vim"
 
 export CURL_HOME="$DOTFILES/config/curl"
 export WGETRC="$DOTFILES/config/wget/wgetrc"

@@ -29,12 +29,6 @@ function update_homebrew_packages() {
   finish
 }
 
-function update_npm_packages() {
-  info "Updating npm modules..."
-  npm update -g
-  finish
-}
-
 function clean_up() {
   info "Cleaning homebrew packages..."
   brew autoremove

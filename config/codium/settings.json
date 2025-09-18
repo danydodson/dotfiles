@@ -127,7 +127,6 @@
   "editor.fontWeight": 400,
   "editor.fontFamily": "FiraCode Nerd Font",
   "editor.fontLigatures": true,
-
   // "editor.colorDecoratorsLimit": 500,
   "editor.colorDecoratorsActivatedOn": "click",
   "editor.defaultColorDecorators": true,
@@ -451,5 +450,6 @@
   // "diffEditor.codeLens": true,
   "workbench.editor.tabSizing": "shrink",
   "editor.hover.delay": 900,
-  "explorer.autoReveal": false
+  "explorer.autoReveal": false,
+  "workbench.statusBar.visible": false
 }

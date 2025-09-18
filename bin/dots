@@ -51,9 +51,6 @@ function sub_update() {
   brew update
   brew upgrade
 
-  info "$ npm global update..."
-  npm update -g
-
   on_finish
 }
 

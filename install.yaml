@@ -33,16 +33,6 @@
       relink: true
       path: config/ssh/config
 
-    ~/.tmux.conf:
-      relink: true
-      force: true
-      path: config/tmux/tmux.conf
-
-    ~/.vimrc:
-      relink: true
-      force: true
-      path: config/vim/vimrc
-
     ~/.config/:
       glob: true
       relink: true
@@ -56,10 +46,8 @@
           config/lscolors,
           config/ssh,
           config/starship,
-          config/tmux,
           config/transmission,
           config/vencord,
-          config/vim,
           config/vlc,
           config/weechat,
         ]

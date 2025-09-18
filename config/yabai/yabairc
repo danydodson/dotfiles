@@ -56,12 +56,6 @@ yabai -m config "${MOUSE[@]}"
 yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
 yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
 
-# unload macos window manager
-launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist
-
-# unload macos volume and brightness osd
-launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist
-
 # configs for all apps
 yabai -m rule --add app=".*" sub-layer=normal
 
@@ -116,6 +110,13 @@ for ((i = 1; i <= "${#unmanaged[@]}"; i++)); do
   yabai -m rule --add label="unmanage_${unmanaged[(($i - 1))]}" app="^${unmanaged[(($i - 1))]}.*$" manage=off
 done
 
+# space names
+yabai -m space 1 --label main
+yabai -m space 2 --label web
+yabai -m space 3 --label dev
+yabai -m space 4 --label tools
+yabai -m space 5 --label media
+
 # space 1
 SPACE1=(
   Calendar
@@ -124,8 +125,6 @@ SPACE1=(
   NVIDIA GeForce NOW
   FINAL FANTASY XIV
 )
-
-yabai -m space 1 --label main
 
 for ((i = 1; i <= "${#SPACE1[@]}"; i++)); do
   yabai -m rule --add label="space1_${SPACE1[(($i - 1))]}" app="^${SPACE1[(($i - 1))]}.*$" space=^1
@@ -138,7 +137,6 @@ SPACE2=(
   Zen
 )
 
-yabai -m space 2 --label web
 yabai -m config --space 2 layout stack
 
 for ((i = 1; i <= "${#SPACE2[@]}"; i++)); do
@@ -154,8 +152,6 @@ SPACE3=(
   Xcode
 )
 
-yabai -m space 3 --label dev
-
 for ((i = 1; i <= "${#SPACE3[@]}"; i++)); do
   yabai -m rule --add label="space3_${SPACE3[(($i - 1))]}" app="^${SPACE3[(($i - 1))]}.*$" space=^3
 done
@@ -166,8 +162,6 @@ SPACE4=(
   Tor Browser
 )
 
-yabai -m space 4 --label tools
-
 for ((i = 1; i <= "${#SPACE4[@]}"; i++)); do
   yabai -m rule --add label="space4_${SPACE4[(($i - 1))]}" app="^${SPACE4[(($i - 1))]}.*$" space=^4
 done
@@ -176,8 +170,6 @@ done
 SPACE5=(
   Spotify
 )
-
-yabai -m space 5 --label media
 
 for ((i = 1; i <= "${#SPACE5[@]}"; i++)); do
   yabai -m rule --add label="space4_${SPACE5[(($i - 1))]}" app="^${SPACE5[(($i - 1))]}.*$" space=^5

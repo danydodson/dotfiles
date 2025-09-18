@@ -69,6 +69,8 @@ hyper - m : open -a Mail.app
 hyper - a : open -a Apps.app
 hyper - d : open -a Discord.app
 hyper - f : ./$HOME/.dotfiles/config/yabai/scripts/show_finder.sh
+hyper - p : open -a Postman.app
+hyper - s : open -a Spotify.app
 
 hyper - r : \
   skhd --restart-service; \

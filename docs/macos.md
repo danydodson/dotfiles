@@ -46,6 +46,13 @@ Execute desired installers:
 ./installers/tmux.sh
 ```
 
+Install Plug to manage vim packages
+
+```bash
+curl -fLo ~/.config/vim/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
 Install Xcode theme:
 
 ```bash
