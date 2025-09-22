@@ -1,8 +1,5 @@
 #!/usr/bin/env zsh
 
-# homebrew -> shell
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 # system executables -> path
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/libexec:$PATH"
 
@@ -35,6 +32,9 @@ export PATH="$HOME/.spicetify:$PATH"
 
 # docker -> fpath
 export FPATH=$HOME/.docker/completions:$FPATH
+
+# homebrew -> shell
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # macos paths -> path
 for path_file in /etc/paths.d/*(.N); do
