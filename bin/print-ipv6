@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-# Prints my ipv6
-
-dig -6 @resolver1.opendns.com myip.opendns.com AAAA +short

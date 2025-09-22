@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-# Prints my ipv4
-
-dig -4 @resolver1.opendns.com myip.opendns.com A +short
