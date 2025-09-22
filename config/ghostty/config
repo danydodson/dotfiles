@@ -76,10 +76,10 @@ macos-secure-input-indication = false
 
 # background ---------------------------------------------------------
 
-background-blur = 20
+background-blur = 12
 
-background-opacity = 0.92
-unfocused-split-opacity = 0.92
+background-opacity = 0.95
+unfocused-split-opacity = 0.95
 
 # background-opacity = 1
 # unfocused-split-opacity = 1
