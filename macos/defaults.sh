@@ -161,7 +161,7 @@ defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
 # Finder: show hidden files by default
-defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write com.apple.finder AppleShowAllFiles -bool false
 
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -242,7 +242,7 @@ defaults write com.apple.dock mouse-over-hilte-stack -bool true
 defaults write com.apple.dock autohide-time-modifier -float 0
 
 # Set the icon size of Dock items to 48 pixels
-defaults write com.apple.dock "tilesize" -int 48
+defaults write com.apple.dock "tilesize" -int 38
 
 # Enable spring loading for all Dock items
 defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
@@ -257,7 +257,7 @@ defaults write com.apple.dock show-process-indicators -bool true
 defaults write com.apple.dock launchanim -bool false
 
 # Make Dock icons of hidden applications translucent
-defaults write com.apple.dock showhidden -bool true
+defaults write com.apple.dock showhidden -bool false
 
 # Don’t show recent applications in Dock
 defaults write com.apple.dock show-recents -bool false

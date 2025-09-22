@@ -3,12 +3,12 @@
     ".gitignore": "ignore",
     "install": "shellscript",
     // 
+    "**/ansi/scripts/*": "shellscript",
+    "**/ansi/scripts/*.py": "python",
+    // 
     "**/bash/*": "shellscript",
     // 
-    "**/bin/scripts/*": "shellscript",
-    "**/bin/scripts/*.py": "python",
     "**/bin/*": "shellscript",
-    "**/bin/jwt-pem.py": "python",
     // 
     "**/config/ghostty/config": "inputrc",
     "**/config/git/ignore": "ignore",

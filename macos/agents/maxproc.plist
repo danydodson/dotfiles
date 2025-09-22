@@ -3,7 +3,7 @@
 <plist version="1.0">
   <dict>
     <key>Label</key>
-    <string>limit.maxproc</string>
+    <string>dots.maxproc</string>
     <key>ProgramArguments</key>
     <array>
       <string>/bin/launchctl</string>

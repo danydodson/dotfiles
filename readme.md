@@ -10,6 +10,10 @@ possible.
 
 - [Setup macos](/docs/macos.md)
 
+### LaunchAgents ⌨️
+
+- [Setup launch agents](/docs/agents.md)
+
 ### Git 🐙
 
 - [Configure git](/docs/git.md)
@@ -25,6 +29,10 @@ possible.
 ### Neovim ⌨️
 
 - [Setup nvim](/installers/nvim.sh)
+
+### gpg 🔑
+
+- [Setup gpg](/docs/gpg.md)
 
 ### Project config/tooling 🧢
 

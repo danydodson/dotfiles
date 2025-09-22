@@ -3,7 +3,7 @@
 <plist version="1.0">
   <dict>
     <key>Label</key>
-    <string>mpv.server.plist</string>
+    <string>dots.mpv</string>
     <key>ProgramArguments</key>
     <array>
       <string>/Users/stache/.config/miniconda3/bin/python3</string>

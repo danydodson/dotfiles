@@ -2,7 +2,7 @@
 
 # Installs pyenv, python, and pips
 
-. "$HOME/.dotfiles/bin/ansi/feedback.sh"
+. "$HOME/.dotfiles/ansi/feedback.sh"
 
 set -e
 trap on_error SIGTERM

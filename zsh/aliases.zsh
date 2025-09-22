@@ -67,12 +67,10 @@ alias la="ls -A"
 
 # ls replacement - eza https://github.com/eza-community/eza
 ezargs="--icons -I='$(awk '{$1=$1} NF{printf "%s|", $0}' "${DOTFILES}/config/eza/ezaignore" | sed 's/|$//')' --group-directories-first"
-alias els="eza -lah $ezargs" # all files and dirs; long format
-alias elg="eza -Galh $ezargs" # all files and dirs; long format/grid
-alias ela="eza -a $ezargs" # all files and dirs
-alias etr="eza -aT $ezargs" # tree listing
-alias ell='eza -l --all --show-symlinks | grep "^l"'
-alias el.='eza -la --git-ignore --group-directories-first | egrep "^\."'
+# alias ll="eza -lah $ezargs" # all files and dirs; long format
+# alias els="eza -Galh $ezargs" # all files and dirs; long format/grid
+# alias ela="eza -a $ezargs" # all files and dirs
+# alias elt="eza -aT $ezargs" # tree listing
 
 # grep
 alias egrep='egrep --color=auto'

@@ -35,15 +35,7 @@ cd .dotfiles && ./install -vv
 Execute desired installers:
 
 ```bash
-./installers/codium.sh
-./installers/conda.sh
-./installers/gh.sh
-./installers/go.sh
-./installers/nvim.sh
-./installers/nvm.sh
-./installers/repos.sh
-./installers/ssh.sh
-./installers/tmux.sh
+# run dots install <script-name>
 ```
 
 Install Plug to manage vim packages

@@ -2,7 +2,7 @@
 
 # Installs yazi plugins
 
-. "$HOME/.dotfiles/bin/ansi/feedback.sh"
+. "$HOME/.dotfiles/ansi/feedback.sh"
 
 set -e
 trap on_error SIGTERM
