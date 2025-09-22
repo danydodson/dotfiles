@@ -1,29 +1,24 @@
 {
-  "yaml.schemas": {
-    "/Applications/codium-portable-data/extensions/continue.continue-1.1.24-darwin-arm64/config-yaml-schema.json": [
-      ".continue/**/*.yaml",
-      "file:///Users/stache/.continue/config.yaml"
-    ]
-  },
   "files.associations": {
     "**/bash/*": "shellscript",
+    // 
+    "**/bin/scripts/*": "shellscript",
+    "**/bin/scripts/*.py": "python",
     "**/bin/*": "shellscript",
-    "**/system/*": "shellscript",
-    "**/reports/*/*.py": "python",
-    "**/reports/*/*": "shellscript",
     "**/bin/jwt-pem.py": "python",
+    // 
     "**/config/ghostty/config": "inputrc",
     "**/config/git/ignore": "ignore",
     "**/config/git/config": "properties",
     "**/config/git/secret": "properties",
     "**/config/lscolors/ls_colors": "dircolors",
     "**/config/sketchybar/sketchybarrc": "lua",
+    // 
+    "**/macos/agents/*": "xml",
   },
   "shellcheck.ignorePatterns": {
-    "**/config/**/*": true,
-    "**/system/*": true,
-    "**/plugins/zsh-completions/**/*": true,
     "**/*.zsh": true,
-  },
-  "stylua.targetReleaseVersion": "latest",
+    "**/config/**/*": true,
+    "**/plugins/**/*": true,
+  }
 }

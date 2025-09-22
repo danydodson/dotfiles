@@ -19,6 +19,8 @@
   // 
   "code-runner.enableAppInsights": false,
   // 
+  // 
+  "liveServer.settings.donotVerifyTags": true,
   "diffEditor.hideUnchangedRegions.enabled": true,
   // 
   "1password.debug.enabled": true,
@@ -79,6 +81,7 @@
   "color-highlight.matchHslWithNoFunction": true,
   "color-highlight.matchRgbWithNoFunction": true,
   // 
+  "explorer.autoReveal": false,
   "explorer.incrementalNaming": "smart",
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
@@ -91,7 +94,8 @@
   "window.titleBarStyle": "native",
   "window.confirmSaveUntitledWorkspace": false,
   // 
-  "workbench.startupEditor": "none",
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.startupEditor": "newUntitledFile",
   "workbench.layoutControl.enabled": false,
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.showTabs": "multiple",
@@ -104,6 +108,7 @@
   "workbench.editor.decorations.badges": false,
   "workbench.colorTheme": "One Dark Pro Darker",
   //
+  "editor.hover.delay": 900,
   "editor.lightbulb.enabled": "onCode",
   "editor.largeFileOptimizations": false,
   "editor.overviewRulerBorder": false,
@@ -206,6 +211,7 @@
     "editor.defaultFormatter": "vscode.html-language-features"
   },
   "javascript.format.semicolons": "insert",
+  "javascript.referencesCodeLens.enabled": true,
   "[javascript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
@@ -223,6 +229,7 @@
   "[lua]": {
     "editor.defaultFormatter": "JohnnyMorganz.stylua"
   },
+  "Lua.codeLens.enable": true,
   "[luau]": {
     "editor.defaultFormatter": "JohnnyMorganz.stylua"
   },
@@ -237,6 +244,9 @@
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[shellscript]": {
+    "editor.defaultFormatter": "mads-hartmann.bash-ide-vscode"
+  },
   "[svg]": {
     "editor.defaultFormatter": "jock.svg",
     "editor.wordWrap": "off"
@@ -250,6 +260,7 @@
     "editor.defaultFormatter": "tamasfe.even-better-toml"
   },
   "typescript.format.semicolons": "insert",
+  "typescript.referencesCodeLens.enabled": true,
   "[typescript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
@@ -273,41 +284,13 @@
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "zig.zls.enabled": "on",
-  //
-  // "editor.fontFamily": "FiraCode Nerd Font Retina",
-  // "editor.inlayHints.fontFamily": "SF Pro",
-  // "editor.codeLensFontFamily": "SF Pro",
-  // "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
-  // "scm.inputFontFamily": "SF Pro",
-  // "chat.editor.fontFamily": "SF Pro",
-  // "debug.console.fontFamily": "SF Pro",
-  // "notebook.output.fontFamily": "SF Pro",
-  // "markdown.preview.fontFamily": "SF Pro",
   // 
   "apc.imports": [
     "${userHome}/.dotfiles/.config/codium/apc/main.js",
     "${userHome}/.dotfiles/config/codium/apc/styles.css"
   ],
-  // "apc.font.family": "SF Pro",
-  // "apc.monospace.font.family": "SF Pro",
-  // "apc.parts.font.family": {
-  //   "sidebar": "SF Pro",
-  //   "titlebar": "SF Pro",
-  //   "activityBar": "SF Pro",
-  //   "panel": "SF Pro",
-  //   "tabs": "SF Pro",
-  //   "statusbar": "SF Pro",
-  //   "settings-body": "SF Pro",
-  //   "extension-editor": "SF Pro",
-  //   "monaco-menu": "SF Pro"
-  // },
   "apc.electron": {
-    //  "backgroundColor": "rgba(123, 123, 123, 0.5)",
     "frame": false,
-    //  "transparent": true,
-    //  "vibrancy": "window",
-    //  "opacity": 0.96,
-    //  "visualEffectState": "active",
   },
   "apc.listRow": {
     "lists": [
@@ -369,12 +352,16 @@
       "id": "color-highlight-useARGB",
       "overrideWorkspaceSettings": false,
       "values": [ { "color-highlight.useARGB": true }, { "color-highlight.useARGB": false } ]
+    },
+    {
+      "id": "",
+      "overrideWorkspaceSettings": false,
+      "values": [ { }, { } ]
     }
   ],
   // 
   "oneDarkPro.editorTheme": "One Dark Pro Darker",
   //
-
   "workbench.colorCustomizations": {
     "editorLineNumber.foreground": "#71717178",
     "tab.activeBorder": "#1f2225",
@@ -439,20 +426,5 @@
     "*.sdb": "${capture}.${extname}-*",
     "*.s3db": "${capture}.${extname}-*"
   },
-  "liveServer.settings.donotVerifyTags": true,
-  "[shellscript]": {
-    "editor.defaultFormatter": "mads-hartmann.bash-ide-vscode"
-  },
-  "deepl.formality": "default",
-  "deepl.tagHandling": "off",
-  "deepl.splitSentences": "1",
-  "deepl.translationMode": "Replace",
-  "sherlock.userId": "971f9f90-d365-48fb-b236-80e7b4f3d52c",
-  "Lua.codeLens.enable": true,
-  "javascript.referencesCodeLens.enabled": true,
-  "typescript.referencesCodeLens.enabled": true,
-  // "diffEditor.codeLens": true,
-  "workbench.editor.tabSizing": "shrink",
-  "editor.hover.delay": 900,
-  "explorer.autoReveal": false
+  "workbench.statusBar.visible": false
 }

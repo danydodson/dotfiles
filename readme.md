@@ -1,6 +1,6 @@
 # dotfiles 🍩
 
-![screenshot](/docs/nvim.png)
+![screenshot](/docs/dots.png)
 
 These are my personal dotfiles. The setup is based on
 [dotbot](https://github.com/danydodson/dotfiles) and aims to be as idempotent as

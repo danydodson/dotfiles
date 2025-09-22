@@ -2,7 +2,7 @@
 
 # Gets macOS software, Homebrew and npm updates and cleans trash and logs.
 
-. "$HOME/.dotfiles/ansi/feedback.sh"
+. "$HOME/.dotfiles/bin/ansi/feedback.sh"
 
 trap on_error SIGTERM
 
@@ -24,17 +24,18 @@ function update_macos_apps() {
 function update_homebrew_packages() {
   info "Updating Homebrew packages..."
   sudo -v
-  brew update
+  brew update --force
   brew upgrade
+  brew doctor
   finish
 }
 
 function clean_up() {
   info "Cleaning homebrew packages..."
   brew autoremove
-  brew cleanup --prune=all -s
+  brew cleanup --prune=all --scrub
   info "Cleaning pip cache..."
-  pip cache purge
+  /Users/stache/.config/miniconda3/bin/pip cache purge
   info "Emptying trash and cleaning logs..."
   command rm -rfv ~/.Trash/*
   command rm -rfv /Volumes/*/.Trashes

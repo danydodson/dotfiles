@@ -6,18 +6,10 @@ alias nvim='VIMINIT="" nvim'
 alias v="nvim"
 alias cc="codium"
 
-# tmux
-alias tmux="tmux -f ~/.config/tmux/tmux.conf"
-alias tn="tmux new"
-alias tl="tmux ls"
-alias ta="tmux attach"
-alias tk="tmux kill-session"
-alias td="tmux detach"
-bindkey -s ^p "tms\n"
-bindkey -s ^w "tmux new\n"
-bindkey -s ^o "tmux attach -t working\n"
-bindkey '^s' vicmd '^s' sesh-sessions
-bindkey '^s' viins '^s' sesh-sessions
+# dirs
+alias ~="cd ~"
+alias ..="cd .."
+alias ....="cd ../../"
 
 # ssh
 alias sshrawdog="ssh ubuntu@18.235.113.176"
@@ -42,13 +34,22 @@ alias cat="bat"
 alias -g :h='-h 2>&1 | bat --language=help --style=plain'
 alias -g :h='--help 2>&1 | bat --language=help --style=plain'
 
-# dirs
-alias ~="cd ~"
-alias ..="cd .."
-
 # brew leaves
 alias b-leaves="brew leaves | xargs brew desc --eval-all"
 alias b-leaves-casks="brew ls --casks | xargs brew desc --eval-all"
+
+# tmux
+alias tmux="tmux -f ~/.config/tmux/tmux.conf"
+alias tn="tmux new"
+alias tl="tmux ls"
+alias ta="tmux attach"
+alias tk="tmux kill-session"
+alias td="tmux detach"
+bindkey -s ^p "tms\n"
+bindkey -s ^w "tmux new\n"
+bindkey -s ^o "tmux attach -t working\n"
+bindkey '^s' vicmd '^s' sesh-sessions
+bindkey '^s' viins '^s' sesh-sessions
 
 # transmission
 alias trd="transmission-daemon"
@@ -115,6 +116,7 @@ alias jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Hel
 alias chrome="open -a /Applications/Google\ Chrome.app"
 alias canary="open -a /Applications/Google\ Chrome\ Canary.app"
 alias firefox="open -a /Applications/Firefox.app"
+alias twilight="open -a /Applications/Twilight.app"
 
 # exclude macOS specific files in zip archives
 # alias zip="zip -x *.DS_Store -x *__MACOSX* -x *.AppleDouble*"
@@ -129,12 +131,6 @@ alias logoff="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resou
 alias rmds="find . -type f -name '*.DS_Store' -ls -delete"
 alias rmnm="find . -type d -name 'node_modules' -ls -delete"
 alias rmad="find . -type d -name '.AppleD*' -ls -exec /bin/rm -r {} \;"
-
-# clean up launch services to remove duplicates in the "open with" menu
-alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
-
-# empty trash on mounted volumes and main HDD, and clear system logs
-alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash/*; sudo rm -rfv /private/var/log/asl/*.asl"
 
 # reload native apps
 alias killfinder="killall Finder"

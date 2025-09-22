@@ -13,8 +13,12 @@
     "command": "settings.cycle.lineNumbers"
   },
   // {
+  //   "key": "f5",
+  //   "command": "settings..cycle."
+  // },
+  // {
   //   "key": "f6",
-  //   "command": "settings."
+  //   "command": "settings..cycle."
   // },
   {
     "key": "f7",
@@ -28,6 +32,14 @@
     "key": "f9",
     "command": "settings.cycle.tabsVisible"
   },
+  // {
+  //   "key": "f10",
+  //   "command": "settings.cycle."
+  // },
+  // {
+  //   "key": "f11",
+  //   "command": "settings.cycle."
+  // },
   {
     "key": "cmd+l",
     "command": "-expandLineSelection",

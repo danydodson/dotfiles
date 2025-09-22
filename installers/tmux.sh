@@ -2,7 +2,7 @@
 
 # Installs tmux and plugins
 
-. "$HOME/.dotfiles/ansi/feedback.sh"
+. "$HOME/.dotfiles/bin/ansi/feedback.sh"
 
 set -e
 trap on_error SIGTERM

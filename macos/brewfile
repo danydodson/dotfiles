@@ -1,12 +1,16 @@
 tap "buo/cask-upgrade"
 tap "chase/tap"
 tap "felixkratz/formulae"
-tap "homebrew/command-not-found"
 tap "homebrew/test-bot"
 tap "koekeishiya/formulae"
-tap "opencode-ai/tap"
 tap "oven-sh/bun"
 tap "rigellute/tap"
+tap "sst/tap"
+tap "stripe/stripe-cli"
+# General-purpose data compression with high compression ratio
+brew "xz"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
 # Library for command-line editing
 brew "readline"
 # Command-line interface for SQLite
@@ -117,6 +121,8 @@ brew "macchina"
 brew "macpine"
 # Utility for directing compilation
 brew "make"
+# Drop-in replacement for MySQL
+brew "mariadb"
 # Mac App Store command-line interface
 brew "mas"
 # Unified display of technical and tag data for audio/video
@@ -137,6 +143,8 @@ brew "nasm"
 brew "nmap"
 # Retrieves currently playing media, and simulates media actions
 brew "nowplaying-cli"
+# Manage multiple Node.js versions
+brew "nvm"
 # Development kit for the Java programming language
 brew "openjdk"
 # Outputs current CPU temperature for OSX
@@ -153,6 +161,8 @@ brew "prettier"
 brew "prettyping"
 # Show ps output as a tree
 brew "pstree"
+# Cross-platform application and UI framework
+brew "qt@5"
 # SVG rendering tool and library
 brew "resvg"
 # Command-line toolbox for fancy output in the terminal
@@ -175,6 +185,8 @@ brew "staticcheck"
 brew "stylua"
 # Change macOS audio source from the command-line
 brew "switchaudio-osx"
+# Tool Command Language
+brew "tcl-tk"
 # User interface to the TELNET protocol
 brew "telnet"
 # Official tldr client written in Rust
@@ -182,7 +194,7 @@ brew "tlrc"
 # Terminal multiplexer
 brew "tmux"
 # Lightweight BitTorrent client
-brew "transmission-cli"
+brew "transmission-cli", restart_service: :changed
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Incremental parsing library
@@ -197,6 +209,8 @@ brew "typescript"
 brew "unar"
 # Vi 'workalike' with many additional features
 brew "vim"
+# Tool for packaging, publishing and managing VS Code extensions
+brew "vsce"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
 # Extensible IRC client
@@ -215,6 +229,8 @@ brew "yazi"
 brew "yt-dlp"
 # Programming language designed for robustness, optimality, and clarity
 brew "zig"
+# General-purpose lossless data-compression library
+brew "zlib"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # A window border system for macOS
@@ -227,11 +243,14 @@ brew "felixkratz/formulae/svim"
 brew "koekeishiya/formulae/krp"
 # Simple hotkey-daemon for macOS.
 brew "koekeishiya/formulae/skhd"
-# A tiling window manager for macOS based on binary space partitioning.
-brew "koekeishiya/formulae/yabai"
-brew "opencode-ai/tap/opencode"
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
+brew "oven-sh/bun/bun"
 # A terminal user interface for Spotify
 brew "rigellute/tap/spotify-tui"
+# The AI coding agent built for the terminal.
+brew "sst/tap/opencode"
+# Stripe CLI utility
+brew "stripe/stripe-cli/stripe"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Command-line interface for 1Password
@@ -272,22 +291,18 @@ cask "iina"
 cask "karabiner-elements"
 # File archiver
 cask "keka"
-# Discover, download, and run local LLMs
-cask "lm-studio"
 # Controls and monitors all fans on Apple computers
 cask "macs-fan-control"
 # Syncs files between computers and MEGA Cloud drives
 cask "megasync"
+# Interactive tool for analyzing MongoDB data
+cask "mongodb-compass"
 # Cloud gaming platform
 cask "nvidia-geforce-now"
 # Finder Toolbar app to open the current directory in Terminal or Editor
 cask "openinterminal"
 # Collaboration platform for API development
 cask "postman"
-# Keyboard-driven, vim-like browser based on PyQt5
-cask "qutebrowser"
-# Tool that provides consistent, highly configurable symbols for apps
-cask "sf-symbols"
 # Music streaming service
 cask "spotify"
 # Video game digital distribution service
@@ -296,8 +311,6 @@ cask "steam"
 cask "stolendata-mpv"
 # Application for inspecting installer packages
 cask "suspicious-package"
-# Customizable email client
-cask "thunderbird"
 # Web browser focusing on security
 cask "tor-browser"
 # Open-source BitTorrent client
@@ -309,26 +322,25 @@ cask "vlc"
 # Gecko based web browser
 cask "zen@twilight"
 mas "1Password for Safari", id: 1569813296
+mas "Cleaner for Xcode", id: 1296084683
 mas "Color Picker", id: 1545870783
+mas "Dynamic Wallpaper", id: 1453504509
 mas "MEGA VPN", id: 6456784858
-mas "MyWallpaper", id: 1552826194
 mas "Peek", id: 1554235898
-mas "SFMenuBar", id: 1615595104
 mas "Tampermonkey", id: 6738342400
-mas "Unsplash Wallpapers", id: 1284863847
 mas "Xcode", id: 497799835
 vscode "1password.op-vscode"
 vscode "adamraichu.font-viewer"
+vscode "adpyke.vscode-userscript"
+vscode "andywang.vscode-scriptmonkey"
 vscode "astro-build.astro-vscode"
 vscode "christian-kohler.npm-intellisense"
-vscode "cloudedcat.vscode-model-viewer"
 vscode "continue.continue"
-vscode "craigrbroughton.htmx-attributes"
+vscode "darxeal.tampermonkey-snippets"
 vscode "dbaeumer.vscode-eslint"
 vscode "donjayamanne.githistory"
 vscode "donjayamanne.python-environment-manager"
 vscode "drcika.apc-extension"
-vscode "echoapi.echoapi-for-vscode"
 vscode "edwinkofler.vscode-assorted-languages"
 vscode "emilast.logfilehighlighter"
 vscode "esbenp.prettier-vscode"
@@ -338,17 +350,20 @@ vscode "furkanozalp.go-syntax"
 vscode "golang.go"
 vscode "hangxingliu.vscode-nginx-conf-hint"
 vscode "jeanp413.open-remote-ssh"
+vscode "jeff-hykin.better-cpp-syntax"
 vscode "jeff-hykin.better-shellscript-syntax"
 vscode "jellydn.vscode-settings-cycler"
 vscode "jock.svg"
 vscode "johnnymorganz.stylua"
+vscode "kylinideteam.cmake-intellisence"
+vscode "llvm-vs-code-extensions.vscode-clangd"
 vscode "mads-hartmann.bash-ide-vscode"
 vscode "matt-rudge.auto-open-preview-panel"
 vscode "mechatroner.rainbow-csv"
 vscode "mhutchie.git-graph"
 vscode "mikestead.dotenv"
-vscode "mongodb.mongodb-vscode"
 vscode "ms-azuretools.vscode-docker"
+vscode "ms-dotnettools.vscode-dotnet-runtime"
 vscode "ms-python.autopep8"
 vscode "ms-python.debugpy"
 vscode "ms-python.python"
@@ -359,22 +374,25 @@ vscode "openra.vscode-openra-lua"
 vscode "qwtel.sqlite-viewer"
 vscode "redhat.vscode-xml"
 vscode "redhat.vscode-yaml"
+vscode "remcohaszing.schemastore"
 vscode "ritwickdey.liveserver"
 vscode "rogalmic.bash-debug"
+vscode "rust-lang.rust-analyzer"
 vscode "slevesque.shader"
 vscode "solomonkinard.chrome-extension-api"
 vscode "solomonkinard.chrome-extensions"
+vscode "stripe.vscode-stripe"
 vscode "sumneko.lua"
 vscode "tamasfe.even-better-toml"
 vscode "timonwong.shellcheck"
 vscode "tobermory.es6-string-html"
 vscode "tomoki1207.pdf"
+vscode "twxs.cmake"
 vscode "unifiedjs.vscode-mdx"
 vscode "vadimcn.vscode-lldb"
 vscode "vue.volar"
 vscode "wabiloo.m3u8-hls-vscode"
 vscode "xabikos.javascriptsnippets"
 vscode "xadillax.viml"
-vscode "xaver.clang-format"
 vscode "zhuangtongfa.material-theme"
 vscode "ziglang.vscode-zig"

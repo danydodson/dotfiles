@@ -2,7 +2,7 @@
 
 # Gets macOS software, Homebrew and npm updates and cleans trash and logs.
 
-. "$HOME/.dotfiles/ansi/feedback.sh"
+. "$HOME/.dotfiles/bin/ansi/feedback.sh"
 
 BIN_NAME=$(basename "$0")
 COMMAND_NAME=$1
@@ -16,7 +16,7 @@ sub_help() {
   echo "   nvim             Clean up nvim caches"
   echo "   dock             Apply macOS Dock settings"
   echo "   duti             Set default apps for file types (UTI)"
-  echo "   edit             Open dotfiles in IDE ($VISUAL) and Git GUI ($VISUAL_GIT)"
+  echo "   edit             Open dotfiles in IDE ($EDITOR) and Git GUI ($VISUAL_GIT)"
   echo "   help             This help message"
   echo "   macos            Apply macOS system defaults"
   echo "   update           Update packages and pkg managers (macOS, brew, casks, npm, yarn, cargo, pip3, gems)"
@@ -48,15 +48,16 @@ function sub_update() {
   sudo softwareupdate -i -a
 
   info "$ brew update..."
-  brew update
+  brew update --force
   brew upgrade
+  brew doctor
 
   on_finish
 }
 
 sub_edit() {
-  sh -c "$VISUAL $DOTFILES"
-  sh -c "$VISUAL_GIT $DOTFILES"
+  cd "$DOTFILES" && sh -c "VIMINIT="" nvim ."
+  # sh -c "$VISUAL_GIT $DOTFILES"
 
   finish
 }

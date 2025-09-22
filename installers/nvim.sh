@@ -2,7 +2,7 @@
 
 # Installs nvim
 
-source "$HOME/.dotfiles/ansi/feedback.sh"
+source "$HOME/.dotfiles/bin/ansi/feedback.sh"
 
 set -e
 trap on_error SIGTERM
