@@ -6,8 +6,8 @@
 
 # function: show help
 help() {
-    usage "Usage: yabai-tools.sh [command]"
-    usage "Commands:"
+    command "Usage: yabai-tools.sh [command]"
+    green "Commands:"
     commands "    help               -- Show this help message"
     commands "    start              -- Start Yabai service"
     commands "    stop               -- Stop Yabai service"
@@ -31,7 +31,7 @@ help() {
     commands "    toggle_split       -- Toggle horizontal / vertical windows split"
     commands "    toggle_layout      -- Toggle stack / bsp layouts"
     # info "  ——————————————————————————————————————————————"
-    usage "[Position]:"
+    green "[Position]:"
     blue "    lefthalf"
     blue "    righthalf"
     blue "    tophalf"

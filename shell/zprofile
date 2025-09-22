@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# homebrew -> shell
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # system executables -> path
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/libexec:$PATH"
 
@@ -12,6 +15,7 @@ export MANPATH="/usr/local/MacGPG2/share/man:/usr/local/share/man:/usr/share/man
 # dotfiles bin -> path
 export PATH="$DOTFILES/bin:$PATH"
 export PATH="$DOTFILES/ansi/scripts:$PATH"
+export PATH="$DOTFILES/config/yabai/scripts:$PATH"
 
 # go -> path
 export PATH="$GO_PATH/bin:$PATH"
@@ -31,9 +35,6 @@ export PATH="$HOME/.spicetify:$PATH"
 
 # docker -> fpath
 export FPATH=$HOME/.docker/completions:$FPATH
-
-# homebrew -> shell
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # macos paths -> path
 for path_file in /etc/paths.d/*(.N); do

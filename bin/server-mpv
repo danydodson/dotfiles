@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-# Runs a python script that allows mpv to open videos from browser
-
-nohup /Users/stache/.config/miniconda3/bin/python3 /Users/stache/.dotfiles/config/mpv/mpv-server.py > /tmp/server-mpv.log 2>&1 &
