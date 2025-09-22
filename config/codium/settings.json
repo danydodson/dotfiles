@@ -155,7 +155,7 @@
   "terminal.integrated.stickyScroll.enabled": false,
   "terminal.integrated.enableImages": true,
   "terminal.integrated.scrollback": 100000,
-  "terminal.integrated.shellIntegration.decorationsEnabled": "never",
+  // "terminal.integrated.shellIntegration.decorationsEnabled": "never",
   "terminal.integrated.allowedLinkSchemes": [
     "file",
     "http",
