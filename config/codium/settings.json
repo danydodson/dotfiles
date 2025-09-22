@@ -142,7 +142,11 @@
   "terminal.integrated.fontWeightBold": "normal",
   "terminal.integrated.fontFamily": "FiraMono Nerd Font",
   "terminal.integrated.drawBoldTextInBrightColors": false,
-  "terminal.integrated.inheritEnv": false,
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  // "terminal.integrated.inheritEnv": false,
+  "terminal.integrated.env.osx": {
+    "NPM_CONFIG_CACHE": "/Users/stache/.config/npm"
+  },
   "terminal.integrated.stickyScroll.enabled": false,
   "terminal.integrated.enableImages": true,
   "terminal.integrated.scrollback": 100000,
@@ -450,6 +454,5 @@
   // "diffEditor.codeLens": true,
   "workbench.editor.tabSizing": "shrink",
   "editor.hover.delay": 900,
-  "explorer.autoReveal": false,
-  "workbench.statusBar.visible": false
+  "explorer.autoReveal": false
 }
