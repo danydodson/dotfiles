@@ -44,6 +44,7 @@
           config/gnupg,
           config/iina,
           config/lscolors,
+          config/shellcheck
           config/ssh,
           config/starship,
           config/transmission,
