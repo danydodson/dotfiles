@@ -1,0 +1,534 @@
+/**
+ * Shift: a Transmission web interface.
+ *
+ * © 2024 Killemov.
+ *
+ * This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.
+ * To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/ or send a
+ * letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+ */
+
+html ::selection {
+  color: white;
+  background: #5DA941;
+}
+
+html.dark ::selection {
+  color: black;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 11pt;
+  margin: 2px;
+}
+
+a {
+  color: #5DA941;
+  text-decoration: none;
+}
+
+led {
+  background-color: #5DA941;
+  background-image: linear-gradient(-8deg, #5DA941, #9BE281);
+  border-color: #5DA941 #9BE281 #9BE281 #5DA941;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  color: #3F3F3F;
+  font-size: 1.1em;
+  font-weight: 900;
+  margin: -1px 4px 1px 4px;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+led.added,
+led.high {
+  font-size: 12pt;
+  line-height: 12px;
+}
+
+led.duplicate {
+  line-height: 12px;
+  font-size: 10pt;
+}
+
+led.loaded {
+  font-size: 10pt;
+  line-height: 12px;
+}
+
+led.close,
+led.loading {
+  line-height: 0.6em;
+  text-indent: 0.15em;
+}
+
+led.low {
+  font-size: 12pt;
+  line-height: 10px;
+}
+
+led.none {
+  background-color: #EFEFEF;
+  background-image: linear-gradient(-8deg, #EFEFEF, #FCFCFC);
+  border: 1px solid #D5D5D5;
+  color: #3F3F3F;
+}
+
+led.uploading {
+  font-size: 13pt;
+  line-height: 7px;
+}
+
+div.filter led {
+  margin-left: 4px;
+}
+
+led.clipboard {
+  margin-left: 1em;
+}
+
+input {
+  font-family: Arial, sans-serif;
+  font-size: 11pt;
+}
+
+h1 {
+  font-size: 28pt;
+  margin: 8px 0;
+  text-align: center;
+}
+
+select {
+  font-family: Arial, sans-serif;
+  font-size: 11pt;
+}
+
+menu#menu {
+  width: calc(100% - 18em);
+}
+
+body.box menu#menu {
+  background-color: #EFEFEF;
+  background-image: linear-gradient(-8deg, #EFEFEF, #FCFCFC);
+  border: 1px solid #D5D5D5;
+  border-radius: 4px;
+}
+
+menu#menu li {
+  background-color: #5DA941;
+  background-image: linear-gradient(-8deg, #5DA941, #9BE281);
+  border-color: #5DA941 #9BE281 #9BE281 #5DA941;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  color: #3F3F3F;
+  margin: 2px;
+  min-width: 8em;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+}
+
+html.dark menu#menu li {
+  color: #FFFFFF;
+}
+
+menu#menu li.selected {
+  color: #FFFFFF;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+html.dark menu#menu li.selected {
+  color: #3F3F3F;
+}
+
+menu#menu li.sub {
+  clear: right;
+  float: left;
+}
+
+.popup div.menuSpacer {
+  border: 1px solid #D3D3D3;
+}
+
+body.box div#filterContainer {
+  background-color: #EFEFEF;
+  background-image: linear-gradient(-8deg, #EFEFEF, #FCFCFC);
+  border: 1px solid #D5D5D5;
+  border-radius: 4px;
+}
+
+div.upload {
+  border: 1px solid #D5D5D5;
+  border-radius: 2px;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin-bottom: 4px;
+}
+
+.popup {
+  background-color: #EFEFEF;
+  border: 1px solid #D5D5D5;
+  box-shadow: 8px 8px 16px #3F3F3F;
+}
+
+html.dark .popup {
+  box-shadow: 8px 8px 16px #FFFFFF;
+}
+
+.dialog {
+  background-image: linear-gradient(-8deg, #EFEFEF, #FCFCFC);
+  border-radius: 8px;
+}
+
+.dialog>div:last-child .styled {
+  margin-left: 8px;
+}
+
+.popup menu li {
+  background-color: #EFEFEF;
+  background-image: linear-gradient(-8deg, #EFEFEF, #FCFCFC);
+  border: 1px solid #D5D5D5;
+}
+
+.popup menu li:hover {
+  background-color: #5DA941;
+  background-image: linear-gradient(-8deg, #5DA941, #9BE281);
+  border: 1px solid #5DA941;
+  color: #FFFFFF;
+}
+
+.popup input.styled {
+  border: 1px solid #D5D5D5;
+}
+
+li#high,
+li#normal,
+li#low,
+li#none,
+li#folder {
+  padding: 0;
+}
+
+div#popupFile led {
+  margin: 2px;
+}
+
+div#popupUpload>div:last-child led:first-of-type {
+  margin-left: 0px;
+}
+
+div#popupUpload>div:last-child led,
+div#popupUpload>div:last-child button:first-of-type {
+  margin-left: 8px;
+}
+
+led#port-is-open {
+  margin-right: -4px;
+  margin-top: 2px;
+}
+
+.styled {
+  border: none;
+  border-radius: 4px;
+  text-align: left;
+}
+
+a:focus,
+span[tabindex]:focus,
+led[tabindex]:focus,
+.dialog:focus,
+.styled:focus {
+  outline: 2px solid #5DA941;
+}
+
+table#torrentTable span[tabindex]:focus {
+  outline: 4px solid #5DA941;
+}
+
+.filter .styled {
+  border: 1px solid #D5D5D5;
+  margin-right: 2px;
+}
+
+input.styled,
+textarea.styled {
+  background-color: transparent;
+}
+
+button.styled {
+  background-color: #5DA941;
+  background-image: linear-gradient(-8deg, #5DA941, #9BE281);
+  border-color: #5DA941 #9BE281 #9BE281 #5DA941;
+  border-style: solid;
+  border-width: 1px;
+  color: #FFFFFF;
+  font: inherit;
+  margin: 2px;
+  padding: 0.5em;
+  min-width: 8em;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+select.styled {
+  background-image:
+    linear-gradient(45deg, transparent 50%, #5DA941 50%),
+    linear-gradient(135deg, #5DA941 50%, transparent 50%);
+  background-position: calc(1em - 8px) 0.4em, 1em 0.4em;
+  border: 1px solid #D5D5D5;
+}
+
+select.styled option {
+  border: 1px solid #D5D5D5;
+}
+
+select.styled option:hover {
+  background-color: #5DA941;
+}
+
+.keyvalue select.styled {
+  border: unset;
+  background-position: 2px 0.4em, 10px 0.4em;
+  padding-left: 22px;
+}
+
+.keyvalue textarea.styled {
+  border: 1px solid #D5D5D5;
+}
+
+div#popupAdd label#dir {
+  margin-left: 22px;
+}
+
+div#popupAdd input.styled {
+  border: 1px solid #D5D5D5;
+  width: 244px;
+}
+
+div#popupAdd div.pathselect.styled {
+  width: 374px;
+}
+
+div#popupDialog div.pathselect.styled {
+  margin-bottom: 4px;
+  width: calc(100% - 38px);
+}
+
+div.upload span {
+  margin-bottom: 0px;
+  margin-right: 6px;
+}
+
+table {
+  border: none;
+  border-radius: 4px;
+}
+
+table thead tr th {
+  border-bottom: 1px solid #000000;
+  border-left: none;
+  border-top: 1px solid #000000;
+  border-right: none;
+  line-height: unset;
+  padding: 1px 4px;
+}
+
+table tbody tr:hover {
+  background-color: rgba(239, 239, 239, 0.5);
+}
+
+table td {
+  border: none;
+  line-height: unset;
+  padding: 0 4px;
+}
+
+col {
+  width: 64px;
+}
+
+col.address {
+  width: 128px;
+}
+
+col.rateDownload,
+col.rateUpload {
+  width: 72px;
+}
+
+col.announce,
+col.clientName,
+col.name,
+col.value {
+  width: auto;
+}
+
+col.errorString,
+col.uploadRatio {
+  width: 128px;
+}
+
+col.key {
+  width: 256px;
+}
+
+col.doneDate {
+  width: 152px;
+}
+
+col.lastAnnounceTime,
+col.nextAnnounceTime,
+col.lastScrapeTime,
+col.nextScrapeTime {
+  width: 88px;
+}
+
+col.corruptEver,
+col.length,
+col.sizeWhenDone,
+col.uploadedEver {
+  width: 88px;
+}
+
+col.menu,
+col.priority {
+  width: 20px;
+}
+
+col.port {
+  width: 56px;
+}
+
+/* col.progress {} */
+
+col.queuePosition {
+  width: 48px;
+}
+
+col.status {
+  width: 120px;
+}
+
+body.normal div#header {
+  height: 74px;
+}
+
+body.fixed div#header {
+  padding-top: 2px;
+}
+
+body.fixed div#content {
+  margin-top: 76px;
+}
+
+body.box div#header {
+  background-color: #EFEFEF;
+  background-image: linear-gradient(-8deg, #EFEFEF, #FCFCFC);
+  border: 1px solid #D5D5D5;
+  border-radius: 8px;
+  box-shadow: 8px 8px 16px #3F3F3F;
+  right: 9px;
+  top: 8px;
+  width: 372px;
+}
+
+html.dark body.box div#header {
+  box-shadow: 8px 8px 16px #FFFFFF;
+}
+
+canvas {
+  border-left: rgba(93, 169, 65, 0);
+  border-right: rgba(93, 169, 65, 1);
+  color: #5DA941;
+  height: 1.4em;
+  margin-bottom: -4px;
+}
+
+div#stats {
+  background-color: #EFEFEF;
+  background-image: linear-gradient(-8deg, #EFEFEF, #FCFCFC);
+  border: 1px solid #D5D5D5;
+  border-radius: 8px;
+  color: #3F3F3F;
+  float: right;
+  margin: 8px 8px -22px 0;
+  min-width: 16em;
+  padding: 0 0.5em;
+}
+
+body.fixed div#stats {
+  margin-right: 12px;
+}
+
+div#stats label {
+  width: 40px;
+  margin-right: 8px;
+}
+
+table.keyvalue div.pathselect {
+  margin-left: 4px;
+  width: calc(100% - 4px);
+}
+
+table.keyvalue div.pathselect.styled>input.styled {
+  width: calc(100% - 4px);
+}
+
+div#popupAdd div.pathselect.styled>input.styled,
+div#popupDialog div.pathselect.styled>input.styled {
+  width: calc(100% - 5px);
+}
+
+td#d_downloadDir div.pathselect {
+  margin-left: 4px;
+  width: calc(100% - 18px);
+}
+
+td#d_downloadDir div.pathselect input.styled {
+  width: calc(100% - 4px);
+}
+
+table#trackerTable tr.tier {
+  height: 0px;
+}
+
+table#trackerTable tr.tier td {
+  border-top: 1px solid lightgray;
+}
+
+table#trackerTable tfoot tr td {
+  vertical-align: top;
+}
+
+table#trackerTable tfoot tr td textarea.styled {
+  height: 4.5em;
+  padding-top: 0px;
+  margin-top: 0;
+}
+
+table#trackerTable tfoot tr td textarea.styled.list {
+  height: 9em;
+}
+
+img.mimeType {
+  filter: grayscale(1);
+}
+
+led.open {
+  line-height: 0.65em;
+}
+
+progress {
+  background-image: linear-gradient(-8deg, #EFEFEF, #FCFCFC);
+  border: 1px inset lightgray;
+  border-radius: 4px;
+}
+
+progress::-moz-progress-bar {
+  background-image: linear-gradient(-8deg, rgb(93, 169, 65), rgb(155, 226, 129));
+}
+
+html.shift table#torrentTable tbody span.labels {
+  margin-bottom: -16px;
+  margin-top: -9px;
+}
