@@ -19,15 +19,15 @@ You can get an idea of the various daemons and agents managed by launchd by look
 Install launch agents:
 
 ```bash
-sudo cp $HOME/.dotfiles/macos/agents/maxfiles.plist ~/Library/LaunchAgents/dots.maxfiles.plist
+cp $HOME/.dotfiles/macos/agents/maxfiles.plist ~/Library/LaunchAgents/dots.maxfiles.plist
 launchctl load ~/Library/LaunchAgents/dots.maxfiles.plist
 
-sudo cp $HOME/.dotfiles/macos/agents/maxproc.plist ~/Library/LaunchAgents/dots.maxproc.plist
+cp $HOME/.dotfiles/macos/agents/maxproc.plist ~/Library/LaunchAgents/dots.maxproc.plist
 launchctl load ~/Library/LaunchAgents/dots.maxproc.plist
 
-sudo cp $HOME/.dotfiles/macos/agents/mpv.plist ~/Library/LaunchAgents/dots.mpv.plist
+cp $HOME/.dotfiles/macos/agents/mpv.plist ~/Library/LaunchAgents/dots.mpv.plist
 launchctl load ~/Library/LaunchAgents/dots.mpv.plist
 
-sudo cp $HOME/.dotfiles/macos/agents/mozenv.plist ~/Library/LaunchAgents/dots.mozenv.plist
+cp $HOME/.dotfiles/macos/agents/mozenv.plist ~/Library/LaunchAgents/dots.mozenv.plist
 launchctl load ~/Library/LaunchAgents/dots.mozenv.plist
 ```
