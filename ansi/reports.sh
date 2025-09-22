@@ -1,45 +1,66 @@
 #!/usr/bin/env bash
 
-e='\033'
-RESET="${e}[0m"
-BOLD="${e}[1m"
-CYAN="${e}[0;96m"
-RED="${e}[0;91m"
-YELLOW="${e}[0;93m"
-GREEN="${e}[0;32m"
-BLUE="${e}[0;34m"
-MAGENTA="${e}[0;35m"
+E='\033'
+RESET="${E}[0m"
+BOLD="${E}[1m"
 
-exists() {
-  command -v "$1" >/dev/null 2>&1
-}
+BLUE="${E}[0;34m"
+RED="${E}[0;91m"
+GREEN="${E}[0;32m"
+CYAN="${E}[0;96m"
+YELLOW="${E}[0;93m"
+MAGENTA="${E}[0;35m"
+NO_COLOR="${E}[0m"
 
-cyan() {
-  echo -e "${CYAN}${*}${RESET}"
+blue() {
+  echo -e "${BLUE}${*}${RESET}"
 }
 
 red() {
   echo -e "${RED}${*}${RESET}"
 }
 
-yellow() {
-  echo -e "${YELLOW}${*}${RESET}"
-}
-
 green() {
   echo -e "${GREEN}${*}${RESET}"
 }
 
-blue() {
-  echo -e "${BLUE}${*}${RESET}"
+cyan() {
+  echo -e "${CYAN}${*}${RESET}"
+}
+
+yellow() {
+  echo -e "${YELLOW}${*}${RESET}"
 }
 
 magenta() {
   echo -e "${MAGENTA}${*}${RESET}"
 }
 
+no_color() {
+  echo -e "${NO_COLOR}${*}${RESET}"
+}
+
+exists() {
+  command -v "$1" >/dev/null 2>&1
+}
+
 info() {
   echo -e "${CYAN}${*}${RESET}"
+}
+
+error() {
+  echo -e "${RED}Error: ${*}${RESET}" >&2
+  # exit 1
+}
+
+success() {
+  echo -e "${GREEN}${*}${RESET}"
+}
+
+finish() {
+  success "Done!"
+  echo
+  sleep 1
 }
 
 command() {
@@ -67,21 +88,6 @@ commands() {
   local after_dash="${input#*--}"
 
   echo -e "${BLUE}${before_dash}${RESET}${after_dash}"
-}
-
-error() {
-  echo -e "${RED}Error: ${*}${RESET}" >&2
-  # exit 1
-}
-
-success() {
-  echo -e "${GREEN}${*}${RESET}"
-}
-
-finish() {
-  success "Done!"
-  echo
-  sleep 1
 }
 
 on_start() {

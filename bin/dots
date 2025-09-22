@@ -2,7 +2,7 @@
 
 # Gets macOS software, Homebrew and npm updates and cleans trash and logs.
 
-. "$HOME/.dotfiles/ansi/feedback.sh"
+. "$HOME/.dotfiles/ansi/reports.sh"
 
 BIN_NAME=$(basename "$0")
 COMMAND_NAME=$1

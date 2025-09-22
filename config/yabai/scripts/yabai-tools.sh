@@ -2,7 +2,7 @@
 
 # Yabai helper commands
 
-. "$HOME/.dotfiles/ansi/feedback.sh"
+. "$HOME/.dotfiles/ansi/reports.sh"
 
 # function: show help
 help() {

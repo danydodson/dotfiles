@@ -2,7 +2,7 @@
 
 # SSH key utility: generate if missing, copy or print as instructed
 
-. "$HOME/.dotfiles/ansi/feedback.sh"
+. "$HOME/.dotfiles/ansi/reports.sh"
 
 DEFAULT_KEY="$HOME/.ssh/id_rsa"
 COMMAND_NAME="$1"
