@@ -95,7 +95,7 @@
   "window.confirmSaveUntitledWorkspace": false,
   // 
   "workbench.editor.tabSizing": "shrink",
-  "workbench.startupEditor": "newUntitledFile",
+  "workbench.startupEditor": "none",
   "workbench.layoutControl.enabled": false,
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.showTabs": "multiple",
@@ -425,5 +425,6 @@
     "*.db3": "${capture}.${extname}-*",
     "*.sdb": "${capture}.${extname}-*",
     "*.s3db": "${capture}.${extname}-*"
-  }
+  },
+  "terminal.integrated.inheritEnv": false
 }

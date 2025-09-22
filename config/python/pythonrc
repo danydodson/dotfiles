@@ -59,7 +59,7 @@ def _pythonrc_enable_history():
 
     # "NOHIST= python" will disable history
     if 'NOHIST' not in os.environ:
-        history_path = os.path.expanduser('~/.history/python')
+        history_path = os.path.expanduser('~/.cache/python/history')
 
         has_written = [False]
 
