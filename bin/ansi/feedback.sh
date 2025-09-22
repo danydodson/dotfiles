@@ -42,6 +42,18 @@ info() {
   echo -e "${CYAN}${*}${RESET}"
 }
 
+command() {
+  local input="$*"
+  local before_colon="${input%%:*}"
+  local after_colon="${input#*:}"
+
+  if [[ "$input" == *:* ]]; then
+    echo -e "${BLUE}${before_colon}${RESET}:${YELLOW}${after_colon}${RESET}"
+  else
+    echo -e "${BLUE}${input}${RESET}"
+  fi
+}
+
 usage() {
   local input="$*"
   local before_colon="${input%%:*}"

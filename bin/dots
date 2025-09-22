@@ -9,17 +9,18 @@ COMMAND_NAME=$1
 SUB_COMMAND_NAME=$2
 
 sub_help() {
-  echo "Usage: $BIN_NAME <command>"
-  echo "Commands:"
+  command "Usage: $BIN_NAME <command>"
+  echo
+  green "Commands:"
   echo "   clean            Clean up caches (brew) and empty trash"
-  echo "   nvim             Clean up nvim caches"
   echo "   dock             Apply macOS Dock settings"
   echo "   duti             Set default apps for file types (UTI)"
   echo "   edit             Open dotfiles in IDE ($EDITOR) and Git GUI ($VISUAL_GIT)"
   echo "   help             This help message"
   echo "   macos            Apply macOS system defaults"
   echo "   update           Update packages and pkg managers (macOS, brew, casks, npm, yarn, cargo, pip3, gems)"
-  echo "Scripts: $BIN_NAME install <scripts>"
+  echo
+  green "Scripts: $BIN_NAME install <scripts>"
   echo "   codium           Runs codium.sh installer script from dotfiles"
   echo "   conda            Runs conda.sh installer script from dotfiles"
   echo "   gh               Runs gh.sh installer script from dotfiles"
@@ -29,26 +30,6 @@ sub_help() {
   echo "   ssh              Runs ssh.sh installer script from dotfiles"
   echo "   tmux             Runs tmux.sh installer script from dotfiles"
 }
-
-sub_clean() {
-  info "$ brew cleanup..."
-  brew cleanup --prune=all --scrub
-
-  info "$ emptying trash..."
-  command rm -rfv ~/.Trash/*
-  command rm -rfv /Volumes/*/.Trashes
-
-  on_finish
-}
-
-# sub_nvim() {
-#   info "$ nvim cleanup..."
-#   rm -rf "${HOME}/.cache/nvim"
-#   rm -rf "${HOME}/.local/state/nvim"
-#   find "${HOME}/.local/share/nvim" -mindepth 1 -maxdepth 1 ! -name "dadbod_ui" -exec rm -rf {} +
-
-#   on_finish
-# }
 
 function sub_update() {
   sudo -v
@@ -66,7 +47,6 @@ function sub_update() {
 sub_edit() {
   cd "$DOTFILES" && sh -c "VIMINIT="" nvim ."
   # sh -c "$VISUAL_GIT $DOTFILES"
-
   finish
 }
 
@@ -86,79 +66,86 @@ sub_macos() {
   on_finish
 }
 
+sub_clean() {
+  info "$ brew cleanup..."
+  brew cleanup --prune=all --scrub
+
+  # info "$ nvim cleanup..."
+  # rm -rf "${HOME}/.cache/nvim"
+  # rm -rf "${HOME}/.local/state/nvim"
+  # find "${HOME}/.local/share/nvim" -mindepth 1 -maxdepth 1 ! -name "dadbod_ui" -exec rm -rf {} +
+
+  info "$ emptying trash..."
+  command rm -rfv ~/.Trash/*
+  command rm -rfv /Volumes/*/.Trashes
+
+  on_finish
+}
+
 sub_dock() {
   . "${DOTFILES}/macos/dock.sh" && info "dock reloaded..."
-
   on_finish
 }
 
 sub_codium() {
-  . "${DOTFILES}/installers/codium.sh" && info "codium install finishes..."
-
+  . "${DOTFILES}/installers/codium.sh"
   on_finish
 }
 
 sub_conda() {
-  . "${DOTFILES}/installers/conda.sh" && info "conda install finished..."
-
+  . "${DOTFILES}/installers/conda.sh"
   on_finish
 }
 
 sub_gh() {
-  . "${DOTFILES}/installers/gh.sh" && info "gh install finished..."
-
+  . "${DOTFILES}/installers/gh.sh"
   on_finish
 }
 
 sub_go() {
-  . "${DOTFILES}/installers/go.sh" && info "go install finished..."
-
+  . "${DOTFILES}/installers/go.sh"
   on_finish
 }
 
 sub_nvim() {
-  . "${DOTFILES}/installers/nvim.sh" && info "nvim install finished..."
-
+  . "${DOTFILES}/installers/nvim.sh"
   on_finish
 }
 
 sub_repos() {
-  . "${DOTFILES}/installers/repos.sh" && info "repos install finished..."
-
+  . "${DOTFILES}/installers/repos.sh"
   on_finish
 }
 
 sub_ssh() {
-  . "${DOTFILES}/installers/ssh.sh" && info "ssh install finished..."
-
+  . "${DOTFILES}/installers/ssh.sh"
   on_finish
 }
 
 sub_tmux() {
-  . "${DOTFILES}/installers/tmux.sh" && info "tmux install finished..."
-
+  . "${DOTFILES}/installers/tmux.sh"
   on_finish
 }
 
 sub_install() {
   local installer="$1"
   case "$installer" in
-    codium)  sub_codium ;;
-    conda)   sub_conda ;;
-    gh)      sub_gh ;;
-    go)      sub_go ;;
-    nvim)    sub_nvim ;;
-    repos)   sub_repos ;;
-    ssh)     sub_ssh ;;
-    tmux)    sub_tmux ;;
-    "" | "-h" | "--help")
-      echo "Usage: $BIN_NAME install <codium|conda|gh|go|nvim|repos|ssh|tmux>"
-      ;;
-    *)
-      echo "Unknown installer: $installer" >&2
-      echo "Usage: $BIN_NAME install <codium|conda|gh|go|nvim|repos|ssh|tmux>"
-      return 1
-      ;;
+  codium) sub_codium ;;
+  conda) sub_conda ;;
+  gh) sub_gh ;;
+  go) sub_go ;;
+  nvim) sub_nvim ;;
+  repos) sub_repos ;;
+  ssh) sub_ssh ;;
+  tmux) sub_tmux ;;
+  "" | "-h" | "--help")
+    echo "Usage: $BIN_NAME install <codium|conda|gh|go|nvim|repos|ssh|tmux>"
+    ;;
+  *)
+    echo "Unknown installer: $installer" >&2
+    echo "Usage: $BIN_NAME install <codium|conda|gh|go|nvim|repos|ssh|tmux>"
+    return 1
+    ;;
   esac
 }
 
