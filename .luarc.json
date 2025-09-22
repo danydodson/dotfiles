@@ -9,6 +9,7 @@
     "fs",
     "PREVIEW",
     "rt",
+    "sbar",
     "th",
     "ui",
     "units",
@@ -21,11 +22,11 @@
     "inject-field",
     "lowercase-global",
     "param-type-mismatch",
-    "undefined-global",
     "need-check-nil",
     "redundant-parameter",
     "unbalanced-assignments",
     "undefined-field",
+    "undefined-global",
     "undefined-doc-name"
   ]
 }
