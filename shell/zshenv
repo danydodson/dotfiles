@@ -57,8 +57,6 @@ export CONDA_ENVS_PATH="$HOME/.config/miniconda3/envs"
 
 export JUPYTER_CONFIG_DIR="$HOME/.config/jupiter"
 
-export TRANSMISSION_WEB_HOME=""
-
 export FLY_CONFIG_DIR="$HOME/.config/fly"
 
 export ZSH_CACHE_DIR="$HOME/.cache/zsh"
