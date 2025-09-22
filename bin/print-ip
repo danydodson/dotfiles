@@ -47,11 +47,8 @@ ipv6)
   print_public_ipv6
   ;;
 all)
-  echo "Local IPv4:"
   print_local_ip
-  echo "Public IPv4:"
   print_public_ipv4
-  echo "Public IPv6:"
   print_public_ipv6
   ;;
 *)
