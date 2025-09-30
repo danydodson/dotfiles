@@ -75,3 +75,5 @@ hyper - s : open -a Spotify.app
 hyper - r : \
   skhd --restart-service; \
   yabai --restart-service;
+  # sharpener -r 3;
+

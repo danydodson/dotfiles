@@ -52,10 +52,6 @@ yabai -m config "${LAYOUT[@]}"
 yabai -m config "${WINDOWS[@]}"
 yabai -m config "${MOUSE[@]}"
 
-# fix for focusing on next app when a windows closes
-yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
-yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
-
 # configs for all apps
 yabai -m rule --add app=".*" sub-layer=normal
 
@@ -176,7 +172,14 @@ for ((i = 1; i <= "${#SPACE5[@]}"; i++)); do
   yabai -m rule --add label="space4_${SPACE5[(($i - 1))]}" app="^${SPACE5[(($i - 1))]}.*$" space=^5
 done
 
+# fix for focusing on next app when a windows closes
+yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
+yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
+
 # apply rules to existing windows
 yabai -m rule --apply
+
+# unload macos window manager
+launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist
 
 echo "yabai configuration loaded.."
