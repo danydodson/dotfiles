@@ -174,52 +174,52 @@ autocmd('CursorHold', {
 })
 
 -- launch alpha greeter on startup
-if is_available 'alpha-nvim' then
-  autocmd({ 'User', 'BufEnter' }, {
-    desc = 'Disable status and tablines for alpha',
-    callback = function(args)
-      local is_filetype_alpha = vim.api.nvim_get_option_value('filetype', { buf = 0 }) == 'alpha'
-      local is_empty_file = vim.api.nvim_get_option_value('buftype', { buf = 0 }) == 'nofile'
-      if ((args.event == 'User' and args.file == 'AlphaReady') or (args.event == 'BufEnter' and is_filetype_alpha)) and not vim.g.before_alpha then
-        vim.g.before_alpha = {
-          -- showtabline = vim.opt.showtabline:get(),
-          laststatus = vim.opt.laststatus:get(),
-        }
-        -- vim.opt.showtabline, vim.opt.laststatus = 0, 0
-      elseif vim.g.before_alpha and args.event == 'BufEnter' and not is_empty_file then
-        vim.opt.laststatus = vim.g.before_alpha.laststatus
-        -- vim.opt.showtabline = vim.g.before_alpha.showtabline
-        vim.g.before_alpha = nil
-      end
-    end,
-  })
+-- if is_available 'alpha-nvim' then
+--   autocmd({ 'User', 'BufEnter' }, {
+--     desc = 'Disable status and tablines for alpha',
+--     callback = function(args)
+--       local is_filetype_alpha = vim.api.nvim_get_option_value('filetype', { buf = 0 }) == 'alpha'
+--       local is_empty_file = vim.api.nvim_get_option_value('buftype', { buf = 0 }) == 'nofile'
+--       if ((args.event == 'User' and args.file == 'AlphaReady') or (args.event == 'BufEnter' and is_filetype_alpha)) and not vim.g.before_alpha then
+--         vim.g.before_alpha = {
+--           -- showtabline = vim.opt.showtabline:get(),
+--           laststatus = vim.opt.laststatus:get(),
+--         }
+--         -- vim.opt.showtabline, vim.opt.laststatus = 0, 0
+--       elseif vim.g.before_alpha and args.event == 'BufEnter' and not is_empty_file then
+--         vim.opt.laststatus = vim.g.before_alpha.laststatus
+--         -- vim.opt.showtabline = vim.g.before_alpha.showtabline
+--         vim.g.before_alpha = nil
+--       end
+--     end,
+--   })
 
-  autocmd('VimEnter', {
-    desc = 'Start Alpha only when nvim is opened with no arguments',
-    callback = function()
-      -- precalculate conditions.
-      local lines = vim.api.nvim_buf_get_lines(0, 0, 2, false)
-      local buf_not_empty = vim.fn.argc() > 0 or #lines > 1 or (#lines == 1 and lines[1]:len() > 0)
-      local buflist_not_empty = #vim.tbl_filter(function(bufnr)
-        return vim.bo[bufnr].buflisted
-      end, vim.api.nvim_list_bufs()) > 1
-      local buf_not_modifiable = not vim.o.modifiable
+--   autocmd('VimEnter', {
+--     desc = 'Start Alpha only when nvim is opened with no arguments',
+--     callback = function()
+--       -- precalculate conditions.
+--       local lines = vim.api.nvim_buf_get_lines(0, 0, 2, false)
+--       local buf_not_empty = vim.fn.argc() > 0 or #lines > 1 or (#lines == 1 and lines[1]:len() > 0)
+--       local buflist_not_empty = #vim.tbl_filter(function(bufnr)
+--         return vim.bo[bufnr].buflisted
+--       end, vim.api.nvim_list_bufs()) > 1
+--       local buf_not_modifiable = not vim.o.modifiable
 
-      -- return instead of opening alpha if any of these conditions occur.
-      if buf_not_modifiable or buf_not_empty or buflist_not_empty then
-        return
-      end
-      for _, arg in pairs(vim.v.argv) do
-        if arg == '-b' or arg == '-c' or vim.startswith(arg, '+') or arg == '-S' then
-          return
-        end
-      end
+--       -- return instead of opening alpha if any of these conditions occur.
+--       if buf_not_modifiable or buf_not_empty or buflist_not_empty then
+--         return
+--       end
+--       for _, arg in pairs(vim.v.argv) do
+--         if arg == '-b' or arg == '-c' or vim.startswith(arg, '+') or arg == '-S' then
+--           return
+--         end
+--       end
 
-      -- all good? show alpha.
-      require('alpha').start(true, require('alpha').default_config)
-      vim.schedule(function()
-        vim.cmd.doautocmd 'FileType'
-      end)
-    end,
-  })
-end
+--       -- all good? show alpha.
+--       require('alpha').start(true, require('alpha').default_config)
+--       vim.schedule(function()
+--         vim.cmd.doautocmd 'FileType'
+--       end)
+--     end,
+--   })
+-- end

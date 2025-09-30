@@ -86,42 +86,6 @@ return {
 
       vim.lsp.enable('bashls', 'cssls', 'html', 'lua_ls', 'marksman', 'pyright', 'rust_analyzer', 'tailwindcss', 'ts_ls', 'yamlls')
 
-      -- local lspconfig = require 'lspconfig'
-      -- lspconfig.ts_ls.setup {
-      --   capabilities = capabilities,
-      -- }
-      -- lspconfig.html.setup {
-      --   capabilities = capabilities,
-      -- }
-      -- lspconfig.lua_ls.setup {
-      --   capabilities = capabilities,
-      -- }
-      -- lspconfig.tailwindcss.setup {
-      --   capabilities = capabilities,
-      -- }
-      -- local capabilities_css = vim.lsp.protocol.make_client_capabilities()
-      -- capabilities_css.textDocument.completion.completionItem.snippetSupport = true
-      -- lspconfig.cssls.setup {
-      --   capabilities = capabilities_css,
-      -- }
-      -- lspconfig.marksman.setup {
-      --   capabilities = capabilities,
-      -- }
-      -- lspconfig.yamlls.setup {
-      --   capabilities = capabilities,
-      -- }
-      -- lspconfig.bashls.setup {
-      --   capabilities = capabilities,
-      --   cmd = { 'bash-language-server', 'start' },
-      --   filetypes = { 'sh', 'bash' },
-      -- }
-      -- lspconfig.pyright.setup {
-      --   capabilities = capabilities,
-      -- }
-      -- lspconfig.rust_analyzer.setup {
-      --   capabilities = capabilities,
-      -- }
-
       vim.keymap.set('n', '<leader>ci', vim.lsp.buf.hover, { desc = 'hover info' })
       vim.keymap.set('n', '<leader>cd', vim.lsp.buf.definition, { desc = 'code go to definition' })
       vim.keymap.set('n', '<leader>cr', vim.lsp.buf.references, { desc = 'code list reference' })

@@ -73,6 +73,4 @@ return {
     t({"error {", "    "}), i(1, "variant"), t(","), t({"", "    "}),
     i(2, "variant"), t(","), i(0), t({"", "};"}),
   }),
-
-  -- More snippets can be added following the same pattern...
 }
