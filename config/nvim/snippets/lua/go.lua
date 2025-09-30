@@ -24,126 +24,28 @@ return {
   s('fn', fmt([[func {}() {} {{    {}}}]], { i(1), i(2), i(3) })),
 
   -- Method declaration
-  s(
-    'meth',
-    fmt(
-      [[
-func ({} {}) {}({}) {} {{
-    {}
-}}]],
-      {
-        i(1, 'receiver'),
-        i(2, 'type'),
-        i(3, 'method'),
-        i(4),
-        i(5),
-        i(0),
-      }
-    )
-  ),
+  s('meth', fmt([[func ({} {}) {}({}) {} {{    {}}}]], { i(1, 'receiver'), i(2, 'type'), i(3, 'method'), i(4), i(5), i(0) })),
 
   -- If statement
-  s(
-    'if',
-    fmt(
-      [[
-if {} {{
-    {}
-}}]],
-      {
-        i(1, 'condition'),
-        i(0),
-      }
-    )
-  ),
+  s('if', fmt([[if {} {{    {}}}]], { i(1, 'condition'), i(0) })),
 
   -- Else branch
-  s(
-    'el',
-    fmt(
-      [[
-else {{
-    {}
-}}]],
-      {
-        i(0),
-      }
-    )
-  ),
+  s('el', fmt([[else {{    {}}}]], { i(0) })),
 
   -- If else statement
-  s(
-    'ie',
-    fmt(
-      [[
-if {} {{
-    {}
-}} else {{
-    {}
-}}]],
-      {
-        i(1, 'condition'),
-        i(2),
-        i(0),
-      }
-    )
-  ),
+  s('ie', fmt([[if {} {{    {}}} else {{    {}}}]], { i(1, 'condition'), i(2), i(0) })),
 
   -- If err != nil
-  s(
-    'iferr',
-    fmt(
-      [[
-if err != nil {{
-    {}
-}}]],
-      {
-        i(1, 'return nil, err'),
-      }
-    )
-  ),
+  s('iferr', fmt([[if err != nil {{    {}}}]], { i(1, 'return nil, err') })),
 
   -- Switch statement
-  s(
-    'switch',
-    fmt(
-      [[
-switch {} {{
-case {}:
-    {}
-}}]],
-      {
-        i(1, 'expression'),
-        i(2, 'condition'),
-        i(0),
-      }
-    )
-  ),
+  s('switch', fmt([[switch {} {{case {}:    {}}}]], { i(1, 'expression'), i(2, 'condition'), i(0) })),
 
   -- Select statement
-  s(
-    'sel',
-    fmt(
-      [[
-select {{
-case {}:
-    {}
-}}]],
-      {
-        i(1, 'condition'),
-        i(0),
-      }
-    )
-  ),
+  s('sel', fmt([[select {{case {}:    {}}}]], { i(1, 'condition'), i(0) })),
 
   -- Case clause
-  s(
-    'cs',
-    fmt('case {}:{}', {
-      i(1, 'condition'),
-      i(0),
-    })
-  ),
+  s('cs', fmt('case {}:{}', { i(1, 'condition'), i(0) })),
 
   -- For statement
   s('for', fmt([[ for {} := 0; {} < {}; {}{} {{    {} }}]], { i(1, 'i'), i(1, 'i'), i(2, 'count'), i(1, 'i'), i(3, '++'), i(0) })),
