@@ -49,6 +49,10 @@ syn keyword ghosttyConfigKeyword
 	\ freetype-load-flags
 	\ theme
 	\ background
+	\ background-image
+	\ background-image-opacity
+	\ background-image-position
+	\ background-image-fit
 	\ foreground
 	\ selection-foreground
 	\ selection-background
