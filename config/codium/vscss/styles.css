@@ -1,29 +1,24 @@
-/* activity bar height */
-/* .monaco-workbench .activitybar>.content :not(.monaco-menu)>.monaco-action-bar .action-label {
-  /height: 40px; 
-  width: 30px;
-} */
-
 /* activity bar width */
-/* .monaco-workbench .part.activitybar {
-  width: 30px;
+/* #workbench.parts.activitybar,
+.monaco-workbench .part.activitybar.left {
+  width: 30px !important;
 } */
 
-/* activity bar icons */
-/* .monaco-workbench .activitybar>.content :not(.monaco-menu)>.monaco-action-bar .action-label.codicon {
-  font-size: 13px;
-  right: 9px;
+/* move sidebar left to adjust for activity bar width */
+/* body>div.file-icons-enabled.enable-motion.monaco-workbench.mac.chromium.nopanel.noauxiliarybar.macos-bigsur-or-newer.maximized.vs-dark.zhuangtongfa-material-theme-themes-OneDark-Pro-darker-json>div.monaco-grid-view>div>div>div.monaco-scrollable-element.mac>div.split-view-container>div:nth-child(3)>div>div>div.monaco-scrollable-element.mac>div.split-view-container>div:nth-child(2) {
+  left: 30px !important;
 } */
 
-/* more bar icons */
-/* .monaco-workbench .activitybar .monaco-action-bar .action-label.activity-workbench-view-extension-python-2feba58765770a361f8d8edc3863b0d249d57bf0 {
-  mask: url(vscode-file://vscode-app/Users/stache/.vscode/extens…hon-envs-0.3.10991008-darwin-arm64/files/logo.svg) 50% 50% / 24px no-repeat padding border-box;
-} */
+/* activity bar codicon icons */
+.monaco-workbench .activitybar>.content :not(.monaco-menu)>.monaco-action-bar .action-label.codicon {
+  font-size: 12px !important;
+  /* right: 9px !important */
+}
 
-/* body > div.file-icons-enabled.enable-motion.monaco-workbench.mac.chromium.nopanel.noauxiliarybar.macos-bigsur-or-newer.maximized.vs-dark.zhuangtongfa-material-theme-themes-OneDark-Pro-darker-json > div.monaco-grid-view > div > div > div.monaco-scrollable-element.mac > div.split-view-container > div:nth-child(3) > div > div > div.monaco-scrollable-element.mac > div.split-view-container > div:nth-child(2){
-  left: 30px;
-  width: 283px;
-} */
+/* activity bar codicon icons */
+.monaco-workbench .activitybar .monaco-action-bar .action-label.activity-workbench-view-extension-containersView-f6027957af7665ee111faf96f557e1efe6815edc {
+  mask: url(file:///Users/stache/.dotfiles/config/codium/vscss/icons/ContainerTools.svg) 25% 25% / 24px no-repeat padding border-box !important;
+}
 
 /* line numbers */
 .monaco-editor .margin-view-overlays .line-numbers {

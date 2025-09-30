@@ -1,4 +1,39 @@
 {
+	"console.log": {
+		"prefix": "l",
+		"body": [
+			"console.log($1)"
+		],
+		"description": "Console log"
+	},
+	"console.info": {
+		"prefix": "cinfo",
+		"body": [
+			"console.info($1)"
+		],
+		"description": "Console info"
+	},
+	"console.warn": {
+		"prefix": "cwarn",
+		"body": [
+			"console.error($1)"
+		],
+		"description": "Console warn"
+	},
+	"console.error": {
+		"prefix": "cerr",
+		"body": [
+			"console.error($1)"
+		],
+		"description": "Console error"
+	},
+	"console.debug": {
+		"prefix": "cdebug",
+		"body": [
+			"console.debug($1)"
+		],
+		"description": "Console debug"
+	},
 	"XXX Debug": {
 		"prefix": "xxx",
 		"body": [
@@ -27,18 +62,4 @@
 		],
 		"description": "Console log debug zzz"
 	},
-	"console.log": {
-		"prefix": "clog",
-		"body": [
-			"console.log($1)"
-		],
-		"description": "Console log"
-	},
-	"console.error": {
-		"prefix": "cerr",
-		"body": [
-			"console.error($1)"
-		],
-		"description": "Console error"
-	}
 }

@@ -6,8 +6,8 @@ ulimit -S -n 8192
 
 export DOTFILES=$HOME/.dotfiles
 
-export VISUAL="nvim"
-export EDITOR="nvim"
+export VISUAL="VIMINIT="" nvim"
+export EDITOR="VIMINIT="" nvim"
 export PAGER="less -RF"
 export LESSHISTFILE=-
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -70,10 +70,12 @@ export PNPM_HOME="$HOME/.config/pnpm"
 export GEM_HOME="$HOME/.local/share/gem"
 export GEM_SPEC_CACHE="$HOME/.cache/gem"
 
+export VSCODE_CLI_DATA_DIR="/Applications/codium-portable-data/data/cli"
+
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
 export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
-export SHELLCHECK_OPTS='--exclude=SC1090,SC1091,SC2005,SC2034,SC2148,SC2155,SC2162,SC2154,SC2164,SC2086,SC2236,SC2248,SC2250 --external-sources'
+export SHELLCHECK_OPTS='--exclude=SC1090,SC1091,SC2005,SC2034,SC2086,SC2148,SC2155,SC2162,SC2154,SC2164,SC2181,SC2236,SC2248,SC2250 --external-sources'
 
 export CHROME_BIN="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 export CHROME_CANARY_BIN="/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"

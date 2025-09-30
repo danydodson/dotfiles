@@ -14,12 +14,12 @@
   },
   // {
   //   "key": "f5",
-  //   "command": "settings..cycle."
+  //   "command": "settings.cycle."
   // },
-  // {
-  //   "key": "f6",
-  //   "command": "settings..cycle."
-  // },
+  {
+    "key": "f6",
+    "command": "settings.cycle.codelens"
+  },
   {
     "key": "f7",
     "command": "settings.cycle.color-highlight-useARGB"
@@ -40,58 +40,54 @@
   //   "key": "f11",
   //   "command": "settings.cycle."
   // },
-  {
-    "key": "cmd+l",
-    "command": "-expandLineSelection",
-    "when": "textInputFocus"
-  },
+  // {
+  //   "key": "cmd+l",
+  //   "command": "-expandLineSelection",
+  //   "when": "textInputFocus"
+  // },
   {
     "key": "cmd+k",
     "command": "workbench.action.toggleAuxiliaryBar"
   },
-  {
-    "key": "cmd+w",
-    "command": "workbench.action.closeActiveEditor"
-  },
-  {
-    "key": "cmd+w",
-    "command": "-workbench.action.terminal.killEditor",
-    "when": "terminalEditorFocus && terminalFocus && terminalHasBeenCreated || terminalEditorFocus && terminalFocus && terminalProcessSupported"
-  },
-  {
-    "key": "cmd+'",
-    "command": "continue.newSession"
-  },
-  {
-    "key": "cmd+k cmd+m",
-    "command": "-continue.toggleFullScreen",
-    "when": "!terminalFocus"
-  },
-  {
-    "key": "cmd+'",
-    "command": "continue.newSession"
-  },
-  {
-    "key": "cmd+k cmd+a",
-    "command": "-continue.toggleTabAutocompleteEnabled",
-    "when": "!terminalFocus"
-  },
-  {
-    "key": "cmd+l",
-    "command": "continue.focusContinueInput"
-  },
-  {
-    "key": "cmd+l",
-    "command": "-continue.focusContinueInput"
-  },
-  {
-    "key": "cmd+l cmd+o",
-    "command": "-extension.liveServer.goOnline",
-    "when": "editorTextFocus"
-  },
-  {
-    "key": "cmd+l cmd+c",
-    "command": "-extension.liveServer.goOffline",
-    "when": "editorTextFocus"
-  }
+  // {
+  //   "key": "cmd+w",
+  //   "command": "-workbench.action.terminal.killEditor",
+  //   "when": "terminalEditorFocus && terminalFocus && terminalHasBeenCreated || terminalEditorFocus && terminalFocus && terminalProcessSupported"
+  // },
+  // {
+  //   "key": "cmd+'",
+  //   "command": "continue.newSession"
+  // },
+  // {
+  //   "key": "cmd+k cmd+m",
+  //   "command": "-continue.toggleFullScreen",
+  //   "when": "!terminalFocus"
+  // },
+  // {
+  //   "key": "cmd+'",
+  //   "command": "continue.newSession"
+  // },
+  // {
+  //   "key": "cmd+k cmd+a",
+  //   "command": "-continue.toggleTabAutocompleteEnabled",
+  //   "when": "!terminalFocus"
+  // },
+  // {
+  //   "key": "cmd+l",
+  //   "command": "continue.focusContinueInput"
+  // },
+  // {
+  //   "key": "cmd+l",
+  //   "command": "-continue.focusContinueInput"
+  // },
+  // {
+  //   "key": "cmd+l cmd+o",
+  //   "command": "-extension.liveServer.goOnline",
+  //   "when": "editorTextFocus"
+  // },
+  // {
+  //   "key": "cmd+l cmd+c",
+  //   "command": "-extension.liveServer.goOffline",
+  //   "when": "editorTextFocus"
+  // }
 ]

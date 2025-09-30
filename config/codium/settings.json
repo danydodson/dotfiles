@@ -6,21 +6,12 @@
   "telemetry.telemetryLevel": "off",
   // 
   "redhat.telemetry.enabled": false,
-  // 
-  "continue.enableTabAutocomplete": false,
   "continue.telemetryEnabled": false,
-  "continue.enableConsole": true,
-  "continue.enableQuickActions": true,
-  "continue.pauseCodebaseIndexOnStart": false,
-  "continue.showInlineTip": true,
+  "continue.showInlineTip": false,
   "continue.disableQuickFix": false,
-  // 
-  // "clangd.enable": false,
   // 
   "code-runner.enableAppInsights": false,
   // 
-  // 
-  "liveServer.settings.donotVerifyTags": true,
   "diffEditor.hideUnchangedRegions.enabled": true,
   // 
   "1password.debug.enabled": true,
@@ -108,12 +99,13 @@
   "workbench.editor.decorations.badges": false,
   "workbench.colorTheme": "One Dark Pro Darker",
   //
-  "editor.hover.delay": 900,
-  "editor.lightbulb.enabled": "onCode",
+  // "editor.hover.delay": 900,
+  // "editor.lightbulb.enabled": "onCode",
   "editor.largeFileOptimizations": false,
   "editor.overviewRulerBorder": false,
   "editor.hideCursorInOverviewRuler": false,
   "editor.codeLens": false,
+  // "editor.inlayHints.enabled": "off",
   "editor.autoClosingQuotes": "never",
   "editor.autoClosingBrackets": "never",
   "editor.fontSize": 14.3,
@@ -130,6 +122,7 @@
   "editor.lineDecorationsWidth": 16,
   "editor.stickyScroll.enabled": false,
   "editor.fontWeight": 400,
+  // "editor.fontFamily": "Lilex IF",
   "editor.fontFamily": "FiraCode Nerd Font",
   "editor.fontLigatures": true,
   // "editor.colorDecoratorsLimit": 500,
@@ -212,6 +205,10 @@
   },
   "javascript.format.semicolons": "insert",
   "javascript.referencesCodeLens.enabled": true,
+  "editor.wordWrap": "off",
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "javascript.inlayHints.variableTypes.enabled": true,
+  "javascript.inlayHints.parameterNames.enabled": "all",
   "[javascript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
@@ -319,11 +316,11 @@
   },
   "apc.statusBar": {
     "fontSize": 10,
-    "height": 16
+    "height": 26,
   },
   "apc.activityBar": {
-    "size": 40,
-    "itemSize": 26,
+    "size": 30,
+    "itemSize": 22,
     "itemMargin": 16
   },
   // 
@@ -346,7 +343,10 @@
     {
       "id": "codelens",
       "overrideWorkspaceSettings": false,
-      "values": [ { "editor.codeLens": true }, { "editor.codeLens": false } ]
+      "values": [
+        { "editor.codeLens": false, "editor.inlayHints.enabled": "off" },
+        { "editor.codeLens": true, "editor.inlayHints.enabled": "on" }
+      ]
     },
     {
       "id": "color-highlight-useARGB",
@@ -426,5 +426,8 @@
     "*.sdb": "${capture}.${extname}-*",
     "*.s3db": "${capture}.${extname}-*"
   },
-  "terminal.integrated.inheritEnv": false
+  "terminal.integrated.inheritEnv": false,
+  "continue.enableTabAutocomplete": false,
+  "editor.wordWrapColumn": 380,
+  "editor.inlayHints.enabled": "off"
 }

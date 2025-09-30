@@ -86,12 +86,15 @@ alias lsg_yarn="yarn global list"
 alias lsg_pnpm="pnpm ls -g"
 
 # directories
-alias dotfiles="cd $HOME/.dotfiles"
+alias dts="cd $HOME/.dotfiles"
+alias desk="cd $HOME/Desktop"
+alias dev="cd $HOME/Developer"
+alias data="cd /Volumes/data"
 alias dl="cd $HOME/Downloads"
-alias plugins="cd $HOME/Developer/plugins"
-alias repos="cd $HOME/Developer/repos"
-alias served="cd $HOME/Developer/served"
-alias temp="cd $HOME/Developer/temp"
+alias plugs="cd $HOME/Developer/plugins"
+alias reps="cd $HOME/Developer/repos"
+alias serv="cd $HOME/Developer/served"
+alias tmp="cd $HOME/Developer/temp"
 
 # reload
 alias clear="clear "
