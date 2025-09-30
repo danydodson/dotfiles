@@ -1,15 +1,15 @@
 #!/usr/bin/env zsh
 
-# open
-alias o="open"
-alias nvim='VIMINIT="" nvim'
-alias v="nvim"
-alias cc="codium"
-
 # dirs
 alias ~="cd ~"
 alias ..="cd .."
 alias ....="cd ../../"
+
+# open
+alias o="open"
+alias v="nvim"
+alias nvchad="NVIM_APPNAME=nvim-nvchad nvim"
+alias cc="codium"
 
 # ssh
 alias sshrawdog="ssh ubuntu@18.235.113.176"

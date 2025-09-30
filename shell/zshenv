@@ -6,8 +6,8 @@ ulimit -S -n 8192
 
 export DOTFILES=$HOME/.dotfiles
 
-export VISUAL="VIMINIT="" nvim"
-export EDITOR="VIMINIT="" nvim"
+export VISUAL="nvim"
+export EDITOR="nvim"
 export PAGER="less -RF"
 export LESSHISTFILE=-
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -22,8 +22,6 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LOCALE=en_US.UTF-8
 
-export TIMEFMT=$'%J \n================\n CPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'
-
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -36,7 +34,7 @@ export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_BUNDLE_FILE_GLOBAL="$DOTFILES/macos/brewfile"
 
-export VIMINIT="source \$HOME/.config/vim/vimrc"
+# export VIMINIT="source \$HOME/.config/vim/vimrc"
 
 export CURL_HOME="$DOTFILES/config/curl"
 export WGETRC="$DOTFILES/config/wget/wgetrc"
@@ -72,6 +70,8 @@ export GEM_SPEC_CACHE="$HOME/.cache/gem"
 
 export VSCODE_CLI_DATA_DIR="/Applications/codium-portable-data/data/cli"
 
+export WAKATIME_HOME="$HOME/.config/wakatime"
+
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
 export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
@@ -81,3 +81,5 @@ export CHROME_BIN="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 export CHROME_CANARY_BIN="/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
 export FIREFOX_BIN="/Applications/Firefox.app/Contents/MacOS/firefox-bin"
 export TWILIGHT_BIN="/Applications/Twilight.app/Contents/MacOS/zen"
+
+export TIMEFMT=$'%J \n================\n CPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'
