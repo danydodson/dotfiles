@@ -24,6 +24,7 @@ return {
       require('mason-lspconfig').setup {
         ensure_installed = {
           'bashls',
+          'clangd',
           'cssls',
           'gopls',
           'html',
@@ -45,50 +46,81 @@ return {
     config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-      local lspconfig = require 'lspconfig'
-      lspconfig.ts_ls.setup {
-        capabilities = capabilities,
-      }
-
-      lspconfig.html.setup {
-        capabilities = capabilities,
-      }
-
-      lspconfig.lua_ls.setup {
-        capabilities = capabilities,
-      }
-
-      lspconfig.tailwindcss.setup {
-        capabilities = capabilities,
-      }
-
       local capabilities_css = vim.lsp.protocol.make_client_capabilities()
       capabilities_css.textDocument.completion.completionItem.snippetSupport = true
-      lspconfig.cssls.setup {
-        capabilities = capabilities_css,
-      }
 
-      lspconfig.marksman.setup {
-        capabilities = capabilities,
-      }
+      vim.lsp.config('bashls', {
+        -- Server-specific settings. See `:help lsp-quickstart`
+        settings = { ['bashls'] = { capabilities = capabilities } },
+      })
+      vim.lsp.config('clangd', {
+        settings = { ['clangd'] = { capabilities = capabilities_css } },
+      })
+      vim.lsp.config('cssls', {
+        settings = { ['cssls'] = { capabilities = capabilities_css } },
+      })
+      vim.lsp.config('html', {
+        settings = { ['html'] = { capabilities = capabilities } },
+      })
+      vim.lsp.config('lua_ls', {
+        settings = { ['lua_ls'] = { capabilities = capabilities } },
+      })
+      vim.lsp.config('marksman', {
+        settings = { ['marksman'] = { capabilities = capabilities } },
+      })
+      vim.lsp.config('pyright', {
+        settings = { ['pyright'] = { capabilities = capabilities } },
+      })
+      vim.lsp.config('rust_analyzer', {
+        settings = { ['rust_analyzer'] = { capabilities = capabilities } },
+      })
+      vim.lsp.config('tailwindcss', {
+        settings = { ['tailwindcss'] = { capabilities = capabilities } },
+      })
+      vim.lsp.config('ts_ls', {
+        settings = { ['ts_ls'] = { capabilities = capabilities } },
+      })
+      vim.lsp.config('yamlls', {
+        settings = { ['yamlls'] = { capabilities = capabilities } },
+      })
 
-      lspconfig.yamlls.setup {
-        capabilities = capabilities,
-      }
+      vim.lsp.enable('bashls', 'cssls', 'html', 'lua_ls', 'marksman', 'pyright', 'rust_analyzer', 'tailwindcss', 'ts_ls', 'yamlls')
 
-      lspconfig.bashls.setup {
-        capabilities = capabilities,
-        cmd = { 'bash-language-server', 'start' },
-        filetypes = { 'sh', 'bash' },
-      }
-
-      lspconfig.pyright.setup {
-        capabilities = capabilities,
-      }
-
-      lspconfig.rust_analyzer.setup {
-        capabilities = capabilities,
-      }
+      -- local lspconfig = require 'lspconfig'
+      -- lspconfig.ts_ls.setup {
+      --   capabilities = capabilities,
+      -- }
+      -- lspconfig.html.setup {
+      --   capabilities = capabilities,
+      -- }
+      -- lspconfig.lua_ls.setup {
+      --   capabilities = capabilities,
+      -- }
+      -- lspconfig.tailwindcss.setup {
+      --   capabilities = capabilities,
+      -- }
+      -- local capabilities_css = vim.lsp.protocol.make_client_capabilities()
+      -- capabilities_css.textDocument.completion.completionItem.snippetSupport = true
+      -- lspconfig.cssls.setup {
+      --   capabilities = capabilities_css,
+      -- }
+      -- lspconfig.marksman.setup {
+      --   capabilities = capabilities,
+      -- }
+      -- lspconfig.yamlls.setup {
+      --   capabilities = capabilities,
+      -- }
+      -- lspconfig.bashls.setup {
+      --   capabilities = capabilities,
+      --   cmd = { 'bash-language-server', 'start' },
+      --   filetypes = { 'sh', 'bash' },
+      -- }
+      -- lspconfig.pyright.setup {
+      --   capabilities = capabilities,
+      -- }
+      -- lspconfig.rust_analyzer.setup {
+      --   capabilities = capabilities,
+      -- }
 
       vim.keymap.set('n', '<leader>ci', vim.lsp.buf.hover, { desc = 'hover info' })
       vim.keymap.set('n', '<leader>cd', vim.lsp.buf.definition, { desc = 'code go to definition' })
