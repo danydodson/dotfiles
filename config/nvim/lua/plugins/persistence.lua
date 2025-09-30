@@ -32,7 +32,7 @@ return {
         function()
           require('persistence').stop()
         end,
-        desc = "dont save current session",
+        desc = 'dont save current session',
       },
     },
   },

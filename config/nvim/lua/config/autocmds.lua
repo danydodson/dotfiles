@@ -6,12 +6,11 @@ end
 
 local autocmd = vim.api.nvim_create_autocmd
 local utils = require 'core.utils'
-local is_available = utils.is_available
+-- local is_available = utils.is_available
 
 -- don't auto comment new line
 autocmd({ 'FileType' }, {
   desc = 'Disables auto commenting next line',
-  -- pattern = '*',
   callback = function()
     vim.cmd 'set formatoptions-=cro'
   end,
@@ -33,12 +32,14 @@ end
 autocmd({ 'VimEnter' }, {
   desc = 'Nvim user event that trigger a few ms after nvim starts',
   callback = function()
-    -- If nvim is opened passing a filename, trigger the event inmediatelly.
+    -- if nvim is opened passing a filename, trigger the event inmediatelly
     if #vim.fn.argv() >= 1 then
-      -- In order to avoid visual glitches.
+      -- in order to avoid visual glitches
       utils.trigger_event('User BaseDefered', true)
-      utils.trigger_event('BufEnter', true) -- also, initialize tabline_buffers.
-    else -- Wait some ms before triggering the event.
+      -- also, initialize tabline_buffers
+      utils.trigger_event('BufEnter', true)
+    else
+      -- Wait some ms before triggering the event
       vim.defer_fn(function()
         utils.trigger_event 'User BaseDefered'
       end, 70)
@@ -56,7 +57,7 @@ autocmd({ 'FocusGained', 'TermClose', 'TermLeave' }, {
   end,
 })
 
--- go to last loc when opening a buffer
+-- go to last location when opening a buffer
 autocmd('BufReadPost', {
   desc = 'Go to Last loc when Opening a buffer',
   callback = function()
@@ -77,7 +78,7 @@ autocmd({ 'TermOpen', 'TermEnter' }, {
     vim.opt_local.spell = false
     vim.opt_local.signcolumn = 'no'
     vim.opt_local.laststatus = 0
-    vim.api.nvim_command 'startinsert' --to start terminal in insert mood
+    vim.api.nvim_command 'startinsert'
   end,
 })
 autocmd({ 'TermLeave' }, {

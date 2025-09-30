@@ -13,7 +13,7 @@ vim.opt.virtualedit = 'block' -- Allow cursor to move where there is no text in 
 vim.opt.fileencoding = 'utf-8' -- Set file encoding to UTF-8
 
 vim.opt.cmdheight = 0 -- Hide command line when not in use
-vim.opt.cursorline = false -- Don't highlight the current line
+vim.opt.cursorline = true -- Don't highlight the current line
 vim.opt.cursorlineopt = 'number' -- Only highlight line number of current line
 
 vim.opt.foldenable = true -- Enable code folding

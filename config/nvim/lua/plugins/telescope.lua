@@ -3,7 +3,7 @@
 return {
   {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.5',
+    tag = '0.1.8',
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-ui-select.nvim',
@@ -12,7 +12,15 @@ return {
       local actions = require 'telescope.actions'
 
       require('telescope').setup {
+        defaults = {
+          layout_config = {
+            prompt_position = 'bottom',
+            vertical = { width = 0.8 },
+          },
+        },
+
         pickers = {
+          theme = 'dropdown',
           find_files = {
             hidden = true,
           },
@@ -25,6 +33,8 @@ return {
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown {},
+            require('telescope.themes').get_cursor {},
+            require('telescope.themes').get_ivy {},
           },
         },
       }
@@ -36,19 +46,19 @@ return {
 
       local find_files = function()
         builtin.find_files {
-          find_command = { 'rg', '--files', '--iglob', '!.git', '--hidden' },
+          find_command = { 'rg', '--files', '--sort', 'path', '--iglob', '!.git', '--hidden' },
         }
       end
 
       local find_config_files = function()
         builtin.find_files {
-          find_command = { 'rg', '--files', '--iglob', '!.git', '--hidden', config_dir },
+          find_command = { 'rg', '--files', '--sort', 'path', '--iglob', '!.git', '--hidden', config_dir },
         }
       end
 
       local find_dotfiles = function()
         builtin.find_files {
-          find_command = { 'rg', '--files', '--iglob', '!.git', '--hidden', dotfiles_dir },
+          find_command = { 'rg', '--files', '--sort', 'path', '--iglob', '!.git', '--hidden', dotfiles_dir },
         }
       end
 

@@ -54,7 +54,7 @@ return {
         settings = { ['bashls'] = { capabilities = capabilities } },
       })
       vim.lsp.config('clangd', {
-        settings = { ['clangd'] = { capabilities = capabilities_css } },
+        settings = { ['clangd'] = { capabilities = capabilities, filetypes = { 'c', 'cpp', 'objc', 'objcpp' } } },
       })
       vim.lsp.config('cssls', {
         settings = { ['cssls'] = { capabilities = capabilities_css } },
@@ -84,7 +84,8 @@ return {
         settings = { ['yamlls'] = { capabilities = capabilities } },
       })
 
-      vim.lsp.enable('bashls', 'cssls', 'html', 'lua_ls', 'marksman', 'pyright', 'rust_analyzer', 'tailwindcss', 'ts_ls', 'yamlls')
+      vim.lsp.enable('bashls', 'cssls', 'html', 'lua_ls', 'marksman', 'pyright', 'rust_analyzer', 'tailwindcss', 'ts_ls',
+        'yamlls')
 
       vim.keymap.set('n', '<leader>ci', vim.lsp.buf.hover, { desc = 'hover info' })
       vim.keymap.set('n', '<leader>cd', vim.lsp.buf.definition, { desc = 'code go to definition' })

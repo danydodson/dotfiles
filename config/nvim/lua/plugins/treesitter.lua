@@ -13,8 +13,9 @@ return {
         ensure_installed = {
           'bash',
           'c',
-          'diff',
           'css',
+          'cpp',
+          'diff',
           'dockerfile',
           'go',
           'gomod',
@@ -31,6 +32,7 @@ return {
           'printf',
           'python',
           'nginx',
+          'objc',
           'ocaml',
           'query',
           'regex',

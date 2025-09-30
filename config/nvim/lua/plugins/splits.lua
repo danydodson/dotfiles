@@ -40,7 +40,7 @@ return {
   {
     'szw/vim-maximizer',
     keys = {
-      { '<leader>tm', '<cmd>MaximizerToggle<CR>', desc = 'maximize/minimize a split' },
+      { '<leader>tm', '<cmd>MaximizerToggle<CR>', desc = 'max/min a split' },
     },
   },
 }

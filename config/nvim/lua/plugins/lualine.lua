@@ -24,10 +24,10 @@ return {
           },
         },
         sections = {
-          lualine_a = {},
+          lualine_a = { 'mode' }, -- {}
           lualine_b = {},
           lualine_c = { 'filename' },
-          lualine_x = {},
+          lualine_x = { 'filetype' }, -- {}
           lualine_y = {},
           lualine_z = { '' },
         },
