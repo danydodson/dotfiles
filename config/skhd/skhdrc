@@ -61,19 +61,18 @@ lalt - l : yabai -m window --resize right:32:0; \
 
 # open apps
 hyper - z : open -a Twilight.app
-hyper - x : open -a Ghostty.app
+hyper - x : ./$HOME/.dotfiles/config/yabai/scripts/open-ghostty.sh
 hyper - c : open -a VSCodium.app
 hyper - b : open -a "Brave Browser.app"
 hyper - n : open -a Notes.app
 hyper - m : open -a Mail.app
 hyper - a : open -a Apps.app
 hyper - d : open -a Discord.app
-hyper - f : ./$HOME/.dotfiles/config/yabai/scripts/show_finder.sh
+hyper - f : ./$HOME/.dotfiles/config/yabai/scripts/open-finder.sh
 hyper - p : open -a Postman.app
 hyper - s : open -a Spotify.app
 
 hyper - r : \
   skhd --restart-service; \
-  yabai --restart-service;
-  # sharpener -r 3;
-
+  yabai --restart-service; \
+  sharpener -r 1
