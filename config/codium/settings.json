@@ -118,7 +118,7 @@
   "editor.cursorBlinking": "solid",
   "editor.renderLineHighlight": "none",
   // "editor.glyphMargin": false,
-  "editor.lineNumbers": "relative",
+  "editor.lineNumbers": "off",
   "editor.lineDecorationsWidth": 16,
   "editor.stickyScroll.enabled": false,
   "editor.fontWeight": 400,
@@ -429,5 +429,6 @@
   "terminal.integrated.inheritEnv": false,
   "continue.enableTabAutocomplete": false,
   "editor.wordWrapColumn": 380,
-  "editor.inlayHints.enabled": "off"
+  "editor.inlayHints.enabled": "off",
+  "workbench.statusBar.visible": false
 }

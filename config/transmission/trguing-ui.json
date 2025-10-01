@@ -71,16 +71,16 @@
                     "rateDownload": 101,
                     "rateUpload": 88,
                     "percentDone": 105,
-                    "name": 382,
-                    "peersGettingFromUs": 184,
-                    "addedDate": 199,
+                    "name": 325,
+                    "peersGettingFromUs": 149,
+                    "addedDate": 223,
                     "peersSendingToUs": 108,
                     "uploadRatio": 122,
                     "totalSize": 166,
                     "secondsSeeding": 222,
                     "haveValid": 150,
-                    "status": 166,
-                    "eta": 124
+                    "status": 176,
+                    "eta": 184
                 },
                 "sortBy": [
                     {
@@ -265,7 +265,7 @@
             "light": {}
         },
         "animatedProgressbars": true,
-        "colorfulProgressbars": false
+        "colorfulProgressbars": true
     },
     "meta": {
         "configType": "trguing interface settings",

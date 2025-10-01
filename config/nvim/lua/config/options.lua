@@ -61,7 +61,7 @@ vim.opt.clipboard = 'unnamedplus' -- Use system clipboard for all operations
 vim.opt.wildignore = '*/.git,*/node_modules,*/venv,*/tmp,*.so,*.swp,*.zip,*.pyc' -- Files to ignore in file operations
 
 vim.opt.updatetime = 200 -- Reduce time for CursorHold events (affects swap file writing and plugins)
-vim.opt.backup = false -- Don't create backup files
+vim.opt.backup = false -- Don't create backup filesoptions
 vim.opt.swapfile = false -- Don't create swap files
 vim.opt.undofile = true -- Enable persistent undo
 vim.opt.undolevels = 10000 -- Maximum number of changes that can be undone
