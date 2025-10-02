@@ -6,7 +6,7 @@
     <string>dots.mpv</string>
     <key>ProgramArguments</key>
     <array>
-      <string>/Users/stache/.config/miniconda3/bin/python3</string>
+      <string>/Users/stache/.config/miniconda3/bin/python</string>
       <string>/Users/stache/.dotfiles/config/mpv/mpv-server.sh</string>
     </array>
     <key>RunAtLoad</key>

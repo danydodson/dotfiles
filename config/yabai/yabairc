@@ -76,8 +76,6 @@ unmanaged=(
   Downie 4
   FaceTime
   Finder
-  FINAL FANTASY XIV
-  FINAL FANTASY XIV ONLINE
   GPG Keychain
   IINA
   iPhone Mirroring
@@ -100,28 +98,29 @@ unmanaged=(
   System Preferences
   System Information
   VLC
-  VMware Fusion
 )
 for ((i = 1; i <= "${#unmanaged[@]}"; i++)); do
   yabai -m rule --add label="unmanage_${unmanaged[(($i - 1))]}" app="^${unmanaged[(($i - 1))]}.*$" manage=off
 done
 
 # space names
-yabai -m space 1 --label main
-yabai -m space 2 --label web
+yabai -m space 1 --label web
+yabai -m space 2 --label ide
 yabai -m space 3 --label dev
-yabai -m space 4 --label tools
-yabai -m space 5 --label media
 
 # space 1
 SPACE1=(
+  Twilight
+  Safari
+  Zen
   App Store
   Calendar
   Mail
   Steam
   NVIDIA GeForce NOW
-  FINAL FANTASY XIV
 )
+
+yabai -m config --space 1 layout stack
 
 for ((i = 1; i <= "${#SPACE1[@]}"; i++)); do
   yabai -m rule --add label="space1_${SPACE1[(($i - 1))]}" app="^${SPACE1[(($i - 1))]}.*$" space=^1
@@ -129,10 +128,15 @@ done
 
 # space 2
 SPACE2=(
-  Twilight
-  Safari
-  Zen
+  Docker Desktop
+  Ghostty
+  Postman
+  Visual Studio Code
+  VSCodium
+  Xcode
 )
+
+yabai -m config --space 2 layout stack
 
 for ((i = 1; i <= "${#SPACE2[@]}"; i++)); do
   yabai -m rule --add label="space2_${SPACE2[(($i - 1))]}" app="^${SPACE2[(($i - 1))]}.*$" space=^2
@@ -140,14 +144,9 @@ done
 
 # space 3
 SPACE3=(
-  Docker Desktop
-  Ghostty
-  Postman
-  VSCodium
-  Xcode
+  Brave Browser
+  Tor Browser
 )
-
-yabai -m config --space 3 layout stack
 
 for ((i = 1; i <= "${#SPACE3[@]}"; i++)); do
   yabai -m rule --add label="space3_${SPACE3[(($i - 1))]}" app="^${SPACE3[(($i - 1))]}.*$" space=^3
@@ -155,21 +154,13 @@ done
 
 # space 4
 SPACE4=(
-  Brave Browser
-  Tor Browser
+  Mail
+  Calendar
+  Spotify
 )
 
 for ((i = 1; i <= "${#SPACE4[@]}"; i++)); do
   yabai -m rule --add label="space4_${SPACE4[(($i - 1))]}" app="^${SPACE4[(($i - 1))]}.*$" space=^4
-done
-
-# space 5
-SPACE5=(
-  Spotify
-)
-
-for ((i = 1; i <= "${#SPACE5[@]}"; i++)); do
-  yabai -m rule --add label="space4_${SPACE5[(($i - 1))]}" app="^${SPACE5[(($i - 1))]}.*$" space=^5
 done
 
 # fix for focusing on next app when a windows closes

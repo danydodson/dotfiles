@@ -8,11 +8,9 @@ lcmd - 4 : yabai -m space --focus 4
 lcmd - 5 : yabai -m space --focus 5
 
 # navigate spaces
-hyper - 1 : yabai -m space --focus main
-hyper - 2 : yabai -m space --focus web
+hyper - 1 : yabai -m space --focus web
+hyper - 2 : yabai -m space --focus ide
 hyper - 3 : yabai -m space --focus dev
-hyper - 4 : yabai -m space --focus tools
-hyper - 5 : yabai -m space --focus media
 
 # move window to workspace and focus it
 shift + alt - 1 : yabai -m window --space 1 --focus

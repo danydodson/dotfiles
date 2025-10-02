@@ -118,7 +118,7 @@
   "editor.cursorBlinking": "solid",
   "editor.renderLineHighlight": "none",
   // "editor.glyphMargin": false,
-  "editor.lineNumbers": "off",
+  "editor.lineNumbers": "relative",
   "editor.lineDecorationsWidth": 16,
   "editor.stickyScroll.enabled": false,
   "editor.fontWeight": 400,
