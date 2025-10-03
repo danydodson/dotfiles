@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-# Purpose: Cleanup at logout
-# Loads in: On shell logout

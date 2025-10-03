@@ -1,9 +1,15 @@
-# dont included these in the repository language stats
 *.glsl linguist-vendored
 *.hook linguist-vendored
 */**/shaders/*.glsl linguist-vendored
 */**/shaders/*.hook linguist-vendored
 
-# do not show lock files changes in `git diff`
+* text=auto eol=lf
+
+*.sh text eol=lf
+
+*.user.js linguist-language=JavaScript
+readme.md linguist-language=Markdown
+
 *.lock diff=nodiff
 package-lock.json diff=nodiff
+pnpm-lock.json diff=nodiff

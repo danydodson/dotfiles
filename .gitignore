@@ -1,19 +1,36 @@
-!.vscode/settings.json
-brewfile.lock.json
-.assets
-.env
+# os
 .DS_Store
 Icon
+
+# logs
 *.log
+*.netrwhist
+
+# env
+.env
+
+# git
 /config/git/secret
-/config/sketchybar/helpers/secret.lua
+
+# karabiner
+/karabiner/assets
+/karabiner/automatic_backups
+
+# tmux
+/config/tmux/plugins
+
+# vim
 /config/vim/autoload
 /config/vim/plugins
 /config/vim/undodir
 /config/vim/viminfo
 /config/vim/tmux.vim
-/config/tmux/plugins
-*/**/watch_later/*
-*/**/shaders/cache
-*/**/shaders/cfl/CfL_Prediction_Test.glsl
-*.netrwhist
+
+# wget
+/config/wget/wget-hsts
+
+# macos
+/macos/brewfile.lock.json
+
+# build
+.assets

@@ -3,12 +3,12 @@
     ".gitignore": "ignore",
     "install": "shellscript",
     // 
-    "**/ansi/scripts/*": "shellscript",
-    "**/ansi/scripts/*.py": "python",
+    "**/bin/tools/*": "shellscript",
+    "**/bin/ansi/*": "shellscript",
     // 
-    "**/bash/*": "shellscript",
-    // 
-    "**/bin/*": "shellscript",
+    "**/shell/bash/*": "shellscript",
+    "**/shell/config/*": "shellscript",
+    "**/shell/zsh/*": "shellscript",
     // 
     "**/config/ghostty/config": "inputrc",
     "**/config/git/ignore": "ignore",

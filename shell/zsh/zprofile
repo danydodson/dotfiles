@@ -1,0 +1,64 @@
+#!/usr/bin/env zsh
+
+# start with empty path
+[[ -x /bin/launchctl ]] && /bin/launchctl unsetenv PATH
+
+# system executables -> path
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/libexec:$PATH"
+
+# local system binaries -> path
+export PATH="/usr/local/bin:/usr/local/MacGPG2/libexec:$PATH"
+
+# man pages -> manpath
+export MANPATH="/usr/local/share/man:/usr/share/man:/usr/local/MacGPG2/share/man:$MANPATH"
+
+# conda man -> manpath
+export MANPATH="$HOME/.config/miniconda3/man:$MANPATH"
+
+# dotfiles bin -> path
+export PATH="$DOTFILES/bin/ansi:$PATH"
+export PATH="$DOTFILES/bin/tools:$PATH"
+
+# go -> path
+export PATH="$GO_PATH/bin:$PATH"
+export PATH="$GOROOT/bin:$PATH"
+
+# go bin -> path
+export PATH="$HOME/.config/go/bin:$PATH"
+
+# conda -> path
+export PATH="$HOME/.config/miniconda3/bin:$PATH"
+
+# java -> path
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+# homebrew -> shell
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# macos paths -> path
+for path_file in /etc/paths.d/*(.N); do
+  path+=($(<$path_file))
+done
+unset path_file
+
+# zsh help -> fpath
+export FPATH="/usr/share/zsh/5.9/help:$FPATH"
+
+# docker -> fpath
+export FPATH="$HOME/.docker/completions:$FPATH"
+
+# conda -> fpath
+export FPATH="$HOME/.config/miniconda3/share/zsh/site-functions:$FPATH"
+
+# remove specific paths
+path=(${path:#"/Users/dany/.config/miniconda3/bin"})
+path=(${path:#"/usr/local/sbin"})
+
+# rm path
+fpath=(${fpath:#"/usr/local/share/zsh/site-functions"})
+
+# clear duplicates
+typeset -gU fpath path manpath
+
+# set the path for macos
+[[ -x /bin/launchctl ]] && /bin/launchctl setenv PATH $PATH

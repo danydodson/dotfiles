@@ -1,6 +1,6 @@
 # dotfiles 🍩
 
-![screenshot](/docs/abc.png)
+![screenshot](/docs/alpha.png)
 
 These are my personal dotfiles. The setup is based on
 [dotbot](https://github.com/danydodson/dotfiles) and aims to be as idempotent as
@@ -8,7 +8,7 @@ possible.
 
 ### Systems 🚀
 
-- [Setup macos](/docs/macos.md)
+- [Setup macos](/docs/mac.md)
 
 ### LaunchAgents ⌨️
 
@@ -28,7 +28,7 @@ possible.
 
 ### Neovim ⌨️
 
-- [Setup nvim](/installers/nvim.sh)
+- [Setup nvim](/macos/install/nvim.sh)
 
 ### gpg 🔑
 
@@ -36,9 +36,9 @@ possible.
 
 ### Project config/tooling 🧢
 
-- [Configure projects](/installers/)
-- [Local commands](/bin/)
-- [Local ansi scripts](/ansi/)
+- [Configure projects](/macos/install/)
+- [Local commands](/bin/tools/)
+- [Local ansi scripts](/bin/ansi/)
 
 ### Fonts 💯
 

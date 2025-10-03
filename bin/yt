@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-# Downloads the embedded video on any web page straight to the Downloads folder
-
-cd ~/Downloads && yt-dlp --config-location "$HOME/.dotfiles/config/yt-dlp/yt-dlp.conf" "$1"
