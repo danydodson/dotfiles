@@ -32,7 +32,7 @@ cd .dotfiles && ./install -vv
 
 > [!NOTE] See [git.md](git.md) for details on setting up git.
 
-Execute desired installers:
+Execute desired utils/bin:
 
 ```bash
 # run dots install <script-name>
