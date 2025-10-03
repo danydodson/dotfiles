@@ -57,20 +57,27 @@ lalt - k : yabai -m window --resize top:0:-32; \
 lalt - l : yabai -m window --resize right:32:0; \
   yabai -m window --resize left:32:0
 
-# open apps
+# row 1
 hyper - z : open -a Twilight.app
 hyper - x : ./$HOME/.dotfiles/config/yabai/scripts/open-ghostty.sh
 hyper - c : open -a VSCodium.app
 hyper - b : open -a "Brave Browser.app"
 hyper - n : open -a Notes.app
 hyper - m : open -a Mail.app
+
+# row 2
 hyper - a : open -a Apps.app
+hyper - s : open -a Spotify.app
 hyper - d : open -a Discord.app
 hyper - f : ./$HOME/.dotfiles/config/yabai/scripts/open-finder.sh
-hyper - p : open -a Postman.app
-hyper - s : open -a Spotify.app
 
+# row 3
+hyper - p : open -a Postman.app
+
+# restart
 hyper - r : \
   skhd --restart-service; \
   yabai --restart-service; \
-  sharpener -r 1
+  brew services restart felixkratz/formulae/sketchybar; \
+  brew services restart FelixKratz/formulae/svim; \
+  sharpener -r 10;

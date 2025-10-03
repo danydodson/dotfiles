@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 
-# wiki - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
-
 # load yabi as sudo
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
-BAR_HEIGHT=0 # $(sketchybar -m --query bar | jq -r '.height')
+BAR=$(sketchybar -m --query bar | jq -r '.height')
+PAD=6
 
 GENERAL=(
   external_bar all:"${BAR_HEIGHT}":0
@@ -19,11 +18,11 @@ GENERAL=(
 
 LAYOUT=(
   layout bsp
-  top_padding 4
-  bottom_padding 4
-  left_padding 4
-  right_padding 4
-  window_gap 4
+  window_gap "${PAD}"
+  top_padding "${PAD}"
+  bottom_padding "${PAD}"
+  left_padding "${PAD}"
+  right_padding "${PAD}"
 )
 
 WINDOWS=(
@@ -120,8 +119,6 @@ SPACE1=(
   NVIDIA GeForce NOW
 )
 
-yabai -m config --space 1 layout stack
-
 for ((i = 1; i <= "${#SPACE1[@]}"; i++)); do
   yabai -m rule --add label="space1_${SPACE1[(($i - 1))]}" app="^${SPACE1[(($i - 1))]}.*$" space=^1
 done
@@ -135,8 +132,6 @@ SPACE2=(
   VSCodium
   Xcode
 )
-
-yabai -m config --space 2 layout stack
 
 for ((i = 1; i <= "${#SPACE2[@]}"; i++)); do
   yabai -m rule --add label="space2_${SPACE2[(($i - 1))]}" app="^${SPACE2[(($i - 1))]}.*$" space=^2
@@ -156,12 +151,14 @@ done
 SPACE4=(
   Mail
   Calendar
-  Spotify
 )
 
 for ((i = 1; i <= "${#SPACE4[@]}"; i++)); do
   yabai -m rule --add label="space4_${SPACE4[(($i - 1))]}" app="^${SPACE4[(($i - 1))]}.*$" space=^4
 done
+
+# unload macos window manager
+launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist
 
 # fix for focusing on next app when a windows closes
 yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
@@ -170,7 +167,5 @@ yabai -m signal --add event=application_terminated action="yabai -m query --wind
 # apply rules to existing windows
 yabai -m rule --apply
 
-# unload macos window manager
-launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist
-
 echo "yabai configuration loaded.."
+

@@ -70,17 +70,18 @@
                 "columnSizes": {
                     "rateDownload": 101,
                     "rateUpload": 88,
-                    "percentDone": 105,
-                    "name": 325,
-                    "peersGettingFromUs": 149,
+                    "percentDone": 72,
+                    "name": 414,
+                    "peersGettingFromUs": 165,
                     "addedDate": 223,
                     "peersSendingToUs": 108,
                     "uploadRatio": 122,
                     "totalSize": 166,
                     "secondsSeeding": 222,
                     "haveValid": 150,
-                    "status": 176,
-                    "eta": 184
+                    "status": 147,
+                    "eta": 121,
+                    "bandwidthPriority": 164
                 },
                 "sortBy": [
                     {

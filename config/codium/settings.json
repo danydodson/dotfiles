@@ -4,25 +4,27 @@
   "security.workspace.trust.enabled": false,
   //
   "telemetry.telemetryLevel": "off",
-  // 
+  //
   "redhat.telemetry.enabled": false,
   "continue.telemetryEnabled": false,
   "continue.showInlineTip": false,
   "continue.disableQuickFix": false,
-  // 
+  //
   "code-runner.enableAppInsights": false,
-  // 
+  //
   "diffEditor.hideUnchangedRegions.enabled": true,
-  // 
+  //
   "1password.debug.enabled": true,
+  //
+  "googleTranslateExt.replaceText": true,
   //
   "m3u8.chrome.profileDirectory": "Default",
   "m3u8.chrome.executablePath": "/Applications/Brave Browser.app",
-  // 
+  //
   "github.gitProtocol": "ssh",
-  // 
+  //
   "svg.preview.mode": "svg",
-  // 
+  //
   "git.confirmSync": false,
   "git.enableStatusBarSync": false,
   "git.enableSmartCommit": true,
@@ -46,7 +48,7 @@
   "scm.diffDecorations": "gutter",
   "scm.diffDecorationsGutterWidth": 1,
   "scm.diffDecorationsGutterVisibility": "hover",
-  // 
+  //
   "breadcrumbs.enabled": false,
   //
   "autoOpenPreviewPanel.languages": "markdown,asciidoc",
@@ -59,10 +61,10 @@
   "liveServer.settings.donotShowInfoMsg": true,
   //
   "notebook.output.fontSize": 12,
-  // 
+  //
   "prettier.tabWidth": 2,
   "prettier.semi": true,
-  // 
+  //
   // "color-highlight.sass.includePaths": [],
   "color-highlight.markRuler": false,
   "color-highlight.markerType": "foreground",
@@ -71,20 +73,20 @@
   // "color-highlight.useARGB": false,
   "color-highlight.matchHslWithNoFunction": true,
   "color-highlight.matchRgbWithNoFunction": true,
-  // 
+  //
   "explorer.autoReveal": false,
   "explorer.incrementalNaming": "smart",
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
   "explorer.compactFolders": false,
   "explorer.decorations.badges": false,
-  // 
+  //
   "window.customTitleBarVisibility": "never",
   "window.commandCenter": false,
   "window.nativeFullScreen": false,
   "window.titleBarStyle": "native",
   "window.confirmSaveUntitledWorkspace": false,
-  // 
+  //
   "workbench.editor.tabSizing": "shrink",
   "workbench.startupEditor": "none",
   "workbench.layoutControl.enabled": false,
@@ -181,7 +183,7 @@
     "*tmpl": "html",
     "dircolors*": "dircolors"
   },
-  // 
+  //
   "[css]": {
     "editor.defaultFormatter": "vscode.css-language-features"
   },
@@ -281,7 +283,7 @@
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "zig.zls.enabled": "on",
-  // 
+  //
   "apc.imports": [
     "${userHome}/.dotfiles/.config/codium/apc/main.js",
     "${userHome}/.dotfiles/config/codium/apc/styles.css"
@@ -323,7 +325,7 @@
     "itemSize": 22,
     "itemMargin": 16
   },
-  // 
+  //
   "settings.cycle": [
     {
       "id": "lineNumbers",
@@ -359,12 +361,13 @@
       "values": [ { }, { } ]
     }
   ],
-  // 
+  //
   "oneDarkPro.editorTheme": "One Dark Pro Darker",
   //
   "workbench.colorCustomizations": {
     "editorLineNumber.foreground": "#71717178",
     "tab.activeBorder": "#1f2225",
+    "sideBar.border": "#00000022",
     "statusBarItem.remoteBackground": "#00000000",
     "statusBarItem.hoverBackground": "#00000000",
     "statusBarItem.hoverForeground": "#c2c5ca",
@@ -430,5 +433,8 @@
   "continue.enableTabAutocomplete": false,
   "editor.wordWrapColumn": 380,
   "editor.inlayHints.enabled": "off",
+  "scriptmonkey.metaData.default.author": "stache",
+  "scriptmonkey.metaData.default.namespace": "github.com/userscripts",
+  "scriptmonkey.activation condition.userscript header": true,
   "workbench.statusBar.visible": false
 }

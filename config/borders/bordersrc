@@ -42,11 +42,11 @@ ina_color="onedark_orange"
 
 OPTIONS=(
     hidpi=on
-    width=2.0
+    width=2
     style=round
     active_color="$(get_hex $act_color)"
     inactive_color="$(get_hex $ina_color)"
-    # blur_radius=80.0
+    blur_radius=8
     # background_color="0xff$(get_hex $bg_color)"
 )
 
