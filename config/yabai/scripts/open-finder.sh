@@ -9,10 +9,11 @@ finder_window_id=$(yabai -m query --windows | jq -r --arg finder_app "$finder_ap
 current_space_id=$(yabai -m query --spaces index --space | jq -r '.index')
 
 if [[ $finder_space_id =~ ^[0-9]+$ ]]; then
-  yabai -m space --focus $finder_space_id
-  yabai -m window --focus $finder_window_id
+	yabai -m space --focus $finder_space_id
+	yabai -m window --focus $finder_window_id
 else
-  if [[ $finder_space_id = null ]]; then
-    open -a Finder
-  fi
+
+if [[ $finder_space_id = null ]]; then
+		open -a Finder
+	fi
 fi

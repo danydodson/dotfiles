@@ -16,6 +16,13 @@ Icon
 /karabiner/assets
 /karabiner/automatic_backups
 
+# thelounge
+/config/thelounge/certificates
+/config/thelounge/logs
+/config/thelounge/packages
+/config/thelounge/users
+/config/thelounge/vapid.json
+
 # tmux
 /config/tmux/plugins
 

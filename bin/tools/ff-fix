@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Re-encode video file
+
+ffmpeg -i "$1" -c:v libx264 -preset medium -crf 24 -c:a aac -b:a 128k "$2-2.mp4"

@@ -4,25 +4,35 @@ setopt noglobalrcs
 
 ulimit -S -n 8192
 
+export DOTFILES=$HOME/.dotfiles
+
+export TERMINAL="ghostty"
 export VISUAL="nvim"
 export EDITOR="nvim"
-
+export PAGER="less -RF"
+export LESSHISTFILE=-
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export GPG_TTY=$TTY
-export TERMINAL="ghostty"
 
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
 
-export PAGER="less -RF"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
-export DOTFILES=$HOME/.dotfiles
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LOCALE=en_US.UTF-8
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
+
+export HOMEBREW_BAT=1
+export HOMEBREW_FORCE_BREWED_CURL=1
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_NO_INSTALL_CLEANUP=1
+export HOMEBREW_BUNDLE_FILE_GLOBAL="$DOTFILES/macos/brew/brewfile"
 
 export GOPATH="$HOME/.config/go"
 export GOBIN="$HOME/.config/go/bin"
@@ -34,33 +44,24 @@ export CARGO_HOME="$HOME/.config/cargo"
 export RUSTUP_HOME="$HOME/.config/rust"
 
 export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
-
 export PNPM_HOME="$HOME/.config/pnpm"
 
 export CONDA_ENVS_PATH="$HOME/.config/miniconda3/envs"
-
 export JUPYTER_CONFIG_DIR="$HOME/.config/jupiter"
 
 export GEM_HOME="$HOME/.local/share/gem"
 export GEM_SPEC_CACHE="$HOME/.cache/gem"
+
+export THELOUNGE_HOME="$HOME/.config/thelounge"
 
 export CURL_HOME="$DOTFILES/config/curl"
 export WGETRC="$DOTFILES/config/wget/wgetrc"
 
 export BAT_CONFIG_PATH="$DOTFILES/config/bat/config"
 
-export LESSHISTFILE=-
-
 export ZSH_CACHE_DIR="$HOME/.cache/zsh"
 export NPM_CONFIG_CACHE="$HOME/.cache/npm"
 export YARN_CACHE_FOLDER="$HOME/.cache/yarn"
-
-export HOMEBREW_BAT=1
-export HOMEBREW_FORCE_BREWED_CURL=1
-export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_NO_ENV_HINTS=1
-export HOMEBREW_NO_INSTALL_CLEANUP=1
-export HOMEBREW_BUNDLE_FILE_GLOBAL="$DOTFILES/macos/brew/brewfile"
 
 export VSCODE_CLI_DATA_DIR="/Applications/codium-portable-data/data/cli"
 

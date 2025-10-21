@@ -39,15 +39,19 @@
       path: config/*
       exclude:
         [
+          config/bat,
+          config/curl,
           config/codium,
+          config/eza,
           config/firefox,
           config/gnupg,
           config/iina,
           config/lscolors,
+          config/lsd,
           config/ssh,
-          config/starship,
           config/transmission,
           config/weechat,
+          config/wget,
           config/yt,
         ]
 

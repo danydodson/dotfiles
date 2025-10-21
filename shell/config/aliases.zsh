@@ -8,7 +8,6 @@ alias ....="cd ../../"
 # open
 alias o="open"
 alias v="nvim"
-alias nv="NVIM_APPNAME=nvim-nvchad nvim"
 alias cc="codium"
 
 # ssh

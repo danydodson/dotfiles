@@ -75,9 +75,6 @@ hyper - f : ./$HOME/.dotfiles/config/yabai/scripts/open-finder.sh
 hyper - p : open -a Postman.app
 
 # restart
-hyper - r : \
+hyper - r : sharpener -r 8; \
   skhd --restart-service; \
-  yabai --restart-service; \
-  brew services restart felixkratz/formulae/sketchybar; \
-  brew services restart FelixKratz/formulae/svim; \
-  sharpener -r 10;
+  yabai --restart-service;

@@ -21,8 +21,8 @@ bindkey '^[[A' history-substring-search-up # up arrow for searching history back
 bindkey '^[[B' history-substring-search-down  # down arrow for searching history forwards
 
 # vim keymaps history search
-# bindkey -M vicmd 'k' history-substring-search-up # vim 'k' key for searching history backwards
-# bindkey -M vicmd 'j' history-substring-search-down # vim 'j' key for searching history forwards
+bindkey -M vicmd 'k' history-substring-search-up # vim 'k' key for searching history backwards
+bindkey -M vicmd 'j' history-substring-search-down # vim 'j' key for searching history forwards
 
 # lscolors
 export LSCOLORS=ExFxBxDxCxegedabagacad
@@ -33,11 +33,12 @@ fi
 # suggestion color
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#D19A66"
 
-# shell colors
-autoload -Uz colors && colors # enables color support in the shell
+# defaults
+stty stop undef # disable ctrl+s from stopping the terminal output
 
-# complist
+# comps and colors
 zmodload -i zsh/complist # loads the completion system module
+autoload -Uz colors && colors # enables color support in the shell
 
 # completion menu and grouping settings
 zstyle ':completion:*:*:*:*:*' menu select # enables interactive menu for completions

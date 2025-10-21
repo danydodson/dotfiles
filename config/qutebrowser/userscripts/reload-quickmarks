@@ -1,3 +1,0 @@
-#!/bin/bash
-
-echo "debug-pyeval --quiet --file $QUTE_DATA_DIR/userscripts/reload-quickmarks.py" >> $QUTE_FIFO

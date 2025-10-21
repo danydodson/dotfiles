@@ -49,6 +49,11 @@
     "key": "cmd+k",
     "command": "workbench.action.toggleAuxiliaryBar"
   },
+  {
+    "key": "cmd+w",
+    "command": "-workbench.action.closeWindow",
+    "when": "!editorIsOpen && !multipleEditorGroups"
+  },
   // {
   //   "key": "cmd+w",
   //   "command": "-workbench.action.terminal.killEditor",

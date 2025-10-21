@@ -5,7 +5,7 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
 BAR=$(sketchybar -m --query bar | jq -r '.height')
-PAD=6
+PAD=7
 
 GENERAL=(
   external_bar all:"${BAR_HEIGHT}":0
@@ -72,7 +72,6 @@ unmanaged=(
   ChatGPT
   Contacts
   Dictionary
-  Downie 4
   FaceTime
   Finder
   GPG Keychain
@@ -84,7 +83,6 @@ unmanaged=(
   Messages
   mpv
   Notes
-  Permute 3
   Photo Booth
   Preferences
   Quicktime Player
@@ -151,6 +149,7 @@ done
 SPACE4=(
   Mail
   Calendar
+  DiffusionBee
 )
 
 for ((i = 1; i <= "${#SPACE4[@]}"; i++)); do

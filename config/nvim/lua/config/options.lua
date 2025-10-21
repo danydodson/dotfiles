@@ -16,8 +16,8 @@ vim.opt.cmdheight = 0 -- Hide command line when not in use
 vim.opt.cursorline = true -- Don't highlight the current line
 vim.opt.cursorlineopt = 'number' -- Only highlight line number of current line
 
-vim.opt.foldenable = true -- Enable code folding
-vim.opt.foldcolumn = '0' -- Don't show fold column
+vim.opt.foldenable = false -- Enable code folding
+-- vim.opt.foldcolumn = '0' -- Don't show fold column
 vim.opt.foldlevel = 99 -- Start with all folds open
 vim.opt.foldlevelstart = 99 -- Start with all folds open when opening a new file
 
@@ -54,7 +54,7 @@ vim.opt.scrolloff = 10 -- Keep 10 lines above/below cursor when scrolling
 vim.opt.smoothscroll = true -- Enable smooth scrolling
 
 vim.opt.conceallevel = 0 -- Don't hide/conceal any text
--- vim.opt.autochdir = true -- Automatically change directory to current file
+vim.opt.autochdir = false -- Automatically change directory to current file
 vim.opt.inccommand = 'nosplit' -- Show effects of substitution in real time without split
 vim.opt.clipboard = 'unnamedplus' -- Use system clipboard for all operations
 
