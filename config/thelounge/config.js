@@ -43,7 +43,7 @@ module.exports = {
     // and will honor the `X-Forwarded-For` header.
     //
     // This value is set to `false` by default.
-    reverseProxy: false,
+    reverseProxy: true,
     // ### `maxHistory`
     //
     // Defines the maximum number of history lines that will be kept in memory per
@@ -69,6 +69,12 @@ module.exports = {
     //
     // The value of `enable` is set to `false` to disable HTTPS by default, in
     // which case the other two string settings are ignored.
+    // https: {
+    //     enable: true,
+    //     key: "/opt/homebrew/etc/nginx/ssl/localhost/localhost.key",
+    //     certificate: "/opt/homebrew/etc/nginx/ssl/localhost/localhost.crt",
+    //     ca: "",
+    // },
     https: {
         enable: false,
         key: "",
@@ -90,14 +96,14 @@ module.exports = {
     // Solarized would be `thelounge-theme-solarized`.
     //
     // This value is set to `"default"` by default.
-    theme: "Morning",
+    theme: "default",
     // ### `prefetch`
     //
     // When set to `true`, The Lounge will load thumbnails and site descriptions
     // from URLs posted in channels and private messages.
     //
     // This value is set to `false` by default.
-    prefetch: true,
+    prefetch: false,
     // ### `disableMediaPreview`
     //
     // When set to `true`, The Lounge will not preview media (images, video and
@@ -196,7 +202,7 @@ module.exports = {
     //
     // This value is set to `"The Lounge - https://thelounge.chat"` by
     // default.
-    leaveMessage: "The Lounge - https://thelounge.chat",
+    leaveMessage: "peace -",
     // ## Default network
     // ### `defaults`
     //
@@ -249,8 +255,8 @@ module.exports = {
         rejectUnauthorized: true,
         nick: "spatch",
         username: "spatch",
-        realname: "spatch",
-        join: "#Chillz,#darkpeers,#thelounge,#mac-torrents.announce,#milkie,#milkie-announce,#news",
+        realname: "",
+        join: "",
         leaveMessage: "",
     },
     // defaults: {

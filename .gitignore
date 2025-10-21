@@ -21,7 +21,9 @@ Icon
 /config/thelounge/logs
 /config/thelounge/packages
 /config/thelounge/users
+/config/thelounge/web
 /config/thelounge/vapid.json
+/config/thelounge/sts-policies.json
 
 # tmux
 /config/tmux/plugins
