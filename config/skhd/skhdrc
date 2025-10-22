@@ -67,7 +67,7 @@ hyper - m : open -a Mail.app
 
 # row 2
 hyper - a : open -a Apps.app
-hyper - s : open -a Spotify.app
+hyper - s : sharpener -r 4
 hyper - d : open -a Discord.app
 hyper - f : ./$HOME/.dotfiles/config/yabai/scripts/open-finder.sh
 
@@ -75,6 +75,6 @@ hyper - f : ./$HOME/.dotfiles/config/yabai/scripts/open-finder.sh
 hyper - p : open -a Postman.app
 
 # restart
-hyper - r : sharpener -r 8; \
+hyper - r : sharpener -r 4; \
   skhd --restart-service; \
   yabai --restart-service;

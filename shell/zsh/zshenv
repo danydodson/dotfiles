@@ -6,7 +6,6 @@ ulimit -S -n 8192
 
 export DOTFILES=$HOME/.dotfiles
 
-export TERMINAL="ghostty"
 export VISUAL="nvim"
 export EDITOR="nvim"
 export PAGER="less -RF"
@@ -70,11 +69,8 @@ export WAKATIME_HOME="$HOME/.config/wakatime"
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
 export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
-export SHELLCHECK_OPTS='--exclude=SC1090,SC1091,SC2005,SC2034,SC2086,SC2148,SC2155,SC2162,SC2154,SC2164,SC2181,SC2236,SC2248,SC2250 --external-sources'
+export SHELLCHECK_OPTS='--exclude=SC1090,SC1091,SC2005,SC2034,SC2059,SC2086,SC2148,SC2155,SC2162,SC2154,SC2164,SC2181,SC2236,SC2248,SC2250 --external-sources'
 
-export CHROME_BIN="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-export CHROME_CANARY_BIN="/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
-export FIREFOX_BIN="/Applications/Firefox.app/Contents/MacOS/firefox-bin"
 export TWILIGHT_BIN="/Applications/Twilight.app/Contents/MacOS/zen"
 
 export TIMEFMT=$'%J \n================\n CPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'

@@ -4,13 +4,28 @@ E='\033'
 RESET="${E}[0m"
 BOLD="${E}[1m"
 
+NO_COLOR="${E}[0m"
 BLUE="${E}[0;34m"
 RED="${E}[0;91m"
 GREEN="${E}[0;32m"
 CYAN="${E}[0;96m"
 YELLOW="${E}[0;93m"
 MAGENTA="${E}[0;35m"
-NO_COLOR="${E}[0m"
+
+NC="\e[0m"
+INFO_SYMBOL="➡️"
+GOOD_SYMBOL="✔️"
+ERROR_SYMBOL="❌"
+
+glow() {
+  local msg="$1"
+  printf "[$(date +%F)]: ${CYAN}${INFO_SYMBOL} ${msg}${NC}\n"
+}
+
+bug() {
+  local msg="$1"
+  printf "[$(date +%F)]: ${RED}${ERROR_SYMBOL} ${msg}${NC}\n"
+}
 
 blue() {
   echo -e "${BLUE}${*}${RESET}"

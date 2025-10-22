@@ -8,13 +8,9 @@ export SAVEHIST=$HISTSIZE # sets maximum history entries in file
 # history configs
 setopt EXTENDED_HISTORY # saves timestamp and duration for commands
 setopt SHARE_HISTORY # shares history across multiple zsh sessions
-setopt HIST_EXPIRE_DUPS_FIRST # removes duplicate commands first when trimming history
-setopt HIST_FIND_NO_DUPS # skips duplicate entries when searching history
-setopt HIST_IGNORE_ALL_DUPS # removes older duplicate entries in history
 setopt HIST_IGNORE_SPACE # ignores commands that start with a space
 setopt HIST_SAVE_NO_DUPS # prevents duplicate entries from being saved
 setopt HIST_REDUCE_BLANKS # removes extra blank spaces from commands
-setopt HIST_VERIFY # shows history expansion before executing
 
 # history search
 bindkey '^[[A' history-substring-search-up # up arrow for searching history backwards

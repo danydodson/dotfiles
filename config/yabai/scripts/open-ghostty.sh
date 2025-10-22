@@ -2,6 +2,8 @@
 
 # Opens a new Ghostty window and minimizes all VSCodium windows
 
+sharpener -r 4;
+
 # Minimize VSCodium using AppleScript
 osascript -e '
 tell application "System Events"

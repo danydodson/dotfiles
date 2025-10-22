@@ -14,7 +14,7 @@ export PATH="$DOTFILES/bin/ansi:$PATH"
 export PATH="$DOTFILES/bin/tools:$PATH"
 
 # go -> path
-export PATH="$GO_PATH/bin:$PATH"
+export PATH="$PATH:$GO_PATH/bin"
 export PATH="$GOROOT/bin:$PATH"
 
 # go bin -> path

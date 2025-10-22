@@ -17,7 +17,7 @@ GENERAL=(
 )
 
 LAYOUT=(
-  layout bsp
+  layout stack
   window_gap "${PAD}"
   top_padding "${PAD}"
   bottom_padding "${PAD}"
@@ -165,6 +165,8 @@ yabai -m signal --add event=application_terminated action="yabai -m query --wind
 
 # apply rules to existing windows
 yabai -m rule --apply
+
+sharpener -r 4;
 
 echo "yabai configuration loaded.."
 

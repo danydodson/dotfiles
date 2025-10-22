@@ -55,20 +55,6 @@
           config/yt,
         ]
 
-    # ~/.config/weechat/:
-    #   glob: true
-    #   relink: true
-    #   path: config/weechat/*
-    #   exclude: [config/weechat/python, config/weechat/themes]
-    # ~/.local/share/weechat/python/theme.py:
-    #   create: true
-    #   relink: true
-    #   path: config/weechat/python/theme.py
-    # ~/.local/share/weechat/themes/:
-    #   glob: true
-    #   relink: true
-    #   path: config/weechat/themes/*
-
     ~/.gnupg/gpg.conf:
       create: true
       force: true

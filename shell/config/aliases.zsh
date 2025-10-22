@@ -1,31 +1,17 @@
 #!/usr/bin/env zsh
 
-# dirs
-alias ~="cd ~"
-alias ..="cd .."
-alias ....="cd ../../"
-
 # open
 alias o="open"
 alias v="nvim"
-alias cc="codium"
+alias c="codium"
 
-# ssh
-alias sshrawdog="ssh ubuntu@18.235.113.176"
-alias sshsparta="ssh -X danny@unix.spartaglobal.com -R 52698:localhost:52698"
+# reload
+alias cc="clear && exec $SHELL -l && source $HOME/.zshrc"
 
-# file commands
-alias hd="hexdump -C"
-alias md5sum="md5"
-alias sha1sum="shasum"
-alias sys_mdls="mdls -name kMDItemContentTypeTree "
-
-# view http traffic
-alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
-alias httpdump="sudo tcpdump -i en1 -n -s 0 -w — | grep -a -o -E \"Host\: .*|GET \/.*\""
-
-# get files
+# curl
 alias get="curl $HOME/.dotfiles/config/curl/curlrc -O"
+
+# wget
 alias wget="wget --config=$HOME/.dotfiles/config/wget/wgetrc --no-check-certificate"
 
 # bat
@@ -34,11 +20,35 @@ alias -g :h='-h 2>&1 | bat --language=help --style=plain'
 alias -g :h='--help 2>&1 | bat --language=help --style=plain'
 
 # brew leaves
-alias b-leaves="brew leaves | xargs brew desc --eval-all"
-alias b-leaves-casks="brew ls --casks | xargs brew desc --eval-all"
+alias bl="brew leaves | xargs brew desc --eval-all"
+alias blc="brew ls --casks | xargs brew desc --eval-all"
 
-# local freshrss docker
-alias frss="docker run -d --restart unless-stopped --log-opt max-size=10m -p 8080:80 -e TZ=America/Indiana/Petersburg -e 'CRON_MIN=1,31' -v freshrss_data:/var/www/FreshRSS/data -v freshrss_extensions:/var/www/FreshRSS/extensions --name freshrss freshrss/freshrss"
+# ssh
+alias sshrawdog="ssh ubuntu@18.235.113.176"
+alias sshsparta="ssh -X danny@unix.spartaglobal.com -R 52698:localhost:52698"
+
+# capture http requests
+alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
+
+# capture http traffic
+alias httpdump="sudo tcpdump -i en0 -n -s 0 -w — | grep -a -o -E \"Host\: .*|GET \/.*\""
+
+# transmission
+alias trd="transmission-daemon"
+alias tr="transmission-remote --auth stache:open"
+alias trw="watch --interval 2 'transmission-remote -n 'stache:open' -l'"
+alias tra="tr -a"
+alias trl="tr -l"
+alias trs="tr -s"
+
+# file commands
+alias hd="hexdump -C"
+alias md5sum="md5"
+alias sha1sum="shasum"
+alias sys_mdls="mdls -name kMDItemContentTypeTree "
+
+# list global pkgs
+alias lsg_npm="npm ls -g --depth 0"
 
 # tmux
 alias tmux="tmux -f ~/.config/tmux/tmux.conf"
@@ -53,75 +63,17 @@ bindkey -s ^o "tmux attach -t working\n"
 bindkey '^s' vicmd '^s' sesh-sessions
 bindkey '^s' viins '^s' sesh-sessions
 
-# transmission
-alias trd="transmission-daemon"
-alias tr="transmission-remote --auth stache:open"
-alias trw="watch --interval 2 'transmission-remote -n 'stache:open' -l'"
-alias tra="tr -a"
-alias trl="tr -l"
-alias trs="tr -s"
-
-# ls replacement - gls coreutils
-alias ls='/opt/homebrew/bin/gls --color=auto --group-directories-first -I .DS_Store -I .Trash -I "Icon'$'\r"'
-alias l="ls -AhLg --no-group --time-style=iso"
-alias ll="lsd -Al"
-alias la="ls -A"
-
-# ls replacement - eza https://github.com/eza-community/eza
-ezargs="--icons -I='$(awk '{$1=$1} NF{printf "%s|", $0}' "${DOTFILES}/config/eza/ezaignore" | sed 's/|$//')' --group-directories-first"
-# alias ll="eza -lah $ezargs" # all files and dirs; long format
-# alias els="eza -Galh $ezargs" # all files and dirs; long format/grid
-# alias ela="eza -a $ezargs" # all files and dirs
-# alias elt="eza -aT $ezargs" # tree listing
-
-# grep
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias grep='grep --color=auto'
-
-# edit in nvim
-alias dot="cd $DOTFILES && nvim"
-
-# list global pkgs
-alias lsg_npm="npm ls -g --depth 0"
-alias lsg_yarn="yarn global list"
-alias lsg_pnpm="pnpm ls -g"
-
-# directories
-alias dotfiles="cd $HOME/.dotfiles"
-alias desktop="cd $HOME/Desktop"
-alias dev="cd $HOME/Developer"
-alias data="cd /Volumes/data"
-alias dl="cd $HOME/Downloads"
-alias plugins="cd $HOME/Developer/plugins"
-alias repos="cd $HOME/Developer/repos"
-alias server="cd $HOME/Developer/served"
-
-# reload
-alias clear="clear "
-alias reload="exec $SHELL -l"
-alias src="source $HOME/.zshrc"
-alias cl="clear"
-alias c="cl && reload && src"
-
-# turn spotlight on/off
-alias spotlight_off="sudo mdutil -a -i off"
-alias spotlight_on="sudo mdutil -a -i on"
-
-# monitor icloud
-alias brctl_monitor="brctl monitor com.apple.CloudDocs | grep %"
-
 # js repl
-alias jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc"
+alias jscl="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc"
 
 # browsers
-alias chrome="open -a /Applications/Google\ Chrome.app"
-alias canary="open -a /Applications/Google\ Chrome\ Canary.app"
-alias firefox="open -a /Applications/Firefox.app"
-alias twilight="open -a /Applications/Twilight.app"
+alias brave="open -a 'Brave Browser.app'"
+alias twilight="open -a Twilight.app"
 
-# exclude macOS specific files in zip archives
-# alias zip="zip -x *.DS_Store -x *__MACOSX* -x *.AppleDouble*"
+# clean hidden files
+alias rmds="find . -type f -name '*.DS_Store' -ls -delete"
+alias rmnm="find . -type d -name 'node_modules' -ls -delete"
+alias rmad="find . -type d -name '.AppleD*' -ls -exec /bin/rm -r {} \;"
 
 # start screen saver
 alias afk="open /System/Library/CoreServices/ScreenSaverEngine.app"
@@ -129,27 +81,36 @@ alias afk="open /System/Library/CoreServices/ScreenSaverEngine.app"
 # log off
 alias logoff="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
-# clean hidden files
-alias rmds="find . -type f -name '*.DS_Store' -ls -delete"
-alias rmnm="find . -type d -name 'node_modules' -ls -delete"
-alias rmad="find . -type d -name '.AppleD*' -ls -exec /bin/rm -r {} \;"
-
-# reload native apps
-alias killfinder="killall Finder"
-alias killdock="killall Dock"
-alias killmenubar="killall SystemUIServer NotificationCenter"
-alias killos="killfinder && killdock && killmenubar"
-
 # show system information
 alias displays="system_profiler SPDisplaysDataType"
 alias cpu="sysctl -n machdep.cpu.brand_string"
 alias ram="top -l 1 -s 0 | grep PhysMem"
 
 # misc
-alias hosts="sudo $EDITOR /etc/hosts"
+alias hosts="sudo nvim /etc/hosts"
 alias quit="exit"
 alias speedtest="wget -O /dev/null http://speed.transip.nl/100mb.bin"
 alias fkill="ps -e | fzf | awk '{print $1}' | xargs kill"
+alias brcmon="brctl monitor com.apple.CloudDocs | grep %"
+
+# reload ui
+alias killmenubar="killall SystemUIServer NotificationCenter"
+alias killos="killfinder && killdock && killmenubar"
+
+# spotlight on/off
+alias spotlight_off="sudo mdutil -a -i off"
+alias spotlight_on="sudo mdutil -a -i on"
+
+# ls
+alias ls='/opt/homebrew/bin/gls --color=auto --group-directories-first -I .DS_Store -I .Trash -I "Icon'$'\r"'
+alias l="ls -AhLg --no-group --time-style=iso"
+alias ll="lsd -Al"
+alias la="ls -A"
+
+# dirs
+alias ~="cd ~"
+alias ..="cd .."
+alias ....="cd ../../"
 
 # create and cd into directory
 mkcd() {

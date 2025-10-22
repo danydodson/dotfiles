@@ -2,6 +2,8 @@
 
 # Checks if Finder is open on any space. If not, it opens a new Finder window in the current space
 
+sharpener -r 4;
+
 finder_app="Finder"
 finder_space_id=$(yabai -m query --windows | jq -r 'map(select(.app == "Finder")) | .[0].space')
 finder_window_id=$(yabai -m query --windows | jq -r --arg finder_app "$finder_app" '.[] | select(.app == $finder_app) | .id')
