@@ -35,6 +35,9 @@ Icon
 /config/vim/viminfo
 /config/vim/tmux.vim
 
+# weechat
+/config/weechat/*
+
 # wget
 /config/wget/wget-hsts
 
@@ -43,5 +46,3 @@ Icon
 
 # build
 .assets
-/config/weechat-2
-/config/weechat-
