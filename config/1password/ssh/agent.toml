@@ -8,6 +8,16 @@ vault = "Personal"
 account = "Dany Dodson"
 
 [[ssh-keys]]
+item = "hetzner_ssh"
+vault = "Personal"
+account = "Dany Dodson"
+
+[[ssh-keys]]
+item = "spatula"
+vault = "Personal"
+account = "Dany Dodson"
+
+[[ssh-keys]]
 item = "ollama_ssh"
 vault = "Personal"
 account = "Dany Dodson"

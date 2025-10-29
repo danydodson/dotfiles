@@ -24,9 +24,6 @@ alias cdd='z -'
 # open hosts in nvim
 alias hosts="sudo nvim /etc/hosts"
 
-# exit
-alias quit="exit"
-
 # curl
 alias get="curl $HOME/.dotfiles/config/curl/curlrc -O"
 
@@ -37,17 +34,14 @@ alias wget="wget --config=$HOME/.dotfiles/config/wget/wgetrc --no-check-certific
 alias speedtest="wget -O /dev/null http://speed.transip.nl/100mb.bin"
 
 # bat
-if command -v bat &>/dev/null; then
-  alias cat='bat --wrap=never --paging=never --style=plain --decorations=auto --theme="TwoDark" --color=always'
-  # bat :h display --help in bat format 
-  alias -g :h='-h 2>&1 | bat --language=help --style=plain'
-  alias -g :h='--help 2>&1 | bat --language=help --style=plain'
-fi
+alias cat='bat --wrap=never --paging=never --style=plain --decorations=auto --theme="TwoDark" --color=always'
+# bat :h display --help in bat format 
+alias -g :h='-h 2>&1 | bat --language=help --style=plain'
+alias -g :h='--help 2>&1 | bat --language=help --style=plain'
 
-if command -v brew &>/dev/null; then
-  alias bl="brew leaves | xargs brew desc --eval-all"
-  alias blc="brew ls --casks | xargs brew desc --eval-all"
-fi
+# brew
+alias bl="brew leaves | xargs brew desc --eval-all"
+alias blc="brew ls --casks | xargs brew desc --eval-all"
 
 # kill
 alias fkill="ps -e | fzf | awk '{print $1}' | xargs kill"
@@ -69,28 +63,24 @@ alias md5sum="md5"
 alias sha1sum="shasum"
 alias sys_mdls="mdls -name kMDItemContentTypeTree "
 
-if command -v npm &>/dev/null; then
-  alias lsg_npm="npm ls -g --depth 0"
-fi
+alias lsg_npm="npm ls -g --depth 0"
 
-if command -v tmux &>/dev/null; then
-  # tmux
-  alias tm="tmux -f ~/.config/tmux/tmux.conf"
-  alias tn="tm new"
-  alias tl="tm ls"
-  alias ta="tm attach"
-  alias tk="tm kill-session"
-  alias td="tm detach"
-  # tmux ctrl+p fzf projects
-  bindkey -s ^p "tms\n"
-  # tmux ctrl+w new session
-  bindkey -s ^w "tmux new\n"
-  # tmux ctrl+o attach to working session
-  bindkey -s ^o "tmux attach -t working\n"
-  # tmux ctrl+s opens sesh sessions 
-  bindkey '^s' vicmd '^s' sesh-sessions
-  bindkey '^s' viins '^s' sesh-sessions
-fi 
+# tmux
+alias tm="tmux -f ~/.config/tmux/tmux.conf"
+alias tn="tm new"
+alias tl="tm ls"
+alias ta="tm attach"
+alias tk="tm kill-session"
+alias td="tm detach"
+# tmux ctrl+p fzf projects
+bindkey -s ^p "tms\n"
+# tmux ctrl+w new session
+bindkey -s ^w "tmux new\n"
+# tmux ctrl+o attach to working session
+bindkey -s ^o "tmux attach -t working\n"
+# tmux ctrl+s opens sesh sessions 
+bindkey '^s' vicmd '^s' sesh-sessions
+bindkey '^s' viins '^s' sesh-sessions
 
 # js repl
 alias jscl="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc"
@@ -127,13 +117,11 @@ alias l="ls -AhLg --no-group --time-style=iso"
 alias ll="lsd -Al"
 alias la="ls -A"
 
-
-if command -v transmission-cli &>/dev/null; then
 # transmission-cli
-  alias trd="transmission-daemon"
-  alias tr="transmission-remote --auth stache:open"
-  alias trw="watch --interval 2 'transmission-remote -n 'stache:open' -l'"
-fi
+alias trd="transmission-daemon"
+alias tr="transmission-remote --auth stache:open"
+alias trw="watch --interval 2 'transmission-remote -n 'stache:open' -l'"
+
 
 # clean hidden files
 alias rmds="find . -type f -name '*.DS_Store' -ls -delete"

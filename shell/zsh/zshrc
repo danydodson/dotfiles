@@ -31,7 +31,6 @@ eval "$(ssh-agent -s)" >/dev/null 2>&1
 source "/Users/stache/.config/cargo/env"
 
 # conda
-export PATH="/opt/miniconda3/bin:$PATH"
 source "/opt/miniconda3/etc/profile.d/conda.sh"
 
 # nvm

@@ -436,6 +436,5 @@
   "editor.inlayHints.enabled": "off",
   "scriptmonkey.metaData.default.author": "stache",
   "scriptmonkey.metaData.default.namespace": "github.com/userscripts",
-  "scriptmonkey.activation condition.userscript header": true,
-  "workbench.statusBar.visible": false
+  "scriptmonkey.activation condition.userscript header": true
 }

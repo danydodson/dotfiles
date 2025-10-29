@@ -20,6 +20,9 @@ export PATH="$GOROOT/bin:$PATH"
 # go bin -> path
 export PATH="$PATH:$HOME/.config/go/bin"
 
+# miniconda -> path
+export PATH="/opt/miniconda3/bin:$PATH"
+
 # java -> path
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 

@@ -44,3 +44,4 @@ Icon
 # build
 .assets
 /config/weechat-2
+/config/weechat-
