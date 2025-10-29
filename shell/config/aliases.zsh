@@ -1,12 +1,31 @@
 #!/usr/bin/env zsh
 
+# dirs
+alias ~="cd ~"
+alias ..="cd .."
+alias ....="cd ../../"
+
 # open
 alias o="open"
+
+# nvim
 alias v="nvim"
-alias c="codium"
+
+# codium
+alias e="codium"
 
 # reload
-alias cc="clear && exec $SHELL -l && source $HOME/.zshrc"
+alias c="clear && exec $SHELL -l && source $HOME/.zshrc"
+
+# z
+alias cd='z'
+alias cdd='z -'
+
+# open hosts in nvim
+alias hosts="sudo nvim /etc/hosts"
+
+# exit
+alias quit="exit"
 
 # curl
 alias get="curl $HOME/.dotfiles/config/curl/curlrc -O"
@@ -14,18 +33,29 @@ alias get="curl $HOME/.dotfiles/config/curl/curlrc -O"
 # wget
 alias wget="wget --config=$HOME/.dotfiles/config/wget/wgetrc --no-check-certificate"
 
-# bat
-alias cat="bat"
-alias -g :h='-h 2>&1 | bat --language=help --style=plain'
-alias -g :h='--help 2>&1 | bat --language=help --style=plain'
+# speedtest
+alias speedtest="wget -O /dev/null http://speed.transip.nl/100mb.bin"
 
-# brew leaves
-alias bl="brew leaves | xargs brew desc --eval-all"
-alias blc="brew ls --casks | xargs brew desc --eval-all"
+# bat
+if command -v bat &>/dev/null; then
+  alias cat='bat --wrap=never --paging=never --style=plain --decorations=auto --theme="TwoDark" --color=always'
+  # bat :h display --help in bat format 
+  alias -g :h='-h 2>&1 | bat --language=help --style=plain'
+  alias -g :h='--help 2>&1 | bat --language=help --style=plain'
+fi
+
+if command -v brew &>/dev/null; then
+  alias bl="brew leaves | xargs brew desc --eval-all"
+  alias blc="brew ls --casks | xargs brew desc --eval-all"
+fi
+
+# kill
+alias fkill="ps -e | fzf | awk '{print $1}' | xargs kill"
+alias mbkill="killall SystemUIServer NotificationCenter"
+alias oskill="killfinder && killdock && killmenubar"
 
 # ssh
-alias sshrawdog="ssh ubuntu@18.235.113.176"
-alias sshsparta="ssh -X danny@unix.spartaglobal.com -R 52698:localhost:52698"
+alias ssh_rd="ssh ubuntu@18.235.113.176"
 
 # capture http requests
 alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
@@ -33,35 +63,34 @@ alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
 # capture http traffic
 alias httpdump="sudo tcpdump -i en0 -n -s 0 -w — | grep -a -o -E \"Host\: .*|GET \/.*\""
 
-# transmission
-alias trd="transmission-daemon"
-alias tr="transmission-remote --auth stache:open"
-alias trw="watch --interval 2 'transmission-remote -n 'stache:open' -l'"
-alias tra="tr -a"
-alias trl="tr -l"
-alias trs="tr -s"
-
 # file commands
 alias hd="hexdump -C"
 alias md5sum="md5"
 alias sha1sum="shasum"
 alias sys_mdls="mdls -name kMDItemContentTypeTree "
 
-# list global pkgs
-alias lsg_npm="npm ls -g --depth 0"
+if command -v npm &>/dev/null; then
+  alias lsg_npm="npm ls -g --depth 0"
+fi
 
-# tmux
-alias tmux="tmux -f ~/.config/tmux/tmux.conf"
-alias tn="tmux new"
-alias tl="tmux ls"
-alias ta="tmux attach"
-alias tk="tmux kill-session"
-alias td="tmux detach"
-bindkey -s ^p "tms\n"
-bindkey -s ^w "tmux new\n"
-bindkey -s ^o "tmux attach -t working\n"
-bindkey '^s' vicmd '^s' sesh-sessions
-bindkey '^s' viins '^s' sesh-sessions
+if command -v tmux &>/dev/null; then
+  # tmux
+  alias tm="tmux -f ~/.config/tmux/tmux.conf"
+  alias tn="tm new"
+  alias tl="tm ls"
+  alias ta="tm attach"
+  alias tk="tm kill-session"
+  alias td="tm detach"
+  # tmux ctrl+p fzf projects
+  bindkey -s ^p "tms\n"
+  # tmux ctrl+w new session
+  bindkey -s ^w "tmux new\n"
+  # tmux ctrl+o attach to working session
+  bindkey -s ^o "tmux attach -t working\n"
+  # tmux ctrl+s opens sesh sessions 
+  bindkey '^s' vicmd '^s' sesh-sessions
+  bindkey '^s' viins '^s' sesh-sessions
+fi 
 
 # js repl
 alias jscl="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc"
@@ -69,11 +98,6 @@ alias jscl="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpe
 # browsers
 alias brave="open -a 'Brave Browser.app'"
 alias twilight="open -a Twilight.app"
-
-# clean hidden files
-alias rmds="find . -type f -name '*.DS_Store' -ls -delete"
-alias rmnm="find . -type d -name 'node_modules' -ls -delete"
-alias rmad="find . -type d -name '.AppleD*' -ls -exec /bin/rm -r {} \;"
 
 # start screen saver
 alias afk="open /System/Library/CoreServices/ScreenSaverEngine.app"
@@ -86,13 +110,6 @@ alias displays="system_profiler SPDisplaysDataType"
 alias cpu="sysctl -n machdep.cpu.brand_string"
 alias ram="top -l 1 -s 0 | grep PhysMem"
 
-# misc
-alias hosts="sudo nvim /etc/hosts"
-alias quit="exit"
-alias speedtest="wget -O /dev/null http://speed.transip.nl/100mb.bin"
-alias fkill="ps -e | fzf | awk '{print $1}' | xargs kill"
-alias brcmon="brctl monitor com.apple.CloudDocs | grep %"
-
 # reload ui
 alias killmenubar="killall SystemUIServer NotificationCenter"
 alias killos="killfinder && killdock && killmenubar"
@@ -101,16 +118,27 @@ alias killos="killfinder && killdock && killmenubar"
 alias spotlight_off="sudo mdutil -a -i off"
 alias spotlight_on="sudo mdutil -a -i on"
 
+# monitor icloud
+alias brcmon="brctl monitor com.apple.CloudDocs | grep %"
+
 # ls
 alias ls='/opt/homebrew/bin/gls --color=auto --group-directories-first -I .DS_Store -I .Trash -I "Icon'$'\r"'
 alias l="ls -AhLg --no-group --time-style=iso"
 alias ll="lsd -Al"
 alias la="ls -A"
 
-# dirs
-alias ~="cd ~"
-alias ..="cd .."
-alias ....="cd ../../"
+
+if command -v transmission-cli &>/dev/null; then
+# transmission-cli
+  alias trd="transmission-daemon"
+  alias tr="transmission-remote --auth stache:open"
+  alias trw="watch --interval 2 'transmission-remote -n 'stache:open' -l'"
+fi
+
+# clean hidden files
+alias rmds="find . -type f -name '*.DS_Store' -ls -delete"
+alias rmnm="find . -type d -name 'node_modules' -ls -delete"
+alias rmad="find . -type d -name '.AppleD*' -ls -exec /bin/rm -r {} \;"
 
 # create and cd into directory
 mkcd() {

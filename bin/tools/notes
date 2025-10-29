@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# Open markdown from ~/Developer/scripts/notes/<file.md> in nvim
+
+. "$HOME/.dotfiles/bin/ansi/reports"
+
+open_note() {
+  local filename="$1.md"
+  local filepath="$HOME/Developer/scripts/notes/$filename"
+
+  # Check if file exists
+  if [ -f "$filepath" ]; then
+    nvim "$filepath"
+  else
+    error "Error: $filename does not exist in $HOME/Developer/scripts/notes/"
+  fi
+}
+
+# Check if an argument is provided
+if [ $# -eq 0 ]; then
+  info "Usage: notes <filename-without-extension>"
+  exit 1
+fi
+
+# Call the function with the provided argument
+open_note "$1"
+

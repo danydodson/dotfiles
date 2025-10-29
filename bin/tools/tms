@@ -10,7 +10,7 @@ else
         -maxdepth 1 \
         -mindepth 1 \
         -type d \
-        2>/dev/null | fzf)
+        2>/dev/null | fzf --tmux 60%)
 fi
 
 if [[ -z $selected ]]; then

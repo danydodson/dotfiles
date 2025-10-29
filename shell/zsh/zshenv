@@ -1,10 +1,6 @@
 #!/usr/bin/env zsh
 
-setopt noglobalrcs
-
-ulimit -S -n 8192
-
-export DOTFILES=$HOME/.dotfiles
+# setopt noglobalrcs
 
 export VISUAL="nvim"
 export EDITOR="nvim"
@@ -12,24 +8,19 @@ export PAGER="less -RF"
 export LESSHISTFILE=-
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export GPG_TTY=$TTY
+export BROWSER='open'
 
-if [[ "$OSTYPE" == darwin* ]]; then
-  export BROWSER='open'
-fi
-
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export LOCALE=en_US.UTF-8
+export DOTFILES=$HOME/.dotfiles
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-export HOMEBREW_BAT=1
-export HOMEBREW_FORCE_BREWED_CURL=1
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_BAT=1
+export HOMEBREW_FORCE_BREWED_CURL=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_BUNDLE_FILE_GLOBAL="$DOTFILES/macos/brew/brewfile"
 
@@ -45,7 +36,6 @@ export RUSTUP_HOME="$HOME/.config/rust"
 export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
 export PNPM_HOME="$HOME/.config/pnpm"
 
-export CONDA_ENVS_PATH="$HOME/.config/miniconda3/envs"
 export JUPYTER_CONFIG_DIR="$HOME/.config/jupiter"
 
 export GEM_HOME="$HOME/.local/share/gem"
@@ -69,7 +59,7 @@ export WAKATIME_HOME="$HOME/.config/wakatime"
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
 export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
-export SHELLCHECK_OPTS='--exclude=SC1090,SC1091,SC2005,SC2034,SC2059,SC2086,SC2148,SC2155,SC2162,SC2154,SC2164,SC2181,SC2236,SC2248,SC2250 --external-sources'
+export SHELLCHECK_OPTS='--exclude=SC1090,SC1091,SC2004,SC2005,SC2034,SC2059,SC2086,SC2148,SC2155,SC2162,SC2154,SC2164,SC2181,SC2236,SC2248,SC2250 --external-sources'
 
 export TWILIGHT_BIN="/Applications/Twilight.app/Contents/MacOS/zen"
 

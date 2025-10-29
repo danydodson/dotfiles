@@ -18,16 +18,10 @@ export PATH="$PATH:$GO_PATH/bin"
 export PATH="$GOROOT/bin:$PATH"
 
 # go bin -> path
-export PATH="$HOME/.config/go/bin:$PATH"
-
-# conda -> path
-export PATH="$HOME/.config/miniconda3/bin:$PATH"
+export PATH="$PATH:$HOME/.config/go/bin"
 
 # java -> path
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-
-# homebrew -> shell
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # macos paths -> path
 for path_file in /etc/paths.d/*(.N); do
@@ -38,15 +32,21 @@ unset path_file
 # docker -> fpath
 export FPATH="$HOME/.docker/completions:$FPATH"
 
-# remove specific paths
-path=(${path:#"/Users/dany/.config/miniconda3/bin"})
+# remove path
 path=(${path:#"/usr/local/sbin"})
+path=(${path:#"/Users/dany/.config/miniconda3/bin"})
+path=(${path:#"/Users/stache/.config/miniconda3/bin"})
+path=(${path:#"/Users/stache/.config/miniconda3/condabin"})
 
-# rm path
-fpath=(${fpath:#"/usr/local/share/zsh/site-functions"})
+# rm fpath
+# fpath=(${fpath:#"/usr/local/share/zsh/site-functions"})
+
+# homebrew -> shell
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # clear duplicates
 typeset -gU fpath path manpath
 
 # set the path for macos
 [[ -x /bin/launchctl ]] && /bin/launchctl setenv PATH $PATH
+
