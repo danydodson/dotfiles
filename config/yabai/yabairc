@@ -148,6 +148,8 @@ done
 # space 4
 SPACE4=(
   Mail
+  Mailspring
+  MailMate
   Calendar
   DiffusionBee
 )
