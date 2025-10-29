@@ -30,24 +30,6 @@ alias get="curl $HOME/.dotfiles/config/curl/curlrc -O"
 # wget
 alias wget="wget --config=$HOME/.dotfiles/config/wget/wgetrc --no-check-certificate"
 
-# speedtest
-alias speedtest="wget -O /dev/null http://speed.transip.nl/100mb.bin"
-
-# bat
-alias cat='bat --wrap=never --paging=never --style=plain --decorations=auto --theme="TwoDark" --color=always'
-# bat :h display --help in bat format 
-alias -g :h='-h 2>&1 | bat --language=help --style=plain'
-alias -g :h='--help 2>&1 | bat --language=help --style=plain'
-
-# brew
-alias bl="brew leaves | xargs brew desc --eval-all"
-alias blc="brew ls --casks | xargs brew desc --eval-all"
-
-# kill
-alias fkill="ps -e | fzf | awk '{print $1}' | xargs kill"
-alias mbkill="killall SystemUIServer NotificationCenter"
-alias oskill="killfinder && killdock && killmenubar"
-
 # ssh
 alias ssh_rd="ssh ubuntu@18.235.113.176"
 
@@ -63,6 +45,24 @@ alias md5sum="md5"
 alias sha1sum="shasum"
 alias sys_mdls="mdls -name kMDItemContentTypeTree "
 
+# speedtest
+alias speedtest="wget -O /dev/null http://speed.transip.nl/100mb.bin"
+
+# bat
+alias cat='bat --wrap=never --paging=never --style=plain --decorations=auto --theme="TwoDark" --color=always'
+alias -g :h='-h 2>&1 | bat --language=help --style=plain'
+alias -g :h='--help 2>&1 | bat --language=help --style=plain'
+
+# brew
+alias bl="brew leaves | xargs brew desc --eval-all"
+alias blc="brew ls --casks | xargs brew desc --eval-all"
+
+# kill
+alias fkill="ps -e | fzf | awk '{print $1}' | xargs kill"
+alias mbkill="killall SystemUIServer NotificationCenter"
+alias oskill="killfinder && killdock && killmenubar"
+
+# npm globals
 alias lsg_npm="npm ls -g --depth 0"
 
 # tmux
@@ -72,12 +72,16 @@ alias tl="tm ls"
 alias ta="tm attach"
 alias tk="tm kill-session"
 alias td="tm detach"
+
 # tmux ctrl+p fzf projects
 bindkey -s ^p "tms\n"
+
 # tmux ctrl+w new session
 bindkey -s ^w "tmux new\n"
+
 # tmux ctrl+o attach to working session
 bindkey -s ^o "tmux attach -t working\n"
+
 # tmux ctrl+s opens sesh sessions 
 bindkey '^s' vicmd '^s' sesh-sessions
 bindkey '^s' viins '^s' sesh-sessions
