@@ -3,21 +3,16 @@
 # test: SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ssh-add -l
 
 [[ssh-keys]]
-item = "github ssh key"
+item = "github_ssh"
 vault = "Personal"
 account = "Dany Dodson"
 
 [[ssh-keys]]
-item = "hetzner ssh key"
+item = "ollama_ssh"
 vault = "Personal"
 account = "Dany Dodson"
 
 [[ssh-keys]]
-item = "ollama ssh key"
-vault = "Personal"
-account = "Dany Dodson"
-
-[[ssh-keys]]
-item = "rawdog.pem"
+item = "rawdog"
 vault = "Personal"
 account = "Dany Dodson"

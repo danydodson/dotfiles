@@ -237,6 +237,7 @@
     "editor.wordWrap": "off",
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  // "python.languageServer": "Pylance",
   "[python]": {
     "editor.defaultFormatter": "ms-python.autopep8"
   },
@@ -435,5 +436,6 @@
   "editor.inlayHints.enabled": "off",
   "scriptmonkey.metaData.default.author": "stache",
   "scriptmonkey.metaData.default.namespace": "github.com/userscripts",
-  "scriptmonkey.activation condition.userscript header": true
+  "scriptmonkey.activation condition.userscript header": true,
+  "workbench.statusBar.visible": false
 }
