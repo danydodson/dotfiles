@@ -12,6 +12,7 @@ export MANPATH="/usr/local/share/man:/usr/share/man:/usr/local/MacGPG2/share/man
 # dotfiles bin -> path
 export PATH="$DOTFILES/bin/ansi:$PATH"
 export PATH="$DOTFILES/bin/tools:$PATH"
+export PATH="$DOTFILES/bin/yabai:$PATH"
 
 # go -> path
 export PATH="$PATH:$GO_PATH/bin"

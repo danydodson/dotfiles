@@ -12,8 +12,6 @@
   //
   "code-runner.enableAppInsights": false,
   //
-  "diffEditor.hideUnchangedRegions.enabled": true,
-  //
   "1password.debug.enabled": true,
   //
   "googleTranslateExt.replaceText": true,
@@ -121,7 +119,7 @@
   "editor.renderLineHighlight": "none",
   // "editor.glyphMargin": false,
   "editor.lineNumbers": "relative",
-  "editor.lineDecorationsWidth": 16,
+  "editor.lineDecorationsWidth": 12,
   "editor.stickyScroll.enabled": false,
   "editor.fontWeight": 400,
   // "editor.fontFamily": "Lilex IF",
@@ -436,5 +434,9 @@
   "editor.inlayHints.enabled": "off",
   "scriptmonkey.metaData.default.author": "stache",
   "scriptmonkey.metaData.default.namespace": "github.com/userscripts",
-  "scriptmonkey.activation condition.userscript header": true
+  "scriptmonkey.activation condition.userscript header": true,
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "applescript.scpt.theme": "one-dark-pro",
+  "applescript.osacompile.startupScreen": true,
+  "workbench.statusBar.visible": false
 }

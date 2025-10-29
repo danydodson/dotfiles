@@ -100,21 +100,11 @@ for ((i = 1; i <= "${#unmanaged[@]}"; i++)); do
   yabai -m rule --add label="unmanage_${unmanaged[(($i - 1))]}" app="^${unmanaged[(($i - 1))]}.*$" manage=off
 done
 
-# space names
-yabai -m space 1 --label web
-yabai -m space 2 --label ide
-yabai -m space 3 --label dev
-
 # space 1
 SPACE1=(
   Twilight
   Safari
   Zen
-  App Store
-  Calendar
-  Mail
-  Steam
-  NVIDIA GeForce NOW
 )
 
 for ((i = 1; i <= "${#SPACE1[@]}"; i++)); do
@@ -147,11 +137,14 @@ done
 
 # space 4
 SPACE4=(
+  App Store
+  Calendar
+  DiffusionBee
   Mail
   Mailspring
   MailMate
-  Calendar
-  DiffusionBee
+  NVIDIA GeForce NOW
+  Steam
 )
 
 for ((i = 1; i <= "${#SPACE4[@]}"; i++)); do
@@ -168,7 +161,7 @@ yabai -m signal --add event=application_terminated action="yabai -m query --wind
 # apply rules to existing windows
 yabai -m rule --apply
 
-sharpener -r 4;
+sharpener -r 8;
 
 echo "yabai configuration loaded.."
 
