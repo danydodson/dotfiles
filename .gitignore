@@ -16,6 +16,12 @@ Icon
 /karabiner/assets
 /karabiner/automatic_backups
 
+# plugs
+/plugs/*
+
+# iina
+/config/iina/com.colliderli.iina.plist
+
 # thelounge
 /config/thelounge/certificates
 /config/thelounge/logs
