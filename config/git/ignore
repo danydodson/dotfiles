@@ -15,9 +15,6 @@ Thumbs.db
 /.nvim.lua
 /.lazy.lua
 
-# node
-/node_modules
-
 # compiled
 __pycache__/
 *.py[cod]

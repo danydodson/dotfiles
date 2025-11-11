@@ -8,7 +8,7 @@ possible.
 
 ### Systems 🚀
 
-- [Setup macos](/docs/mac.md)
+- [Setup macos](/docs/macos.md)
 
 ### LaunchAgents ⌨️
 

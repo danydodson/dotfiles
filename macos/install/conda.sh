@@ -2,7 +2,7 @@
 
 # Installs pyenv, python, and pips
 
-. "$HOME/.dotfiles/bin/ansi/reports.sh"
+. "$HOME/.dotfiles/bin/ansi/reports"
 
 set -e
 trap on_error SIGTERM

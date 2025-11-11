@@ -24,5 +24,6 @@
     "**/*.zsh": true,
     "**/config/**/*": true,
     "**/plugins/**/*": true,
+    "**/plugs/**/*": true,
   }
 }

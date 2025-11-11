@@ -2,7 +2,7 @@
 
 # SSH key utility: generate if missing, copy or print as instructed
 
-. "$HOME/.dotfiles/bin/ansi/reports.sh"
+. "$HOME/.dotfiles/bin/ansi/reports"
 
 DEFAULT_KEY="$HOME/.ssh/id_rsa"
 COMMAND_NAME="$1"
@@ -10,12 +10,11 @@ SSH_KEY_NAME="${2:-id_rsa.pub}"
 SSH_KEY_PATH="$HOME/.ssh/$SSH_KEY_NAME"
 
 if [[ "$1" == "--help" || "$1" == "-h" ]]; then
-	echo
 	command "Usage: ssh-key {copy|paste} <ssh_key_name.pub>"
 	echo
 	green "Commands:"
-	command "  copy      Copy SSH public key to clipboard and display"
-	command "  paste     Print SSH public key to stdout"
+	command "  copy                    Copy SSH public key to clipboard and display"
+	command "  paste                   Print SSH public key to stdout"
 	echo
 	green "Options:"
 	command "  <ssh_key_name.pub>      SSH public key name (default: id_rsa.pub)"

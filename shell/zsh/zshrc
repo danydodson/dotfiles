@@ -3,9 +3,6 @@
 # skips compinit
 skip_global_compinit=1
 
-#
-# ZSH_DISABLE_COMPFIX="true"
-
 # zsh completions
 source ${DOTFILES}/plugins/zsh-completions/zsh-completions.plugin.zsh
 

@@ -2,11 +2,12 @@
 
 # Yabai helper commands
 
-. "$HOME/.dotfiles/ansi/reports.sh"
+. "$HOME/.dotfiles/bin/ansi/reports"
 
 # function: show help
 help() {
     command "Usage: yabai-tools.sh [command]"
+    echo
     green "Commands:"
     commands "    help               -- Show this help message"
     commands "    start              -- Start Yabai service"
@@ -15,7 +16,7 @@ help() {
     commands "    reload_config      -- Reload Yabai config"
     commands "    status             -- Show Yabai service status"
     commands "    update_yabai       -- Update Yabai"
-    # info "  ——————————————————————————————————————————————"
+    echo
     commands "    auto_arrange       -- Automatically arrange windows depending on their count. Use as signals for window create / destroy events"
     commands "    arrange [position] -- Move a floating window to [position] on current space"
     commands "    balance            -- Balance windows on current space"
@@ -30,7 +31,7 @@ help() {
     commands "    swap               -- Swap window positions"
     commands "    toggle_split       -- Toggle horizontal / vertical windows split"
     commands "    toggle_layout      -- Toggle stack / bsp layouts"
-    # info "  ——————————————————————————————————————————————"
+    echo
     green "[Position]:"
     blue "    lefthalf"
     blue "    righthalf"
