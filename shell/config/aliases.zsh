@@ -1,7 +1,9 @@
 #!/usr/bin/env zsh
 
 # dirs
+alias ~="cd ~"
 alias cd="z"
+alias cdd="z -"
 alias ..="z .."
 alias ...="z ../.."
 alias ....="z ../../.."
@@ -19,9 +21,8 @@ alias e="codium"
 # reload
 alias c="clear && exec $SHELL -l && source $HOME/.zshrc"
 
-# z
-alias cd='z'
-alias cdd='z -'
+# file content
+alias met="mdls -name kMDItemContentType -name kMDItemContentTypeTree -name kMDItemKind"
 
 # open hosts in nvim
 alias hosts="sudo nvim /etc/hosts"
@@ -105,10 +106,6 @@ alias logoff="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resou
 alias displays="system_profiler SPDisplaysDataType"
 alias cpu="sysctl -n machdep.cpu.brand_string"
 alias ram="top -l 1 -s 0 | grep PhysMem"
-
-# reload ui
-alias killmenubar="killall SystemUIServer NotificationCenter"
-alias killos="killfinder && killdock && killmenubar"
 
 # spotlight on/off
 alias spotlight_off="sudo mdutil -a -i off"
