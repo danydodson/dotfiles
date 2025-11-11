@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Opens or focuses a Ghostty window and hides VSCodium.
 

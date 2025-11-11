@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # navigate spaces
 lcmd - 1 : yabai -m space --focus 1

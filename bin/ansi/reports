@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 E='\033'
 RESET="${E}[0m"

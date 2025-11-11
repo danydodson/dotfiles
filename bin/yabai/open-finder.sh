@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Checks if Finder is open on any space. If not, it opens a new Finder window in the current space
 

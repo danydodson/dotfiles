@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Purpose: User shell config
 # Loads in: Interactive, non-login shell

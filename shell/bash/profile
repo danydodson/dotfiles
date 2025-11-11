@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Purpose: User login shell config 
 # Loads in: Login shell

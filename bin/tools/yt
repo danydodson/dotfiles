@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Downloads the embedded video on any web page straight to the Downloads folder
 

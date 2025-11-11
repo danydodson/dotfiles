@@ -76,7 +76,6 @@
   "explorer.incrementalNaming": "smart",
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
-  "explorer.compactFolders": false,
   "explorer.decorations.badges": false,
   //
   "window.customTitleBarVisibility": "never",
@@ -118,7 +117,7 @@
   "editor.cursorBlinking": "solid",
   "editor.renderLineHighlight": "none",
   // "editor.glyphMargin": false,
-  "editor.lineNumbers": "relative",
+  "editor.lineNumbers": "off",
   "editor.lineDecorationsWidth": 12,
   "editor.stickyScroll.enabled": false,
   "editor.fontWeight": 400,
@@ -438,5 +437,6 @@
   "diffEditor.hideUnchangedRegions.enabled": true,
   "applescript.scpt.theme": "one-dark-pro",
   "applescript.osacompile.startupScreen": true,
-  "workbench.statusBar.visible": false
+  "explorer.compactFolders": false,
+  "explorer.fileNesting.enabled": false
 }

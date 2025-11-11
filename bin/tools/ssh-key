@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # SSH key utility: generate if missing, copy or print as instructed
 

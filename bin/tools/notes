@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Open markdown from ~/Developer/scripts/notes/<file.md> in nvim
 

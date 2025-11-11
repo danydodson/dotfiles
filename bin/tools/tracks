@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Gets a list of trackers and adds them to a torrent in transmission
 # https://github.com/oilervoss/transmission
