@@ -1,9 +1,11 @@
 #!/usr/bin/env zsh
 
 # dirs
-alias ~="cd ~"
-alias ..="cd .."
-alias ....="cd ../../"
+alias cd="z"
+alias ..="z .."
+alias ...="z ../.."
+alias ....="z ../../.."
+alias .....="z ../../../.."
 
 # open
 alias o="open"
@@ -137,6 +139,16 @@ mkcd() {
   mkdir -p $@ && cd ${@:$#}
 }
 
+# get bundle id of macos app
+bundleid() {
+  local ID=$( osascript -e 'id of app "'"$1"'"' )
+  if [ ! -z $ID ]; then
+    echo $ID | tr -d '[:space:]' | pbcopy
+    echo "$ID (copied to clipboard)"
+  fi
+}
+
+
 # yazi launcher
 y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -147,33 +159,33 @@ y() {
   rm -f -- "$tmp"
 }
 
-# sesh-sessions() {
-#   {
-#     exec </dev/tty
-#     exec <&1
-#     local session
-#     session=$(
-#       sesh list -t -c \
-#         --icons | fzf-tmux -p 80%,70% \
-#         --no-sort \
-#         --ansi \
-#         --border \
-#         --prompt '⚡' \
-#         --header '' \
-#         --bind 'tab:down,btab:up' \
-#         --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list --icons)' \
-#         --bind 'ctrl-t:change-prompt(   )+reload(sesh list -t --icons)' \
-#         --bind 'ctrl-c:change-prompt(⛭  )+reload(sesh list -c --icons)' \
-#         --bind 'ctrl-z:change-prompt(  )+reload(sesh list -z --icons)' \
-#         --bind 'ctrl-f:change-prompt(  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
-#         --preview 'sesh preview {}'
-#     )
-#     zle reset-prompt > /dev/null 2>&1 || true
-#     [[ -z "$session" ]] && return
-#     sesh connect $session
-#   }
-# }
-# zle -N sesh-sessions
+sesh-sessions() {
+  {
+    exec </dev/tty
+    exec <&1
+    local session
+    session=$(
+      sesh list -t -c \
+        --icons | fzf-tmux -p 80%,70% \
+        --no-sort \
+        --ansi \
+        --border \
+        --prompt '⚡' \
+        --header '' \
+        --bind 'tab:down,btab:up' \
+        --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list --icons)' \
+        --bind 'ctrl-t:change-prompt(   )+reload(sesh list -t --icons)' \
+        --bind 'ctrl-c:change-prompt(⛭  )+reload(sesh list -c --icons)' \
+        --bind 'ctrl-z:change-prompt(  )+reload(sesh list -z --icons)' \
+        --bind 'ctrl-f:change-prompt(  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
+        --preview 'sesh preview {}'
+    )
+    zle reset-prompt > /dev/null 2>&1 || true
+    [[ -z "$session" ]] && return
+    sesh connect $session
+  }
+}
+zle -N sesh-sessions
 
 paths() {
   local blue="\e[34m"

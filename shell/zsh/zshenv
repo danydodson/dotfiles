@@ -11,6 +11,7 @@ export DOTFILES="$HOME/.dotfiles"
 
 export VISUAL="nvim"
 export EDITOR="nvim"
+export TERMINAL="ghostty"
 export PAGER="less -RF"
 export LESSHISTFILE=-
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"

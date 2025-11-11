@@ -37,6 +37,9 @@ source "/opt/miniconda3/etc/profile.d/conda.sh"
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
+# fzf
+eval "$(fzf --zsh)"
+
 # fzf defaults
 source /opt/homebrew/opt/fzf/shell/completion.zsh
 source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
