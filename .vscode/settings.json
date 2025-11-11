@@ -17,6 +17,7 @@
     "**/config/lscolors/ls_colors": "dircolors",
     "**/config/sketchybar/sketchybarrc": "lua",
     // 
+    "**/macos/agents/agents.sh": "shellscript",
     "**/macos/agents/*": "xml",
   },
   "shellcheck.ignorePatterns": {
