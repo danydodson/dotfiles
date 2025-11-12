@@ -4,7 +4,7 @@
 export CLICOLOR=1
 
 # pure prompt
-fpath+=("$HOME/.dotfiles/plugins/pure")
+fpath+=("$HOME/.dotfiles/plugs/pure-prompt")
 
 autoload -U promptinit; promptinit
 
