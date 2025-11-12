@@ -17,7 +17,11 @@ Icon
 /karabiner/automatic_backups
 
 # plugs
-/plugs/*
+/plugs/pure-prompt
+/plugs/zsh-completions
+/plugs/zsh-history
+/plugs/zsh-suggestions
+/plugs/zsh-syntax
 
 # iina
 /config/iina/com.colliderli.iina.plist
