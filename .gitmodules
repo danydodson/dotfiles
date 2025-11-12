@@ -1,4 +1,4 @@
-[submodule "plugins/dotbot"]
-	path = plugins/dotbot
+[submodule "plugs/dotbot"]
+	path = plugs/dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
