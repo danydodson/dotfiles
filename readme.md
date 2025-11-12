@@ -32,7 +32,7 @@ possible.
 
 ### gpg 🔑
 
-- [Setup gpg](/docs/gpg.md)
+- [Setup gpg](/docs/creds.md)
 
 ### Project config/tooling 🧢
 

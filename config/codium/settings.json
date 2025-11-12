@@ -239,7 +239,9 @@
     "editor.wordWrap": "off",
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "python.languageServer": "Jedi",
+  // "python.languageServer": "Jedi",
+  // "python.terminal.activateEnvironment": false,
+  "python.defaultInterpreterPath": "/opt/miniconda3/envs/myenv/bin/python",
   "[python]": {
     "editor.defaultFormatter": "ms-python.autopep8"
   },
@@ -417,5 +419,6 @@
         "settings": { "foreground": "#e0af68", "fontStyle": "italic" }
       }
     ]
-  }
+  },
+  "workbench.statusBar.visible": false
 }

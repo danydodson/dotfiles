@@ -25,5 +25,6 @@
     "**/config/**/*": true,
     "**/plugins/**/*": true,
     "**/plugs/**/*": true,
-  }
+  },
+  "stylua.targetReleaseVersion": "latest"
 }
