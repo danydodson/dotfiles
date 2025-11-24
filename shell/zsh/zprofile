@@ -7,14 +7,12 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/libexec:$PATH"
 export PATH="/usr/local/bin:/usr/local/MacGPG2/libexec:$PATH"
 
 # man pages -> manpath
-export MANPATH="/usr/local/share/man:/usr/share/man:/usr/local/MacGPG2/share/man:$MANPATH"
+# export MANPATH="/usr/local/share/man:/usr/share/man:/usr/local/MacGPG2/share/man:$MANPATH"
 
 # dotfiles bin -> path
-export PATH="$DOTFILES/bin/ansi:$PATH"
-export PATH="$DOTFILES/bin/tools:$PATH"
-export PATH="$DOTFILES/bin/yabai:$PATH"
+export PATH="$DOTFILES/bin:$PATH"
 
-# go -> path
+# go root -> path
 export PATH="$PATH:$GO_PATH/bin"
 export PATH="$GOROOT/bin:$PATH"
 
@@ -36,17 +34,14 @@ unset path_file
 # docker -> fpath
 export FPATH="$HOME/.docker/completions:$FPATH"
 
-# remove path
+# Start homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Remove paths
 path=(${path:#"/usr/local/sbin"})
 path=(${path:#"/Users/dany/.config/miniconda3/bin"})
 path=(${path:#"/Users/stache/.config/miniconda3/bin"})
 path=(${path:#"/Users/stache/.config/miniconda3/condabin"})
-
-# rm fpath
-# fpath=(${fpath:#"/usr/local/share/zsh/site-functions"})
-
-# homebrew -> shell
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # clear duplicates
 typeset -gU fpath path manpath

@@ -1,31 +1,39 @@
 #!/usr/bin/env zsh
 
-# skips compinit
+# Skips global compinit
 skip_global_compinit=1
 
 # zsh completions
-source ${DOTFILES}/plugs/zsh-completions/zsh-completions.plugin.zsh
-
-# completions
-autoload -Uz compaudit compinit zrecompile
-
-# prompt
-source ${DOTFILES}/shell/config/prompt.zsh
+source ${DOTFILES}/plugins/zsh-completions/zsh-completions.plugin.zsh
 
 # plugins
-source ${DOTFILES}/plugs/zsh-suggestions/zsh-autosuggestions.zsh
-source ${DOTFILES}/plugs/zsh-syntax/fast-syntax-highlighting.plugin.zsh
-source ${DOTFILES}/plugs/zsh-history/zsh-history-substring-search.zsh
+source ${DOTFILES}/plugins/zsh-syntax/fast-syntax-highlighting.plugin.zsh
+source ${DOTFILES}/plugins/zsh-history/zsh-history-substring-search.zsh
 
-# zsh files
-source ${DOTFILES}/shell/config/settings.zsh
-source ${DOTFILES}/shell/config/aliases.zsh
+# auto suggestions
+source ${DOTFILES}/plugins/zsh-suggestions/zsh-autosuggestions.zsh
+
+# Should be called before compinit
+zmodload -i zsh/complist
+
+# Registers completions
+autoload -Uz compaudit compinit zrecompile
+
+# With hidden files
+_comp_options+=(globdots)
+
+# zsh functions
+source "${DOTFILES}/shell/config/aliases.zsh"
+source "${DOTFILES}/shell/config/functions.zsh"
+
+# Pure prompt
+source ${DOTFILES}/shell/config/prompt.zsh
+
+# zsh settings
+source "${DOTFILES}/shell/config/settings.zsh"
 
 # start ssh-agent
 eval "$(ssh-agent -s)" >/dev/null 2>&1
-
-# rust
-source "/Users/stache/.config/cargo/env"
 
 # conda
 source "/opt/miniconda3/etc/profile.d/conda.sh"
@@ -33,6 +41,9 @@ source "/opt/miniconda3/etc/profile.d/conda.sh"
 # nvm
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# rust
+source "/Users/stache/.config/cargo/env"
 
 # fzf
 eval "$(fzf --zsh)"
@@ -52,6 +63,3 @@ export FZF_ALT_C_OPTS="--header='Files' --walker=file --preview='bat -n --color=
 
 # fzf folders
 export FZF_CTRL_T_OPTS="--header='Directories' --walker=dir,hidden,follow --preview='tree -C {} | head -200' --bind='enter:execute(nvim {})+abort'"
-
-# zoxide
-eval "$(zoxide init bash)"

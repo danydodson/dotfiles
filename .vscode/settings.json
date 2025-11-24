@@ -3,8 +3,8 @@
     ".gitignore": "ignore",
     "install": "shellscript",
     // 
-    "**/bin/tools/*": "shellscript",
-    "**/bin/ansi/*": "shellscript",
+    "**/bin/*.py": "python",
+    "**/bin/*": "shellscript",
     // 
     "**/shell/bash/*": "shellscript",
     "**/shell/config/*": "shellscript",
@@ -22,9 +22,9 @@
   },
   "shellcheck.ignorePatterns": {
     "**/*.zsh": true,
+    "**/bin/*.py": true,
     "**/config/**/*": true,
     "**/plugins/**/*": true,
-    "**/plugs/**/*": true,
   },
   "stylua.targetReleaseVersion": "latest"
 }

@@ -12,11 +12,11 @@ possible.
 
 ### LaunchAgents ⌨️
 
-- [Setup launch agents](/docs/agents.md)
+- [Setup launch agents](/docs/macos.md)
 
 ### Git 🐙
 
-- [Configure git](/docs/git.md)
+- [Configure git](/docs/creds.md)
 
 ### Yabai 🪟
 
@@ -24,7 +24,7 @@ possible.
 
 ### SketchyBar 🍫
 
-- [Setup sketchybar](/docs/sketchy.md)
+- [Setup sketchybar](/docs/yabai.md)
 
 ### Neovim ⌨️
 
@@ -38,7 +38,6 @@ possible.
 
 - [Configure projects](/macos/install/)
 - [Local commands](/bin/tools/)
-- [Local ansi scripts](/bin/ansi/)
 
 ### Fonts 💯
 

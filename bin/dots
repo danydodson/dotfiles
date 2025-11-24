@@ -2,7 +2,7 @@
 
 # Gets macOS software, Homebrew and npm updates and cleans trash and logs.
 
-. "$HOME/.dotfiles/bin/ansi/reports"
+. "$HOME/.dotfiles/bin/reports"
 
 BIN_NAME=$(basename "$0")
 COMMAND_NAME=$1
@@ -65,6 +65,11 @@ sub_macos() {
 sub_clean() {
   info "$ brew cleanup..."
   brew cleanup --prune=all --scrub
+
+  # clean hidden files
+  # alias rmds="find . -type f -name '*.DS_Store' -ls -delete"
+  # alias rmnm="find . -type d -name 'node_modules' -ls -delete"
+  # alias rmad="find . -type d -name '.AppleD*' -ls -exec /bin/rm -r {} \;"
 
   info "$ emptying trash..."
   command rm -rfv ~/.Trash/*

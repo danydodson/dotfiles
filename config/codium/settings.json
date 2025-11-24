@@ -100,7 +100,7 @@
   "workbench.settings.editor": "json",
   "workbench.editor.decorations.badges": false,
   "workbench.colorTheme": "One Dark Pro Darker",
-  //
+  // 
   // "editor.hover.delay": 900,
   // "editor.lightbulb.enabled": "onCode",
   "editor.wordWrapColumn": 380,
@@ -112,7 +112,7 @@
   // "editor.inlayHints.enabled": "off",
   "editor.autoClosingQuotes": "never",
   "editor.autoClosingBrackets": "never",
-  "editor.fontSize": 14.3,
+  "editor.fontSize": 15,
   "editor.lineHeight": 22,
   "editor.tabSize": 2,
   "editor.folding": false,
@@ -420,5 +420,6 @@
       }
     ]
   },
-  "workbench.statusBar.visible": false
+  "editor.accessibilitySupport": "off",
+  "workbench.statusBar.visible": false,
 }

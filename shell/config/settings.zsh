@@ -1,97 +1,81 @@
 #!/usr/bin/env zsh
 
-# history file
-export HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zsh_history" # sets the file where history is saved
-export HISTSIZE=1000000000 # sets maximum history entries in memory
-export SAVEHIST=$HISTSIZE # sets maximum history entries in file
+# Enable colors
+export CLICOLOR=1
 
-# history configs
-setopt EXTENDED_HISTORY # saves timestamp and duration for commands
-setopt SHARE_HISTORY # shares history across multiple zsh sessions
-setopt HIST_IGNORE_SPACE # ignores commands that start with a space
-setopt HIST_SAVE_NO_DUPS # prevents duplicate entries from being saved
-setopt HIST_REDUCE_BLANKS # removes extra blank spaces from commands
+# custom auto suggestions
+export ZSH_AUTOSUGGEST_USE_ASYNC=true
+# export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#D19A66"
 
-# history search
-bindkey '^[[A' history-substring-search-up # up arrow for searching history backwards
-bindkey '^[[B' history-substring-search-down  # down arrow for searching history forwards
-
-# vim keymaps history search
-bindkey -M vicmd 'k' history-substring-search-up # vim 'k' key for searching history backwards
-bindkey -M vicmd 'j' history-substring-search-down # vim 'j' key for searching history forwards
-
-# lscolors
+# ls_colors
 export LSCOLORS=ExFxBxDxCxegedabagacad
 if [ -f "/opt/homebrew/bin/gdircolors" ]; then
   eval "$(gdircolors -b "${DOTFILES}"/config/lscolors/ls_colors)"
 fi
 
-# suggestion color
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#D19A66"
+setopt AUTO_PUSHD PUSHD_SILENT PUSHD_TO_HOME
+setopt PUSHD_IGNORE_DUPS # ignore duplicates
+setopt PUSHD_MINUS # This reverts the +/- operators
+setopt NOCASEGLOB EXTENDED_GLOB GLOB_COMPLETE COMPLETE_IN_WORD # Completion & Globbing
+setopt AUTOCD CDABLE_VARS  # Directory Navigation
+setopt RM_STAR_WAIT PRINT_EXIT_VALUE
+setopt MENU_COMPLETE # Highlight first element of completion menu
+setopt AUTO_MENU AUTO_LIST AUTO_NAME_DIRS AUTO_PARAM_SLASH INTERACTIVE_COMMENTS
 
-# defaults
-stty stop undef # disable ctrl+s from stopping the terminal output
+export HISTSIZE=1000000000
+export SAVEHIST=$HISTSIZE
+export HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zsh_history"
 
-# comps and colors
-zmodload -i zsh/complist # loads the completion system module
-autoload -Uz colors && colors # enables color support in the shell
+setopt hist_ignore_space hist_reduce_blanks hist_verify extended_history 
+setopt inc_append_history hist_ignore_dups hist_expire_dups_first
 
-# completion menu and grouping settings
-zstyle ':completion:*:*:*:*:*' menu select # enables interactive menu for completions
-zstyle ':completion:*:matches' group yes # groups similar matches together
-zstyle ':completion:*:options' description yes # shows descriptions for options
-zstyle ':completion:*:options' auto-description '%d' # automatic descriptions for options
+# Enable colors
+autoload -Uz colors
+colors
 
-# formatting for different completion messages
-zstyle ':completion:*:corrections' format ' %F{green}-- %d (errors: %e) --%f' # format for corrections
-zstyle ':completion:*:descriptions' format ' %F{yellow}-- %d --%f' # set descriptions format to enable group support
-zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f' # format for messages
-zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f' # format for no matches
-zstyle ':completion:*:default' list-prompt '%S%M matches%s' # format for match count
+# Define completers
+zstyle ':completion:*' completer _complete _match _approximate
 
-# general completion behavior
-zstyle ':completion:*' format ' %F{yellow}-- %d --%f' # configures how completion headers appear in the shell
-zstyle ':completion:*' list-dirs-first yes # lists directories first
-zstyle ':completion:*' group-name '' # groups completions by name
-zstyle ':completion:*' verbose yes # shows detailed completion info
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*' # case-insensitive matching
-zstyle ':completion:*' expand yes # expands aliases before completing
-zstyle ':completion:*:processes-names' command 'ps c -u ${USER} -o command | uniq' # process completion
-zstyle ':completion:*:*:-redirect-,2>,*:*' file-patterns '*.log' # log file completion for redirections
+# Caching completions
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 
-# caching completions
-zstyle ':completion:*' use-cache on # enables completion caching
-zstyle ':completion:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh" # sets cache location
+# Complete alias when _expand_alias is used as a function
+zstyle ':completion:*' complete true
 
-# fuzzy matching settings
-zstyle ':completion:*' completer _complete _match _approximate  # enables fuzzy matching
-zstyle ':completion:*:match:*' original only # only shows original matches
-zstyle ':completion:*:approximate:*' max-errors 1 numeric # allows 1 error in completion
+zle -C alias-expension complete-word _generic
+bindkey '^Xa' alias-expension
+zstyle ':completion:alias-expension:*' completer _expand_alias
 
-# directory and color settings
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} # uses ls colors for completion
-zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories # directory completion order
-zstyle ':completion:*:*:cd:*:directory-stack' menu yes select # directory stack menu
-zstyle ':completion:*:-tilde-:*' group-order 'path-directories' 'named-directories' 'users' 'expand' # tilde completion order
-zstyle ':completion:*' squeeze-slashes true # combines multiple slashes
+# completions may gain elevated privileges
+zstyle ':completion::complete:*' gain-privileges 1
 
-# function and parameter handling
-zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec)|prompt_*)' # ignores certain functions
-zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters # subscript completion order
+# Enables interactive menu
+zstyle ':completion:*' menu select
 
-# manual page settings
-zstyle ':completion:*:manuals' separate-sections true # separates manual sections
-zstyle ':completion:*:manuals.(^1*)' insert-sections true # inserts section headers
+# See ZSHCOMPWID "completion matching control"
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-# history completion settings
-zstyle ':completion:*:history-words' stop yes # enables history word completion
-zstyle ':completion:*:history-words' remove-all-dups yes # removes duplicates
-zstyle ':completion:*:history-words' list false # disables listing
-zstyle ':completion:*:history-words' menu yes # enables menu
+# Set colors for different parts of the completion
+zstyle ':completion:*:match:*' group-name ''
+zstyle ':completion:*:match:*' file-patterns '*:globbed-files'
+zstyle ':completion:*:*:*:*:default' list-colors ${(s.:.)LS_COLORS}
 
-# multiple entry handling
-zstyle ':completion:*:(rm|kill|diff):*' ignore-line other # ignores current line for certain commands
-zstyle ':completion:*:rm:*' file-patterns '*:all-files' # file patterns for rm command
+# Example specific match colors for groups
+zstyle ':completion:*:corrections' format '%F{yellow}-- %d (errors: %e) --%f'
+zstyle ':completion:*:descriptions' format '%F{blue}-- %D %d --%f'
+zstyle ':completion:*:messages' format ' %F{purple}-- %d --%f'
+zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+
+# Autocomplete options for cd instead of directory stack
+zstyle ':completion:*' complete-options true
+zstyle ':completion:*' file-sort modification
+
+# Ensures the prefix you type is retained
+zstyle ':completion:*' keep-prefix true
+
+# Enables the completion of hostnames by reading ssh_host and known_hosts files
+zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
 
 # location for completions
 zcompdump="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
@@ -106,3 +90,39 @@ if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdu
 then
     zcompile "$zcompdump"
 fi
+
+# history search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# vim
+bindkey -v
+export KEYTIMEOUT=1
+
+# Vim keys in tab complete menu
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
+bindkey -M menuselect '^i' vi-insert
+bindkey -M menuselect '^h' accept-and-hold
+bindkey -M menuselect '^u' undo
+
+# Change cursor for diff modes
+function zle-keymap-select () {
+    case $KEYMAP in
+        vicmd) echo -ne '\e[1 q';;
+        viins|main) echo -ne '\e[5 q';;
+    esac
+}
+zle -N zle-keymap-select
+
+zle-line-init() {
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q'
+preexec() { echo -ne '\e[5 q' ;}
+

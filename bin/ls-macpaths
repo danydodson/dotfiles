@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Pretty list macos system PATH directories
+
+macpaths() {
+  local green="\033[32m"
+  local blue="\033[34m"
+  local red="\033[31m"
+  local reset="\033[0m"
+
+  IFS=':' read -r -a macospath_array <<<"$(launchctl getenv PATH)"
+
+  for dir in "${macospath_array[@]}"; do
+    if [[ -d "$dir" ]]; then
+      echo -e "${green}✓${reset} ${blue}$dir${reset}"
+    else
+      echo -e "${red}✗${reset} $dir"
+    fi
+  done
+}
+
+macpaths

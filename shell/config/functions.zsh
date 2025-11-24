@@ -1,14 +1,38 @@
 #!/usr/bin/env zsh
 
+# Force ctrl+D to close shell
+# >
+exit_zsh() { exit }
+zle -N exit_zsh
+bindkey '^D' exit_zsh
+
+# Fix Zsh Behavior
+# >
+h() {
+    if [ -z "$*" ]; then
+        history 1
+    else
+        history 1 | egrep "$@"
+    fi
+}
+
+# Clear back buffer
+# >
+function clear-screen-and-scrollback() {
+    printf '\x1Bc'
+    zle clear-screen
+}
+zle -N clear-screen-and-scrollback
+bindkey '^L' clear-screen-and-scrollback
+
 # Create and change into a new directory
 # >
-# 
 mkcd() {
   mkdir -p $@ && cd ${@:$#}
 }
 
 # Get the Bundle ID of a macOS app
-# > i.e. bundleid terminal
+# > bundleid [appname]
 # 
 bundleid() {
   local ID=$( osascript -e 'id of app "'"$1"'"' )
@@ -18,10 +42,33 @@ bundleid() {
   fi
 }
 
+# Switch dirs with ctrl+O
+# > 
+lfcd () {
+    tmp="$(mktemp -uq)"
+    trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT HUP INT QUIT TERM PWR EXIT'
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+bindkey -s '^o' '^ulfcd\n'
+bindkey -s '^a' '^ubc -lq\n'
+bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'
+bindkey '^[[P' delete-char
 
-# 
+# Open editor with ctrl+E
+# > 
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+bindkey -M vicmd '^[[P' vi-delete-char
+bindkey -M vicmd '^e' edit-command-line
+bindkey -M visual '^[[P' vi-delete
+
+
+# Yazi file manager
 # >
-# 
 y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   yazi "$@" --cwd-file="$tmp"
@@ -31,9 +78,8 @@ y() {
   rm -f -- "$tmp"
 }
 
-# 
-# >
-# 
+# Use ctrl+s to d isplay a sesh sessions
+# > 
 sesh-sessions() {
   {
     exec </dev/tty
@@ -61,83 +107,5 @@ sesh-sessions() {
   }
 }
 zle -N sesh-sessions
-
-# 
-# >
-# 
-paths() {
-  local blue="\e[34m"
-  local green="\e[32m"
-  local yellow="\e[0;93m"
-  local red="\e[31m"
-  local reset="\e[0m"
-
-  for dir in ${(s.:.)PATH}; do
-    if [[ -d "$dir" ]]; then
-      echo "${green}✓${reset} ${blue}$dir${reset}"
-    else
-      echo "${red}✗${reset} $dir"
-    fi
-  done
-}
-
-# 
-# >
-# 
-fpaths() {
-  local blue="\e[34m"
-  local green="\e[32m"
-  local yellow="\e[0;93m"
-  local red="\e[31m"
-  local reset="\e[0m"
-
-  for dir in ${(s.:.)FPATH}; do
-    if [[ -d "$dir" ]]; then
-      echo "${green}✓${reset} ${blue}$dir${reset}"
-    else
-      echo "${red}✗${reset} $dir"
-    fi
-  done
-}
-
-# 
-# >
-# 
-macos_paths() {
-  local blue="\e[34m"
-  local green="\e[32m"
-  local yellow="\e[0;93m"
-  local red="\e[31m"
-  local reset="\e[0m"
-
-  local macos_path
-  macos_path=$(launchctl getenv PATH)
-
-  for dir in ${(s.:.)PATH}; do
-    if [[ -d "$dir" ]]; then
-      echo "${green}✓${reset} ${blue}$dir${reset}"
-    else
-      echo "${red}✗${reset} $dir"
-    fi
-  done
-}
-
-# 
-# >
-# 
-manpaths() {
-  local blue="\e[34m"
-  local green="\e[32m"
-  local yellow="\e[0;93m"
-  local red="\e[31m"
-  local reset="\e[0m"
-
-  for dir in ${(s.:.)MANPATH}; do
-    if [[ -d "$dir" ]]; then
-      echo "${green}✓${reset} ${blue}$dir${reset}"
-    else
-      echo "${red}✗${reset} $dir"
-    fi
-  done
-}
-
+bindkey '^s' vicmd '^s' sesh-sessions
+bindkey '^s' viins '^s' sesh-sessions

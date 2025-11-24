@@ -2,7 +2,7 @@
 
 # Open markdown from ~/Developer/scripts/notes/<file.md> in nvim
 
-. "$HOME/.dotfiles/bin/ansi/reports"
+. "$HOME/.dotfiles/bin/reports"
 
 open_note() {
   local filename="$1.md"

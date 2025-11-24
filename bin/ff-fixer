@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# ================= // process //
-
+# ================= // ff-fixer //
+# 
 # A POSIX-compliant script that "normalizes" video files to mitigate potential
 # conflicts (e.g. monotonic timestamp errors during concatenation) while ensuring
 # lossless resolution. This script analyzes the input video for codec information
@@ -18,13 +18,14 @@
 #   - If any errors are detected in the video stream OR if the video codec is not H.264,
 #     the video is re-encoded.
 #   - Otherwise, the video is copied with regenerated presentation timestamps.
+# 
 # -----------------------------------------------------------------------------
 
 # Analyze
 
-### Outputs two sections:
-####   1) Codec information: codec_name, codec_type, avg_frame_rate, codec_long_name.
-####   2) Error logs (if any).
+# Outputs two sections:
+#   1) Codec information: codec_name, codec_type, avg_frame_rate, codec_long_name.
+#   2) Error logs (if any).
 
 analyze_video() {
     input_file="$1"
@@ -44,9 +45,9 @@ analyze_video() {
 
 # Process video
 
-### Processes the input video file using the selected mode.
-####   - "copy" mode regenerates PTS with -fflags +genpts.
-####   - "reencode" mode re-encodes video using libx264 (CRF 17, preset slow) and copies audio.
+# Processes the input video file using the selected mode.
+#   - "copy" mode regenerates PTS with -fflags +genpts.
+#   - "reencode" mode re-encodes video using libx264 (CRF 17, preset slow) and copies audio.
 
 process_video() {
     input_file="$1"
@@ -91,16 +92,16 @@ main() {
     analysis_results=$(analyze_video "$input_file")
     printf "%s\n" "$analysis_results"
 
-    #### Extract video codec (assumed to be the first line of the analysis output)
+    # Extract video codec (assumed to be the first line of the analysis output)
     video_codec=$(echo "$analysis_results" | head -n 1)
 
-    #### Extract error logs by removing the first line
+    # Extract error logs by removing the first line
     errors_detected=$(echo "$analysis_results" | tail -n +2 | sed '/^[[:space:]]*$/d')
 
-    #### Default processing mode is "copy"
+    # Default processing mode is "copy"
     mode="copy"
 
-    #### If any errors are detected or the video codec is not "h264", select "reencode" mode.
+    # If any errors are detected or the video codec is not "h264", select "reencode" mode.
     if [ -n "$errors_detected" ] || [ "$video_codec" != "h264" ]; then
         mode="reencode"
     fi
@@ -108,7 +109,7 @@ main() {
     echo "Selected processing mode: $mode"
     echo "Starting processing of $input_file"
 
-    #### Ensure the output file name is unique to avoid overwriting
+    # Ensure the output file name is unique to avoid overwriting
     base_name="${output_file%.*}"
     extension="${output_file##*.}"
     counter=1

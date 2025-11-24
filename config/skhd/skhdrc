@@ -58,22 +58,21 @@ lalt - l : yabai -m window --resize right:32:0; \
   yabai -m window --resize left:32:0
 
 # app scripts
-hyper - c : ./$HOME/.dotfiles/bin/yabai/open-code.sh
-hyper - f : ./$HOME/.dotfiles/bin/yabai/open-finder.sh
-hyper - x : ./$HOME/.dotfiles/bin/yabai/open-ghostty.sh
+hyper - c : ./$HOME/.dotfiles/bin/yabai-codium
+hyper - f : ./$HOME/.dotfiles/bin/yabai-finder
+hyper - x : ./$HOME/.dotfiles/bin/yabai-ghostty
 
 # app commands
 hyper - a : open -a Apps.app
 hyper - b : open -a "Brave Browser.app"
 hyper - m : open -a Mail.app
 hyper - n : open -a Notes.app
-hyper - p : open -a Postman.app
-hyper - z : open -a Twilight.app
+hyper - z : open -a Firefox.app
 
-# temp commands
-hyper - s : sharpener -r 4
+# adjust rounded corners
+hyper - s : sharpener on -r 1
 
 # restart
 hyper - r : \
-  skhd --restart-service; \
-  yabai --restart-service;
+    skhd --restart-service; \
+    yabai --restart-service;

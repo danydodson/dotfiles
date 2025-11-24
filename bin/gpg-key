@@ -3,10 +3,10 @@
 # =============== // gpg-keys //
 #
 # Personal GPG key management utility
-# 
+#
 # Requires:
 #   - gpg, and optionally pbcopy (macOS) or xclip (Linux)
-# 
+#
 # Notes:
 #   - Backs up to $HOME/Documents/backup/gpg-keys/YYYY-MM-DD/
 #   - Private key exports are chmod 600 (read/write only by you)
@@ -22,12 +22,11 @@
 
 set -euo pipefail
 
-. "$HOME/.dotfiles/bin/ansi/reports"
+. "$HOME/.dotfiles/bin/reports"
 
 BACKUP_DIR="$HOME/Documents/backup/gpg-keys/$(date +%Y-%m-%d)"
 mkdir -p "$BACKUP_DIR"
 
-# Detect clipboard command
 CLIP_CMD=""
 if command -v pbcopy &>/dev/null; then
     CLIP_CMD="pbcopy"
@@ -66,7 +65,7 @@ help_menu() {
 }
 
 usage() {
-    echo "Try '$0 --help' for usage."
+    help_menu
     exit 1
 }
 

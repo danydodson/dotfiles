@@ -2,6 +2,10 @@
 .DS_Store
 Icon
 
+# plugins
+/plugins/*
+/zamples
+
 # logs
 *.log
 *.netrwhist
@@ -16,8 +20,7 @@ Icon
 /karabiner/assets
 /karabiner/automatic_backups
 
-# plugs
-/plugs/pure-prompt
+# plugins
 /plugs/zsh-completions
 /plugs/zsh-history
 /plugs/zsh-suggestions

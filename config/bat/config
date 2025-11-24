@@ -1,14 +1,13 @@
 # theme
 --color=always
 --theme="TwoDark"
-# --theme="OneHalfDark"
-# --italic-text=always
 
 # style
 --tabs=4
 --wrap=never
 --style=plain
---paging=never
+--paging=auto
+--pager="less -R"
 --decorations=auto
 
 # syntax

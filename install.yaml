@@ -66,7 +66,7 @@
       relink: true
       path: config/gnupg/gpg-agent.conf
 
-    ~/Library/Application Support/transmission-daemon/settings.json:
+    /opt/homebrew/var/transmission/settings.json:
       create: true
       relink: true
       path: config/transmission/settings.json
