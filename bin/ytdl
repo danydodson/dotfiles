@@ -8,4 +8,4 @@
 #   - Downloads the embedded video on any web page
 # -----------------------------------------------------------------------------
 
-cd ~/Downloads && yt-dlp --config-location "$HOME/.dotfiles/config/yt/yt.conf" "$1"
+cd ~/Downloads && yt-dlp --config-location "$HOME/.dotfiles/config/yt-dlp/yt-dlp.conf" "$1"
