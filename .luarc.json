@@ -28,7 +28,8 @@
     "unbalanced-assignments",
     "undefined-field",
     "undefined-global",
-    "undefined-doc-name"
+    "undefined-doc-name",
+        "deprecated"
   ],
   "workspace.library": [
     "${addons}/luafilesystem/module/library",
