@@ -2,6 +2,7 @@
 
 # custom auto suggestions
 export ZSH_AUTOSUGGEST_USE_ASYNC=true
+# export ZSH_HIGHLIGHT_MAXLENGTH=200
 # export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#D19A66"
 
 # ls_colors

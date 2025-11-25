@@ -30,6 +30,7 @@ export YARN_CACHE_FOLDER="$HOME/.cache/yarn"
 export GOPATH="$HOME/.config/go"
 export GOBIN="$HOME/.config/go/bin"
 export GOROOT="/opt/homebrew/opt/go/libexec"
+export DOCKER_CLI_HINTS=false
 
 export BAT_CONFIG_PATH="$DOTFILES/config/bat/config"
 
