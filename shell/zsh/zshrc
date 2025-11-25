@@ -56,7 +56,7 @@ source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
 export FZF_COMPLETION_TRIGGER='::'
 
 # fzf defaults
-export FZF_DEFAULT_OPTS="--layout=reverse --border --prompt='> ' --walker-skip=.git,node_modules,target,Library,Pictures,Documents,Movies,Music,.Trash --tmux=60% --no-info --no-scrollbar --no-hscroll --margin=0 --padding=0 --bind='ctrl-space:toggle' --bind='ctrl-o:toggle-preview' --bind='ctrl-s:toggle-sort' --bind='ctrl-y:execute-silent(echo {+} | pbcopy)' --bind='ctrl-e:execute(codium {+})' --bind='ctrl-n:execute(nvim {+})'"
+export FZF_DEFAULT_OPTS="--layout=reverse --border --prompt='> ' --walker-skip=.git,node_modules,target,Library,Pictures,Documents,Movies,Music,.Trash --tmux=85% --no-info --no-scrollbar --no-hscroll --margin=0 --padding=0 --bind='ctrl-space:toggle' --bind='ctrl-o:toggle-preview' --bind='ctrl-s:toggle-sort' --bind='ctrl-y:execute-silent(echo {+} | pbcopy)' --bind='ctrl-e:execute(codium {+})' --bind='ctrl-n:execute(nvim {+})'"
 
 # fzf files
 export FZF_ALT_C_OPTS="--header='Files' --walker=file --preview='bat -n --color=always {}' --bind='enter:execute(nvim {} +1)'"
