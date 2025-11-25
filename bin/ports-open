@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ================= // open-ports //
+# ================= // ports-open //
 # USAGE:
 #   sh ports-open
 #
