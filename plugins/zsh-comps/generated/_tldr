@@ -1,0 +1,36 @@
+#compdef tldr
+
+# zsh completions for 'tldr'
+# automatically generated with https://github.com/danydodson/zsh-completion-generator
+local arguments
+
+arguments=(
+  {-u,--update}'[update the cache]'
+  {-l,--list}'[list all pages in the current platform]'
+  {-a,--list-all}'[list all pages]'
+  '--list-platforms[list available platforms]'
+  '--list-languages[list installed languages]'
+  {-i,--info}'[show cache information (path, age, installed languages and the number of pages)]'
+  {-r,--render}'[render the specified markdown file]'
+  '--clean-cache[interactively delete contents of the cache directory]'
+  '--gen-config[print the default config]'
+  '--config-path[print the default config path and create the config directory]'
+  {-p,--platform}'[specify the platform to use (linux, osx, windows, etc.) \[default: osx\]]'
+  {-L,--language}'[specify the languages to use]'
+  '--short-options[display short options wherever possible (e.g. -s)]'
+  '--long-options[display long options wherever possible (e.g. --long)]'
+  {-o,--offline}'[do not update the cache, even if it is stale]'
+  {-c,--compact}'[strip empty lines from output]'
+  '--no-compact[do not strip empty lines from output (overrides --compact)]'
+  {-R,--raw}'[print pages in raw markdown instead of rendering them]'
+  '--no-raw[render pages instead of printing raw file contents (overrides --raw)]'
+  {-q,--quiet}'[suppress status messages and warnings]'
+  '--verbose[...                Be more verbose (can be specified twice)]'
+  '--color[specify when to enable color \[default: auto\] \[possible values: auto, always, never\]]'
+  '--config[specify an alternative path to the config file]'
+  {-v,--version}'[print version]'
+  {-h,--help}'[print help]'
+  '*:filename:_files'
+)
+
+_arguments -s $arguments

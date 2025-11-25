@@ -3,8 +3,6 @@
 Icon
 
 # plugins
-/plugins/pure
-/plugins/zsh-*
 /__*
 
 # logs

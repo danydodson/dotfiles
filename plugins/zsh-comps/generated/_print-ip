@@ -1,0 +1,18 @@
+#compdef print-ip
+
+_print-ip() {
+  local -a commands
+  commands=(
+    'local:Displays local ip address'
+    'ipv4:Displays ipv4 address'
+    'ipv6:Displays ipv6 address'
+    'all:Displays all ip addresses'
+    'help:Show usage information'
+  )
+
+  _arguments \
+    '1:command:((local ipv4 ipv6 all help))' \
+    '*:args:->args'
+}
+
+_print-ip "$@"

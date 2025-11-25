@@ -29,19 +29,6 @@ h() {
     fi
 }
 
-# Clear back buffer
-# >
-function reexec_shell() {
-    printf '\x1Bc'
-    clear
-    source "$HOME/.zshrc"
-}
-alias c='reexec_shell'
-zle -N reexec_shell
-bindkey -M emacs '^K' reexec_shell
-bindkey -M vicmd '^K' reexec_shell
-bindkey '^[s' reexec_shell
-
 # Create and change into a new directory
 # >
 mkcd() {

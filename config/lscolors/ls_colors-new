@@ -1,0 +1,135 @@
+# OneDark (darker) themed LS_COLORS
+# Simplified + Semantic
+
+# Core
+NORMAL  38;5;145
+FILE    38;5;145
+DIR     38;5;111
+LINK    38;5;171
+EXEC    38;5;203
+
+# Special perms
+SETUID  38;5;203
+SETGID  38;5;179
+STICKY  38;5;111
+
+# Broken / orphaned files
+ORPHAN  38;5;203
+MISSING  38;5;203
+
+# Device files
+BLK     38;5;173
+CHR     38;5;173
+FIFO    38;5;173
+SOCK    38;5;171
+
+# Archives
+.tar    38;5;173
+.gz     38;5;173
+.zip    38;5;173
+.rar    38;5;173
+.7z     38;5;173
+
+# Code
+.py     38;5;111
+.js     38;5;111
+.ts     38;5;111
+.jsx    38;5;111
+.tsx    38;5;111
+.go     38;5;111
+.rs     38;5;171
+.rb     38;5;171
+.lua    38;5;111
+.zig    38;5;149
+.c      38;5;111
+.h      38;5;102
+.cpp    38;5;111
+.hpp    38;5;102
+
+# Config / Dotfiles
+.conf   38;5;102
+.ini    38;5;102
+.toml   38;5;102
+.yml    38;5;102
+.yaml   38;5;102
+.json   38;5;179
+
+# Markup / Docs
+.md     38;5;179
+.rst    38;5;179
+.txt    38;5;145
+.html   38;5;111
+.css    38;5;73
+
+# Media
+.jpg    38;5;173
+.png    38;5;173
+.gif    38;5;173
+.mp3    38;5;149
+.wav    38;5;149
+.mp4    38;5;111
+.mkv    38;5;111
+
+# Misc
+.log    38;5;203
+.bak    38;5;240
+.tmp    38;5;240
+
+# termcap
+
+TERM ansi
+TERM color-xterm
+TERM con132x25
+TERM con132x30
+TERM con132x43
+TERM con132x60
+TERM con80x25
+TERM con80x28
+TERM con80x30
+TERM con80x43
+TERM con80x50
+TERM con80x60
+TERM cons25
+TERM console
+TERM cygwin
+TERM dtterm
+TERM Eterm
+TERM eterm-color
+TERM gnome
+TERM gnome-256color
+TERM jfbterm
+TERM konsole
+TERM kterm
+TERM linux
+TERM linux-c
+TERM mach-color
+TERM mlterm
+TERM putty
+TERM rxvt
+TERM rxvt-256color
+TERM rxvt-cygwin
+TERM rxvt-cygwin-native
+TERM rxvt-unicode
+TERM rxvt-unicode-256color
+TERM rxvt-unicode256
+TERM screen
+TERM screen-256color
+TERM screen-256color-bce
+TERM screen-bce
+TERM screen-w
+TERM screen.linux
+TERM screen.rxvt
+TERM terminator
+TERM tmux-256color
+TERM vt100
+TERM xterm
+TERM xterm-16color
+TERM xterm-256color
+TERM xterm-88color
+TERM xterm-color
+TERM xterm-debian
+TERM xterm-ghostty
+TERM xterm-kitty
+TERM wezterm
+
+# vim:ft=dircolors

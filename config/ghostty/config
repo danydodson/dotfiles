@@ -97,15 +97,25 @@ unfocused-split-opacity = 0.95
 
 # keybinds -----------------------------------------------------------
 
-keybind = cmd+k=text:\x0c
+keybind = cmd+;=clear_screen
 
-keybind = ctrl+b>h=new_split:down
-keybind = ctrl+b>v=new_split:right
+keybind = F1=toggle_command_palette
 
-keybind = super+alt+k=goto_split:top
-keybind = super+alt+j=goto_split:bottom
-keybind = super+alt+l=goto_split:right
-keybind = super+alt+h=goto_split:left
+keybind = ctrl+u=scroll_page_lines:-2
+keybind = ctrl+p=scroll_page_lines:2
+
+keybind = ctrl+-=new_split:down
+keybind = ctrl+|=new_split:right
+
+keybind = ctrl+k=goto_split:top
+keybind = ctrl+j=goto_split:bottom
+keybind = ctrl+l=goto_split:right
+keybind = ctrl+h=goto_split:left
+
+keybind = ctrl+shift+k=resize_split:up,10
+keybind = ctrl+shift+j=resize_split:down,10
+keybind = ctrl+shift+l=resize_split:right,10
+keybind = ctrl+shift+h=resize_split:left,10
 
 # update ------------------------------------------------------------
 

@@ -1,0 +1,12 @@
+#compdef huggingface-cli
+
+# zsh completions for 'huggingface-cli'
+# automatically generated with https://github.com/danydodson/zsh-completion-generator
+local arguments
+
+arguments=(
+  {-h,--help}'[show this help message and exit]'
+  '*:filename:_files'
+)
+
+_arguments -s $arguments

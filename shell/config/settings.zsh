@@ -15,20 +15,13 @@ export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE
 export HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zsh_history"
 
-setopt AUTO_PUSHD PUSHD_SILENT PUSHD_TO_HOME
-setopt PUSHD_IGNORE_DUPS # ignore duplicates
-setopt PUSHD_MINUS # This reverts the +/- operators
-setopt NOCASEGLOB EXTENDED_GLOB GLOB_COMPLETE COMPLETE_IN_WORD # Completion & Globbing
-setopt AUTOCD CDABLE_VARS  # Directory Navigation
-setopt RM_STAR_WAIT PRINT_EXIT_VALUE
-setopt MENU_COMPLETE # Highlight first element of completion menu
-setopt AUTO_MENU AUTO_LIST AUTO_NAME_DIRS AUTO_PARAM_SLASH INTERACTIVE_COMMENTS
-
+# Options
 setopt hist_ignore_space hist_reduce_blanks hist_verify extended_history
 setopt inc_append_history hist_ignore_dups hist_expire_dups_first
-
-# complist
-zmodload -i zsh/complist # loads the completion system module
+setopt rm_star_wait print_exit_value auto_name_dirs interactive_comments
+setopt autopushd pushd_silent pushd_to_home pushd_ignore_dups pushd_minus autocd cdable_vars
+setopt nocaseglob extended_glob glob_complete complete_in_word
+setopt menu_complete auto_list auto_menu list_packed auto_param_slash
 
 # Caching completions
 zstyle ':completion:*' use-cache on
@@ -37,34 +30,32 @@ zstyle ':completion:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 # Define completers
 zstyle ':completion:*' completer _complete _match _approximate
 
-# completions may gain elevated privileges
-zstyle ':completion::complete:*' gain-privileges 1
-
 # Enables interactive menu
 zstyle ':completion:*' menu select
-zstyle ':completion:*:history-words' menu yes # enables menu
-zstyle ':completion:*:matches' group no
 
 # See ZSHCOMPWID "completion matching control"
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 # Set colors for different parts of the completion
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:match:*' group-name ''
 zstyle ':completion:*:match:*' file-patterns '*:globbed-files'
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # Example specific match colors for groups
-zstyle ':completion:*:corrections' format '%F{yellow}-- %d (errors: %e) --%f'
-zstyle ':completion:*:descriptions' format '%F{blue}-- %D %d --%f'
-zstyle ':completion:*:messages' format ' %F{purple}-- %d --%f'
-zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+# zstyle ':completion:*:corrections' format '%F{yellow}-- %d (errors: %e) --%f'
+# zstyle ':completion:*:descriptions' format '%F{blue}-- %D %d --%f'
+# zstyle ':completion:*:messages' format ' %F{purple}-- %d --%f'
+# zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
 
 # Autocomplete options for cd instead of directory stack
-zstyle ':completion:*' complete-options true
-zstyle ':completion:*' file-sort modification
+zstyle ':completion:*' complete-options false
+zstyle ':completion:*' file-sort name
 
 # Ensures the prefix you type is retained
 zstyle ':completion:*' keep-prefix true
+
+# completions may gain elevated privileges
+zstyle ':completion::complete:*' gain-privileges 1
 
 # Complete alias when _expand_alias is used as a function
 zstyle ':completion:*' complete true

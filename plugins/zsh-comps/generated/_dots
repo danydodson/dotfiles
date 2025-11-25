@@ -1,0 +1,49 @@
+#compdef dots
+
+# Zsh completion for bin/dots
+
+# Main commands
+_typeset_commands=(
+  clean:"Clean up caches (brew) and empty trash"
+  dock:"Apply macOS Dock settings"
+  duti:"Set default apps for file types (UTI)"
+  edit:"Open dotfiles in IDE and Git GUI"
+  help:"Show help message"
+  macos:"Apply macOS system defaults"
+  update:"Update packages and package managers"
+  install:"Run installer scripts"
+)
+
+# Install subcommands
+_typeset_installers=(
+  codium:"Runs codium.sh installer script"
+  conda:"Runs conda.sh installer script"
+  gh:"Runs gh.sh installer script"
+  go:"Runs go.sh installer script"
+  nvim:"Runs nvim.sh installer script"
+  repos:"Runs repos.sh installer script"
+  ssh:"Runs ssh.sh installer script"
+  tmux:"Runs tmux.sh installer script"
+)
+
+_dots() {
+  local state
+
+  # Expand install subcommands when appropriate
+  _arguments -C \
+    '1:command:->command' \
+    '2:sub-command:->subcmds' && return 0
+
+  case $state in
+    command)
+      _describe -t commands "dots command" _typeset_commands
+      ;;
+    subcmds)
+      if [[ $words[2] == install ]]; then
+        _describe -t installers "dots install script" _typeset_installers
+      fi
+      ;;
+  esac
+}
+
+_dots "$@"

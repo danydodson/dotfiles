@@ -1,0 +1,22 @@
+#compdef docker-compose
+
+# zsh completions for 'docker-compose'
+# automatically generated with https://github.com/danydodson/zsh-completion-generator
+local arguments
+
+arguments=(
+  '--all-resources[include all resources, even those not used by services]'
+  '--ansi[control when to print ANSI control characters ("never"|"always"|"auto") (default "auto")]'
+  '--compatibility[run compose in backward compatibility mode]'
+  '--dry-run[execute command in dry run mode]'
+  '--env-file[specify an alternate environment file]'
+  {-f,--file}'[compose configuration files]'
+  '--parallel[control max parallelism, -1 for unlimited (default -1)]'
+  '--profile[specify a profile to enable]'
+  '--progress[set type of progress output (auto, tty, plain, json, quiet)]'
+  '--project-directory[specify an alternate working directory]'
+  {-p,--project-name}'[project name]'
+  '*:filename:_files'
+)
+
+_arguments -s $arguments

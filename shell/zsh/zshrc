@@ -8,7 +8,7 @@ source ${DOTFILES}/plugins/zsh-comps/zsh-comps.plugin.zsh
 
 # plugins
 source ${DOTFILES}/plugins/zsh-syntax/fast-syntax-highlighting.plugin.zsh
-source ${DOTFILES}/plugins/zsh-history/zsh-history-substring-search.zsh
+source ${DOTFILES}/plugins/zsh-history/zsh-history.zsh
 
 # auto suggestions
 source ${DOTFILES}/plugins/zsh-suggestions/zsh-autosuggestions.zsh
@@ -19,7 +19,7 @@ zmodload -i zsh/complist
 # Registers completions
 autoload -Uz compaudit compinit zrecompile
 
-# With hidden files
+# Show hidden files
 _comp_options+=(globdots)
 
 # zsh functions
@@ -63,3 +63,6 @@ export FZF_ALT_C_OPTS="--header='Files' --walker=file --preview='bat -n --color=
 
 # fzf folders
 export FZF_CTRL_T_OPTS="--header='Directories' --walker=dir,hidden,follow --preview='tree -C {} | head -200' --bind='enter:execute(nvim {})+abort'"
+
+# rm duplicate paths
+typeset -gU fpath path manpath
