@@ -3,7 +3,8 @@
 Icon
 
 # plugins
-/plugins/*
+/plugins/pure
+/plugins/zsh-*
 /zamples
 
 # logs
