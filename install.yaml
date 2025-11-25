@@ -97,6 +97,23 @@
     - ~/Developer/scripts
     - ~/Developer/served
 
+# - git:
+#     ~/.dotfiles/plugins/pure:
+#       url: "https://github.com/sindresorhus/pure.git"
+#       description: "zsh theme pure"
+#     ~/.dotfiles/plugins/zsh-autosuggestions:
+#       url: "https://github.com/zsh-users/zsh-autosuggestions"
+#       description: "zsh autosuggestions"
+#     ~/.dotfiles/plugins/zsh-completions:
+#       url: "https://github.com/danydodson/zsh-completions"
+#       description: "zsh completions"
+#     ~/.dotfiles/plugins/zsh-syntax:
+#       url: "https://github.com/zdharma-continuum/fast-syntax-highlighting"
+#       description: "zsh syntax highlighting"
+#     ~/.dotfiles/plugins/zsh-history:
+#       url: "https://github.com/zsh-users/zsh-history-substring-search"
+#       description: "zsh history substring search"
+
 - shell:
     - description: update submodules
       command: git submodule update --init --recursive
