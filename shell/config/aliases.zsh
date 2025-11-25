@@ -4,19 +4,16 @@
 alias ~="cd ~"
 alias ..="cd .."
 
-# reload
-alias c="clear && exec $SHELL -l && source $HOME/.zshrc"
-
 # open
 alias o="open"
 alias v="nvim"
 alias e="codium"
 
 # ssh
-alias ssh_rd="ssh ubuntu@18.235.113.176"
+alias ssh-rawdog="ssh ubuntu@18.235.113.176"
 
 # npm globals
-alias lsg_npm="npm ls -g --depth 0"
+alias lsg-npm="npm ls -g --depth 0"
 
 # bat
 alias cat='bat'
@@ -85,8 +82,8 @@ alias brave="open -a 'Brave Browser.app'"
 alias twilight="open -a Twilight.app"
 
 # spotlight on/off
-alias spotlight_off="sudo mdutil -a -i off"
-alias spotlight_on="sudo mdutil -a -i on"
+alias spotlight-off="sudo mdutil -a -i off"
+alias spotlight-on="sudo mdutil -a -i on"
 
 # monitor icloud
 alias brcmon="brctl monitor com.apple.CloudDocs | grep %"

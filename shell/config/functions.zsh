@@ -31,12 +31,16 @@ h() {
 
 # Clear back buffer
 # >
-function clear-screen-and-scrollback() {
+function reexec_shell() {
     printf '\x1Bc'
-    zle clear-screen
+    source "$HOME/.zshrc"
+    clear
 }
-zle -N clear-screen-and-scrollback
-bindkey '^L' clear-screen-and-scrollback
+alias c='reexec_shell'
+zle -N reexec_shell
+bindkey -M emacs '^K' reexec_shell
+bindkey -M vicmd '^K' reexec_shell
+bindkey '^[s' reexec_shell
 
 # Create and change into a new directory
 # >

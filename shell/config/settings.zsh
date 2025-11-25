@@ -3,13 +3,17 @@
 # custom auto suggestions
 export ZSH_AUTOSUGGEST_USE_ASYNC=true
 # export ZSH_HIGHLIGHT_MAXLENGTH=200
-# export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#D19A66"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#D19A66"
 
 # ls_colors
 export LSCOLORS=ExFxBxDxCxegedabagacad
 if [ -f "/opt/homebrew/bin/gdircolors" ]; then
   eval "$(gdircolors -b "${DOTFILES}"/config/lscolors/ls_colors)"
 fi
+
+export HISTSIZE=1000000000
+export SAVEHIST=$HISTSIZE
+export HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zsh_history"
 
 setopt AUTO_PUSHD PUSHD_SILENT PUSHD_TO_HOME
 setopt PUSHD_IGNORE_DUPS # ignore duplicates
@@ -20,32 +24,26 @@ setopt RM_STAR_WAIT PRINT_EXIT_VALUE
 setopt MENU_COMPLETE # Highlight first element of completion menu
 setopt AUTO_MENU AUTO_LIST AUTO_NAME_DIRS AUTO_PARAM_SLASH INTERACTIVE_COMMENTS
 
-export HISTSIZE=1000000000
-export SAVEHIST=$HISTSIZE
-export HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zsh_history"
-
-setopt hist_ignore_space hist_reduce_blanks hist_verify extended_history 
+setopt hist_ignore_space hist_reduce_blanks hist_verify extended_history
 setopt inc_append_history hist_ignore_dups hist_expire_dups_first
 
-# Define completers
-zstyle ':completion:*' completer _complete _match _approximate
+# complist
+zmodload -i zsh/complist # loads the completion system module
 
 # Caching completions
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 
-# Complete alias when _expand_alias is used as a function
-zstyle ':completion:*' complete true
-
-zle -C alias-expension complete-word _generic
-bindkey '^Xa' alias-expension
-zstyle ':completion:alias-expension:*' completer _expand_alias
+# Define completers
+zstyle ':completion:*' completer _complete _match _approximate
 
 # completions may gain elevated privileges
 zstyle ':completion::complete:*' gain-privileges 1
 
 # Enables interactive menu
 zstyle ':completion:*' menu select
+zstyle ':completion:*:history-words' menu yes # enables menu
+zstyle ':completion:*:matches' group no
 
 # See ZSHCOMPWID "completion matching control"
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
@@ -53,7 +51,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 # Set colors for different parts of the completion
 zstyle ':completion:*:match:*' group-name ''
 zstyle ':completion:*:match:*' file-patterns '*:globbed-files'
-zstyle ':completion:*:*:*:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # Example specific match colors for groups
 zstyle ':completion:*:corrections' format '%F{yellow}-- %d (errors: %e) --%f'
@@ -67,6 +65,12 @@ zstyle ':completion:*' file-sort modification
 
 # Ensures the prefix you type is retained
 zstyle ':completion:*' keep-prefix true
+
+# Complete alias when _expand_alias is used as a function
+zstyle ':completion:*' complete true
+zle -C alias-expension complete-word _generic
+bindkey '^Xa' alias-expension
+zstyle ':completion:alias-expension:*' completer _expand_alias
 
 # Enables the completion of hostnames by reading ssh_host and known_hosts files
 zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
@@ -99,10 +103,6 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
-
-bindkey -M menuselect '^i' vi-insert
-bindkey -M menuselect '^h' accept-and-hold
-bindkey -M menuselect '^u' undo
 
 # Change cursor for diff modes
 function zle-keymap-select () {

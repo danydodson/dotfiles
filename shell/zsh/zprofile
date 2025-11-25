@@ -6,9 +6,6 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/libexec:$PATH"
 # local system binaries -> path
 export PATH="/usr/local/bin:/usr/local/MacGPG2/libexec:$PATH"
 
-# man pages -> manpath
-# export MANPATH="/usr/local/share/man:/usr/share/man:/usr/local/MacGPG2/share/man:$MANPATH"
-
 # dotfiles bin -> path
 export PATH="$DOTFILES/bin:$PATH"
 

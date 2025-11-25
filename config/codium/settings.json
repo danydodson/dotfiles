@@ -48,8 +48,6 @@
   //
   "breadcrumbs.enabled": false,
   //
-  "autoOpenPreviewPanel.languages": "markdown,asciidoc",
-  //
   "npm-intellisense.importLinebreak": "",
   "npm-intellisense.packageSubfoldersIntellisense": true,
   "npm-intellisense.scanDevDependencies": true,
@@ -113,8 +111,8 @@
   // "editor.inlayHints.enabled": "off",
   "editor.autoClosingQuotes": "never",
   "editor.autoClosingBrackets": "never",
-  "editor.fontSize": 15,
-  "editor.lineHeight": 22,
+  "editor.fontSize": 16,
+  // "editor.lineHeight": 22,
   "editor.tabSize": 2,
   "editor.folding": false,
   "editor.padding.top": 15,
@@ -138,22 +136,29 @@
   "editor.unicodeHighlight.invisibleCharacters": false,
   "editor.unicodeHighlight.nonBasicASCII": false,
   //
-  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.sendKeybindingsToShell": true,
+  "terminal.integrated.fontSize": 16,
   "terminal.integrated.lineHeight": 1.1,
   "terminal.integrated.fontWeightBold": "normal",
   "terminal.integrated.fontFamily": "FiraMono Nerd Font",
   "terminal.integrated.drawBoldTextInBrightColors": false,
   "terminal.integrated.defaultProfile.osx": "zsh",
-  "terminal.integrated.env.osx": {
-    "NPM_CONFIG_CACHE": "/Users/stache/.config/npm"
-  },
-  "terminal.external.osxExec": "Ghostty.app",
-  "terminal.explorerKind": "external",
   "terminal.integrated.inheritEnv": false,
+  "terminal.integrated.env.osx": {
+    "PATH": "/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+    "NPM_CONFIG_CACHE": "/Users/stache/.config/npm",
+    "DYLD_INSERT_LIBRARIES": null,
+    "DYLD_FRAMEWORK_PATH": null,
+    "DYLD_LIBRARY_PATH": null,
+    "OS_ACTIVITY_DT_MODE": null,
+    "CFLOG_FORCE_STDERR": null
+  },
+  // "terminal.external.osxExec": "Ghostty.app",
+  // "terminal.explorerKind": "external",
   "terminal.integrated.stickyScroll.enabled": false,
   "terminal.integrated.enableImages": true,
   "terminal.integrated.scrollback": 100000,
-  "terminal.integrated.shellIntegration.decorationsEnabled": "never",
+  "terminal.integrated.shellIntegration.decorationsEnabled": "gutter",
   "terminal.integrated.allowedLinkSchemes": [
     "file",
     "http",
@@ -244,7 +249,7 @@
   // "python.terminal.activateEnvironment": false,
   "python.defaultInterpreterPath": "/opt/miniconda3/envs/myenv/bin/python",
   "[python]": {
-    "editor.defaultFormatter": "ms-python.autopep8"
+    // "editor.defaultFormatter": "ms-python.autopep8"
   },
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -310,7 +315,7 @@
       "results"
     ],
     "height": 23,
-    "fontSize": 13.5
+    "fontSize": 15
   },
   "apc.header": {
     "default": 24,
@@ -405,7 +410,7 @@
       },
       {
         "scope": [ "comment keyword.codetag.notation", "comment.block.documentation keyword", "comment.block.documentation storage.type.class" ],
-        "settings": { "foreground": "#bb9af7" }
+        "settings": { "foreground": "#bb9af7" },
       },
       {
         "scope": [ "comment.block.documentation entity.name.type.instance" ],
@@ -422,4 +427,72 @@
     ]
   },
   "editor.accessibilitySupport": "off",
+  "cSpell.userWords": [
+    "expension",
+    "hostnames",
+    "KEYTIMEOUT",
+    "menuselect",
+    "vicmd",
+    "viins",
+    "zcompdump",
+    "zcompile",
+    "ZSHCOMPWID"
+  ],
+  "better-comments.tags": [
+    {
+      "tag": "!",
+      "color": "#e06c75",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "?",
+      "color": "#61afef",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "//",
+      "color": "#474747", // #7f848e
+      "strikethrough": true,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "todo",
+      "color": "#d19a66",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "*",
+      "color": "#98c379",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    }
+  ],
+  "better-comments.highlightPlainText": true,
+  "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": true,
+  "markdown-preview-enhanced.codeBlockTheme": "one-dark.css",
+  "markdown-preview-enhanced.enableHTML5Embed": true,
+  "markdown-preview-enhanced.enableTypographer": true,
+  "markdown-preview-enhanced.previewColorScheme": "editorColorScheme",
+  "markdown-preview-enhanced.previewTheme": "one-dark.css",
+  "python.createEnvironment.contentButton": "show",
+  "autoOpenPreviewPanel.extensionEnabled": false,
+  "workbench.statusBar.visible": false,
 }
