@@ -48,6 +48,8 @@
           config/iina,
           config/lscolors,
           config/lsd,
+          config/mpv-1,
+          config/mpv-2,
           config/ssh,
           config/transmission,
           config/weechat,
