@@ -6,9 +6,11 @@
   "telemetry.telemetryLevel": "off",
   //
   "redhat.telemetry.enabled": false,
+  // 
   "continue.telemetryEnabled": false,
   "continue.showInlineTip": false,
   "continue.disableQuickFix": false,
+  "continue.enableTabAutocomplete": true,
   //
   "code-runner.enableAppInsights": false,
   //
@@ -51,7 +53,6 @@
   "npm-intellisense.importLinebreak": "",
   "npm-intellisense.packageSubfoldersIntellisense": true,
   "npm-intellisense.scanDevDependencies": true,
-  "continue.enableTabAutocomplete": false,
   // 
   "scriptmonkey.metaData.default.author": "stache",
   "scriptmonkey.metaData.default.namespace": "github.com/userscripts",
@@ -421,5 +422,4 @@
     ]
   },
   "editor.accessibilitySupport": "off",
-  "workbench.statusBar.visible": false,
 }
