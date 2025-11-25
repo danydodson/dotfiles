@@ -4,7 +4,7 @@
 skip_global_compinit=1
 
 # zsh completions
-source ${DOTFILES}/plugins/zsh-completions/zsh-completions.plugin.zsh
+source ${DOTFILES}/plugins/zsh-comps/zsh-comps.plugin.zsh
 
 # plugins
 source ${DOTFILES}/plugins/zsh-syntax/fast-syntax-highlighting.plugin.zsh

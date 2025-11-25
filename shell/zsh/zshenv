@@ -39,6 +39,9 @@ export AWS_HOME="$HOME/.config/aws"
 export CURL_HOME="$DOTFILES/config/curl"
 export WGETRC="$DOTFILES/config/wget/wgetrc"
 
+export GENCOMPL_PY="/opt/miniconda3/envs/myenv/bin/python"
+export GENCOMPL_FPATH="$DOTFILES/plugins/zsh-comps/generated"
+
 export CARGO_HOME="$HOME/.config/cargo"
 export RUSTUP_HOME="$HOME/.config/rust"
 

@@ -2,6 +2,7 @@
 
 # cd
 alias ~="cd ~"
+alias ...="cd ~"
 alias ..="cd .."
 
 # open
@@ -101,3 +102,26 @@ alias afk="open /System/Library/CoreServices/ScreenSaverEngine.app"
 
 # log off
 alias logoff="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+# go to dir
+alias dot="cd $HOME/.dotfiles"
+alias docs="cd $HOME/Documents"
+alias downs="cd $HOME/Downloads"
+alias public="cd $HOME/Public"
+alias plugins="cd $HOME/Developer/plugins"
+alias repos="cd $HOME/Developer/repos"
+alias scripts="cd $HOME/Developer/scripts"
+alias served="cd $HOME/Developer/served"
+
+# open in codium
+alias e-nvim="codium $HOME/.dotfiles/config/nvim"
+alias e-tmux="codium $HOME/.dotfiles/config/tmux"
+alias e-us="codium $HOME/Developer/served/userscripts"
+alias e-fox="codium '$HOME/Library/Application Support/Firefox/Profiles/18jwsaux.default-release/chrome'"
+
+# open in nvim
+alias v-ghostty="nvim $HOME/.dotfiles/config/ghostty/config"
+alias v-tmuxconf="nvim $HOME/.dotfiles/config/tmux/tmux.conf"
+alias v-zshrc="nvim $HOME/.dotfiles/shell/zsh/zshrc"
+alias v-zshenv="nvim $HOME/.dotfiles/shell/zsh/zshenv"
+alias v-zprofile="nvim $HOME/.dotfiles/shell/zsh/zprofile"

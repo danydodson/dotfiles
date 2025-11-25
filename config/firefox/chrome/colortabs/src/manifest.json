@@ -1,0 +1,19 @@
+{
+  "description": "Adds color tag to tab title",
+	"author": "MrOtherGuy",
+  "manifest_version": 2,
+  "name": "Color-tag-tabs",
+  "permissions": ["<all_urls>"],
+  "version": "0.4",
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["ctt.js"]
+    }
+  ],
+	"applications": {
+    "gecko": {
+      "strict_min_version": "101.0"
+    }
+  }
+}

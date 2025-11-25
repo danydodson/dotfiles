@@ -1,0 +1,63 @@
+## <p align="center"> <b> GWfox 🦊 </b> </p>
+<p align="center">This theme compatible with Firefox 143+ on macOS, Linux & Windows</p>
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/204bffdb-d37f-4a3e-98f6-c21e84b3b46d">
+<source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/0a83cfb1-23ac-4458-8113-536b240d549b">
+<img width="1315" alt="01">
+</picture>
+
+## How to install
+
+- [Download the theme as a zip file](https://github.com/akkva/gwfox/archive/refs/heads/main.zip)
+- Open your profile directory
+  - go to `about:support`
+  - click the **Open Folder** button next to your **Profile directory**
+- Place the `chrome` folder from the download zip in your profile folder
+- Change configurations
+  - In the URL Bar, go to `about:config`
+  - Set these to true
+    - `toolkit.legacyUserProfileCustomizations.stylesheets`
+    - `svg.context-properties.content.enabled`
+    - _Linux:_ `widget.gtk.rounded-bottom-corners.enabled`
+    - _Windows:_ `widget.windows.mica`<br>
+  - Set these to false
+    - `sidebar.animation.enabled`
+    - _macOS:_ `widget.macos.native-context-menus` (_Optional_)
+  - `widget.windows.mica.toplevel-backdrop` set to `2` (_Windows_)
+- Restart Firefox!
+
+## Further customization
+
+- If you would like to have your Bookmark toolbar hidden at the bottom, address bar in the sidebar, macOS style window controls & compact mode, add `gwfox.plus` set to `true` in your `about:config`
+  - Use system style window controls: add `gwfox.plus_sc` set to `true`
+  - Bookmark toolbar hidden at the top: add `gwfox.plus_tb` set to `true`
+- Remove window border: add `gwfox.noborder` set to `true`
+- Add `gwfox.atbc` to enable [Adaptive Tab Bar Colour](https://addons.mozilla.org/firefox/addon/adaptive-tab-bar-colour)
+- Add `gwfox.bms` enable blur effects using [Blur my Shell](https://extensions.gnome.org/extension/3193/blur-my-shell)
+
+## 简介
+
+- 本主题适用Firefox 143+ macOS, Linux & Windows
+
+## 使用方法
+
+- [下载主题](https://github.com/akkva/gwfox/archive/refs/heads/main.zip) 把 `chrome` 文件夹放入火狐 `配置文件夹` 内
+- 在 `about:config` 页面中搜索以下布尔值切换为 `true`
+  - `toolkit.legacyUserProfileCustomizations.stylesheets`
+  - `svg.context-properties.content.enabled`
+  - _Linux:_ `widget.gtk.rounded-bottom-corners.enabled`
+  - _Windows:_ `widget.windows.mica`<br>
+- 以下布尔值切换为 `false`
+  - `sidebar.animation.enabled`
+  - _macOS:_ `widget.macos.native-context-menus` (_可选项_)
+- `widget.windows.mica.toplevel-backdrop` 设为 `2` (_Windows_)
+- 重启火狐
+
+## 样式调整
+
+- 书签工具栏隐藏至底部，地址栏置于侧栏，macOS样式窗口控件及简洁模式，在 `about:config` 页面添加 `gwfox.plus` 设为 `true` 启用
+  - 使用系统样式窗口控件：添加 `gwfox.plus_sc` 设为 `true`
+  - 书签工具栏隐藏至顶部：添加 `gwfox.plus_tb` 设为 `true`
+- 移除窗口边框：添加 `gwfox.noborder` 设为 `true`
+- 添加 `gwfox.atbc` 启用 [变色标签栏](https://addons.mozilla.org/firefox/addon/adaptive-tab-bar-colour)
+- 添加 `gwfox.bms` 使用 [Blur my Shell](https://extensions.gnome.org/extension/3193/blur-my-shell) 启用模糊特效

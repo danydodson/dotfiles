@@ -33,8 +33,8 @@ h() {
 # >
 function reexec_shell() {
     printf '\x1Bc'
-    source "$HOME/.zshrc"
     clear
+    source "$HOME/.zshrc"
 }
 alias c='reexec_shell'
 zle -N reexec_shell

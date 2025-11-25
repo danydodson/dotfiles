@@ -9,8 +9,8 @@
   // 
   "continue.telemetryEnabled": false,
   "continue.showInlineTip": false,
-  "continue.disableQuickFix": false,
-  "continue.enableTabAutocomplete": true,
+  // "continue.disableQuickFix": false,
+  // "continue.enableTabAutocomplete": true,
   //
   "code-runner.enableAppInsights": false,
   //
@@ -158,7 +158,7 @@
   "terminal.integrated.stickyScroll.enabled": false,
   "terminal.integrated.enableImages": true,
   "terminal.integrated.scrollback": 100000,
-  "terminal.integrated.shellIntegration.decorationsEnabled": "gutter",
+  "terminal.integrated.shellIntegration.decorationsEnabled": "never",
   "terminal.integrated.allowedLinkSchemes": [
     "file",
     "http",
@@ -494,5 +494,4 @@
   "markdown-preview-enhanced.previewTheme": "one-dark.css",
   "python.createEnvironment.contentButton": "show",
   "autoOpenPreviewPanel.extensionEnabled": false,
-  "workbench.statusBar.visible": false,
 }

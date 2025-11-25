@@ -1,0 +1,19 @@
+/*
+ * Description: Makes the activity stream page look decent with the dark theme.
+ *
+ * Screenshot: https://imgur.com/a/WcxGk
+ *
+ * Contributor(s): Andrei Cristian Petcu
+ */
+
+.browserContainer {
+  background-color: var(--url-and-searchbar-background-color, hsla(0,0%,100%,.8)) !important;
+}
+
+#sidebar {
+  background-color: white !important;
+}
+
+.sidebar-placesTree {
+  background-color: white !important;
+}

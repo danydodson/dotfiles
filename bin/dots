@@ -66,12 +66,15 @@ sub_clean() {
   info "$ brew cleanup..."
   brew cleanup --prune=all --scrub
 
-  # clean hidden files
+  rm -rf ~/.cache/zsh/zcompdump
+  rm -rf ~/.cache/zsh/zcompdump.zwc
+
   find . -type f -name '*.DS_Store' -ls -delete
 
   info "$ emptying trash..."
   rm -rfv ~/.Trash/*
   sudo rm -rfv /Volumes/*/.Trashes
+
   on_finish
 }
 

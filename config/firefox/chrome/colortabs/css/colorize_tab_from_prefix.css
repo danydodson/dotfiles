@@ -1,0 +1,71 @@
+.tabbrowser-tab[label^='\002060'] .tab-background{
+  background-image: none !important;
+  background-color: rgb(var(--uc-tab-bgr,0),var(--uc-tab-bgg,0),var(--uc-tab-bgb,0)) !important;
+  transition: background-color 112ms linear 66ms !important;
+}
+.tabbrowser-tab:hover > .tab-stack > .tab-background,
+.tab-background:is([selected],[multiselected]){
+  outline: 2px solid currentColor !important;
+  outline-offset: -3px !important;
+}
+
+.tabbrowser-tab[label^='\002060']{
+  color: rgb(var(--uc-tab-r,255),var(--uc-tab-g,255),var(--uc-tab-b,255)) !important;
+}
+
+.tabbrowser-tab[label^='\002060'] .tab-label{
+  margin-left: -1ch !important;
+  
+}
+
+/* Reds */
+.tabbrowser-tab[label~='\002062']{
+  --uc-tab-bgr: 64;
+  --uc-tab-r: 192;
+}
+.tabbrowser-tab[label~='\002063']{
+  --uc-tab-bgr: 128;
+  --uc-tab-r: 28;
+}
+.tabbrowser-tab[label~='\002064']{
+  --uc-tab-bgr: 192;
+  --uc-tab-r: 14;
+}
+.tabbrowser-tab[label~='\00feff']{
+  --uc-tab-bgr: 255;
+  --uc-tab-r: 0;
+}
+/* Greens */
+.tabbrowser-tab[label~='\002062\002062']{
+  --uc-tab-bgg: 64;
+  --uc-tab-g: 192;
+}
+.tabbrowser-tab[label~='\002063\002063']{
+  --uc-tab-bgg: 128;
+  --uc-tab-g: 28;
+}
+.tabbrowser-tab[label~='\002064\002064']{
+  --uc-tab-bgg: 192;
+  --uc-tab-g: 14;
+}
+.tabbrowser-tab[label~='\00feff\00feff']{
+  --uc-tab-bgg: 255;
+  --uc-tab-g: 0;
+}
+/* Blues */
+.tabbrowser-tab[label~='\002062\002062\002062']{
+  --uc-tab-bgb: 64;
+  --uc-tab-b: 192;
+}
+.tabbrowser-tab[label~='\002063\002063\002063']{
+  --uc-tab-bgb: 128;
+  --uc-tab-b: 28;
+}
+.tabbrowser-tab[label~='\002064\002064\002064']{
+  --uc-tab-bgb: 192;
+  --uc-tab-b: 14;
+}
+.tabbrowser-tab[label~='\00feff\00feff\00feff']{
+  --uc-tab-bgb: 255;
+  --uc-tab-b: 0;
+}
