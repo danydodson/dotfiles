@@ -50,6 +50,7 @@
           config/lsd,
           config/mpv-1,
           config/mpv-2,
+          config/mpv-3,
           config/ssh,
           config/transmission,
           config/weechat,
