@@ -67,13 +67,11 @@ sub_clean() {
   brew cleanup --prune=all --scrub
 
   # clean hidden files
-  # alias rmds="find . -type f -name '*.DS_Store' -ls -delete"
-  # alias rmnm="find . -type d -name 'node_modules' -ls -delete"
-  # alias rmad="find . -type d -name '.AppleD*' -ls -exec /bin/rm -r {} \;"
+  find . -type f -name '*.DS_Store' -ls -delete
 
   info "$ emptying trash..."
-  command rm -rfv ~/.Trash/*
-  command rm -rfv /Volumes/*/.Trashes
+  rm -rfv ~/.Trash/*
+  sudo rm -rfv /Volumes/*/.Trashes
   on_finish
 }
 

@@ -1,0 +1,41 @@
+#File: ~/.config/aria2/aria2.conf
+
+#--- // GENERAL_SETTINGS:
+dir=/home/stache/Downloads
+file-allocation=falloc         # Efficient on supportive filesystems; adjust if necessary
+continue=true                  # Resume downloads when possible
+max-tries=5                    # Retry failed downloads up to 5 times
+retry-wait=30                  # Wait 30 seconds between retries
+max-concurrent-downloads=5     # Limit the number of concurrent downloads
+check-certificate=true         # Security: verify SSL certificates
+
+# Connection Settings
+max-connection-per-server=5    # Reduce to avoid potential server-side rate limiting
+split=5                        # Split each download into 5 parts
+min-split-size=1M              # Minimum size for each part of a split download
+max-overall-download-limit=0   # No limit to overall download speed
+max-download-limit=0           # No limit to speed per download
+
+# BitTorrent Settings
+enable-dht=true                # Disable DHT (distributed hash table), enable if needed
+bt-enable-lpd=false            # Disable Local Peer Discovery to reduce local network traffic
+bt-external-ip=                # Set your external IP if necessary for correct DHT operation
+bt-require-crypto=true         # Force encrypted connections for better privacy
+bt-save-metadata=true          # Save metadata of the torrent file
+bt-seed-unverified=true        # Allow seeding of unverified data
+seed-ratio=1.0                 # Stop seeding when seed ratio reaches 1.0
+max-upload-limit=50K           # Cap upload speed in seeding to 50Kb/s
+peer-id-prefix=-TR2820-        # Prefix for peer identification
+
+# RPC Settings (Disable if not using aria2's RPC feature)
+enable-rpc=false               # Disable RPC feature for security if not in use
+# rpc-listen-all=true          # Uncomment if RPC is enabled and required
+# rpc-listen-port=6800         # Uncomment if RPC is enabled and required
+
+# External Downloader Settings for yt-dlp integration
+# Note: These are specified as command-line arguments in yt-dlp, not here
+
+# Dynamic Tracker List
+bt-tracker=$(cat /home/stache/.config/aria2/trackerlist.txt)  # Include active tracker list
+
+

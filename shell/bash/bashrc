@@ -3,6 +3,8 @@
 # Purpose: User shell config
 # Loads in: Interactive, non-login shell
 
+PS1='[\u@\h \W]\$💀 '
+
 # #############################################################################
 # Do not delete the `UNIQUE_ID` line below, I use it to backup original files
 # so they're not lost when my symlinks are applied

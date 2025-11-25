@@ -1,5 +1,18 @@
 #!/usr/bin/env zsh
 
+# Cheat sheets
+# >
+cheats() {
+    local cheats=("$DOTFILES/docs/cheats/"*.md)
+    local choice
+    choice=$(printf "%s\n" "${cheats[@]}" | fzf --prompt="Select a cheat sheet: ")
+    if [ -n "$choice" ]; then
+        bat --language=mdown "$choice"
+    else
+        echo "No cheat sheet selected."
+    fi
+}
+
 # Force ctrl+D to close shell
 # >
 exit_zsh() { exit }

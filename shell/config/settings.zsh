@@ -1,8 +1,5 @@
 #!/usr/bin/env zsh
 
-# Enable colors
-export CLICOLOR=1
-
 # custom auto suggestions
 export ZSH_AUTOSUGGEST_USE_ASYNC=true
 # export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#D19A66"
@@ -28,10 +25,6 @@ export HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zsh_history"
 
 setopt hist_ignore_space hist_reduce_blanks hist_verify extended_history 
 setopt inc_append_history hist_ignore_dups hist_expire_dups_first
-
-# Enable colors
-autoload -Uz colors
-colors
 
 # Define completers
 zstyle ':completion:*' completer _complete _match _approximate
