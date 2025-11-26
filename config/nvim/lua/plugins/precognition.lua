@@ -5,7 +5,7 @@ return {
     'tris203/precognition.nvim',
     lazy = true,
     event = 'VeryLazy',
-    enabled = true,
+    enabled = false,
     opts = {
       startVisible = true,
       showBlankVirtLine = true,

@@ -3,7 +3,12 @@
 return {
   {
     'nvim-neo-tree/neo-tree.nvim',
-    dependencies = { 'MunifTanjim/nui.nvim' },
+    branch = 'v3.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      'nvim-tree/nvim-web-devicons'
+    },
     cmd = 'Neotree',
     keys = {
       { '<leader>e', ':Neotree filesystem toggle<CR>', { noremap = true, silent = true, desc = 'neotree' } },

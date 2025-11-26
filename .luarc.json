@@ -30,12 +30,5 @@
     "undefined-global",
     "undefined-doc-name",
         "deprecated"
-  ],
-  "workspace.library": [
-    "${addons}/luafilesystem/module/library",
-    "${addons}/lualogging/module/library",
-    "${addons}/luanti-full-api/module/library",
-    "${addons}/lldebugger/module/library"
-  ],
-  "workspace.checkThirdParty": false
+  ]
 }

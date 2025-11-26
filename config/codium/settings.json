@@ -234,7 +234,7 @@
   },
   "stylua.searchParentDirectories": true,
   "[lua]": {
-    "editor.defaultFormatter": "JohnnyMorganz.stylua"
+    "editor.defaultFormatter": "sumneko.lua"
   },
   "Lua.codeLens.enable": true,
   "[luau]": {
@@ -494,4 +494,8 @@
   "markdown-preview-enhanced.previewTheme": "one-dark.css",
   "python.createEnvironment.contentButton": "show",
   "autoOpenPreviewPanel.extensionEnabled": false,
+  "tldr-panel.defaultLanguage": "en",
+  "tldr-panel.defaultPlatform": "osx",
+  "continue.enableTabAutocomplete": false,
+  "workbench.statusBar.visible": false,
 }

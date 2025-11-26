@@ -18,8 +18,8 @@ alias lsg-npm="npm ls -g --depth 0"
 
 # bat
 alias cat='bat'
-alias -g _h='-h 2>&1 | bat --language=help'
-alias -g _h='--help 2>&1 | bat --language=help'
+alias -g :h='-h 2>&1 | bat --language=help'
+alias -g :h='--help 2>&1 | bat --language=help'
 
 # dumps
 alias hd="hexdump -C"
@@ -79,15 +79,13 @@ alias ll="lsd -Al"
 alias la="ls -A"
 
 # browsers
+alias firefox="open -a Firefox.app"
 alias brave="open -a 'Brave Browser.app'"
 alias twilight="open -a Twilight.app"
 
 # spotlight on/off
 alias spotlight-off="sudo mdutil -a -i off"
 alias spotlight-on="sudo mdutil -a -i on"
-
-# monitor icloud
-alias brcmon="brctl monitor com.apple.CloudDocs | grep %"
 
 # transmission-cli
 alias trd="transmission-daemon"

@@ -25,6 +25,5 @@
     "**/bin/*.py": true,
     "**/config/**/*": true,
     "**/plugins/**/*": true,
-  },
-  "stylua.targetReleaseVersion": "latest"
+  }
 }
