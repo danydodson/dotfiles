@@ -12,6 +12,10 @@ Icon
 # env
 .env
 
+# aria2
+/config/aria2/aria2.session
+/config/aria2/aria2.log
+
 # git
 /config/git/secret
 

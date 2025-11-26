@@ -1,7 +1,7 @@
 #File: ~/.config/aria2/aria2.conf
 
 #--- // GENERAL_SETTINGS:
-dir=/home/stache/Downloads
+dir=/Users/stache/Public/aria2
 file-allocation=falloc         # Efficient on supportive filesystems; adjust if necessary
 continue=true                  # Resume downloads when possible
 max-tries=5                    # Retry failed downloads up to 5 times
@@ -28,14 +28,14 @@ max-upload-limit=50K           # Cap upload speed in seeding to 50Kb/s
 peer-id-prefix=-TR2820-        # Prefix for peer identification
 
 # RPC Settings (Disable if not using aria2's RPC feature)
-enable-rpc=false               # Disable RPC feature for security if not in use
-# rpc-listen-all=true          # Uncomment if RPC is enabled and required
-# rpc-listen-port=6800         # Uncomment if RPC is enabled and required
+enable-rpc=true               # Disable RPC feature for security if not in use
+rpc-listen-all=true          # Uncomment if RPC is enabled and required
+rpc-listen-port=6800         # Uncomment if RPC is enabled and required
 
 # External Downloader Settings for yt-dlp integration
 # Note: These are specified as command-line arguments in yt-dlp, not here
 
 # Dynamic Tracker List
-bt-tracker=$(cat /home/stache/.config/aria2/trackerlist.txt)  # Include active tracker list
+bt-tracker=$(cat /Users/stache/.config/aria2/trackerlist.txt)  # Include active tracker list
 
 
