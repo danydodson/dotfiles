@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
+
+# ================\\ ansi-table.sh \\
 #
-# Edited and abbreviated version of "ANSI code generator"
-#
-# © Copyright 2015 Tyler Akins
-# Licensed under the MIT license with an additional non-advertising clause
-# See http://github.com/fidian/ansi
+#  Version of "ANSI code generator"
+#  
+#  See: http://github.com/fidian/ansi
+# 
+# ===================================================
 
 color-table() {
     local FNB_LOWER FNB_UPPER PADDED
@@ -33,16 +35,16 @@ color-table() {
         for FG in 30 31 32 33 34 35 36 37; do
             echo -n "$CSI${BG:0:2};${FG}m"
             echo -n "$FNB_LOWER"
-            echo -n "$CSI$(( $FG + 60 ))m"
+            echo -n "$CSI$(($FG + 60))m"
             echo -n "$FNB_UPPER"
             echo -n "${CSI}0m  "
         done
         echo ""
         echo -n "  +intense   "
         for FG in 30 31 32 33 34 35 36 37; do
-            echo -n "$CSI$(( ${BG:0:2} + 60 ));${FG}m"
+            echo -n "$CSI$((${BG:0:2} + 60));${FG}m"
             echo -n "$FNB_LOWER"
-            echo -n "$CSI$(( $FG + 60 ))m"
+            echo -n "$CSI$(($FG + 60))m"
             echo -n "$FNB_UPPER"
             echo -n "${CSI}0m  "
         done
