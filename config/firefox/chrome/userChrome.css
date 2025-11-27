@@ -3,14 +3,19 @@
 /* Import your desired components first */
 
 /* 
-@import url(csshacks/chrome/tab_close_button_always_on_hover.css);
+
 @import url(csshacks/chrome/tab_loading_progress_throbber.css);
 @import url(csshacks/chrome/button_effect_scale_onclick.css);
 @import url(csshacks/chrome/blank_page_background.css);
 @import url(csshacks/chrome/autohide_menubar.css); 
 */
 
-@import url(csshacks/chrome/autohide_main_toolbar.css);
+/* @import url(csshacks/chrome/auto_devtools_theme_for_rdm.css); */
+
+/* hides just the address bar */
+/* @import url(csshacks/chrome/autohide_main_toolbar.css); */
+
+/* hides the whole topbar */
 /* @import url(csshacks/chrome/autohide_toolbox.css); */
 
 /* 
@@ -32,44 +37,52 @@
 /* Apply your custom modifications after imports */
 
 :root {
-  --toolbox-bgcolor: rgb(36, 44, 59) !important;
-  --toolbox-bgcolor-inactive: rgb(36, 44, 59) !important;
+  --toolbox-bgcolor: #1e2228 !important;
+  --toolbox-bgcolor-inactive: #1e2228 !important;
 
-  --toolbar-bgcolor: rgb(36, 44, 59) !important;
-  --uc-menu-bkgnd: var(--toolbar-bgcolor);
-  --arrowpanel-background: var(--toolbar-bgcolor) !important;
-  --autocomplete-popup-background: var(--toolbar-bgcolor) !important;
+  --toolbar-bgcolor: #1e2228 !important;
+  --uc-menu-bkgnd: #1e2228 !important;
+  --arrowpanel-background: #1e2228 !important;
+  --autocomplete-popup-background: #1e2228 !important;
   --uc-menu-disabled: rgb(90, 90, 90) !important;
-  --lwt-toolbar-field-focus: rgb(36, 44, 59) !important;
+  --lwt-toolbar-field-focus: #1e2228 !important;
 
   --monospace-font-family: "JetBrains Mono", monospace !important;
   --devtools-font-size: 11px !important;
 }
+
+/* :root:not([inDOMFullscreen="true"]):not([chromehidden~="location"]):not([chromehidden~="toolbar"]) {
+  & #tabbrowser-tabbox #tabbrowser-tabpanels .browserSidebarContainer {
+    & browser[transparent="true"] {
+      background: none !important;
+    }
+  }
+} */
 
 /* PAGE BACKGROUND TRANSPARENT */
 #browser:not(.browser-toolbox-background) {
 
   background-color: rgba(255, 255, 255, 0.15) !important;
 
-  background: rgba(255, 255, 255, 0.15) !important;
+  /* background: rgba(255, 255, 255, 0.15) !important; */
 
   /* faint white tint */
-  backdrop-filter: blur(20px) saturate(150%) !important;
+  /* backdrop-filter: blur(20px) saturate(150%) !important; */
 
   /* Safari */
-  -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+  /* -webkit-backdrop-filter: blur(20px) saturate(150%) !important; */
 
   /* Some niceties */
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 12px;
+  /* border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px; */
 }
 
 
-#main-window {
+/* #main-window {
   background: var(--bct-main-window) !important;
   -moz-appearance: var(--bct-moz-appearance) !important;
   appearance: var(--bct-moz-appearance) !important;
-}
+} */
 
 #customization-container {
   background: var(--bct-w-pages-bg) !important;
@@ -80,9 +93,9 @@
 }
 
 #sidebar-box {
-  --sidebar-background-color: var(--toolbar-bgcolor) !important;
+  --sidebar-background-color: #1e2228 !important;
 }
 
 window.sidebar-panel {
-  --lwt-sidebar-background-color: rgb(36, 44, 59) !important;
+  --lwt-sidebar-background-color: #1e2228 !important;
 }

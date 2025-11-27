@@ -1,8 +1,8 @@
 /* Example file */
 
-@import url(csshacks/content/css_scrollbar_width_color.css);
+/* @import url(csshacks/content/css_scrollbar_width_color.css); */
 /* @import url(csshacks/content/limit_css_data_leak.css); Could induce site problems */
-@import url(csshacks/content/newtab_background_color.css);
-@import url(csshacks/content/transparent_reader_toolbar.css);
+/* @import url(csshacks/content/newtab_background_color.css); */
+/* @import url(csshacks/content/transparent_reader_toolbar.css); */
 
 @import url(mine/devtools-content.css);
