@@ -99,7 +99,7 @@ unfocused-split-opacity = 0.98
 
 keybind = cmd+k=text:\x0c
 
-keybind = ctrl+;=clear_screen
+keybind = ctrl+tab=clear_screen
 
 keybind = F1=toggle_command_palette
 
@@ -109,10 +109,10 @@ keybind = ctrl+i=scroll_page_lines:2
 keybind = ctrl+shift+-=new_split:down
 keybind = ctrl+shift+|=new_split:right
 
-keybind = shift+k=goto_split:top
-keybind = shift+j=goto_split:bottom
-keybind = shift+l=goto_split:right
-keybind = shift+h=goto_split:left
+keybind = ctrl+k=goto_split:top
+keybind = ctrl+j=goto_split:bottom
+keybind = ctrl+l=goto_split:right
+keybind = ctrl+h=goto_split:left
 
 keybind = ctrl+shift+k=resize_split:up,10
 keybind = ctrl+shift+j=resize_split:down,10
