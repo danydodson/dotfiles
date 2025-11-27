@@ -1,54 +1,30 @@
 /* Example userChrome.css file */
 
-/* Import your desired components first */
-
-/* 
-
-@import url(csshacks/chrome/tab_loading_progress_throbber.css);
-@import url(csshacks/chrome/button_effect_scale_onclick.css);
-@import url(csshacks/chrome/blank_page_background.css);
-@import url(csshacks/chrome/autohide_menubar.css); 
-*/
-
-/* @import url(csshacks/chrome/auto_devtools_theme_for_rdm.css); */
-
 /* hides just the address bar */
 /* @import url(csshacks/chrome/autohide_main_toolbar.css); */
 
 /* hides the whole topbar */
 /* @import url(csshacks/chrome/autohide_toolbox.css); */
 
-/* 
-@import url(csshacks/chrome/hide_toolbox_top_bottom_borders.css);
-@import url(csshacks/chrome/vertical_context_navigation.css);
-@import url(csshacks/chrome/minimal_popup_scrollbars.css);
-@import url(csshacks/chrome/button_effect_icon_glow.css);
-@import url(csshacks/chrome/dark_context_menus.css);
-@import url(csshacks/chrome/dark_additional_windows.css);
-@import url(csshacks/chrome/dark_checkboxes_and_radios.css);
-@import url(csshacks/chrome/minimal_text_fields.css);
-@import url(csshacks/chrome/minimal_toolbarbuttons.css);
-@import url(csshacks/chrome/urlbar_centered_text.css); 
-*/
+/* @import url(csshacks/chrome/auto_devtools_theme_for_rdm.css); */
 
-@import url(mine/devtools-chrome.css);
+/* @import url(mine/devtools-chrome.css); */
 
 
 /* Apply your custom modifications after imports */
 
 :root {
-  --toolbox-bgcolor: #1e2228 !important;
-  --toolbox-bgcolor-inactive: #1e2228 !important;
+  /*  */
+  /* --toolbox-bgcolor: #252a30 !important;
+  --toolbox-bgcolor-inactive: #252a30 !important; */
 
-  --toolbar-bgcolor: #1e2228 !important;
-  --uc-menu-bkgnd: #1e2228 !important;
-  --arrowpanel-background: #1e2228 !important;
-  --autocomplete-popup-background: #1e2228 !important;
+  /*  */
+  /* --toolbar-bgcolor: #252a30 !important;
+  --uc-menu-bkgnd: #252a30 !important;
+  --arrowpanel-background: #252a30 !important;
+  --autocomplete-popup-background: #252a30 !important;
   --uc-menu-disabled: rgb(90, 90, 90) !important;
-  --lwt-toolbar-field-focus: #1e2228 !important;
-
-  --monospace-font-family: "JetBrains Mono", monospace !important;
-  --devtools-font-size: 11px !important;
+  --lwt-toolbar-field-focus: #252a30 !important; */
 }
 
 /* :root:not([inDOMFullscreen="true"]):not([chromehidden~="location"]):not([chromehidden~="toolbar"]) {
@@ -62,7 +38,7 @@
 /* PAGE BACKGROUND TRANSPARENT */
 #browser:not(.browser-toolbox-background) {
 
-  background-color: rgba(255, 255, 255, 0.15) !important;
+  /* background-color: rgba(255, 255, 255, 0.15) !important; */
 
   /* background: rgba(255, 255, 255, 0.15) !important; */
 
@@ -84,18 +60,18 @@
   appearance: var(--bct-moz-appearance) !important;
 } */
 
-#customization-container {
+/* #customization-container {
   background: var(--bct-w-pages-bg) !important;
-}
+} */
 
-#tabbrowser-tabpanels {
+/* #tabbrowser-tabpanels {
   background: var(--bct-w-pages-bg) !important;
-}
+} */
 
-#sidebar-box {
-  --sidebar-background-color: #1e2228 !important;
-}
+/* #sidebar-box {
+  --sidebar-background-color: #252a30 !important;
+} */
 
-window.sidebar-panel {
-  --lwt-sidebar-background-color: #1e2228 !important;
-}
+/* window.sidebar-panel {
+  --lwt-sidebar-background-color: #252a30 !important;
+} */

@@ -1,7 +1,7 @@
 #compdef ollama
 
 # zsh completions for 'ollama'
-# automatically generated with https://github.com/danydodson/zsh-completion-generator
+# automatically generated with https://github.com/danydodson/zsh-completions/generator
 local arguments
 
 arguments=(

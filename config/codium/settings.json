@@ -8,8 +8,8 @@
   "redhat.telemetry.enabled": false,
   // 
   "continue.telemetryEnabled": false,
-  // "continue.disableQuickFix": false,
-  // "continue.enableTabAutocomplete": true,
+  "continue.disableQuickFix": false,
+  "continue.enableTabAutocomplete": true,
   //
   "code-runner.enableAppInsights": false,
   //
@@ -491,7 +491,7 @@
   "markdown-preview-enhanced.enableHTML5Embed": true,
   "markdown-preview-enhanced.enableTypographer": true,
   "markdown-preview-enhanced.previewColorScheme": "editorColorScheme",
-  "markdown-preview-enhanced.previewTheme": "one-dark.css",
+  "markdown-preview-enhanced.previewTheme": "github-dark.css",
   "python.createEnvironment.contentButton": "show",
   "autoOpenPreviewPanel.extensionEnabled": false,
   "tldr-panel.defaultLanguage": "en",
