@@ -1,0 +1,26 @@
+/* ============================
+   DevTools Preview Frame Clean
+   (HTML preview / rendered content)
+   ============================ */
+
+@-moz-document url-prefix("chrome://devtools/"),
+url-prefix("chrome://browser/"),
+url-prefix("chrome://global/"),
+url-prefix("chrome://") {
+
+  /* No wrapping in preview HTML */
+  body,
+  * {
+    white-space: nowrap !important;
+    font-family: "JetBrains Mono", monospace !important;
+    font-size: 11px !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+  }
+
+  /* Hide scrollbars (while still scrollable) */
+  *::-webkit-scrollbar {
+    display: none !important;
+  }
+  
+}

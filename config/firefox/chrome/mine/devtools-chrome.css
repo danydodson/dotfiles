@@ -1,0 +1,137 @@
+/* ============================
+   Firefox DevTools Clean Theme
+   - One Dark
+   - No Wrapping
+   - Compact UI
+============================ */
+
+/* Make styles apply to Browser Toolbox as well */
+
+@-moz-document url-prefix("chrome://devtools/"),
+url-prefix("chrome://browser/"),
+url-prefix("chrome://global/"),
+url-prefix("chrome://") {
+
+  /* -------- Global DevTools UI -------- */
+  :root {
+    --monospace-font-family: "JetBrains Mono", monospace !important;
+    --devtools-monospace-font-size: 11px !important;
+    --theme-body-background: #282c34 !important;
+    --theme-sidebar-background: #21252b !important;
+    --theme-toolbar-background: #21252b !important;
+    --theme-selection-background: #3e4451 !important;
+    --theme-selection-color: #abb2bf !important;
+    --theme-body-color: #abb2bf !important;
+
+    /* One Dark colors */
+    --one-dark-foreground: #abb2bf;
+    --one-dark-blue: #61afef;
+    --one-dark-green: #98c379;
+    --one-dark-purple: #c678dd;
+    --one-dark-red: #e06c75;
+    --one-dark-yellow: #e5c07b;
+  }
+
+  /* -------- Force no wrapping everywhere -------- */
+  #toolbox-container *,
+  .devtools-monospace,
+  .theme-body,
+  .theme-sidebar,
+  .theme-toolbar,
+  .devtools-sidepanel,
+  .CodeMirror pre,
+  .CodeMirror-lines,
+  .message-body,
+  .message-flex-body,
+  .inspector-tabpanel,
+  #inspector-container * {
+    font-family: var(--monospace-font-family) !important;
+    font-size: var(--devtools-monospace-font-size) !important;
+    white-space: nowrap !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+    text-overflow: clip !important;
+  }
+
+  /* Hide scrollbars but keep scroll functionality */
+  *::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* -------- Tighten margins + spacing -------- */
+  .devtools-toolbar,
+  .devtools-sidebar-tabs,
+  .ruleview-container,
+  .computed-property-view,
+  .markup-view {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Remove round borders + noisy lines */
+  .devtools-sidebar-tabs .tabs-menu-item {
+    border: none !important;
+  }
+
+  /* -------- HTML/DOM Inspector markup -------- */
+  .markup-tag,
+  .markup-attr,
+  .markup-container {
+    white-space: nowrap !important;
+    overflow-x: auto !important;
+  }
+
+  /* Highlight colors for attributes / tags */
+  markup-tag {
+    color: var(--one-dark-blue) !important;
+  }
+
+  markup-attr {
+    color: var(--one-dark-green) !important;
+  }
+
+  .devtools-monospace {
+    color: var(--one-dark-foreground) !important;
+  }
+
+  /* -------- Console -------- */
+  .console-output *,
+  .console-text,
+  .console-message {
+    white-space: nowrap !important;
+    overflow-x: auto !important;
+  }
+
+  /* Syntax colors in console */
+  .console-string {
+    color: var(--one-dark-green) !important;
+  }
+
+  .console-number {
+    color: var(--one-dark-yellow) !important;
+  }
+
+  .console-keyword {
+    color: var(--one-dark-purple) !important;
+  }
+
+  .console-error {
+    color: var(--one-dark-red) !important;
+  }
+
+  /* -------- CodeMirror (Debugger / Style Editor) -------- */
+  .CodeMirror {
+    background: #282c34 !important;
+    color: var(--one-dark-foreground) !important;
+  }
+
+  .CodeMirror pre {
+    white-space: pre !important;
+  }
+
+  /* Cursor color */
+  .CodeMirror-cursor {
+    border-left: 2px solid var(--one-dark-blue) !important;
+  }
+
+}

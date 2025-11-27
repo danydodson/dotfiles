@@ -4,6 +4,7 @@
   <dict>
     <key>Label</key>
     <string>dots.mozilla</string>
+
     <key>ProgramArguments</key>
     <array>
       <string>/bin/launchctl</string>
@@ -11,9 +12,12 @@
       <string>MOZ_DISABLE_SAFE_MODE_KEY</string>
       <string>1</string>
     </array>
+
     <key>RunAtLoad</key>
-    <true />
+    <true/>
+
+    <!-- Not needed but harmless -->
     <key>ServiceIPC</key>
-    <false />
+    <false/>
   </dict>
 </plist>

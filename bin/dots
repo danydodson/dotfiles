@@ -66,9 +66,17 @@ sub_clean() {
   info "$ brew cleanup..."
   brew cleanup --prune=all --scrub
 
+  info "$ removing completion cache..."
   rm -rf ~/.cache/zsh/zcompdump
   rm -rf ~/.cache/zsh/zcompdump.zwc
+  rm -rf ~/.cache/zsh/brew_all_commands
+  rm -rf ~/.cache/zsh/brew_casks
+  rm -rf ~/.cache/zsh/brew_formulaue
+  rm -rf ~/.cache/zsh/docker_compose_subcommands
+  rm -rf ~/.cache/zsh/docker_hide_legacy_commands
+  rm -rf ~/.cache/zsh/docker_subcommands
 
+  info "$ removing .DS_Store files..."
   find . -type f -name '*.DS_Store' -ls -delete
 
   info "$ emptying trash..."

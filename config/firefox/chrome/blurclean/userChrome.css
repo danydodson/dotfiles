@@ -1,5 +1,5 @@
 /* variables used in styling */
-@import url('components/variables.css');
+/* @import url('components/variables.css'); */
 
 /* optional styles for TST,
 hide tabbar and move addressbar to the top */
@@ -7,10 +7,10 @@ hide tabbar and move addressbar to the top */
 /* @import url('components/hide-tabbar.css'); */
 
 /* icons in menu */
-@import url('components/menu-icons.css');
+/* @import url('components/menu-icons.css'); */
 
 /* transparencies for browser elements (popups mostly) */
-@import url('components/elements-transparencies.css');
+@import url('blurclean/components/elements-transparencies.css');
 
 /* optional transparencies for window (broken on non GNU/linux systems) */
 /* @import url('components/window-transparencies.css'); */

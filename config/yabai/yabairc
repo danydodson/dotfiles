@@ -99,6 +99,7 @@ unmanaged=(
   System Preferences
   System Information
   VLC
+  xattred
 )
 for ((i = 1; i <= "${#unmanaged[@]}"; i++)); do
   yabai -m rule --add label="unmanage_${unmanaged[(($i - 1))]}" app="^${unmanaged[(($i - 1))]}.*$" manage=off
@@ -148,6 +149,7 @@ SPACE4=(
   Mailspring
   MailMate
   NVIDIA GeForce NOW
+  Postbox
   Steam
 )
 

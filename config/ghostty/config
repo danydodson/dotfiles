@@ -78,8 +78,8 @@ macos-secure-input-indication = false
 
 background-blur = 12
 
-background-opacity = 0.95
-unfocused-split-opacity = 0.95
+background-opacity = 0.98
+unfocused-split-opacity = 0.98
 
 # background-opacity = 1
 # unfocused-split-opacity = 1
@@ -106,8 +106,8 @@ keybind = F1=toggle_command_palette
 keybind = ctrl+u=scroll_page_lines:-2
 keybind = ctrl+i=scroll_page_lines:2
 
-keybind = ctrl+-=new_split:down
-keybind = ctrl+|=new_split:right
+keybind = ctrl+shift+-=new_split:down
+keybind = ctrl+shift+|=new_split:right
 
 keybind = shift+k=goto_split:top
 keybind = shift+j=goto_split:bottom

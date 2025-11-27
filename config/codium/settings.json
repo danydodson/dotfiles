@@ -8,7 +8,6 @@
   "redhat.telemetry.enabled": false,
   // 
   "continue.telemetryEnabled": false,
-  "continue.showInlineTip": false,
   // "continue.disableQuickFix": false,
   // "continue.enableTabAutocomplete": true,
   //
@@ -121,7 +120,7 @@
   "editor.cursorBlinking": "solid",
   "editor.renderLineHighlight": "none",
   // "editor.glyphMargin": false,
-  "editor.lineNumbers": "relative",
+  "editor.lineNumbers": "off",
   "editor.lineDecorationsWidth": 12,
   "editor.stickyScroll.enabled": false,
   "editor.fontWeight": 400,
@@ -282,10 +281,11 @@
     "editor.defaultFormatter": "Vue.volar"
   },
   "[xml]": {
-    "breadcrumbs.showArrays": true
+    "breadcrumbs.showArrays": true,
+    "editor.defaultFormatter": "redhat.vscode-xml"
   },
   "yaml.schemas": {
-    "file:///Applications/codium-portable-data/extensions/continue.continue-1.3.1-darwin-arm64/config-yaml-schema.json": [
+    "file:///Applications/codium-portable-data/extensions/continue.continue-1.2.10-darwin-arm64/config-yaml-schema.json": [
       ".continue/**/*.yaml"
     ]
   },
@@ -496,6 +496,18 @@
   "autoOpenPreviewPanel.extensionEnabled": false,
   "tldr-panel.defaultLanguage": "en",
   "tldr-panel.defaultPlatform": "osx",
-  "continue.enableTabAutocomplete": false,
-  "workbench.statusBar.visible": false,
+  "markdown-preview-enhanced.previewMode": "Previews Only",
+  "continue.enableNextEdit": false,
+  "workbench.editorAssociations": {
+    "*.md": "markdown-preview-enhanced",
+    "*.markdown": "markdown-preview-enhanced",
+    "*.mdown": "markdown-preview-enhanced",
+    "*.mkdn": "markdown-preview-enhanced",
+    "*.mkd": "markdown-preview-enhanced",
+    "*.rmd": "markdown-preview-enhanced",
+    "*.qmd": "markdown-preview-enhanced",
+    "*.mdx": "markdown-preview-enhanced"
+  },
+  "markdown-preview-enhanced.enablePreviewZenMode": true,
+  "markdown-preview-enhanced.alwaysShowBacklinksInPreview": true,
 }

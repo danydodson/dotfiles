@@ -5,8 +5,8 @@ See the above repository for updates as well as full license text. */
 
 :root{
   --uc-navbar-transform: -40px;
-  --uc-autohide-toolbar-delay: 1.8s;
-  --uc-autohide-toolbar-duration: 400ms;
+  --uc-autohide-toolbar-delay: 10ms; /*1.8s;*/
+  --uc-autohide-toolbar-duration: 10ms; /*400ms;*/
 }
 :root[uidensity="compact"]{ --uc-navbar-transform: -34px }
 

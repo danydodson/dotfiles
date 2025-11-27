@@ -1,4 +1,4 @@
-@import url('components/variables.css');
+@import url('blurclean/components/variables.css');
 
 /* Removes the white loading page */
 @-moz-document url(about:blank) {

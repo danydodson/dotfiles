@@ -1,14 +1,88 @@
-/*  */
+/* Example userChrome.css file */
 
-@import url(csshacks/userChrome.css);
+/* Import your desired components first */
 
-@import url(blurclean/userChrome.css);
+/* 
+@import url(csshacks/chrome/tab_close_button_always_on_hover.css);
+@import url(csshacks/chrome/tab_loading_progress_throbber.css);
+@import url(csshacks/chrome/button_effect_scale_onclick.css);
+@import url(csshacks/chrome/blank_page_background.css);
+@import url(csshacks/chrome/autohide_menubar.css); 
+*/
 
-/* @import url(colortabs/css/colorize_tab_from_prefix.css); */
+@import url(csshacks/chrome/autohide_main_toolbar.css);
+/* @import url(csshacks/chrome/autohide_toolbox.css); */
 
-/* @import url(gwfox/chrome/userChrome.css); */
+/* 
+@import url(csshacks/chrome/hide_toolbox_top_bottom_borders.css);
+@import url(csshacks/chrome/vertical_context_navigation.css);
+@import url(csshacks/chrome/minimal_popup_scrollbars.css);
+@import url(csshacks/chrome/button_effect_icon_glow.css);
+@import url(csshacks/chrome/dark_context_menus.css);
+@import url(csshacks/chrome/dark_additional_windows.css);
+@import url(csshacks/chrome/dark_checkboxes_and_radios.css);
+@import url(csshacks/chrome/minimal_text_fields.css);
+@import url(csshacks/chrome/minimal_toolbarbuttons.css);
+@import url(csshacks/chrome/urlbar_centered_text.css); 
+*/
 
-/* @import url(uctweaks/toolbars/compact-toolbars.css); */
-@import url(uctweaks/tabs/more-compact-tabs.css);
-/* @import url(uctweaks/tabs/prevent-tab-overflow.css); */
-/* @import url(uctweaks/navbar/compact-navbar-breakout.css); */
+@import url(mine/devtools-chrome.css);
+
+
+/* Apply your custom modifications after imports */
+
+:root {
+  --toolbox-bgcolor: rgb(36, 44, 59) !important;
+  --toolbox-bgcolor-inactive: rgb(36, 44, 59) !important;
+
+  --toolbar-bgcolor: rgb(36, 44, 59) !important;
+  --uc-menu-bkgnd: var(--toolbar-bgcolor);
+  --arrowpanel-background: var(--toolbar-bgcolor) !important;
+  --autocomplete-popup-background: var(--toolbar-bgcolor) !important;
+  --uc-menu-disabled: rgb(90, 90, 90) !important;
+  --lwt-toolbar-field-focus: rgb(36, 44, 59) !important;
+
+  --monospace-font-family: "JetBrains Mono", monospace !important;
+  --devtools-font-size: 11px !important;
+}
+
+/* PAGE BACKGROUND TRANSPARENT */
+#browser:not(.browser-toolbox-background) {
+
+  background-color: rgba(255, 255, 255, 0.15) !important;
+
+  background: rgba(255, 255, 255, 0.15) !important;
+
+  /* faint white tint */
+  backdrop-filter: blur(20px) saturate(150%) !important;
+
+  /* Safari */
+  -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+
+  /* Some niceties */
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+}
+
+
+#main-window {
+  background: var(--bct-main-window) !important;
+  -moz-appearance: var(--bct-moz-appearance) !important;
+  appearance: var(--bct-moz-appearance) !important;
+}
+
+#customization-container {
+  background: var(--bct-w-pages-bg) !important;
+}
+
+#tabbrowser-tabpanels {
+  background: var(--bct-w-pages-bg) !important;
+}
+
+#sidebar-box {
+  --sidebar-background-color: var(--toolbar-bgcolor) !important;
+}
+
+window.sidebar-panel {
+  --lwt-sidebar-background-color: rgb(36, 44, 59) !important;
+}

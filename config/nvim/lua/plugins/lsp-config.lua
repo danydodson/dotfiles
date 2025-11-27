@@ -29,7 +29,6 @@ return {
           'gopls',
           'html',
           'lua_ls',
-          'marksman',
           'tailwindcss',
           'ts_ls',
           'yamlls',
@@ -65,9 +64,6 @@ return {
       vim.lsp.config('lua_ls', {
         settings = { ['lua_ls'] = { capabilities = capabilities } },
       })
-      vim.lsp.config('marksman', {
-        settings = { ['marksman'] = { capabilities = capabilities } },
-      })
       vim.lsp.config('pyright', {
         settings = { ['pyright'] = { capabilities = capabilities } },
       })
@@ -84,8 +80,7 @@ return {
         settings = { ['yamlls'] = { capabilities = capabilities } },
       })
 
-      vim.lsp.enable('bashls', 'cssls', 'html', 'lua_ls', 'marksman', 'pyright', 'rust_analyzer', 'tailwindcss', 'ts_ls',
-        'yamlls')
+      vim.lsp.enable('bashls', 'cssls', 'html', 'lua_ls', 'pyright', 'rust_analyzer', 'tailwindcss', 'ts_ls', 'yamlls')
 
       vim.keymap.set('n', '<leader>ci', vim.lsp.buf.hover, { desc = 'hover info' })
       vim.keymap.set('n', '<leader>cd', vim.lsp.buf.definition, { desc = 'code go to definition' })

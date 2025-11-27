@@ -18,7 +18,7 @@
     "**/config/sketchybar/sketchybarrc": "lua",
     // 
     "**/macos/agents/agents.sh": "shellscript",
-    "**/macos/agents/*": "xml",
+    "**/macos/agents/*plist": "xml",
   },
   "shellcheck.ignorePatterns": {
     "**/*.zsh": true,
