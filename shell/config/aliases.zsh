@@ -69,8 +69,8 @@ alias oskill="killfinder && killdock && killmenubar"
 # ls
 alias ls='/opt/homebrew/bin/gls --color=auto --group-directories-first -I .DS_Store -I .Trash -I "Icon'$'\r"'
 alias l="ls -AhLg --no-group --time-style=iso"
-alias ll="lsd -Al"
-alias la="ls -A"
+alias ll="eza -al -s type --no-symlinks -I .DS_Store -I .Trash -I "Icon'$'\r""
+alias la="lsd -Al"
 
 # browsers
 alias firefox="open -a Firefox.app"
