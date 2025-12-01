@@ -39,7 +39,6 @@
       path: config/*
       exclude:
         [
-          config/bat,
           config/curl,
           config/codium,
           config/eza,

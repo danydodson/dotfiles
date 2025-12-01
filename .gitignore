@@ -21,8 +21,12 @@ Icon
 
 # karabiner
 /config/karabiner/assets
-/config/karabiner/other
 /config/karabiner/automatic_backups
+
+
+/config/opencode/node_modules
+/config/opencode/package.json
+/config/opencode/bun.lock
 
 # plugins
 /plugs/zsh-completions
