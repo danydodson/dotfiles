@@ -1,5 +1,9 @@
 /* codium extention config file */
 
+.monaco-workbench .activitybar .monaco-action-bar {
+  font-size: 22 !important;
+}
+
 /* line numbers */
 .monaco-editor .margin-view-overlays .line-numbers {
   font-size: 0.7rem !important;

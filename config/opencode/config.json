@@ -1,5 +1,5 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "custom",
+  "theme": "system",
   "keybinds": { }
 }

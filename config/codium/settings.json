@@ -285,7 +285,7 @@
     "editor.defaultFormatter": "redhat.vscode-xml"
   },
   "yaml.schemas": {
-    "file:///Applications/codium-portable-data/extensions/continue.continue-1.2.10-darwin-arm64/config-yaml-schema.json": [
+    "file:///Applications/codium-portable-data/extensions/continue.continue-1.2.11-darwin-arm64/config-yaml-schema.json": [
       ".continue/**/*.yaml"
     ]
   },
@@ -510,4 +510,5 @@
   },
   "markdown-preview-enhanced.enablePreviewZenMode": true,
   "markdown-preview-enhanced.alwaysShowBacklinksInPreview": false,
+  "workbench.statusBar.visible": false,
 }

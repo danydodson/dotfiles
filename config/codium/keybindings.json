@@ -54,6 +54,16 @@
     "command": "-workbench.action.closeWindow",
     "when": "!editorIsOpen && !multipleEditorGroups"
   },
+  {
+    "key": "ctrl+space",
+    "command": "continue.forceAutocomplete",
+    "when": "editorTextFocus && !editorHasSelection && !editorReadOnly && !inSnippetMode"
+  },
+  {
+    "key": "alt+cmd+space",
+    "command": "-continue.forceAutocomplete",
+    "when": "editorTextFocus && !editorHasSelection && !editorReadOnly && !inSnippetMode"
+  },
   // {
   //   "key": "cmd+w",
   //   "command": "-workbench.action.terminal.killEditor",

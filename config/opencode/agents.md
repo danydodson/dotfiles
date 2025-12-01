@@ -1,4 +1,4 @@
-# TypeScript Project Rules
+# Agent Guidelines for This Repository
 
 ## External File Loading
 
