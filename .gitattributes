@@ -7,7 +7,6 @@
 
 *.sh text eol=lf
 
-*.user.js linguist-language=JavaScript
 readme.md linguist-language=Markdown
 
 *.lock diff=nodiff
