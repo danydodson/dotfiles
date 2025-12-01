@@ -116,19 +116,7 @@ Folder                          Usage
 
 #### Install launch agents:
 
-```bash
-> cp $DOTFILES/macos/agents/dots.files.plist ~/Library/LaunchAgents/dots.files.plist
-> launchctl load ~/Library/LaunchAgents/dots.files.plist
-
-> cp $DOTFILES/macos/agents/dots.proc.plist ~/Library/LaunchAgents/dots.proc.plist
-> launchctl load ~/Library/LaunchAgents/dots.proc.plist
-
-> cp $DOTFILES/macos/agents/dots.mpv.plist ~/Library/LaunchAgents/dots.mpv.plist
-> launchctl load ~/Library/LaunchAgents/dots.mpv.plist
-
-> cp $DOTFILES/macos/agents/dots.mozilla.plist ~/Library/LaunchAgents/dots.mozilla.plist
-> launchctl load ~/Library/LaunchAgents/dots.mozilla.plist
-```
+[install script](/macos/agents/start.sh)
 
 ---
 

@@ -2,7 +2,6 @@
 
 # custom auto suggestions
 export ZSH_AUTOSUGGEST_USE_ASYNC=true
-# export ZSH_HIGHLIGHT_MAXLENGTH=200
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#D19A66"
 
 # ls_colors
@@ -14,6 +13,10 @@ fi
 export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE
 export HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zsh_history"
+
+# vim
+bindkey -v
+export KEYTIMEOUT=1
 
 # Options
 setopt hist_ignore_space hist_reduce_blanks hist_verify extended_history
@@ -80,19 +83,23 @@ then
     zcompile "$zcompdump"
 fi
 
+# ctrl+p runs tms script
+bindkey -s '^p' "tms\n"
+
+# ctrl+w new tmux session
+bindkey -s '^w' "tmux new\n"
+
 # history search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-
-# vim
-bindkey -v
-export KEYTIMEOUT=1
 
 # Vim keys in tab complete menu
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
+
+# Allows delete key on multiple lines
 bindkey -v '^?' backward-delete-char
 
 # Change cursor for diff modes
@@ -110,4 +117,59 @@ zle-line-init() {
 zle -N zle-line-init
 echo -ne '\e[5 q'
 preexec() { echo -ne '\e[5 q' ;}
+
+# Clear back buffer
+function reexec_shell() {
+    printf '\x1Bc'
+    clear
+    source "$HOME/.zshrc"
+}
+alias c='reexec_shell'
+zle -N reexec_shell
+bindkey -M emacs '^K' reexec_shell
+bindkey -M vicmd '^K' reexec_shell
+bindkey '^[s' reexec_shell
+
+# Force ctrl+D to close shell
+exit_zsh() { exit }
+zle -N exit_zsh
+bindkey '^D' exit_zsh
+
+# Create and change into a new directory
+mkcd() {
+  mkdir -p $@ && cd ${@:$#}
+}
+
+# Switch dirs with ctrl+O
+lfcd () {
+    tmp="$(mktemp -uq)"
+    trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT HUP INT QUIT TERM PWR EXIT'
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+bindkey -s '^o' '^ulfcd\n'
+bindkey -s '^a' '^ubc -lq\n'
+bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'
+bindkey '^[[P' delete-char
+
+# Open editor with ctrl+e
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+bindkey -M vicmd '^[[P' vi-delete-char
+bindkey -M vicmd '^e' edit-command-line
+bindkey -M visual '^[[P' vi-delete
+
+
+# Yazi file manager
+y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
 

@@ -17,7 +17,7 @@
                     "activityDate": false,
                     "downloadDir": false,
                     "id": false,
-                    "queuePosition": false,
+                    "queuePosition": true,
                     "isPrivate": false,
                     "group": false,
                     "file-count": false,
@@ -45,6 +45,7 @@
                     "rateDownload",
                     "rateUpload",
                     "percentDone",
+                    "queuePosition",
                     "peersSendingToUs",
                     "peersGettingFromUs",
                     "bandwidthPriority",
@@ -59,7 +60,6 @@
                     "activityDate",
                     "downloadDir",
                     "id",
-                    "queuePosition",
                     "isPrivate",
                     "labels",
                     "group",
@@ -71,17 +71,18 @@
                     "rateDownload": 101,
                     "rateUpload": 88,
                     "percentDone": 72,
-                    "name": 414,
-                    "peersGettingFromUs": 165,
-                    "addedDate": 223,
+                    "name": 375,
+                    "peersGettingFromUs": 132,
+                    "addedDate": 201,
                     "peersSendingToUs": 108,
                     "uploadRatio": 122,
-                    "totalSize": 166,
-                    "secondsSeeding": 222,
+                    "totalSize": 144,
+                    "secondsSeeding": 164,
                     "haveValid": 150,
-                    "status": 147,
-                    "eta": 121,
-                    "bandwidthPriority": 164
+                    "status": 133,
+                    "eta": 125,
+                    "bandwidthPriority": 205,
+                    "queuePosition": 159
                 },
                 "sortBy": [
                     {
@@ -93,8 +94,17 @@
             "filetree": {
                 "columns": [],
                 "columnVisibility": {},
-                "columnOrder": [],
-                "columnSizes": {},
+                "columnOrder": [
+                    "name",
+                    "size",
+                    "done",
+                    "percent",
+                    "priority"
+                ],
+                "columnSizes": {
+                    "name": 591,
+                    "percent": 372
+                },
                 "sortBy": []
             },
             "filetreebrief": {
@@ -107,8 +117,17 @@
             "trackers": {
                 "columns": [],
                 "columnVisibility": {},
-                "columnOrder": [],
-                "columnSizes": {},
+                "columnOrder": [
+                    "announce",
+                    "announceState",
+                    "nextAnnounceTime",
+                    "seederCount",
+                    "leecherCount",
+                    "downloadCount"
+                ],
+                "columnSizes": {
+                    "announce": 666
+                },
                 "sortBy": []
             },
             "peers": {
@@ -119,37 +138,52 @@
                     "cachedConnection": false,
                     "cachedProtocol": false
                 },
-                "columnOrder": [],
-                "columnSizes": {},
+                "columnOrder": [
+                    "address",
+                    "port",
+                    "clientName",
+                    "flagStr",
+                    "progress",
+                    "rateToPeer",
+                    "rateToClient",
+                    "cachedEncrypted",
+                    "cachedFrom",
+                    "cachedConnection",
+                    "cachedProtocol",
+                    "cachedStatus"
+                ],
+                "columnSizes": {
+                    "clientName": 299
+                },
                 "sortBy": []
             }
         },
         "sashSizes": {
             "vertical": [
-                70,
-                30
+                40.34063747740693,
+                59.65936252259307
             ],
             "horizontal": [
-                20,
-                80
+                12.249199852490587,
+                87.75080014750941
             ]
         },
         "filterSections": [
-            {
-                "section": "Status",
-                "visible": true
-            },
-            {
-                "section": "Directories",
-                "visible": true
-            },
             {
                 "section": "Labels",
                 "visible": true
             },
             {
+                "section": "Status",
+                "visible": false
+            },
+            {
+                "section": "Directories",
+                "visible": false
+            },
+            {
                 "section": "Trackers",
-                "visible": true
+                "visible": false
             }
         ],
         "statusFiltersVisibility": {
@@ -226,7 +260,7 @@
         ],
         "showFilesSearchBox": false,
         "flatFileTree": false,
-        "mainSplit": "vertical",
+        "mainSplit": "horizontal",
         "skipAddDialog": false,
         "deleteTorrentData": "default off",
         "deleteTorrentDataSelection": true,

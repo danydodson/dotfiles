@@ -5,6 +5,8 @@ shell-integration-features = no-cursor,sudo,no-title
 
 working-directory = home
 
+scrollback-limit = 100000000
+
 # fonts -----------------------------------------------------------
 
 font-family = "FiraCode Nerd Font Mono"
@@ -70,7 +72,9 @@ quit-after-last-window-closed = true
 
 macos-option-as-alt = true
 macos-window-shadow = true
+macos-window-buttons = hidden
 macos-titlebar-style = hidden
+macos-titlebar-proxy-icon = hidden
 macos-non-native-fullscreen = true
 macos-secure-input-indication = false
 
@@ -81,25 +85,11 @@ background-blur = 12
 background-opacity = 0.98
 unfocused-split-opacity = 0.98
 
-# background-opacity = 1
-# unfocused-split-opacity = 1
-
-# background-image = images/zelda.png
-# background-image-opacity = 0.04
-# background-image-position = center
-# background-image-fit = none
-
-# shaders ------------------------------------------------------------
-
-# custom-shader = shaders/heartfelt.glsl
-
-# custom-shader-animation = true
-
 # keybinds -----------------------------------------------------------
 
 keybind = cmd+k=text:\x0c
 
-keybind = ctrl+tab=clear_screen
+keybind = alt+tab=clear_screen
 
 keybind = F1=toggle_command_palette
 
@@ -154,7 +144,6 @@ foreground = #abb2bf
 selection-background = #4f5666
 selection-foreground = #abb2bf
 
-# cursor-color = #abb2bf
 split-divider-color = #2f3138
 
 # vim: ft=ghostty:filetype=ghostty:syntax=ghostty

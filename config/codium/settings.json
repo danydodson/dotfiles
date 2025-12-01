@@ -120,7 +120,7 @@
   "editor.cursorBlinking": "solid",
   "editor.renderLineHighlight": "none",
   // "editor.glyphMargin": false,
-  "editor.lineNumbers": "off",
+  "editor.lineNumbers": "relative",
   "editor.lineDecorationsWidth": 12,
   "editor.stickyScroll.enabled": false,
   "editor.fontWeight": 400,
@@ -509,5 +509,5 @@
     "*.mdx": "markdown-preview-enhanced"
   },
   "markdown-preview-enhanced.enablePreviewZenMode": true,
-  "markdown-preview-enhanced.alwaysShowBacklinksInPreview": true,
+  "markdown-preview-enhanced.alwaysShowBacklinksInPreview": false,
 }

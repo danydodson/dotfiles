@@ -53,6 +53,7 @@
           config/weechat,
           config/wget,
           config/yt,
+          config/zen,
         ]
 
     ~/.gnupg/gpg.conf:
@@ -95,6 +96,12 @@
       glob: true
       relink: true
       path: config/firefox/*
+
+    ~/Library/Application Support/zen/Profiles/gvp0vqa7.Default/:
+      create: true
+      glob: true
+      relink: true
+      path: config/zen/*
 
 - create:
     - ~/.cache/zsh

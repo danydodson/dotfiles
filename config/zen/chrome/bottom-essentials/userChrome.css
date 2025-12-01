@@ -1,0 +1,19 @@
+#zen-essentials-container {
+    margin-top: auto !important; /* Push container to the bottom of the layout */
+    order: 999 !important; /* Ensure it's the last element in flex/grid layout */
+    overflow: hidden !important;
+    transition: max-height 0.3s ease-out !important; /* Smooth height transitions */
+    opacity: 1 !important;
+    
+    /* Responsive grid layout for pinned tabs/items */
+    grid-template-columns: repeat(auto-fit, minmax(var(--tab-pinned-min-width-expanded), auto)) !important;
+    
+    /* Scroll handling */
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    scrollbar-width: thin !important; /* Slim scrollbar */
+    
+    display: grid !important;
+    padding: 0 0 5px !important;
+    border-top: none !important; 
+}

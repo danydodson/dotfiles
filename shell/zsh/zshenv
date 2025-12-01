@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 export EDITOR="nvim"
-export BROWSER="firefox"
+export BROWSER="zen"
 
 export PAGER="less -RF"
 export MANPAGER="sh -c 'col -bx | bat -l man -p | less -R'"

@@ -14,28 +14,35 @@
 /* Apply your custom modifications after imports */
 
 :root {
-  /*  */
-  /* --toolbox-bgcolor: #252a30 !important;
-  --toolbox-bgcolor-inactive: #252a30 !important; */
 
-  /*  */
-  /* --toolbar-bgcolor: #252a30 !important;
+  --toolbox-bgcolor: #252a30 !important;
+  --toolbox-bgcolor-inactive: #252a30 !important;
+
+  --toolbar-bgcolor: #252a30 !important;
   --uc-menu-bkgnd: #252a30 !important;
   --arrowpanel-background: #252a30 !important;
   --autocomplete-popup-background: #252a30 !important;
   --uc-menu-disabled: rgb(90, 90, 90) !important;
-  --lwt-toolbar-field-focus: #252a30 !important; */
+  --lwt-toolbar-field-focus: #252a30 !important;
 }
 
-/* :root:not([inDOMFullscreen="true"]):not([chromehidden~="location"]):not([chromehidden~="toolbar"]) {
+:root:not([inDOMFullscreen="true"]):not([chromehidden~="location"]):not([chromehidden~="toolbar"]) {
   & #tabbrowser-tabbox #tabbrowser-tabpanels .browserSidebarContainer {
     & browser[transparent="true"] {
       background: none !important;
     }
   }
-} */
+}
 
 /* PAGE BACKGROUND TRANSPARENT */
+/* #main-window {
+  background: var(--bct-main-window) !important;
+  -moz-appearance: var(--bct-moz-appearance) !important;
+  appearance: var(--bct-moz-appearance) !important;
+} */
+
+
+
 #browser:not(.browser-toolbox-background) {
 
   /* background-color: rgba(255, 255, 255, 0.15) !important; */
@@ -43,35 +50,28 @@
   /* background: rgba(255, 255, 255, 0.15) !important; */
 
   /* faint white tint */
-  /* backdrop-filter: blur(20px) saturate(150%) !important; */
+  backdrop-filter: blur(20px) saturate(150%) !important;
 
   /* Safari */
-  /* -webkit-backdrop-filter: blur(20px) saturate(150%) !important; */
+  -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
 
   /* Some niceties */
   /* border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 12px; */
 }
 
-
-/* #main-window {
-  background: var(--bct-main-window) !important;
-  -moz-appearance: var(--bct-moz-appearance) !important;
-  appearance: var(--bct-moz-appearance) !important;
-} */
-
-/* #customization-container {
+#customization-container {
   background: var(--bct-w-pages-bg) !important;
-} */
+}
 
-/* #tabbrowser-tabpanels {
+#tabbrowser-tabpanels {
   background: var(--bct-w-pages-bg) !important;
-} */
+}
 
-/* #sidebar-box {
+#sidebar-box {
   --sidebar-background-color: #252a30 !important;
-} */
+}
 
-/* window.sidebar-panel {
+window.sidebar-panel {
   --lwt-sidebar-background-color: #252a30 !important;
-} */
+}

@@ -7,7 +7,8 @@ PLAYLIST="vpl.m3u8"
 printf '#EXTM3U\n' >"$PLAYLIST"
 
 # Use null-terminated file list to handle all special characters
-find . -mindepth 2 -maxdepth 3 -type f -iname "*.mp4" -print0 |
+find . -mindepth 2 -maxdepth 2 -type f -iname "*.mp4" -print0 |
+    sort -z |
     while IFS= read -r -d '' VIDEOPATH; do
         realpath "$VIDEOPATH" >>"$PLAYLIST"
     done

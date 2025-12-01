@@ -46,12 +46,6 @@ alias ta="tm attach"
 alias tk="tm kill-session"
 alias td="tm detach"
 
-# ctrl+p runs tms script
-bindkey -s '^p' "tms\n"
-
-# ctrl+w new tmux session
-bindkey -s '^w' "tmux new\n"
-
 # dl
 alias get="curl $HOME/.dotfiles/config/curl/curlrc -O"
 alias wget="wget --config=$HOME/.dotfiles/config/wget/wgetrc --no-check-certificate"

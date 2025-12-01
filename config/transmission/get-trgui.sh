@@ -23,7 +23,7 @@ mkdir public_html
 unzip -q "$FILENAME" -d public_html
 
 # Target directory for Transmission's web folder
-TX_DIR="/opt/homebrew/Cellar/transmission-cli/4.0.6_4/share/transmission"
+TX_DIR="/opt/homebrew/opt/transmission-cli/share/transmission"
 
 # Backup old public_html
 if [ -d "$TX_DIR/public_html" ]; then

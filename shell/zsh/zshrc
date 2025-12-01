@@ -24,7 +24,6 @@ _comp_options+=(globdots)
 
 # zsh functions
 source "${DOTFILES}/shell/config/aliases.zsh"
-source "${DOTFILES}/shell/config/functions.zsh"
 
 # Pure prompt
 source ${DOTFILES}/shell/config/prompt.zsh

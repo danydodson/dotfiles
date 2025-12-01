@@ -67,7 +67,7 @@ hyper - a : open -a Apps.app
 hyper - b : open -a "Brave Browser.app"
 hyper - m : open -a Mail.app
 hyper - n : open -a Notes.app
-hyper - z : open -a Firefox.app
+hyper - z : open -a Twilight.app
 
 # adjust rounded corners
 hyper - s : sharpener on -r 1
