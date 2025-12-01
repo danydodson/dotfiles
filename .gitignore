@@ -20,8 +20,9 @@ Icon
 /config/git/secret
 
 # karabiner
-/karabiner/assets
-/karabiner/automatic_backups
+/config/karabiner/assets
+/config/karabiner/other
+/config/karabiner/automatic_backups
 
 # plugins
 /plugs/zsh-completions

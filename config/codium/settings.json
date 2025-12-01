@@ -296,8 +296,8 @@
   "zig.zls.enabled": "on",
   //
   "apc.imports": [
-    "${userHome}/.dotfiles/.config/codium/apc/main.js",
-    "${userHome}/.dotfiles/config/codium/apc/styles.css"
+    "${userHome}/.dotfiles/config/codium/custom/main.js",
+    "${userHome}/.dotfiles/config/codium/custom/styles.css"
   ],
   "apc.electron": {
     "frame": false,
