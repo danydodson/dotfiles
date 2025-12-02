@@ -6,7 +6,7 @@ dmp=~/Library/LaunchAgents/dots.mozilla.plist
 sudo chown "$(whoami)" "$dmp"
 sudo chmod 644 "$dmp"
 launchctl bootout gui/$UID "$dmp" 2>/dev/null
-aunchctl bootstrap gui/$UID "$dmp"
+launchctl bootstrap gui/$UID "$dmp"
 
 lmf=/Library/LaunchDaemons/limit.maxfiles.plist
 sudo chown root:wheel "$mf"

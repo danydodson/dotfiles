@@ -72,15 +72,15 @@
                     "rateUpload": 88,
                     "percentDone": 72,
                     "name": 375,
-                    "peersGettingFromUs": 132,
+                    "peersGettingFromUs": 165,
                     "addedDate": 201,
                     "peersSendingToUs": 108,
                     "uploadRatio": 122,
                     "totalSize": 144,
                     "secondsSeeding": 164,
                     "haveValid": 150,
-                    "status": 133,
-                    "eta": 125,
+                    "status": 105,
+                    "eta": 116,
                     "bandwidthPriority": 205,
                     "queuePosition": 159
                 },
@@ -296,13 +296,7 @@
             "https://tracker1.520.jp:443/announce"
         ],
         "styleOverrides": {
-            "dark": {
-                "backgroundColor": {
-                    "color": "dark",
-                    "shade": 8,
-                    "computed": "#0000"
-                }
-            },
+            "dark": {},
             "light": {}
         },
         "animatedProgressbars": true,
