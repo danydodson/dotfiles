@@ -511,4 +511,5 @@
   "markdown-preview-enhanced.enablePreviewZenMode": true,
   "markdown-preview-enhanced.alwaysShowBacklinksInPreview": false,
   "workbench.statusBar.visible": false,
+  "markdown-preview-enhanced.revealjsTheme": "night.css",
 }

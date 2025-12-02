@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+# ================= // mkcd //
+# 
+# Create directories and "cd" into the last one (when sourced).
+# When executed as a normal script, it prints the target directory so you can:
+#   cd "$(mkcd path/to/dir)"
+# Supports multiple arguments; the last argument becomes the target dir
+# 
+# usage:
+# > mkcd [path/to/dir]
+# 
+# --------------------------------------------------------
+
+set -Eeuo pipefail
+trap 'echo "mkcd: error on line $LINENO" >&2' ERR
+
+usage() {
+  echo "Usage: mkcd <dir> [more_dirs...]"
+  echo "Creates all listed directories (mkdir -p) and targets the last one."
+  echo
+  echo "As a script:"
+  echo "  cd \"\$(mkcd path/to/dir)\""
+  echo
+  echo "When sourced (e.g., in your shell):"
+  echo "  source /path/to/mkcd; mkcd path/to/dir"
+}
+
+if [[ $# -eq 0 ]] || [[ "${1:-}" == "-h" ]] || [[ "${1:-}" == "--help" ]]; then
+  usage
+  # If sourced, return; else exit
+  if [[ "${BASH_SOURCE[0]}" != "$0" ]]; then
+    return 0
+  else
+    exit 0
+  fi
+fi
+
+# Create all provided directories safely
+mkdir -p -- "$@"
+
+# The last argument is the target directory
+target="${!#}"
+
+# If the script is sourced (so it can affect the current shell), cd into it
+if [[ "${BASH_SOURCE[0]}" != "$0" ]]; then
+  cd -- "$target"
+  return 0
+fi
+
+# Otherwise, print the target so callers can: cd "$(mkcd path)"
+printf '%s\n' "$target"

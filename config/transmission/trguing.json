@@ -261,8 +261,8 @@
         "showFilesSearchBox": false,
         "flatFileTree": false,
         "mainSplit": "horizontal",
-        "skipAddDialog": false,
-        "deleteTorrentData": "default off",
+        "skipAddDialog": true,
+        "deleteTorrentData": "default on",
         "deleteTorrentDataSelection": true,
         "numLastSaveDirs": 20,
         "sortLastSaveDirs": false,
@@ -296,7 +296,13 @@
             "https://tracker1.520.jp:443/announce"
         ],
         "styleOverrides": {
-            "dark": {},
+            "dark": {
+                "backgroundColor": {
+                    "color": "dark",
+                    "shade": 8,
+                    "computed": "#0000"
+                }
+            },
             "light": {}
         },
         "animatedProgressbars": true,

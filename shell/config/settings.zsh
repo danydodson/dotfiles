@@ -14,10 +14,6 @@ export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE
 export HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zsh_history"
 
-# vim
-bindkey -v
-export KEYTIMEOUT=1
-
 # Options
 setopt hist_ignore_space hist_reduce_blanks hist_verify extended_history
 setopt inc_append_history hist_ignore_dups hist_expire_dups_first
@@ -83,6 +79,10 @@ then
     zcompile "$zcompdump"
 fi
 
+# vim
+bindkey -v
+export KEYTIMEOUT=1
+
 # ctrl+p runs tms script
 bindkey -s '^p' "tms\n"
 
@@ -103,66 +103,31 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
 # Change cursor for diff modes
-function zle_keymap_select () {
+function zle-keymap-select () {
   case $KEYMAP in
     vicmd) echo -ne '\e[1 q';;
     viins|main) echo -ne '\e[5 q';;
   esac
 }
-zle -N zle_keymap_select
-
-zle_line_init() { 
+zle -N zle-keymap-select
+zle-line-init() { 
   echo -ne "\e[5 q" 
 }
-zle -N zle_line_init
+zle -N zle-line-init
 echo -ne '\e[5 q'
 preexec() { echo -ne '\e[5 q' ;}
 
-# Clear back buffer
+# Clear shell and source zshrc
 function clear_shell() {
   printf '\e[3J\e[H\e[2J'
   source "$HOME/.zshrc"
 }
-alias c='clear_shell'
 zle -N clear_shell
 bindkey -M viins '^L' clear_shell
 bindkey -M vicmd '^L' clear_shell
+alias c='clear_shell'
 
-# Force ctrl+D to close shell
-exit_zsh() { 
-  exit 
-}
-zle -N exit_zsh
-bindkey '^D' exit_zsh
-
-# Create and change into a new directory
-mkcd() {
-  mkdir -p $@ && cd ${@:$#}
-}
-
-# Switch dirs with ctrl+O
-lfcd () {
-  tmp="$(mktemp -uq)"
-  trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT HUP INT QUIT TERM PWR EXIT'
-  lf -last-dir-path="$tmp" "$@"
-  if [ -f "$tmp" ]; then
-    dir="$(cat "$tmp")"
-    [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-  fi
-}
-bindkey -s '^o' '^ulfcd\n'
-bindkey -s '^a' '^ubc -lq\n'
-bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'
-bindkey '^[[P' delete-char
-
-# Open editor with ctrl+e
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
-bindkey -M vicmd '^[[P' vi-delete-char
-bindkey -M vicmd '^e' edit-command-line
-bindkey -M visual '^[[P' vi-delete
-
-# Yazi file manager
+# Yazi directory picker
 y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   yazi "$@" --cwd-file="$tmp"
@@ -171,4 +136,3 @@ y() {
   fi
   rm -f -- "$tmp"
 }
-
