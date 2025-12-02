@@ -29,7 +29,6 @@ module.exports = {
   //
   // This value is set to `undefined` by default to listen on all interfaces.
   host: "127.0.0.1",
-  // host: "https://localhost:8443/irc/",
 
 
 
@@ -129,7 +128,7 @@ module.exports = {
   // from URLs posted in channels and private messages.
   //
   // This value is set to `false` by default.
-  prefetch: false,
+  prefetch: true,
 
 
 
@@ -144,7 +143,7 @@ module.exports = {
   // This has no effect if `prefetch` is set to `false`.
   //
   // This value is set to `false` by default.
-  // disableMediaPreview: false,
+  disableMediaPreview: false,
 
 
 
@@ -261,7 +260,7 @@ module.exports = {
   //
   // This value is set to `"The Lounge - https://thelounge.chat"` by
   // default.
-  leaveMessage: "peace -",
+  leaveMessage: "dumpsterbaby.lol",
 
 
 
@@ -304,9 +303,10 @@ module.exports = {
     tls: true,
     rejectUnauthorized: true,
     nick: "spatch",
-    username: "spatch",
-    realname: "spatch",
-    join: "#thelounge"
+    username: "stache",
+    realname: "dude",
+    leaveMessage: "dumpsterbaby.lol",
+    join: ""
   },
 
 
@@ -355,11 +355,11 @@ module.exports = {
   //   - `statusOnly`: Only delete message types which are status related (e.g. away, back, join, parts, mode, ctcp...)
   //     but keep actual messages from nicks. This keeps the DB size down while retaining "precious" messages.
   //   - `everything`: Delete everything, including messages from irc nicks
-  // storagePolicy: {
-  //   enabled: false,
-  //   maxAgeDays: 7,
-  //   deletionPolicy: "statusOnly",
-  // },
+  storagePolicy: {
+    enabled: false,
+    maxAgeDays: 7,
+    deletionPolicy: "statusOnly",
+  },
 
 
 
@@ -374,7 +374,7 @@ module.exports = {
   // IPv4.
   //
   // This value is set to `false` by default.
-  useHexIp: false,
+  useHexIp: true,
 
 
 
