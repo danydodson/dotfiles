@@ -145,6 +145,7 @@ syn keyword ghosttyConfigKeyword
 	\ macos-titlebar-proxy-icon
 	\ macos-option-as-alt
 	\ macos-window-shadow
+  \ macos-window-buttons
 	\ macos-auto-secure-input
 	\ macos-secure-input-indication
 	\ macos-icon

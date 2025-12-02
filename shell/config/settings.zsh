@@ -103,35 +103,35 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
 # Change cursor for diff modes
-function zle-keymap-select () {
-    case $KEYMAP in
-        vicmd) echo -ne '\e[1 q';;
-        viins|main) echo -ne '\e[5 q';;
-    esac
+function zle_keymap_select () {
+  case $KEYMAP in
+    vicmd) echo -ne '\e[1 q';;
+    viins|main) echo -ne '\e[5 q';;
+  esac
 }
-zle -N zle-keymap-select
+zle -N zle_keymap_select
 
-zle-line-init() {
-    echo -ne "\e[5 q"
+zle_line_init() { 
+  echo -ne "\e[5 q" 
 }
-zle -N zle-line-init
+zle -N zle_line_init
 echo -ne '\e[5 q'
 preexec() { echo -ne '\e[5 q' ;}
 
 # Clear back buffer
-function reexec_shell() {
-    printf '\x1Bc'
-    clear
-    source "$HOME/.zshrc"
+function clear_shell() {
+  printf '\e[3J\e[H\e[2J'
+  source "$HOME/.zshrc"
 }
-alias c='reexec_shell'
-zle -N reexec_shell
-bindkey -M emacs '^K' reexec_shell
-bindkey -M vicmd '^K' reexec_shell
-bindkey '^[s' reexec_shell
+alias c='clear_shell'
+zle -N clear_shell
+bindkey -M viins '^L' clear_shell
+bindkey -M vicmd '^L' clear_shell
 
 # Force ctrl+D to close shell
-exit_zsh() { exit }
+exit_zsh() { 
+  exit 
+}
 zle -N exit_zsh
 bindkey '^D' exit_zsh
 
@@ -142,13 +142,13 @@ mkcd() {
 
 # Switch dirs with ctrl+O
 lfcd () {
-    tmp="$(mktemp -uq)"
-    trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT HUP INT QUIT TERM PWR EXIT'
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
+  tmp="$(mktemp -uq)"
+  trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT HUP INT QUIT TERM PWR EXIT'
+  lf -last-dir-path="$tmp" "$@"
+  if [ -f "$tmp" ]; then
+    dir="$(cat "$tmp")"
+    [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+  fi
 }
 bindkey -s '^o' '^ulfcd\n'
 bindkey -s '^a' '^ubc -lq\n'
@@ -161,7 +161,6 @@ bindkey '^e' edit-command-line
 bindkey -M vicmd '^[[P' vi-delete-char
 bindkey -M vicmd '^e' edit-command-line
 bindkey -M visual '^[[P' vi-delete
-
 
 # Yazi file manager
 y() {

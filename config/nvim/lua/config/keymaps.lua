@@ -52,12 +52,6 @@ map('v', '<S-k>', ":m '<-2<cr>gv=gv", { desc = 'move up' })
 map('n', '<leader>bn', '<cmd>enew<cr>', { desc = 'new buffer' })
 map('n', '<leader>bd', '<cmd>bd %<cr>', { desc = 'delete buffer' })
 
--- window controls
--- map('n', '<C-i>', require('smart-splits').resize_up, { noremap = true, desc = 'resize split up' })
--- map('n', '<C-u>', require('smart-splits').resize_down, { noremap = true, desc = 'resize split down' })
--- map('n', '<C-n>', require('smart-splits').resize_left, { noremap = true, desc = 'resize split left' })
--- map('n', '<C-m>', require('smart-splits').resize_right, { noremap = true, desc = 'resize split right' })
-
 -- tab life
 map('n', '<leader><tab><tab>', '<cmd>tabnew<cr>', { desc = 'new tab' })
 map('n', '<leader><tab>x', '<cmd>tabclose<cr>', { desc = 'close tab' })
