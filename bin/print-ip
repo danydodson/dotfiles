@@ -1,0 +1,58 @@
+#!/bin/bash
+
+# Prints my ip addresses
+
+# usage:
+# > ip <local | ipv4 | ipv6 | all>
+
+. "$HOME/.dotfiles/bin/reports"
+
+BIN_NAME=$(basename "$0")
+COMMAND_NAME=${1:-all}
+SUB_COMMAND_NAME=$2
+
+sub_help() {
+  command "Usage: $BIN_NAME <command>"
+  echo
+  green "Commands:"
+  echo "   local           Displays local ip address"
+  echo "   ipv4            Displays ipv4 address"
+  echo "   ipv6            Displays ipv6 address"
+  echo "   all             Displays all ip addresses"
+}
+
+print_local_ip() {
+  ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print $2}'
+}
+
+print_public_ipv4() {
+  dig -4 @resolver1.opendns.com myip.opendns.com A +short
+}
+
+print_public_ipv6() {
+  dig -6 @resolver1.opendns.com myip.opendns.com AAAA +short
+}
+
+case "$COMMAND_NAME" in
+help | --help | -h)
+  sub_help
+  ;;
+local)
+  print_local_ip
+  ;;
+ipv4)
+  print_public_ipv4
+  ;;
+ipv6)
+  print_public_ipv6
+  ;;
+all)
+  print_local_ip
+  print_public_ipv4
+  print_public_ipv6
+  ;;
+*)
+  sub_help
+  exit 1
+  ;;
+esac

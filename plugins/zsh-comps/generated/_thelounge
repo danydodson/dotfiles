@@ -1,0 +1,14 @@
+#compdef thelounge
+
+# zsh completions for 'thelounge'
+# automatically generated with https://github.com/danydodson/zsh-completions/generator
+local arguments
+
+arguments=(
+  {-v,--version}'[output the version number]'
+  {-c,--config}'[value>  override entries of the configuration file, must be]'
+  {-h,--help}'[display help for command]'
+  '*:filename:_files'
+)
+
+_arguments -s $arguments

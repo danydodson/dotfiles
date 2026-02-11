@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# ================= // Ascii Art //
+#
+# Description:
+#   Template for creating ascii art
+#
+# Usage:
+#   - Replace the space between EOF's with art
+#
+# --------------------------------------------------------
+
+echo -e "\033[34m"
+cat <<"EOF"
+### ART
+### HERE
+EOF
+echo -e "\033[0m"

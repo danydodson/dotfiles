@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# ================= // yt //
+# USAGE:
+#   yt [url]
+#
+# The script :
+#   Downloads the embedded video on any web page
+# -----------------------------------------------------------------------------
+
+cd ~/Downloads && yt-dlp --config-location "$HOME/.dotfiles/config/yt-dlp/yt-dlp.conf" "$1"

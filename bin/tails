@@ -1,0 +1,18 @@
+#!/bin/bash
+
+function watch_log() {
+  case "$1" in
+    nginx-access)
+      tail -f /opt/homebrew/var/log/nginx/access.log
+      ;;
+    nginx-error)
+      tail -f /opt/homebrew/var/log/nginx/error.log
+      ;;
+    *)
+      echo "Usage: $0 {nginx-access|nginx-error|sketchybar-out|sketchybar-err|borders-out|borders-err}"
+      ;;
+  esac
+}
+
+watch_log "$1"
+

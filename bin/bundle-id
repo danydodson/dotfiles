@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Get the Bundle ID of a macOS app
+
+ID=$(osascript -e 'id of app "'"$1"'"')
+
+if [ ! -z $ID ]; then
+  echo $ID | tr -d '[:space:]' | pbcopy
+  echo "$ID (copied to clipboard)"
+fi

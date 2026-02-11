@@ -1,0 +1,143 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean:
+    ~/:
+      force: true
+    ~/.config:
+      recursive: true
+
+- link:
+    ~/.zshrc:
+      relink: true
+      force: true
+      path: shell/zsh/zshrc
+    ~/.zlogin:
+      relink: true
+      force: true
+      path: shell/zsh/zlogin
+    ~/.zprofile:
+      relink: true
+      force: true
+      path: shell/zsh/zprofile
+    ~/.zshenv:
+      relink: true
+      force: true
+      path: shell/zsh/zshenv
+
+    ~/.ssh/config:
+      create: true
+      force: true
+      relink: true
+      path: config/ssh/config
+
+    ~/.config/:
+      glob: true
+      relink: true
+      path: config/*
+      exclude:
+        [
+          config/codium,
+          config/continue,
+          config/gnupg,
+          config/iina,
+          config/lscolors,
+          config/ssh,
+          config/transmission,
+          config/twilight,
+          config/yt-dlp,
+          config/zen,
+        ]
+
+    ~/.gnupg/gpg.conf:
+      create: true
+      force: true
+      relink: true
+      path: config/gnupg/gpg.conf
+    ~/.gnupg/gpg-agent.conf:
+      create: true
+      force: true
+      relink: true
+      path: config/gnupg/gpg-agent.conf
+
+    /opt/homebrew/var/transmission/settings.json:
+      create: true
+      relink: true
+      path: config/transmission/settings.json
+
+    /Applications/codium-portable-data/user-data/User/settings.json:
+      create: true
+      glob: true
+      relink: true
+      force: true
+      path: config/codium/settings.json
+    /Applications/codium-portable-data/user-data/User/keybindings.json:
+      create: true
+      glob: true
+      relink: true
+      force: true
+      path: config/codium/keybindings.json
+    /Applications/codium-portable-data/user-data/User/snippets:
+      create: true
+      glob: true
+      relink: true
+      force: true
+      path: config/codium/snippets/*
+
+    ~/Library/Application Support/zen/Profiles/gvp0vqa7.Default/:
+      create: true
+      glob: true
+      relink: true
+      path: config/zen/*
+
+    ~/.continue/config.yaml:
+      create: true
+      glob: true
+      relink: true
+      force: true
+      path: config/continue/config.yaml
+    ~/.continue/prompts/:
+      create: true
+      glob: true
+      relink: true
+      path: config/continue/prompts/*
+    ~/.continue/rules/:
+      create: true
+      glob: true
+      relink: true
+      path: config/continue/rules/*
+
+- create:
+    - ~/.cache/zsh
+    - ~/Developer/plugins
+    - ~/Developer/repos
+    - ~/Developer/served
+
+# - git:
+#     ~/.dotfiles/plugins/pure:
+#       url: "https://github.com/sindresorhus/pure.git"
+#       description: "zsh theme pure"
+#     ~/.dotfiles/plugins/zsh-autosuggestions:
+#       url: "https://github.com/zsh-users/zsh-autosuggestions"
+#       description: "zsh autosuggestions"
+#     ~/.dotfiles/plugins/zsh-completions:
+#       url: "https://github.com/danydodson/zsh-completions"
+#       description: "zsh completions"
+#     ~/.dotfiles/plugins/zsh-syntax:
+#       url: "https://github.com/zdharma-continuum/fast-syntax-highlighting"
+#       description: "zsh syntax highlighting"
+#     ~/.dotfiles/plugins/zsh-history:
+#       url: "https://github.com/zsh-users/zsh-history-substring-search"
+#       description: "zsh history substring search"
+
+- shell:
+    - description: update submodules
+      command: git submodule update --init --recursive
+
+    - description: sync dotbot
+      command: git submodule sync --recursive
+
+    - description: create hushlogin
+      command: touch ~/.hushlogin

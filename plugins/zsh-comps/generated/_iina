@@ -1,0 +1,18 @@
+#compdef iina
+
+# zsh completions for 'iina'
+# automatically generated with https://github.com/danydodson/zsh-completion-generator
+local arguments
+
+arguments=(
+  '--mpv-[*:]'
+  {--separate-windows,-w}'[:]'
+  {--stdin,--no-stdin}'[:]'
+  '--keep-running[:]'
+  '--music-mode[:]'
+  '--pip[:]'
+  {--help,-h}'[:]'
+  '*:filename:_files'
+)
+
+_arguments -s $arguments

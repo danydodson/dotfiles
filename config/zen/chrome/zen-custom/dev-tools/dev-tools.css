@@ -1,0 +1,12 @@
+/* dev-tools.css */
+
+/* Disable word wrap in DevTools text areas/panels */
+#devtools-content .CodeMirror-line {
+  white-space: nowrap !important;
+}
+
+/* You may need to add more specific selectors. */
+/* For example, for the console input:  */
+#devtools-content .console-input-textarea {
+  white-space: nowrap !important;
+}

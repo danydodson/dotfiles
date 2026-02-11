@@ -1,0 +1,13 @@
+#compdef ollama
+
+# zsh completions for 'ollama'
+# automatically generated with https://github.com/danydodson/zsh-completions/generator
+local arguments
+
+arguments=(
+  {-h,--help}'[help for ollama]'
+  {-v,--version}'[show version information]'
+  '*:filename:_files'
+)
+
+_arguments -s $arguments

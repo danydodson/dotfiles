@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+# =================== // Spinner Pack //
+#
+# Description:
+#   Custom Spinner Module To Source
+#
+# USAGE:
+#   - At the top of your test suite or any script:
+#     source ./spinners.sh
+# 
+#   - Then, for long-running blocks:
+#     (sleep 2) &  # Example long task
+#     show_braille_progress $! "Validating YTDLC system"
+#
+# -----------------------------------------------------------------------------
+
+# Bubble Dots
+show_bubble_progress() {
+  local pid=$1 label=$2
+  local frames=("●○○○○○○○○○" "○●○○○○○○○○" "○○●○○○○○○○" "○○○●○○○○○○" "○○○○●○○○○○"
+    "○○○○○●○○○○" "○○○○○○●○○○" "○○○○○○○●○○" "○○○○○○○○●○" "○○○○○○○○○●")
+  local i=0
+
+  tput civis
+  while ps -p "$pid" >/dev/null 2>&1; do
+    printf "\r$(tput setaf 4)●  %s %s$(tput sgr0)" "$label" "${frames[i]}"
+    sleep 0.15
+    i=$(((i + 1) % ${#frames[@]}))
+  done
+  printf "\r$(tput setaf 2)✔️  %s complete$(tput sgr0)%*s\n" "$label" 10 ""
+  tput cnorm
+}
+
+# Braille Smooth
+show_braille_progress() {
+  local pid=$1 label=$2
+  local frames=("⠋" "⠙" "⠸" "⠼" "⠴" "⠦" "⠧" "⠇" "⠏")
+  local i=0
+
+  tput civis
+  while ps -p "$pid" >/dev/null 2>&1; do
+    printf "\r$(tput setaf 6)⠶  %s %s$(tput sgr0)" "$label" "${frames[i]}"
+    sleep 0.1
+    i=$(((i + 1) % ${#frames[@]}))
+  done
+  printf "\r$(tput setaf 2)✔️  %s complete$(tput sgr0)%*s\n" "$label" 10 ""
+  tput cnorm
+}
+
+# Arc Bounce
+show_arc_progress() {
+  local pid=$1 label=$2
+  local frames=("◜" "◠" "◝" "◞" "◡" "◟")
+  local i=0
+
+  tput civis
+  while ps -p "$pid" >/dev/null 2>&1; do
+    printf "\r$(tput setaf 5)↻  %s %s$(tput sgr0)" "$label" "${frames[i]}"
+    sleep 0.2
+    i=$(((i + 1) % ${#frames[@]}))
+  done
+  printf "\r$(tput setaf 2)✔️  %s complete$(tput sgr0)%*s\n" "$label" 10 ""
+  tput cnorm
+}

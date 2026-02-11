@@ -1,0 +1,13 @@
+"$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
+
+[mgr]
+prepend_keymap = [
+  { on = [ "<Esc>" ], run = "close", desc = "Cancel input" },
+  { on = [ "!" ], run = 'shell "$SHELL" --block', desc = "Open shell here" },
+  { on = [ "<Tab>" ], run = "spot", desc = "Spot hovered file" },
+  { on = [ "<C-p>" ], run = 'shell "qlmanage -p "$@"" ', desc = "Open file in quicklook" },
+  { on = [ "c", "m" ], run = "plugin chmod", desc = "chmod selected files" },
+  { on = [ "<C-e>" ], run = "seek 5", desc = "Scroll down glow preview" },
+  { on = [ "<C-y>" ], run = "seek -5", desc = "Scroll up glow preview" },
+  { on = [ "<C-t>" ], run = "plugin sudo-demo", desc = "sudo selected files" },
+]

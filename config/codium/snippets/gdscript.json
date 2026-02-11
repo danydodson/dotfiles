@@ -1,0 +1,45 @@
+{
+	"cn": {
+		"prefix": "cn",
+		"body": [
+			"class_name ${1:SomeClass}"
+		],
+		"description": "Class Name"
+	},
+	"_ready": {
+		"prefix": "_ready",
+		"body": [
+			"func _ready() -> void:",
+			"\t${1:pass}"
+		],
+		"description": "Ready"
+	},
+	"_process": {
+		"prefix": "_process",
+		"body": [
+			"func _process(_delta: float) -> void:",
+			"\t${1:pass}"
+		],
+		"description": "Process"
+	},
+	"_physics_process": {
+		"prefix": "_physics_process",
+		"body": [
+			"func _physics_process(_delta: float) -> void:",
+			"\t${1:pass}"
+		],
+		"description": "Physics Process"
+	},
+	"weakref": {
+		"prefix": "var _target: WeakRef",
+		"body": [
+			"var _${1:target}: WeakRef",
+			"var ${1:target}: ${2:Node2D}:",
+			"\tget:",
+			"\t\treturn _${1:target}.get_ref() if _${1:target} else null",
+			"\tset(value):",
+			"\t\t_${1:target} = weakref(value)"
+		],
+		"description": "WeakRef"
+	}
+}

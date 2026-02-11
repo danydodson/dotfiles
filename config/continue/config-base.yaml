@@ -1,0 +1,190 @@
+name: Local Config
+version: 1.0.0
+schema: v1
+models:
+  - name: OpenAI GPT-4.1
+    provider: openai
+    model: gpt-4.1-2025-04-14
+    apiKey: <key>
+    roles:
+      - chat
+      - edit
+      - apply
+    capabilities:
+      - tool_use
+    defaultCompletionOptions:
+      contextLength: 1047576
+      maxTokens: 32768
+    useLegacyCompletionsEndpoint: false
+  - name: OpenAI GPT-4.1-mini
+    provider: openai
+    model: gpt-4.1-mini
+    apiKey: <key>
+    roles:
+      - chat
+      - edit
+      - apply
+    capabilities:
+      - tool_use
+    defaultCompletionOptions:
+      contextLength: 1047576
+      maxTokens: 32768
+    useLegacyCompletionsEndpoint: false
+  - name: GPT-5
+    provider: openai
+    model: gpt-5
+    apiKey: <key>
+    roles:
+      - chat
+      - edit
+      - apply
+    capabilities:
+      - tool_use
+    defaultCompletionOptions:
+      contextLength: 400000
+      maxTokens: 128000
+  - name: Claude 4 Sonnet
+    provider: anthropic
+    model: claude-sonnet-4-20250514
+    apiKey: <key>
+    roles:
+      - chat
+      - edit
+      - apply
+    defaultCompletionOptions:
+      contextLength: 200000
+      maxTokens: 64000
+    capabilities:
+      - tool_use
+      - image_input
+  - name: Grok Code Fast 1
+    provider: xAI
+    model: grok-code-fast-1
+    defaultCompletionOptions:
+      contextLength: 256000
+      maxTokens: 10000
+    apiKey: <key>
+    roles:
+      - chat
+      - edit
+      - apply
+  - name: Grok 4
+    provider: xAI
+    model: grok-4
+    defaultCompletionOptions:
+      contextLength: 256000
+    apiKey: <key>
+    roles:
+      - chat
+      - edit
+      - apply
+    capabilities:
+      - tool_use
+  - name: DeepSeek-V3
+    provider: deepseek
+    model: deepseek-chat
+    apiKey: <key>
+    roles:
+      - chat
+      - edit
+      - apply
+  - name: Codestral
+    provider: mistral
+    model: codestral-latest
+    apiKey: <key>
+    roles:
+      - autocomplete
+      - chat
+      - edit
+      - apply
+    defaultCompletionOptions:
+      contextLength: 256000
+  - name: Mercury Coder
+    provider: inception
+    model: mercury-coder
+    apiKey: <key>
+    roles:
+      - chat
+      - autocomplete
+      - edit
+      - apply
+    capabilities:
+      - next_edit
+    defaultCompletionOptions:
+      temperature: 0
+      stop:
+        - <|endoftext|>
+        - <|/code_to_edit|>
+    promptTemplates:
+      apply: |-
+        <|original_code|>
+        {{{ original_code }}}
+        <|/original_code|>
+
+        <|update_snippet|>
+        {{{ new_code }}}
+        <|/update_snippet|>
+  - name: Voyage AI rerank-2.5
+    provider: voyage
+    model: rerank-2.5
+    apiKey: <key>
+    roles:
+      - rerank
+  - name: voyage-code-3
+    provider: voyage
+    model: voyage-code-3
+    apiKey: <key>
+    roles:
+      - embed
+  - uses: anthropic/claude-sonnet-4-5
+    with:
+      ANTHROPIC_API_KEY: <key>
+context:
+  - provider: diff
+  - provider: file
+  - provider: code
+  - provider: repo-map
+  - provider: clipboard
+  - provider: folder
+  - provider: codebase
+  - provider: web
+    params:
+      n: 5
+  - provider: tree
+  - provider: problems
+  - provider: debugger
+    params:
+      stackDepth: 3
+  - provider: os
+mcpServers:
+  - name: MCP Docker
+    command: docker
+    args: ["mcp", "gateway", "run"]
+  - name: Context7 MCP
+    type: streamable-http
+    url: https://mcp.context7.com/mcp
+  - name: Continue Docs MCP
+    url: https://docs.continue.dev/mcp
+  - name: DeepWiki MCP
+    url: https://mcp.deepwiki.com/mcp
+  - name: Chrome DevTools MCP
+    command: npx
+    args: ["-y", "chrome-devtools-mcp@latest"]
+  # - name: Discord MCP
+  #   command: docker
+  #   args: ["mcp", "gateway", "run"]
+  #   env:
+  #     {
+  #       HOME: "/Users/stache",
+  #       DISCORD_TOKEN: <key>
+  #     }
+  # - name: GitHub Official
+  #   command: docker
+  #   args: ["run", "-i", "--rm", "-e", "GITHUB_PERSONAL_ACCESS_TOKEN", "ghcr.io/github/github-mcp-server"]
+  #   env: {GITHUB_PERSONAL_ACCESS_TOKEN: "<key>"}
+  # - name: MCP_DOCKER
+  #   command: docker
+  #   args:
+  #     - mcp
+  #     - gateway
+  #     - run

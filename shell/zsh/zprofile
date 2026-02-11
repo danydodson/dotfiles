@@ -1,0 +1,56 @@
+#!/usr/bin/env zsh
+
+# system executables -> path
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/libexec:$PATH"
+
+# local system binaries -> path
+export PATH="/usr/local/bin:/usr/local/MacGPG2/libexec:$PATH"
+
+# dotfiles bin -> path
+export PATH="$DOTFILES/bin:$PATH"
+
+# go root -> path
+export PATH="$PATH:$GO_PATH/bin"
+export PATH="$GOROOT/bin:$PATH"
+
+# go bin -> path
+export PATH="$PATH:$HOME/.config/go/bin"
+
+# miniconda -> path
+export PATH="/opt/miniconda3/bin:$PATH"
+
+# java -> path
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+# curl
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+
+# homebrew sbin
+export PATH="/opt/homebrew/sbin:$PATH"
+
+# 010 Editor
+export PATH="$PATH:/Applications/010 Editor.app/Contents/CmdLine"
+
+# macos paths -> path
+for path_file in /etc/paths.d/*(.N); do
+  path+=($(<$path_file))
+done
+unset path_file
+
+# docker -> fpath
+export FPATH="$HOME/.docker/completions:$FPATH"
+
+# Start homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Remove paths
+path=(${path:#"/usr/local/sbin"})
+path=(${path:#"/Users/dany/.config/miniconda3/bin"})
+path=(${path:#"/Users/stache/.config/miniconda3/bin"})
+path=(${path:#"/Users/stache/.config/miniconda3/condabin"})
+
+# clear duplicates
+typeset -gU fpath path manpath
+
+# set the path for macos
+[[ -x /bin/launchctl ]] && /bin/launchctl setenv PATH $PATH

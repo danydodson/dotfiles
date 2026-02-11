@@ -1,0 +1,188 @@
+#!/usr/bin/env bash
+
+# ================= // ssh-audit //
+# 
+# Description: 
+#   Securely aligns SSH between any client and any host
+#   See $DOTFILES/docs/ssh-audit.md
+# 
+# USAGE:
+#   bash ssh_audit.sh --mode enforce
+#   (script will prompt for host(s), user, and GitHub username if not supplied)
+# 
+# -----------------------------------------------------------------------------
+
+set -Eeuo pipefail
+export LC_ALL=C
+
+# ================== Defaults (prompted if unset) ==================
+DEFAULT_MODE="enforce"   # enforce | report | strict
+DEFAULT_FORWARDING="no"
+DEFAULT_X11="no"
+DEFAULT_ALLOWUSERS="yes"
+
+SSH_DIR="$HOME/.ssh"
+SOCK_DIR="$SSH_DIR/sockets"
+BASE_DIR="$HOME/.ssh_align"
+LOG_DIR="$BASE_DIR/logs"
+REP_DIR="$BASE_DIR/reports"
+CONF="$SSH_DIR/config"
+KNOWN="$SSH_DIR/known_hosts"
+
+# ================== UX helpers ==================
+say() { printf "%s\n" "$*"; }
+ok() { printf "[OK] %s\n" "$*"; }
+fail() { printf "[!!] %s\n" "$*" >&2; exit 1; }
+ts() { date +"%Y-%m-%d %H:%M:%S"; }
+
+# ================== Prompt missing fields ==================
+read_val() {
+  local var="$1" prompt="$2" default="${3:-}"
+  local val="${!var:-}"
+  if [[ -z "$val" ]]; then
+    read -rp "$prompt${default:+ [$default]}: " val
+    val="${val:-$default}"
+    eval "$var=\"\$val\""
+  fi
+}
+
+# ================== Interactive defaults ==================
+read_val HOSTS "Enter host(s) (space-separated)" ""
+read_val USER "Enter remote username" ""
+read_val GITHUB_USER "Enter GitHub username for key import" ""
+read_val MODE "Select mode (enforce/report/strict)" "$DEFAULT_MODE"
+
+ALLOW_FORWARDING="$DEFAULT_FORWARDING"
+ALLOW_X11="$DEFAULT_X11"
+ENFORCE_ALLOWUSERS="$DEFAULT_ALLOWUSERS"
+
+# ================== Preflight ==================
+mkdir -p "$SSH_DIR" "$SOCK_DIR" "$LOG_DIR" "$REP_DIR"
+chmod 700 "$SSH_DIR" "$SOCK_DIR"
+touch "$KNOWN"; chmod 600 "$KNOWN"
+
+# Detect package manager
+pm_install() {
+  if command -v apt-get >/dev/null; then
+    sudo apt-get update -y >/dev/null
+    sudo apt-get install -y openssh-client curl netcat-openbsd >/dev/null
+  elif command -v dnf >/dev/null; then
+    sudo dnf install -y openssh-clients curl nmap-ncat >/dev/null
+  elif command -v pacman >/dev/null; then
+    sudo pacman -Sy --noconfirm openssh curl netcat --needed >/dev/null
+  else
+    fail "No supported package manager found."
+  fi
+}
+
+pm_install
+
+# Ensure keypair exists
+if [[ ! -f "$SSH_DIR/id_ed25519" ]]; then
+  ssh-keygen -t ed25519 -a 100 -f "$SSH_DIR/id_ed25519" -C "$(whoami)@$(hostname -s)" -N "" >/dev/null
+fi
+chmod 600 "$SSH_DIR/id_ed25519"; chmod 644 "$SSH_DIR/id_ed25519.pub"
+
+# ================== Functions ==================
+pin_hostkey() {
+  local host="$1"
+  ssh-keygen -R "$host" >/dev/null 2>&1 || true
+  ssh-keyscan -t ed25519 -T 5 "$host" >>"$KNOWN" 2>/dev/null || fail "ssh-keyscan failed for $host"
+  ssh-keygen -H -f "$KNOWN" >/dev/null || true
+  ssh-keyscan -t ed25519 -T 5 "$host" 2>/dev/null | ssh-keygen -lf - | awk '{print $2}'
+}
+
+merge_keys() {
+  local tmp
+  tmp="$(mktemp)"
+  curl -fsSL "https://github.com/${GITHUB_USER}.keys" | awk 'NF' >>"$tmp" || true
+  sort -u "$tmp"
+  rm -f "$tmp"
+}
+
+remote_enforce() {
+  local target="$1"
+  local tmp; tmp="$(mktemp)"
+  merge_keys >"$tmp"
+  scp -q "$tmp" "$target:~/authorized_keys.tmp"
+  rm -f "$tmp"
+
+  ssh "$target" \
+    ALLOW_FORWARDING="$ALLOW_FORWARDING" \
+    ALLOW_X11="$ALLOW_X11" \
+    ENFORCE_ALLOWUSERS="$ENFORCE_ALLOWUSERS" \
+    USER_REMOTE="$USER" bash -se <<'EOF'
+set -euo pipefail
+CFG="/etc/ssh/sshd_config"
+
+sudo mkdir -p ~/.ssh && sudo chmod 700 ~/.ssh
+sudo touch ~/.ssh/authorized_keys && sudo chmod 600 ~/.ssh/authorized_keys
+sudo awk 'NF' ~/.ssh/authorized_keys ~/authorized_keys.tmp | sort -u | sudo tee ~/.ssh/authorized_keys.new >/dev/null
+sudo mv ~/.ssh/authorized_keys.new ~/.ssh/authorized_keys
+sudo rm -f ~/authorized_keys.tmp
+
+update_cfg() {
+  local key="$1" val="$2"
+  sudo sed -i -E "/^[# ]*${key}[[:space:]]/d" "$CFG"
+  echo "${key} ${val}" | sudo tee -a "$CFG" >/dev/null
+}
+
+update_cfg PasswordAuthentication no
+update_cfg KbdInteractiveAuthentication no
+update_cfg PubkeyAuthentication yes
+update_cfg PermitRootLogin no
+update_cfg X11Forwarding "${ALLOW_X11}"
+update_cfg AllowTcpForwarding "${ALLOW_FORWARDING}"
+
+if [ "${ENFORCE_ALLOWUSERS}" = "yes" ]; then
+  sudo sed -i -E '/^[# ]*AllowUsers[[:space:]]/d' "$CFG"
+  echo "AllowUsers ${USER_REMOTE}" | sudo tee -a "$CFG" >/dev/null
+fi
+
+sudo /usr/sbin/sshd -t
+sudo systemctl restart ssh || sudo systemctl restart sshd
+EOF
+}
+
+remote_report() {
+  local target="$1"
+  ssh -o BatchMode=yes -o PasswordAuthentication=no "$target" bash -se <<'EOF'
+set -euo pipefail
+whoami
+sshd -T | grep -E '^(passwordauthentication|pubkeyauthentication|permitrootlogin)'
+EOF
+}
+
+# ================== Main loop ==================
+for host in $HOSTS; do
+  say "[..] Processing host: $host"
+  nc -z "$host" 22 >/dev/null || fail "TCP/22 closed on $host"
+
+  fpr="$(pin_hostkey "$host")"
+  ok "Pinned host ED25519: $fpr"
+
+  target="${USER}@${host}"
+
+  if ssh -o BatchMode=yes -o PasswordAuthentication=no "$target" true 2>/dev/null; then
+    [[ "$MODE" != "report" ]] && say "[..] Hardening sshd on $host" && remote_enforce "$target"
+  else
+    [[ "$MODE" = "report" ]] && fail "Key auth not available."
+    say "[..] Installing keys and hardening on $host"
+    remote_enforce "$target"
+  fi
+
+  out="$(remote_report "$target" || true)"
+  rep="$REP_DIR/${host}_report.md"
+  {
+    echo "# SSH Audit Report — $host"
+    echo "- Timestamp: $(ts)"
+    echo "- Fingerprint: $fpr"
+    echo
+    echo '```'
+    echo "$out"
+    echo '```'
+  } >"$rep"
+  ok "Report written: $rep"
+done
+
+ok "All hosts processed successfully."

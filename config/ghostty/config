@@ -1,0 +1,145 @@
+# shell -----------------------------------------------------------
+
+shell-integration = zsh
+shell-integration-features = no-cursor,sudo,no-title
+
+working-directory = home
+
+scrollback-limit = 100000000
+
+# fonts -----------------------------------------------------------
+
+font-family = "FiraCode Nerd Font Mono"
+font-style = "Retina"
+font-style-italic = "Retina"
+font-style-bold = "Retina"
+font-style-bold-italic = "Retina"
+
+font-size = 15
+
+font-thicken = true
+font-thicken-strength = 0
+font-synthetic-style = false
+
+bold-is-bright = false
+
+adjust-underline-thickness = 20%
+
+# cursor -----------------------------------------------------------
+
+cursor-style = block
+cursor-invert-fg-bg = true
+
+# mouse ------------------------------------------------------------
+
+mouse-hide-while-typing = true
+
+# clipboard --------------------------------------------------------
+
+clipboard-read = allow
+clipboard-write = allow
+
+copy-on-select = clipboard
+
+clipboard-trim-trailing-spaces = true
+
+# window -----------------------------------------------------------
+
+title = " "
+
+window-height = 57
+window-width = 189
+
+window-position-x = 0
+window-position-y = 0
+
+window-padding-x = 6
+
+window-padding-balance = true
+window-padding-color = background
+
+window-save-state = never
+window-new-tab-position = current
+window-padding-y = 2
+
+resize-overlay = after-first
+
+initial-window = true
+confirm-close-surface = false
+quit-after-last-window-closed = true
+
+# macos -------------------------------------------------------------
+
+macos-option-as-alt = true
+macos-window-shadow = true
+macos-window-buttons = hidden
+macos-titlebar-style = hidden
+macos-titlebar-proxy-icon = hidden
+macos-non-native-fullscreen = true
+macos-secure-input-indication = false
+
+# background ---------------------------------------------------------
+
+background-blur = 16
+
+background-opacity = 0.95
+unfocused-split-opacity = 0.95
+
+# keybinds -----------------------------------------------------------
+
+keybind = cmd+k=text:\x0c
+
+keybind = ctrl+u=scroll_page_lines:-2
+keybind = ctrl+i=scroll_page_lines:2
+
+# keybind = ctrl+shift+-=new_split:down
+# keybind = ctrl+shift+|=new_split:right
+
+# keybind = ctrl+k=goto_split:top
+# keybind = ctrl+j=goto_split:bottom
+# keybind = ctrl+l=goto_split:right
+# keybind = ctrl+h=goto_split:left
+
+# keybind = ctrl+shift+k=resize_split:up,10
+# keybind = ctrl+shift+j=resize_split:down,10
+# keybind = ctrl+shift+l=resize_split:right,10
+# keybind = ctrl+shift+h=resize_split:left,10
+
+# update ------------------------------------------------------------
+
+auto-update-channel = tip
+
+# colors -----------------------------------------------------------
+
+palette = 0=#282c34
+palette = 1=#e06c75
+palette = 2=#98c379
+palette = 3=#e5c07b
+palette = 4=#61afef
+palette = 5=#c678dd
+palette = 6=#56b6c2
+palette = 7=#abb2bf
+palette = 8=#3e4451
+palette = 9=#e06c75
+palette = 10=#98c379
+palette = 11=#e5c07b
+palette = 12=#61afef
+palette = 13=#c678dd
+palette = 14=#56b6c2
+palette = 15=#c8ccd4
+palette = 16=#d19a66
+palette = 17=#be5046
+palette = 18=#353b45
+palette = 19=#3e4451
+palette = 20=#565c64
+palette = 21=#b6bdca
+
+background = #1f2328
+foreground = #abb2bf
+
+selection-background = #4f5666
+selection-foreground = #abb2bf
+
+split-divider-color = #2f3138
+
+# vim: ft=ghostty:filetype=ghostty:syntax=ghostty

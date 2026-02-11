@@ -1,0 +1,44 @@
+{
+	"XXX Debug": {
+		"prefix": "xxx",
+		"body": [
+			"console.log(\"XXX \" + $1)"
+		],
+		"description": "Console log debug xxx"
+	},
+	"XXX Debug Stringify": {
+		"prefix": "xxs",
+		"body": [
+			"console.log(\"XXX \" + JSON.stringify($1, null, 2))"
+		],
+		"description": "Console log and JSON.stringify"
+	},
+	"YYY Debug": {
+		"prefix": "yyy",
+		"body": [
+			"console.log(\"YYY \" + $1)"
+		],
+		"description": "Console log debug yyy"
+	},
+	"ZZZ Debug": {
+		"prefix": "zzz",
+		"body": [
+			"console.log(\"ZZZ \" + $1)"
+		],
+		"description": "Console log debug zzz"
+	},
+	"Stringify": {
+		"prefix": "sss",
+		"body": [
+			"<Stringify>{$1}</Stringify>"
+		],
+		"description": "Stringify"
+	},
+	"className": {
+		"prefix": "cn=",
+		"body": [
+			"className=\"$1\"$2"
+		],
+		"description": "Classname"
+	}
+}

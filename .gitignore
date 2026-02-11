@@ -1,0 +1,76 @@
+# os
+.DS_Store
+Icon
+
+# plugins
+/__*
+
+# logs
+*.log
+*.netrwhist
+
+# env
+.env
+
+# continue
+/config/continue/config.yaml
+
+# git
+/config/git/secret
+
+# karabiner
+/config/karabiner/assets
+/config/karabiner/automatic_backups
+
+# opencode
+/config/opencode/node_modules
+/config/opencode/package.json
+/config/opencode/bun.lock
+
+# iina
+/config/iina/com.colliderli.iina.plist
+
+# extras
+/config/neovide_
+/config/neovim_
+
+# thelounge
+/config/thelounge/certificates
+/config/thelounge/logs
+/config/thelounge/packages
+/config/thelounge/users
+/config/thelounge/web
+/config/thelounge/vapid.json
+/config/thelounge/sts-policies.json
+
+# tmux
+/config/tmux/plugins
+
+# vim
+/config/vim/autoload
+/config/vim/plugins
+/config/vim/undodir
+/config/vim/viminfo
+/config/vim/tmux.vim
+
+# weechat
+/config/weechat/*
+
+# wget
+/config/wget/wget-hsts
+
+# twilight
+/config/twilight
+
+# zen
+/config/zen/chrome/not-used
+/config/zen/chrome/themes
+
+# macos
+/macos/brewfile.lock.json
+
+# plugins
+/plugs/zsh-comps
+/plugs/zsh-history
+/plugs/zsh-suggestions
+/plugs/zsh-syntax

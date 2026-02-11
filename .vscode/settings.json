@@ -1,0 +1,27 @@
+{
+  "files.associations": {
+    ".gitignore": "ignore",
+    "install": "shellscript",
+    // 
+    "**/bin/*.py": "python",
+    "**/bin/*": "shellscript",
+    // 
+    "**/shell/**/*": "shellscript",
+    // 
+    "**/config/ghostty/config": "inputrc",
+    "**/config/git/ignore": "ignore",
+    "**/config/git/config": "properties",
+    "**/config/git/secret": "properties",
+    "**/config/lscolors/ls_colors": "dircolors",
+    "**/config/sketchybar/sketchybarrc": "lua",
+    // 
+    "**/macos/agents/agents.sh": "shellscript",
+    "**/macos/agents/*plist": "xml",
+  },
+  "shellcheck.ignorePatterns": {
+    "**/*.zsh": true,
+    "**/bin/*.py": true,
+    "**/config/**/*": true,
+    "**/plugins/**/*": true,
+  }
+}

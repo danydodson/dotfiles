@@ -1,0 +1,108 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    "key": "f2",
+    "command": "workbench.action.toggleActivityBarVisibility"
+  },
+  {
+    "key": "f3",
+    "command": "workbench.action.toggleStatusbarVisibility"
+  },
+  {
+    "key": "f4",
+    "command": "settings.cycle.lineNumbers"
+  },
+  // {
+  //   "key": "f5",
+  //   "command": "settings.cycle."
+  // },
+  {
+    "key": "f6",
+    "command": "settings.cycle.codelens"
+  },
+  {
+    "key": "f7",
+    "command": "settings.cycle.color-highlight-useARGB"
+  },
+  {
+    "key": "f8",
+    "command": "settings.cycle.codelens"
+  },
+  {
+    "key": "f9",
+    "command": "settings.cycle.tabsVisible"
+  },
+  // {
+  //   "key": "f10",
+  //   "command": "settings.cycle."
+  // },
+  // {
+  //   "key": "f11",
+  //   "command": "settings.cycle."
+  // },
+  // {
+  //   "key": "cmd+l",
+  //   "command": "-expandLineSelection",
+  //   "when": "textInputFocus"
+  // },
+  {
+    "key": "cmd+k",
+    "command": "workbench.action.toggleAuxiliaryBar"
+  },
+  {
+    "key": "cmd+w",
+    "command": "-workbench.action.closeWindow",
+    "when": "!editorIsOpen && !multipleEditorGroups"
+  },
+  {
+    "key": "ctrl+space",
+    "command": "continue.forceAutocomplete",
+    "when": "editorTextFocus && !editorHasSelection && !editorReadOnly && !inSnippetMode"
+  },
+  {
+    "key": "alt+cmd+space",
+    "command": "-continue.forceAutocomplete",
+    "when": "editorTextFocus && !editorHasSelection && !editorReadOnly && !inSnippetMode"
+  },
+  // {
+  //   "key": "cmd+w",
+  //   "command": "-workbench.action.terminal.killEditor",
+  //   "when": "terminalEditorFocus && terminalFocus && terminalHasBeenCreated || terminalEditorFocus && terminalFocus && terminalProcessSupported"
+  // },
+  // {
+  //   "key": "cmd+'",
+  //   "command": "continue.newSession"
+  // },
+  // {
+  //   "key": "cmd+k cmd+m",
+  //   "command": "-continue.toggleFullScreen",
+  //   "when": "!terminalFocus"
+  // },
+  // {
+  //   "key": "cmd+'",
+  //   "command": "continue.newSession"
+  // },
+  // {
+  //   "key": "cmd+k cmd+a",
+  //   "command": "-continue.toggleTabAutocompleteEnabled",
+  //   "when": "!terminalFocus"
+  // },
+  // {
+  //   "key": "cmd+l",
+  //   "command": "continue.focusContinueInput"
+  // },
+  // {
+  //   "key": "cmd+l",
+  //   "command": "-continue.focusContinueInput"
+  // },
+  // {
+  //   "key": "cmd+l cmd+o",
+  //   "command": "-extension.liveServer.goOnline",
+  //   "when": "editorTextFocus"
+  // },
+  // {
+  //   "key": "cmd+l cmd+c",
+  //   "command": "-extension.liveServer.goOffline",
+  //   "when": "editorTextFocus"
+  // }
+]

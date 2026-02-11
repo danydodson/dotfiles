@@ -1,0 +1,173 @@
+#!/bin/bash
+
+# Gets macOS software, Homebrew and npm updates and cleans trash and logs.
+
+. "$HOME/.dotfiles/bin/reports"
+
+BIN_NAME=$(basename "$0")
+COMMAND_NAME=$1
+SUB_COMMAND_NAME=$2
+
+sub_help() {
+  command "Usage: $BIN_NAME <command>"
+  echo
+  green "Commands:"
+  echo "   clean            Clean up caches (brew) and empty trash"
+  echo "   dock             Apply macOS Dock settings"
+  echo "   duti             Set default apps for file types (UTI)"
+  echo "   edit             Open dotfiles in IDE ($EDITOR) and Git GUI ($VISUAL_GIT)"
+  echo "   help             This help message"
+  echo "   macos            Apply macOS system defaults"
+  echo "   update           Update packages and pkg managers (macOS, brew, casks, npm, yarn, cargo, pip3, gems)"
+  echo
+  green "Scripts: $BIN_NAME install <scripts>"
+  echo "   codium           Runs codium.sh installer script from dotfiles"
+  echo "   conda            Runs conda.sh installer script from dotfiles"
+  echo "   gh               Runs gh.sh installer script from dotfiles"
+  echo "   go               Runs go.sh installer script from dotfiles"
+  echo "   nvim             Runs nvim.sh installer script from dotfiles"
+  echo "   repos            Runs repos.sh installer script from dotfiles"
+  echo "   ssh              Runs ssh.sh installer script from dotfiles"
+  echo "   tmux             Runs tmux.sh installer script from dotfiles"
+}
+
+function sub_update() {
+  sudo -v
+  info "$ softwareupdate..."
+  sudo softwareupdate -i -a
+
+  info "$ brew update..."
+  brew update --force
+  brew upgrade
+  brew doctor
+  on_finish
+}
+
+sub_edit() {
+  cd "$DOTFILES" && sh -c "nvim ."
+  finish
+}
+
+sub_duti() {
+  "${DOTFILES}/macos/setup/duti.sh"
+  finish
+}
+
+sub_macos() {
+  for DEFAULTS_FILE in "${DOTFILES}"/macos/setup/defaults*.sh; do
+    info "applying ${DEFAULTS_FILE}" && . "${DEFAULTS_FILE}"
+  done
+
+  info "done. some changes may require a logout/restart to take effect..."
+  on_finish
+}
+
+sub_clean() {
+  info "$ brew cleanup..."
+  brew cleanup --prune=all --scrub
+
+  info "$ removing completion cache..."
+  rm -rf ~/.cache/zsh/zcompdump
+  rm -rf ~/.cache/zsh/zcompdump.zwc
+  rm -rf ~/.cache/zsh/brew_all_commands
+  rm -rf ~/.cache/zsh/brew_casks
+  rm -rf ~/.cache/zsh/brew_formulaue
+  rm -rf ~/.cache/zsh/docker_compose_subcommands
+  rm -rf ~/.cache/zsh/docker_hide_legacy_commands
+  rm -rf ~/.cache/zsh/docker_subcommands
+
+  info "$ removing .DS_Store files..."
+  find . -type f -name '*.DS_Store' -ls -delete
+
+  info "$ emptying trash..."
+  rm -rfv ~/.Trash/*
+  sudo rm -rfv /Volumes/*/.Trashes
+
+  on_finish
+}
+
+sub_dock() {
+  . "${DOTFILES}/macos/setup/dock.sh" && info "dock reloaded..."
+  on_finish
+}
+
+sub_codium() {
+  . "${DOTFILES}/macos/install/code.sh"
+  on_finish
+}
+
+sub_conda() {
+  . "${DOTFILES}/macos/install/conda.sh"
+  on_finish
+}
+
+sub_gh() {
+  . "${DOTFILES}/macos/install/gh.sh"
+  on_finish
+}
+
+sub_go() {
+  . "${DOTFILES}/macos/install/go.sh"
+  on_finish
+}
+
+sub_nvim() {
+  . "${DOTFILES}/macos/install/nvim.sh"
+  on_finish
+}
+
+sub_repos() {
+  . "${DOTFILES}/macos/install/repos.sh"
+  on_finish
+}
+
+sub_ssh() {
+  . "${DOTFILES}/macos/install/ssh.sh"
+  on_finish
+}
+
+sub_tmux() {
+  . "${DOTFILES}/macos/install/tmux.sh"
+  on_finish
+}
+
+sub_install() {
+  local installer="$1"
+  case "$installer" in
+  codium) sub_codium ;;
+  conda) sub_conda ;;
+  gh) sub_gh ;;
+  go) sub_go ;;
+  nvim) sub_nvim ;;
+  repos) sub_repos ;;
+  ssh) sub_ssh ;;
+  tmux) sub_tmux ;;
+  "" | "-h" | "--help")
+    echo "Usage: $BIN_NAME install <code|conda|gh|go|nvim|repos|ssh|tmux>"
+    ;;
+  *)
+    echo "Unknown installer: $installer" >&2
+    echo "Usage: $BIN_NAME install <code|conda|gh|go|nvim|repos|ssh|tmux>"
+    return 1
+    ;;
+  esac
+}
+
+case $COMMAND_NAME in
+"" | "-h" | "--help")
+  sub_help
+  ;;
+install)
+  shift
+  sub_install "$@"
+  ;;
+*)
+  shift
+  sub_"${COMMAND_NAME}" "$@"
+  if [ $? = 127 ]; then
+    info "'$COMMAND_NAME' is not a known command or has errors." >&2
+    sub_help
+    exit 1
+  fi
+  ;;
+esac

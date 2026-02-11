@@ -1,0 +1,22 @@
+#compdef op
+
+# zsh completions for 'op'
+# automatically generated with https://github.com/danydodson/zsh-completion-generator
+local arguments
+
+arguments=(
+  '--account[select the account to execute the command by account shorthand, sign-in address, account ID, or user ID. For]'
+  '--cache[store and use cached information. Caching is enabled by default on UNIX-like systems. Caching is not]'
+  '--config[use this configuration directory.]'
+  '--debug[enable debug mode. Can also be enabled by setting the OP_DEBUG environment variable to true.]'
+  '--encoding[use this character encoding type. Default: UTF-8. Supported: SHIFT_JIS, gbk.]'
+  '--format[use this output format. Can be human-readable or json. Can be set as the OP_FORMAT environment variable.]'
+  {-h,--help}'[get help for op.]'
+  '--iso-timestamps[format timestamps according to ISO 8601 / RFC 3339. Can be set as the OP_ISO_TIMESTAMPS environment variable.]'
+  '--no-color[print output without color.]'
+  '--session[authenticate with this session token. 1Password CLI outputs session tokens for successful op signin]'
+  {-v,--version}'[version for op]'
+  '*:filename:_files'
+)
+
+_arguments -s $arguments

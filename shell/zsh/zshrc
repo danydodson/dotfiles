@@ -1,0 +1,68 @@
+#!/usr/bin/env zsh
+
+# Skips global compinit
+skip_global_compinit=1
+
+# zsh completions
+source ${DOTFILES}/plugins/zsh-comps/zsh-comps.plugin.zsh
+
+# plugins
+source ${DOTFILES}/plugins/zsh-syntax/fast-syntax-highlighting.plugin.zsh
+source ${DOTFILES}/plugins/zsh-history/zsh-history.zsh
+
+# auto suggestions
+source ${DOTFILES}/plugins/zsh-suggestions/zsh-autosuggestions.zsh
+
+# Should be called before compinit
+zmodload -i zsh/complist
+
+# Registers completions
+autoload -Uz compaudit compinit zrecompile
+
+# Show hidden files
+_comp_options+=(globdots)
+
+# zsh functions
+source "${DOTFILES}/shell/config/aliases.zsh"
+
+# Pure prompt
+source ${DOTFILES}/shell/config/prompt.zsh
+
+# zsh settings
+source "${DOTFILES}/shell/config/settings.zsh"
+
+# start ssh-agent
+eval "$(ssh-agent -s)" >/dev/null 2>&1
+
+# conda
+source "/opt/miniconda3/etc/profile.d/conda.sh"
+
+# nvm
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# rust
+source "/Users/stache/.config/cargo/env"
+
+# fzf
+eval "$(fzf --zsh)"
+
+# fzf defaults
+source /opt/homebrew/opt/fzf/shell/completion.zsh
+source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+
+# fzf use :: instead of **
+export FZF_COMPLETION_TRIGGER='::'
+
+# fzf defaults
+export FZF_DEFAULT_OPTS="--layout=reverse --border --prompt='> ' --walker-skip=.git,node_modules,target,Library,Pictures,Documents,Movies,Music,.Trash --tmux=85% --no-info --no-scrollbar --no-hscroll --margin=0 --padding=0 --bind='ctrl-space:toggle' --bind='ctrl-o:toggle-preview' --bind='ctrl-s:toggle-sort' --bind='ctrl-y:execute-silent(echo {+} | pbcopy)' --bind='ctrl-e:execute(codium {+})' --bind='ctrl-n:execute(nvim {+})'"
+
+# fzf files
+export FZF_ALT_C_OPTS="--header='Files' --walker=file --preview='bat -n --color=always {}' --bind='enter:execute(nvim {} +1)'"
+
+# fzf folders
+export FZF_CTRL_T_OPTS="--header='Directories' --walker=dir,hidden,follow --preview='tree -C {} | head -200' --bind='enter:execute(nvim {})+abort'"
+
+# rm duplicate paths
+typeset -gU fpath path
+

@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+# Load NVM into shell
+export NVM_DIR="$HOME/.config/nvm"
+source "$NVM_DIR/nvm.sh"
+
+# Ensure the correct Node version is active
+nvm use node >/dev/null
+
+# Start The Lounge
+exec thelounge start

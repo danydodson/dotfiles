@@ -1,0 +1,263 @@
+#!/bin/bash
+
+# Zen Browser Backup and Restore Script for macOS
+# Usage: ./zen_backup [backup|restore] [backup_name]
+
+set -e
+
+ZEN_PROFILE_BASE="$HOME/Library/Application Support/zen/Profiles"
+BACKUP_BASE="$HOME/Documents/backup/zen-profiles"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Files and directories to backup
+BACKUP_ITEMS=(
+    "prefs.js"                    # User preferences
+    "sessionstore.jsonlz4"        # Session data and pinned tabs
+    "sessionstore-backups/"       # Session backups
+    "places.sqlite"               # Bookmarks and history
+    "places.sqlite-wal"           # SQLite WAL file
+    "places.sqlite-shm"           # SQLite shared memory
+    "chrome/"                     # Custom CSS and mods
+    "zen-themes.json"             # Mods configuration
+    "extensions/"                 # Installed extensions
+    "extension-preferences.json"  # Extension settings
+    "containers.json"             # Container tabs
+    "cert9.db"                    # Certificates
+    "cookies.sqlite"              # Cookies
+    "formhistory.sqlite"          # Form data
+    "permissions.sqlite"          # Site permissions
+    "content-prefs.sqlite"        # Content preferences
+    "favicons.sqlite"             # Favicons
+    "storage/"                    # Extension storage
+    "startupCache/"               # Startup cache
+)
+
+find_zen_profile() {
+    if [ ! -d "$ZEN_PROFILE_BASE" ]; then
+        echo "Error: Zen profile directory not found at $ZEN_PROFILE_BASE"
+        echo "Please make sure Zen browser is installed and has been run at least once."
+        exit 1
+    fi
+
+    # Find the default profile, preferring active profiles with recent activity
+    local profile_candidates=()
+    while IFS= read -r -d '' profile; do
+        profile_candidates+=("$profile")
+    done < <(find "$ZEN_PROFILE_BASE" -maxdepth 1 -type d \( -name "*.default*" -o -name "*Default*" \) -print0)
+
+    if [ ${#profile_candidates[@]} -eq 0 ]; then
+        echo "Error: No Zen profile found in $ZEN_PROFILE_BASE"
+        exit 1
+    fi
+
+    # If only one profile, use it
+    if [ ${#profile_candidates[@]} -eq 1 ]; then
+        echo "${profile_candidates[0]}"
+        return
+    fi
+
+    # Multiple profiles found - prefer the one with most recent activity
+    local best_profile=""
+    local newest_time=0
+
+    for profile in "${profile_candidates[@]}"; do
+        if [ -f "$profile/places.sqlite" ] || [ -f "$profile/prefs.js" ] || [ -f "$profile/sessionstore.jsonlz4" ]; then
+            # Get the newest modification time from key files
+            local profile_time=0
+            for keyfile in "places.sqlite" "prefs.js" "sessionstore.jsonlz4"; do
+                if [ -f "$profile/$keyfile" ]; then
+                    local file_time=$(stat -f %m "$profile/$keyfile" 2>/dev/null || echo 0)
+                    if [ "$file_time" -gt "$profile_time" ]; then
+                        profile_time=$file_time
+                    fi
+                fi
+            done
+
+            if [ "$profile_time" -gt "$newest_time" ]; then
+                newest_time=$profile_time
+                best_profile="$profile"
+            fi
+        fi
+    done
+
+    # If no profile has key files, just use the first one
+    if [ -z "$best_profile" ]; then
+        best_profile="${profile_candidates[0]}"
+    fi
+
+    echo "$best_profile"
+}
+
+backup_zen() {
+    local backup_name="$1"
+    local profile_dir=$(find_zen_profile)
+    local backup_dir="$BACKUP_BASE/$backup_name"
+
+    echo "Creating backup: $backup_name"
+    echo "Profile directory: $profile_dir"
+    echo "Backup directory: $backup_dir"
+
+    # Create backup directory
+    mkdir -p "$backup_dir"
+
+    # Create metadata file
+    cat > "$backup_dir/backup_info.txt" << EOF
+Zen Browser Backup
+Created: $(date)
+Profile: $profile_dir
+Hostname: $(hostname)
+Zen Version: $(defaults read "$profile_dir/compatibility.ini" 2>/dev/null || echo "Unknown")
+EOF
+
+    # Backup each item
+    cd "$profile_dir" || {
+        echo "Error: Cannot access profile directory: $profile_dir"
+        exit 1
+    }
+    for item in "${BACKUP_ITEMS[@]}"; do
+        if [ -e "$item" ]; then
+            echo "Backing up: $item"
+            if [ -d "$item" ]; then
+                cp -R "$item" "$backup_dir/"
+            else
+                cp "$item" "$backup_dir/"
+            fi
+        else
+            echo "Skipping (not found): $item"
+        fi
+    done
+
+    echo "Backup completed successfully!"
+    echo "Backup location: $backup_dir"
+}
+
+restore_zen() {
+    local backup_name="$1"
+    local backup_dir="$BACKUP_BASE/$backup_name"
+    local profile_dir=$(find_zen_profile)
+
+    if [ ! -d "$backup_dir" ]; then
+        echo "Error: Backup directory not found: $backup_dir"
+        exit 1
+    fi
+
+    echo "Restoring from backup: $backup_name"
+    echo "Backup directory: $backup_dir"
+    echo "Profile directory: $profile_dir"
+
+    # Check if Zen is running
+    if pgrep -f "zen" > /dev/null; then
+        echo "Error: Please close Zen browser before restoring!"
+        exit 1
+    fi
+
+    # Create backup of current profile
+    local current_backup="$BACKUP_BASE/pre-restore-$(date +%Y%m%d-%H%M%S)"
+    echo "Creating backup of current profile at: $current_backup"
+    mkdir -p "$current_backup"
+    cd "$profile_dir" || {
+        echo "Error: Cannot access profile directory: $profile_dir"
+        exit 1
+    }
+    for item in "${BACKUP_ITEMS[@]}"; do
+        if [ -e "$item" ]; then
+            if [ -d "$item" ]; then
+                cp -R "$item" "$current_backup/"
+            else
+                cp "$item" "$current_backup/"
+            fi
+        fi
+    done
+
+    # Restore from backup
+    echo "Restoring files..."
+    cd "$backup_dir" || {
+        echo "Error: Cannot access backup directory: $backup_dir"
+        exit 1
+    }
+    for item in "${BACKUP_ITEMS[@]}"; do
+        if [ -e "$item" ]; then
+            echo "Restoring: $item"
+            rm -rf "$profile_dir/$item"
+            if [ -d "$item" ]; then
+                cp -R "$item" "$profile_dir/"
+            else
+                cp "$item" "$profile_dir/"
+            fi
+        fi
+    done
+
+    echo "Restore completed successfully!"
+    echo "You can now start Zen browser."
+}
+
+list_backups() {
+    echo "Available backups:"
+    if [ -d "$BACKUP_BASE" ]; then
+        ls -la "$BACKUP_BASE" | grep "^d" | awk '{print $9}' | grep -v "^\.$\|^\.\.$" | sort
+    else
+        echo "No backups found."
+    fi
+}
+
+show_help() {
+    cat << EOF
+Zen Browser Backup and Restore Script for macOS
+
+Usage: $0 [command] [backup_name]
+
+Commands:
+    backup [name]     Create a backup with the specified name
+    restore [name]    Restore from the specified backup
+    list             List all available backups
+    help             Show this help message
+
+Examples:
+    $0 backup my-setup-2024
+    $0 restore my-setup-2024
+    $0 list
+
+The script backs up:
+- User preferences and settings
+- Pinned tabs and session data
+- Bookmarks and history
+- Extensions and their settings
+- Custom mods and themes
+- Workspaces configuration
+- Cookies and site permissions
+- All other profile data
+
+Backups are stored in: $BACKUP_BASE
+EOF
+}
+
+# Main script logic
+case "${1:-help}" in
+    backup)
+        if [ -z "$2" ]; then
+            backup_name="zen-backup-$(date +%Y%m%d-%H%M%S)"
+        else
+            backup_name="$2"
+        fi
+        backup_zen "$backup_name"
+        ;;
+    restore)
+        if [ -z "$2" ]; then
+            echo "Error: Please specify a backup name to restore from."
+            echo "Use '$0 list' to see available backups."
+            exit 1
+        fi
+        restore_zen "$2"
+        ;;
+    list)
+        list_backups
+        ;;
+    help|--help|-h)
+        show_help
+        ;;
+    *)
+        echo "Error: Unknown command '$1'"
+        show_help
+        exit 1
+        ;;
+esac

@@ -1,0 +1,398 @@
+tap "buo/cask-upgrade"
+tap "chase/tap"
+tap "felixkratz/formulae"
+tap "homebrew/test-bot"
+tap "koekeishiya/formulae"
+tap "oven-sh/bun"
+tap "rigellute/tap"
+tap "sst/tap"
+tap "stripe/stripe-cli"
+# General-purpose data compression with high compression ratio
+brew "xz"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# Library for command-line editing
+brew "readline"
+# Command-line interface for SQLite
+brew "sqlite"
+# Official Amazon AWS command-line interface
+brew "awscli"
+# Text-based UI library
+brew "ncurses"
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Bash Automated Testing System
+brew "bats-core"
+# GNU binary tools for native development
+brew "binutils"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
+# Core application library for C
+brew "glib"
+# Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript
+brew "clang-format"
+# Cross-platform make
+brew "cmake"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
+# Tool for managing dock items
+brew "dockutil"
+# Select default apps for documents and URL schemes on macOS
+brew "duti"
+# Perl lib for reading and writing EXIF metadata
+brew "exiftool"
+# Modern, maintained replacement for ls
+brew "eza"
+# Like neofetch, but much faster because written mostly in C
+brew "fastfetch"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# GNU Transport Layer Security (TLS) Library
+brew "gnutls"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
+# Banner-like program prints strings as ASCII art
+brew "figlet"
+# Collection of GNU find, xargs, and locate
+brew "findutils"
+# Command-line tools for fly.io services
+brew "flyctl"
+# Infamous electronic fortune-cookie generator
+brew "fortune"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Command-line downloader for image-hosting site galleries and collections
+brew "gallery-dl"
+# GNU awk utility
+brew "gawk"
+# GNU compiler collection
+brew "gcc"
+# Disk usage analyzer with console interface written in Go
+brew "gdu"
+# GitHub command-line tool
+brew "gh"
+# Interpreter for PostScript and PDF
+brew "ghostscript"
+# Distributed revision control system
+brew "git"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+# Git extension for versioning large files
+brew "git-lfs"
+# Blazing fast terminal-ui for git written in rust
+brew "gitui"
+# GNU implementation of the famous stream editor
+brew "gnu-sed"
+# GNU version of the tar archiving utility
+brew "gnu-tar"
+# Colorize logfiles and command output
+brew "grc"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
+# GNU Ubiquitous Intelligent Language for Extensions
+brew "guile"
+# Improved top (interactive process viewer)
+brew "htop"
+# YAML Parser
+brew "libyaml"
+# Client library for huggingface.co hub
+brew "huggingface-cli"
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# User-friendly front-end to ssh-agent(1)
+brew "keychain"
+# Rainbows and unicorns in your console!
+brew "lolcat"
+# Clone of ls with colorful output, file type icons, and more
+brew "lsd"
+# Powerful, lightweight programming language
+brew "lua"
+# Package manager for the Lua programming language
+brew "luarocks"
+# System information fetcher, with an emphasis on performance and minimalism
+brew "macchina"
+# Lightweight Linux VMs on MacOS
+brew "macpine"
+# Utility for directing compilation
+brew "make"
+# Drop-in replacement for MySQL
+brew "mariadb"
+# Mac App Store command-line interface
+brew "mas"
+# Unified display of technical and tag data for audio/video
+brew "media-info"
+# Simple tool to make locally trusted development certificates
+brew "mkcert"
+# Platform built on V8 to build network applications
+brew "node"
+# MongoDB Shell to connect, configure, query, and work with your MongoDB database
+brew "mongosh"
+# Collection of tools that nobody wrote when UNIX was young
+brew "moreutils"
+# 'traceroute' and 'ping' in a single tool
+brew "mtr"
+# Netwide Assembler (NASM) is an 80x86 assembler
+brew "nasm"
+# Port scanning utility for large networks
+brew "nmap"
+# Retrieves currently playing media, and simulates media actions
+brew "nowplaying-cli"
+# Manage multiple Node.js versions
+brew "nvm"
+# Development kit for the Java programming language
+brew "openjdk"
+# Outputs current CPU temperature for OSX
+brew "osx-cpu-temp"
+# Perl compatible regular expressions library
+brew "pcre"
+# Pinentry for GPG on Mac
+brew "pinentry-mac"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
+# Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
+brew "prettier"
+# Wrapper to colorize and simplify ping's output
+brew "prettyping"
+# Show ps output as a tree
+brew "pstree"
+# Cross-platform application and UI framework
+brew "qt@5"
+# SVG rendering tool and library
+brew "resvg"
+# Command-line toolbox for fancy output in the terminal
+brew "rich-cli"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Smart session manager for the terminal
+brew "sesh"
+# 7-Zip is a file archiver with a high compression ratio
+brew "sevenzip"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
+# Autoformat shell script source code
+brew "shfmt"
+# Non-interactive SSH password auth
+brew "sshpass"
+# State of the art linter for the Go programming language
+brew "staticcheck"
+# Opinionated Lua code formatter
+brew "stylua"
+# Change macOS audio source from the command-line
+brew "switchaudio-osx"
+# Tool Command Language
+brew "tcl-tk"
+# User interface to the TELNET protocol
+brew "telnet"
+# Official tldr client written in Rust
+brew "tlrc"
+# Terminal multiplexer
+brew "tmux"
+# Lightweight BitTorrent client
+brew "transmission-cli", restart_service: :changed
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Incremental parsing library
+brew "tree-sitter"
+# Parser generator tool
+brew "tree-sitter-cli"
+# Digital clock in ncurses
+brew "tty-clock"
+# Language for application scale JavaScript development
+brew "typescript"
+# Command-line unarchiving tools supporting multiple formats
+brew "unar"
+# Vi 'workalike' with many additional features
+brew "vim"
+# Tool for packaging, publishing and managing VS Code extensions
+brew "vsce"
+# Executes a program periodically, showing output fullscreen
+brew "watch"
+# Extensible IRC client
+brew "weechat"
+# Internet file retriever
+brew "wget"
+# Access X11 clipboards from the command-line
+brew "xclip"
+# Command-line program for getting and setting the contents of the X selection
+brew "xsel"
+# Linter for YAML files
+brew "yamllint"
+# Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
+# Programming language designed for robustness, optimality, and clarity
+brew "zig"
+# General-purpose lossless data-compression library
+brew "zlib"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+# A window border system for macOS
+brew "felixkratz/formulae/borders"
+# Custom macOS statusbar with shell plugin, interaction and graph support
+brew "felixkratz/formulae/sketchybar"
+# Turns macOS input fields into real vim buffers
+brew "felixkratz/formulae/svim"
+# Utility to adjust keyrepeat settings for MacOS.
+brew "koekeishiya/formulae/krp"
+# Simple hotkey-daemon for macOS.
+brew "koekeishiya/formulae/skhd"
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
+brew "oven-sh/bun/bun"
+# A terminal user interface for Spotify
+brew "rigellute/tap/spotify-tui"
+# The AI coding agent built for the terminal.
+brew "sst/tap/opencode"
+# Stripe CLI utility
+brew "stripe/stripe-cli/stripe"
+# Password manager that keeps all passwords secure behind one password
+cask "1password"
+# Command-line interface for 1Password
+cask "1password-cli"
+# Inspect application bundles
+cask "apparency"
+# Display management tool
+cask "betterdisplay"
+# Web browser focusing on privacy
+cask "brave-browser"
+# OpenAI's official ChatGPT desktop app
+cask "chatgpt"
+# Node-based image, video and audio generator
+cask "comfyui"
+# Run Stable Diffusion locally
+cask "diffusionbee"
+# Voice and text chat software
+cask "discord"
+# App to build and share containerised applications and microservices
+cask "docker-desktop"
+cask "font-fira-code-nerd-font"
+cask "font-fira-mono-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
+cask "font-sf-mono"
+cask "font-sf-mono-nerd-font-ligaturized"
+cask "font-sf-pro"
+cask "font-space-mono-nerd-font"
+cask "font-symbols-only-nerd-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Free and open-source image editor
+cask "gimp"
+# Tools to protect your emails and files
+cask "gpg-suite"
+# Free and open-source media player
+cask "iina"
+# Keyboard customiser
+cask "karabiner-elements"
+# File archiver
+cask "keka"
+# Controls and monitors all fans on Apple computers
+cask "macs-fan-control"
+# Syncs files between computers and MEGA Cloud drives
+cask "megasync"
+# Interactive tool for analyzing MongoDB data
+cask "mongodb-compass"
+# Cloud gaming platform
+cask "nvidia-geforce-now"
+# Finder Toolbar app to open the current directory in Terminal or Editor
+cask "openinterminal"
+# Collaboration platform for API development
+cask "postman"
+# Music streaming service
+cask "spotify"
+# Video game digital distribution service
+cask "steam"
+# Media player based on MPlayer and mplayer2
+cask "stolendata-mpv"
+# Application for inspecting installer packages
+cask "suspicious-package"
+# Web browser focusing on security
+cask "tor-browser"
+# Open-source BitTorrent client
+cask "transmission"
+# Virtual machines UI using QEMU
+cask "utm"
+# Multimedia player
+cask "vlc"
+# Gecko based web browser
+cask "zen@twilight"
+mas "1Password for Safari", id: 1569813296
+mas "Cleaner for Xcode", id: 1296084683
+mas "Color Picker", id: 1545870783
+mas "Dynamic Wallpaper", id: 1453504509
+mas "MEGA VPN", id: 6456784858
+mas "Peek", id: 1554235898
+mas "Tampermonkey", id: 6738342400
+mas "Xcode", id: 497799835
+vscode "1password.op-vscode"
+vscode "adamraichu.font-viewer"
+vscode "adpyke.vscode-userscript"
+vscode "andywang.vscode-scriptmonkey"
+vscode "astro-build.astro-vscode"
+vscode "christian-kohler.npm-intellisense"
+vscode "continue.continue"
+vscode "darxeal.tampermonkey-snippets"
+vscode "dbaeumer.vscode-eslint"
+vscode "donjayamanne.githistory"
+vscode "donjayamanne.python-environment-manager"
+vscode "drcika.apc-extension"
+vscode "edwinkofler.vscode-assorted-languages"
+vscode "emilast.logfilehighlighter"
+vscode "esbenp.prettier-vscode"
+vscode "fogio.inline-go-struct-tags-syntax-highlight"
+vscode "formulahendry.code-runner"
+vscode "furkanozalp.go-syntax"
+vscode "golang.go"
+vscode "hangxingliu.vscode-nginx-conf-hint"
+vscode "jeanp413.open-remote-ssh"
+vscode "jeff-hykin.better-cpp-syntax"
+vscode "jeff-hykin.better-shellscript-syntax"
+vscode "jellydn.vscode-settings-cycler"
+vscode "jock.svg"
+vscode "johnnymorganz.stylua"
+vscode "kylinideteam.cmake-intellisence"
+vscode "llvm-vs-code-extensions.vscode-clangd"
+vscode "mads-hartmann.bash-ide-vscode"
+vscode "matt-rudge.auto-open-preview-panel"
+vscode "mechatroner.rainbow-csv"
+vscode "mhutchie.git-graph"
+vscode "mikestead.dotenv"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-dotnettools.vscode-dotnet-runtime"
+vscode "ms-python.autopep8"
+vscode "ms-python.debugpy"
+vscode "ms-python.python"
+vscode "ms-vscode.wasm-wasi-core"
+vscode "naumovs.color-highlight"
+vscode "neonxp.gotools"
+vscode "openra.vscode-openra-lua"
+vscode "qwtel.sqlite-viewer"
+vscode "redhat.vscode-xml"
+vscode "redhat.vscode-yaml"
+vscode "remcohaszing.schemastore"
+vscode "ritwickdey.liveserver"
+vscode "rogalmic.bash-debug"
+vscode "rust-lang.rust-analyzer"
+vscode "slevesque.shader"
+vscode "solomonkinard.chrome-extension-api"
+vscode "solomonkinard.chrome-extensions"
+vscode "stripe.vscode-stripe"
+vscode "sumneko.lua"
+vscode "tamasfe.even-better-toml"
+vscode "timonwong.shellcheck"
+vscode "tobermory.es6-string-html"
+vscode "tomoki1207.pdf"
+vscode "twxs.cmake"
+vscode "unifiedjs.vscode-mdx"
+vscode "vadimcn.vscode-lldb"
+vscode "vue.volar"
+vscode "wabiloo.m3u8-hls-vscode"
+vscode "xabikos.javascriptsnippets"
+vscode "xadillax.viml"
+vscode "zhuangtongfa.material-theme"
+vscode "ziglang.vscode-zig"

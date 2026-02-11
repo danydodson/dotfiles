@@ -1,0 +1,119 @@
+[user]
+  name = "danydodson"
+  email ="danydodson@gmail.com"
+
+[includeIf "gitdir:/Users/"]
+  path = "~/.dotfiles/config/git/secret"
+  
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[commit]
+  gpgsign = true
+
+[core]
+  excludesfile = "~/.config/git/ignore"
+  editor = nvim
+  pager = delta
+  fileMode = false
+  autocrlf = input
+
+[push]
+  default = simple
+  autoSetupRemote = true
+
+[merge]
+  conflictstyle = zdiff3
+
+[init]
+  defaultBranch = main
+
+[interactive]
+  diffFilter = delta --color-only
+
+[include]
+  path = ~/.config/git/themes.gitconfig
+
+[delta]
+  navigate = true
+  syntax-theme = TwoDark
+  true-color = always
+  features = mellow-barbet
+  side-by-side = true
+  line-numbers = true
+  hyperlinks = true
+  hyperlinks-file-link-format = "vscodium://file/{path}:{line}"
+
+# [delta "decorations"]
+#   commit-decoration-style = bold yellow box ul
+#   file-style = bold yellow ul
+#   file-decoration-style = none
+#   hunk-header-decoration-style = cyan box ul
+
+# [delta "line-numbers"]
+  # line-numbers-left-style = cyan
+  # line-numbers-right-style = cyan
+  # line-numbers-minus-style = 124
+  # line-numbers-plus-style = 28
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+  required = true
+	process = git-lfs filter-process
+
+[color]
+  ui = true
+
+# [color "diff-highlight"]
+#   oldNormal = red bold
+#   oldHighlight = red bold 52
+#   newNormal = green bold
+#   newHighlight = green bold 22
+
+# [color "diff"]
+#   meta = 11
+#   frag = magenta bold
+#   commit = yellow bold
+#   old = red bold
+#   new = green bold
+#   whitespace = red reverse
+#   func = 146 bold
+
+# [diff-so-fancy]
+#   markEmptyLines = false
+#   changeHunkIndicators = false
+#   stripLeadingSymbols = false
+#   useUnicodeRuler = false
+#   rulerWidth = 80
+
+[url "ssh://git@"]
+  insteadOf = "https://"
+
+[url "git://github.com/"]
+  insteadOf = "github:"
+
+[url "git@github.com:"]
+  insteadOf = "gh:"
+  pushInsteadOf = "github:"
+  pushInsteadOf = "git://github.com/"
+
+[url "git://gist.github.com/"]
+  insteadOf = "gist:"
+
+[url "git@gist.github.com:"]
+  insteadOf = "gst:"
+  pushInsteadOf = "gist:"
+  pushInsteadOf = "git://gist.github.com/"
+
+[url "git@heroku.com:"]
+  insteadOf = "heroku:"
+
+[credential "https://github.com"]
+	helper = "!/opt/homebrew/bin/gh auth git-credential"
+	
+[credential "https://gist.github.com"]
+	helper = "!/opt/homebrew/bin/gh auth git-credential"

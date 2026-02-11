@@ -1,0 +1,151 @@
+#!/usr/bin/env bash
+
+# =============== // gpg-keys //
+#
+# Personal GPG key management utility
+#
+# Requires:
+#   - gpg, and optionally pbcopy (macOS) or xclip (Linux)
+#
+# Notes:
+#   - Backs up to $HOME/Documents/backup/gpg-keys/YYYY-MM-DD/
+#   - Private key exports are chmod 600 (read/write only by you)
+#   - Clipboard copy works automatically on macOS (pbcopy) or Linux (xclip)
+#
+# Usage:
+#   - gpg-keys --list-public
+#   - gpg-keys --export-public
+#   - gpg-keys --copy-public [KEY_ID]
+#
+# Created by dany_spatula_hands
+# -----------------------------------------------------------
+
+set -euo pipefail
+
+. "$HOME/.dotfiles/bin/reports"
+
+BACKUP_DIR="$HOME/Documents/backup/gpg-keys/$(date +%Y-%m-%d)"
+mkdir -p "$BACKUP_DIR"
+
+CLIP_CMD=""
+if command -v pbcopy &>/dev/null; then
+    CLIP_CMD="pbcopy"
+elif command -v xclip &>/dev/null; then
+    CLIP_CMD="xclip -selection clipboard"
+fi
+
+help_menu() {
+    echo
+    green "Usage:"
+    command "   gpg-keys [COMMAND] [ARGUMENTS]"
+    echo
+    green "Examples:"
+    command "   gpg-keys --list-public"
+    command "   gpg-keys --copy-public 0xABCD1234"
+    command "   gpg-keys --export-private"
+    echo
+    green "Commands:"
+    descs "   --list-public                  • Show all public keys"
+    descs "   --list-private                 • Show all private keys"
+    descs "   --export-public                • Export all public keys to backup directory"
+    descs "   --export-private               • Export all private keys to backup directory (chmod 600)"
+    descs "   --copy-public [KEY_ID]         • Copy a specific public key to clipboard (or stdout)"
+    descs "   --copy-private [KEY_ID]        • Copy a specific private key to clipboard (or stdout)"
+    descs "   --show-fingerprint [KEY_ID]    • Display fingerprint for a key"
+    descs "   --delete-public [KEY_ID]       • Delete a public key"
+    descs "   --delete-private [KEY_ID]      • Delete a private key"
+    descs "   --import [FILE]                • Import a key from file (.asc or .gpg)"
+    descs "   --send-key [KEY_ID]            • Upload a key to keyserver"
+    descs "   --receive-key [KEY_ID]         • Fetch a key from keyserver"
+    descs "   --help                         • Show this help menu"
+    echo
+    green "Notes:"
+    descs "   • Private key exports are chmod 600 (read/write only by you)."
+    descs "   • Clipboard copy works automatically on macOS (pbcopy) or Linux (xclip)."
+}
+
+usage() {
+    help_menu
+    exit 1
+}
+
+[[ $# -lt 1 ]] && usage
+
+case "$1" in
+--help)
+    help_menu
+    ;;
+
+--list-public)
+    gpg --list-keys
+    ;;
+
+--list-private)
+    gpg --list-secret-keys
+    ;;
+
+--export-public)
+    out="$BACKUP_DIR/public-keys.asc"
+    echo "Exporting all public keys → $out"
+    gpg --export --armor --output "$out"
+    echo "Done."
+    ;;
+
+--export-private)
+    out="$BACKUP_DIR/private-keys.asc"
+    echo "Exporting all private keys → $out"
+    gpg --export-secret-keys --armor --output "$out"
+    chmod 600 "$out"
+    echo "Done (handle securely)."
+    ;;
+
+--copy-public)
+    [[ $# -ne 2 ]] && usage
+    key_id="$2"
+    echo "Copying public key $key_id to clipboard..."
+    gpg --export --armor "$key_id" | ${CLIP_CMD:-cat}
+    echo "Copied."
+    ;;
+
+--copy-private)
+    [[ $# -ne 2 ]] && usage
+    key_id="$2"
+    echo "Copying private key $key_id to clipboard (careful!)..."
+    gpg --export-secret-keys --armor "$key_id" | ${CLIP_CMD:-cat}
+    echo "Copied."
+    ;;
+
+--show-fingerprint)
+    [[ $# -ne 2 ]] && usage
+    gpg --fingerprint "$2"
+    ;;
+
+--delete-public)
+    [[ $# -ne 2 ]] && usage
+    gpg --delete-key "$2"
+    ;;
+
+--delete-private)
+    [[ $# -ne 2 ]] && usage
+    gpg --delete-secret-key "$2"
+    ;;
+
+--import)
+    [[ $# -ne 2 ]] && usage
+    gpg --import "$2"
+    ;;
+
+--send-key)
+    [[ $# -ne 2 ]] && usage
+    gpg --send-keys "$2"
+    ;;
+
+--receive-key)
+    [[ $# -ne 2 ]] && usage
+    gpg --keyserver hkps://keys.openpgp.org --recv-keys "$2"
+    ;;
+
+*)
+    usage
+    ;;
+esac

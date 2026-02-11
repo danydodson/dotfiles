@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Create an array of note files
+cheats=("$HOME/.dotfiles/docs/cheats/"*.md)
+
+# Extract just the base filenames for display
+choices=$(printf "%s\n" "${cheats[@]}" | xargs -n 1 basename | sed 's/\.md$//' | fzf --prompt="Select your cheat sheet: ")
+
+if [ -n "$choices" ]; then
+  # Reconstruct the full path from the chosen filename
+  choice="$HOME/.dotfiles/docs/cheats/$choices.md"
+  bat --language=mdown "$choice"
+else
+  echo "No cheat sheet selected."
+fi

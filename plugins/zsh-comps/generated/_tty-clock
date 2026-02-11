@@ -1,0 +1,30 @@
+#compdef tty-clock
+
+# zsh completions for 'tty-clock'
+# automatically generated with https://github.com/danydodson/zsh-completion-generator
+local arguments
+
+arguments=(
+  '-s[show seconds]'
+  '-S[screensaver mode]'
+  '-x[show box]'
+  '-c[set the clock at the center of the terminal]'
+  '-C[0-7\]      Set the clock color]'
+  '-b[use bold colors]'
+  '-t[set the hour in 12h format]'
+  '-u[use UTC time]'
+  '-T[display the clock on the specified terminal]'
+  '-r[do rebound the clock]'
+  '-f[set the date format]'
+  '-n[dont quit on keypress]'
+  '-v[show tty-clock version]'
+  '-i[show some info about tty-clock]'
+  '-h[show this page]'
+  '-D[hide date]'
+  '-B[enable blinking colon]'
+  '-d[set the delay between two redraws of the clock. Default 1s.]'
+  '-a[additional delay between two redraws in nanoseconds. Default 0ns.]'
+  '*:filename:_files'
+)
+
+_arguments -s $arguments

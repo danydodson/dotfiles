@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# ================= // ports-open //
+# USAGE:
+#   sh ports-open
+#
+# The script :
+#   - Scans open ports using lsof and nmap
+# -----------------------------------------------------------------------------
+
+. "$HOME/.dotfiles/bin/reports"
+
+tCount=$(sudo lsof -i -P -n | grep -c LISTEN)
+
+notify-send -i $notifyIcon "Showing $OS_name open ports $tCount in total"
+
+i=30
+function gotoSleep() {
+  while [ $i -ge 1 ]; do
+    echo -en "\rRefresh in: ${i}"
+    sleep 1
+    i=$((i - 1))
+  done
+}
+
+ip=$(ipconfig getifaddr en0 2>/dev/null)
+if [ -z "$ip" ]; then
+  ip=$(ifconfig | awk '/inet / && $2 != "127.0.0.1" {print $2; exit}')
+fi
+
+while :; do
+  clear
+  green "Showing $OS_name $tCount open ports:-"
+  echo ""
+  sudo lsof -nPiTCP -sTCP:LISTEN
+  echo "--------------------------------------------------------------------------------------------------"
+  echo ""
+  sudo nmap -T4 -sTU -O "$ip"
+  echo "--------------------------------------------------------------------------------------------------"
+  gotoSleep
+  i=30
+done
+
+echo ""
+exit 1

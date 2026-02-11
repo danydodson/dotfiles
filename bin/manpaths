@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Pretty list $MANPATH directories
+
+manpaths() {
+  local green="\033[32m"
+  local blue="\033[34m"
+  local red="\033[31m"
+  local reset="\033[0m"
+
+  IFS=':' read -r -a manpath_array <<<"$MANPATH"
+
+  for dir in "${manpath_array[@]}"; do
+    if [[ -d "$dir" ]]; then
+      echo -e "${green}✓${reset} ${blue}$dir${reset}"
+    else
+      echo -e "${red}✗${reset} $dir"
+    fi
+  done
+}
+
+manpaths

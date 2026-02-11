@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Pretty list of enviornment variables
+
+off="$(tput sgr0)"
+blue="$(tput setaf 4)"
+
+env | sort | while read -r line; do
+    key="${line%%=*}"
+    value="${line#*=}"
+    if [ "$key" != "LS_COLORS" ] && [ "$key" != "PATH" ]; then
+        echo "${blue}${key}=${off}${value}"
+    fi
+done

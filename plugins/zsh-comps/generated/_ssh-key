@@ -1,0 +1,27 @@
+#compdef ssh-key
+
+# Zsh completion script for the ssh-key utility.
+
+_ssh_key() {
+    local -a opts
+    opts=( "copy" "paste" "-h" "--help" )
+
+    # If no arguments have been provided yet
+    if (( CURRENT == 1 )); then
+        _describe 'command' opts
+        return
+    fi
+
+    case "$words[1]" in
+        copy|paste)
+            local -a ssh_keys
+            ssh_keys=(${(f)"$(find $HOME/.ssh -type f -name '*.pub' -exec basename {} \;)"})
+            _describe 'ssh public keys' ssh_keys
+            ;;
+        *)
+            _describe 'command' opts
+            ;;
+    esac
+}
+
+_ssh_key "$@"

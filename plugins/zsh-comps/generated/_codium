@@ -1,0 +1,46 @@
+#compdef codium
+
+# zsh completions for 'codium'
+# automatically generated with https://github.com/danydodson/zsh-completion-generator
+local arguments
+
+arguments=(
+  {-d,--diff}'[<file>                    Compare two files with each]'
+  {-m,--merge}'[1> <path2> <base> <result> Perform a three-way merge by]'
+  {-a,--add}'[add folder(s) to the last active]'
+  {-g,--goto}'[open a file at the path on the]'
+  {-n,--new-window}'[force to open a new window.]'
+  {-r,--reuse-window}'[force to open a file or folder in]'
+  {-w,--wait}'[wait for the files to be closed]'
+  '--locale[the locale to use (e.g. en-US or]'
+  '--user-data-dir[specifies the directory that user]'
+  '--profile[opens the provided folder or]'
+  {-h,--help}'[print usage.]'
+  '--extensions-dir[set the root path for extensions.]'
+  '--list-extensions[list the installed extensions.]'
+  '--show-versions[show versions of installed extensions]'
+  '--category[filters installed extensions by provided]'
+  '--install-extension[| path> Installs or updates an extension. The]'
+  '--pre-release[installs the pre-release version of the]'
+  '--install-extension[]'
+  '--uninstall-extension[uninstalls an extension.]'
+  '--update-extensions[update the installed extensions.]'
+  '--enable-proposed-api[enables proposed API features for]'
+  {-v,--version}'[print version.]'
+  '--verbose[print verbose output (implies --wait).]'
+  '--log[log level to use. Default is info. Allowed]'
+  {-s,--status}'[print process usage and diagnostics]'
+  '--prof-startup[run CPU profiler during startup.]'
+  '--disable-extensions[disable all installed extensions. This option]'
+  '--disable-extension[disable the provided extension. This option]'
+  '--sync[| off>               Turn sync on or off.]'
+  '--inspect-extensions[allow debugging and profiling of extensions.]'
+  '--inspect-brk-extensions[allow debugging and profiling of extensions]'
+  '--disable-lcd-text[disable LCD font rendering.]'
+  '--disable-gpu[disable GPU hardware acceleration.]'
+  '--disable-chromium-sandbox[use this option only when there is]'
+  '--telemetry[shows all telemetry events which VS code]'
+  '*:filename:_files'
+)
+
+_arguments -s $arguments

@@ -1,0 +1,65 @@
+#!/usr/bin/env zsh
+
+export EDITOR="nvim"
+export BROWSER="/Applications/Twilight.app/Contents/MacOS/zen"
+
+export PAGER="less -RF"
+export MANPAGER="sh -c 'col -bx | bat -l man -p | less -R'"
+export GPG_TTY=$TTY
+export LESSHISTFILE=-
+
+export DOTFILES="$HOME/.dotfiles"
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+export HOMEBREW_BAT=1
+export HOMEBREW_FORCE_BREWED_CURL=1
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_NO_INSTALL_CLEANUP=1
+export HOMEBREW_BUNDLE_FILE_GLOBAL="$DOTFILES/macos/brew/brewfile"
+
+export ZSH_CACHE_DIR="$HOME/.cache/zsh"
+export NPM_CONFIG_CACHE="$HOME/.cache/npm"
+export YARN_CACHE_FOLDER="$HOME/.cache/yarn"
+
+export GOPATH="$HOME/.config/go"
+export GOBIN="$HOME/.config/go/bin"
+export GOROOT="/opt/homebrew/opt/go/libexec"
+export DOCKER_CLI_HINTS=false
+
+export BAT_CONFIG_PATH="$DOTFILES/config/bat/config"
+
+export AWS_HOME="$HOME/.config/aws"
+
+export OPENCODE_EXPERIMENTAL_ICON_DISCOVERY=1
+export OPENCODE_EXPERIMENTAL_FILEWATCHER=1
+export OPENCODE_EXPERIMENTAL_LSP_TOOL=1
+
+export GENCOMPL_PY="/opt/miniconda3/envs/myenv/bin/python"
+export GENCOMPL_FPATH="$DOTFILES/plugins/zsh-comps/generated"
+
+export CARGO_HOME="$HOME/.config/cargo"
+export RUSTUP_HOME="$HOME/.config/rust"
+
+export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
+export PNPM_HOME="$HOME/.config/pnpm"
+
+export JUPYTER_CONFIG_DIR="$HOME/.config/jupiter"
+
+export GEM_HOME="$HOME/.local/share/gem"
+export GEM_SPEC_CACHE="$HOME/.cache/gem"
+
+export THELOUNGE_HOME="$HOME/.config/thelounge"
+
+export VSCODE_CLI_DATA_DIR="/Applications/codium-portable-data/data/cli"
+export WAKATIME_HOME="$HOME/.config/wakatime"
+
+export OP_BIOMETRIC_UNLOCK_ENABLED=true
+export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
+export SHELLCHECK_OPTS='--exclude=SC1090,SC1091,SC2004,SC2005,SC2009,SC2034,SC2059,SC2086,SC2148,SC2155,SC2162,SC2154,SC2164,SC2181,SC2236,SC2248,SC2250 --external-sources'
+

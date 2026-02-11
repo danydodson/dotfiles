@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Output playlist file
+PLAYLIST="vpl.m3u8"
+
+# Start a fresh playlist with an M3U header for IINA (UTF-8, .m3u8)
+printf '#EXTM3U\n' >"$PLAYLIST"
+
+# Use null-terminated file list to handle all special characters
+find . -mindepth 2 -maxdepth 2 -type f -iname "*.mp4" -print0 |
+    sort -z |
+    while IFS= read -r -d '' VIDEOPATH; do
+        realpath "$VIDEOPATH" >>"$PLAYLIST"
+    done
+
+echo "Playlist created: $PLAYLIST"

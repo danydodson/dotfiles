@@ -1,0 +1,46 @@
+# os files
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.DS_Store
+.DS_Store?
+._*
+
+# envs
+/.pkgx.yaml
+.envrc
+
+# editing
+/.nvim.lua
+/.lazy.lua
+
+# compiled
+__pycache__/
+*.py[cod]
+*$py.class
+
+# python
+.Python
+build/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.nox
+.tox
+.pytest_cache
+htmlcov
+.coverage*
+
+# zig
+.zig-cache

@@ -1,0 +1,63 @@
+/* overview ruler */
+.decorationsOverviewRuler {
+  display: none !important;
+}
+
+/* codium extention config file */
+
+.monaco-workbench .activitybar .monaco-action-bar {
+  font-size: 22 !important;
+}
+
+/* line numbers */
+.monaco-editor .margin-view-overlays .line-numbers {
+  font-size: 0.7rem !important;
+}
+
+/* current line number */
+.relative-current-line-number {
+  text-align: unset !important;
+}
+
+/* sidebar scrollbar */
+.monaco-scrollable-element>.scrollbar>.slider {
+  display: none !important;
+}
+
+div.sc-eBMEME.iovIio {
+  color: #787c99 !important;
+}
+
+/* right sidebar extension icons */
+.monaco-workbench .pane-composite-part>.header-or-footer>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item.icon,
+.monaco-workbench .pane-composite-part>.title>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item.icon {
+  padding: 0 7px;
+  opacity: 0.7;
+}
+
+/* right sidebar active extension indicator */
+.monaco-workbench .pane-composite-part>.header-or-footer>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item.icon .active-item-indicator,
+.monaco-workbench .pane-composite-part>.title>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item.icon .active-item-indicator {
+  display: none !important;
+}
+
+/* right sidebar extension container */
+.no-custom-title-bar-visibility div.monaco-workbench .has-composite-bar {
+  padding-left: calc(var(--traffic-X) + 9px) !important;
+}
+
+/* .monaco-workbench .part.sidebar>.title {
+  max-height: 24px !important;
+  margin-bottom: 12px !important;
+} */
+
+/* .monaco-workbench .monaco-action-bar:not(.vertical) .action-label:not(.disabled):hover,
+.monaco-workbench .monaco-action-bar:not(.vertical) .monaco-dropdown-with-primary:not(.disabled):hover {
+  background-color: #1e2227 !important
+} */
+
+
+/* .monaco-workbench .pane-composite-part>.header-or-footer>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item.icon .action-label:not(.codicon),
+.monaco-workbench .pane-composite-part>.title>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item.icon .action-label:not(.codicon) {
+  opacity: 0 !important;
+} */

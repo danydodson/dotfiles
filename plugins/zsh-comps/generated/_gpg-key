@@ -1,0 +1,23 @@
+#compdef gpg-key
+# zsh completions for 'gpg-key'
+# automatically generated
+
+local arguments
+arguments=(
+  '--list-public[Show all public keys]'
+  '--list-private[Show all private keys]'
+  '--export-public[Export all public keys to backup directory]'
+  '--export-private[Export all private keys to backup directory (chmod 600)]'
+  '--copy-public[Copy a specific public key to clipboard (or stdout)]'
+  '--copy-private[Copy a specific private key to clipboard (or stdout)]'
+  '--show-fingerprint[Display fingerprint for a key]'
+  '--delete-public[Delete a public key]'
+  '--delete-private[Delete a private key]'
+  '--import[Import a key from file (.asc or .gpg)]'
+  '--send-key[Upload a key to keyserver]'
+  '--receive-key[Fetch a key from keyserver]'
+  '--help[Show help menu]'
+  '*:filename:_files'
+)
+
+_arguments -s $arguments

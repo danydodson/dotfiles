@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# SSH key utility: generate if missing, copy or print as instructed
+
+. "$HOME/.dotfiles/bin/reports"
+
+DEFAULT_KEY="$HOME/.ssh/id_rsa"
+COMMAND_NAME="$1"
+SSH_KEY_NAME="${2:-id_rsa.pub}"
+SSH_KEY_PATH="$HOME/.ssh/$SSH_KEY_NAME"
+
+if [[ "$1" == "--help" || "$1" == "-h" ]]; then
+	command "Usage: ssh-key {copy|paste} <ssh_key_name.pub>"
+	echo
+	green "Commands:"
+	command "  copy                    Copy SSH public key to clipboard and display"
+	command "  paste                   Print SSH public key to stdout"
+	echo
+	green "Options:"
+	command "  <ssh_key_name.pub>      SSH public key name (default: id_rsa.pub)"
+	command "  -h, --help              Show this help message"
+	exit 0
+fi
+
+# Generate default key if missing
+if [ ! -f "$DEFAULT_KEY" ]; then
+	ssh-keygen -t rsa -f "$DEFAULT_KEY" -q -P ""
+fi
+
+case "$COMMAND_NAME" in
+copy)
+	if [ ! -f "$SSH_KEY_PATH" ]; then
+		echo "SSH key $SSH_KEY_NAME not found!"
+		exit 1
+	fi
+	pbcopy <"$SSH_KEY_PATH"
+	;;
+paste)
+	if [ ! -f "$SSH_KEY_PATH" ]; then
+		echo "SSH key $SSH_KEY_NAME not found!"
+		exit 1
+	fi
+	bat --style=plain "$SSH_KEY_PATH"
+	;;
+*)
+	echo "Usage: $0 {copy|paste} [ssh_key_name.pub]"
+	exit 1
+	;;
+esac

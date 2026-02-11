@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Pretty list $fpath directories
+
+fpaths() {
+  local blue="\033[34m"
+  local green="\033[32m"
+  local yellow="\033[0;93m"
+  local red="\033[31m"
+  local reset="\033[0m"
+
+  # Use IFS to split the FPATH variable by colon, which is the directory separator
+  IFS=':' read -r -a fpath_array <<<"$FPATH"
+
+  for dir in "${fpath_array[@]}"; do
+    if [[ -d "$dir" ]]; then
+      echo -e "${green}✓${reset} ${blue}$dir${reset}"
+    else
+      echo -e "${red}✗${reset} $dir"
+    fi
+  done
+}
+
+fpaths

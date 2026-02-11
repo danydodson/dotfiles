@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# ================= // Remove Quarintine Flag //
+#
+# Description:
+#   Remove the quarintine attribute from file
+#
+# Usage:
+#  rmqar "$@"
+#
+# --------------------------------------------------------
+
+xattr -dr com.apple.quarantine $@
+

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# ================= // getmx //
+#
+# Description:
+#   Script to retrieve the primary mailserver for a given e-mail address.
+#
+# Usage:
+#   - sh getmx.sh some-user@mail.com
+#
+# --------------------------------------------------------
+
+. "$HOME/.dotfiles/bin/reports"
+. "$HOME/.dotfiles/bin/spinners"
+
+(sleep 2) & # Example long task
+show_braille_progress $! "Retrieve mailserver for a given e-mail address"
+
+DOMAIN=$(echo $1 | cut -f 2 -d "@")
+RESULT=$(dig +short -t MX $DOMAIN | sort -n | head -n1 | awk '{print $2}' | sed 's/\(.*\)./\1/')
+
+echo "${RESULT}"

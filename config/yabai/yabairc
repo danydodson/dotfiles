@@ -1,0 +1,191 @@
+#!/bin/bash
+
+# load yabi as sudo
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+BAR=$(sketchybar -m --query bar | jq -r '.height')
+PAD=4
+
+GENERAL=(
+  external_bar all:"${BAR_HEIGHT}":0
+  menubar_opacity 1.0
+  split_type auto
+  split_ratio 0.5
+  auto_balance off
+  insert_feedback_color 0xff282a36
+)
+
+LAYOUT=(
+  layout stack
+  window_gap "${PAD}"
+  top_padding "${PAD}"
+  bottom_padding "${PAD}"
+  left_padding "${PAD}"
+  right_padding "${PAD}"
+)
+
+WINDOWS=(
+  window_shadow float
+  window_opacity on
+  active_window_opacity 1.0
+  normal_window_opacity 1.0
+  window_opacity_duration 0.15
+  window_animation_duration 0.0
+  window_placement second_child
+  window_origin_display default
+  window_zoom_persist on
+)
+
+MOUSE=(
+  mouse_modifier fn
+  mouse_action1 move
+  mouse_action2 resize
+  mouse_drop_action swap
+  focus_follows_mouse off
+  mouse_follows_focus off
+)
+
+yabai -m config "${GENERAL[@]}"
+yabai -m config "${LAYOUT[@]}"
+yabai -m config "${WINDOWS[@]}"
+yabai -m config "${MOUSE[@]}"
+
+# https://github.com/koekeishiya/yabai/issues/1929
+yabai -m rule --add app=".*" sub-layer=normal
+
+# above apps
+sub_layer_above=(
+  Bloom
+  System Settings
+  System Information
+  System Preferences
+)
+for ((i = 1; i <= "${#sub_layer_above[@]}"; i++)); do
+  yabai -m rule --add label="unmanage_${sub_layer_above[(($i - 1))]}" app="^${sub_layer_above[(($i - 1))]}.*$" sub-layer=above
+done
+
+# floating apps
+unmanaged=(
+  1Password
+  A Better Finder Attributes
+  A Better Finder Rename
+  Archive Utility
+  Bloom
+  Calculator
+  ChatGPT
+  Claude
+  Commander One
+  Contacts
+  Dictionary
+  Extensions
+  FaceTime
+  Finder
+  GPG Keychain
+  IINA
+  iPhone Mirroring
+  ForkLift
+  Karabiner-Elements
+  Karabiner-MultitouchExtension
+  Keka
+  KCNScrew1.8
+  Marta
+  Messages
+  mpv
+  Notes
+  OpenEmu
+  Owlfiles
+  Path Finder
+  Photo Booth
+  Preferences
+  Quicktime Player
+  Reminders
+  SerialSeeker
+  Shortcuts
+  Source
+  Software Update
+  SSH Config Editor
+  Stickies
+  Suspicious Package
+  System Settings
+  System Preferences
+  System Information
+  Voice Memos
+  VLC
+)
+for ((i = 1; i <= "${#unmanaged[@]}"; i++)); do
+  yabai -m rule --add label="unmanage_${unmanaged[(($i - 1))]}" app="^${unmanaged[(($i - 1))]}.*$" manage=off
+done
+
+# space 1
+SPACE1=(
+  Twilight
+  Safari
+  Zen
+)
+
+for ((i = 1; i <= "${#SPACE1[@]}"; i++)); do
+  yabai -m rule --add label="space1_${SPACE1[(($i - 1))]}" app="^${SPACE1[(($i - 1))]}.*$" space=^1
+done
+
+# space 2
+SPACE2=(
+  Docker Desktop
+  Ghostty
+  Postman
+  Visual Studio Code
+  VSCodium
+  Xcode
+)
+
+for ((i = 1; i <= "${#SPACE2[@]}"; i++)); do
+  yabai -m rule --add label="space2_${SPACE2[(($i - 1))]}" app="^${SPACE2[(($i - 1))]}.*$" space=^2
+done
+
+# space 3
+SPACE3=(
+  Brave Browser
+  Tor Browser
+)
+
+for ((i = 1; i <= "${#SPACE3[@]}"; i++)); do
+  yabai -m rule --add label="space3_${SPACE3[(($i - 1))]}" app="^${SPACE3[(($i - 1))]}.*$" space=^3
+done
+
+# space 4
+SPACE4=(
+  App Store
+  Calendar
+  DiffusionBee
+  Mail
+  Mailspring
+  MailMate
+  NVIDIA GeForce NOW
+  Postbox
+  Steam
+)
+
+for ((i = 1; i <= "${#SPACE4[@]}"; i++)); do
+  yabai -m rule --add label="space4_${SPACE4[(($i - 1))]}" app="^${SPACE4[(($i - 1))]}.*$" space=^4
+done
+
+# unload macos window manager
+# launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist
+
+# focus on next window when one closes
+yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
+
+# focus on next window when one closes
+yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
+
+# focus window after active space changes
+yabai -m signal --add event=space_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
+
+# focus window after active display changes
+yabai -m signal --add event=display_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
+
+# apply rules to existing windows
+yabai -m rule --apply
+
+echo "yabai configuration loaded.."
+

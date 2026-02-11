@@ -1,0 +1,16 @@
+#compdef sharpener
+
+# zsh completions for 'sharpener'
+# automatically generated with https://github.com/danydodson/zsh-completion-generator
+local arguments
+
+arguments=(
+  {-r,--radius}'[set sharpening radius]'
+  {-d,--dock-radius}'[set dock radius]'
+  {-s,--status}'[show current radius and status]'
+  {-v,--version}'[show version]'
+  {-h,--help}'[show this help message]'
+  '*:filename:_files'
+)
+
+_arguments -s $arguments

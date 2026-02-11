@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Pretty list of brew installed packages
+
+off="$(tput sgr0)"
+bold="$(tput bold)"
+blue="$(tput setaf 4)"
+yellow="$(tput setaf 3)"
+
+formulae="$(brew leaves | xargs brew deps --installed --for-each)"
+casks="$(brew list --cask 2>/dev/null)"
+
+echo "${yellow}==>${off} ${bold}Formulae${off}"
+# shellcheck disable=SC2001
+echo "${formulae}" | sed "s/^\(.*\):\(.*\)$/${blue}\1${off}\2/"
+
+echo ""
+echo "${yellow}==>${off} ${bold}Casks${off}"
+echo "${blue}${casks}${off}"
