@@ -1,0 +1,30 @@
+
+Host *
+	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+	IgnoreUnknown AddKeysToAgent,UseKeychain
+	AddKeysToAgent yes
+	UseKeychain yes
+	KeepAlive yes
+	ForwardAgent yes
+	ServerAliveInterval 60
+
+# SCEIcon at
+Host rawdog-instance
+	User ubuntu
+	HostName 18.235.113.176
+	IdentityFile ~/.ssh/rawdog
+	#SCEShortcut 0
+
+# SCEIcon aws
+# SCEShortcut 9
+Host github.com gitlab.com
+	User git
+	HostName ssh.github.com
+	Port 443
+	IdentityFile ~/.ssh/github_ssh
+	IdentitiesOnly yes
+
+Host secure-box
+  Ciphers aes256-gcm@openssh.com
+  KexAlgorithms curve25519-sha256
+  MACs hmac-sha2-256-etm@openssh.com
