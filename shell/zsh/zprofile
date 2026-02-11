@@ -22,6 +22,12 @@ export PATH="/opt/miniconda3/bin:$PATH"
 # java -> path
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
+# bun
+# export PATH="$HOME/.config/bun/bin:$PATH"
+
+# pnpm
+# export PATH="$HOME/.local/share/pnpm:$PATH"
+
 # curl
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 
