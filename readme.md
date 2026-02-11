@@ -26,7 +26,7 @@ These are my personal dotfiles. The setup is based on [dotbot](https://github.co
 
 ## Neovim ⌨️
 
-- [Setup nvim](/macos/install/nvim.sh)
+- [Setup nvim](/setup/nvim.sh)
 
 ## gpg 🔑
 
@@ -34,14 +34,13 @@ These are my personal dotfiles. The setup is based on [dotbot](https://github.co
 
 ## Project config/tooling 🧢
 
-- [Configure projects](/macos/install/)
+- [Configure projects](/setup)
 - [Local commands](/bin/)
 
 ## Fonts 💯
 
 - [FiraCode Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
 - [FiraMono Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraMono)
-- [JetBrains Mono Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono)
 - [San Francisco Apple Fonts](https://developer.apple.com/fonts/)
 - [Operator Mono](https://typography.com/blog/introducing-operator)
 
