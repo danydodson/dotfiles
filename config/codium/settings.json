@@ -7,13 +7,43 @@
   //
   "redhat.telemetry.enabled": false,
   // 
-  "continue.telemetryEnabled": false,
+  // "continue.telemetryEnabled": false,
   //
   "googleTranslateExt.replaceText": true,
   //
   "github.gitProtocol": "ssh",
   //
   "svg.preview.mode": "svg",
+  "Lua.diagnostics.globals": [
+    "Command",
+    "cx",
+    "err",
+    "Err",
+    "fs",
+    "PREVIEW",
+    "rt",
+    "sbar",
+    "th",
+    "ui",
+    "units",
+    "Url",
+    "ya",
+    "lfs"
+  ],
+  "Lua.diagnostics.disable": [
+    "cast-local-type",
+    "duplicate-set-field",
+    "inject-field",
+    "lowercase-global",
+    "param-type-mismatch",
+    "need-check-nil",
+    "redundant-parameter",
+    "unbalanced-assignments",
+    "undefined-field",
+    "undefined-global",
+    "undefined-doc-name",
+    "deprecated"
+  ],
   //
   "git.confirmSync": false,
   "git.enableStatusBarSync": false,
@@ -127,7 +157,7 @@
   "editor.fontFamily": "FiraCode Nerd Font",
   "editor.fontLigatures": true,
   "editor.colorDecoratorsActivatedOn": "click",
-  "editor.defaultColorDecorators": "auto",
+  "editor.defaultColorDecorators": false,
   "editor.minimap.enabled": false,
   "editor.scrollbar.horizontal": "hidden",
   "editor.scrollbar.verticalScrollbarSize": 8,
@@ -417,8 +447,7 @@
     ]
   },
   "code-runner.enableAppInsights": false,
-  "continue.enableTabAutocomplete": false,
-  "workbench.statusBar.visible": false,
+  "continue.enableTabAutocomplete": true,
   // "editor.accessibilitySupport": "off",
   // "cSpell.userWords": [
   //   "expension",

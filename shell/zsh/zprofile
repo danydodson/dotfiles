@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+export SHELL_SESSIONS_DISABLE=1
+
 # system executables -> path
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/libexec:$PATH"
 
@@ -34,9 +36,6 @@ export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 # homebrew sbin
 export PATH="/opt/homebrew/sbin:$PATH"
 
-# 010 Editor
-export PATH="$PATH:/Applications/010 Editor.app/Contents/CmdLine"
-
 # macos paths -> path
 for path_file in /etc/paths.d/*(.N); do
   path+=($(<$path_file))
@@ -60,3 +59,4 @@ typeset -gU fpath path manpath
 
 # set the path for macos
 [[ -x /bin/launchctl ]] && /bin/launchctl setenv PATH $PATH
+

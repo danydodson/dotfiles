@@ -21,6 +21,7 @@
   "shellcheck.ignorePatterns": {
     "**/*.zsh": true,
     "**/bin/*.py": true,
+    "**/bin/lounge": true,
     "**/config/**/*": true,
     "**/plugins/**/*": true,
   }

@@ -47,18 +47,6 @@
   hyperlinks = true
   hyperlinks-file-link-format = "vscodium://file/{path}:{line}"
 
-# [delta "decorations"]
-#   commit-decoration-style = bold yellow box ul
-#   file-style = bold yellow ul
-#   file-decoration-style = none
-#   hunk-header-decoration-style = cyan box ul
-
-# [delta "line-numbers"]
-  # line-numbers-left-style = cyan
-  # line-numbers-right-style = cyan
-  # line-numbers-minus-style = 124
-  # line-numbers-plus-style = 28
-
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -67,28 +55,6 @@
 
 [color]
   ui = true
-
-# [color "diff-highlight"]
-#   oldNormal = red bold
-#   oldHighlight = red bold 52
-#   newNormal = green bold
-#   newHighlight = green bold 22
-
-# [color "diff"]
-#   meta = 11
-#   frag = magenta bold
-#   commit = yellow bold
-#   old = red bold
-#   new = green bold
-#   whitespace = red reverse
-#   func = 146 bold
-
-# [diff-so-fancy]
-#   markEmptyLines = false
-#   changeHunkIndicators = false
-#   stripLeadingSymbols = false
-#   useUnicodeRuler = false
-#   rulerWidth = 80
 
 [url "ssh://git@"]
   insteadOf = "https://"
@@ -108,9 +74,6 @@
   insteadOf = "gst:"
   pushInsteadOf = "gist:"
   pushInsteadOf = "git://gist.github.com/"
-
-[url "git@heroku.com:"]
-  insteadOf = "heroku:"
 
 [credential "https://github.com"]
 	helper = "!/opt/homebrew/bin/gh auth git-credential"

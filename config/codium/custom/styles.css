@@ -1,3 +1,19 @@
+#workbench\.parts\.sidebar>div.composite.has-composite-bar.header-or-footer.footer>div>div>div>ul {
+  opacity: 0 !important;
+}
+
+#workbench\.parts\.sidebar>div.composite.has-composite-bar.header-or-footer.footer>div>div>div>ul:hover {
+  opacity: 1 !important;
+}
+
+#workbench\.parts\.sidebar>div.composite.has-composite-bar.header-or-footer.header>div>div>div>ul {
+  opacity: 0 !important;
+}
+
+#workbench\.parts\.sidebar>div.composite.has-composite-bar.header-or-footer.header>div>div>div>ul:hover {
+  opacity: 1 !important;
+}
+
 /* overview ruler */
 .decorationsOverviewRuler {
   display: none !important;

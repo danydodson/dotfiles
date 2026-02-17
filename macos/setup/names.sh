@@ -1,7 +1,14 @@
 #!/bin/bash -ex
 
-# Sets host/localhost/computer name
-# usage: names {{new name}}
+# ================= // names //
+#
+# Description:
+#   Sets host/localhost/computer name
+#
+# Usage:
+#   - names.sh <name>
+#
+# --------------------------------------------------------
 
 # take hostname as argument
 # if no argument, raise error
@@ -17,6 +24,7 @@ Darwin)
   sudo scutil --set HostName "$1"
   sudo scutil --set LocalHostName "$1"
   sudo scutil --set ComputerName "$1"
+  sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$1"
   ;;
 Linux)
   # commands for Linux go here

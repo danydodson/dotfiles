@@ -110,10 +110,15 @@
       path: config/continue/rules/*
 
 - create:
+    - ~/.cache/bash
     - ~/.cache/zsh
     - ~/Developer/plugins
     - ~/Developer/repos
     - ~/Developer/served
+
+# - git:
+#     ~/.dotfiles/config/tmux/plugins/tpm:
+#       url: "https://github.com/tmux-plugins/tpm"
 
 # - git:
 #     ~/.dotfiles/plugins/pure:

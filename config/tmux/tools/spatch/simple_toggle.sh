@@ -7,7 +7,7 @@
 # If bottom, move to the top pane and maximize
 # If right, move to the left pane and maximize
 
-export TMUX_PANE_DIRECTION="right"
+export TMUX_PANE_DIRECTION="bottom"
 
 if [[ "$TMUX_PANE_DIRECTION" == "bottom" ]]; then
   tmux select-pane -U

@@ -76,7 +76,7 @@ macos-window-buttons = hidden
 macos-titlebar-style = hidden
 macos-titlebar-proxy-icon = hidden
 macos-non-native-fullscreen = true
-macos-secure-input-indication = false
+# macos-secure-input-indication = false
 
 # background ---------------------------------------------------------
 

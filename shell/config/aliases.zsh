@@ -1,9 +1,9 @@
 #!/usr/bin/env zsh
 
 # open
-alias o="open"
+# alias o="open"
 alias v="nvim"
-alias e="codium"
+# alias e="codium"
 
 # ssh
 alias ssh-rawdog="ssh ubuntu@18.235.113.176"
@@ -14,6 +14,12 @@ alias tb="nc termbin.com 9999"
 # npm globals
 alias lsg-npm="npm ls -g --depth 0"
 
+
+# bat
+alias cat="bat"
+alias -g :h="-h 2>&1 | bat --language=help"
+alias -g :h="--help 2>&1 | bat --language=help"
+
 # tmux
 alias tm="tmux -f ~/.config/tmux/tmux.conf"
 alias tn="tm new"
@@ -23,12 +29,7 @@ alias tk="tm kill-session"
 alias td="tm detach"
 
 # install nvim
-# alias nvinstall="nvim --headless '+Lazy! sync' +qa"
-
-# bat
-alias cat="bat"
-alias -g :h="-h 2>&1 | bat --language=help"
-alias -g :h="--help 2>&1 | bat --language=help"
+alias nvinstall="nvim --headless '+Lazy! sync' +qa"
 
 # dumps
 alias hd="hexdump -C"
@@ -49,11 +50,7 @@ alias ram="top -l 1 -s 0 | grep PhysMem"
 
 # dl
 alias curl="curl --location --trace-time --trace-ascii - --insecure -O"
-alias wget="wget --hsts-file="$HOME/.cache/wget/wget-hsts" --timestamping --no-parent --timeout=60 --tries=3 --retry-connrefused --trust-server-names --follow-ftp --server-response --no-check-certificate --progress=dot:binary"
-
-# capture http requests and traffic
-alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
-alias httpdump="sudo tcpdump -i en0 -n -s 0 -w — | grep -a -o -E \"Host\: .*|GET \/.*\""
+alias wget='wget --hsts-file="$HOME/.cache/wget/wget-hsts" --timestamping --no-parent --timeout=60 --tries=3 --retry-connrefused --trust-server-names --follow-ftp --server-response --no-check-certificate --progress=dot:binary'
 
 # kill
 alias fkill="ps -e | fzf | awk '{print $1}' | xargs kill"
@@ -63,7 +60,7 @@ alias oskill="killfinder && killdock && killmenubar"
 # ls
 alias ls='/opt/homebrew/bin/gls --color=auto --group-directories-first -I .DS_Store -I .Trash -I "Icon'$'\r"'
 alias l="ls -AhLg --no-group --time-style=iso"
-alias ll="eza -al -s type --no-symlinks -I .DS_Store -I .Trash -I "Icon'$'\r""
+alias ll="eza -al -s type --no-symlinks"
 alias la="lsd -Al"
 
 # spotlight on/off

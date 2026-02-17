@@ -10,5 +10,5 @@
 #
 # --------------------------------------------------------
 
-xattr -dr com.apple.quarantine $@
+xattr -dr com.apple.quarantine "$@"
 
