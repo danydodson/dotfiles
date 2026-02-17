@@ -5,7 +5,8 @@
 set -u
 
 app_to_open="Ghostty"
-app_to_hide="VSCodium"
+app_to_hide="Visual Studio Code"
+# app_to_hide="VSCodium"
 
 open -a "$app_to_open.app"
 
