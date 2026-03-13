@@ -39,6 +39,7 @@
       path: config/*
       exclude:
         [
+          config/bloom,
           config/codium,
           config/continue,
           config/gnupg,
@@ -108,6 +109,11 @@
       glob: true
       relink: true
       path: config/continue/rules/*
+    
+    ~/Library/Preferences/com.asiafu.Bloom.plist:
+      create: true
+      relink: true
+      path: config/bloom/com.asiafu.Bloom.plist
 
 - create:
     - ~/.cache/bash
