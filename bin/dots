@@ -82,6 +82,7 @@ sub_clean() {
   info "$ emptying trash..."
   rm -rfv ~/.Trash/*
   sudo rm -rfv /Volumes/*/.Trashes
+  sudo rm -rfv /Volumes/Public/.Trashes
 
   on_finish
 }

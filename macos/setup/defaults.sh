@@ -2,7 +2,7 @@
 
 # Sane OSX defaults
 
-COMPUTER_NAME="Macbook"
+COMPUTER_NAME="Stache"
 
 # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'

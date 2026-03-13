@@ -14,7 +14,6 @@ alias tb="nc termbin.com 9999"
 # npm globals
 alias lsg-npm="npm ls -g --depth 0"
 
-
 # bat
 alias cat="bat"
 alias -g :h="-h 2>&1 | bat --language=help"

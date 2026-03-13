@@ -1,24 +1,29 @@
 #!/bin/bash
 
-# Opens or focuses a Ghostty window and hides VSCodium.
+# Opens or focus on a Ghostty window and hide VSCode.
 
-set -u
+set -e pipefail
 
 app_to_open="Ghostty"
-app_to_hide="Visual Studio Code"
-# app_to_hide="VSCodium"
+app_to_hide="Code"
 
-open -a "$app_to_open.app"
+open -b "com.mitchellh.ghostty" || true
 
 yabai -m query --windows |
-  jq -r --arg app "$app_to_open" 'map(select(.app == $app)) | .[0].id' |
+  jq -r --arg app "${app_to_open}" 'map(select(.app == $app)) | .[0].id' |
   while read -r id; do
     osascript -e "
-    tell application \"System Events\"
-      if exists process \"$app_to_hide\" then
-        set visible of application process \"$app_to_hide\" to false
-      end if
-    end tell
-    "
+      tell application \"System Events\"
+	      set runningApplications to name of every process whose background only is false
+      end tell
+      
+      set AppName to \"${app_to_hide}\"
+
+      tell application \"System Events\"
+	      set visible of application process AppName to false
+      end tell
+      
+      return runningApplications
+     " || true
     yabai -m window --focus "$id"
   done

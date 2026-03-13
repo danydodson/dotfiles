@@ -58,7 +58,7 @@ lalt - l : yabai -m window --resize right:32:0; \
   yabai -m window --resize left:32:0
 
 # app scripts
-hyper - c : ./$HOME/.dotfiles/bin/yabai-codium
+hyper - c : ./$HOME/.dotfiles/bin/yabai-code
 hyper - f : ./$HOME/.dotfiles/bin/yabai-finder
 hyper - x : ./$HOME/.dotfiles/bin/yabai-ghostty
 

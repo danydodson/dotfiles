@@ -6,7 +6,7 @@
 #   Sets host/localhost/computer name
 #
 # Usage:
-#   - names.sh <name>
+#   - names <name>
 #
 # --------------------------------------------------------
 
