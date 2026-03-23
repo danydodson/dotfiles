@@ -133,8 +133,8 @@ y() {
 
 # Function to switch to the left tmux pane and maximize it
   function tmux_left_pane() {
-    # This defines if the tmux pane created by neovim is on the right or
-    # bottom, make sure you also configure the neovi keymap to match
+    # this defines if the tmux pane created by neovim is on the right or bottom
+    # make sure you also configure the neovim keymap to match
     export TMUX_PANE_DIRECTION="bottom"
     if [[ $TMUX_PANE_DIRECTION == "right" ]]; then
       tmux select-pane -L # Move to the left (opposite of right)
