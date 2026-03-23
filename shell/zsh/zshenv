@@ -28,6 +28,10 @@ export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_BUNDLE_FILE_GLOBAL="$DOTFILES/macos/brew/brewfile"
 
+export LUA_DIR="$HOME/.config/lua"
+export LUAROCKS_PREFIX="$HOME/.config/luarocks"
+export LUAROCKS_SYSCONFDIR="$HOME/.config/luarocks"
+
 export GOPATH="$HOME/.config/go"
 export GOBIN="$HOME/.config/go/bin"
 export GOROOT="/opt/homebrew/opt/go/libexec"
@@ -62,5 +66,5 @@ export WAKATIME_HOME="$HOME/.config/wakatime"
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
 export SSH_AUTH_SOCK="$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
-export SHELLCHECK_OPTS='--exclude=SC1090,SC1091,SC2004,SC2005,SC2009,SC2034,SC2059,SC2086,SC2148,SC2155,SC2162,SC2154,SC2164,SC2181,SC2236,SC2248,SC2250 --external-sources'
+export SHELLCHECK_OPTS='--exclude=SC1090,SC1091,SC2004,SC2005,SC2009,SC2034,SC2059,SC2086,SC2129,SC2148,SC2155,SC2162,SC2154,SC2164,SC2181,SC2236,SC2248,SC2250 --external-sources'
 

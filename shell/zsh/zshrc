@@ -41,6 +41,9 @@ source "/opt/miniconda3/etc/profile.d/conda.sh"
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
+# luarocks
+eval $(luarocks path --no-bin)
+
 # rust
 source "/Users/stache/.config/cargo/env"
 

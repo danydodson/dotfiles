@@ -24,6 +24,14 @@ export PATH="/opt/miniconda3/bin:$PATH"
 # java -> path
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
+# lua -> path
+export PATH="$PATH:$HOME/.config/lua/bin"
+export LUA_CPATH="$HOME/.config/lua/lib/lua/5.1/?.so"
+export LUA_PATH="$HOME/.config/lua/share/lua/5.1/?.lua;;"
+
+# luarocks -> path
+export PATH="$PATH:$HOME/.config/luarocks/bin"
+
 # bun
 # export PATH="$HOME/.config/bun/bin:$PATH"
 
@@ -35,6 +43,9 @@ export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 
 # homebrew sbin
 export PATH="/opt/homebrew/sbin:$PATH"
+
+# manpath
+export MANPATH="$HOME/.config/lua/share/man:$MANPATH"
 
 # macos paths -> path
 for path_file in /etc/paths.d/*(.N); do

@@ -114,6 +114,7 @@
 - create:
     - ~/.cache/bash
     - ~/.cache/zsh
+    - ~/.cache/wget
     - ~/Developer/plugins
     - ~/Developer/repos
     - ~/Developer/served

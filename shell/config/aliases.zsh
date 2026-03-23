@@ -29,6 +29,7 @@ alias td="tm detach"
 
 # install nvim
 alias nvinstall="nvim --headless '+Lazy! sync' +qa"
+alias neobean='NVIM_APPNAME=neobean nvim'
 
 # dumps
 alias hd="hexdump -C"
