@@ -126,6 +126,28 @@ luarocks --tree="${LUAROCKS_DIR}" --local install busted
 eval "$(luarocks path --no-bin)"
 
 ################################################################################
+# Build and Install LuaJIT
+################################################################################
+
+# # Create a git folder in the Lua directory to keep things together (optional)
+# mkdir $LUA/git
+# cd $LUA/git
+
+# # Clone the LuaJIT repository
+# git clone https://luajit.org/git/luajit.git
+# cd luajit 
+
+# # Get macOS version and set MACOSX_DEPLOYMENT_TARGET
+# MACOS_VERSION=$(sw_vers -productVersion)
+# MACOSX_DEPLOYMENT_TARGET=${MACOS_VERSION%.*}
+
+# # Compile and install LuaJIT
+# MACOSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET} make
+# MACOSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET} make install PREFIX=${LUA}
+
+# luajit -v
+
+################################################################################
 # post-installation
 ################################################################################
 
@@ -142,6 +164,7 @@ eval "$(luarocks path --no-bin)"
 # echo '# LuaRocks'
 # echo 'export PATH="$PATH:$HOME/.luarocks/bin"'
 # echo 'eval $(luarocks path --no-bin)'
+
 
 # ################################################################################
 # ################################################################################

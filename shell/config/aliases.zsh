@@ -73,3 +73,4 @@ alias afk="open /System/Library/CoreServices/ScreenSaverEngine.app"
 
 # log off
 alias logoff="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
