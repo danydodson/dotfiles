@@ -6,3 +6,6 @@
 [submodule "config/nvim"]
 	path = config/nvim
 	url = https://github.com/danydodson/nvim
+[submodule "config/nvchad"]
+	path = config/nvchad
+	url = https://github.com/NvChad/starter
