@@ -30,10 +30,6 @@ Icon
 # iina
 /config/iina/com.colliderli.iina.plist
 
-# extras
-/config/neovide_
-/config/neovim_
-
 # thelounge
 /config/thelounge/certificates
 /config/thelounge/logs
