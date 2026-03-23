@@ -62,15 +62,15 @@ hyper - c : ./$HOME/.dotfiles/bin/yabai-code
 hyper - f : ./$HOME/.dotfiles/bin/yabai-finder
 hyper - x : ./$HOME/.dotfiles/bin/yabai-ghostty
 
+# resize bloom window
+hyper - d : ./$HOME/.dotfiles/bin/yabai-bloom
+
 # app commands
 hyper - a : open -a Apps.app
 hyper - b : open -a "Brave Browser.app"
 hyper - m : open -a Mail.app
 hyper - n : open -a Notes.app
 hyper - z : open -a Twilight.app
-
-# adjust rounded corners
-# hyper - s : sharpener on -r 1
 
 # restart
 hyper - r : \

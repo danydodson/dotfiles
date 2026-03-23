@@ -32,6 +32,8 @@ export GOPATH="$HOME/.config/go"
 export GOBIN="$HOME/.config/go/bin"
 export GOROOT="/opt/homebrew/opt/go/libexec"
 export DOCKER_CLI_HINTS=false
+export CAGENT_HOME="$HOME/.config/cagent"
+export CODEX_HOME="$HOME/.config/codex"
 
 export BAT_CONFIG_PATH="$DOTFILES/config/bat/config"
 

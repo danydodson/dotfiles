@@ -13,6 +13,8 @@
     "**/config/git/config": "properties",
     "**/config/git/secret": "properties",
     "**/config/lscolors/ls_colors": "dircolors",
+    "**/config/nginx/etc/*.conf": "nginx",
+    "**/config/nginx/etc/servers/*.conf": "nginx",
     "**/config/sketchybar/sketchybarrc": "lua",
     // 
     "**/macos/agents/agents.sh": "shellscript",

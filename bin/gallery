@@ -1,3 +1,5 @@
 #!/bin/bash
 
-./$HOME/Documents/Backups/gallery.sh
+. $HOME/Documents/Backups/gallery.sh
+
+. ./gallery.sh

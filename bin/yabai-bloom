@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Resize and reposition Bllom window.
+
+yabai -m window --focus "$(yabai -m query --windows | jq '.[] | select(.app == "Bloom") | .id')" &&
+  yabai -m window --move abs:141:104 &&
+  yabai -m window --resize abs:1466:878

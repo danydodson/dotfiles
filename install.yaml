@@ -45,6 +45,7 @@
           config/gnupg,
           config/iina,
           config/lscolors,
+          config/nginx,
           config/ssh,
           config/transmission,
           config/twilight,

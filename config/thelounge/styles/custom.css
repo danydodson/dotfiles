@@ -1,0 +1,143 @@
+:root {
+  /*--body-bg-color: transparent;*/
+  /*--window-bg-color: transparent;*/
+}
+
+aside#sidebar {
+  /*background-color: transparent;*/
+  /*background: transparent;*/
+}
+
+#form,
+.messages .msg,
+.userlist {
+  font-size: 15px;
+}
+
+div.msg {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Let the table expand to content width so horizontal scroll appears */
+#chat table.channel-list {
+
+  table-layout: auto;
+  width: max-content;
+}
+
+#chat .userlist .count {
+  /*background: transparent;*/
+}
+
+#chat table.channel-list .channel {
+  max-width: 220px;
+  white-space: nowrap;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+/* Keep the topic in one line so it widens the table instead of wrapping */
+#chat table.channel-list .topic {
+  white-space: nowrap;
+  padding-left: 10px;
+}
+
+
+/* change the font */
+body {
+  /*font-family: 'FiraCode Nerd Font Mono';*/
+  /*font-weight: Retina;*/
+  /*background-color: #1a1c21;*/
+}
+
+/* remove window padding */
+#viewport {
+  padding: 0;
+}
+
+/* change style for server welcome banners */
+#chat .msg[data-type=monospace_block] .text {
+  font-family: 'Fira Mono', monospace;
+  background-color: #1a1c21;
+}
+
+/* hide ident and hostmasks */
+#chat .hostmask {
+  display: none;
+}
+
+/* hide account from join messages */
+#chat .account {
+  display: none;
+}
+
+/* hide realname from join messages */
+#chat .realname {
+  display: none;
+}
+
+/* no nick indentation */
+#chat .content {
+  padding-left: 0;
+}
+
+#chat .messages {
+  display: block;
+}
+
+#chat .time {
+  display: inline;
+}
+
+#chat .from,
+#chat .text {
+  background: none;
+  border: 0;
+  display: inline;
+}
+
+#chat .from {
+  width: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+/* hide the sidebar close buttons */
+/*.channel-list-item.active .close-tooltip {
+  display: none;
+}*/
+
+#sidebar {
+  background-color: #1e2127;
+}
+
+.window {
+  box-shadow: none;
+  border-radius: 0;
+  border-left: 1px solid #1a1c21;
+}
+
+.jump-to-input {
+  display: none;
+}
+
+#chat .header {
+  border-bottom: 1px solid #1a1c21;
+}
+
+#chat .msg {
+  word-wrap: normal;
+  word-break: unset;
+}
+
+.logo-container {
+  opacity: 0;
+}
+
+textarea#user-specified-css-input {
+  width: 800px;
+  height: 1200px;
+}

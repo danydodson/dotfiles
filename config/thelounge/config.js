@@ -17,9 +17,6 @@ module.exports = {
   // This value is set to `false` by default.
   public: false,
 
-
-
-
   // ### `host`
   //
   // IP address or hostname for the web server to listen to. For example, set it
@@ -30,18 +27,12 @@ module.exports = {
   // This value is set to `undefined` by default to listen on all interfaces.
   host: "127.0.0.1",
 
-
-
-
   // ### `port`
   //
   // Set the port to listen to.
   //
   // This value is set to `9000` by default.
   port: 9000,
-
-
-
 
   // ### `bind`
   //
@@ -51,9 +42,6 @@ module.exports = {
   // pick its preferred one.
   bind: undefined,
 
-
-
-
   // ### `reverseProxy`
   //
   // When set to `true`, The Lounge is marked as served behind a reverse proxy
@@ -62,19 +50,9 @@ module.exports = {
   // This value is set to `false` by default.
   reverseProxy: true,
 
-
-
   // ### `maxHistory`
-  //
-  // Defines the maximum number of history lines that will be kept in memory per
-  // channel/query, in order to reduce the memory usage of the server. Setting
-  // this to `-1` will keep unlimited amount.
-  //
-  // This value is set to `10000` by default.
+  // Maximum number of history lines that will be kept in memory per channel/query
   maxHistory: 10000,
-
-
-
 
   // ### `https`
   //
@@ -101,12 +79,7 @@ module.exports = {
   },
 
   // ## Client settings
-
-  // ### `theme`
-  //
-  // Set the default theme to serve to new users. They will be able to select a
-  // different one in their client settings among those available.
-  //
+  // 
   // The Lounge ships with two themes (`default` and `morning`) and can be
   // extended by installing more themes. Read more about how to manage them
   // [here](https://thelounge.chat/docs/guides/theme-creation).
@@ -115,12 +88,7 @@ module.exports = {
   // example, the value for Morning would be `morning`, and the value for
   // Solarized would be `thelounge-theme-solarized`.
   //
-  // This value is set to `"default"` by default.
   theme: "default",
-
-
-
-
 
   // ### `prefetch`
   //
@@ -129,9 +97,6 @@ module.exports = {
   //
   // This value is set to `false` by default.
   prefetch: true,
-
-
-
 
   // ### `disableMediaPreview`
   //
@@ -144,9 +109,6 @@ module.exports = {
   //
   // This value is set to `false` by default.
   disableMediaPreview: false,
-
-
-
 
   // ### `prefetchStorage`
   // When set to `true`, The Lounge will store and proxy prefetched images and
@@ -167,10 +129,6 @@ module.exports = {
   // This value is set to `false` by default.
   prefetchStorage: false,
 
-
-
-
-
   // ### `prefetchMaxImageSize`
   //
   // When `prefetch` is enabled, images will only be displayed if their file
@@ -178,9 +136,6 @@ module.exports = {
   //
   // This value is set to `2048` kilobytes by default.
   prefetchMaxImageSize: 2048,
-
-
-
 
   // ### prefetchMaxSearchSize
   //
@@ -191,9 +146,6 @@ module.exports = {
   //
   // This value is set to `50` kilobytes by default.
   // prefetchMaxSearchSize: 50,
-
-
-
 
   // ### `prefetchTimeout`
   //
@@ -208,9 +160,6 @@ module.exports = {
   //
   // This value is set to `5000` milliseconds by default.
   // prefetchTimeout: 5000,
-
-
-
 
   // ### `fileUpload`
   //
@@ -240,18 +189,12 @@ module.exports = {
     baseUrl: null,
   },
 
-
-
-
   // ### `transports`
   //
   // Set `socket.io` transports.
   //
   // This value is set to `["polling", "websocket"]` by default.
   transports: ["polling", "websocket"],
-
-
-
 
   // ### `leaveMessage`
   //
@@ -260,10 +203,7 @@ module.exports = {
   //
   // This value is set to `"The Lounge - https://thelounge.chat"` by
   // default.
-  leaveMessage: "dumpsterbaby.lol",
-
-
-
+  leaveMessage: "...dany_spatula_hands",
 
   // ## Default network
   // ### `defaults`
@@ -296,21 +236,18 @@ module.exports = {
   //
   // ```js
   defaults: {
-    name: "libera.chat",
+    name: "libera",
     host: "irc.libera.chat",
     port: 6697,
     password: "open",
     tls: true,
     rejectUnauthorized: true,
     nick: "spatch",
-    username: "stache",
-    realname: "dude",
-    leaveMessage: "dumpsterbaby.lol",
+    username: "dany_spatula_hands",
+    realname: "dany_spatula_hands",
+    leaveMessage: "...dany_spatula_hands",
     join: ""
   },
-
-
-
 
   // ### `lockNetwork`
   //
@@ -320,9 +257,6 @@ module.exports = {
   //
   // This value is set to `false` by default.
   lockNetwork: false,
-
-
-
 
   // ## User management
   // ### `messageStorage`
@@ -339,9 +273,6 @@ module.exports = {
   //
   // This value is set to `["sqlite", "text"]` by default.
   messageStorage: ["sqlite", "text"],
-
-
-
 
   // ### `storagePolicy`
   // When the sqlite storage is in use, control the maximum storage duration.
@@ -362,9 +293,6 @@ module.exports = {
   },
 
 
-
-
-
   // ### `useHexIp`
   //
   // When set to `true`, users' IP addresses will be encoded as hex.
@@ -375,9 +303,6 @@ module.exports = {
   //
   // This value is set to `false` by default.
   useHexIp: true,
-
-
-
 
   // ## WEBIRC support
   //
@@ -416,9 +341,6 @@ module.exports = {
   // This value is set to `null` to disable WEBIRC by default.
   webirc: null,
 
-
-
-
   // ## identd and oidentd support
   // ### `identd`
   //
@@ -437,9 +359,6 @@ module.exports = {
     port: 113,
   },
 
-
-
-
   // ### `oidentd`
   //
   // When this setting is a string, this enables `oidentd` support using the
@@ -447,9 +366,6 @@ module.exports = {
   //
   // This is set to `null` by default to disable `oidentd` support.
   oidentd: null,
-
-
-
 
   // ## LDAP support
   // These settings enable and configure LDAP authentication.
@@ -531,9 +447,6 @@ module.exports = {
     },
   },
 
-
-
-
   // ## Debugging settings
   // The `debug` object contains several settings to enable debugging in The
   // Lounge. Use them to learn more about an issue you are noticing but be aware
@@ -548,6 +461,7 @@ module.exports = {
     // [`irc-framework`](https://github.com/kiwiirc/irc-framework), the
     // underlying IRC library for Node.js used by The Lounge.
     ircFramework: false,
+    // 
     // ### `debug.raw`
     //
     // When set to `true`, this enables logging of raw IRC messages into each
