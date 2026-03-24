@@ -1,18 +1,40 @@
 #!/bin/bash
 
+. "$HOME/.dotfiles/bin/reports"
+
 function watch_log() {
-  case "$1" in
-    nginx-access)
-      tail -f /opt/homebrew/var/log/nginx/access.log
-      ;;
-    nginx-error)
-      tail -f /opt/homebrew/var/log/nginx/error.log
-      ;;
-    *)
-      echo "Usage: $0 {nginx-access|nginx-error|sketchybar-out|sketchybar-err|borders-out|borders-err}"
-      ;;
-  esac
+	case "$1" in
+	yabai-out)
+		tail -f "/private/tmp/yabai_$USER.out.log"
+		;;
+	yabai-err)
+		tail -f "/private/tmp/yabai_$USER.err.log"
+		;;
+	skhd-out)
+		tail -f "/private/tmp/skhd_$USER.out.log"
+		;;
+	skhd-err)
+		tail -f "/private/tmp/skhd_$USER.err.log"
+		;;
+	nginx-access)
+		tail -f "/opt/homebrew/var/log/nginx/access.log"
+		;;
+	nginx-error)
+		tail -f "/opt/homebrew/var/log/nginx/error.log"
+		;;
+	thelounge-out)
+		tail -f "$HOME/Library/Logs/thelounge.log"
+		;;
+	thelounge-err)
+		tail -f "$USER/Library/Logs/thelounge.error.log"
+		;;
+	mpv-out)
+		tail -f "$HOME/Library/Logs/mpv.log"
+		;;
+	*)
+		info "Usage: $0 {yabai-out|yabai-err|skhd-out|skhd-err|nginx-access|nginx-error|thelounge-out|thelounge-err|mpv-out}"
+		;;
+	esac
 }
 
 watch_log "$1"
-

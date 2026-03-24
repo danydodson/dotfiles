@@ -2,12 +2,12 @@
   "files.associations": {
     ".gitignore": "ignore",
     "install": "shellscript",
-    // 
+
     "**/bin/*.py": "python",
     "**/bin/*": "shellscript",
-    // 
+
     "**/shell/**/*": "shellscript",
-    // 
+
     "**/config/ghostty/config": "inputrc",
     "**/config/git/ignore": "ignore",
     "**/config/git/config": "properties",
@@ -16,15 +16,16 @@
     "**/config/nginx/etc/*.conf": "nginx",
     "**/config/nginx/etc/servers/*.conf": "nginx",
     "**/config/sketchybar/sketchybarrc": "lua",
-    // 
+
     "**/macos/agents/agents.sh": "shellscript",
-    "**/macos/agents/*plist": "xml",
+    "**/macos/agents/*plist": "xml"
   },
+
   "shellcheck.ignorePatterns": {
     "**/*.zsh": true,
     "**/bin/*.py": true,
     "**/bin/lounge": true,
     "**/config/**/*": true,
-    "**/plugins/**/*": true,
+    "**/plugins/**/*": true
   }
 }

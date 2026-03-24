@@ -4,6 +4,22 @@
 
 These are my personal dotfiles. The setup is based on [dotbot](https://github.com/danydodson/dotfiles) and aims to be as idempotent as possible.
 
+## Enable Touch ID for sudo
+Open Terminal and copy the local template: 
+```bash
+sudo cp /etc/pam.d/sudo_local.template /etc/pam.d/sudo_local.
+```
+Edit the new file: 
+```bash
+sudo nano /etc/pam.d/sudo_local.
+```
+Uncomment the line 
+```bash
+auth sufficient pam_tid.so 
+```
+by removing the #.
+
+
 ## Systems 🚀
 
 - [Setup macos](/docs/macos-setup.md)

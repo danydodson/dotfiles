@@ -9,8 +9,8 @@ app_to_hide="Ghostty"
 
 open -b "com.microsoft.VSCode" || true
 
-yabai -m query --windows |
-  jq -r --arg app "${app_to_open}" 'map(select(.app == $app)) | .[0].id' |
+yabai -m query --windows 2>/dev/null |
+  jq -r --arg app "${app_to_open}" 'map(select(.app == $app)) | .[0].id' 2>/dev/null |
   while read -r id; do
     osascript -e "
       tell application \"System Events\"
@@ -24,6 +24,6 @@ yabai -m query --windows |
       end tell
       
       return runningApplications
-     " || true
+     " &>/dev/null || true
     yabai -m window --focus "$id"
   done

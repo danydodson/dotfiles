@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Unloads the macOS WindowManager process if loaded.
+
+unload_wm() {
+  local svc="com.apple.WindowManager"
+  local domain="gui/$(id -u)"
+  if launchctl list | grep ${svc} &>/dev/null; then
+    echo "Unloading ${svc} from ${domain}..."
+    sudo launchctl bootout ${domain} /System/Library/LaunchAgents/${svc}.plist
+  else
+    echo "${svc} already unloaded, skipping."
+  fi
+}
+
+unload_wm

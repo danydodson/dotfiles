@@ -1,14 +1,13 @@
 #!/bin/bash
 
-# load yabi as sudo
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
-BAR=$(sketchybar -m --query bar | jq -r '.height')
+BAR=0
 PAD=4
 
 GENERAL=(
-  external_bar all:"${BAR_HEIGHT}":0
+  external_bar all:"${BAR}":0
   menubar_opacity 1.0
   split_type auto
   split_ratio 0.5
@@ -51,12 +50,10 @@ yabai -m config "${LAYOUT[@]}"
 yabai -m config "${WINDOWS[@]}"
 yabai -m config "${MOUSE[@]}"
 
-# https://github.com/koekeishiya/yabai/issues/1929
 yabai -m rule --add app=".*" sub-layer=normal
 
 # above apps
 sub_layer_above=(
-  Bloom
   System Settings
   System Information
   System Preferences
@@ -89,7 +86,6 @@ unmanaged=(
   Karabiner-Elements
   Karabiner-MultitouchExtension
   Keka
-  KCNScrew1.8
   Marta
   Messages
   mpv
@@ -173,23 +169,23 @@ for ((i = 1; i <= "${#SPACE4[@]}"; i++)); do
   yabai -m rule --add label="space4_${SPACE4[(($i - 1))]}" app="^${SPACE4[(($i - 1))]}.*$" space=^4
 done
 
-# unload macos window manager
-# launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist
+# load other scripts
+# find "${HOME}/.config/yabai" -type f -perm +111 -exec {} \;
 
-# focus on next window when one closes
+# unload the macos wm process if loaded
+find "${HOME}/.dotfiles/bin" -type f -name "yabai-wm" -exec {} \;
+
+# refocuses the last window if the current one closes, preventing "dead" focus
 yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
-
-# focus on next window when one closes
 yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
 
-# focus window after active space changes
-yabai -m signal --add event=space_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
+# automatically focus a new window when it appears
+yabai -m signal --add event=window_created action="yabai -m window --focus \$YABAI_WINDOW_ID"
 
-# focus window after active display changes
-yabai -m signal --add event=display_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
+# focus the most recent window in a space after switching desktops
+yabai -m signal --add event=space_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
 
 # apply rules to existing windows
 yabai -m rule --apply
 
-echo "yabai configuration loaded.."
-
+echo "yabai configuration loaded..."
